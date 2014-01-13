@@ -1,0 +1,73 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,headheight=22pt]{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{paralist}
+\usepackage{url}
+
+\theoremstyle{definition}
+\newtheorem{question}{Question}
+\newtheorem{example}{Example}
+\newtheorem{exercise}[question]{Exercise}
+\newtheorem*{challenge}{Challenge}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+
+%Paramètres de mise en forme des paragraphes selon les normes françaises
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+%Paramètres relatifs aux en-têtes et pieds de page.
+\pagestyle{fancy}
+\lhead{Theron J Hitchman}
+\chead{\Large Reading and Guided Practice \#1}
+\rhead{Spring 2014}
+\lfoot{\emph{Linear Algebra}}
+\cfoot{}
+\rfoot{\emph{\thepage\ of \pageref{LastPage}}}
+
+\section*{Introduction}
+This assignment is designed to prepare you for our second class meeting.  Complete it before our meeting on Wednesday, January 15th.
+
+\section*{Goals}
+Before the next class meeting, a student should be able to:
+\begin{compactitem}
+\item Represent a vector as a list of numbers, a point in space, or an arrow.
+\item Use the vector operations of \emph{addition}, \emph{scalar multiplication}, and \emph{linear combination}.
+\item Draw representations of the vector operations, for sure with paper and pencil, perhaps with a computer.
+\end{compactitem}
+After the next class meeting, a student should be able to:
+\begin{compactitem}
+\item Connect vector equations $a\cdot\mathbf{u} + b\cdot \mathbf{v} = \mathbf{w}$ involving linear combinations of vectors to two types of pictures: one using the components to form the equations of \emph{hyperplanes} (the row picture), and one using the linear combination directly (the column picture).
+\end{compactitem}
+
+\section*{Reading}
+\begin{compactdesc}
+\item[Required:] \emph{Strang} Chapter 1 section 1 (pages 1--7).
+\item[Optional:] \emph{Hefferon} Chapter One, Part II Linear Geometry, Section 1 Vectors in Space (pages 32--37).
+\end{compactdesc}
+
+\section*{Exercises}
+The minimal exercise set is Strang, Section 1.1 exercises 1,3,5,6,16,20.
+
+\emph{Note: Strang's text has wonderful exercises. A student with the time to do it would do well to complete more exercises than listed here.}
+
+
+%\begin{thebibliography}{9}
+%\end{thebibliography}
+
+\end{document}
+%sagemathcloud={"zoom_width":100}
