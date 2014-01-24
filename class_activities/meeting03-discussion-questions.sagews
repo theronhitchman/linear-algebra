@@ -16,10 +16,10 @@ $n = \begin{bmatrix} 2 \\ -1 \end{bmatrix}$ is a constant vector and $X = \begin
 %md
 ### Question Two ###
 
-Suppose you have three points $P$, $Q$ and $R$. Find the normal to the plane which passes through these points, and then write down the standard form of the equation of this plane.
+Suppose you have three points $P$, $Q$ and $R$. Find the normal to the plane which passes through these points, and write down the standard form of the equation of this plane.
 
 \[ P = \begin{bmatrix} 1 \\ -2 \\ 0\end{bmatrix} \qquad Q = \begin{bmatrix} 3 \\ 3 \\ 0 \end{bmatrix} \qquad R = \begin{bmatrix} -1 \\ -1 \\ -1/2 \end{bmatrix} \]
-︡342dae82-edec-4669-ade0-1e8e43f2de95︡{"html":"<h3>Question Two</h3>\n\n<p>Suppose you have three points $P$, $Q$ and $R$. Find the normal to the plane which passes through these points, and then write down the standard form of the equation of this plane.</p>\n\n<p>\\[ P = \\begin{bmatrix} 1 \\\\ -2 \\\\ 0\\end{bmatrix} \\qquad Q = \\begin{bmatrix} 3 \\\\ 3 \\\\ 0 \\end{bmatrix} \\qquad R = \\begin{bmatrix} -1 \\\\ -1 \\\\ -1/2 \\end{bmatrix} \\]</p>\n"}︡
+︡939e9fa8-d527-449d-9aa3-f4806acf537e︡{"html":"<h3>Question Two</h3>\n\n<p>Suppose you have three points $P$, $Q$ and $R$. Find the normal to the plane which passes through these points, and write down the standard form of the equation of this plane.</p>\n\n<p>\\[ P = \\begin{bmatrix} 1 \\\\ -2 \\\\ 0\\end{bmatrix} \\qquad Q = \\begin{bmatrix} 3 \\\\ 3 \\\\ 0 \\end{bmatrix} \\qquad R = \\begin{bmatrix} -1 \\\\ -1 \\\\ -1/2 \\end{bmatrix} \\]</p>\n"}︡
 ︠4cf210e0-ae30-453f-8eb0-12f12f0ddc5b︠
 ︡23808834-7e7b-4d1c-b545-8f53baf65cbc︡
 ︠3ad8f631-c1ad-48bd-9d57-f0496856d2a6i︠
