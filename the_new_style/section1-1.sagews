@@ -56,7 +56,7 @@ is a linear combination of $v$ and $w$.
 ## This is a Sage ``interact''. you can use it to explore linear combinations of 2-vectors.
 
 
-
+# In the interest of time, I will leave this out and send the files to you now. I will write these interacts later tonight and send them out.
 
 
 
