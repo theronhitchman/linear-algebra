@@ -1,3 +1,13 @@
+︠9645ab39-a7c0-4bfa-b35b-410bd9636558i︠
+%md
+
+### The assignment ###
+
++ Read section 1.1 of Strang (pages 1-7).
++ (Optional) read Chapter One, Part II Linear Geometry, section 1 (pages 32-37).
++ Read the following and complete the exercises below.
+
+︡bfccb739-76f3-4044-853e-20e02cd66332︡{"html":"<h3>The assignment</h3>\n\n<ul>\n<li>Read section 1.1 of Strang (pages 1-7).</li>\n<li>(Optional) read Chapter One, Part II Linear Geometry, section 1 (pages 32-37).</li>\n<li>Read the following and complete the exercises below.</li>\n</ul>\n"}︡
 ︠3547f17c-5c9c-4eae-9ca9-1bf710271303i︠
 %md
 # Vectors and Linear Combinations #
