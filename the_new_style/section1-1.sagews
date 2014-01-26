@@ -40,50 +40,54 @@ There are two operations on vectors which are of utmost importance for linear al
 * *Addition*
 
     Given a vector $v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)$ and a vector $w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)$ of the same size, we form their *sum*
-    \[ v = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]
+    \[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]
 
-These operations have ''obvious'' generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called _coordinate-wise_ operations.
+These operations have "obvious" generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called _coordinate-wise_ operations.
 
 Combining these two operations gives us the notion of a *linear combination*. If $\lambda$ and $\mu$ arenumbers and $v$ and $w$ are vectors of a common size, then the vector
 \[ \lambda v + \mu w \]
 is a linear combination of $v$ and $w$.
 
 
-︡6b04269f-d927-42c0-beca-125dde6d8b98︡{"html":"<h1>Vectors and Linear Combinations</h1>\n\n<p>Algebraically, a <em>vector</em> is a stack of numbers in a set of parentheses or brackets, like this\n\\[\n\\begin{pmatrix} 2 \\\\ 7 \\\\ 9 \\end{pmatrix}, \\text{ or } \\begin{bmatrix}2 \\\\ 7 \\\\ 9 \\end{bmatrix},\n\\text{ or } \\begin{pmatrix} 2 & 7 & 9 \\end{pmatrix} .\n\\]\nThe individual numbers are called the <em>components</em> or <em>entries</em> or <em>coordinates</em> of the vector.\nFor example, $7$ is the second component of the vectors above.</p>\n\n<p>The first two vectors above are called <em>column</em> vectors because they are stacked vertically.\nThe third is called a <em>row</em> vector because it is arranged horizontally.\nFor this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors.\nIt is up to you to make the switch.\n(We will see later how this matters!)</p>\n\n<p>Vectors can take lots of different sizes. The vectors above are all $3$-vectors.\nHere is a $2$-vector: $\\left(\\begin{smallmatrix} 71 \\\\ -12 \\end{smallmatrix}\\right)$.\nHere is a $4$-vector: $\\left(\\begin{smallmatrix} \\pi \\\\ 0 \\\\ -\\pi \\\\ 1\\end{smallmatrix}\\right)$.</p>\n\n<p>The main value in using vectors lies in their standard interpretations. Let&#8217;s focus on $3$-vectors for now.\nThe vector $\\left(\\begin{smallmatrix} x \\\\ y \\\\ z\\end{smallmatrix}\\right)$ can represent</p>\n\n<ul>\n<li>A point in space described in the standard three-dimensional rectangular coordinate system with $x$ coordinate equal to $a$, $y$-coordinate equal to $b$ and $z$ coordinate equal to $c$.</li>\n<li>An arrow in space which points from the <em>origin</em> $(0,0,0)$ to the point $(a,b,c)$.</li>\n<li>An arrow in space which points from some point $(x,y,z)$ to the point $(x+a, y+b, z+c)$.</li>\n</ul>\n\n<h4>Operations on Vectors</h4>\n\n<p>There are two operations on vectors which are of utmost importance for linear algebra.\n(In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>\n\n<ul>\n<li><p><em>Scalar Multiplication</em></p>\n\n<p>Given a number $\\lambda \\in \\mathbb{R}$ and a vector $v = \\left(\\begin{smallmatrix} a \\\\ b \\\\ c \\end{smallmatrix}\\right)$, we form the new vector\n\\[ \\lambda v = \\left(\\begin{smallmatrix} \\lambda a \\\\ \\lambda b \\\\ \\lambda c \\end{smallmatrix}\\right).\\]</p></li>\n<li><p><em>Addition</em></p>\n\n<p>Given a vector $v = \\left(\\begin{smallmatrix} a \\\\ b \\\\ c \\end{smallmatrix}\\right)$ and a vector $w = \\left(\\begin{smallmatrix} d \\\\ e \\\\ f \\end{smallmatrix}\\right)$ of the same size, we form their <em>sum</em>\n\\[ v = \\left(\\begin{smallmatrix} a+d \\\\ b+e \\\\ c+f \\end{smallmatrix}\\right) \\]</p></li>\n</ul>\n\n<p>These operations have &#8216;&#8217;obvious&#8217;&#8217; generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called _coordinate-wise_ operations.</p>\n\n<p>Combining these two operations gives us the notion of a <em>linear combination</em>. If $\\lambda$ and $\\mu$ arenumbers and $v$ and $w$ are vectors of a common size, then the vector\n\\[ \\lambda v + \\mu w \\]\nis a linear combination of $v$ and $w$.</p>\n"}︡
+︡b1dfa953-d128-481f-8ba3-a8a8da71aaf4︡{"html":"<h1>Vectors and Linear Combinations</h1>\n\n<p>Algebraically, a <em>vector</em> is a stack of numbers in a set of parentheses or brackets, like this\n\\[\n\\begin{pmatrix} 2 \\\\ 7 \\\\ 9 \\end{pmatrix}, \\text{ or } \\begin{bmatrix}2 \\\\ 7 \\\\ 9 \\end{bmatrix},\n\\text{ or } \\begin{pmatrix} 2 & 7 & 9 \\end{pmatrix} .\n\\]\nThe individual numbers are called the <em>components</em> or <em>entries</em> or <em>coordinates</em> of the vector.\nFor example, $7$ is the second component of the vectors above.</p>\n\n<p>The first two vectors above are called <em>column</em> vectors because they are stacked vertically.\nThe third is called a <em>row</em> vector because it is arranged horizontally.\nFor this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors.\nIt is up to you to make the switch.\n(We will see later how this matters!)</p>\n\n<p>Vectors can take lots of different sizes. The vectors above are all $3$-vectors.\nHere is a $2$-vector: $\\left(\\begin{smallmatrix} 71 \\\\ -12 \\end{smallmatrix}\\right)$.\nHere is a $4$-vector: $\\left(\\begin{smallmatrix} \\pi \\\\ 0 \\\\ -\\pi \\\\ 1\\end{smallmatrix}\\right)$.</p>\n\n<p>The main value in using vectors lies in their standard interpretations. Let&#8217;s focus on $3$-vectors for now.\nThe vector $\\left(\\begin{smallmatrix} x \\\\ y \\\\ z\\end{smallmatrix}\\right)$ can represent</p>\n\n<ul>\n<li>A point in space described in the standard three-dimensional rectangular coordinate system with $x$ coordinate equal to $a$, $y$-coordinate equal to $b$ and $z$ coordinate equal to $c$.</li>\n<li>An arrow in space which points from the <em>origin</em> $(0,0,0)$ to the point $(a,b,c)$.</li>\n<li>An arrow in space which points from some point $(x,y,z)$ to the point $(x+a, y+b, z+c)$.</li>\n</ul>\n\n<h4>Operations on Vectors</h4>\n\n<p>There are two operations on vectors which are of utmost importance for linear algebra.\n(In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>\n\n<ul>\n<li><p><em>Scalar Multiplication</em></p>\n\n<p>Given a number $\\lambda \\in \\mathbb{R}$ and a vector $v = \\left(\\begin{smallmatrix} a \\\\ b \\\\ c \\end{smallmatrix}\\right)$, we form the new vector\n\\[ \\lambda v = \\left(\\begin{smallmatrix} \\lambda a \\\\ \\lambda b \\\\ \\lambda c \\end{smallmatrix}\\right).\\]</p></li>\n<li><p><em>Addition</em></p>\n\n<p>Given a vector $v = \\left(\\begin{smallmatrix} a \\\\ b \\\\ c \\end{smallmatrix}\\right)$ and a vector $w = \\left(\\begin{smallmatrix} d \\\\ e \\\\ f \\end{smallmatrix}\\right)$ of the same size, we form their <em>sum</em>\n\\[ v+w = \\left(\\begin{smallmatrix} a+d \\\\ b+e \\\\ c+f \\end{smallmatrix}\\right) \\]</p></li>\n</ul>\n\n<p>These operations have &#8220;obvious&#8221; generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called _coordinate-wise_ operations.</p>\n\n<p>Combining these two operations gives us the notion of a <em>linear combination</em>. If $\\lambda$ and $\\mu$ arenumbers and $v$ and $w$ are vectors of a common size, then the vector\n\\[ \\lambda v + \\mu w \\]\nis a linear combination of $v$ and $w$.</p>\n"}︡
 ︠4d59dbcc-284e-4cd8-88cc-bd526e9d830d︠
 
 ︠e0aa1711-6836-4f27-8364-682a069b3030︠
 ## This is a Sage ``interact''. you can use it to explore linear combinations of 2-vectors.
 
+@interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
+def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,width=10), d=input_box(1,width=10),
+                 l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10)):
+    two_dim = arrow([0,0], [a,b], color ='red') + arrow([0,0],[c,d],color='blue')
+    two_dim+= arrow([0,0], [l*a,l*b], color='red') + arrow([m*c,m*d],[l*a+m*c,l*b+m*d],color='red')
+    two_dim+= arrow([0,0], [m*c,m*d], color='blue') + arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+    two_dim+= point([e,f],size=20,color='black',zorder=2)+ arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+    two_dim+= text('v = (a,b)', [a-.1,b+.1], color='red') + text('w=(c,d)', [c+.1,d-.1],color='purple')
+    two_dim+= text('l*v + m*w', [l*a+m*c+.1, l*b+m*d+.1],color='purple') + text('P=(e,f)', [e+.1,f+.1],color='black')
+    two_dim+= arrow([0,0],[l*a+m*c,l*b+m*d],color='purple', arrowsize=1, width=1)
+    two_dim.show(axes=True)
 
-# In the interest of time, I will leave this out and send the files to you now. I will write these interacts later tonight and send them out.
-
-
-
-
-
-
-
-
-
-
+︡0e0ccf24-0c62-4606-b6ed-abd373d83dc2︡{"interact":{"style":"None","flicker":false,"layout":[[["a",4,null],["c",4,null],["e",4,null]],[["b",4,null],["d",4,null],["f",4,null]],[["l",6,null],["m",6,null]],[["",12,null]]],"id":"f517da19-11e2-4b7f-a176-31c63de47764","controls":[{"control_type":"input-box","default":1,"label":"a","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"a","type":null},{"control_type":"input-box","default":2,"label":"b","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"b","type":null},{"control_type":"input-box","default":2,"label":"c","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"c","type":null},{"control_type":"input-box","default":1,"label":"d","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"d","type":null},{"control_type":"input-box","default":1,"label":"l","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"l","type":null},{"control_type":"input-box","default":1,"label":"m","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"m","type":null},{"control_type":"input-box","default":2,"label":"e","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"e","type":null},{"control_type":"input-box","default":2,"label":"f","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"f","type":null}]}}︡
 ︠261010fc-0299-4e21-af50-780c13460df7i︠
 ︡58580608-b196-4668-a5f0-602d5b9a633c︡
 ︠9fbc8741-c9c1-4dea-9844-995861d05ba6︠
 ## This is a different sage ``interact''. you can use this one to explore linear combinations of 3-vectors.
 
+@interact(layout= {'top':[['a','d','g'],['b','e','h'],['c','f','i'],['l','m']]})
+def three_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(0,width=10), d=input_box(1,width=10),
+                 l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10),
+                 g=input_box(0,width=10), h=input_box(2,width=10), i=input_box(2,width=10)):
+    thr_dim = arrow([0,0,0], [a,b,c], color ='red') + arrow([0,0,0],[d,e,f],color='blue')
+    thr_dim+= arrow([0,0,0], [l*a,l*b,l*c], color='red') + arrow([m*d,m*e,m*f],[l*a+m*d,l*b+m*e,l*c+m*f],color='red')
+    thr_dim+= arrow([0,0,0], [m*d,m*e,m*f], color='blue') + arrow([l*a,l*b,l*c],[l*a+m*d,l*b+m*e,l*c+m*f],color='blue')
+    thr_dim+= point([g,h,i], size=10,color='black',zorder=2)+ arrow([l*a,l*b,l*c],[l*a+m*d,l*b+m*e,l*c+m*f],color='blue')
+    thr_dim+= text3d('v = (a,b,c)', [a-.1,b+.1,c], color='red') + text3d('w=(d,e,f)', [d+.1,e-.1,f],color='purple')
+    thr_dim+= text3d('l*v + m*w', [l*a+m*d+.1, l*b+m*e+.1,l*c+m*f],color='purple')
+    thr_dim+= text3d('P=(g,h,i)', [g+.1,h+.1,i],color='black')
+    thr_dim+= arrow([0,0,0],[l*a+m*d,l*b+m*e,l*c+m*f],color='purple', arrowsize=1, width=1)
+    show(thr_dim, axes=True)
 
-
-
-
-
-
-
-
-
-
-
-
+︡911639db-c89e-49b8-b722-b22bddffda7c︡{"interact":{"style":"None","flicker":false,"layout":[[["a",4,null],["d",4,null],["g",4,null]],[["b",4,null],["e",4,null],["h",4,null]],[["c",4,null],["f",4,null],["i",4,null]],[["l",6,null],["m",6,null]],[["",12,null]]],"id":"f52783a0-05d5-4375-b79c-5cae2bff0ae7","controls":[{"control_type":"input-box","default":1,"label":"a","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"a","type":null},{"control_type":"input-box","default":2,"label":"b","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"b","type":null},{"control_type":"input-box","default":0,"label":"c","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"c","type":null},{"control_type":"input-box","default":1,"label":"d","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"d","type":null},{"control_type":"input-box","default":1,"label":"l","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"l","type":null},{"control_type":"input-box","default":1,"label":"m","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"m","type":null},{"control_type":"input-box","default":2,"label":"e","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"e","type":null},{"control_type":"input-box","default":2,"label":"f","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"f","type":null},{"control_type":"input-box","default":0,"label":"g","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"g","type":null},{"control_type":"input-box","default":2,"label":"h","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"h","type":null},{"control_type":"input-box","default":2,"label":"i","nrows":1,"width":10,"readonly":false,"submit_button":null,"var":"i","type":null}]}}︡
 ︠6f36c92b-0d13-4ac2-b219-080d334ed160i︠
 %md
 ## Questions for Section 1.1 ##
