@@ -4,10 +4,10 @@
 ### The assignment ###
 
 + Read section 1.1 of Strang (pages 1-7).
-+ (Optional) read Chapter One, Part II Linear Geometry, section 1 (pages 32-37).
++ (Optional) read Hefferon Chapter One, Part II Linear Geometry, section 1 (pages 32-37).
 + Read the following and complete the exercises below.
 
-︡bfccb739-76f3-4044-853e-20e02cd66332︡{"html":"<h3>The assignment</h3>\n\n<ul>\n<li>Read section 1.1 of Strang (pages 1-7).</li>\n<li>(Optional) read Chapter One, Part II Linear Geometry, section 1 (pages 32-37).</li>\n<li>Read the following and complete the exercises below.</li>\n</ul>\n"}︡
+︡a763277f-6bce-42d2-a5a6-750577661cc5︡{"html":"<h3>The assignment</h3>\n\n<ul>\n<li>Read section 1.1 of Strang (pages 1-7).</li>\n<li>(Optional) read Hefferon Chapter One, Part II Linear Geometry, section 1 (pages 32-37).</li>\n<li>Read the following and complete the exercises below.</li>\n</ul>\n"}︡
 ︠3547f17c-5c9c-4eae-9ca9-1bf710271303i︠
 %md
 # Vectors and Linear Combinations #
@@ -118,7 +118,7 @@ Find a vector $b = \left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix} \righ
 or describe why no such example can exist.
 
 ︡05cf8837-75b8-4d84-8ce1-fa18568c8763︡{"html":"<h4>Exercise 2</h4>\n\n<p>Find a vector $b = \\left( \\begin{smallmatrix} b_1 \\\\ b_2 \\end{smallmatrix} \\right)$ so that\n\\[\n\\begin{pmatrix} 2 \\\\ 7 \\end{pmatrix} + \\begin{pmatrix} b_1 \\\\ b_2 \\end{pmatrix} = \\begin{pmatrix} 10 \\\\ -3 \\end{pmatrix}\n\\]\nor describe why no such example can exist.</p>\n"}︡
-︠a492ce5a-9b9d-4158-afc5-3ddc2b6967e8i︠
+︠a492ce5a-9b9d-4158-afc5-3ddc2b6967e8︠
 %md
 #### Exercise 3 ####
 Find a vector $b = \left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix} \right)$ so that this equation has at least one solution $\lambda$
