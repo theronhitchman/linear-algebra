@@ -1,0 +1,130 @@
+\documentclass[11pt]{amsart}
+\usepackage{paralist}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+
+\begin{document}
+
+\title{Linear Algebra}
+\author{Section 1.2}
+
+\maketitle
+
+\section{The Assignment}
+\begin{compactitem}
+\item Read \emph{Strang} Chapter 1, section 2, pages 11-18.
+\item (Optional) Read \emph{Hefferon} Chapter One, Part II Linear Geometry, section 2 Length and Angle Measures, pages 39-43.
+\item Complete the exercises below before class.
+\end{compactitem}
+
+\section{Discussion}
+The dot product is a wonderful tool for encoding the geometry of Euclidean space, but it can be a bit mysterious at first. As \emph{Strang} shows, it somehow holds all of the information you need to measure lengths and angles.
+
+The connection to linear algebra comes about through this: a dot product with a ``variable vector'' is a way of writing a linear equation. For example,
+\begin{equation*}
+\begin{pmatrix} 7 \\ 3 \\ -2 \end{pmatrix} \cdot
+\begin{pmatrix} x \\ y \\ z \end{pmatrix} = 7x + 3y -2z.
+\end{equation*}
+Sometimes this will allow us to connect linear algebra to geometry, and use geometric thinking to answer algebraic questions.
+
+\section{Sage Instructions}
+
+I have made a Sage .sagews file called \emph{section1-2.sagews} which contains some basic commands for dealing with vectors and dot products, and a couple of interactive demos to play with dot products in two and three dimensions.
+
+\section{The Exercises}
+
+\begin{exercise}
+What shape is the set of solutions $\left(\begin{smallmatrix} x \\ y\end{smallmatrix}\right)$ to the equation
+\begin{equation*}
+\begin{pmatrix} 3 \\ 7 \end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = 5?
+\end{equation*}
+That is, if we look at all possible vectors $\left( \begin{smallmatrix} x \\ y \end{smallmatrix} \right)$ which make the equation true, what shape does this make in the plane?
+
+What happens if we change the vector $\left(\begin{smallmatrix} 3 \\ 7\end{smallmatrix}\right)$ to some other vector? What happens if we change the number $5$ to some other number?
+
+What happens if we move up a dimension, and instead work in three dimensional space?
+\end{exercise}
+
+\begin{exercise}
+Find an example of two $2$-vectors $v$ and $w$ such that $\left(\begin{smallmatrix} 1 \\ 2 \end{smallmatrix}\right) \cdot v =0$ and $\left(\begin{smallmatrix} 1 \\ 2 \end{smallmatrix}\right) \cdot w = 0$ and $v\cdot w = 0$, or explain why such an example is not possible.
+\end{exercise}
+
+\begin{exercise}
+Let $v = \left( \begin{smallmatrix} 3 \\ -1 \end{smallmatrix} \right)$. Find an example of a pair of vectors $u$ and $w$ such that $v \cdot u < 0$ and $v \cdot w < 0$ and $w\cdot u =0$, or explain why no such pair of vectors can exist.
+\end{exercise}
+
+\begin{exercise}
+Find an example of three $2$-vectors $u$, $v$, and $w$ so that $u\cdot v < 0$ and $u \cdot w < 0$ and $v \cdot w < 0$, or explain why no such example exists.
+\end{exercise}
+
+\begin{exercise}
+Find an example of a number $c$ so that
+\begin{equation*}
+\begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = c
+\end{equation*}
+has the vector $\left( \begin{smallmatrix} 4 \\ 7 \end{smallmatrix} \right)$ as a solution, or explain why no such number exists.
+\end{exercise}
+
+\begin{exercise}
+Let $v = \left(\begin{smallmatrix} 2 \\ 1 \end{smallmatrix}\right)$ and $w = \left(\begin{smallmatrix} -3 \\ 4 \end{smallmatrix} \right)$. Find an example of a number $c$ so that
+\begin{equation*}
+\begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot v = c, \text{ and } \begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot w = c,
+\end{equation*}
+or explain why this is not possible.
+
+\end{exercise}
+
+\begin{exercise}
+Let $P = \begin{pmatrix}-3 \\ 4 \end{pmatrix}$. Find an example of a numbers $c$ and $d$ so that
+\begin{equation*}
+\begin{pmatrix} 2 \\ -1 \end{pmatrix} = c, \text{ and }
+\begin{pmatrix} 1 \\ -1 \end{pmatrix} = d,
+\end{equation*}
+or explain why no such example is possible.
+\end{exercise}
+
+\textbf{Now, we move to three dimensions\dots}
+
+\begin{exercise}
+Let $V = \left(\begin{smallmatrix} 1 \\ 1 \\ 1 \end{smallmatrix}\right)$. Find an example of two vectors $U$ and $W$ such that
+\begin{equation*}
+U\cdot V < 0, \qquad U \cdot W < 0, \qquad \text{and } V \cdot W < 0,
+\end{equation*}
+or explain why no such example exists.
+\end{exercise}
+
+\begin{exercise}
+Let $V = \left(\begin{smallmatrix} 1 \\ 1 \\ 1 \end{smallmatrix}\right)$. Find a unit vector of the form $X = \left(\begin{smallmatrix} x \\ y \\ 0 \end{smallmatrix}\right)$ so that $V \cdot X = \sqrt{2}$, or explain why no such vector exists.
+\end{exercise}
+
+\begin{exercise}
+Let $V = \left(\begin{smallmatrix} 1 \\ 1 \\ 1 \end{smallmatrix}\right)$. Find a unit vector of the form $X = \left(\begin{smallmatrix} x \\ y \\ 0 \end{smallmatrix}\right)$ so that $V \cdot X = 10$, or explain why no such vector exists.
+\end{exercise}
+
+\begin{exercise}
+Find an example of numbers $c$, $d$, and $e$ so that there is no solution vector $X = \left( \begin{smallmatrix} x \\ y \\ z \end{smallmatrix} \right)$ which simultaneously satisfies the three equations
+\begin{equation*}
+\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \cdot X = c, \qquad
+\begin{pmatrix} 2 \\ 2 \\ 2 \end{pmatrix} \cdot X = d, \qquad
+\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \cdot X = e,
+\end{equation*}
+or explain why no such numbers exist.
+\end{exercise}
+
+\begin{exercise}
+Find an example of numbers $c$, $d$, and $e$ so that there is no solution vector $X = \left( \begin{smallmatrix} x \\ y \\ z \end{smallmatrix} \right)$ which simultaneously satisfies the three equations
+\begin{equation*}
+\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \cdot X = c, \qquad
+\begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} \cdot X = d, \qquad
+\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \cdot X = e,
+\end{equation*}
+or explain why no such numbers exist.
+\end{exercise}
+
+
+
+\end{document}
+%sagemathcloud={"zoom_width":100}
