@@ -1,0 +1,141 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 1.3}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 1.1 of Strang (pages 22-27).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+\section{Matrices}
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful in investigating with matrices. The file is called \emph{section1-3.sagews}. It also has some interactive demonstrations about how to deal with vectors.
+
+
+\section{Questions for Section 1.3}
+\setcounter{exercise}{24}
+
+\begin{exercise}
+Make an example of a matrix $\left(\begin{smallmatrix} 1 & \bullet \\ -1 & \bullet \end{smallmatrix}\right)$ so that the equation
+\[
+\begin{pmatrix} 1 & \bullet \\ -1 & \bullet \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1 \end{pmatrix}
+\]
+has exactly one solution, or explain why this is not possible.
+
+Interpret this as a statement about $2$-vectors and draw the picture which corresponds.
+\end{exercise}
+
+\vspace{1cm}
+
+\begin{exercise}
+Make an example of a matrix $\left(\begin{smallmatrix} 4 & 8 & \bullet \\ 3 & 6 & \bullet \\ 1 & 2 & \bullet \end{smallmatrix}\right)$ so that the equation
+\[
+\begin{pmatrix} 4 & 8 & \bullet \\ 3 & 6 & \bullet \\ 1 & 2 & \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
+\]
+has exactly one solution, or explain why this is not possible.
+
+Interpret this as a statement about $3$-vectors and draw the picture which corresponds.
+\end{exercise}
+
+\vspace{1cm}
+
+\begin{exercise}
+Make an example of a matrix $\left( \begin{smallmatrix} 2 & -1 \\ \bullet & \bullet \end{smallmatrix}\right)$ so that the equation
+\[
+\begin{pmatrix} 2 & -1 \\ \bullet & \bullet \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3 \end{pmatrix}
+\]
+has exactly one solution, or explain why this is not possible.
+
+Interpret this as a statement about a pair of lines in the plane and draw the picture which corresponds.
+\end{exercise}
+
+\vspace{1cm}
+
+\begin{exercise}
+Make an example of a matrix $\left( \begin{smallmatrix} 1 & 0 & 1\\ 1 & 1 & 3 \\ \bullet & \bullet & \bullet \end{smallmatrix}\right)$ so that the equation
+\[
+\begin{pmatrix} 1 & 0 & 1\\ 1 & 1 & 3 \\ \bullet & \bullet & \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+\]
+has no solutions, or explain why this is not possible.
+
+Interpret this as a statement about a planes in space and draw the picture which corresponds.
+
+\end{exercise}
+
+\vspace{1cm}
+
+\begin{exercise}
+Find a triple of numbers $x$, $y$, and $z$ so that the linear combination
+\[
+x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} + y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} + z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
+\]
+yields the zero vector, or explain why this is not possible.
+
+Rewrite the above as an equation which involves a matrix.
+
+Plot the three vectors and describe the geometry of the situation.
+
+\end{exercise}
+
+\vspace{1cm}
+
+\begin{exercise}
+The vectors
+\[
+r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
+r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
+r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
+\]
+are linearly dependent because they lie in a common plane (through the origin). Find a normal vector to this plane.
+
+Since the vectors are linearly dependent, there must be (infinitely) many choices of scalars $x$, $y$, and $z$ so that $x r_1 + y r_2 + z r_3 = 0$. Find two sets of such numbers.
+\end{exercise}
+
+\vspace{1cm}
+
+\begin{exercise}
+Consider the equation
+\[
+\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}.
+\]
+We are interested in being able to solve this for $x$ and $y$ for any given choice of the numbers $b_1$ and $b_2$. Figure out a way to do this by writing $x$ and $y$ in terms of $b_1$ and $b_2$.
+
+Rewrite your solution in the form
+\[
+\begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix} \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet \\ \bullet \end{pmatrix}.
+\]
+
+How is this related to the inverse of the matrix $A = \left( \begin{smallmatrix} 2 & 1 \\ 1 & 1 \end{smallmatrix} \right)$?
+\end{exercise}
+
+\vspace{1cm}
+
+\begin{exercise}
+Find an example of a number $c$ and a vector $\left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)$ so that the equation
+\[
+\begin{pmatrix} 3 & 51 \\ c & 17 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+\]
+does not have a solution, or explain why no such example exists.
+
+Explain your solution in terms of
+\begin{compactitem}
+\item lines in the plane,
+\item $2$-vectors and linear combinations, and
+\item invertibility of a matrix.
+\end{compactitem}
+\end{exercise}
+
+
+\end{document}
+%sagemathcloud={"zoom_width":100}
