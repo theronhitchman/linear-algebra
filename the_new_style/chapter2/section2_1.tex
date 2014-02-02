@@ -1,0 +1,113 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 2.1}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 2.1 of Strang (pages 31-40).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+
+\section{Some Notes on the Three Perspectives}
+
+Now we have built a little experience with vectors and related things, it is time to be aware of what we have done so we can use it as a foundation for future work.
+
+Does the following picture make sense to you?
+
+
+\framebox{
+\begin{tabular}{l}
+\textbf{Row Picture}\\
+Algebra: system of linear equations\\
+Geometry: (hyper)planes intersecting
+\end{tabular}
+} $\longleftrightarrow$
+\framebox{
+\begin{tabular}{l}
+\textbf{Column Picture}\\
+Algebra: equation on column vectors\\
+Geometry: linear combination of vectors
+\end{tabular}
+}
+\begin{center}
+$\searrow\nwarrow \hspace{1in} \swarrow\nearrow$\\
+\framebox{
+\begin{tabular}{l}
+\textbf{Transformational Picture}\\
+Algebra: matrix equation\\
+Geometry: ????
+\end{tabular}
+}
+\end{center}
+
+A deep understanding of linear algebra will involve a level of comfort with each of the three views of the subject in the diagram, and also the ability to pass back and forth between them.
+
+\subsection{The Transformational View}
+
+We have seen that matrices can be made to ``act upon'' vectors by a kind of multiplication. In particular, if $A$ is an $m \times n$ matrix, then $A$ can be multiplied (on the left) with a column vector of size $m$, and the result is a column vector of size $n$.
+
+This makes $A$ into a kind of \emph{function}. (We will use the synonyms \emph{mapping} or \emph{transformation}, too.)
+For every vector $v$ of size $m$, the matrix $A$ allows us to compute a new vector $T_A(v) = Av$ of size $n$. This is the basic example of what we will eventually call a \emph{linear transformation}.
+\begin{align*}
+\mathbb{R}^m & \xrightarrow[]{T_A} \mathbb{R}^n \\
+v & \xmapsto[]{\phantom{T_A}} Av
+\end{align*}
+One of our long term goals is to find a way to think about the geometry of linear algebra from this viewpoint.
+
+
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful in investigating linear systems. The file is called \texttt{section2\_1.sagews}.
+
+
+\section{Questions for Section 1.1}
+
+\begin{exercise}
+Find an example of a vector $b$ so that the equation
+\[
+\begin{pmatrix} -1 & 2 \\ 5 & -9\end{pmatrix} v = b
+\]
+has no solution $v$, or explain why it is impossible to find such an example.
+\end{exercise}
+
+\begin{exercise}
+Consider the matrix equation
+\[
+\begin{pmatrix} 1 & 2 & 4 \\ 2 & 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3 \end{pmatrix} .
+\]
+\begin{compactitem}
+\item[a)] Draw a diagram representing the row picture of this equation.
+\item[b)] Draw a diagram representing the column picture of this equation.
+\item[c)] Draw a diagram representing the transformational picture of this equation.
+\end{compactitem}
+\end{exercise}
+
+\begin{exercise}
+Find an example of a matrix $B$ which has the following effect:
+\begin{compactitem}
+\item[a)] $B \left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right) = \left(\begin{smallmatrix} y \\ x \end{smallmatrix}\right)$
+\item[b)] Rotates vectors through $45^{\circ}$ counter-clockwise.
+\item[c)] Reflects vectors across the $y$-axis.
+\item[d)] $B \left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right) = \left(\begin{smallmatrix} X+y \\ y \end{smallmatrix}\right)$
+\end{compactitem}
+\end{exercise}
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
