@@ -1,0 +1,100 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 2.4}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 2.4 of Strang (pages 67 - 75).
+\item (Optional) Read Chapter Three Part IV of Hefferon (pages 209 - 234).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+
+\section{Matrix Algebra}
+
+At the simplest level, this section is just about how to deal with the basic operations on matrices. We can add them and we can multiply them. We have already encountered matrix multiplication, and addition is even more natural.
+
+But a subtle and important thing is happening here. Matrices are taking on a life of their own. They are becoming first class objects, whose properties are interesting and possibly useful.
+
+This is an instance of the beginnings of \emph{Modern Algebra}, which is the study of the algebraic structures of abstracted objects. In this case, we study whole collections of matrices of a common shape, and we try to treat them like generalized numbers. Then the natural questions are how much like ``regular numbers'' are these matrices?
+
+Addition is about as well-behaved as you can expect, but multiplication is a bit trickier. Suddenly, two properties of multiplication for numbers don't quite work for matrices:
+\begin{compactitem}
+\item multiplication does not necessarily commute: It need not be the case that $AB$ is the same as $BA$.
+\item we may not always have inverses: just because there is a matrix $A$ which is not the zero matrix, it may not be the case that we can make sense of $A^{-1}$ and get $AA^{-1} = I$.
+\end{compactitem}
+
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful investigate the algebra of  matrices. The file is called \texttt{section2\_4.sagews}.
+
+
+\section{Questions for Section 2.4}
+\setcounter{exercise}{52}
+
+\begin{exercise}
+Give an example of a pair of $2\times 2$ matrices $A$ and $B$ so that $AB = 0$ but $BA\neq 0$, or explain why this is  impossible.
+\end{exercise}
+
+\begin{exercise}
+Give an example of a $3\times 3$ matrix $A$ such that neither $A$ nor $A^2$ is the zero matrix, but $A^3=0$.
+\end{exercise}
+
+\begin{exercise}
+Find all examples of matrices $A$ which commute with both $B = \left( \begin{smallmatrix} 1 & 0 \\ 0 & 0 \end{smallmatrix}\right)$ and $C = \left( \begin{smallmatrix} 0 & 1 \\ 0 & 0 \end{smallmatrix}\right)$. That is, find all matrices $A$ so that $AB = BA$ and $AC= CA$.
+\end{exercise}
+
+\begin{exercise}
+Consider the matrix
+\[
+A = \begin{pmatrix} 2 & 1 & 0 \\ -2 & 0 & 1 \\ 8 & 5 & 3 \end{pmatrix}.
+\]
+Which matrices $E_{21}$ and $E_{31}$ produce zeros in the $(2,1)$ and $(3,1)$ positions of $E_{21}A$ and $E_{31}A$?
+
+Find a single matrix $E$ which produces both zeros at once. Multiply $EA$.
+\end{exercise}
+
+\begin{exercise} Let's take a different view of the last computation.
+Block multiplication says that column 1 is eliminated by
+\[
+EA = \begin{pmatrix} 1 & 0 \\ -c/a & I \end{pmatrix}
+\begin{pmatrix} a & b \\ c & D \end{pmatrix} =
+\begin{pmatrix} a & b \\ 0 & D - cb/a \end{pmatrix}.
+\]
+Here $I$ is the $2\times 2$ identity matrix, $D$ is a $2\times 2$ matrix, etc\dots
+
+So, in the last exercise, what are $c$ and $D$ and what is $D-cb/a$?
+\end{exercise}
+
+\begin{exercise}
+Suppose that we have already solved the equation $Ax=b$ for the following three special right-hand sides:
+\[
+Ax_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \text{ and } Ax_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \text{ and } Ax_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
+\]
+If the three solutions are called $x_1$, $x_2$ and $x_3$ and then bundled together to make the columns of a matrix $X$, what is the matrix $AX$?
+\end{exercise}
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
