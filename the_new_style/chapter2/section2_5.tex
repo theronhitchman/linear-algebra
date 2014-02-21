@@ -1,0 +1,173 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{noexercise}{Exercise}
+\newtheorem*{theorem}{Theorem}
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 2.5}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 2. of Strang (pages 81 - 87).
+\item (Optional) Read Chapter One Part III of Hefferon (pages 46 - 58).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+
+\section{Matrix Inverses}
+
+The main point of this section is to start focusing on the first big problem in linear algebra. How can you tell, in advance, that a system of $n$ equations in $n$ unknowns will have a solution?
+
+Of course, like all things we have been studying, this will have several different faces, all of which are equivalent. The one front and center right now is this: When does an $n \times n$ square matrix have an inverse?
+
+\subsection{Finding an Inverse: Gauss-Jordan Elimination}
+
+There is an effective method for finding the inverse, and it is Gauss-Jordan elimination. (This is sometimes just called \emph{Gaussian elimination}.) Essentially, you wish to solve $n$ different systems $Ax= b$ of size $n\times n$ all at the same time, with specially chosen right hand sides.
+
+
+The process is an algorithm, so it is very specific. If you do this some other way, you aren't doing Gauss-Jordan Elimination. The name is applied to the process.
+
+\begin{center}
+\textbf{Gauss-Jordan Elimination}
+\end{center}
+
+\begin{compactdesc}
+\item[Augment] Add a copy of the identity matrix of the same size to the right hand side of your matrix. It should now look like $(A \mid I)$.
+
+\item[Forward Pass] This is a nested procedure:
+\begin{compactdesc}
+\item[preparation] If necessary, use a row swap to make a non-zero entry in the upper left entry.
+\item[make zeros] The upper left entry is our first pivot. Use the operation of adding a multiple of the first row to the other rows to kill the entries below this first pivot.
+\item[step down] Step down to the second row and repeat the above, but ignoring rows and columns above and to the left. Repeat as necessary till you run out of rows.
+\end{compactdesc}
+If at any point in the process you get a row consisting of only zeros, perform a row switch to suffle it to the bottom.
+When the forward pass is complete, you should have an upper triangular matrix.
+
+\item[Backward Pass] This is also nested, like the forward pass, except that instead of working down and to the right, you begin at the lower right with the last pivot and work up and to the left. When complete, the matrix should have at most one non-zero entry in each row. This entry will be a pivot.
+
+\item[Rescale] rescale rows to make the pivots into $1$'s.
+\end{compactdesc}
+
+At the end of the whole process, you should have something that looks like this: $(I \mid B)$. The wonderful part: $B$ is the inverse of $A$. Well, almost. The process can fail! If along the line you find that the left hand block of your big augmented matrix doesn't have $n$ pivots in it, then your matrix was not invertible.
+
+What you have computed in the left hand block with the Gauss-Jordan elimination is the \emph{reduced row-echelon form} of your original matrix.
+
+
+\subsection{The Big Theorem: invertibility, singularity, and the determinant}
+
+What is the key?
+
+\begin{theorem}
+An $n\times n$ matrix $A$ is invertible exactly when it has $n$ pivots. Equivalently, its reduced row-echelon form has $n$ non-zero entries down the diagonal. The inverse will be computed by Gauss-Jordan elimination.
+\end{theorem}
+
+This is huge. The algorithm is not difficult, and it answers an important question exactly.
+
+
+Note that we said a square matrix was \emph{singular} when it didn't have enough pivots. So what the above says is that a matrix is invertible if and only if it is non-singular.
+
+\subsection{A simple test}
+
+We can use the above to make a simple numerical test of when a matrix is invertible. First do the forward pass of elimination to obtain an upper triangular matrix. Take the product of the diagonal entries. This will be zero if and only if one of the diagonal entries is zero, which will only happen if there are fewer than $n$ pivots. This product is then helpful enough to test for invertibility, and so it deserves its own name: the \emph{determinant}. We shall learn more about this quantity later.
+
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful investigate the algebra of  matrices. The file is called \texttt{section2\_5.sagews}.
+
+
+\section{Questions for Section 2.4}
+\setcounter{exercise}{58}
+
+Keep this in mind. The computations are simple, but tedious. Perhaps you want to use an appropriate tool.
+
+\begin{exercise}
+Use Gauss-Jordan elimination to find the inverse of the matrix $A$ below.
+\[
+A = \begin{pmatrix} 3 & 17 \\ 1 & 6 \end{pmatrix}
+\]
+Be sure to clearly write down the operations you use and the matrices which perform the operations by left multiplication.
+\end{exercise}
+
+\begin{exercise}
+Use Gauss-Jordan elimination to find the inverse of the matrix $X$ below.
+\[
+X = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+\]
+Be sure to clearly write down the operations you use and the matrices which perform the operations by left multiplication.
+\end{exercise}
+
+\begin{exercise}
+Use Gauss-Jordan elimination to find the inverse of the matrix $B$ below.
+\[
+B = \begin{pmatrix} 3 & 4 & -1\\ 1 & 6 & 1 \\ 0 & 3 & -1 \end{pmatrix}
+\]
+Be sure to clearly write down the operations you use and the matrices which perform the operations by left multiplication.
+\end{exercise}
+
+\begin{exercise}
+Use Gauss-Jordan elimination to find the inverse of the matrix $B$ below.
+\[
+B = \begin{pmatrix}
+0 & 3 & 4 & -1\\
+0 & 1 & 6 & 1 \\
+2 & 0 & 3 & -1 \\
+5 & -1 & 1 & 3
+\end{pmatrix}
+\]
+Be sure to clearly write down the operations you use and the matrices which perform the operations by left multiplication.
+\end{exercise}
+
+
+
+\begin{exercise}
+Use Gauss-Jordan elimination to find the inverse of the matrix $D$ below.
+\[
+D = \begin{pmatrix}
+3 & 17 & -1 & 3 & 1 \\ 1 & 6 & -2 & 1 & 1 \\
+2 & 2 & 1 & -5 & 1 \\ 0 & 0 & 3 & 1 & -3 \\
+-2 & 3 & 4 & 1 & 1
+\end{pmatrix}
+\]
+\end{exercise}
+
+\begin{noexercise}[for thought, not presentation]
+Suppose that for the matrix $A$ in the last exercise we imagine solving the matrix equation $Dx = b$ for some vector $b$ of the appropriate size. What might one mean by the row picture in this case? What might the column picture mean?
+\end{noexercise}
+
+
+
+\begin{exercise}
+Design a $6 \times 6$ matrix which has the following properties:
+\begin{compactitem}
+\item no entry equal to zero
+\item the reduced row echelon form should have exactly 5 pivots
+\item the 5 pivots should be different numbers
+\item no pair of rows should be scalar multiples of one another
+\end{compactitem}
+Is your matrix invertible? Does Sage say it is invertible?
+\end{exercise}
+
+
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
