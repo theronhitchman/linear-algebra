@@ -1,0 +1,143 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{noexercise}{Exercise}
+\newtheorem*{theorem}{Theorem}
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 2.7}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 2.7 of Strang (pages 107 - 115).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+
+\section{Transposes, Symmetric Matrices, \& Permutations}
+
+An important operation on matrices we have yet to encounter is called the \emph{transpose}. If $A$ is an $m\times n$ matrix, the transpose $A^T$ of $A$ is made by changing the roles of the rows and the columns. The result $A^T$ will be an $n \times m$ matrix, because of this switch.
+
+For now, the transpose will feel like some random thing, but its primary importance comes from its connection with the dot product. If we think of column vectors $u$ and $v$ of size $n$ as if they are $n \times 1$ matrices, then the dot product $u \cdot v$ can be computed with a nice combination of matrix multiplication and the transpose:
+\[
+u \cdot v = u^T v .
+\]
+On the right, this is matrix multiplication! That makes sense because $u^T$ is $1 \times n$ and $v$ is $n \times 1$. This means that the result is a $1\times 1$ matrix, i.e. a number.
+
+
+Since the dot product contains all of the geometry of Euclidean space in it, the transpose becomes an important operation. I know that sounds weird, but the dot product contains all of the information we need to measure lengths and angles, so basically all of the \emph{metric} information in Euclidean geometry is there.
+
+\subsection{Algebraic results about the transpose}
+
+There are some key results about the way the transpose interacts with other matrix operations, each of these can be checked with some tedious computation:
+\begin{itemize}
+\item If $A$ and $B$ are matrices of the same shape, then $(A+B)^T = A^T + B^T$.
+
+\item If $A$ and $B$ are of sizes so that $AB$ is defined, then $(AB)^T = B^T A^T$.
+
+\item If $A$ is an invertible matrix, with inverse $A^{-1}$, then $A^T$ is also invertible and it has inverse $\left(A^T\right)^{-1} = \left(A^{-1}\right)^T $.
+
+\end{itemize}
+
+\subsection{Symmetric Matrices}
+
+A matrix $A$ is called \emph{symmetric} when $A^T = A$. These pop up in lots of interesting places in linear algebra. A neat result is that a symmetric matrix has a symmetric looking $LDU$ decomposition:
+\[
+\text{if } A^T=A\text{, then } A = LDL^T .
+\]
+That is, in the LDU decomposition, $U = L^T$.
+
+There are several ways to get symmetric matrices. For example, if $A$ is any matrix, the new matrix $B = A^T A$ will be symmetric. (Check this.) Also, the matrix $S = A^T + A$ will be symmetric.
+
+\subsection{Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination}
+
+It is sometimes the case that Gauss-Jordan elimination requires a row swap. As we have seen, the operation of swapping a row can be achieved by left multiplying by a matrix of a special type. If we take a bunch of those and multiply them together, we still get a matrix which is in a special class: \emph{the permutation matrices}.
+
+A permutation matrix is square matrix having a single $1$ in each column and in each row. A helpful property of permutation matrices is that they are invertible, and their inverses are the same as their transposes:
+\[
+P^{-1} = P^T .
+\]
+
+Gauss-Jordan elimination is easy enough to understand, now. It is time to let go of performing all those arithmetic operations by hand. So, permutation matrices become important for a different reason! Even if Gauss-Jordan elimination can be done without a row swap, it may be numerically better for a computer to swap out for a larger number as a pivot, so a row swap is used anyway. This partial pivoting strategy is encapsulated in most computer algebra algorithms in some way, and is part of the computation involved in computing a PLU decomposition. Strang has a decent discussion of the choices here, and the Sage worksheet shows how Sage handles this.
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful when dealing with the material from this section. The file is called \texttt{section2\_7.sagews}.
+
+
+\section{Questions for Section 2.7}
+\setcounter{exercise}{71}
+
+Keep this in mind. The computations are simple, but tedious. Perhaps you want to use an appropriate tool.
+
+\begin{exercise}
+Find an example of a matrix $A$ such that $A^T A = 0$, but $A \neq 0$.
+\end{exercise}
+
+
+\begin{exercise}
+These are true or false questions. If the statement is true, explain why you know it is true. If the statement is false, give an example that shows it is false.
+\begin{itemize}
+\item The block matrix $\left( \begin{smallmatrix} A & 0 \\ 0 & A \end{smallmatrix}\right)$ is automatically symmetric.
+
+\item If $A$ and $B$ are symmetric, then their product $AB$ is symmetric.
+
+\item If $A$ is not symmetric, then $A^{-1}$ is not symmetric.
+
+\end{itemize}
+\end{exercise}
+
+
+\begin{exercise}
+If $P_1$ and $P_2$ are permuation matrices, then so is $P_1P_2$. Give examples with $P_1P_2 \neq P_2P_1$ and $P_3P_4 = P_4P_3$.
+\end{exercise}
+
+
+\begin{exercise}
+Explain the following phenomena:
+\begin{compactitem}
+\item For any permutation matrix $P$, it is the case that $P^T P = I$.
+\item All row exchange matrices are symmetric: $P^T = P$. (other permutation matrices may or may not be symmetric.)
+\item If $P$ is a row exchange matrix, then $P^2 = I$.
+\end{compactitem}
+\end{exercise}
+
+
+\begin{exercise}
+For each of the following, find an example of a $2\times 2$ symmetric matrix with the given property:
+\begin{compactitem}
+\item $A$ is not invertible.
+\item $A$ is invertible but cannot be factored into $LU$.
+\item $A$ can be factored into $LDL^T$, but not into $LL^T$ because $D$ has negative entries.
+\end{compactitem}
+\end{exercise}
+
+
+\begin{exercise}
+This is a new factorization of $A$ into \emph{triangular times symmetric}:
+
+Start with $A = LDU$. Then $A = B S$, where $B = L\left(U^T\right)^{-1}$ and $S = U^T D U$.
+
+Explain why this choice of $B$ is lower triangular with $1$'s on the diagonal. Expain why $S$ is symmetric.
+\end{exercise}
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
