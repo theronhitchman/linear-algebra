@@ -62,10 +62,10 @@ B \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5  \end{pmatrix} =
 ## Question Four ##
 Find a 3-vector $b$ so that the equation
 \[\tag{*}
-x \begin{pmatrix} 1 \\ 2 \\ -4 \end{pmatrix} + y \begin{pmatrix} 0 \\ 3 \\ 1 \end{pmatrix} = b
+x \begin{pmatrix} 1 \\ 2 \\ -4 \end{pmatrix} + y \begin{pmatrix} 0 \\ 3 \\ 1 \end{pmatrix} + z \begin{pmatrix} 1 \\ 5 \\ 3 \end{pmatrix} = b
 \]
 has no solution.
-︡cfc0203d-c2e1-4c6f-a535-0b5c2bc2ae8e︡{"html":"<h2>Question Four</h2>\n\n<p>Find a 3-vector $b$ so that the equation\n\\[\\tag{*}\nx \\begin{pmatrix} 1 \\\\ 2 \\\\ -4 \\end{pmatrix} + y \\begin{pmatrix} 0 \\\\ 3 \\\\ 1 \\end{pmatrix} = b\n\\]\nhas no solution.</p>\n"}︡
+︡acbff32f-40a6-481e-9c96-708e905d60ad︡{"html":"<h2>Question Four</h2>\n\n<p>Find a 3-vector $b$ so that the equation\n\\[\\tag{*}\nx \\begin{pmatrix} 1 \\\\ 2 \\\\ -4 \\end{pmatrix} + y \\begin{pmatrix} 0 \\\\ 3 \\\\ 1 \\end{pmatrix} + z \\begin{pmatrix} 1 \\\\ 5 \\\\ 3 \\end{pmatrix} = b\n\\]\nhas no solution.</p>\n"}︡
 ︠b8b8dfd6-9b21-4e28-b065-71bb59d04c3d︠
 
 ︠29904e7e-2231-4b81-aebe-b0c3d3a76902︠
