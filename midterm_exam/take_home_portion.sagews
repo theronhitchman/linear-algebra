@@ -1,13 +1,13 @@
 ︠1cc06c74-8015-4a96-8ef3-8972906a44a6i︠
 %md
 # Midterm Exam: Take-home Questions #
-There are four questions in this portion of this exam.
+There are six questions in this portion of this exam.
 
 This is to be turned in by class time on Wednesday, March 12, 2014. The following methods are acceptable for turning this in:
 
 + Solutions written on paper and turned in at the start of class.
 + Solutions computed in a Sage worksheet (.sagews) file, downloaded, and emailed to Prof Hitchman at theron.hitchman@uni.edu
-︡32847e0c-c25d-4c21-9479-5a2bf24635e1︡{"html":"<h1>Midterm Exam: Take-home Questions</h1>\n\n<p>There are four questions in this portion of this exam.</p>\n\n<p>This is to be turned in by class time on Wednesday, March 12, 2014. The following methods are acceptable for turning this in:</p>\n\n<ul>\n<li>Solutions written on paper and turned in at the start of class.</li>\n<li>Solutions computed in a Sage worksheet (.sagews) file, downloaded, and emailed to Prof Hitchman at theron.hitchman@uni.edu</li>\n</ul>\n"}︡
+︡ea17d31c-34e9-4818-b84b-893581882c9e︡{"html":"<h1>Midterm Exam: Take-home Questions</h1>\n\n<p>There are six questions in this portion of this exam.</p>\n\n<p>This is to be turned in by class time on Wednesday, March 12, 2014. The following methods are acceptable for turning this in:</p>\n\n<ul>\n<li>Solutions written on paper and turned in at the start of class.</li>\n<li>Solutions computed in a Sage worksheet (.sagews) file, downloaded, and emailed to Prof Hitchman at theron.hitchman@uni.edu</li>\n</ul>\n"}︡
 ︠4dbd0683-efef-48ed-a5e6-4473c60bd58a︠
 ︡2b86e486-b4c5-4e95-8f02-3cce6fccf538︡
 ︠b72ceb98-8e75-4991-9240-734f906516dci︠
@@ -57,7 +57,7 @@ B \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5  \end{pmatrix} =
 
 ︠c7bea5c1-1155-4c14-8608-48d480b8f174︠
 
-︠aecfcc8b-3880-46d0-b650-5d05ac8197dc︠
+︠aecfcc8b-3880-46d0-b650-5d05ac8197dci︠
 %md
 ## Question Four ##
 Find a 3-vector $b$ so that the equation
@@ -65,7 +65,7 @@ Find a 3-vector $b$ so that the equation
 x \begin{pmatrix} 1 \\ 2 \\ -4 \end{pmatrix} + y \begin{pmatrix} 0 \\ 3 \\ 1 \end{pmatrix} + z \begin{pmatrix} 1 \\ 5 \\ -3 \end{pmatrix} = b
 \]
 has no solution.
-︡acbff32f-40a6-481e-9c96-708e905d60ad︡{"html":"<h2>Question Four</h2>\n\n<p>Find a 3-vector $b$ so that the equation\n\\[\\tag{*}\nx \\begin{pmatrix} 1 \\\\ 2 \\\\ -4 \\end{pmatrix} + y \\begin{pmatrix} 0 \\\\ 3 \\\\ 1 \\end{pmatrix} + z \\begin{pmatrix} 1 \\\\ 5 \\\\ 3 \\end{pmatrix} = b\n\\]\nhas no solution.</p>\n"}︡
+︡2b42166c-298c-4304-9700-66ed520c9868︡{"html":"<h2>Question Four</h2>\n\n<p>Find a 3-vector $b$ so that the equation\n\\[\\tag{*}\nx \\begin{pmatrix} 1 \\\\ 2 \\\\ -4 \\end{pmatrix} + y \\begin{pmatrix} 0 \\\\ 3 \\\\ 1 \\end{pmatrix} + z \\begin{pmatrix} 1 \\\\ 5 \\\\ -3 \\end{pmatrix} = b\n\\]\nhas no solution.</p>\n"}︡
 ︠b8b8dfd6-9b21-4e28-b065-71bb59d04c3d︠
 
 ︠29904e7e-2231-4b81-aebe-b0c3d3a76902︠
