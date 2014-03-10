@@ -57,12 +57,12 @@ B \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5  \end{pmatrix} =
 
 ︠c7bea5c1-1155-4c14-8608-48d480b8f174︠
 
-︠aecfcc8b-3880-46d0-b650-5d05ac8197dci︠
+︠aecfcc8b-3880-46d0-b650-5d05ac8197dc︠
 %md
 ## Question Four ##
 Find a 3-vector $b$ so that the equation
 \[\tag{*}
-x \begin{pmatrix} 1 \\ 2 \\ -4 \end{pmatrix} + y \begin{pmatrix} 0 \\ 3 \\ 1 \end{pmatrix} + z \begin{pmatrix} 1 \\ 5 \\ 3 \end{pmatrix} = b
+x \begin{pmatrix} 1 \\ 2 \\ -4 \end{pmatrix} + y \begin{pmatrix} 0 \\ 3 \\ 1 \end{pmatrix} + z \begin{pmatrix} 1 \\ 5 \\ -3 \end{pmatrix} = b
 \]
 has no solution.
 ︡acbff32f-40a6-481e-9c96-708e905d60ad︡{"html":"<h2>Question Four</h2>\n\n<p>Find a 3-vector $b$ so that the equation\n\\[\\tag{*}\nx \\begin{pmatrix} 1 \\\\ 2 \\\\ -4 \\end{pmatrix} + y \\begin{pmatrix} 0 \\\\ 3 \\\\ 1 \\end{pmatrix} + z \\begin{pmatrix} 1 \\\\ 5 \\\\ 3 \\end{pmatrix} = b\n\\]\nhas no solution.</p>\n"}︡
