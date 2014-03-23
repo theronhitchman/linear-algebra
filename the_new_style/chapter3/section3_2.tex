@@ -1,0 +1,145 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 3.2}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 3.2 of Strang (pages 132-140).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+
+\section{The Nullspace, RREF, \& Special Solutions to $Ax=0$}
+
+Strang aims right at the heart of things in this section, and does not waste any space. Let me highlight a few things:
+
+Let $A$ be an $m\times n$ matrix. We do not require that $A$ is a square matrix, that is, it may not be the case that $m=n$. What we are most interested in is solving the equation $Ax = 0$. Note that if $A$ is not square, then the vectors $x$ and $0$ have different sizes.
+
+By the way, an equation like $Ax=0$ where the right hand side is zero is called a \emph{homogeneous equation}.
+
+\begin{itemize}
+
+\item The nullspace of $A$ is the set of vectors $x$ such that $Ax=0$. It is a theorem that this is a vector subspace of $\mathbb{R}^n$. It is a common to use the synonym \emph{the kernel of $A$} in place of the terminology \emph{the nullspace of $A$.}
+
+\item The key to everything is to not mind that your matrix isn't square. Just do Gauss-Jordan elimination anyway. The end result is called the \emph{reduced row echelon form} of the matrix, or RREF for short.
+
+\item Note that there is no discussion of using an augmented matrix in this section, even though we are solving systems of equations $Ax=0$. This is because the vector on the right hand side is zero and will stay zero. There is nothing interesting to track!
+
+\item The RREF is good for several things. One that is often overlooked is that one can use it to rewrite the system of equations in a ``simplest form.'' I mean that the equations left over in the RREF are somehow the easiest equations to use to cut out the solution as an intersection of hyperplanes.
+
+\item In the RREF, all of the structure can be inferred from the splitting of the columns into two types: the pivot columns and the free columns. Since each column is associated to a variable in our system of linear equations (the columns hold coefficients!), it is also common to refer to pivot variables and free variables.
+
+\item The number of free columns basically determines the ``size'' of the nullspace. This is an entry point to the concept of the \emph{dimension} of a vector space. We shall see this in more detail later.
+
+\item Strang points out an easy way to find some individual vectors in the null space: he calls these the \emph{special solutions}. This is because they are solutions to the equation $Ax=0$.
+
+\end{itemize}
+
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful in investigating linear systems. The file is called \texttt{section3\_2.sagews}.
+
+
+\section{Questions for Section 3.2}
+\setcounter{exercise}{83}
+
+For the first three exercises, your job is to find both
+\begin{compactitem}
+\item The minimal set of equations which cuts out the nullspace of the given matrix as an intersection of hyperplanes; and
+
+\item the size of the nullspace, expressed through the number ``independent directions'' it contains.
+\end{compactitem}
+As always, it will be crucial to explain how you know you are correct.
+
+\begin{exercise}
+Consider the matrix
+\[
+A = \begin{pmatrix}
+1 & 2 & 3 \\
+4 & 8 & 5 \\
+-1 & -2 & 0
+\end{pmatrix}
+\]
+\end{exercise}
+
+\begin{exercise}
+Consider the matrix
+\[
+A = \begin{pmatrix}
+2 & 1 & 3 & 7 \\
+1 & 1 & 1 & -3
+\end{pmatrix}
+\]
+\end{exercise}
+
+\begin{exercise}
+Consider the matrix
+\[
+A = \begin{pmatrix}
+2 & 3 & 5 & 6 \\
+1 & 1 & 2 & 3 \\
+0 & 1 & 1 & 0 \\
+-1 & -1 & -2 & -3 \\
+1 & 1 & 2 & 3
+\end{pmatrix}
+\]
+\end{exercise}
+
+For the next three exercises, your job is to find a complete set of special solutions to the homogeneous equation $Ax=0$. By a ``complete set,'' we mean ``enough special solutions so that any vector in the nullspace of $A$ can be expressed as a linear combination of your vectors.''
+
+\begin{exercise}
+Consider the matrix
+\[
+A = \begin{pmatrix}
+6 & 7 \\
+7 & 8 \\
+1 & 0 \\
+4 & 5
+\end{pmatrix}
+\]
+\end{exercise}
+
+\begin{exercise}
+Consider the matrix
+\[
+A = \begin{pmatrix}
+23 & 17 & 9 & 2 \\
+1 & -2 & 4 & 1 \\
+22 & 19 & 5 & 1
+\end{pmatrix}
+\]
+\end{exercise}
+
+\begin{exercise}
+Consider the matrix
+\[
+A = \begin{pmatrix}
+-3 & -6 & -9 & -12 \\
+1 & 2 & 3 & 4 \\
+1 & 4 & 9 & 16 \\
+1 & 8 & 27 & 64 \\
+-1 & -1 & -1 & -1 \\
+0 & 0 & 1 & 0 
+\end{pmatrix}
+\]
+\end{exercise}
+As always, it will be crucial to explain how you know you are correct.
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
