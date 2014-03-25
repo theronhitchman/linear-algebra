@@ -1,0 +1,117 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{theorem}{Theorem}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 3.3}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 3.3 of Strang (pages 144-151).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+
+\section{The Rank of a Matrix}
+
+The new concept for this section is the \emph{rank} of a matrix. There are \textbf{three} definitions of rank given in the first two pages of this section. It is important to know them and see that they are equivalent.
+
+Another important part of what happens here is the realization that putting the matrix into reduced row echelon form, which uses \textbf{row} operations, actually tells us something about the \textbf{columns} of the matrix. This is kind of amazing.
+
+Take a matrix $A$ and put it into reduced row echelon form $R = \mathrm{rref}(A)$. Then $A$ and $R$ have the same shape. In particular, they have the same number of columns. But in $R$ it is easy to see the location of the pivots. This divides up the columns of $R$ into those columns having a pivot, the \emph{pivot columns}, and those which do not, the \emph{free columns}.
+We will label a column of $A$ as a pivot column or a free column in a way that corresponds.
+Here is the startling fact:
+
+\begin{theorem}
+Let $A$ be a matrix.
+The pivot columns of $A$ are those which cannot be expressed as linear combinations of the columns to their left.
+The free columns of $A$ are those which can be expressed as linear combinations of the columns to their left.
+\end{theorem}
+
+How exactly can we see this? Strang uses the construction of a \emph{nullspace matrix}. The special solutions we learned about in the last section can be bundled together as the columns of a matrix $N$, called the nullspace matrix. This matrix has two important properties:
+\begin{itemize}
+\item $AN = 0$; and
+\item Each column of $N$ (i.e. each special solution) holds the coefficients needed to write down a interesting linear combination equation on the columns of $A$.
+\end{itemize}
+
+Finally, please use some caution when reading through the area with blue boxes and equations (4) and (5) on page 147. Note that Strang introduces a big simplifying assumption that makes his work easier. The general principles will hold, but those nice, neat equations won't always look so good for an arbitrary matrix.
+
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful in investigating matrices. The file is called \texttt{section3\_3.sagews}.
+
+
+\section{Questions for Section 3.3}
+\setcounter{exercise}{89}
+
+\begin{exercise}
+Give an example of a $5 \times 3$ matrix which has
+\begin{compactitem}
+\item rank equal to 3, and
+\item no non-zero entries,
+\end{compactitem}
+or explain why no such example is possible.
+\end{exercise}
+
+\begin{exercise}
+Given an example of a $3 \times 3$ matrix which has
+\begin{compactitem}
+\item rank equal to 2,
+\item a nullspace of $\{0\}$, and
+\item no non-zero entries,
+\end{compactitem}
+or explain why no such example is possible.
+\end{exercise}
+
+
+\begin{exercise}
+Consider the matrix $A = \left( \begin{smallmatrix} 2 & 1 & 5 \\ 1 & 1 & 7 \end{smallmatrix}\right)$. Find the reduced row echelon form $R = \mathrm{rref}(A)$ of $A$. Track the row operations you use, and use them to find an invertible matrix $E$ so that $EA = R$.
+\end{exercise}
+
+\begin{exercise}
+Continuing the last exercise\dots Find the null space matrix of $A$. Use the information contained in the nullspace matrix to write down a linear combination equation on the columns of $R = \mathrm{rref}(A)$ of the form
+\[
+a * \text{(column1)} + b * \text{(column2)} + c * \text{(column3)} = 0.
+\]
+
+Explain why the matrix $E$ allows us to translate this equation into this one on the columns of $A$:
+\[
+a\begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix} 1 \\ 1 \end{pmatrix} + c \begin{pmatrix} 5 \\ 7 \end{pmatrix} = \begin{pmatrix}0\\ 0 \end{pmatrix}.
+\]
+\end{exercise}
+
+\begin{exercise}
+Consider the matrix $N$ given below. Make an example of two different matrices $A$ and $B$ which have different shapes and each have $N$ as nullspace matrix, or explain why such an example is not possible.
+\[
+N = \begin{pmatrix}
+-3 & 2 & -1 \\
+ 1 & 0 &  0 \\
+ 0 & 1 &  0 \\
+ 2 & 6 &  1 \\
+ 0 & 0 &  1
+\end{pmatrix}
+\]
+
+\end{exercise}
+
+\begin{exercise}
+Consider the matrix $T = \left(\begin{smallmatrix} 2 & 1 \\ 1 & 1 \end{smallmatrix}\right)$. What is the nullspace matrix of $T$?
+\end{exercise}
+
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
