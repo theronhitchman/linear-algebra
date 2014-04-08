@@ -1,0 +1,69 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 4.1}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 4.2 of Strang (pages 206-214).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+
+\section{Orthogonal Projection}
+
+One good use of the geometry in $\mathbb{R}^n$ is the concept of orthogonal projection. The basic idea is to mimic the behavior of shadows under sunlight. Our everyday experience leads us to thinking about the projection of a vector onto a plane (the ground--its roughly a plane), but if you imagine holding out a pencil you can summon up the visual of projection onto a line, too.
+
+The key concept is to use the basic condition of orthogonality ($u \cdot v = 0$) to figure things out.
+
+Note that everything in this section is done by projecting onto \emph{subspaces}! This is a bit of a restriction. In practice, this restriction can be removed by translating your whole problem to have a new origin.
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful in investigating matrices. The file is called \texttt{section4\_2.sagews}.
+
+
+\section{Questions for Section 4.2}
+\setcounter{exercise}{116}
+
+\begin{exercise} Find the projection matrix which computes projections of vectors in $\mathbb{R}^2$ onto the line $3x+2y=0$. (Since it goes through zero, it is a subspace.)
+
+Find the orthogonal projection of the vector $\left( 17,3 \right)$ onto this line.
+\end{exercise}
+
+\begin{exercise}
+Find the projection matrix which computes projections of vectors in $\mathbb{R}^3$ onto the line which is the intersection of the planes $x-2y+3z = 0$ and $y+2z=0$. (Again, that is a subspace.)
+
+Find the orthogonal projection of the vector $\left(1,1,1\right)$ onto this line.
+\end{exercise}
+
+\begin{exercise}
+Find the projection matrix which computes projections of vectors in $\mathbb{R}^3$ onto the plane $-2x + y +3z = 0$.
+
+Find the orthogonal projection of the vector $\left( 9,7,-5\right)$ onto this plane.
+\end{exercise}
+
+\begin{exercise}
+Find the projection matrix which computes projections of vectors in $\mathbb{R}^4$ onto the plane which is the intersectoin of $5x+y +w=0$ and $z+y+z+w=0$. (This subspace is the 2 dimensional plane where these two 3-dimensional hyperplanes meet.)
+
+Find the orthogonal projection of the vector $\left(-3,1,-3,1\right)$ on this plane.
+\end{exercise}
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
