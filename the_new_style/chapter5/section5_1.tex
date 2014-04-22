@@ -1,0 +1,103 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 5.1}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 5.1 of Strang (pages 244-251).
+\item Read the following.
+\item Prepare the items below for presentation.
+\end{compactitem}
+
+
+\section{The Determinant}
+
+Generally, the most interesting matrices to look at are the square ones. For square matrices, there is an important number called the \emph{determinant} which helps us determine if the matrix is invertible or not.
+
+Strang lists 10 important properties of determinants in this section, and verifies them for $2\times 2$ matrices. The verifications for general matrices aren't any harder, but they sure are \textbf{longer}, so I am glad he skipped them. Anyway, these properties are enough to get by when it is time to compute. In fact, clever use of these properties can save you a lot of time.
+
+\subsection{Interpretation}
+
+Suppose that an $n\times n$ matrix $A$ is represented as a collection of its column vectors:
+\[
+A = \begin{pmatrix}
+| & | &  & | \\
+v_1 & v_2 & \dots & v_n \\
+| & | &  & |
+\end{pmatrix} .
+\]
+Then the geometric significance of the determinant is this: The number $\det(A)$ represents the \emph{signed} $n$-dimensional volume of the $n$-dimensional box in $\mathbb{R}^n$ with sides $v_1, v_2, \ldots, v_n$.
+
+This takes a bit of getting used to, and the hardest part is the choice of signs. We choose a positive sign if the vectors $v_1, v_2, \ldots, v_n$ have the same orientation as the standard basis.
+
+\subsection{The Importance of the Determinant}
+
+The real importance of the determinant is described in the following theorem. Note that this is a special result for \emph{square} matrices. The shape is crucial for this result.
+
+\begin{theorem}[The Invertible Matrix Theorem]
+Let $A$ be an $n\times n$ matrix. Then the following conditions are equivalent:
+\begin{itemize}
+\item The columns of $A$ are linearly independent.
+\item The columns of $A$ are a spanning set for $\mathbb{R}^n$.
+\item The colums of $A$ are a basis for $\mathbb{R}^n$.
+\item The rows of $A$ are linearly independent.
+\item The rows of $A$ are a spanning set for $\mathbb{R}^n$.
+\item The rows of $A$ are a basis for $\mathbb{R}^n$.
+\item For any choice of vector $b \in \mathbb{R}^n$, the system of linear equations $Ax = b$ has a unique solution.
+\item $A$ is invertible.
+\item The transpose $A^T$ is invertible.
+\item $\det(A) \neq 0$.
+\item $\det(A^T) \neq 0$.
+\end{itemize}
+\end{theorem}
+
+
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful. The file is called \texttt{section5\_1.sagews}.
+
+
+\section{Questions for Section 5.1}
+\setcounter{exercise}{135}
+
+
+
+\begin{exercise}
+Exercises 1 \& 2 from section 5.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 12 from section 5.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 14 from section 5.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 15 from section 5.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 23 from section 5.1 of Strang.
+\end{exercise}
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
