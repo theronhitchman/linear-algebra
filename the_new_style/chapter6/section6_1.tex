@@ -1,0 +1,77 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 6.1}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 6.1 of Strang (pages 283-292).
+\item Read the following.
+\item Prepare the items below for presentation.
+\end{compactitem}
+
+
+\section{Eigenvalues and Eigenvectors}
+
+We have discussed the ``transformational view'' of the geometry of a system of $m$ linear equations $Ax = b$ in $n$ unknowns $x$, where we view the $m \times n$ matrix $A$ as defining
+a function from $\mathbb{R}^m$ to $\mathbb{R}^n$. In the case of a square matrix $m=n$, the domain and the target are the same space $\mathbb{R}^n$. So we can think of $A$ as making a function from one space to itself.
+
+This means it might be interesting to think about how $A$ moves a vector about inside of $\mathbb{R}^n$. Usually, the vector $v$ will get turned into a vector $Av$ which has a different length and points in a completely different direction. But sometimes, \emph{sometimes}, $v$ and $Av$ will point in the same direction. This is an eigenvector.
+
+A number $\lambda$ is called an eigenvalue of the matrix $A$ when the matrix $A-\lambda I$ is singular. A vector $v$ is called an eigenvector of $A$ corresponding to $\lambda$ when $v$ is not zero but still lies in the null space of $A-\lambda I$. We exclude $0$ from being an eigenvector because it is boring. The zero vector lies in every subspace, including the nullspace of any matrix.
+
+As Strang discusses, the eigenvalues are found as roots of the \emph{characteristic polynomial} $\det(A-\lambda \cdot I) = 0$. That's right, we only need to find the roots of a polynomial! Sounds great, but as a general thing this is pretty hard. Don't get too excited. Have you heard this fact before: depressing and interesting: there is no general formula to find the roots of a polynomial of degree 5 or more. 
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful. The file is called \texttt{section6\_1.sagews}.
+
+
+\section{Questions for Section 6.1}
+\setcounter{exercise}{140}
+
+
+
+\begin{exercise}
+Exercise 5 from section 6.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 6 from section 6.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 7 from section 6.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 12 from section 6.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 14 from section 6.1 of Strang.
+\end{exercise}
+
+\begin{exercise}
+Exercise 19 from section 6.1 of Strang.
+\end{exercise}
+
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
