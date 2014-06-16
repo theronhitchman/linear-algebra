@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014 Theron J. Hitchman                    -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<frontmatter xml:id="index">
+
+<titlepage></titlepage>
+
+<preface>
+
+<p>This is a set of class notes written to guide new an inquiry-based course on linear algebra. This is not a complete resource! Rather, this is meant to accompany the book by Gilbert Strang.</p>
+
+<p>It is important to use Sage. It is important to write a complete paragraph. Also, we want to learn how to read, how to code, how to write, and how to figure stuff out for ourselves.</p>
+
+
+</preface>
+
+<acknowledgement>
+<p>Thanks to the Sage community, etc, etc.</p>
+</acknowledgement>
+
+<authorbiography>
+	<p>TJ Hitchman says something clever about himself in this preface</p>
+</authorbiography>
+
+</frontmatter>

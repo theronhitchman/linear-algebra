@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<!-- USE XINCLUDE SWITCH ON XSLTPROC -->
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <xi:include href="./bookinfo.xml" />
+
+    <book xml:id="m2500la">
+        <title>Math 2500: Linear Algebra</title>
+
+            <xi:include href="frontmatter.xml" />
+            <xi:include href="chapter1.xml" />
+
+<!--        <xi:include href="projects.xml" />
+            <xi:include href="cayley.xml" />
+            <xi:include href="drgs.xml" />
+            <xi:include href="factor-six.xml" />
+            <xi:include href="hoffman-singleton.xml" />
+            <xi:include href="matrices.xml" />
+            <xi:include href="pseries.xml" />
+            <xi:include href="gfdl-mathbook.xml" /> -->
+
+    </book>
+
+</mathbook>
