@@ -10,7 +10,7 @@
 <!-- USE XINCLUDE SWITCH ON XSLTPROC -->
 <chapter xml:id="chapter-1" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-        <title>Chapter 1: Systems of Awesomeness</title>
+        <title>Vectors, Matrices, and the Dot Product</title>
 
             <xi:include href="section1_1.xml" />
 <!--
