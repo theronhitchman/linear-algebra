@@ -98,7 +98,7 @@ This is okay. You will get used to it quickly.</p>
                 <output>(pi, pi, 2*pi)</output>
             </sage>
             <sage>
-                <input>3*u + 4 * v</input>
+                <input>3*u + 4*v</input>
                 <output>(-1, -1, 14)</output>
             </sage>
 

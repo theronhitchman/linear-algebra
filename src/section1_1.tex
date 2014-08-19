@@ -1,0 +1,182 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{paralist}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+\begin{document}
+\title{Linear Algebra}
+\author{Strang, Section 1.1}
+\maketitle
+
+\section{The assignment}
+\begin{compactitem}
+\item Read section 1.1 of Strang (pages 1-7).
+\item (Optional) read Hefferon Chapter One, Part II Linear Geometry, section 1 (pages 32-37).
+\item Read the following and complete the exercises below.
+\end{compactitem}
+
+
+\section{Vectors and Linear Combinations}
+
+Algebraically, a \emph{vector} is a stack of numbers in a set of parentheses or brackets, like this
+\[
+\begin{pmatrix} 2 \\ 7 \\ 9 \end{pmatrix}, \text{ or } \begin{bmatrix}2 \\ 7 \\ 9 \end{bmatrix},
+\text{ or } \begin{pmatrix} 2 & 7 & 9 \end{pmatrix} .
+\]
+The individual numbers are called the \emph{components} or \emph{entries} or \emph{coordinates} of the vector.
+For example, $7$ is the second component of the vectors above.
+
+The first two vectors above are called \emph{column} vectors because they are stacked vertically.
+The third is called a \emph{row} vector because it is arranged horizontally.
+For this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors.
+It is up to you to make the switch.
+(We will see later how this matters!)
+
+Vectors can take lots of different sizes. The vectors above are all $3$-vectors.
+Here is a $2$-vector:
+\[\left(\begin{smallmatrix} 71 \\ -12 \end{smallmatrix}\right).\]
+Here is a $4$-vector:
+\[\left(\begin{smallmatrix} \pi \\ 0 \\ -\pi \\ 1\end{smallmatrix}\right).\]
+
+The main value in using vectors lies in their standard interpretations. Let's focus on $3$-vectors for now.
+The vector $\left(\begin{smallmatrix} x \\ y \\ z\end{smallmatrix}\right)$ can represent
+\begin{compactitem}
+\item A point in space described in the standard three-dimensional rectangular coordinate system with $x$ coordinate equal to $a$, $y$-coordinate equal to $b$ and $z$ coordinate equal to $c$.
+\item An arrow in space which points from the *origin* $(0,0,0)$ to the point $(a,b,c)$.
+\item An arrow in space which points from some point $(x,y,z)$ to the point $(x+a, y+b, z+c)$.
+\end{compactitem}
+
+\subsection{Operations on Vectors}
+
+There are two operations on vectors which are of utmost importance for linear algebra.
+(In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)
+
+\subsubsection{Scalar Multiplication}
+
+    Given a number $\lambda \in \mathbb{R}$ and a vector $v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)$, we form the new vector
+    \[ \lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\]
+
+\subsubsection{Addition}
+
+    Given a vector $v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)$ and a vector $w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)$ of the same size, we form their \emph{sum}
+    \[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]
+
+These operations have ``obvious'' generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called \emph{coordinate-wise} operations.
+
+Combining these two operations gives us the notion of a \emph{linear combination}. If $\lambda$ and $\mu$ arenumbers and $v$ and $w$ are vectors of a common size, then the vector
+\[ \lambda v + \mu w \]
+is a linear combination of $v$ and $w$.
+
+
+\section{Sage instructions}
+
+I have made a Sage worksheet file with some basic commands that you might find useful in investigating vectors. The file is called \emph{section1-1.sagews}. It also has some interactive demonstrations about how to deal with vectors.
+
+
+\section{Questions for Section 1.1}
+
+\begin{exercise}
+Find an example of numbers $\lambda$ and $\mu$ so that
+\[ \lambda \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \mu \begin{pmatrix} 2 \\ -1 \end{pmatrix}\]
+or describe why no such example can exist.
+\end{exercise}
+
+\begin{exercise}
+Find a vector $b = \left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix} \right)$ so that
+\[
+\begin{pmatrix} 2 \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} 10 \\ -3 \end{pmatrix}
+\]
+or describe why no such example can exist.
+\end{exercise}
+
+\begin{exercise}
+Find a vector $b = \left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix} \right)$ so that this equation has at least one solution $\lambda$
+\[
+\begin{pmatrix} 1 \\ -2 \end{pmatrix} + \lambda \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \end{pmatrix}
+\]
+or describe why no such example can exist.
+\end{exercise}
+
+\begin{exercise}
+Give examples of numbers $a$ and $b$ such that
+\[ a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}
+\]
+or explain why no such numbers exist.
+\end{exercise}
+
+In the situations like the last exercise, the pair of numbers $a, b$ is called a \emph{solution} to the equation.
+
+\begin{exercise}
+Give an example of a vector $X = \left( \begin{smallmatrix} x \\ y \end{smallmatrix} \right)$ so that the equation
+\[
+a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b X = \begin{pmatrix}7 \\ 5 \end{pmatrix}
+\]
+has no solution $(a,b)$, or explain why no such example exists.
+\end{exercise}
+
+\begin{exercise}
+Give an example of a number $\lambda$ so that
+\[
+\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + 3 \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}
+\]
+or explain why no such number exists.
+\end{exercise}
+
+\begin{exercise}
+Give an example of numbers $\lambda$ and $\mu$ which are a solution to the equation
+\[
+\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + \mu \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}
+\]
+or explain why no such solution exists.
+\end{exercise}
+
+\begin{exercise}
+Give an example of a vector $w = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$ so that the equation
+\[
+a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+\]
+has no solution $(a,b)$, or explain why no such vector exists.
+\end{exercise}
+
+\begin{exercise}
+Give an example of a vector $w = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$ so that the equation
+\[
+a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+\]
+has exactly one solution $(a,b)$, or explain why no such vector exists.
+\end{exercise}
+
+\begin{exercise}
+Give an example of a vector $X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}$ such that the equation
+\[
+a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}
+\]
+has no solutions $(a,b,c)$, or explain why no such vector exists.
+\end{exercise}
+
+\begin{exercise}
+Give an example of a vector $X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}$ such that the equation
+\[
+a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}
+\]
+has exactly one solution, or explain why no such vector exists.
+\end{exercise}
+
+\begin{exercise}
+Give an example of a vector $X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}$ such that the equation
+\[
+a \begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} + b \begin{pmatrix} 0 \\ -1 \\ 0\end{pmatrix} + c \begin{pmatrix} x \\ y \\ z\end{pmatrix} = \begin{pmatrix}3 \\ 7 \\ 7 \end{pmatrix}
+\]
+has no solutions, or explain why no such vector exists.
+\end{exercise}
+
+
+
+\end{document}
+
+
+
+
+%sagemathcloud={"zoom_width":100}
