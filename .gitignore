@@ -32,3 +32,6 @@
 *.tdo
 *.sage-backup
 *.sage-chat
+
+.DS_Store
+_site/
