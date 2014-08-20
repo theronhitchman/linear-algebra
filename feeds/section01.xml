@@ -6,7 +6,7 @@ layout: none
 	<channel>
 		<title>{{ site.name | xml_escape }} - Section 01</title>
 		<description>Posts from UNI Math 2500:01</description>
-		<link>{{ site.url }}</link>
+		<link>{{ site.section01url }}</link>
 		<atom:link href="{{ site.baseurl }}/feeds/section01.xml" rel="self" type="application/rss+xml" />
 		{% for post in site.categories.miscellaneous limit:10 %}
 			<item>
