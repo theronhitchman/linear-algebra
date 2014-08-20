@@ -1,0 +1,22 @@
+name:          "Linear Algebra"
+description:   "Course Page for UNI Math 2500"
+email:         theron.hitchman@uni.edu
+
+
+url:           "http://theronhitchman.github.io"
+baseurl:       "/linear-algebra"
+
+
+markdown:      kramdown
+highlighter:   pygments
+
+# link urls
+pythonurl: "https://www.python.org/"
+
+unimathurl: "http://www.uni.edu/math"
+unichasurl: "http://www.uni.edu/chas/"
+uniurl: "http://www.uni.edu"
+
+sageurl: "http://www.sagemath.org"
+smcurl: "http://cloud.sagemath.org"
+sagecellurl: "http://sagecell.sagemath.org"
