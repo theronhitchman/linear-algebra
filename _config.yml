@@ -10,6 +10,7 @@ baseurl:       "/linear-algebra"
 markdown:      kramdown
 highlighter:   pygments
 
+
 # link urls
 pythonurl: "https://www.python.org/"
 
