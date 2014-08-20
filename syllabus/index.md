@@ -1,0 +1,77 @@
+---
+layout: default
+title: Syllabus for Math 2500
+---
+
+*Linear Algebra*<br />
+*Math 2500, Fall 2014*
+
+
+##Course Description:
+
+This course is devoted to [content description goes here].
+
+Students who complete this course will learn to work _as a mathematician does_.
+To meet this challenge, we will run class as an [Inquiry Based Learning][IBL] (IBL)
+environment.
+
+Successful students will [promisary syllabus stuff goes here: skills based]
+
+
+
+##Basic Information:
+
+- Instructor: 		Theron J Hitchman
+- Office: 		327 Wright Hall
+- Office Hours: 	MWF  2-3 pm.  
+  To meet at another time, contact me by email to make an appointment.
+- contact info:
+  <address>
+  <strong>email:</strong> theron.hitchman@uni.edu<br>
+  <strong>office phone:</strong> 319-273-2646
+  </address>
+- Course Web Page: <code>http://theronhitchman.github.io/linear-algebra</code>
+
+  Check this regularly. Lots of important things are at this page.
+
+## Materials:
+
+- Text: [Introduction to Linear Algebra, 4th Ed.][strang], by Gilbert Strang,
+Wellesley-Cambridge Press, 2009, ISBN 978-09802327-14.
+- Software: GeoGebra is a free, open-source geometry program. [Sage][].
+- I will distribute many other materials through the course web page.
+
+## Assessment:
+
+I will be using a “standards based assessment” scheme for this course. See the
+[relevant handout][sba] for more detailed information. Grades in this course are based
+on the following assessments:
+
+- In-class participation, focusing on finding and presenting solutions
+- three exams
+- weekly written homework
+- a "technology" gateway assessment
+
+If you feel uncertain about your progress in the course at any time, please contact me.
+
+---
+
+**Accommodations:**
+  If you have a disability and require accommodations, please contact the
+  instructor early in the semester so that your learning needs may be
+  appropriately met. You will need to provide documentation of your
+  disability to the Student Disability Services (SDS) office, located on the
+  top floor of the Student Health Center, (319) 273-2677.
+
+**Academic Learning Center Syllabus Statement**
+  I encourage you to utilize the Academic Learning Center’s free assistance with
+  writing, math, science, college reading, and learning strategies. UNI’s Academic
+  Learning Center, located in 007/008 ITTC, also provides advising services and
+  is the University's testing center for many standardized tests, including the
+  PLT, GRE, and Praxis Core. Visit the website at `http://www.uni.edu/unialc/` or
+  call (319) 273-6023 for more information or to set up an appointment.  
+
+[strang]: http://math.mit.edu/linearalgebra/
+[sba]: {{site.baseurl}}/standards-based-assessment
+[ggb]: www.geogebra.org
+[IBL]: http://theronhitchman.github.io/euclidean-geometry/inquiry-based-learning/
