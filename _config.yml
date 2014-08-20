@@ -11,6 +11,9 @@ markdown:      kramdown
 highlighter:   pygments
 
 
+section01url: "http://theronhitchman.github.io/linear-algebra"
+
+
 # link urls
 pythonurl: "https://www.python.org/"
 
