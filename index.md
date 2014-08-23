@@ -10,15 +10,10 @@ I am mentoring two sections of this course this term. The two sections share a
 common syllabus and calendar.
 
 <div class="row">
-  <div class="col-xs-12 col-sm-6 text-center">
+  <div class="btn-group btn-group-justified">
     <a class="btn btn-default btn-lg" href="{{site.baseurl}}/syllabus/">
       Syllabus
     </a>
-  </div>
-  <div class="col-xs-12 visible-xs">
-    <p><br /></p>
-  </div>
-  <div class="col-xs-12 col-sm-6 text-center">
     <a class="btn btn-default btn-lg" href="{{site.baseurl}}/calendar/">
       Calendar
     </a>
