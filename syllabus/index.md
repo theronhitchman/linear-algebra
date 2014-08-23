@@ -9,20 +9,28 @@ title: Syllabus for Math 2500
 
 ##Course Description:
 
-This course is devoted to [content description goes here].
+This course is devoted to the basics of linear algebra: the study of systems of
+linear equations, vectors, matrices, and those things which arise when pursuing
+basic questions about these objects further.
 
 Students who complete this course will learn to work _as a mathematician does_.
-To meet this challenge, we will run class as an [Inquiry Based Learning][IBL] (IBL)
-environment.
+To meet this challenge, we will run class as an [Inquiry Based Learning][IBL]
+(IBL) environment.
 
-Successful students will [promisary syllabus stuff goes here: skills based]
+Successful students will learn to perform basic computations in linear algebra,
+but will also build mental models of the geometry behind linear algebra that builds
+intuition. They will understand the three pictures (row, column, and transformation)
+behind a system of linear equations, and the central role played the Fundamental
+Theorem of Linear Algebra.
+
+Finally, student will learn the basics of the computer algebra system Sage.
 
 
 
 ##Basic Information:
 
 - Instructor: 		Theron J Hitchman
-- Office: 		327 Wright Hall
+- Office: 		    327 Wright Hall
 - Office Hours: 	MWF  2-3 pm.  
   To meet at another time, contact me by email to make an appointment.
 - contact info:
@@ -44,15 +52,32 @@ Wellesley-Cambridge Press, 2009, ISBN 978-09802327-14.
 ## Assessment:
 
 I will be using a “standards based assessment” scheme for this course. See the
-[relevant handout][sba] for more detailed information. Grades in this course are based
-on the following assessments:
+[relevant handout][sba] for more detailed information. Grades in this course are
+based on the following assessments:
 
 - In-class participation, focusing on finding and presenting solutions
 - three exams
 - weekly written homework
 - a "technology" gateway assessment
 
-If you feel uncertain about your progress in the course at any time, please contact me.
+If you feel uncertain about your progress in the course at any time, please
+contact me.
+
+## An Approximate Calendar
+
+Planning a day-to-day calendar for a whole semester is a fool's errand. Everything
+will change once we all learn about each other some more and see what this class
+is really going to be.
+
+But, it is better to have a plan and be willing to discard it than to have no
+plan at all. So I will demonstrate my foolishness by sharing my guess at an
+calendar for the semester.
+
+<div class="text-center">
+  <a class="btn btn-primary btn-lg" href="{{site.baseurl}}/calendar/">
+  Course Calendar (best guess)</a>
+</div>
+
 
 ---
 
