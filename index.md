@@ -7,12 +7,20 @@ This is the course web site for Linear Algebra. Course information of various ki
 is hiding behind the links above.
 
 I am mentoring two sections of this course this term. The two sections share a
-common syllabus.
+common syllabus and calendar.
 
-<div class="text-center">
-<p>
-<a class="btn btn-default btn-lg" href="{{site.baseurl}}/syllabus/">Course Syllabus</a>
-</p>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 text-center">
+    <a class="btn btn-default btn-lg" href="{{site.baseurl}}/syllabus/">
+      Syllabus
+    </a>
+  </div>
+  <div class="col-xs-12 col-sm-6 text-center">
+    <a class="btn btn-default btn-lg" href="{{site.baseurl}}/calendar/">
+      Calendar
+    </a>
+  </div>
+
 </div>
 
 I keep a course blog for each section as a record of proceedings and to make
