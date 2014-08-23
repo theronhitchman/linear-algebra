@@ -15,16 +15,21 @@ common syllabus and calendar.
       Syllabus
     </a>
   </div>
+  <div class="col-xs-12 visible-xs">
+    <p><br /></p>
+  </div>
   <div class="col-xs-12 col-sm-6 text-center">
     <a class="btn btn-default btn-lg" href="{{site.baseurl}}/calendar/">
       Calendar
     </a>
   </div>
-
 </div>
 
+<p><br /></p>
+<p>
 I keep a course blog for each section as a record of proceedings and to make
 announcements. Be sure to watch the proper one!
+</p>
 
 <div class="row">
   <div class="col-xs-12 col-sm-6 text-center">  
