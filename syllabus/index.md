@@ -18,9 +18,9 @@ To meet this challenge, we will run class as an [Inquiry Based Learning][IBL]
 (IBL) environment.
 
 Successful students will learn to perform basic computations in linear algebra,
-but will also build mental models of the geometry behind linear algebra that builds
-intuition. They will understand the three pictures (row, column, and transformation)
-behind a system of linear equations, and the central role played the Fundamental
+but will also build mental models of the geometry behind linear algebra. They
+will be able to describe and use the three pictures (row, column, and transformation)
+behind a system of linear equations, and the Fundamental
 Theorem of Linear Algebra.
 
 Finally, student will learn the basics of the computer algebra system Sage.
@@ -70,7 +70,7 @@ will change once we all learn about each other some more and see what this class
 is really going to be.
 
 But, it is better to have a plan and be willing to discard it than to have no
-plan at all. So I will demonstrate my foolishness by sharing my guess at an
+plan at all. So I will demonstrate my foolishness by sharing my guess at a
 calendar for the semester.
 
 <div class="text-center">
