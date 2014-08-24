@@ -20,3 +20,4 @@ meaning for the structure of linear algebra.
     <i>list coming soon...</i>
   </div>
 </div>
+<br class="visible-xs visible-sm"/>

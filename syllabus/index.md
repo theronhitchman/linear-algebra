@@ -49,6 +49,8 @@ Wellesley-Cambridge Press, 2009, ISBN 978-09802327-14.
 - Software: GeoGebra is a free, open-source geometry program. [Sage][].
 - I will distribute many other materials through the course web page.
 
+[sage]: http://www.sagemath.org
+
 ## Assessment:
 
 I will be using a “standards based assessment” scheme for this course. See the

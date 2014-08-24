@@ -61,7 +61,7 @@ standards.
   on how far we go this term).
 
   **One letter** for demonstrated competence with the advanced standards.
-
+  
   These standards will be assessed on the three exams. I reserve the right to
   give you credit for one of these standards any time I notice you have met one.
 
