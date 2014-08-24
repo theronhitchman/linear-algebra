@@ -40,7 +40,7 @@ Strang's text. This is where you will find my commentary on the mathematics, som
 instruction on related Sage commands, and your daily homework tasks.
 
 <div class="text-center">
-<a href="{{site.baseurl}}/workbook/" class="btn btn-primary btn-lg">
+<a href="{{site.baseurl}}/course-materials/workbook/" class="btn btn-primary btn-lg">
 The Workbook
 </a>
 </div>
