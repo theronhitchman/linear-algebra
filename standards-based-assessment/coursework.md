@@ -4,6 +4,7 @@ title: Coursework Assessment
 ---
 
 There are three types of regular coursework in Math 2500:
+
   - Daily Homework
   - Class Presentations
   - Weekly Homework

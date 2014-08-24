@@ -13,7 +13,7 @@ The quasi-official policy document describing expectations is here:
   <div class="btn btn-lg btn-primary">
     Technology SLO Policy
   </div>
-</a>  
+</a><br />  
 </div>
 
 When a student feels ready, that student will make an appointment with Prof.
