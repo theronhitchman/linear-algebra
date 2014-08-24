@@ -84,7 +84,7 @@ standards.
     Content
   </a>
   <a href="{{site.baseurl}}/standards-based-assessment/coursework.html"
-     class="btn btn-default btn-lg">Coursework
+     class="btn btn-default btn-lg">Work
   </a>
 </div>
 <p><br /></p>
