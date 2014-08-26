@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<section xml:id="section-1-1">
+  <title>Vectors</title>
+
+  <subsection xml:id="1-1-assignment" number="no">
+    <title>The Assignment</title>
+    <ul>
+      <li><p>Read section 1.1 of <em>Strang</em> (pages 1-7).</p></li>
+      <li><p>Read the following and complete the exercises below.</p></li>
+    </ul>
+  </subsection>
+
+  <subsection xml:id="1-1-slo" number="no">
+    <title>Learning Objectives</title>
+      <p>Before class, a student should be able to:</p>
+      <ul>
+        <li><p>Add vectors.</p></li>
+        <li><p>Multiply a vector by a scalar.</p></li>
+        <li><p>Compute linear combinations.</p></li>
+        <li><p>Draw pictures which correspond to the above operations.</p></li>
+      </ul>
+      <p>At some point, a student should be able to:</p>
+      <ul>
+        <li><p>Solve linear combination equations involving unknown coefficients.</p></li>
+        <li><p>Solve linear combination equations involving unknown vectors.</p></li>
+      </ul>
+  </subsection>
+
+  <subsection xml:id="1-1-discussion" number="no">
+    <title>Some Discussion</title>
+    <p>Algebraically, a <em>vector</em> is a stack of numbers in a set of
+     parentheses or brackets, like this<md>
+      <mrow>\begin{pmatrix} 2 \\ 7 \\ 9 \end{pmatrix}, \text{ or }
+          \begin{bmatrix}2 \\ 7 \\ 9 \end{bmatrix}, \text{ or }
+          \begin{pmatrix} 2 &amp; 7 &amp; 9 \end{pmatrix}.</mrow>
+        </md>
+     The individual numbers are called the <em>components</em> or <em>entries</em>
+     or <em>coordinates</em> of the vector. For example, <m>7</m> is the second
+     component of the vectors above.</p>
+
+        <p>The first two vectors above are called <em>column</em> vectors
+        because they are stacked vertically. The third is called a <em>row</em> vector because it is arranged horizontally. For this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors. It is up to you to make the switch. (We will see later how this matters!)</p>
+
+        <p>Vectors can take lots of different sizes. The vectors above are all <m>3</m>-vectors. Here is a <m>2</m>-vector: <me>\begin{pmatrix} 71 \\ -12 \end{pmatrix}.</me> Here is a <m>4</m>-vector: <me>\begin{pmatrix} \pi \\ 0 \\ -\pi \\ 1\end{pmatrix}.</me></p>
+
+        <p>The main value in using vectors lies in their standard interpretations. Let's focus on <m>3</m>-vectors for now. The vector <m>\left(\begin{smallmatrix} a \\ b \\ c\end{smallmatrix}\right)</m> can represent <ul>
+                <li><p>A point in space described in the standard three-dimensional rectangular coordinate system with <m>x</m> coordinate equal to <m>a</m>, <m>y</m>-coordinate equal to <m>b</m> and <m>z</m> coordinate equal to <m>c</m>.</p></li>
+                <li><p>An arrow in space which points from the <b>origin</b> <m>(0,0,0)</m> to the point <m>(a,b,c)</m>.</p></li>
+                <li><p>An arrow in space which points from some point <m>(x,y,z)</m> to the point <m>(x+a,y+b,z+c)</m>.</p></li>
+            </ul>
+        </p>
+
+    <subsubsection>
+        <title>Operations on Vectors</title>
+
+            <p>There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>
+
+
+            <paragraph>
+                <title>Scalar Multiplication</title>
+
+                <p>Given a number <m>\lambda \in \mathbb{R}</m> and a vector <m>v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)</m>, we form the new vector <me>\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).</me></p>
+
+            </paragraph>
+
+            <paragraph>
+                <title>Addition</title>
+
+                <p>Given a vector <m>v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)</m> and a vector <m>w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)</m> of the same size, we form their <em>sum</em> <me> v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) </me></p>
+
+            </paragraph>
+
+            <paragraph>
+                <p>These operations have <q>obvious</q> generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em>coordinate-wise</em> operations.</p>
+
+                <p>Combining these two operations gives us the notion of a \emph{linear combination}. If <m>\lambda</m> and <m>\mu</m> are numbers and <m>v</m> and <m>w</m> are vectors of a common size, then the vector <me>\lambda v + \mu w </me> is a linear combination of <m>v</m> and <m>w</m>.</p>
+            </paragraph>
+        </subsubsection>
+
+    </subsection>
+
+    <subsection>
+        <title>Sage Instructions</title>
+
+        <paragraph>
+            <title>Basic Constructions</title>
+            <p>A vector in Sage is constructed by applying the <code>vector</code> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
+            <sage>
+                <input>u = vector([1,1,2])</input>
+            </sage>
+            <p>Notice that nothing was displayed. Sage just put the vector u into memory. We can ask for it by calling it.</p>
+            <sage>
+                <input>u</input>
+                <output>(1, 1, 2)</output>
+            </sage>
+            <p>Sage defaults to displaying vectors horizontally, which is different from how we normally write them by hand.
+This is okay. You will get used to it quickly.</p>
+            <p>Sage knows how to add, multiply by scalars, and form linear combinations, and the notation for it is just as easy as you would expect.</p>
+            <sage>
+                <input>
+                v = vector([-1,-1,2])
+                u + v
+                </input>
+                <output>(0, 0, 4)</output>
+            </sage>
+            <sage>
+                <input>pi * u</input>
+                <output>(pi, pi, 2*pi)</output>
+            </sage>
+            <sage>
+                <input>3*u + 4*v</input>
+                <output>(-1, -1, 14)</output>
+            </sage>
+
+        </paragraph>
+
+    </subsection>
+
+    <exercises>
+        <title>Questions for Section 1.1</title>
+
+        <exercise>
+            <statement>
+                <p>Find an example of numbers <m>\lambda</m> and <m>\mu</m> so that <me>\lambda \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \mu \begin{pmatrix} 2 \\ -1 \end{pmatrix}</me> or describe why no such example can exist.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix} \right)</m> so that <me>
+\begin{pmatrix} 2 \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} 10 \\ -3 \end{pmatrix}</me> or describe why no such example can exist.</p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix} \right)</m> so that this equation has at least one solution <m>\lambda</m> <me>\begin{pmatrix} 1 \\ -2 \end{pmatrix} + \lambda \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \end{pmatrix}</me> or describe why no such example can exist.</p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>Give examples of numbers <m>a</m> and <m>b</m> such that <me> a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}</me> or explain why no such numbers exist.</p>
+            </statement>
+        </exercise>
+
+<!--
+        <p>In the situations like the last exercise, the pair of numbers <m>a, b</m> is called a <term>solution</term> to the equation.</p>
+-->
+
+        <exercise>
+            <statement>
+                <p>Give an example of a vector <m>X = \left( \begin{smallmatrix} x \\ y \end{smallmatrix} \right)</m> so that the equation <me>a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b X = \begin{pmatrix}7 \\ 5 \end{pmatrix} </me> has no solution <m>(a,b)</m>, or explain why no such example exists.</p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>Give an example of a number <m>\lambda</m> so that <me>\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + 3 \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}</me> or explain why no such number exists.</p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>Give an example of numbers <m>\lambda</m> and <m>\mu</m> which are a solution to the equation <me> \lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + \mu \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}</me> or explain why no such solution exists.</p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</m> so that the equation <me>a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me> has no solution $(a,b)$, or explain why no such vector exists.</p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</m> so that the equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me> has exactly one solution $(a,b)$, or explain why no such vector exists.</p>
+            </statement>
+        </exercise>
+
+
+        <exercise>
+            <statement>
+                <p>Give an example of a vector <m>X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}</me> has no solutions $(a,b,c)$, or explain why no such vector exists.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Give an example of a vector <m>X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}</me> has exactly one solution, or explain why no such vector exists.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Give an example of a vector <m>X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the equation <me> a \begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} + b \begin{pmatrix} 0 \\ -1 \\ 0\end{pmatrix} + c \begin{pmatrix} x \\ y \\ z\end{pmatrix} = \begin{pmatrix}3 \\ 7 \\ 7 \end{pmatrix}</me> has no solutions, or explain why no such vector exists.</p>
+            </statement>
+        </exercise>
+
+
+    </exercises>
+  </section>

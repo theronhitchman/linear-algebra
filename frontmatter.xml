@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<fontmatter xml:id="index">
+
+  <titlepage></titlepage>
+
+  <preface>
+    <p>This is a set of class notes designed to guide an inquiry-based course
+      on linear algebra. This is not a complete resource! Rather, this text is
+      meant to accompany the book <emph>Introduction to Linear Algebra</emph> by
+      Gilbert Strang. Industrious students might also use it for a self-study
+      course.
+    </p>
+    <p>An important feature of this text is the integration of the Sage
+      Mathematical Software System. Students in this course will learn to use
+      Sage to perform long tedious computations (which linear algebra has in
+      spades) and create visualizations.
+    </p>
+  </preface>
+  <acknowledgement>
+    <p>I thank the Sage community, in particular William Stein, for creating
+      such a wonderful tool and making it open-source.
+    </p>
+    <p>I also thank Rob Beezer for creating the MathBook project which makes
+      this particular project available on the web.
+    </p>
+
+    <authorbiography>
+      <p>TJ Hitchman is something clever and not-at-all-self-referential in this
+        space here.
+      </p>
+    </authorbiography>
+  </acknowledgement>
+
+</fontmatter>

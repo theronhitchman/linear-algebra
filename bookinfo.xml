@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<docinfo>
+  <author>
+    <personname>Theron J. Hitchman</personname>
+    <department>Department of Mathematics</department>
+  </author>
+
+  <copyright>
+    <year>2014</year>
+    <holder>Theron J. Hitchman</holder>
+    <shortlicense>Permission is granted to copy, distribute and/or modify
+          this document under the terms of the GNU Free Documentation License,
+          Version 1.3 or any later version published by the Free Software
+          Foundation; with no Invariant Sections, no Front-Cover Texts, and no
+          Back-Cover Texts. A copy of the license is included in the section
+          entitled <q>GNU Free Documentation License</q>.</shortlicense>
+  </copyright>
+
+  <date><today /></date>
+
+</docinfo>
