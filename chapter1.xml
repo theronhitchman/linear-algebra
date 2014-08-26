@@ -8,7 +8,7 @@
 <!-- See the file COPYING for copying conditions.             -->
 
 
-<chapter xml:id="chapter-1"  xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="chapter-vectors"  filebase="chapter1" xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <title>Vectors, Matrices, and the Dot Product</title>
 

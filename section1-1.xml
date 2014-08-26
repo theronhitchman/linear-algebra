@@ -10,7 +10,7 @@
 <section xml:id="section-1-1">
   <title>Vectors</title>
 
-  <subsection xml:id="1-1-assignment" number="no">
+  <subsection xml:id="assignment" number="no">
     <title>The Assignment</title>
     <ul>
       <li><p>Read section 1.1 of <em>Strang</em> (pages 1-7).</p></li>
@@ -18,7 +18,7 @@
     </ul>
   </subsection>
 
-  <subsection xml:id="1-1-slo" number="no">
+  <subsection xml:id="slo" number="no">
     <title>Learning Objectives</title>
       <p>Before class, a student should be able to:</p>
       <ul>
@@ -34,7 +34,7 @@
       </ul>
   </subsection>
 
-  <subsection xml:id="1-1-discussion" number="no">
+  <subsection xml:id="discussion" number="no">
     <title>Some Discussion</title>
     <p>Algebraically, a <em>vector</em> is a stack of numbers in a set of
      parentheses or brackets, like this<md>

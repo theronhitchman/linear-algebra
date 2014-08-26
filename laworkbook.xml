@@ -10,13 +10,13 @@
 <!-- USE XINCLUDE SWITCH ON XSLTPROC -->
 <mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <xi:include href="bookinfo.xml" />
+  <xi:include href="./bookinfo.xml" />
 
-  <book xml:id="laworkbook">
+  <book xml:id="book-laworkbook">
     <title>Math 2500: Linear Algebra</title>
 
-    <xi:include href="frontmatter.xml" />
-    <xi:include href="chapter1.xml" />
+    <xi:include href="./frontmatter.xml" />
+    <xi:include href="./chapter1.xml" />
 
 
   </book>
