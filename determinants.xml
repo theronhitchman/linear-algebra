@@ -8,13 +8,13 @@
 <!-- See the file COPYING for copying conditions.             -->
 
 
-<chapter xml:id="chapter-vectors"  filebase="chapter1" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="chapter-determinants" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <title>Vectors, Matrices, and the Dot Product</title>
+  <title>Determinants</title>
 
-  <xi:include href="section1-1.xml" />
-  <!--
-  <xi:include href="section1-2.xml" />
-  <xi:include href="section1-3.xml" />
--->
+  <introduction>Here is some introductory text.</introduction>
+
+
+
+
 </chapter>

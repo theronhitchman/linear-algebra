@@ -7,34 +7,35 @@
 <!-- Copyright (C) 2014  Theron J. Hitchman                   -->
 <!-- See the file COPYING for copying conditions.             -->
 
-<section xml:id="section-1-1">
+<section xml:id="vectors">
   <title>Vectors</title>
 
-  <subsection xml:id="assignment" number="no">
+  <subsection xml:id="vectors-assignment" number="no">
     <title>The Assignment</title>
     <ul>
-      <li><p>Read section 1.1 of <em>Strang</em> (pages 1-7).</p></li>
-      <li><p>Read the following and complete the exercises below.</p></li>
+      <li>Read section 1.1 of <em>Strang</em> (pages 1-7).</li>
+      <li>Read the following and complete the exercises below.</li>
     </ul>
   </subsection>
 
-  <subsection xml:id="slo" number="no">
+  <subsection xml:id="vectors-slo" number="no">
     <title>Learning Objectives</title>
-      <p>Before class, a student should be able to:</p>
+      <p>Before class, a student should be able to:
       <ul>
-        <li><p>Add vectors.</p></li>
-        <li><p>Multiply a vector by a scalar.</p></li>
-        <li><p>Compute linear combinations.</p></li>
-        <li><p>Draw pictures which correspond to the above operations.</p></li>
+        <li>Add vectors.</li>
+        <li>Multiply a vector by a scalar.</li>
+        <li>Compute linear combinations.</li>
+        <li>Draw pictures which correspond to the above operations.</li>
       </ul>
-      <p>At some point, a student should be able to:</p>
+      At some point, a student should be able to:
       <ul>
-        <li><p>Solve linear combination equations involving unknown coefficients.</p></li>
-        <li><p>Solve linear combination equations involving unknown vectors.</p></li>
+        <li>Solve linear combination equations involving unknown coefficients.</li>
+        <li>Solve linear combination equations involving unknown vectors.</li>
       </ul>
+    </p>
   </subsection>
 
-  <subsection xml:id="discussion" number="no">
+  <subsection xml:id="vectors-discussion" number="no">
     <title>Some Discussion</title>
     <p>Algebraically, a <em>vector</em> is a stack of numbers in a set of
      parentheses or brackets, like this<md>
@@ -87,7 +88,7 @@
 
     </subsection>
 
-    <subsection>
+    <subsection xml:id="vectors-sage" number="No">>
         <title>Sage Instructions</title>
 
         <paragraph>
@@ -119,13 +120,69 @@ This is okay. You will get used to it quickly.</p>
                 <input>3*u + 4*v</input>
                 <output>(-1, -1, 14)</output>
             </sage>
-
+            <p>If you ask Sage to plot a vector, you get this kind of picture:</p>
+            <sage>
+              <input>plot(v)</input>
+            </sage>
+            <p>And in two dimensions something similar...</p>
+            <sage>
+              <input>
+              a = vector([-1,1])
+              plot(a)
+              </input>
+            </sage>
+            <p>If you find that you want a vecotr to have its tail someplace
+              that is not the origin, use the <c>arrow</c> command.</p>
+            <sage>
+              <input>plot(arrow([1,1],[2,3], color='red', arrowsize=2, width=2))</input>
+            </sage>
+            <p>Note that Sage cut off some of this plot! Also, I used some options
+              just to show them off. The <c>arrow</c> command works in three dimensions,
+              too.
+            </p>
         </paragraph>
-
+        <paragraph>
+          <title>Interactive Demonstrations</title>
+          <p>This is a Sage "interact." You can use this to explore the idea of
+            linear combinations of <m>2</m>-vectors.</p>
+          <sage>
+            <input>
+              @interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
+              def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,width=10), d=input_box(1,width=10),
+                               l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10)):
+                  two_dim = arrow([0,0], [a,b], color ='red') + arrow([0,0],[c,d],color='blue')
+                  two_dim+= arrow([0,0], [l*a,l*b], color='red') + arrow([m*c,m*d],[l*a+m*c,l*b+m*d],color='red')
+                  two_dim+= arrow([0,0], [m*c,m*d], color='blue') + arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+                  two_dim+= point([e,f],size=20,color='black',zorder=2)+ arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+                  two_dim+= text('v = (a,b)', [a-.1,b+.1], color='red') + text('w=(c,d)', [c+.1,d-.1],color='purple')
+                  two_dim+= text('l*v + m*w', [l*a+m*c+.1, l*b+m*d+.1],color='purple') + text('P=(e,f)', [e+.1,f+.1],color='black')
+                  two_dim+= arrow([0,0],[l*a+m*c,l*b+m*d],color='purple', arrowsize=1, width=1)
+                  two_dim.show(axes=True)
+                </input>
+              </sage>
+              <p>This is a different Sage interact. You can use this one to
+                explore linear combinations of <m>2</m>-vectors.
+              </p>
+              <sage>
+                <input>
+                  @interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
+                  def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,width=10), d=input_box(1,width=10),
+                                   l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10)):
+                      two_dim = arrow([0,0], [a,b], color ='red') + arrow([0,0],[c,d],color='blue')
+                      two_dim+= arrow([0,0], [l*a,l*b], color='red') + arrow([m*c,m*d],[l*a+m*c,l*b+m*d],color='red')
+                      two_dim+= arrow([0,0], [m*c,m*d], color='blue') + arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+                      two_dim+= point([e,f],size=20,color='black',zorder=2)+ arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+                      two_dim+= text('v = (a,b)', [a-.1,b+.1], color='red') + text('w=(c,d)', [c+.1,d-.1],color='purple')
+                      two_dim+= text('l*v + m*w', [l*a+m*c+.1, l*b+m*d+.1],color='purple') + text('P=(e,f)', [e+.1,f+.1],color='black')
+                      two_dim+= arrow([0,0],[l*a+m*c,l*b+m*d],color='purple', arrowsize=1, width=1)
+                      two_dim.show(axes=True)
+                  </input>
+                </sage>
+            </paragraph>
     </subsection>
 
-    <exercises>
-        <title>Questions for Section 1.1</title>
+    <!--<exercises xml:id="vectors-exercises" number="no">
+        <title>Questions for Section 1.1</title>-->
 
         <exercise>
             <statement>
@@ -135,15 +192,23 @@ This is okay. You will get used to it quickly.</p>
 
         <exercise>
             <statement>
-                <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix} \right)</m> so that <me>
-\begin{pmatrix} 2 \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} 10 \\ -3 \end{pmatrix}</me> or describe why no such example can exist.</p>
+                <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2
+                  \end{smallmatrix} \right)</m> so that <me> \begin{pmatrix} 2
+                  \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+                  = \begin{pmatrix} 10 \\ -3 \end{pmatrix}</me> or describe why
+                  no such example can exist.</p>
             </statement>
         </exercise>
 
 
         <exercise>
             <statement>
-                <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix} \right)</m> so that this equation has at least one solution <m>\lambda</m> <me>\begin{pmatrix} 1 \\ -2 \end{pmatrix} + \lambda \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \end{pmatrix}</me> or describe why no such example can exist.</p>
+                <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2
+                  \end{smallmatrix} \right)</m> so that this equation has at
+                  least one solution <m>\lambda</m> <me>\begin{pmatrix} 1 \\ -2
+                  \end{pmatrix} + \lambda \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+                  = \begin{pmatrix} 2 \\ 3 \end{pmatrix}</me> or describe why no
+                  such example can exist.</p>
             </statement>
         </exercise>
 
@@ -154,9 +219,7 @@ This is okay. You will get used to it quickly.</p>
             </statement>
         </exercise>
 
-<!--
         <p>In the situations like the last exercise, the pair of numbers <m>a, b</m> is called a <term>solution</term> to the equation.</p>
--->
 
         <exercise>
             <statement>
@@ -181,21 +244,37 @@ This is okay. You will get used to it quickly.</p>
 
         <exercise>
             <statement>
-                <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</m> so that the equation <me>a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me> has no solution $(a,b)$, or explain why no such vector exists.</p>
+                <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\
+                  z \end{pmatrix}</m> so that the equation <me>a \begin{pmatrix}
+                  1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                  \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me>
+                  has no solution <m>(a,b)</m>, or explain why no such vector
+                  exists.</p>
             </statement>
         </exercise>
 
 
         <exercise>
             <statement>
-                <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</m> so that the equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me> has exactly one solution $(a,b)$, or explain why no such vector exists.</p>
+                <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\ z
+                  \end{pmatrix}</m> so that the equation <me> a \begin{pmatrix}
+                  1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                  \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me>
+                  has exactly one solution <m>(a,b)</m>, or explain why no such
+                  vector exists.</p>
             </statement>
         </exercise>
 
 
         <exercise>
             <statement>
-                <p>Give an example of a vector <m>X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}</me> has no solutions $(a,b,c)$, or explain why no such vector exists.</p>
+                <p>Give an example of a vector <m>X =
+                  \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the
+                  equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b
+                  \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1
+                  \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}
+                </me> has no solutions <m>(a,b,c)</m>, or explain why no such vector
+                  exists.</p>
             </statement>
         </exercise>
 
@@ -212,5 +291,5 @@ This is okay. You will get used to it quickly.</p>
         </exercise>
 
 
-    </exercises>
+    <!--</exercises>-->
   </section>

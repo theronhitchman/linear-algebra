@@ -7,7 +7,7 @@
 <!-- Copyright (C) 2014  Theron J. Hitchman                   -->
 <!-- See the file COPYING for copying conditions.             -->
 
-<fontmatter xml:id="index">
+<frontmatter xml:id="index">
 
   <titlepage></titlepage>
 
@@ -29,14 +29,15 @@
       such a wonderful tool and making it open-source.
     </p>
     <p>I also thank Rob Beezer for creating the MathBook project which makes
-      this particular project available on the web.
+      this particular book project available on the web.
     </p>
+  </acknowledgement>
 
-    <authorbiography>
+    <!--<authorbiography>
       <p>TJ Hitchman is something clever and not-at-all-self-referential in this
         space here.
       </p>
-    </authorbiography>
-  </acknowledgement>
+    </authorbiography>-->
 
-</fontmatter>
+
+</frontmatter>

@@ -7,10 +7,18 @@
 <!-- Copyright (C) 2014  Theron J. Hitchman                   -->
 <!-- See the file COPYING for copying conditions.             -->
 
-<chapter xml:id="chapter-1" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <title>Vectors, Matrices, and the Dot Product</title>
+<chapter xml:id="chapter-basic-objects" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  This whole chapter is a placeholder for now.
+  <title>Vectors, the Dot Product, and Matrices</title>
+
+  <introduction>Here is some introductory text.</introduction>
+
+
+  <xi:include href="vectors.xml" />
+  <xi:include href="dot-product.xml" />
+  <xi:include href="matrices.xml" />
+  <xi:include href="bo-gf.xml" />
+  <xi:include href="bo-sage.xml" />
 
 </chapter>

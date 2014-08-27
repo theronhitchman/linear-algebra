@@ -12,11 +12,16 @@
 
   <xi:include href="./bookinfo.xml" />
 
-  <book xml:id="book-laworkbook">
+  <book xml:id="LinAlgWorkbook">
     <title>Math 2500: Linear Algebra</title>
 
     <xi:include href="./frontmatter.xml" />
-    <xi:include href="./chapter1.xml" />
+    <xi:include href="./basic-objects.xml" />
+    <xi:include href="./linear-equations.xml" />
+    <xi:include href="./subspaces.xml" />
+    <xi:include href="./orthogonality.xml" />
+    <xi:include href="./determinants.xml" />
+    <xi:include href="./eigendata-and-svd.xml" />
 
 
   </book>

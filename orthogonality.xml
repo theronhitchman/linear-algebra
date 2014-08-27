@@ -7,8 +7,12 @@
 <!-- Copyright (C) 2014  Theron J. Hitchman                   -->
 <!-- See the file COPYING for copying conditions.             -->
 
-<section xml:id="section-1-1">
-  <title>Vectors</title>
 
-  This is a placeholder for now.
-</section>
+<chapter xml:id="chapter-orthogonality" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>Orthogonality</title>
+
+  <introduction>Here is some introductory text.</introduction>
+
+
+</chapter>
