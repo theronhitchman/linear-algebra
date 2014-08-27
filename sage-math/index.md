@@ -44,5 +44,5 @@ is a system designed by mathematicians and programmers for doing what they need.
 [sagemath]: {{site.sageurl}}
 [sagecloud]: {{site.smcurl}}
 
-[workshop]: {{site.baseurl}}/sage-workshop/
+[workshop]: {{site.url}}/sage-workshop/
 [python]: {{site.pythonurl}}
