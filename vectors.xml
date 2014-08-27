@@ -10,7 +10,7 @@
 <section xml:id="vectors">
   <title>Vectors</title>
 
-  <subsection xml:id="vectors-assignment" number="no">
+  <subsection number="No">
     <title>The Assignment</title>
     <ul>
       <li>Read section 1.1 of <em>Strang</em> (pages 1-7).</li>
@@ -18,7 +18,7 @@
     </ul>
   </subsection>
 
-  <subsection xml:id="vectors-slo" number="no">
+  <subsection number="no">
     <title>Learning Objectives</title>
       <p>Before class, a student should be able to:
       <ul>
@@ -35,7 +35,7 @@
     </p>
   </subsection>
 
-  <subsection xml:id="vectors-discussion" number="no">
+  <subsection number="no">
     <title>Some Discussion</title>
     <p>Algebraically, a <em>vector</em> is a stack of numbers in a set of
      parentheses or brackets, like this<md>
@@ -88,7 +88,7 @@
 
     </subsection>
 
-    <subsection xml:id="vectors-sage" number="No">>
+    <subsection number="no">>
         <title>Sage Instructions</title>
 
         <paragraph>
@@ -103,7 +103,7 @@
                 <output>(1, 1, 2)</output>
             </sage>
             <p>Sage defaults to displaying vectors horizontally, which is different from how we normally write them by hand.
-This is okay. You will get used to it quickly.</p>
+              This is okay. You will get used to it quickly.</p>
             <p>Sage knows how to add, multiply by scalars, and form linear combinations, and the notation for it is just as easy as you would expect.</p>
             <sage>
                 <input>
@@ -181,8 +181,6 @@ This is okay. You will get used to it quickly.</p>
             </paragraph>
     </subsection>
 
-    <!--<exercises xml:id="vectors-exercises" number="no">
-        <title>Questions for Section 1.1</title>-->
 
         <exercise>
             <statement>
@@ -291,5 +289,5 @@ This is okay. You will get used to it quickly.</p>
         </exercise>
 
 
-    <!--</exercises>-->
+
   </section>
