@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-08-28T09:58:19-05:00    *-->
+<!--*    on 2014-08-28T11:17:10-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Eigendata and the Singular Value decomposition</title>
+<meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -15,7 +17,7 @@ MathJax.Hub.Config({
         inlineMath: [['\\(','\\)']]
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js"],
+        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
@@ -41,10 +43,8 @@ $(function () {
                            hide: ['evalButton', 'editorToggle', 'language']});
 });
     </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://mathbook.staging.michaeldubois.me/develop/js/lib/jquery.sticky.js"></script><script src="http://mathbook.staging.michaeldubois.me/develop/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://mathbook.staging.michaeldubois.me/develop/js/lib/jquery.espy.min.js"></script><script src="http://mathbook.staging.michaeldubois.me/develop/js/lib/jquery.sticky.js"></script><script src="http://mathbook.staging.michaeldubois.me/develop/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
 <link href="http://mathbook.staging.michaeldubois.me/develop/stylesheets/mathbook-modern-3.css" rel="stylesheet" type="text/css">
-<link href="http://mathbook.staging.michaeldubois.me/develop/stylesheets/icons.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
 <header id="masthead"><div class="banner"><div class="container">
@@ -65,32 +65,32 @@ $(function () {
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
-<nav id="toc"><nav id="toc"><h2 class="link"><a href="index.html"> Front Matter</a></h2>
+<nav id="toc"><h2 class="link"><a href="index.html"><span class="title">Front Matter</span></a></h2>
 <ul>
-<li><a href="preface-1.html" data-scroll="preface-1">Preface</a></li>
-<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1">Acknowledgements</a></li>
+<li><a href="preface-1.html">Preface</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
 </ul>
-<h2 class="link"><a href="chapter-basic-objects.html">1 Vectors, the Dot Product, and Matrices</a></h2>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
-<li><a href="vectors.html" data-scroll="vectors">Vectors</a></li>
-<li><a href="dot-product.html" data-scroll="dot-product">The Dot Product</a></li>
-<li><a href="matrices.html" data-scroll="matrices">Matrices</a></li>
-<li><a href="start-sage.html" data-scroll="start-sage">Getting Started with Sage</a></li>
-<li><a href="basic-objects-going-further.html" data-scroll="basic-objects-going-further">Going Further with the Basic Objects</a></li>
+<li><a href="vectors.html">Vectors</a></li>
+<li><a href="dot-product.html">The Dot Product</a></li>
+<li><a href="matrices.html">Matrices</a></li>
+<li><a href="start-sage.html">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
-<h2 class="link"><a href="chapter-2.html">2 Linear Equations</a></h2>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
 <ul></ul>
-<h2 class="link"><a href="chapter-subspaces.html">3 Vector Spaces and Subspaces</a></h2>
+<h2 class="link"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
 <ul></ul>
-<h2 class="link"><a href="chapter-orthogonality.html">4 Orthogonality</a></h2>
+<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
 <ul></ul>
-<h2 class="link"><a href="chapter-determinants.html">5 Determinants</a></h2>
+<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul></ul>
-<h2 class="link active"><a href="chapter-eigendata-and-svd.html">6 Eigendata and the Singular Value decomposition</a></h2>
-<ul></ul></nav></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter"><header><h1 class="heading">
+<h2 class="link active"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-eigendata-and-svd"><header><h1 class="heading">
 <span class="type">Chapter</span> <span class="codenumber">6</span> <span class="title">Eigendata and the Singular Value decomposition</span>
-</h1></header><article class="introduction">Here is some introductory text.</article></section></div></main>
+</h1></header><article class="introduction" id="introduction-5">Here is some introductory text.</article></section></div></main>
 </div>
 </body>
 </html>
