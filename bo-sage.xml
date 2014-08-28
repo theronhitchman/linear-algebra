@@ -33,13 +33,14 @@
           </ol></p>
         </li>
       </ul>
+    </subsection>
 
-      <subsection>
-        <title>Learning Objectives</title>
+    <subsection>
+      <title>Learning Objectives</title>
 
-        <p>At the end of this assignment, a student should have an account at
-          SageMathCloud and should be able to log into the service without trouble.
-          The student will also have a first project with some files.</p>
-      </subsection>
+      <p>At the end of this assignment, a student should have an account at
+        SageMathCloud and should be able to log into the service without trouble.
+        The student will also have a first project with some files.</p>
+    </subsection>
 
 </section>
