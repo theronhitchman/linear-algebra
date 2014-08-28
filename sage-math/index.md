@@ -41,6 +41,14 @@ is a system designed by mathematicians and programmers for doing what they need.
 <a class="btn btn-primary btn-lg" href="{{site.url}}/sage-workshop" target="_blank">Go to the SMC Intro</a>
 </p>
 
+### The Linear Algebra Quick Reference Guide
+
+Rob Beezer wrote a [guide to the basic linear algebra functionality][laqr] available in
+Sage. I find it useful to have a copy of this guide tucked in my textbook as a
+bookmark.
+
+[laqr]: http://wiki.sagemath.org/quickref?action=AttachFile&do=get&target=quickref-linalg.pdf
+
 [sagemath]: {{site.sageurl}}
 [sagecloud]: {{site.smcurl}}
 

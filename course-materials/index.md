@@ -45,6 +45,27 @@ The Workbook
 </a>
 </div>
 
+### Other Free, Open-Source Materials
+
+There is a bit of momentum building in a small corner of the mathematics community
+for creating and using open educational materials. There are two such books on linear
+algebra which you might find useful.
+
+<div class="btn-gp btn-gp-justified text-center">
+  <a class="btn btn-default btn-lg"
+  href="http://joshua.smcvt.edu/linearalgebra/">Hefferon's<br class="visible-xs" />
+  Linear Algebra
+  </a>
+  <a class="btn btn-default btn-lg"
+  href="http://linear.ups.edu/">Beezer's<br class="visible-xs" /> First Course in
+  Linear Algebra  
+  </a>
+</div>
+
+These books are written for courses pitched in different ways than ours, so it
+may not be obvious how to use them. But it can often help to have a different
+viewpoint to read, so I want to make you aware of these.
+
 
 ### The Sprinter's Guide
 
@@ -57,4 +78,6 @@ typing these notes up, and I will make them available.
 <a href="" class="btn btn-primary btn-lg">
 The Sprinter's Guide
 </a>
+<p><br />
+</p>
 </div>
