@@ -10,5 +10,187 @@
 <section xml:id="dot-product">
   <title>The Dot Product</title>
 
-  <p>This is a placeholder for now.</p>
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>Read section 1.2 of <b>Strang</b></li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Learning Objectives</title>
+
+    <p>
+      Before class, a student should be able to
+      <ul>
+        <li>Compute the dot product of two given vectors.</li>
+        <li>Compute the length of a given vector.</li>
+        <li>Normalize a given vector.</li>
+        <li>Recognize that <m>u \cdot v =0</m> is the same as "<m>u</m> and <m>
+            v</m> are orthogonal."</li>
+        <li>
+          Compute the angle between two given vectors using the cosine formula.
+        </li>
+      </ul>
+      At some point, a student should be able to
+      <ul>
+        <li>
+          Interpret the statements <m>u\cdot v &lt; 0 </m> and <m>u \cdot v > 0</m>
+          geometrically.
+        </li>
+        <li>Pass back and forth between linear equations and equations involving
+          dot products.
+        </li>
+        <li>Make pictures of level sets of the dot product operation.</li>
+      </ul>
+    </p>
+  </subsection>
+
+  <subsection>
+    <title>Discussion</title>
+
+    <p>
+      The dot product is a wonderful tool for encoding the geometry of Euclidean
+      space, but it can be a bit mysterious at first. As <i>Strang</i> shows,
+      it somehow holds all of the information you need to measure lengths and
+      angles.
+    </p>
+    <p>
+      What does this weird thing have to do with linear algebra? A dot product
+      with a "variable vector" is a way of writing a linear equation. For example,
+      <md>
+        <mrow>\begin{pmatrix} 7 \\ 3 \\ -2 \end{pmatrix} \cdot \begin{pmatrix}
+        x \\ y \\ z \end{pmatrix} = 7x+3y-2z.</mrow>
+      </md>
+      Sometimes this will allow us to connect linear algebra to geometry, and use
+      geometric thinking to answer algebraic questions.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Sage and the dot product</title>
+
+
+  </subsection>
+
+  <subsection>
+    <exercise>
+      <statement>
+        <p>What shape is the set of solutions <m>\left(\begin{smallmatrix} x \\ y
+        \end{smallmatrix}\right)</m> to the equation<md>
+          <mrow>
+            \begin{pmatrix} 3 \\ 7\end{pmatrix} \cdot \begin{pmatrix} x \\ y
+            \end{pmatrix} = 5?
+          </mrow>
+        </md>
+        </p>
+        <p>That is, if we look at all possible vectors <m>\left(\begin{smallmatrix}
+          x \\ y \end{smallmatrix}\right)</m> which make the equation true, what shape
+          does this make in the plane?</p>
+        <p>What happens if we change the vector <m>\left(\begin{smallmatrix} x
+          \\ y \end{smallmatrix}\right)</m> to some other vector? What happens
+          if we change the number <m>5</m> to some other number?
+        </p>
+        <p>What happens if instead of <m>2</m>-vectors, we use <m>3</m>-vectors?
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>Find an example of two <m>2</m>-vectors <m>v</m> and <m>w</m>
+      so that <m>\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot v
+      =0</m> and <m>\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot
+      w = 0</m>, or explain why such an example is not possible.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>Let <m>v = \left(\begin{smallmatrix}3\\-1
+        \end{smallmatrix}\right)</m>. Find an example of a pair of vectors
+        <m>u</m> and <m>w</m> such that <m>v \cdot u &lt; 0</m> and
+        <m>v \cdot w &lt; 0</m> and <m>w \cdot u = 0</m>, or explain why no such
+        pair of vectors can exist.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>Find an example of three <m>2</m>-vectors <m>u</m>, <m>v</m>,
+        and <m>w</m> so that <m> u \cdot v &lt; 0</m> and <m>u\cdot w &lt; 0 </m>
+        and <m>v \cdot w &lt; 0</m>, or explain why no such example exists.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        Find an example of a number <m>c</m> so that <md>
+        <mrow>\begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
+          \end{pmatrix} = c
+        </mrow></md> has the vector <m>\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)</m>
+        as a solution, or explain why no such number exists.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        Let <m>v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)</m> and
+        <m>w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)</m>. Find
+        an example of a number <m>c</m> so that <md>
+        <mrow>v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
+        \quad w \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c,</mrow></md>
+        or explain why this is not possible.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        Let <m>P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)</m>.
+        Find an example of numbers <m>c</m> and <m>d</m> so that <md>
+        <mrow>\begin{pmatrix} 2\\-1\end{pmatrix}\cdot P = c \quad\text{ and }
+        \quad \begin{pmatrix} 1\\-1\end{pmatrix}\cdot P = d,</mrow></md>
+        or explain why no such example is possible.
+      </statement>
+    </exercise>
+
+<p>Now we move to three dimensions!</p>
+
+    <exercise>
+      <statement>
+        Let <m>V = \left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right)</m>.
+        Find a unit vector of the form <m>X = \left(\begin{smallmatrix}x\\y\\0
+        \end{smallmatrix}\right)</m> so that <m>V\cdot X = \sqrt{2}</m>, or explain
+        why no such vector exists.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        Find an example of numbers <m>c</m>, <m>d</m>, and <m>e</m> so that there
+        is no solution vector <m>X = \left(\begin{smallmatrix}x\\y\\z
+        \end{smallmatrix}\right)</m> which simultaneously satisfies the three
+        equations <md>
+        <mrow>\begin{pmatrix} 1\\1\\1\end{pmatrix}\cdot X = c, \qquad
+          \begin{pmatrix} 2\\2\\2\end{pmatrix}\cdot X = d, \qquad
+          \begin{pmatrix} 0\\0\\1\end{pmatrix}\cdot X = e,</mrow></md>
+          or explain why no such numbers exist.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        Find an example of numbers <m>c</m>, <m>d</m>, and <m>e</m> so that there
+        is no solution vector <m>X = \left(\begin{smallmatrix}x\\y\\z
+        \end{smallmatrix}\right)</m> which simultaneously satisfies the three
+        equations <md>
+        <mrow>\begin{pmatrix} 1\\1\\1\end{pmatrix}\cdot X = c, \qquad
+          \begin{pmatrix} 0\\1\\1\end{pmatrix}\cdot X = d, \qquad
+          \begin{pmatrix} 0\\0\\1\end{pmatrix}\cdot X = e,</mrow></md>
+          or explain why no such numbers exist.
+      </statement>
+    </exercise>
+
+  </subsection>
+
+
+
+
+
 </section>
