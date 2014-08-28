@@ -70,7 +70,7 @@
 
   <subsection>
     <title>Sage and the dot product</title>
-    <paragraph>
+    <subsubsection>
       <title>Basic Commands</title>
     <p>
       Sage has a built-in dot product command <kbd>u.dot_product(v)</kbd>. This
@@ -90,11 +90,10 @@
     </p>
     <sage>
       <input>
-        u.norm(); v.norm()
+        u.norm(), v.norm()
       </input>
       <output>
-        sqrt(2)
-        sqrt(3)
+        (sqrt(3), sqrt(2))
       </output>
     </sage>
     <p>
@@ -107,7 +106,7 @@
         angle
       </input>
       <output>
-        1/2*pi
+        1/12*sqrt(3)*sqrt(2)*pi
       </output>
     </sage>
     <p>
@@ -119,7 +118,7 @@
         angle*180/pi
       </input>
       <output>
-        90
+        15*sqrt(3)*sqrt(2)
       </output>
     </sage>
     <p>Often, it is helpful to normalize a vector. You can do this with the <kbd>
@@ -133,12 +132,12 @@
         (1/3*sqrt(3), 1/3*sqrt(3), 1/3*sqrt(3))
       </output>
     </sage>
-  </paragraph>
+  </subsubsection>
 
-  <paragraph>
+  <subsubsection>
     <title>Sage Interacts</title>
     <p>Interacts would go here...</p>
-  </paragraph>
+  </subsubsection>
 
 
 
@@ -146,6 +145,7 @@
   </subsection>
 
   <subsection>
+    <title>Exercises about the Dot Product</title>
     <exercise>
       <statement>
         <p>What shape is the set of solutions <m>\left(\begin{smallmatrix} x \\ y
