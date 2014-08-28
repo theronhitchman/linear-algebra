@@ -12,13 +12,55 @@
 
   <title>Vectors, the Dot Product, and Matrices</title>
 
-  <introduction>Here is some introductory text.</introduction>
+  <introduction>
+    <p>
+      This first chapter introduces the basic objects of linear algebra.
+      You will meet vectors, the dot product, and matrices.
+    </p>
+    <p>
+      Vectors are a generalization of the concept of number. Where real numbers
+      can help us model the geometry of points on a line, vectors will allow us to
+      model the geometry of a plane, or (three-dimensional) space, or even "spaces"
+      with higher dimensions. We begin by learning about the algebra of vectors,
+      and making connections to the geometry.
+    </p>
+    <p>
+      The dot product is a funny kind of multiplication. It plays an important
+      role in mathematics because it captures all of the basics of measurement.
+      We shall learn how to use the dot product to measure lengths and angles. By
+      its definition, the dot product is connected with the concept of a linear
+      equation, so it will make frequent appearances in our work.
+    </p>
+    <p>
+      Matrices are another way to generalize the concept of number. (In fact, they
+      generalize the concept of vector.) We start here by learning about the
+      algebra of matrices. The whole rest of this course will focus on matrices,
+      their uses, and their properties.
+    </p>
+    <p>
+      A running theme for this course is the use of the Sage mathematical software
+      system. In order to get started, the fourth section of this course is
+      dedicated to getting started with Sage using the SageMathCloud (SMC). You will
+      make an account and run through an introductory workshop with SMC.
+      Also, throughout this workbook you will find little embedded pieces of Sage
+      code. These are implemented using the Sage SingleCell server. Most of these
+      Sage cells are mutable. You can change the content in them and re-evaluate
+      your new Sage code. I encourage you to play with these---it is a good way to
+      learn the basics of Sage.
+    </p>
+    <p>
+      The fifth and final section of the chapter is a short assignment designed to
+      consolidate learning. You will get a chance to practice your skills and to
+      think more deeply about the concepts you have learned.
+    </p>
+  </introduction>
 
 
   <xi:include href="vectors.xml" />
   <xi:include href="dot-product.xml" />
   <xi:include href="matrices.xml" />
-  <xi:include href="bo-gf.xml" />
   <xi:include href="bo-sage.xml" />
+  <xi:include href="bo-gf.xml" />
+
 
 </chapter>
