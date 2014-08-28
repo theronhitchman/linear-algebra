@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-08-27T22:46:09-05:00    *-->
+<!--*    on 2014-08-27T23:25:40-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -93,7 +93,8 @@ $(function () {
 </h1></header><section class="subsection" id="subsection-5"><header><h1 class="heading">
 <span class="type">Subsection</span> <span class="codenumber">1.2.1</span> <span class="title">The Assignment</span>
 </h1></header><ul>
-<li>Read section 1.2 of Strang</li>
+<li>Read section 1.2 of <em>Strang</em>
+</li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-6"><header><h1 class="heading">
 <span class="type">Subsection</span> <span class="codenumber">1.2.2</span> <span class="title">Learning Objectives</span>
@@ -139,8 +140,43 @@ $(function () {
       geometric thinking to answer algebraic questions.
     </p></section><section class="subsection" id="subsection-8"><header><h1 class="heading">
 <span class="type">Subsection</span> <span class="codenumber">1.2.4</span> <span class="title">Sage and the dot product</span>
-</h1></header></section><section class="subsection" id="subsection-9"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber">1.2.5</span> <span class="title"></span>
+</h1></header><section class="subsubsection" id="subsubsection-2"><header><h1 class="heading">
+<span class="type">Subsubsection</span> <span class="codenumber">1.2.4.1</span> <span class="title">Basic Commands</span>
+</h1></header><p>
+      Sage has a built-in dot product command u.dot_product(v). This
+      will return the dot product of the vectors \(u\) and \(v\).
+    </p>
+<div class="sage-compute"><script type="text/x-sage">u = vector([1,1,1]); v = vector([-1,0,1])
+u.dot_product(v)
+</script></div>
+<p>
+      It also has a built-in command for computing lengths. Here sage uses the
+      synonym "norm": u.norm(). Of course, you can also call this like
+      a function instead of like a method: norm(u).
+    </p>
+<div class="sage-compute"><script type="text/x-sage">u.norm(), v.norm()
+</script></div>
+<p>
+      There is no built-in command for angles. You just have to compute them
+      using the cosine formula, like so.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">angle = arccos( u.dot_product(v) ) / ( u.norm()*v.norm() )
+angle
+</script></div>
+<p>
+      Of course, Sage's arccos command returns a result in <em>radians</em>.
+      To switch to degrees, you must convert.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">angle*180/pi
+</script></div>
+<p>Often, it is helpful to normalize a vector. You can do this with the 
+      normalized method like this:
+    </p>
+<div class="sage-compute"><script type="text/x-sage">u.normalized()
+</script></div></section><section class="subsubsection" id="subsubsection-3"><header><h1 class="heading">
+<span class="type">Subsubsection</span> <span class="codenumber">1.2.4.2</span> <span class="title">Sage Interacts</span>
+</h1></header><p>Interacts would go here...</p></section></section><section class="subsection" id="subsection-9"><header><h1 class="heading">
+<span class="type">Subsection</span> <span class="codenumber">1.2.5</span> <span class="title">Exercises about the Dot Product</span>
 </h1></header><article class="exercise-like" id="exercise-13"><h5 class="heading">
 <span class="type">Exercise</span> <span class="codenumber">1.13</span>
 </h5>
