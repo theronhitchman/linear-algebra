@@ -45,6 +45,18 @@ The Workbook
 </a>
 </div>
 
+### Weekly Assignments
+
+Each week, you will complete a short writing assignment. This will give you an
+opportunity to get feedback on the quality of your mathematical writing.
+Assignments are here.
+
+<div class="text-center">
+<a href="{{site.baseurl}}/course-materials/weekly-assignments/" class="btn btn-primary btn-lg">
+Weekly Assignments
+</a>
+</div>
+
 ### Other Free, Open-Source Materials
 
 There is a bit of momentum building in a small corner of the mathematics community
