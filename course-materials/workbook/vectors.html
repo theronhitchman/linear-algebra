@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-08-27T23:25:40-05:00    *-->
+<!--*    on 2014-08-28T09:58:19-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -75,8 +75,8 @@ $(function () {
 <li><a href="vectors.html" data-scroll="vectors" class="active">Vectors</a></li>
 <li><a href="dot-product.html" data-scroll="dot-product">The Dot Product</a></li>
 <li><a href="matrices.html" data-scroll="matrices">Matrices</a></li>
-<li><a href="basic-objects-going-further.html" data-scroll="basic-objects-going-further">Going Further</a></li>
 <li><a href="start-sage.html" data-scroll="start-sage">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html" data-scroll="basic-objects-going-further">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html">2 Linear Equations</a></h2>
 <ul></ul>
@@ -91,12 +91,12 @@ $(function () {
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section"><header><h1 class="heading">
 <span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Vectors</span>
 </h1></header><section class="subsection" id="subsection-1"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber">1.1.1</span> <span class="title">The Assignment</span>
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">The Assignment</span>
 </h1></header><ul>
 <li>Read section 1.1 of <em>Strang</em> (pages 1-7).</li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-2"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber">1.1.2</span> <span class="title">Learning Objectives</span>
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Learning Objectives</span>
 </h1></header><p>Before class, a student should be able to:
       <ul>
 <li>Add vectors.</li>
@@ -110,7 +110,7 @@ $(function () {
 <li>Solve linear combination equations involving unknown vectors.</li>
 </ul>
     </p></section><section class="subsection" id="subsection-3"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber">1.1.3</span> <span class="title">Some Discussion</span>
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Some Discussion</span>
 </h1></header><p>Algebraically, a <em>vector</em> is a stack of numbers in a set of
      parentheses or brackets, like this\begin{align*}
 \begin{pmatrix} 2 \\ 7 \\ 9 \end{pmatrix}, \text{ or }
@@ -130,11 +130,11 @@ $(function () {
 </ul>
         </p>
 <section class="subsubsection" id="subsubsection-1"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber">1.1.3.1</span> <span class="title">Operations on Vectors</span>
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Operations on Vectors</span>
 </h1></header><p>There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>Scalar Multiplication<p>Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\), we form the new vector \[\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\]</p>Addition<p>Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their <em>sum</em> \[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]</p>
 <p>These operations have “obvious” generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em>coordinate-wise</em> operations.</p>
 <p>Combining these two operations gives us the notion of a \emph{linear combination}. If \(\lambda\) and \(\mu\) are numbers and \(v\) and \(w\) are vectors of a common size, then the vector \[\lambda v + \mu w \] is a linear combination of \(v\) and \(w\).</p></section></section><section class="subsection" id="subsection-4"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber">1.1.4</span> <span class="title">Sage Instructions</span>
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Sage Instructions</span>
 </h1></header>Basic Constructions<p>A vector in Sage is constructed by applying the vector command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
 <div class="sage-compute"><script type="text/x-sage">u = vector([1,1,2])
 </script></div>
