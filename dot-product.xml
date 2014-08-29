@@ -159,8 +159,8 @@
         <p>That is, if we look at all possible vectors <m>\left(\begin{smallmatrix}
           x \\ y \end{smallmatrix}\right)</m> which make the equation true, what shape
           does this make in the plane?</p>
-        <p>What happens if we change the vector <m>\left(\begin{smallmatrix} x
-          \\ y \end{smallmatrix}\right)</m> to some other vector? What happens
+        <p>What happens if we change the vector <m>\left(\begin{smallmatrix} 3
+          \\ 7 \end{smallmatrix}\right)</m> to some other vector? What happens
           if we change the number <m>5</m> to some other number?
         </p>
         <p>What happens if instead of <m>2</m>-vectors, we use <m>3</m>-vectors?
