@@ -10,5 +10,369 @@
 <section xml:id="matrices">
   <title>Matrices</title>
 
-  <p>This is a placeholder for now.</p>
+  <subsection>
+    <title>The Assignment</title>
+
+    <ul>
+      <li>Read <em>Strang</em> section 1.3 (pages 22-27).</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+
+  </subsection>
+
+
+  <subsection>
+    <title>Learning Goals</title>
+    <p>Before class starts, a student should be able to:
+      <ul>
+        <li>multiply a matrix times a vector
+          <ul>
+            <li>as a linear combination of columns</li>
+            <li>as a set of dot products, row times column</li>
+          </ul>
+        </li>
+        <li>translate back and forth between our three representations
+          <ul>
+            <li>a system of linear equations,</li>
+            <li>a linear combination of vectors equation, and</li>
+            <li>a matrix equation <m>Ax=b</m>.</li>
+          </ul>
+        </li>
+        <li>Correctly identify the rows and columns of a matrix</li>
+        <li>describe what is meant by a lower triangular matrix</li>
+      </ul>
+    At some point, as student should be comfortable with these concepts, which
+    get a very brief informal introduction in this section:
+    <ul>
+      <li>linear dependence and linear independence</li>
+      <li>the inverse of a matrix</li>
+    </ul>
+  </p>
+  </subsection>
+
+  <subsection>
+    <title>Discussion</title>
+
+    <p>
+      A <em>matrix</em> is a two-dimensional array of numbers like this:<md>
+      <mrow>
+        A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}.
+      </mrow></md>
+      Sometimes it helps to think of a matrix as a collection of its <em>rows</em>
+      which are read across:<md>
+      <mrow>
+        M = \begin{pmatrix} \longrightarrow \\ \longrightarrow \end{pmatrix}
+      </mrow></md>
+      and sometimes it helps to think of a matrix as a collection of its
+      <em>columns</em> which are read down:<md>
+      <mrow>
+        M = \begin{pmatrix} \downarrow &amp; \downarrow \end{pmatrix}.
+      </mrow></md>
+    </p>
+    <p>
+      It is often more clear to describe a matrix by giving the sizes of its
+      rows and columns. An <m>m</m> by <m>n</m> matrix is one having <m>m</m>
+      rows and <m>n</m> columns. It is really easy to get these reversed, so be
+      careful. For example, this is a <m>2\times 3</m> matrix, because it has
+      two rows and three columns:<md>
+      <mrow>
+        B = \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
+      </mrow></md>
+      A matrix is called a <em>square</em> matrix when the number of rows and
+      the number of columns is equal. The matrix <m>A</m> that I wrote down
+      above is square because it is a <m>2\times 2</m> matrix.
+    </p>
+
+    <subsubsection>
+      <title>Multiplying Matrices and Vectors</title>
+
+      <p>
+        It is possible to multiply a matrix by a vector like this:<md>
+        <mrow>
+          \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
+          \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
+          \begin{pmatrix} 102 \\ 416 \end{pmatrix}
+        </mrow></md>
+        For this to work, it is absolutely crucial that the sizes match up
+        properly. If the matrix is <m>m</m> by <m>n</m>, then the vector must have
+        size <m>n</m>. In the above example <m>m = 2</m> and <m>n=3</m>.
+      </p>
+      <p>
+        Later, we shall see that the word "multiplication" is not really the
+        best choice here. It is better to think of the matrix as "acting on"
+        the vector and turning it into a new vector. For now, the word
+        multiplication will serve.
+      </p>
+      <p>
+        How exactly does one define this matrix--vector multiplication?
+      </p>
+<!--
+\subsubsection{Linear Combination of Columns Approach}
+The first way to perform the matrix-vector multiplication is to think of the vector as holding some coefficients for forming a linear combination of the columns of the matrix.
+In our example, it looks like this:
+\[
+\begin{pmatrix} 1 & 1 & 2 \\ 3 & 5 & 8 \end{pmatrix} \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
+13 \begin{pmatrix} 1 \\ 3 \end{pmatrix} + 21 \begin{pmatrix} 1 \\ 5 \end{pmatrix} + 34 \begin{pmatrix} 2 \\ 8 \end{pmatrix} =
+\begin{pmatrix} 102 \\ 416 \end{pmatrix} .
+\]
+
+\subsubsection{Dot Products with the Rows Approach} The second way is to think of the matrix as a bundle of vectors lying along the rows of the matrix, and use the dot product. In our example above, this means that we consider the vectors
+\[
+r_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \quad
+r_2 = \begin{pmatrix} 3 \\ 5 \\ 8 \end{pmatrix}, \text{ and }
+v = \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix}
+\]
+(notice I've rewritten the rows as columns) and then perform this kind of operation:
+\[
+\begin{pmatrix} 1 & 1 & 2 \\ 3 & 5 & 8 \end{pmatrix} \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
+\begin{pmatrix} r_1 \\ r_2 \end{pmatrix} v =
+\begin{pmatrix} r_1 \cdot v \\ r_2 \cdot v \end{pmatrix} =
+\begin{pmatrix} 102 \\ 416 \end{pmatrix} .
+\]
+
+
+Two important remarks:
+\begin{compactitem}
+\item Note that these operations only make sense if the sizes match up properly.
+\item Note that the two versions of the operation give you the same results.
+\end{compactitem}
+-->
+</subsubsection>
+<!--
+\subsection{Matrix Equations}
+
+There are many situations in linear algebra that can be rewritten in the form of an equation that looks like this:
+\[\label{eq:matrixeq} \tag{*}
+A v = b
+\]
+where $A$ is a matrix, and $v$ and $b$ are vectors. The interesting case is when we know $A$ and $b$, but we want to find the unknown $v$.
+
+Let's consider the case where you are given some \underline{square} matrix $A$.
+\textbf{Sometimes} one can find another matrix $B$ so that no matter what $b$ is chosen in (\ref{eq:matrixeq}), the solution vector takes the form $v = Bb$. When this happens, we say that $A$ is \emph{invertible} and call $B$ the \emph{inverse} of $A$. It is common to use the notation $A^{-1}$ in place of $B$. This is a wonderful situation to be in! Eventually, we will want to figure out some test for when a given matrix is invertible, and find some ways to compute the inverse.
+
+\subsection{A Note about Vectors}
+
+This reading also has a brief introduction to the idea of a set of vectors being \emph{linearly depedent} or \emph{linearly independent}. Strang is coy about the precise definition, so here it is:
+
+\begin{definition} A set of vectors $v_1, v_2, \dots, v_n$ is called \emph{linearly depdendent} when there is some choice of numbers $a_1, a_2, \dots, a_n$ which are not all zero so that the linear combination
+\[
+a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
+\]
+A set of vectors which is not linearly dependent is called \emph{linearly independent}.
+\end{definition}
+
+This is a little funny the first time you read it. Note that for any set of vectors, you can make a linear combination of those vectors come out as $0$. Simply choose all of the coefficients to be zero. But that is so easy to do we call it \emph{trivial}. What the definition is asking is that we find a \emph{nontrival linear combination of the vectors to make zero}.
+-->
+
+<!-- Stop. the below is fine -->
+
+
+  </subsection>
+
+  <subsection>
+    <title>Sage and Matrices</title>
+
+    <p>
+      Sage has many useful commands for working with linear algebra, and
+      given the central role played by matrices in this subject, there are
+      lots of things Sage can do with matrices. We'll focus here on just basic
+      construction and matrix--vector multiplication.
+    </p>
+
+    <subsubsection>
+      <title>The matrix construction command</title>
+
+      <p>The command to construct a matrix is pretty straightforward:
+        <kbd>A = matrix( r, c, [list of entries])</kbd> where <kbd>r</kbd> is
+        the number of rows and <kbd>c</kbd> is the number of columns.
+      </p>
+      <sage>
+        <input>
+          A = matrix(2,3, [1,2,3,5,8,13]); A
+        </input>
+        <output>
+          [ 1  2  3]
+          [ 5  8 13]
+        </output>
+      </sage>
+      <p>If you wish, you can structure that list of entries to be a list of lists,
+        where each sublist is a row in your matrix.
+      </p>
+      <sage>
+        <input>
+          B = matrix(2,3, [[1,2,3], [5,8,13]]); B
+        </input>
+        <output>
+          [ 1  2   3]
+          [ 5  8  13]
+        </output>
+      </sage>
+      <p>
+        Every once in a while, it might matter to you what kinds of numbers you
+        put into the matrix. Sage will let you specify them by putting in an optional
+        argument like this: <kbd>C = matrix(number type, r, c, [list of entries])</kbd>
+      </p>
+      <sage>
+        <input>
+          C = matrix(ZZ, 2, 2, [2,1,1,1]); C # the best matrix
+        </input>
+        <output>
+          [2 1]
+          [1 1]
+        </output>
+      </sage>
+      <p>
+        The notation <kbd>ZZ</kbd> means "integers." There are other sets of numbers
+        here:
+        <ul>
+          <li><kbd>QQ</kbd> the rational numbers (with exact arithmetic)</li>
+          <li><kbd>RR</kbd> the real numbers (with computer precision arithmetic)</li>
+          <li><kbd>CC</kbd> the complex numbers</li>
+          <li><kbd>AA</kbd> the set of all algebraic numbers, that is, all of the
+            numbers that are roots of some polynomial with integer coefficients
+          </li>
+        </ul>
+        You can find out what kind of entries a matrix thinks it has by calling the
+        <kbd>.parent()</kbd> method on it.
+      </p>
+      <sage>
+        <input>
+          A.parent()
+          # this should say something about the integers
+        </input>
+        <output>
+          Full MatrixSpace of 2 by 3 dense matrices over Integer Ring
+        </output>
+      </sage>
+      <sage>
+        <input>
+          D = matrix(QQ, 3,3, [[1,0,1],[2/3, 1, 0],[0,0,9/5]])
+          # this should say something about the rationals
+          D; D.parent()
+        </input>
+        <output>
+          [  1   0   1]
+          [2/3   1   0]
+          [  0   0 9/5]
+          Full MatrixSpace of 3 by 3 dense matrices over Rational Field
+        </output>
+      </sage>
+    </subsubsection>
+    <subsubsection>
+      <title>Building a matrix from rows or columns</title>
+
+      <p>
+        It is possible to build a matrix by bundling together a bunch of vectors,
+        too. Let's start with an example made using rows.
+      </p>
+      <sage>
+        <input>
+          v1 = vector([2,1]); v2= vector([3,4])
+          E = matrix([ v1, v2]); E # construct E with rows v1 and v2, then display
+        </input>
+        <output>
+          [2 1]
+          [3 4]
+        </output>
+      </sage>
+      <p>
+        Sage prefers rows. I wish it were the other way, but I am sure there is
+        a good reason it prefers rows. If you want to make a matrix whose columns
+        are the vectors <kbd>v1</kbd> and <kbd>v2</kbd>, you can use the
+        <kbd>transpose</kbd> method. We'll talk more about the operation of transpose
+        later, but it basically "switches rows for columns and vice versa."
+      </p>
+      <sage>
+        <input>
+          F = matrix([v1,v2]).transpose(); F
+        </input>
+        <output>
+          [2 3]
+          [1 4]
+        </output>
+      </sage>
+    </subsubsection>
+
+    <subsubsection>
+      <title>Matrix action on vectors</title>
+
+      <p>
+        Of course, Sage knows how to perform the action of a matrix on a vector.
+      </p>
+      <sage>
+        <input>
+          C; v1
+        </input>
+        <output>
+          [2 1]
+          [1 1]
+          (2, 1)
+        </output>
+      </sage>
+      <sage>
+        <input>
+          C*v1
+        </input>
+        <output>
+          (5, 3)
+        </output>
+      </sage>
+      <p>And if you get the sizes wrong, it will return an error.</p>
+      <sage>
+        <input>
+          A; v1
+        </input>
+        <output>
+          [ 1  2  3]
+          [ 5  8 13]
+          (2, 1)
+        </output>
+      </sage>
+      <sage>
+        <input>
+          A*v1
+        </input>
+        <output>
+          Error in lines 1-1
+          ...
+          TypeError: unsupported operand parent(s) for '*': 'Full MatrixSpace of 2 by 3 dense matrices over Integer Ring' and 'Ambient free module of rank 2 over the principal ideal domain Integer Ring'
+        </output>
+      </sage>
+      <p>If you really need it, Sage can tell you about inverses.</p>
+      <sage>
+        <input>
+          A.is_invertible()
+        </input>
+        <output>
+          False
+        </output>
+      </sage>
+      <sage>
+        <input>
+          C.is_invertible()
+        </input>
+        <output>
+          True
+        </output>
+      </sage>
+      <sage>
+        <input>
+          C.inverse()
+        </input>
+        <output>
+          [ 1 -1]
+          [-1  2]
+        </output>
+      </sage>
+    </subsubsection>
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+
+<p> coming soon... (It's late and I am tired of typing.)</p>
+
+  </subsection>
+
+
 </section>
