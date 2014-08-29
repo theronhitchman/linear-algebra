@@ -106,55 +106,100 @@
       <p>
         How exactly does one define this matrix--vector multiplication?
       </p>
+
+      <paragraph>
+        <title>Linear Combination of Columns Approach</title>
+        <p>
+          The first way to perform the matrix-vector multiplication is to think
+          of the vector as holding some coefficients for forming a linear
+          combination of the columns of the matrix. In our example, it looks
+          like this:<md>
+          <mrow>
+            \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
+            \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
+            13 \begin{pmatrix} 1 \\ 3 \end{pmatrix} + 21 \begin{pmatrix} 1 \\ 5
+            \end{pmatrix} + 34 \begin{pmatrix} 2 \\ 8 \end{pmatrix} =
+            \begin{pmatrix} 102 \\ 416 \end{pmatrix}
+          </mrow></md>
+        </p>
+      </paragraph>
+      <paragraph>
+        <title>Dot Products with the Rows Approach</title>
+        <p>
+          The second way is to think of the matrix as a bundle of vectors lying
+          along the rows of the matrix, and use the dot product. In our example
+          above, this means that we consider the vectors<md>
+          <mrow>
+            r_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \quad
+            r_2 = \begin{pmatrix} 3 \\ 5 \\ 8 \end{pmatrix}, \text{ and }
+            v = \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix}
+          </mrow></md>
+          (notice I've rewritten the rows as columns) and then perform this
+          kind of operation:<md>
+          <mrow>
+            \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
+            \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} = \begin{pmatrix} r_1
+            \\ r_2 \end{pmatrix} v =  \begin{pmatrix} r_1 \cdot v \\ r_2 \cdot
+            v \end{pmatrix} =
+            \begin{pmatrix} 102 \\ 416 \end{pmatrix} .
+          </mrow></md>
+        </p>
+      </paragraph>
+
+      <p>
+      Two important remarks:
+      <ul>
+        <li>
+          Note that these operations only make sense if the sizes match up properly.
+        </li>
+        <li>
+          Note that the two versions of the operation give you the same results.
+        </li>
+      </ul>
+      </p>
+
+    </subsubsection>
+
+    <subsubsection>
+      <title>Matrix Equations</title>
+
+      <p>
+        There are many situations in linear algebra that can be rewritten in
+        the form of an equation that looks like this:<md>
+        <mrow>
+          A v = b
+        </mrow></md>
+        where <m>A</m> is a matrix, and <m>v</m> and <m>b</m> are vectors. The
+        interesting case is when we know <m>A</m> and <m>b</m>, but we want to
+        find the unknown <m>v</m>. We will call this a <em>matrix-vector equation</em>.
+      </p>
+
+      <p>
+        Let's consider the case where you are given some <em>square</em>
+        matrix <m>A</m>. Sometimes one can find another matrix <m>B</m> so that
+        no matter what vector <m>b</m> is chosen in the matrix-vector equation
+        above, the  solution vector takes the form <m>v = Bb</m>. When this
+        happens, we say that <m>A</m> is <em>invertible</em> and call <m>B</m>
+        the <em>inverse</em> of <m>A</m>. It is common to use the notation
+        <m>A^{-1}</m> in place of <m>B</m>. This is a wonderful situation to be
+        in! Eventually, we will want to figure out some test for when a given
+        matrix is invertible, and find some ways to compute the inverse.
+      </p>
+    </subsubsection>
+
+    <subsubsection>
+      <title>A Note about Vectors</title>
+
+      <p>
+        This reading also has a brief introduction to the idea of a set of
+        vectors being <em>linearly depedent</em> or <em>linearly independent</em>.
+        Strang is coy about the precise definition, so here it is:
+      </p>
+    </subsubsection>
+
 <!--
-\subsubsection{Linear Combination of Columns Approach}
-The first way to perform the matrix-vector multiplication is to think of the vector as holding some coefficients for forming a linear combination of the columns of the matrix.
-In our example, it looks like this:
-\[
-\begin{pmatrix} 1 & 1 & 2 \\ 3 & 5 & 8 \end{pmatrix} \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
-13 \begin{pmatrix} 1 \\ 3 \end{pmatrix} + 21 \begin{pmatrix} 1 \\ 5 \end{pmatrix} + 34 \begin{pmatrix} 2 \\ 8 \end{pmatrix} =
-\begin{pmatrix} 102 \\ 416 \end{pmatrix} .
-\]
-
-\subsubsection{Dot Products with the Rows Approach} The second way is to think of the matrix as a bundle of vectors lying along the rows of the matrix, and use the dot product. In our example above, this means that we consider the vectors
-\[
-r_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \quad
-r_2 = \begin{pmatrix} 3 \\ 5 \\ 8 \end{pmatrix}, \text{ and }
-v = \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix}
-\]
-(notice I've rewritten the rows as columns) and then perform this kind of operation:
-\[
-\begin{pmatrix} 1 & 1 & 2 \\ 3 & 5 & 8 \end{pmatrix} \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
-\begin{pmatrix} r_1 \\ r_2 \end{pmatrix} v =
-\begin{pmatrix} r_1 \cdot v \\ r_2 \cdot v \end{pmatrix} =
-\begin{pmatrix} 102 \\ 416 \end{pmatrix} .
-\]
-
-
-Two important remarks:
-\begin{compactitem}
-\item Note that these operations only make sense if the sizes match up properly.
-\item Note that the two versions of the operation give you the same results.
-\end{compactitem}
--->
-</subsubsection>
-<!--
-\subsection{Matrix Equations}
-
-There are many situations in linear algebra that can be rewritten in the form of an equation that looks like this:
-\[\label{eq:matrixeq} \tag{*}
-A v = b
-\]
-where $A$ is a matrix, and $v$ and $b$ are vectors. The interesting case is when we know $A$ and $b$, but we want to find the unknown $v$.
-
-Let's consider the case where you are given some \underline{square} matrix $A$.
-\textbf{Sometimes} one can find another matrix $B$ so that no matter what $b$ is chosen in (\ref{eq:matrixeq}), the solution vector takes the form $v = Bb$. When this happens, we say that $A$ is \emph{invertible} and call $B$ the \emph{inverse} of $A$. It is common to use the notation $A^{-1}$ in place of $B$. This is a wonderful situation to be in! Eventually, we will want to figure out some test for when a given matrix is invertible, and find some ways to compute the inverse.
-
-\subsection{A Note about Vectors}
-
-This reading also has a brief introduction to the idea of a set of vectors being \emph{linearly depedent} or \emph{linearly independent}. Strang is coy about the precise definition, so here it is:
-
-\begin{definition} A set of vectors $v_1, v_2, \dots, v_n$ is called \emph{linearly depdendent} when there is some choice of numbers $a_1, a_2, \dots, a_n$ which are not all zero so that the linear combination
+<definition>
+  A set of vectors <m>v_1, v_2, \dots, v_n</m> is called \emph{linearly depdendent} when there is some choice of numbers $a_1, a_2, \dots, a_n$ which are not all zero so that the linear combination
 \[
 a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
 \]
@@ -248,7 +293,7 @@ This is a little funny the first time you read it. Note that for any set of vect
         <input>
           D = matrix(QQ, 3,3, [[1,0,1],[2/3, 1, 0],[0,0,9/5]])
           # this should say something about the rationals
-          D; D.parent()
+          D.parent()
         </input>
         <output>
           [  1   0   1]
@@ -268,7 +313,8 @@ This is a little funny the first time you read it. Note that for any set of vect
       <sage>
         <input>
           v1 = vector([2,1]); v2= vector([3,4])
-          E = matrix([ v1, v2]); E # construct E with rows v1 and v2, then display
+          # construct E with rows v1 and v2, then display
+          E = matrix([ v1, v2]); E
         </input>
         <output>
           [2 1]
