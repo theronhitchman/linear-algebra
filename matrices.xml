@@ -195,22 +195,26 @@
         vectors being <em>linearly depedent</em> or <em>linearly independent</em>.
         Strang is coy about the precise definition, so here it is:
       </p>
-    </subsubsection>
-
-<!--
-<definition>
-  A set of vectors <m>v_1, v_2, \dots, v_n</m> is called \emph{linearly depdendent} when there is some choice of numbers $a_1, a_2, \dots, a_n$ which are not all zero so that the linear combination
-\[
-a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
-\]
-A set of vectors which is not linearly dependent is called \emph{linearly independent}.
-\end{definition}
-
-This is a little funny the first time you read it. Note that for any set of vectors, you can make a linear combination of those vectors come out as $0$. Simply choose all of the coefficients to be zero. But that is so easy to do we call it \emph{trivial}. What the definition is asking is that we find a \emph{nontrival linear combination of the vectors to make zero}.
--->
-
-<!-- Stop. the below is fine -->
-
+      <p>
+        A set of vectors <m>v_1, v_2, \dots, v_n</m> is called <em>linearly
+        depdendent</em> when there is some choice of numbers
+        <m>a_1, a_2, \dots, a_n</m> which are not all zero so that the
+        linear combination<md>
+        <mrow>
+          a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
+        </mrow></md>
+        A set of vectors which is not linearly dependent is called
+        <em>linearly independent</em>.
+      </p>
+      <p>
+        This is a little funny the first time you read it. Note that for any
+        set of vectors, you can make a linear combination of those vectors
+        come out as <m>0</m>. Simply choose all of the coefficients to be
+        zero. But that is so easy to do we call it <em>trivial</em>. What the
+        definition is asking is that we find a <em>nontrival linear
+        combination of the vectors to make zero</em>.
+      </p>
+      </subsubsection>
 
   </subsection>
 
