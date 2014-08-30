@@ -420,7 +420,109 @@
   <subsection>
     <title>Exercises</title>
 
-<p> coming soon... (It's late and I am tired of typing.)</p>
+    <exercise>
+      <statement>
+        <p>
+          Make an example of a matrix <m>\left(\begin{smallmatrix} 1 &amp;
+          \bullet \\ -1 &amp; \bullet \end{smallmatrix}\right)</m> so that the
+          equation<md>
+          <mrow>
+            \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
+            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
+            \left(\begin{smallmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp;
+            \bullet \\ 1 &amp; 2 &amp; \bullet \end{smallmatrix}\right)
+            \end{pmatrix}
+          </mrow></md>
+          has exactly one solution, or explain why this is not possible.
+        </p>
+        <p>
+          Interpret this as a statement about <m>2-vectors</m> and draw the
+          picture which corresponds.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Make an example of a matrix <m>\left(\begin{smallmatrix} 4 &amp;
+          8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp;
+          \bullet \end{smallmatrix}\right)</m> so that the equation<md>
+          <mrow>
+            \begin{pmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp; \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
+          </mrow></md>
+          has exactly one solution, or explain why this is not possible.
+        </p>
+        <p>
+          Interpret this as a statment about <m>3</m>-vectors and draw the
+          picture which corresponds.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Make an example of a matrix <m>\left( \begin{smallmatrix} 2 &amp; -1 \\
+          \bullet &amp; \bullet \end{smallmatrix}\right)</m> so that the equation<md>
+          <mrow>
+            \begin{pmatrix} 2 &amp; -1 \\ \bullet &amp; \bullet \end{pmatrix}
+            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3
+            \end{pmatrix}
+          </mrow></md>
+          has exactly one solution, or explain why this is not possible.
+        </p>
+        <p>
+          Interpret this as a statement about a pair of lines in the plane and
+          draw the picture which corresponds.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          Make an example of a matrix <m>\left( \begin{smallmatrix} 1 &amp; 0
+          &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet &amp; \bullet &amp; \bullet
+          \end{smallmatrix}\right)</m> so that the equation<md>
+          <mrow>
+            \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet
+            &amp; \bullet &amp; \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z
+            \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+          </mrow></md>
+          has no solutions, or explain why this is not possible.
+        </p>
+        <p>
+          Interpret this as a statement about a planes in space and
+          draw the picture which corresponds.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+
+
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+
+      </statement>
+    </exercise>
 
   </subsection>
 
