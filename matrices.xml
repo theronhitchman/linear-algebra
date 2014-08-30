@@ -429,14 +429,12 @@
           <mrow>
             \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
             \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
-            \left(\begin{smallmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp;
-            \bullet \\ 1 &amp; 2 &amp; \bullet \end{smallmatrix}\right)
             \end{pmatrix}
           </mrow></md>
           has exactly one solution, or explain why this is not possible.
         </p>
         <p>
-          Interpret this as a statement about <m>2-vectors</m> and draw the
+          Interpret this as a statement about <m>2</m>-vectors and draw the
           picture which corresponds.
         </p>
       </statement>
@@ -501,26 +499,96 @@
 
     <exercise>
       <statement>
-
-
+        <p>
+          Find a triple of numbers <m>x</m>, <m>y</m>, and <m>z</m> so that the
+          linear combination<md>
+          <mrow>
+            x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} +
+            y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} +
+            z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
+          </mrow></md>
+          yields the zero vector, or explain why this is not possible.
+        </p>
+        <p>
+          Rewrite the above as an equation which involves a matrix.
+        </p>
+        <p>
+          Plot the three vectors and describe the geometry of the situation.
+        </p>
       </statement>
     </exercise>
 
     <exercise>
       <statement>
-
+        <p>
+          The vectors<md>
+          <mrow>
+            r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
+            r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
+            r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
+          </mrow></md>
+          are linearly dependent because they lie in a common plane (through
+          the origin). Find a normal vector to this plane.
+        </p>
+        <p>
+          Since the vectors are linearly dependent, there must be (infinitely)
+          many choices of scalars <m>x</m>, <m>y</m>, and <m>z</m> so that
+          <m>x r_1 + y r_2 + z r_3 = 0</m>. Find two sets of such numbers.
+        </p>
       </statement>
     </exercise>
 
     <exercise>
       <statement>
-
+        <p>
+          Consider the equation<md>
+          <mrow>
+            \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
+            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2
+            \end{pmatrix}.
+          </mrow></md>
+          We are interested in being able to solve this for <m>x</m> and <m>y</m>
+          for any given choice of the numbers <m>b_1</m> and <m>b_2</m>.
+          Figure out a way to do this by writing <m>x</m> and <m>y</m> in terms
+          of <m>b_1</m> and <m>b_2</m>.
+        </p>
+        <p>
+          Rewrite your solution in the form<md>
+          <mrow>
+            \begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix}
+            \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet
+            \\ \bullet \end{pmatrix}.
+          </mrow></md>
+        </p>
+        <p>
+          How is this related to the inverse of the matrix
+          <m>A = \left( \begin{smallmatrix} 2 &amp; 1 \\ 1 &amp; 1
+          \end{smallmatrix} \right)</m>?
+        </p>
       </statement>
     </exercise>
 
     <exercise>
       <statement>
-
+        <p>
+          Find an example of a number <m>c</m> and a vector <m>\left(
+          \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)</m>
+          so that the equation<md>
+          <mrow>
+            \begin{pmatrix} 3 &amp; 51 \\ c &amp; 17 \end{pmatrix}
+            \begin{pmatrix} x \\ y \end{pmatrix} =
+            \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+          </mrow></md>
+          does not have a solution, or explain why no such example exists.
+        </p>
+        <p>
+          Explain your solution in terms of
+          <ul>
+            <li>lines in the plane,</li>
+            <li><m>2</m>-vectors and linear combinations, and</li>
+            <li>invertibility of a matrix.</li>
+          </ul>
+        </p>
       </statement>
     </exercise>
 
