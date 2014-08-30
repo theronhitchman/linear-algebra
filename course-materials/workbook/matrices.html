@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-08-28T11:40:22-05:00    *-->
+<!--*    on 2014-08-29T20:57:33-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -90,7 +90,276 @@ $(function () {
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="matrices"><header><h1 class="heading">
 <span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Matrices</span>
-</h1></header><p>This is a placeholder for now.</p></section></div></main>
+</h1></header><section class="subsection" id="subsection-10"><header><h1 class="heading">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">The Assignment</span>
+</h1></header><ul>
+<li>Read <em>Strang</em> section 1.3 (pages 22-27).</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-11"><header><h1 class="heading">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Learning Goals</span>
+</h1></header><p>Before class starts, a student should be able to:
+      <ul>
+<li>multiply a matrix times a vector
+          <ul>
+<li>as a linear combination of columns</li>
+<li>as a set of dot products, row times column</li>
+</ul>
+        </li>
+<li>translate back and forth between our three representations
+          <ul>
+<li>a system of linear equations,</li>
+<li>a linear combination of vectors equation, and</li>
+<li>a matrix equation \(Ax=b\).</li>
+</ul>
+        </li>
+<li>Correctly identify the rows and columns of a matrix</li>
+<li>describe what is meant by a lower triangular matrix</li>
+</ul>
+    At some point, as student should be comfortable with these concepts, which
+    get a very brief informal introduction in this section:
+    <ul>
+<li>linear dependence and linear independence</li>
+<li>the inverse of a matrix</li>
+</ul>
+  </p></section><section class="subsection" id="subsection-12"><header><h1 class="heading">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Discussion</span>
+</h1></header><p>
+      A <em>matrix</em> is a two-dimensional array of numbers like this:\begin{align*}
+
+        A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}.
+      
+\end{align*}
+      Sometimes it helps to think of a matrix as a collection of its <em>rows</em>
+      which are read across:\begin{gather*}
+
+        M = \begin{pmatrix} \longrightarrow \\ \longrightarrow \end{pmatrix}
+      
+\end{gather*}
+      and sometimes it helps to think of a matrix as a collection of its
+      <em>columns</em> which are read down:\begin{align*}
+
+        M = \begin{pmatrix} \downarrow &amp; \downarrow \end{pmatrix}.
+      
+\end{align*}
+    </p>
+<p>
+      It is often more clear to describe a matrix by giving the sizes of its
+      rows and columns. An \(m\) by \(n\) matrix is one having \(m\)
+      rows and \(n\) columns. It is really easy to get these reversed, so be
+      careful. For example, this is a \(2\times 3\) matrix, because it has
+      two rows and three columns:\begin{align*}
+
+        B = \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
+      
+\end{align*}
+      A matrix is called a <em>square</em> matrix when the number of rows and
+      the number of columns is equal. The matrix \(A\) that I wrote down
+      above is square because it is a \(2\times 2\) matrix.
+    </p>
+<section class="subsubsection" id="subsubsection-4"><header><h1 class="heading">
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Multiplying Matrices and Vectors</span>
+</h1></header><p>
+        It is possible to multiply a matrix by a vector like this:\begin{align*}
+
+          \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
+          \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
+          \begin{pmatrix} 102 \\ 416 \end{pmatrix}
+        
+\end{align*}
+        For this to work, it is absolutely crucial that the sizes match up
+        properly. If the matrix is \(m\) by \(n\), then the vector must have
+        size \(n\). In the above example \(m = 2\) and \(n=3\).
+      </p>
+<p>
+        Later, we shall see that the word "multiplication" is not really the
+        best choice here. It is better to think of the matrix as "acting on"
+        the vector and turning it into a new vector. For now, the word
+        multiplication will serve.
+      </p>
+<p>
+        How exactly does one define this matrix--vector multiplication?
+      </p>Linear Combination of Columns Approach<p>
+          The first way to perform the matrix-vector multiplication is to think
+          of the vector as holding some coefficients for forming a linear
+          combination of the columns of the matrix. In our example, it looks
+          like this:\begin{align*}
+
+            \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
+            \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
+            13 \begin{pmatrix} 1 \\ 3 \end{pmatrix} + 21 \begin{pmatrix} 1 \\ 5
+            \end{pmatrix} + 34 \begin{pmatrix} 2 \\ 8 \end{pmatrix} =
+            \begin{pmatrix} 102 \\ 416 \end{pmatrix}
+          
+\end{align*}
+        </p>Dot Products with the Rows Approach<p>
+          The second way is to think of the matrix as a bundle of vectors lying
+          along the rows of the matrix, and use the dot product. In our example
+          above, this means that we consider the vectors\begin{gather*}
+
+            r_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \quad
+            r_2 = \begin{pmatrix} 3 \\ 5 \\ 8 \end{pmatrix}, \text{ and }
+            v = \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix}
+          
+\end{gather*}
+          (notice I've rewritten the rows as columns) and then perform this
+          kind of operation:\begin{align*}
+
+            \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
+            \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} = \begin{pmatrix} r_1
+            \\ r_2 \end{pmatrix} v =  \begin{pmatrix} r_1 \cdot v \\ r_2 \cdot
+            v \end{pmatrix} =
+            \begin{pmatrix} 102 \\ 416 \end{pmatrix} .
+          
+\end{align*}
+        </p>
+<p>
+      Two important remarks:
+      <ul>
+<li>
+          Note that these operations only make sense if the sizes match up properly.
+        </li>
+<li>
+          Note that the two versions of the operation give you the same results.
+        </li>
+</ul>
+      </p></section><section class="subsubsection" id="subsubsection-5"><header><h1 class="heading">
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Matrix Equations</span>
+</h1></header><p>
+        There are many situations in linear algebra that can be rewritten in
+        the form of an equation that looks like this:\begin{gather*}
+
+          A v = b
+        
+\end{gather*}
+        where \(A\) is a matrix, and \(v\) and \(b\) are vectors. The
+        interesting case is when we know \(A\) and \(b\), but we want to
+        find the unknown \(v\). We will call this a <em>matrix-vector equation</em>.
+      </p>
+<p>
+        Let's consider the case where you are given some <em>square</em>
+        matrix \(A\). Sometimes one can find another matrix \(B\) so that
+        no matter what vector \(b\) is chosen in the matrix-vector equation
+        above, the  solution vector takes the form \(v = Bb\). When this
+        happens, we say that \(A\) is <em>invertible</em> and call \(B\)
+        the <em>inverse</em> of \(A\). It is common to use the notation
+        \(A^{-1}\) in place of \(B\). This is a wonderful situation to be
+        in! Eventually, we will want to figure out some test for when a given
+        matrix is invertible, and find some ways to compute the inverse.
+      </p></section><section class="subsubsection" id="subsubsection-6"><header><h1 class="heading">
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">A Note about Vectors</span>
+</h1></header><p>
+        This reading also has a brief introduction to the idea of a set of
+        vectors being <em>linearly depedent</em> or <em>linearly independent</em>.
+        Strang is coy about the precise definition, so here it is:
+      </p>
+<p>
+        A set of vectors \(v_1, v_2, \dots, v_n\) is called <em>linearly
+        depdendent</em> when there is some choice of numbers
+        \(a_1, a_2, \dots, a_n\) which are not all zero so that the
+        linear combination\begin{gather*}
+
+          a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
+        
+\end{gather*}
+        A set of vectors which is not linearly dependent is called
+        <em>linearly independent</em>.
+      </p>
+<p>
+        This is a little funny the first time you read it. Note that for any
+        set of vectors, you can make a linear combination of those vectors
+        come out as \(0\). Simply choose all of the coefficients to be
+        zero. But that is so easy to do we call it <em>trivial</em>. What the
+        definition is asking is that we find a <em>nontrival linear
+        combination of the vectors to make zero</em>.
+      </p></section></section><section class="subsection" id="subsection-13"><header><h1 class="heading">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Sage and Matrices</span>
+</h1></header><p>
+      Sage has many useful commands for working with linear algebra, and
+      given the central role played by matrices in this subject, there are
+      lots of things Sage can do with matrices. We'll focus here on just basic
+      construction and matrix--vector multiplication.
+    </p>
+<section class="subsubsection" id="subsubsection-7"><header><h1 class="heading">
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">The matrix construction command</span>
+</h1></header><p>The command to construct a matrix is pretty straightforward:
+        A = matrix( r, c, [list of entries]) where r is
+        the number of rows and c is the number of columns.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(2,3, [1,2,3,5,8,13]); A
+</script></div>
+<p>If you wish, you can structure that list of entries to be a list of lists,
+        where each sublist is a row in your matrix.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">B = matrix(2,3, [[1,2,3], [5,8,13]]); B
+</script></div>
+<p>
+        Every once in a while, it might matter to you what kinds of numbers you
+        put into the matrix. Sage will let you specify them by putting in an optional
+        argument like this: C = matrix(number type, r, c, [list of entries])
+      </p>
+<div class="sage-compute"><script type="text/x-sage">C = matrix(ZZ, 2, 2, [2,1,1,1]); C # the best matrix
+</script></div>
+<p>
+        The notation ZZ means "integers." There are other sets of numbers
+        here:
+        <ul>
+<li>QQ the rational numbers (with exact arithmetic)</li>
+<li>RR the real numbers (with computer precision arithmetic)</li>
+<li>CC the complex numbers</li>
+<li>AA the set of all algebraic numbers, that is, all of the
+            numbers that are roots of some polynomial with integer coefficients
+          </li>
+</ul>
+        You can find out what kind of entries a matrix thinks it has by calling the
+        .parent() method on it.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">A.parent()
+# this should say something about the integers
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">D = matrix(QQ, 3,3, [[1,0,1],[2/3, 1, 0],[0,0,9/5]])
+# this should say something about the rationals
+D.parent()
+</script></div></section><section class="subsubsection" id="subsubsection-8"><header><h1 class="heading">
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Building a matrix from rows or columns</span>
+</h1></header><p>
+        It is possible to build a matrix by bundling together a bunch of vectors,
+        too. Let's start with an example made using rows.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">v1 = vector([2,1]); v2= vector([3,4])
+# construct E with rows v1 and v2, then display
+E = matrix([ v1, v2]); E
+</script></div>
+<p>
+        Sage prefers rows. I wish it were the other way, but I am sure there is
+        a good reason it prefers rows. If you want to make a matrix whose columns
+        are the vectors v1 and v2, you can use the
+        transpose method. We'll talk more about the operation of transpose
+        later, but it basically "switches rows for columns and vice versa."
+      </p>
+<div class="sage-compute"><script type="text/x-sage">F = matrix([v1,v2]).transpose(); F
+</script></div></section><section class="subsubsection" id="subsubsection-9"><header><h1 class="heading">
+<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Matrix action on vectors</span>
+</h1></header><p>
+        Of course, Sage knows how to perform the action of a matrix on a vector.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">C; v1
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">C*v1
+</script></div>
+<p>And if you get the sizes wrong, it will return an error.</p>
+<div class="sage-compute"><script type="text/x-sage">A; v1
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A*v1
+</script></div>
+<p>If you really need it, Sage can tell you about inverses.</p>
+<div class="sage-compute"><script type="text/x-sage">A.is_invertible()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">C.is_invertible()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">C.inverse()
+</script></div></section></section><section class="subsection" id="subsection-14"><header><h1 class="heading">
+<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h1></header><p> coming soon... (It's late and I am tired of typing.)</p></section></section></div></main>
 </div>
 </body>
 </html>
