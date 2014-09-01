@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-08-29T23:58:25-05:00    *-->
+<!--*    on 2014-09-01T13:01:38-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -111,17 +111,17 @@ $(function () {
 </ul>
     </p></section><section class="subsection" id="subsection-3"><header><h1 class="heading">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Some Discussion</span>
-</h1></header><p>Algebraically, a <em>vector</em> is a stack of numbers in a set of
+</h1></header><p>Algebraically, a <em class="terminology">vector</em> is a stack of numbers in a set of
      parentheses or brackets, like this\begin{align*}
 \begin{pmatrix} 2 \\ 7 \\ 9 \end{pmatrix}, \text{ or }
           \begin{bmatrix}2 \\ 7 \\ 9 \end{bmatrix}, \text{ or }
           \begin{pmatrix} 2 &amp; 7 &amp; 9 \end{pmatrix}.
 \end{align*}
-     The individual numbers are called the <em>components</em> or <em>entries</em>
-     or <em>coordinates</em> of the vector. For example, \(7\) is the second
+     The individual numbers are called the <em class="terminology">components</em> or <em class="terminology">entries</em>
+     or <em class="terminology">coordinates</em> of the vector. For example, \(7\) is the second
      component of the vectors above.</p>
-<p>The first two vectors above are called <em>column</em> vectors
-        because they are stacked vertically. The third is called a <em>row</em> vector because it is arranged horizontally. For this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors. It is up to you to make the switch. (We will see later how this matters!)</p>
+<p>The first two vectors above are called <em class="terminology">column</em> vectors
+        because they are stacked vertically. The third is called a <em class="terminology">row</em> vector because it is arranged horizontally. For this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors. It is up to you to make the switch. (We will see later how this matters!)</p>
 <p>Vectors can take lots of different sizes. The vectors above are all \(3\)-vectors. Here is a \(2\)-vector: \[\begin{pmatrix} 71 \\ -12 \end{pmatrix}.\] Here is a \(4\)-vector: \[\begin{pmatrix} \pi \\ 0 \\ -\pi \\ 1\end{pmatrix}.\]</p>
 <p>The main value in using vectors lies in their standard interpretations. Let's focus on \(3\)-vectors for now. The vector \(\left(\begin{smallmatrix} a \\ b \\ c\end{smallmatrix}\right)\) can represent <ul>
 <li><p>A point in space described in the standard three-dimensional rectangular coordinate system with \(x\) coordinate equal to \(a\), \(y\)-coordinate equal to \(b\) and \(z\) coordinate equal to \(c\).</p></li>
@@ -131,8 +131,8 @@ $(function () {
         </p>
 <section class="subsubsection" id="subsubsection-1"><header><h1 class="heading">
 <span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Operations on Vectors</span>
-</h1></header><p>There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>Scalar Multiplication<p>Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\), we form the new vector \[\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\]</p>Addition<p>Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their <em>sum</em> \[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]</p>
-<p>These operations have “obvious” generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em>coordinate-wise</em> operations.</p>
+</h1></header><p>There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>Scalar Multiplication<p>Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\), we form the new vector \[\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\]</p>Addition<p>Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their <em class="terminology">sum</em> \[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]</p>
+<p>These operations have “obvious” generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em class="terminology">coordinate-wise</em> operations.</p>
 <p>Combining these two operations gives us the notion of a \emph{linear combination}. If \(\lambda\) and \(\mu\) are numbers and \(v\) and \(w\) are vectors of a common size, then the vector \[\lambda v + \mu w \] is a linear combination of \(v\) and \(w\).</p></section></section><section class="subsection" id="subsection-4"><header><h1 class="heading">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Sage Instructions</span>
 </h1></header>Basic Constructions<p>A vector in Sage is constructed by applying the vector command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
@@ -158,7 +158,7 @@ u + v
 <div class="sage-compute"><script type="text/x-sage">a = vector([-1,1])
 plot(a)
 </script></div>
-<p>If you find that you want a vecotr to have its tail someplace
+<p>If you find that you want a vector to have its tail someplace
               that is not the origin, use the <tt class="code-inline">arrow</tt> command.</p>
 <div class="sage-compute"><script type="text/x-sage">plot(arrow([1,1],[2,3], color='red', arrowsize=2, width=2))
 </script></div>

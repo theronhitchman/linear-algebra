@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-08-29T23:58:25-05:00    *-->
+<!--*    on 2014-09-01T13:01:38-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -124,19 +124,19 @@ $(function () {
   </p></section><section class="subsection" id="subsection-12"><header><h1 class="heading">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Discussion</span>
 </h1></header><p>
-      A <em>matrix</em> is a two-dimensional array of numbers like this:\begin{align*}
+      A <em class="terminology">matrix</em> is a two-dimensional array of numbers like this:\begin{align*}
 
         A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}.
       
 \end{align*}
-      Sometimes it helps to think of a matrix as a collection of its <em>rows</em>
+      Sometimes it helps to think of a matrix as a collection of its <em class="terminology">rows</em>
       which are read across:\begin{gather*}
 
         M = \begin{pmatrix} \longrightarrow \\ \longrightarrow \end{pmatrix}
       
 \end{gather*}
       and sometimes it helps to think of a matrix as a collection of its
-      <em>columns</em> which are read down:\begin{align*}
+      <em class="terminology">columns</em> which are read down:\begin{align*}
 
         M = \begin{pmatrix} \downarrow &amp; \downarrow \end{pmatrix}.
       
@@ -152,7 +152,7 @@ $(function () {
         B = \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
       
 \end{align*}
-      A matrix is called a <em>square</em> matrix when the number of rows and
+      A matrix is called a <em class="terminology">square</em> matrix when the number of rows and
       the number of columns is equal. The matrix \(A\) that I wrote down
       above is square because it is a \(2\times 2\) matrix.
     </p>
@@ -233,15 +233,15 @@ $(function () {
 \end{gather*}
         where \(A\) is a matrix, and \(v\) and \(b\) are vectors. The
         interesting case is when we know \(A\) and \(b\), but we want to
-        find the unknown \(v\). We will call this a <em>matrix-vector equation</em>.
+        find the unknown \(v\). We will call this a <em class="terminology">matrix-vector equation</em>.
       </p>
 <p>
-        Let's consider the case where you are given some <em>square</em>
+        Let's consider the case where you are given some <em class="terminology">square</em>
         matrix \(A\). Sometimes one can find another matrix \(B\) so that
         no matter what vector \(b\) is chosen in the matrix-vector equation
         above, the  solution vector takes the form \(v = Bb\). When this
-        happens, we say that \(A\) is <em>invertible</em> and call \(B\)
-        the <em>inverse</em> of \(A\). It is common to use the notation
+        happens, we say that \(A\) is <em class="terminology">invertible</em> and call \(B\)
+        the <em class="terminology">inverse</em> of \(A\). It is common to use the notation
         \(A^{-1}\) in place of \(B\). This is a wonderful situation to be
         in! Eventually, we will want to figure out some test for when a given
         matrix is invertible, and find some ways to compute the inverse.
@@ -249,11 +249,11 @@ $(function () {
 <span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">A Note about Vectors</span>
 </h1></header><p>
         This reading also has a brief introduction to the idea of a set of
-        vectors being <em>linearly depedent</em> or <em>linearly independent</em>.
+        vectors being <em class="terminology">linearly depedent</em> or <em class="terminology">linearly independent</em>.
         Strang is coy about the precise definition, so here it is:
       </p>
 <p>
-        A set of vectors \(v_1, v_2, \dots, v_n\) is called <em>linearly
+        A set of vectors \(v_1, v_2, \dots, v_n\) is called <em class="terminology">linearly
         depdendent</em> when there is some choice of numbers
         \(a_1, a_2, \dots, a_n\) which are not all zero so that the
         linear combination\begin{gather*}
@@ -262,13 +262,13 @@ $(function () {
         
 \end{gather*}
         A set of vectors which is not linearly dependent is called
-        <em>linearly independent</em>.
+        <em class="terminology">linearly independent</em>.
       </p>
 <p>
         This is a little funny the first time you read it. Note that for any
         set of vectors, you can make a linear combination of those vectors
         come out as \(0\). Simply choose all of the coefficients to be
-        zero. But that is so easy to do we call it <em>trivial</em>. What the
+        zero. But that is so easy to do we call it <em class="terminology">trivial</em>. What the
         definition is asking is that we find a <em>nontrival linear
         combination of the vectors to make zero</em>.
       </p></section></section><section class="subsection" id="subsection-13"><header><h1 class="heading">
