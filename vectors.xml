@@ -131,7 +131,7 @@
               plot(a)
               </input>
             </sage>
-            <p>If you find that you want a vecotr to have its tail someplace
+            <p>If you find that you want a vector to have its tail someplace
               that is not the origin, use the <c>arrow</c> command.</p>
             <sage>
               <input>plot(arrow([1,1],[2,3], color='red', arrowsize=2, width=2))</input>
