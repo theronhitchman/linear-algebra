@@ -54,17 +54,17 @@
     <title>Discussion</title>
 
     <p>
-      A <em>matrix</em> is a two-dimensional array of numbers like this:<md>
+      A <term>matrix</term> is a two-dimensional array of numbers like this:<md>
       <mrow>
         A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}.
       </mrow></md>
-      Sometimes it helps to think of a matrix as a collection of its <em>rows</em>
+      Sometimes it helps to think of a matrix as a collection of its <term>rows</term>
       which are read across:<md>
       <mrow>
         M = \begin{pmatrix} \longrightarrow \\ \longrightarrow \end{pmatrix}
       </mrow></md>
       and sometimes it helps to think of a matrix as a collection of its
-      <em>columns</em> which are read down:<md>
+      <term>columns</term> which are read down:<md>
       <mrow>
         M = \begin{pmatrix} \downarrow &amp; \downarrow \end{pmatrix}.
       </mrow></md>
@@ -78,7 +78,7 @@
       <mrow>
         B = \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
       </mrow></md>
-      A matrix is called a <em>square</em> matrix when the number of rows and
+      A matrix is called a <term>square</term> matrix when the number of rows and
       the number of columns is equal. The matrix <m>A</m> that I wrote down
       above is square because it is a <m>2\times 2</m> matrix.
     </p>
@@ -171,16 +171,16 @@
         </mrow></md>
         where <m>A</m> is a matrix, and <m>v</m> and <m>b</m> are vectors. The
         interesting case is when we know <m>A</m> and <m>b</m>, but we want to
-        find the unknown <m>v</m>. We will call this a <em>matrix-vector equation</em>.
+        find the unknown <m>v</m>. We will call this a <term>matrix-vector equation</term>.
       </p>
 
       <p>
-        Let's consider the case where you are given some <em>square</em>
+        Let's consider the case where you are given some <term>square</term>
         matrix <m>A</m>. Sometimes one can find another matrix <m>B</m> so that
         no matter what vector <m>b</m> is chosen in the matrix-vector equation
         above, the  solution vector takes the form <m>v = Bb</m>. When this
-        happens, we say that <m>A</m> is <em>invertible</em> and call <m>B</m>
-        the <em>inverse</em> of <m>A</m>. It is common to use the notation
+        happens, we say that <m>A</m> is <term>invertible</term> and call <m>B</m>
+        the <term>inverse</term> of <m>A</m>. It is common to use the notation
         <m>A^{-1}</m> in place of <m>B</m>. This is a wonderful situation to be
         in! Eventually, we will want to figure out some test for when a given
         matrix is invertible, and find some ways to compute the inverse.
@@ -192,25 +192,25 @@
 
       <p>
         This reading also has a brief introduction to the idea of a set of
-        vectors being <em>linearly depedent</em> or <em>linearly independent</em>.
+        vectors being <term>linearly depedent</term> or <term>linearly independent</term>.
         Strang is coy about the precise definition, so here it is:
       </p>
       <p>
-        A set of vectors <m>v_1, v_2, \dots, v_n</m> is called <em>linearly
-        depdendent</em> when there is some choice of numbers
+        A set of vectors <m>v_1, v_2, \dots, v_n</m> is called <term>linearly
+        depdendent</term> when there is some choice of numbers
         <m>a_1, a_2, \dots, a_n</m> which are not all zero so that the
         linear combination<md>
         <mrow>
           a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
         </mrow></md>
         A set of vectors which is not linearly dependent is called
-        <em>linearly independent</em>.
+        <term>linearly independent</term>.
       </p>
       <p>
         This is a little funny the first time you read it. Note that for any
         set of vectors, you can make a linear combination of those vectors
         come out as <m>0</m>. Simply choose all of the coefficients to be
-        zero. But that is so easy to do we call it <em>trivial</em>. What the
+        zero. But that is so easy to do we call it <term>trivial</term>. What the
         definition is asking is that we find a <em>nontrival linear
         combination of the vectors to make zero</em>.
       </p>

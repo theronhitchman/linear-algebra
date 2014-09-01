@@ -37,18 +37,18 @@
 
   <subsection>
     <title>Some Discussion</title>
-    <p>Algebraically, a <em>vector</em> is a stack of numbers in a set of
+    <p>Algebraically, a <term>vector</term> is a stack of numbers in a set of
      parentheses or brackets, like this<md>
       <mrow>\begin{pmatrix} 2 \\ 7 \\ 9 \end{pmatrix}, \text{ or }
           \begin{bmatrix}2 \\ 7 \\ 9 \end{bmatrix}, \text{ or }
           \begin{pmatrix} 2 &amp; 7 &amp; 9 \end{pmatrix}.</mrow>
         </md>
-     The individual numbers are called the <em>components</em> or <em>entries</em>
-     or <em>coordinates</em> of the vector. For example, <m>7</m> is the second
+     The individual numbers are called the <term>components</term> or <term>entries</term>
+     or <term>coordinates</term> of the vector. For example, <m>7</m> is the second
      component of the vectors above.</p>
 
-        <p>The first two vectors above are called <em>column</em> vectors
-        because they are stacked vertically. The third is called a <em>row</em> vector because it is arranged horizontally. For this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors. It is up to you to make the switch. (We will see later how this matters!)</p>
+        <p>The first two vectors above are called <term>column</term> vectors
+        because they are stacked vertically. The third is called a <term>row</term> vector because it is arranged horizontally. For this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors. It is up to you to make the switch. (We will see later how this matters!)</p>
 
         <p>Vectors can take lots of different sizes. The vectors above are all <m>3</m>-vectors. Here is a <m>2</m>-vector: <me>\begin{pmatrix} 71 \\ -12 \end{pmatrix}.</me> Here is a <m>4</m>-vector: <me>\begin{pmatrix} \pi \\ 0 \\ -\pi \\ 1\end{pmatrix}.</me></p>
 
@@ -75,12 +75,12 @@
             <paragraph>
                 <title>Addition</title>
 
-                <p>Given a vector <m>v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)</m> and a vector <m>w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)</m> of the same size, we form their <em>sum</em> <me> v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) </me></p>
+                <p>Given a vector <m>v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)</m> and a vector <m>w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)</m> of the same size, we form their <term>sum</term> <me> v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) </me></p>
 
             </paragraph>
 
             <paragraph>
-                <p>These operations have <q>obvious</q> generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em>coordinate-wise</em> operations.</p>
+                <p>These operations have <q>obvious</q> generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <term>coordinate-wise</term> operations.</p>
 
                 <p>Combining these two operations gives us the notion of a \emph{linear combination}. If <m>\lambda</m> and <m>\mu</m> are numbers and <m>v</m> and <m>w</m> are vectors of a common size, then the vector <me>\lambda v + \mu w </me> is a linear combination of <m>v</m> and <m>w</m>.</p>
             </paragraph>
