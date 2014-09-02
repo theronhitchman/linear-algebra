@@ -11,6 +11,56 @@
 
   <title>Linear Equations</title>
 
-  <p>This whole chapter is a placeholder for now.</p>
+  <introduction>
+    <p>
+      This chapter is dedicated to the first major problem of
+      linear algebra: solving systems of linear equations. Restated as a set of
+      questions, we will consider these.
+    </p>
+    <ul>
+      <li>
+        What is the set of solutions to a given system of linear equations?
+      </li>
+      <li>
+        When does a given system have solution, and when does it not?
+      </li>
+      <li>
+        If there is a solution, how many solutions are there?
+      </li>
+      <li>
+        What ways do we have of describing the collection of solutions?
+      </li>
+      <li>
+        Is there a computationally effective way to find those solutions?
+      </li>
+    </ul>
+    <p>
+      Though we begin with the first question, we answer the last one first. As
+      we explore the process of finding solutions, we will start to build the
+      tools we need to finish answering the other questions in a later chapter.
+    </p>
+    <p>
+      We will begin with a study of the two ways that vectors let us make pictures
+      of systems of linear equations. Then we take up a basic process for finding
+      solutions, where matrices will appear as a convenient notational device.
+      But as we dig a little further, matrices will become interesting in their
+      own way, so we will study those. But what we study will relate back to
+      the fundamental issue of solving systems of linear equations.
+    </p>
+    <p>
+      This chapter has two short review sections in it. One just after we learn
+      about elimination, and another at the end of the chapter.
+    </p>
+  </introduction>
+
+  <xi:include href="two-pictures.xml" />
+  <xi:include href="elimination.xml" />
+  <xi:include href="matrix-elimination.xml" />
+  <xi:include href="lin-eq-gf1.xml" />
+  <xi:include href="matrix-algebra.xml" />
+  <xi:include href="inverse.xml" />
+  <xi:include href="lu-decomposition.xml" />
+  <xi:include href="permutations.xml" />
+  <xi:include href="lin-eq-gf2.xml" />
 
 </chapter>
