@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-01T13:01:38-05:00    *-->
+<!--*    on 2014-09-02T16:47:45-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -56,12 +56,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="basic-objects-going-further.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="chapter-subspaces.html">Next</a>
+<a class="previous-button toolbar-item button" href="basic-objects-going-further.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="two-pictures.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="basic-objects-going-further.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="chapter-subspaces.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="basic-objects-going-further.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="two-pictures.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -79,7 +79,17 @@ $(function () {
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link active"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
-<ul></ul>
+<ul>
+<li><a href="two-pictures.html">Two Geometric Models</a></li>
+<li><a href="elimination.html">Solving Systems</a></li>
+<li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
+<li><a href="lin-eq-gf1.html">Systems: Going Further</a></li>
+<li><a href="matrix-algebra.html">Matrix Algebra</a></li>
+<li><a href="inverse.html">Matrix Inverses</a></li>
+<li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
+<li><a href="permutations.html">Permutation Matrices</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
+</ul>
 <h2 class="link"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
 <ul></ul>
 <h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
@@ -90,7 +100,45 @@ $(function () {
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-2"><header><h1 class="heading">
 <span class="type">Chapter</span> <span class="codenumber">2</span> <span class="title">Linear Equations</span>
-</h1></header><p>This whole chapter is a placeholder for now.</p></section></div></main>
+</h1></header><article class="introduction" id="introduction-2"><p>
+      This chapter is dedicated to the first major problem of
+      linear algebra: solving systems of linear equations. Restated as a set of
+      questions, we will consider these.
+    </p>
+<ul>
+<li>
+        What is the set of solutions to a given system of linear equations?
+      </li>
+<li>
+        When does a given system have solution, and when does it not?
+      </li>
+<li>
+        If there is a solution, how many solutions are there?
+      </li>
+<li>
+        What ways do we have of describing the collection of solutions?
+      </li>
+<li>
+        Is there a computationally effective way to find those solutions?
+      </li>
+</ul>
+<p>
+      Though we begin with the first question, we answer the last one first. As
+      we explore the process of finding solutions, we will start to build the
+      tools we need to finish answering the other questions in a later chapter.
+    </p>
+<p>
+      We will begin with a study of the two ways that vectors let us make pictures
+      of systems of linear equations. Then we take up a basic process for finding
+      solutions, where matrices will appear as a convenient notational device.
+      But as we dig a little further, matrices will become interesting in their
+      own way, so we will study those. But what we study will relate back to
+      the fundamental issue of solving systems of linear equations.
+    </p>
+<p>
+      This chapter has two short review sections in it. One just after we learn
+      about elimination, and another at the end of the chapter.
+    </p></article><nav class="summary-links"><a href="two-pictures.html"><span class="codenumber">2.1</span><span class="title">Two Geometric Models</span></a><a href="elimination.html"><span class="codenumber">2.2</span><span class="title">Solving Systems</span></a><a href="matrix-elimination.html"><span class="codenumber">2.3</span><span class="title">Elimination using Matrices</span></a><a href="lin-eq-gf1.html"><span class="codenumber">2.4</span><span class="title">Systems: Going Further</span></a><a href="matrix-algebra.html"><span class="codenumber">2.5</span><span class="title">Matrix Algebra</span></a><a href="inverse.html"><span class="codenumber">2.6</span><span class="title">Matrix Inverses</span></a><a href="lu-decomposition.html"><span class="codenumber">2.7</span><span class="title">The \(LU\) Decomposition</span></a><a href="permutations.html"><span class="codenumber">2.8</span><span class="title">Permutation Matrices</span></a><a href="lin-eq-gf2.html"><span class="codenumber">2.9</span><span class="title">Matrix Algebra: Going Further</span></a></nav></section></div></main>
 </div>
 </body>
 </html>
