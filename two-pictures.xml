@@ -13,6 +13,15 @@
   <subsection>
     <title>The Assignment</title>
 
+    <ul>
+      <li>
+        Read section 2.1 of <em>Strang</em> (pages 31-40).
+      </li>
+      <li>
+        Read the following and complete the exercises below
+      </li>
+    </ul>
+
   </subsection>
 
   <subsection>
@@ -21,6 +30,49 @@
 
   <subsection>
     <title>Discussion</title>
+
+    <p>
+      Now we have a little experience with vectors and related things, it is
+      time to be aware of what we have done so we can use it as a foundation for
+      future work. So far, we have talked about two geometric interpretations
+      for a system of linear equations, the <term>row picture</term> and the
+      <term>column picture</term>.
+    </p>
+    <p>
+      Does the following picture make sense to you?
+    </p>
+
+    <p>
+      A deep understanding of linear algebra will involve a level of comfort with
+      each of these three views of the subject in the diagram, and also the ability
+      to pass back and forth between them.
+    </p>
+
+    <subsubsection>
+      <title>The Transformational View</title>
+
+      <p>
+        We have seen that matrices can be made to "act upon" vectors by a kind of
+        multiplication. In particular, if <m>A</m> is an <m>m\times n</m> matrix,
+        then <m>A</m> can be multiplied (on the left) with a column vector of size
+        <m>n</m>, and the result is a column vector of size <m>m</m>.
+      </p>
+      <p>
+        This makes <m>A</m> into a kind of <term>function</term>. (We will use
+        the synonyms <term>mapping</term> or <term>transformation</term>, too.)
+        For every vector <m>v</m> of size <m>n</m>, the matrix <m>A</m> allows
+        us to compute a new vector <m>T_A(v) = Av</m> of size <m>m</m>. This is
+        the basic example of what we will eventually call a <term>linear
+        transformation</term>.<md>
+        <mrow>\mathbb{R}^m &amp; \xrightarrow[]{T_A} \mathbb{R}^n</mrow>
+        <mrow>v &amp; \longmapsto Av.</mrow></md>
+        One of our long term goals is to find a way to think about the geometry
+        of linear algebra from this viewpoint, too.
+      </p>
+
+    </subsubsection>
+
+
   </subsection>
 
   <subsection>
@@ -29,7 +81,94 @@
 
   <subsection>
     <title>Exercises</title>
+
+    <exercise>
+      <statement>
+        translate a system to a lin comb
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        translate a lin comb into a system
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        Consider the matrix equation<md>
+        <mrow>\begin{pmatrix}1 &amp; 2 &amp; 4 \\ 2 &amp; 0 &amp; 1 \end{pmatrix}
+          \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3
+          \end{pmatrix}.
+        </mrow></md>
+        <ol>
+          <li>
+            Draw a diagram representing the row picture of this matrix equation.
+          </li>
+          <li>
+            Draw a diagram representing the column picture of this matrix equation.
+          </li>
+        </ol>
+      </statement>
+    </exercise>
+
+
+
+    <exercise>
+      <statement>
+        Find an example of a system of linear equations so that the
+        corresponding column picture is about lin combs of 4 2-vecs = 0
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        Find a lin comb equation so that the corresponding system of linear eqns
+        means intersect 3 lines in the plane.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        Find an example of a vector <m>b</m> so that the equation<md>
+        <mrow>
+          \begin{pmatrix} -1 &amp; 2 \\ 5 &amp; -9 \end{pmatrix} v = b
+        </mrow></md>
+        has no solution <m>v</m>, or explain why it is impossible to find
+        such an example.
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        In each of the below, find an example of a matrix <m>B</m> which has the
+        described effect.
+        <ol>
+          <li>
+            <m>
+              B\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix}y \\ x \end{pmatrix}
+            </m>
+          </li>
+          <li>
+            Rotates vectors through <m>45^{\circ}</m> counter-clockwise.
+          </li>
+          <li>
+            Reflects vectors across the <m>y</m>axis.
+          </li>
+          <li>
+            <m>
+              B\begin{pmatrix} x \\ y \end{pmatrix} =
+              \begin{pmatrix} x+y \\ y \end{pmatrix}.
+            </m>
+          </li>
+        </ol>
+      </statement>
+    </exercise>
+
+
+
   </subsection>
+
 
 
 </section>

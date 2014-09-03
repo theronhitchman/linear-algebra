@@ -38,6 +38,8 @@
       Though we begin with the first question, we answer the last one first. As
       we explore the process of finding solutions, we will start to build the
       tools we need to finish answering the other questions in a later chapter.
+      In this chapter, we aim to get as complete understanding as we can for at
+      least a special case: <term>square systems</term>.
     </p>
     <p>
       We will begin with a study of the two ways that vectors let us make pictures
