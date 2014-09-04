@@ -73,7 +73,7 @@
     <subsubsection>
       <title>Basic Commands</title>
     <p>
-      Sage has a built-in dot product command <kbd>u.dot_product(v)</kbd>. This
+      Sage has a built-in dot product command <c>u.dot_product(v)</c>. This
       will return the dot product of the vectors <m>u</m> and <m>v</m>.
     </p>
     <sage>
@@ -85,8 +85,8 @@
     </sage>
     <p>
       It also has a built-in command for computing lengths. Here sage uses the
-      synonym "norm": <kbd>u.norm()</kbd>. Of course, you can also call this like
-      a function instead of like a method: <kbd>norm(u)</kbd>.
+      synonym "norm": <c>u.norm()</c>. Of course, you can also call this like
+      a function instead of like a method: <c>norm(u)</c>.
     </p>
     <sage>
       <input>
@@ -98,19 +98,22 @@
     </sage>
     <p>
       There is no built-in command for angles. You just have to compute them
-      using the cosine formula, like so.
+      using the cosine formula, like below. (I will break up the computation,
+      but it is easy to do it all with one line.)
     </p>
     <sage>
       <input>
-        angle = arccos( u.dot_product(v) ) / ( u.norm()*v.norm() )
+        num = u.dot_product(v)
+        den = u.norm() * v.norm()
+        angle = arccos(num / den)
         angle
       </input>
       <output>
-        1/12*sqrt(3)*sqrt(2)*pi
+        1/2*pi
       </output>
     </sage>
     <p>
-      Of course, Sage's <kbd>arccos</kbd> command returns a result in <em>radians</em>.
+      Of course, Sage's <c>arccos</c> command returns a result in <em>radians</em>.
       To switch to degrees, you must convert.
     </p>
     <sage>
@@ -121,8 +124,8 @@
         15*sqrt(3)*sqrt(2)
       </output>
     </sage>
-    <p>Often, it is helpful to normalize a vector. You can do this with the <kbd>
-      normalized</kbd> method like this:
+    <p>Often, it is helpful to normalize a vector. You can do this with the <c>
+      normalized</c> method like this:
     </p>
     <sage>
       <input>

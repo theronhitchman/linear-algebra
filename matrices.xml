@@ -232,8 +232,8 @@
       <title>The matrix construction command</title>
 
       <p>The command to construct a matrix is pretty straightforward:
-        <kbd>A = matrix( r, c, [list of entries])</kbd> where <kbd>r</kbd> is
-        the number of rows and <kbd>c</kbd> is the number of columns.
+        <c>A = matrix( r, c, [list of entries])</c> where <c>r</c> is
+        the number of rows and <c>c</c> is the number of columns.
       </p>
       <sage>
         <input>
@@ -259,11 +259,12 @@
       <p>
         Every once in a while, it might matter to you what kinds of numbers you
         put into the matrix. Sage will let you specify them by putting in an optional
-        argument like this: <kbd>C = matrix(number type, r, c, [list of entries])</kbd>
+        argument like this: <c>C = matrix(number type, r, c, [list of entries])</c>
       </p>
       <sage>
         <input>
-          C = matrix(ZZ, 2, 2, [2,1,1,1]); C # the best matrix
+          C = matrix(ZZ, 2, 2, [2,1,1,1])
+          C # the best matrix
         </input>
         <output>
           [2 1]
@@ -271,18 +272,18 @@
         </output>
       </sage>
       <p>
-        The notation <kbd>ZZ</kbd> means "integers." There are other sets of numbers
+        The notation <c>ZZ</c> means "integers." There are other sets of numbers
         here:
         <ul>
-          <li><kbd>QQ</kbd> the rational numbers (with exact arithmetic)</li>
-          <li><kbd>RR</kbd> the real numbers (with computer precision arithmetic)</li>
-          <li><kbd>CC</kbd> the complex numbers</li>
-          <li><kbd>AA</kbd> the set of all algebraic numbers, that is, all of the
+          <li><c>QQ</c> the rational numbers (with exact arithmetic)</li>
+          <li><c>RR</c> the real numbers (with computer precision arithmetic)</li>
+          <li><c>CC</c> the complex numbers</li>
+          <li><c>AA</c> the set of all algebraic numbers, that is, all of the
             numbers that are roots of some polynomial with integer coefficients
           </li>
         </ul>
         You can find out what kind of entries a matrix thinks it has by calling the
-        <kbd>.parent()</kbd> method on it.
+        <c>.parent()</c> method on it.
       </p>
       <sage>
         <input>
@@ -328,8 +329,8 @@
       <p>
         Sage prefers rows. I wish it were the other way, but I am sure there is
         a good reason it prefers rows. If you want to make a matrix whose columns
-        are the vectors <kbd>v1</kbd> and <kbd>v2</kbd>, you can use the
-        <kbd>transpose</kbd> method. We'll talk more about the operation of transpose
+        are the vectors <c>v1</c> and <c>v2</c>, you can use the
+        <c>transpose</c> method. We'll talk more about the operation of transpose
         later, but it basically "switches rows for columns and vice versa."
       </p>
       <sage>

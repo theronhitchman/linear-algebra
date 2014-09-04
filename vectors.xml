@@ -93,7 +93,7 @@
 
         <paragraph>
             <title>Basic Constructions</title>
-            <p>A vector in Sage is constructed by applying the <code>vector</code> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
+            <p>A vector in Sage is constructed by applying the <c>vector</c> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
             <sage>
                 <input>u = vector([1,1,2])</input>
             </sage>
@@ -134,7 +134,11 @@
             <p>If you find that you want a vector to have its tail someplace
               that is not the origin, use the <c>arrow</c> command.</p>
             <sage>
-              <input>plot(arrow([1,1],[2,3], color='red', arrowsize=2, width=2))</input>
+              <input>
+                plot(arrow([1,1],[2,3], color='red',
+                           arrowsize=2, width=2),
+                     figsize=5, aspect_ratio=1)
+              </input>
             </sage>
             <p>Note that Sage cut off some of this plot! Also, I used some options
               just to show them off. The <c>arrow</c> command works in three dimensions,
