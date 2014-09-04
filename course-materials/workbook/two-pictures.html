@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-02T16:47:45-05:00    *-->
+<!--*    on 2014-09-04T11:43:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -17,7 +17,7 @@ MathJax.Hub.Config({
         inlineMath: [['\\(','\\)']]
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"],
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
@@ -49,7 +49,7 @@ $(function () {
 <body class="mathbook-book has-toc has-sidebar-left">
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
-<h1 class="title">Math 2500: Linear Algebra</h1>
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
 <p class="byline"></p>
 </div>
 </div></div>
@@ -97,20 +97,128 @@ $(function () {
 <h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
-<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="two-pictures"><header><h1 class="heading">
-<span class="type">Section</span> <span class="codenumber">2.1</span> <span class="title">Two Geometric Models</span>
+<span class="type">Section</span><span class="codenumber">2.1</span><span class="title">Two Geometric Models</span>
 </h1></header><section class="subsection" id="subsection-18"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">The Assignment</span>
-</h1></header></section><section class="subsection" id="subsection-19"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Learning Goals</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul>
+<li>
+        Read section 2.1 of <em>Strang</em> (pages 31-40).
+      </li>
+<li>
+        Read the following and complete the exercises below
+      </li>
+</ul></section><section class="subsection" id="subsection-19"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header></section><section class="subsection" id="subsection-20"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Discussion</span>
-</h1></header></section><section class="subsection" id="subsection-21"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Sage and xxx</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
+</h1></header><p>
+      Now we have a little experience with vectors and related things, it is
+      time to be aware of what we have done so we can use it as a foundation for
+      future work. So far, we have talked about two geometric interpretations
+      for a system of linear equations, the <em class="terminology">row picture</em> and the
+      <em class="terminology">column picture</em>.
+    </p>
+<p>
+      Does the following picture make sense to you?
+    </p>
+<p>
+      A deep understanding of linear algebra will involve a level of comfort with
+      each of these three views of the subject in the diagram, and also the ability
+      to pass back and forth between them.
+    </p>
+<section class="subsubsection" id="subsubsection-10"><header><h1 class="heading">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Transformational View</span>
+</h1></header><p>
+        We have seen that matrices can be made to "act upon" vectors by a kind of
+        multiplication. In particular, if \(A\) is an \(m\times n\) matrix,
+        then \(A\) can be multiplied (on the left) with a column vector of size
+        \(n\), and the result is a column vector of size \(m\).
+      </p>
+<p>
+        This makes \(A\) into a kind of <em class="terminology">function</em>. (We will use
+        the synonyms <em class="terminology">mapping</em> or <em class="terminology">transformation</em>, too.)
+        For every vector \(v\) of size \(n\), the matrix \(A\) allows
+        us to compute a new vector \(T_A(v) = Av\) of size \(m\). This is
+        the basic example of what we will eventually call a <em class="terminology">linear
+        transformation</em>.\begin{align*}
+\mathbb{R}^m &amp; \xrightarrow[]{T_A} \mathbb{R}^n\\
+v &amp; \xmapsto[]{\phantom{T_A}} Av.
+\end{align*}
+        One of our long term goals is to find a way to think about the geometry
+        of linear algebra from this viewpoint, too.
+      </p></section></section><section class="subsection" id="subsection-21"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and xxx</span>
 </h1></header></section><section class="subsection" id="subsection-22"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Exercises</span>
-</h1></header></section></section></div></main>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><article class="exercise-like" id="exercise-31"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">2.1</span>
+</h5>
+        translate a system to a lin comb
+      </article><article class="exercise-like" id="exercise-32"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">2.2</span>
+</h5>
+        translate a lin comb into a system
+      </article><article class="exercise-like" id="exercise-33"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">2.3</span>
+</h5>
+        Consider the matrix equation\begin{align*}
+\begin{pmatrix}1 &amp; 2 &amp; 4 \\ 2 &amp; 0 &amp; 1 \end{pmatrix}
+          \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3
+          \end{pmatrix}.
+        
+\end{align*}<ol>
+<li>
+            Draw a diagram representing the row picture of this matrix equation.
+          </li>
+<li>
+            Draw a diagram representing the column picture of this matrix equation.
+          </li>
+</ol></article><article class="exercise-like" id="exercise-34"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">2.4</span>
+</h5>
+        Find an example of a system of linear equations so that the
+        corresponding column picture is about lin combs of 4 2-vecs = 0
+      </article><article class="exercise-like" id="exercise-35"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">2.5</span>
+</h5>
+        Find a lin comb equation so that the corresponding system of linear eqns
+        means intersect 3 lines in the plane.
+      </article><article class="exercise-like" id="exercise-36"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">2.6</span>
+</h5>
+        Find an example of a vector \(b\) so that the equation\begin{align*}
+
+          \begin{pmatrix} -1 &amp; 2 \\ 5 &amp; -9 \end{pmatrix} v = b
+        
+\end{align*}
+        has no solution \(v\), or explain why it is impossible to find
+        such an example.
+      </article><article class="exercise-like" id="exercise-37"><h5 class="heading">
+<span class="type">Exercise</span> <span class="codenumber">2.7</span>
+</h5>
+        In each of the below, find an example of a matrix \(B\) which has the
+        described effect.
+        <ol>
+<li>
+            \(
+              B\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix}y \\ x \end{pmatrix}
+            \)
+          </li>
+<li>
+            Rotates vectors through \(45^{\circ}\) counter-clockwise.
+          </li>
+<li>
+            Reflects vectors across the \(y\)axis.
+          </li>
+<li>
+            \(
+              B\begin{pmatrix} x \\ y \end{pmatrix} =
+              \begin{pmatrix} x+y \\ y \end{pmatrix}.
+            \)
+          </li>
+</ol></article></section></section></div></main>
 </div>
 </body>
 </html>

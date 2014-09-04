@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-02T16:47:45-05:00    *-->
+<!--*    on 2014-09-04T11:43:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -17,7 +17,7 @@ MathJax.Hub.Config({
         inlineMath: [['\\(','\\)']]
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"],
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
@@ -49,7 +49,7 @@ $(function () {
 <body class="mathbook-book has-toc has-sidebar-left">
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
-<h1 class="title">Math 2500: Linear Algebra</h1>
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
 <p class="byline"></p>
 </div>
 </div></div>
@@ -97,9 +97,9 @@ $(function () {
 <h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
-<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-2"><header><h1 class="heading">
-<span class="type">Chapter</span> <span class="codenumber">2</span> <span class="title">Linear Equations</span>
+<span class="type">Chapter</span><span class="codenumber">2</span><span class="title">Linear Equations</span>
 </h1></header><article class="introduction" id="introduction-2"><p>
       This chapter is dedicated to the first major problem of
       linear algebra: solving systems of linear equations. Restated as a set of
@@ -126,6 +126,8 @@ $(function () {
       Though we begin with the first question, we answer the last one first. As
       we explore the process of finding solutions, we will start to build the
       tools we need to finish answering the other questions in a later chapter.
+      In this chapter, we aim to get as complete understanding as we can for at
+      least a special case: <em class="terminology">square systems</em>.
     </p>
 <p>
       We will begin with a study of the two ways that vectors let us make pictures

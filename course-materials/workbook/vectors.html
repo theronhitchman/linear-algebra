@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-02T16:47:45-05:00    *-->
+<!--*    on 2014-09-04T11:43:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -17,7 +17,7 @@ MathJax.Hub.Config({
         inlineMath: [['\\(','\\)']]
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"],
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
@@ -49,7 +49,7 @@ $(function () {
 <body class="mathbook-book has-toc has-sidebar-left">
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
-<h1 class="title">Math 2500: Linear Algebra</h1>
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
 <p class="byline"></p>
 </div>
 </div></div>
@@ -97,16 +97,16 @@ $(function () {
 <h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
-<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="vectors"><header><h1 class="heading">
-<span class="type">Section</span> <span class="codenumber">1.1</span> <span class="title">Vectors</span>
+<span class="type">Section</span><span class="codenumber">1.1</span><span class="title">Vectors</span>
 </h1></header><section class="subsection" id="subsection-1"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">The Assignment</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul>
 <li>Read section 1.1 of <em>Strang</em> (pages 1-7).</li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-2"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Learning Objectives</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Objectives</span>
 </h1></header><p>Before class, a student should be able to:
       <ul>
 <li>Add vectors.</li>
@@ -120,7 +120,7 @@ $(function () {
 <li>Solve linear combination equations involving unknown vectors.</li>
 </ul>
     </p></section><section class="subsection" id="subsection-3"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Some Discussion</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Some Discussion</span>
 </h1></header><p>Algebraically, a <em class="terminology">vector</em> is a stack of numbers in a set of
      parentheses or brackets, like this\begin{align*}
 \begin{pmatrix} 2 \\ 7 \\ 9 \end{pmatrix}, \text{ or }
@@ -140,12 +140,12 @@ $(function () {
 </ul>
         </p>
 <section class="subsubsection" id="subsubsection-1"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Operations on Vectors</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Operations on Vectors</span>
 </h1></header><p>There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>Scalar Multiplication<p>Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\), we form the new vector \[\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\]</p>Addition<p>Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their <em class="terminology">sum</em> \[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]</p>
 <p>These operations have “obvious” generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em class="terminology">coordinate-wise</em> operations.</p>
 <p>Combining these two operations gives us the notion of a \emph{linear combination}. If \(\lambda\) and \(\mu\) are numbers and \(v\) and \(w\) are vectors of a common size, then the vector \[\lambda v + \mu w \] is a linear combination of \(v\) and \(w\).</p></section></section><section class="subsection" id="subsection-4"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Sage Instructions</span>
-</h1></header>Basic Constructions<p>A vector in Sage is constructed by applying the vector command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage Instructions</span>
+</h1></header>Basic Constructions<p>A vector in Sage is constructed by applying the <tt class="code-inline">vector</tt> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
 <div class="sage-compute"><script type="text/x-sage">u = vector([1,1,2])
 </script></div>
 <p>Notice that nothing was displayed. Sage just put the vector u into memory. We can ask for it by calling it.</p>
@@ -170,7 +170,9 @@ plot(a)
 </script></div>
 <p>If you find that you want a vector to have its tail someplace
               that is not the origin, use the <tt class="code-inline">arrow</tt> command.</p>
-<div class="sage-compute"><script type="text/x-sage">plot(arrow([1,1],[2,3], color='red', arrowsize=2, width=2))
+<div class="sage-compute"><script type="text/x-sage">plot(arrow([1,1],[2,3], color='red',
+           arrowsize=2, width=2),
+     figsize=5, aspect_ratio=1)
 </script></div>
 <p>Note that Sage cut off some of this plot! Also, I used some options
               just to show them off. The <tt class="code-inline">arrow</tt> command works in three dimensions,

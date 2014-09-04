@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-02T16:47:45-05:00    *-->
+<!--*    on 2014-09-04T11:43:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -17,7 +17,7 @@ MathJax.Hub.Config({
         inlineMath: [['\\(','\\)']]
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"],
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
@@ -49,7 +49,7 @@ $(function () {
 <body class="mathbook-book has-toc has-sidebar-left">
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
-<h1 class="title">Math 2500: Linear Algebra</h1>
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
 <p class="byline"></p>
 </div>
 </div></div>
@@ -97,16 +97,16 @@ $(function () {
 <h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
-<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="matrices"><header><h1 class="heading">
-<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Matrices</span>
+<span class="type">Section</span><span class="codenumber">1.3</span><span class="title">Matrices</span>
 </h1></header><section class="subsection" id="subsection-10"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">The Assignment</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul>
 <li>Read <em>Strang</em> section 1.3 (pages 22-27).</li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-11"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Learning Goals</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class starts, a student should be able to:
       <ul>
 <li>multiply a matrix times a vector
@@ -132,7 +132,7 @@ $(function () {
 <li>the inverse of a matrix</li>
 </ul>
   </p></section><section class="subsection" id="subsection-12"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Discussion</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
 </h1></header><p>
       A <em class="terminology">matrix</em> is a two-dimensional array of numbers like this:\begin{align*}
 
@@ -167,7 +167,7 @@ $(function () {
       above is square because it is a \(2\times 2\) matrix.
     </p>
 <section class="subsubsection" id="subsubsection-4"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Multiplying Matrices and Vectors</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Multiplying Matrices and Vectors</span>
 </h1></header><p>
         It is possible to multiply a matrix by a vector like this:\begin{align*}
 
@@ -233,7 +233,7 @@ $(function () {
         </li>
 </ul>
       </p></section><section class="subsubsection" id="subsubsection-5"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Matrix Equations</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix Equations</span>
 </h1></header><p>
         There are many situations in linear algebra that can be rewritten in
         the form of an equation that looks like this:\begin{gather*}
@@ -256,7 +256,7 @@ $(function () {
         in! Eventually, we will want to figure out some test for when a given
         matrix is invertible, and find some ways to compute the inverse.
       </p></section><section class="subsubsection" id="subsubsection-6"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">A Note about Vectors</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">A Note about Vectors</span>
 </h1></header><p>
         This reading also has a brief introduction to the idea of a set of
         vectors being <em class="terminology">linearly depedent</em> or <em class="terminology">linearly independent</em>.
@@ -282,7 +282,7 @@ $(function () {
         definition is asking is that we find a <em>nontrival linear
         combination of the vectors to make zero</em>.
       </p></section></section><section class="subsection" id="subsection-13"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Sage and Matrices</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Matrices</span>
 </h1></header><p>
       Sage has many useful commands for working with linear algebra, and
       given the central role played by matrices in this subject, there are
@@ -290,10 +290,10 @@ $(function () {
       construction and matrix--vector multiplication.
     </p>
 <section class="subsubsection" id="subsubsection-7"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">The matrix construction command</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The matrix construction command</span>
 </h1></header><p>The command to construct a matrix is pretty straightforward:
-        A = matrix( r, c, [list of entries]) where r is
-        the number of rows and c is the number of columns.
+        <tt class="code-inline">A = matrix( r, c, [list of entries])</tt> where <tt class="code-inline">r</tt> is
+        the number of rows and <tt class="code-inline">c</tt> is the number of columns.
       </p>
 <div class="sage-compute"><script type="text/x-sage">A = matrix(2,3, [1,2,3,5,8,13]); A
 </script></div>
@@ -305,23 +305,27 @@ $(function () {
 <p>
         Every once in a while, it might matter to you what kinds of numbers you
         put into the matrix. Sage will let you specify them by putting in an optional
-        argument like this: C = matrix(number type, r, c, [list of entries])
+        argument like this: <tt class="code-inline">C = matrix(number type, r, c, [list of entries])</tt>
       </p>
 <div class="sage-compute"><script type="text/x-sage">C = matrix(ZZ, 2, 2, [2,1,1,1]); C # the best matrix
 </script></div>
 <p>
-        The notation ZZ means "integers." There are other sets of numbers
+        The notation <tt class="code-inline">ZZ</tt> means "integers." There are other sets of numbers
         here:
         <ul>
-<li>QQ the rational numbers (with exact arithmetic)</li>
-<li>RR the real numbers (with computer precision arithmetic)</li>
-<li>CC the complex numbers</li>
-<li>AA the set of all algebraic numbers, that is, all of the
+<li>
+<tt class="code-inline">QQ</tt> the rational numbers (with exact arithmetic)</li>
+<li>
+<tt class="code-inline">RR</tt> the real numbers (with computer precision arithmetic)</li>
+<li>
+<tt class="code-inline">CC</tt> the complex numbers</li>
+<li>
+<tt class="code-inline">AA</tt> the set of all algebraic numbers, that is, all of the
             numbers that are roots of some polynomial with integer coefficients
           </li>
 </ul>
         You can find out what kind of entries a matrix thinks it has by calling the
-        .parent() method on it.
+        <tt class="code-inline">.parent()</tt> method on it.
       </p>
 <div class="sage-compute"><script type="text/x-sage">A.parent()
 # this should say something about the integers
@@ -330,7 +334,7 @@ $(function () {
 # this should say something about the rationals
 D.parent()
 </script></div></section><section class="subsubsection" id="subsubsection-8"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Building a matrix from rows or columns</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Building a matrix from rows or columns</span>
 </h1></header><p>
         It is possible to build a matrix by bundling together a bunch of vectors,
         too. Let's start with an example made using rows.
@@ -342,13 +346,13 @@ E = matrix([ v1, v2]); E
 <p>
         Sage prefers rows. I wish it were the other way, but I am sure there is
         a good reason it prefers rows. If you want to make a matrix whose columns
-        are the vectors v1 and v2, you can use the
-        transpose method. We'll talk more about the operation of transpose
+        are the vectors <tt class="code-inline">v1</tt> and <tt class="code-inline">v2</tt>, you can use the
+        <tt class="code-inline">transpose</tt> method. We'll talk more about the operation of transpose
         later, but it basically "switches rows for columns and vice versa."
       </p>
 <div class="sage-compute"><script type="text/x-sage">F = matrix([v1,v2]).transpose(); F
 </script></div></section><section class="subsubsection" id="subsubsection-9"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Matrix action on vectors</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix action on vectors</span>
 </h1></header><p>
         Of course, Sage knows how to perform the action of a matrix on a vector.
       </p>
@@ -368,7 +372,7 @@ E = matrix([ v1, v2]); E
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">C.inverse()
 </script></div></section></section><section class="subsection" id="subsection-14"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="exercise-like" id="exercise-23"><h5 class="heading">
 <span class="type">Exercise</span> <span class="codenumber">1.23</span>
 </h5>

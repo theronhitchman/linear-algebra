@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-02T16:47:45-05:00    *-->
+<!--*    on 2014-09-04T11:43:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -17,7 +17,7 @@ MathJax.Hub.Config({
         inlineMath: [['\\(','\\)']]
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"],
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
@@ -49,7 +49,7 @@ $(function () {
 <body class="mathbook-book has-toc has-sidebar-left">
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
-<h1 class="title">Math 2500: Linear Algebra</h1>
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
 <p class="byline"></p>
 </div>
 </div></div>
@@ -97,17 +97,17 @@ $(function () {
 <h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
-<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="">Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook&nbsp;XML</a></nav></div>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="dot-product"><header><h1 class="heading">
-<span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">The Dot Product</span>
+<span class="type">Section</span><span class="codenumber">1.2</span><span class="title">The Dot Product</span>
 </h1></header><section class="subsection" id="subsection-5"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">The Assignment</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul>
 <li>Read section 1.2 of <em>Strang</em>
 </li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-6"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Learning Objectives</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Objectives</span>
 </h1></header><p>
       Before class, a student should be able to
       <ul>
@@ -132,7 +132,7 @@ $(function () {
 <li>Make pictures of level sets of the dot product operation.</li>
 </ul>
     </p></section><section class="subsection" id="subsection-7"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Discussion</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
 </h1></header><p>
       The dot product is a wonderful tool for encoding the geometry of Euclidean
       space, but it can be a bit mysterious at first. As Strang shows,
@@ -149,11 +149,11 @@ $(function () {
       Sometimes this will allow us to connect linear algebra to geometry, and use
       geometric thinking to answer algebraic questions.
     </p></section><section class="subsection" id="subsection-8"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Sage and the dot product</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the dot product</span>
 </h1></header><section class="subsubsection" id="subsubsection-2"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Basic Commands</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Basic Commands</span>
 </h1></header><p>
-      Sage has a built-in dot product command u.dot_product(v). This
+      Sage has a built-in dot product command <tt class="code-inline">u.dot_product(v)</tt>. This
       will return the dot product of the vectors \(u\) and \(v\).
     </p>
 <div class="sage-compute"><script type="text/x-sage">u = vector([1,1,1]); v = vector([-1,0,1])
@@ -161,32 +161,35 @@ u.dot_product(v)
 </script></div>
 <p>
       It also has a built-in command for computing lengths. Here sage uses the
-      synonym "norm": u.norm(). Of course, you can also call this like
-      a function instead of like a method: norm(u).
+      synonym "norm": <tt class="code-inline">u.norm()</tt>. Of course, you can also call this like
+      a function instead of like a method: <tt class="code-inline">norm(u)</tt>.
     </p>
 <div class="sage-compute"><script type="text/x-sage">u.norm(), v.norm()
 </script></div>
 <p>
       There is no built-in command for angles. You just have to compute them
-      using the cosine formula, like so.
+      using the cosine formula, like below. (I will break up the computation,
+      but it is easy to do it all with one line.)
     </p>
-<div class="sage-compute"><script type="text/x-sage">angle = arccos( u.dot_product(v) ) / ( u.norm()*v.norm() )
+<div class="sage-compute"><script type="text/x-sage">num = u.dot_product(v)
+den = u.norm() * v.norm()
+angle = arccos(num / den)
 angle
 </script></div>
 <p>
-      Of course, Sage's arccos command returns a result in <em>radians</em>.
+      Of course, Sage's <tt class="code-inline">arccos</tt> command returns a result in <em>radians</em>.
       To switch to degrees, you must convert.
     </p>
 <div class="sage-compute"><script type="text/x-sage">angle*180/pi
 </script></div>
-<p>Often, it is helpful to normalize a vector. You can do this with the 
-      normalized method like this:
+<p>Often, it is helpful to normalize a vector. You can do this with the <tt class="code-inline">
+      normalized</tt> method like this:
     </p>
 <div class="sage-compute"><script type="text/x-sage">u.normalized()
 </script></div></section><section class="subsubsection" id="subsubsection-3"><header><h1 class="heading">
-<span class="type">Subsubsection</span> <span class="codenumber"></span> <span class="title">Sage Interacts</span>
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage Interacts</span>
 </h1></header><p>Interacts would go here...</p></section></section><section class="subsection" id="subsection-9"><header><h1 class="heading">
-<span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Exercises about the Dot Product</span>
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises about the Dot Product</span>
 </h1></header><article class="exercise-like" id="exercise-13"><h5 class="heading">
 <span class="type">Exercise</span> <span class="codenumber">1.13</span>
 </h5>
