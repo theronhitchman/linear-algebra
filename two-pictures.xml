@@ -65,7 +65,7 @@
         the basic example of what we will eventually call a <term>linear
         transformation</term>.<md>
         <mrow>\mathbb{R}^m &amp; \xrightarrow[]{T_A} \mathbb{R}^n</mrow>
-        <mrow>v &amp; \longmapsto Av.</mrow></md>
+        <mrow>v &amp; \xmapsto[]{\phantom{T_A}} Av.</mrow></md>
         One of our long term goals is to find a way to think about the geometry
         of linear algebra from this viewpoint, too.
       </p>
