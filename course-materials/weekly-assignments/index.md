@@ -9,4 +9,4 @@ to grammar and style. Mathematics is written in prose, with sentences and
 paragraphs!
 
 * [Weekly Assignment \# 1]({{site.baseurl}}/course-materials/weekly-assignments/week-1.html)
-* [Weekly Assignment \# 2]()
+* [Weekly Assignment \# 2]({{site.baseurl}}/course-materials/weekly-assignments/week-2.html)
