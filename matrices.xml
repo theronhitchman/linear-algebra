@@ -54,30 +54,26 @@
     <title>Discussion</title>
 
     <p>
-      A <term>matrix</term> is a two-dimensional array of numbers like this:<md>
-      <mrow>
+      A <term>matrix</term> is a two-dimensional array of numbers like this:<me>
         A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}.
-      </mrow></md>
+      </me>
       Sometimes it helps to think of a matrix as a collection of its <term>rows</term>
-      which are read across:<md>
-      <mrow>
+      which are read across:<me>
         M = \begin{pmatrix} \longrightarrow \\ \longrightarrow \end{pmatrix}
-      </mrow></md>
+      </me>
       and sometimes it helps to think of a matrix as a collection of its
-      <term>columns</term> which are read down:<md>
-      <mrow>
+      <term>columns</term> which are read down:<me>
         M = \begin{pmatrix} \downarrow &amp; \downarrow \end{pmatrix}.
-      </mrow></md>
+      </me>
     </p>
     <p>
       It is often more clear to describe a matrix by giving the sizes of its
       rows and columns. An <m>m</m> by <m>n</m> matrix is one having <m>m</m>
       rows and <m>n</m> columns. It is really easy to get these reversed, so be
       careful. For example, this is a <m>2\times 3</m> matrix, because it has
-      two rows and three columns:<md>
-      <mrow>
+      two rows and three columns:<me>
         B = \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
-      </mrow></md>
+      </me>
       A matrix is called a <term>square</term> matrix when the number of rows and
       the number of columns is equal. The matrix <m>A</m> that I wrote down
       above is square because it is a <m>2\times 2</m> matrix.
@@ -87,12 +83,11 @@
       <title>Multiplying Matrices and Vectors</title>
 
       <p>
-        It is possible to multiply a matrix by a vector like this:<md>
-        <mrow>
+        It is possible to multiply a matrix by a vector like this:<me>
           \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
           \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
           \begin{pmatrix} 102 \\ 416 \end{pmatrix}
-        </mrow></md>
+        </me>
         For this to work, it is absolutely crucial that the sizes match up
         properly. If the matrix is <m>m</m> by <m>n</m>, then the vector must have
         size <m>n</m>. In the above example <m>m = 2</m> and <m>n=3</m>.
@@ -113,14 +108,13 @@
           The first way to perform the matrix-vector multiplication is to think
           of the vector as holding some coefficients for forming a linear
           combination of the columns of the matrix. In our example, it looks
-          like this:<md>
-          <mrow>
+          like this:<me>
             \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
             \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
             13 \begin{pmatrix} 1 \\ 3 \end{pmatrix} + 21 \begin{pmatrix} 1 \\ 5
             \end{pmatrix} + 34 \begin{pmatrix} 2 \\ 8 \end{pmatrix} =
             \begin{pmatrix} 102 \\ 416 \end{pmatrix}
-          </mrow></md>
+          </me>
         </p>
       </paragraph>
       <paragraph>
@@ -128,21 +122,19 @@
         <p>
           The second way is to think of the matrix as a bundle of vectors lying
           along the rows of the matrix, and use the dot product. In our example
-          above, this means that we consider the vectors<md>
-          <mrow>
+          above, this means that we consider the vectors<me>
             r_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \quad
             r_2 = \begin{pmatrix} 3 \\ 5 \\ 8 \end{pmatrix}, \text{ and }
             v = \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix}
-          </mrow></md>
+          </me>
           (notice I've rewritten the rows as columns) and then perform this
-          kind of operation:<md>
-          <mrow>
+          kind of operation:<me>
             \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
             \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} = \begin{pmatrix} r_1
             \\ r_2 \end{pmatrix} v =  \begin{pmatrix} r_1 \cdot v \\ r_2 \cdot
             v \end{pmatrix} =
             \begin{pmatrix} 102 \\ 416 \end{pmatrix} .
-          </mrow></md>
+          </me>
         </p>
       </paragraph>
 
@@ -165,13 +157,13 @@
 
       <p>
         There are many situations in linear algebra that can be rewritten in
-        the form of an equation that looks like this:<md>
-        <mrow>
+        the form of an equation that looks like this:<me>
           A v = b
-        </mrow></md>
+        </me>
         where <m>A</m> is a matrix, and <m>v</m> and <m>b</m> are vectors. The
         interesting case is when we know <m>A</m> and <m>b</m>, but we want to
-        find the unknown <m>v</m>. We will call this a <term>matrix-vector equation</term>.
+        find the unknown <m>v</m>. We will call this a
+        <term>matrix-vector equation</term>.
       </p>
 
       <p>
@@ -199,10 +191,9 @@
         A set of vectors <m>v_1, v_2, \dots, v_n</m> is called <term>linearly
         depdendent</term> when there is some choice of numbers
         <m>a_1, a_2, \dots, a_n</m> which are not all zero so that the
-        linear combination<md>
-        <mrow>
+        linear combination<me>
           a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
-        </mrow></md>
+        </me>
         A set of vectors which is not linearly dependent is called
         <term>linearly independent</term>.
       </p>
@@ -231,9 +222,10 @@
     <subsubsection>
       <title>The matrix construction command</title>
 
-      <p>The command to construct a matrix is pretty straightforward:
-        <c>A = matrix( r, c, [list of entries])</c> where <c>r</c> is
-        the number of rows and <c>c</c> is the number of columns.
+      <p>The command to construct a matrix is pretty straightforward. One types
+        <c>matrix(r, c, [list of entries])</c> where <c>r</c> is
+        the number of rows and <c>c</c> is the number of columns. The entries
+        should be read across the rows starting with the top row.
       </p>
       <sage>
         <input>
@@ -259,7 +251,7 @@
       <p>
         Every once in a while, it might matter to you what kinds of numbers you
         put into the matrix. Sage will let you specify them by putting in an optional
-        argument like this: <c>C = matrix(number type, r, c, [list of entries])</c>
+        argument like this: <c>matrix(number type, r, c, [list of entries])</c>
       </p>
       <sage>
         <input>
@@ -426,12 +418,11 @@
         <p>
           Make an example of a matrix <m>\left(\begin{smallmatrix} 1 &amp;
           \bullet \\ -1 &amp; \bullet \end{smallmatrix}\right)</m> so that the
-          equation<md>
-          <mrow>
-            \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
-            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
-            \end{pmatrix}
-          </mrow></md>
+          equation<me>
+          \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
+          \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
+          \end{pmatrix}
+          </me>
           has exactly one solution, or explain why this is not possible.
         </p>
         <p>
@@ -446,10 +437,9 @@
         <p>
           Make an example of a matrix <m>\left(\begin{smallmatrix} 4 &amp;
           8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp;
-          \bullet \end{smallmatrix}\right)</m> so that the equation<md>
-          <mrow>
+          \bullet \end{smallmatrix}\right)</m> so that the equation<me>
             \begin{pmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp; \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
-          </mrow></md>
+          </me>
           has exactly one solution, or explain why this is not possible.
         </p>
         <p>
@@ -463,12 +453,11 @@
       <statement>
         <p>
           Make an example of a matrix <m>\left( \begin{smallmatrix} 2 &amp; -1 \\
-          \bullet &amp; \bullet \end{smallmatrix}\right)</m> so that the equation<md>
-          <mrow>
+          \bullet &amp; \bullet \end{smallmatrix}\right)</m> so that the equation<me>
             \begin{pmatrix} 2 &amp; -1 \\ \bullet &amp; \bullet \end{pmatrix}
             \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3
             \end{pmatrix}
-          </mrow></md>
+          </me>
           has exactly one solution, or explain why this is not possible.
         </p>
         <p>
@@ -483,12 +472,11 @@
         <p>
           Make an example of a matrix <m>\left( \begin{smallmatrix} 1 &amp; 0
           &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet &amp; \bullet &amp; \bullet
-          \end{smallmatrix}\right)</m> so that the equation<md>
-          <mrow>
+          \end{smallmatrix}\right)</m> so that the equation<me>
             \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet
             &amp; \bullet &amp; \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z
             \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
-          </mrow></md>
+          </me>
           has no solutions, or explain why this is not possible.
         </p>
         <p>
@@ -502,12 +490,11 @@
       <statement>
         <p>
           Find a triple of numbers <m>x</m>, <m>y</m>, and <m>z</m> so that the
-          linear combination<md>
-          <mrow>
+          linear combination<me>
             x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} +
             y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} +
             z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
-          </mrow></md>
+          </me>
           yields the zero vector, or explain why this is not possible.
         </p>
         <p>
@@ -522,12 +509,11 @@
     <exercise>
       <statement>
         <p>
-          The vectors<md>
-          <mrow>
+          The vectors<me>
             r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
             r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
             r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
-          </mrow></md>
+          </me>
           are linearly dependent because they lie in a common plane (through
           the origin). Find a normal vector to this plane.
         </p>
@@ -542,24 +528,22 @@
     <exercise>
       <statement>
         <p>
-          Consider the equation<md>
-          <mrow>
+          Consider the equation<me>
             \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
             \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2
             \end{pmatrix}.
-          </mrow></md>
+          </me>
           We are interested in being able to solve this for <m>x</m> and <m>y</m>
           for any given choice of the numbers <m>b_1</m> and <m>b_2</m>.
           Figure out a way to do this by writing <m>x</m> and <m>y</m> in terms
           of <m>b_1</m> and <m>b_2</m>.
         </p>
         <p>
-          Rewrite your solution in the form<md>
-          <mrow>
+          Rewrite your solution in the form<me>
             \begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix}
             \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet
             \\ \bullet \end{pmatrix}.
-          </mrow></md>
+          </me>
         </p>
         <p>
           How is this related to the inverse of the matrix
@@ -574,12 +558,11 @@
         <p>
           Find an example of a number <m>c</m> and a vector <m>\left(
           \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)</m>
-          so that the equation<md>
-          <mrow>
+          so that the equation<me>
             \begin{pmatrix} 3 &amp; 51 \\ c &amp; 17 \end{pmatrix}
             \begin{pmatrix} x \\ y \end{pmatrix} =
             \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
-          </mrow></md>
+          </me>
           does not have a solution, or explain why no such example exists.
         </p>
         <p>

@@ -96,11 +96,11 @@
 
     <exercise>
       <statement>
-        Consider the matrix equation<md>
-        <mrow>\begin{pmatrix}1 &amp; 2 &amp; 4 \\ 2 &amp; 0 &amp; 1 \end{pmatrix}
+        Consider the matrix equation<me>
+        \begin{pmatrix}1 &amp; 2 &amp; 4 \\ 2 &amp; 0 &amp; 1 \end{pmatrix}
           \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3
           \end{pmatrix}.
-        </mrow></md>
+        </me>
         <ol>
           <li>
             Draw a diagram representing the row picture of this matrix equation.
@@ -130,10 +130,9 @@
 
     <exercise>
       <statement>
-        Find an example of a vector <m>b</m> so that the equation<md>
-        <mrow>
+        Find an example of a vector <m>b</m> so that the equation<me>
           \begin{pmatrix} -1 &amp; 2 \\ 5 &amp; -9 \end{pmatrix} v = b
-        </mrow></md>
+        </me>
         has no solution <m>v</m>, or explain why it is impossible to find
         such an example.
       </statement>

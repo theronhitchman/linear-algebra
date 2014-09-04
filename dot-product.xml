@@ -121,11 +121,11 @@
         angle*180/pi
       </input>
       <output>
-        15*sqrt(3)*sqrt(2)
+        90
       </output>
     </sage>
-    <p>Often, it is helpful to normalize a vector. You can do this with the <c>
-      normalized</c> method like this:
+    <p>Often, it is helpful to normalize a vector. You can do this with the
+      <c>normalized</c> method like this:
     </p>
     <sage>
       <input>
@@ -152,12 +152,10 @@
     <exercise>
       <statement>
         <p>What shape is the set of solutions <m>\left(\begin{smallmatrix} x \\ y
-        \end{smallmatrix}\right)</m> to the equation<md>
-          <mrow>
+        \end{smallmatrix}\right)</m> to the equation<me>
             \begin{pmatrix} 3 \\ 7\end{pmatrix} \cdot \begin{pmatrix} x \\ y
             \end{pmatrix} = 5?
-          </mrow>
-        </md>
+        </me>
         </p>
         <p>That is, if we look at all possible vectors <m>\left(\begin{smallmatrix}
           x \\ y \end{smallmatrix}\right)</m> which make the equation true, what shape
@@ -197,10 +195,10 @@
 
     <exercise>
       <statement>
-        Find an example of a number <m>c</m> so that <md>
-        <mrow>\begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
+        Find an example of a number <m>c</m> so that <me>
+        \begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
           \end{pmatrix} = c
-        </mrow></md> has the vector <m>\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)</m>
+        </me> has the vector <m>\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)</m>
         as a solution, or explain why no such number exists.
       </statement>
     </exercise>
