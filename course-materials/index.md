@@ -41,7 +41,11 @@ instruction on related Sage commands, and your daily homework tasks.
 
 <div class="text-center">
 <a href="{{site.baseurl}}/course-materials/workbook/LinAlgWorkbook.html" class="btn btn-primary btn-lg">
-The Workbook
+The Workbook (HTML)
+</a>
+
+<a href="{{site.baseurl}}/course-materials/workbook/LinAlgWorkbook.pdf" class="btn btn-primary btn-lg">
+The Workbook (PDF)
 </a>
 </div>
 
