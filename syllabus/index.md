@@ -65,20 +65,6 @@ based on the following assessments:
 If you feel uncertain about your progress in the course at any time, please
 contact me.
 
-## An Approximate Calendar
-
-Planning a day-to-day calendar for a whole semester is a fool's errand. Everything
-will change once we all learn about each other some more and see what this class
-is really going to be.
-
-But, it is better to have a plan and be willing to discard it than to have no
-plan at all. So I will demonstrate my foolishness by sharing my guess at a
-calendar for the semester.
-
-<div class="text-center">
-  <a class="btn btn-primary btn-lg" href="{{site.baseurl}}/calendar/">
-  Course Calendar (best guess)</a>
-</div>
 
 
 ---

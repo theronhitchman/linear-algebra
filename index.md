@@ -3,11 +3,12 @@ layout: default
 title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
 ---
 
-This is the course web site for Linear Algebra. Course information of various kinds
-is hiding behind the links above.
+<p class="lead">
+This is the course web site for Linear Algebra. I am mentoring two sections of
+this course this term. The two sections will run in parallel, with the same
+calendar and assignments.
+</p>
 
-I am mentoring two sections of this course this term. The two sections share a
-common syllabus and calendar.
 
 <div class="row">
   <div class="btn-group btn-group-justified">
