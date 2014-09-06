@@ -25,7 +25,7 @@ these:
 - [Older MIT 18.06][mit]: This has more video, homework and solutions, review
   questions, etc... going back to 1996.
 
-- [Strang's Ideas Site to accompany the book][linalg]:
+- Strang's [Ideas Site to accompany the book][linalg]
 
 
 [ocw]: http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/
@@ -33,7 +33,7 @@ these:
 [linalg]: http://math.mit.edu/linearalgebra/
 
 
-### My Workbook
+### Our Workbook
 
 To run this class, I am writing (and constantly revising) a workbook to accompany
 Strang's text. This is where you will find my commentary on the mathematics, some
@@ -49,17 +49,7 @@ The Workbook (PDF)
 </a>
 </div>
 
-### Weekly Assignments
 
-Each week, you will complete a short writing assignment. This will give you an
-opportunity to get feedback on the quality of your mathematical writing.
-Assignments are here.
-
-<div class="text-center">
-<a href="{{site.baseurl}}/course-materials/weekly-assignments/" class="btn btn-primary btn-lg">
-Weekly Assignments
-</a>
-</div>
 
 ### Other Free, Open-Source Materials
 
