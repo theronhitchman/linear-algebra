@@ -33,5 +33,5 @@ though, so there is a trade-off to be made.
 
 
 [sagewkshp]: http://theronhitchman.github.io/sage-workshop/
-[sage-single-cell]: http://sagecell.sagemath.com/
+[sage-single-cell]: https://sagecell.sagemath.com/
 [tech-assess]: {{site.baseurl}}/standards-based-assessment/tech.html
