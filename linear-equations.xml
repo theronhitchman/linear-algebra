@@ -55,7 +55,7 @@
     </p>
   </introduction>
 
-  <xi:include href="two-pictures.xml" />
+  <xi:include href="three-pictures.xml" />
   <xi:include href="elimination.xml" />
   <xi:include href="matrix-elimination.xml" />
   <xi:include href="lin-eq-gf1.xml" />

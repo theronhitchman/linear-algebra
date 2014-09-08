@@ -7,8 +7,8 @@
 <!-- Copyright (C) 2014  Theron J. Hitchman                   -->
 <!-- See the file COPYING for copying conditions.             -->
 
-<section xml:id="two-pictures">
-  <title>Two Geometric Models</title>
+<section xml:id="three-pictures">
+  <title>Three Geometric Models</title>
 
   <subsection>
     <title>The Assignment</title>
@@ -27,6 +27,37 @@
   <subsection>
     <title>Learning Goals</title>
   </subsection>
+  <p>
+    Before class, a student should be able to:
+  </p>
+  <ul>
+    <li>Translate back and forth between the three algebraic representations:
+      <ul>
+        <li>
+          A system of linear equations.
+        </li>
+        <li>
+          An equation involving a linear combination of vectors.
+        </li>
+        <li>
+          A matrix equation.
+        </li>
+      </ul>
+    </li>
+    <li>
+      Can write down the <m>n \times n</m> <term>identity matrix</term>.
+    </li>
+  </ul>
+  <p>
+    Sometime in the near future, a student should be able to:
+  </p>
+  <ul>
+    <li>Given a system, interpret and plot the <q>row picture</q>.</li>
+    <li>Given a system, interpret and plot the <q>column picture</q>.</li>
+    <li>Use a matrix as a model of a <term>transformation</term>, including stating
+      the <term>domain</term> and the <term>range</term>.</li>
+  </ul>
+
 
   <subsection>
     <title>Discussion</title>
@@ -41,9 +72,10 @@
     <p>
       Does the following picture make sense to you?
     </p>
-    <p>
-      <em>Insert diagram here</em>
-    </p>
+    <figure>
+      <caption>The three geometric models of linear algebra</caption>
+      <image width="350" source="images/ThreePics.png" />
+    </figure>
     <p>
       A deep understanding of linear algebra will involve a level of comfort with
       each of these three views of the subject in the diagram, and also the ability
@@ -78,7 +110,7 @@
   </subsection>
 
   <subsection>
-    <title>Sage and xxx</title>
+    <title>Sage and Plotting for Linear Algebra</title>
   </subsection>
 
   <subsection>
@@ -86,13 +118,17 @@
 
     <exercise>
       <statement>
-        translate a system to a lin comb
+        Make an example of a system of linear equations which some students might
+        find challenging to change into an equation involving a linear combination.
+        Explain what the challenge is and how you can think clearly to overcome it.
       </statement>
     </exercise>
 
     <exercise>
       <statement>
-        translate a lin comb into a system
+        Make an example of a linear combination equation which some students might
+        find challenging to change into a system of linear equations. Explain
+        what the challenge is and how you can think clearly to overcome it.
       </statement>
     </exercise>
 
@@ -118,15 +154,17 @@
 
     <exercise>
       <statement>
-        Find an example of a system of linear equations so that the
-        corresponding column picture is about lin combs of 4 2-vecs = 0
+        Make an example of a system of linear equations so that the
+        corresponding column picture is about linear combinations of four 2-vecs
+        becoming the zero vector.
       </statement>
     </exercise>
 
     <exercise>
       <statement>
-        Find a lin comb equation so that the corresponding system of linear eqns
-        means intersect 3 lines in the plane.
+        Find a linear combination equation so that the corresponding system of
+        linear equations corresponds to finding the intersection of three lines
+        in the plane.
       </statement>
     </exercise>
 
