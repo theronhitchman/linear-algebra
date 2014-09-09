@@ -36,7 +36,7 @@ meaning for the structure of linear algebra.
       equations.</li>
       <li>correctly identify the rows and columns of a matrix.</li>
       <li>describe waht is meant by a lower triangular matrix.</li>
-
+    </ul>
 
 
   </div>
