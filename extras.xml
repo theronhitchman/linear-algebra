@@ -1,0 +1,30 @@
+<p>
+  Unused exercises
+</p>
+<subsection>
+  <title>1.2 dot product</title>
+
+  <exercise>
+    <statement>
+      <p>
+        Let <m>V = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}</m>. Find an example
+        of two vectors <m>U</m> and <m>W</m> such that
+        <me>
+          U\cdot V < 0, \quad U\cdot W < 0, \quad V\cdot W < 0
+        </me>
+        or explain why no such example exists.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+        Let <m>V = \begin{pmatrix} 1 \\ 1\\ 1 \end{pmatrix}</m>. Find a unit
+        vector of the form <m>X = \begin{pmatrix} x \\ y \\ 0 \end{pmatrix}</m>
+        so that <m>V\cdot X = 10</m>, or explain why no such vector exists.
+      </p>
+    </statement>
+  </exercise>
+
+  <!-- that is all for chapter one -->  
