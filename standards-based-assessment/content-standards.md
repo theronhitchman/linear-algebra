@@ -25,7 +25,7 @@ meaning for the structure of linear algebra.
       <li>Compute the dot product of two given vectors.</li>
       <li>Compoute the length of a given vector.</li>
       <li>Normalize a given vector</li>
-      <li>recognize that \\( u\codt v = 0 \\) is the same as "\\(u\\) and \\(v\\)
+      <li>recognize that \( u\codt v = 0 \) is the same as "\(u\) and \(v\)
         are orthogonal."</li>
       <li>compute the angle between two given vectors using the cosine formula.</li>
       <li>Multiply a matrix times a vector as a linear combination of columns.</li>
@@ -46,7 +46,7 @@ meaning for the structure of linear algebra.
     <ul>
       <li>Solve linear combination equations involving unknown coefficients.</li>
       <li>Solve linear combination equations involving unknown vectors.</li>
-      <li>Interpret the statements \\(u \cdot v &lt; 0\\) and  \\(u \cdot v > 0\\)
+      <li>Interpret the statements \(u \cdot v &lt; 0\) and  \(u \cdot v > 0\)
         geometrically.</li>
       <li>Pass back and forth between linear equations and equations involving
       dot products.</li>
