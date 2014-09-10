@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-09T21:06:11-05:00    *-->
+<!--*    on 2014-09-09T22:51:34-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -47,6 +47,10 @@ $(function () {
 <link href="http://mathbook.staging.michaeldubois.me/develop/stylesheets/mathbook-modern-3.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+    
+    \newcommand{augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+  \)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -165,9 +169,9 @@ $(function () {
           the vector on the right-hand side. In the example above, that
           augmented matrix is
           \[
-            \left(\begin{array}{ccc|c}
+            \augmatrix{ccc}{
             3 &amp; 2 &amp; -\pi &amp; 0 \\ -4 &amp; -33 &amp; 1 &amp; 12
-            \end{array}\right)
+            }
           \]
           All of the row operations can be performed on just this augmented
           matrix, without losing any of the essential information.
