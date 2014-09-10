@@ -31,4 +31,8 @@
     <text>Leave Feedback</text>
   </feedback>
 
+  <macros>
+  \newenvironment{amatrix}[1]{%\left(\begin{array}{@{}*{#1}{c}|c@{}}{%\end{array}\right)}
+  </macros>
+
 </docinfo>
