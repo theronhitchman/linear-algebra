@@ -35,7 +35,7 @@
     <!-- preferred macro which is broken by MathJax
     \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}*{#1}{c}|c@{}} #2 \end{array}\right)}
   -->
-    \newcommand{augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}}\end{array}\right)}
+    \newcommand{augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
   </macros>
 
 </docinfo>
