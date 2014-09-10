@@ -89,9 +89,9 @@
           the vector on the right-hand side. In the example above, that
           augmented matrix is
           <me>
-            \left(\begin{array}{ccc|c}
+            \augmatrix{ccc}{
             3 &amp; 2 &amp; -\pi &amp; 0 \\ -4 &amp; -33 &amp; 1 &amp; 12
-            \end{array}\right)
+            }
           </me>
           All of the row operations can be performed on just this augmented
           matrix, without losing any of the essential information.
@@ -317,7 +317,7 @@
 
       </demonstration>
 
--->   
+-->
 
 
 
