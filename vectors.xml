@@ -186,13 +186,13 @@
     </subsection>
 
 
-        <exercise>
+        <task>
             <statement>
                 <p>Find an example of numbers <m>\lambda</m> and <m>\mu</m> so that <me>\lambda \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \mu \begin{pmatrix} 2 \\ -1 \end{pmatrix}</me> or describe why no such example can exist.</p>
             </statement>
-        </exercise>
+        </task>
 
-        <exercise>
+        <task>
             <statement>
                 <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2
                   \end{smallmatrix} \right)</m> so that <me> \begin{pmatrix} 2
@@ -200,10 +200,10 @@
                   = \begin{pmatrix} 10 \\ -3 \end{pmatrix}</me> or describe why
                   no such example can exist.</p>
             </statement>
-        </exercise>
+        </task>
 
 
-        <exercise>
+        <task>
             <statement>
                 <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2
                   \end{smallmatrix} \right)</m> so that this equation has at
@@ -212,39 +212,39 @@
                   = \begin{pmatrix} 2 \\ 3 \end{pmatrix}</me> or describe why no
                   such example can exist.</p>
             </statement>
-        </exercise>
+        </task>
 
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give examples of numbers <m>a</m> and <m>b</m> such that <me> a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}</me> or explain why no such numbers exist.</p>
             </statement>
-        </exercise>
+        </task>
 
         <p>In the situations like the last exercise, the pair of numbers <m>a, b</m> is called a <term>solution</term> to the equation.</p>
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give an example of a vector <m>X = \left( \begin{smallmatrix} x \\ y \end{smallmatrix} \right)</m> so that the equation <me>a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b X = \begin{pmatrix}7 \\ 5 \end{pmatrix} </me> has no solution <m>(a,b)</m>, or explain why no such example exists.</p>
             </statement>
-        </exercise>
+        </task>
 
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give an example of a number <m>\lambda</m> so that <me>\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + 3 \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}</me> or explain why no such number exists.</p>
             </statement>
-        </exercise>
+        </task>
 
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give an example of numbers <m>\lambda</m> and <m>\mu</m> which are a solution to the equation <me> \lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + \mu \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}</me> or explain why no such solution exists.</p>
             </statement>
-        </exercise>
+        </task>
 
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\
                   z \end{pmatrix}</m> so that the equation <me>a \begin{pmatrix}
@@ -253,10 +253,10 @@
                   has no solution <m>(a,b)</m>, or explain why no such vector
                   exists.</p>
             </statement>
-        </exercise>
+        </task>
 
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\ z
                   \end{pmatrix}</m> so that the equation <me> a \begin{pmatrix}
@@ -265,10 +265,10 @@
                   has exactly one solution <m>(a,b)</m>, or explain why no such
                   vector exists.</p>
             </statement>
-        </exercise>
+        </task>
 
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give an example of a vector <m>X =
                   \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the
@@ -278,19 +278,19 @@
                 </me> has no solutions <m>(a,b,c)</m>, or explain why no such vector
                   exists.</p>
             </statement>
-        </exercise>
+        </task>
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give an example of a vector <m>X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}</me> has exactly one solution, or explain why no such vector exists.</p>
             </statement>
-        </exercise>
+        </task>
 
-        <exercise>
+        <task>
             <statement>
                 <p>Give an example of a vector <m>X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the equation <me> a \begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} + b \begin{pmatrix} 0 \\ -1 \\ 0\end{pmatrix} + c \begin{pmatrix} x \\ y \\ z\end{pmatrix} = \begin{pmatrix}3 \\ 7 \\ 7 \end{pmatrix}</me> has no solutions, or explain why no such vector exists.</p>
             </statement>
-        </exercise>
+        </task>
 
 
 

@@ -413,7 +413,7 @@
   <subsection>
     <title>Exercises</title>
 
-    <exercise>
+    <task>
       <statement>
         <p>
           Make an example of a matrix <m>\left(\begin{smallmatrix} 1 &amp;
@@ -430,9 +430,9 @@
           picture which corresponds.
         </p>
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         <p>
           Make an example of a matrix <m>\left(\begin{smallmatrix} 4 &amp;
@@ -447,9 +447,9 @@
           picture which corresponds.
         </p>
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         <p>
           Make an example of a matrix <m>\left( \begin{smallmatrix} 2 &amp; -1 \\
@@ -465,9 +465,9 @@
           draw the picture which corresponds.
         </p>
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         <p>
           Make an example of a matrix <m>\left( \begin{smallmatrix} 1 &amp; 0
@@ -484,9 +484,9 @@
           draw the picture which corresponds.
         </p>
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         <p>
           Find a triple of numbers <m>x</m>, <m>y</m>, and <m>z</m> so that the
@@ -504,9 +504,9 @@
           Plot the three vectors and describe the geometry of the situation.
         </p>
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         <p>
           The vectors<me>
@@ -523,9 +523,9 @@
           <m>x r_1 + y r_2 + z r_3 = 0</m>. Find two sets of such numbers.
         </p>
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         <p>
           Consider the equation<me>
@@ -551,9 +551,9 @@
           \end{smallmatrix} \right)</m>?
         </p>
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         <p>
           Find an example of a number <m>c</m> and a vector <m>\left(
@@ -574,7 +574,7 @@
           </ul>
         </p>
       </statement>
-    </exercise>
+    </task>
 
   </subsection>
 

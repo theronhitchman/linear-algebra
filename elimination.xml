@@ -324,7 +324,7 @@
     <subsection>
       <title>Exercises</title>
 
-      <exercise>
+      <task>
         <statement>
           Use the elimination method to transform this system into an easier
           one. (Can you make it triangular?) Circle the pivots in the final
@@ -340,9 +340,9 @@
           What two operations do you use to do this efficiently? Now use back
           substitution to solve the system.
         </statement>
-      </exercise>
+      </task>
 
-      <exercise>
+      <task>
         <statement>
           <p>
             <em>(Sage Exercise)</em>:
@@ -355,20 +355,20 @@
             How do the operations transform the pictures?
           </p>
         </statement>
-      </exercise>
+      </task>
 
 
-      <exercise>
+      <task>
         <statement>
           Suppose that a system of three equations in three unknowns has two
           solutions <m>(a,b,c)</m> and <m>(A,B,C)</m>. Explain why the system must have
           other solutions than these two. Describe clearly two other solutions
           in terms of <m>a,b,c,A,B,C</m>.
         </statement>
-      </exercise>
+      </task>
 
 
-      <exercise>
+      <task>
         <statement>
           Find three examples of numbers <m>a</m> so that elimination will fail to
           give three pivots for this coefficient matrix:
@@ -378,21 +378,21 @@
             \end{pmatrix}
           </me>
         </statement>
-      </exercise>
+      </task>
 
 
 
-      <exercise>
+      <task>
         <statement>
           How many ways can two lines in the plane meet? Make examples to
           represent as many <em>qualitatively different</em> situations as you can.
         </statement>
-      </exercise>
+      </task>
 
 
 
 
-      <exercise>
+      <task>
         <statement>
           Complete the following to make an example of a system of two equations
           in two unknowns which is singular but still has a solution, or explain why
@@ -405,10 +405,10 @@
             \end{array}\right.
           </me>
         </statement>
-      </exercise>
+      </task>
 
 
-      <exercise>
+      <task>
         <statement>
           Complete the following to a system of three equations in three
           unknowns which is singular and does not have a solution, or explain
@@ -422,10 +422,10 @@
             \end{array}\right.
           </me>
         </statement>
-      </exercise>
+      </task>
 
 
-      <exercise>
+      <task>
         <statement>
           Complete the following to a system of three equations in three
           unknowns which is singular but still has a solution, or explain why
@@ -439,18 +439,18 @@
             \end{array}\right.
           </me>
         </statement>
-      </exercise>
+      </task>
 
 
 
 
-      <exercise>
+      <task>
         <statement>
           How many ways can three planes in three dimensional space meet? Make
           examples to represent as many <em>qualitatively different</em>
           situations as you can.
         </statement>
-      </exercise>
+      </task>
 
 
 

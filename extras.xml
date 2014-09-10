@@ -4,7 +4,7 @@
 <subsection>
   <title>1.2 dot product</title>
 
-  <exercise>
+  <task>
     <statement>
       <p>
         Let <m>V = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}</m>. Find an example
@@ -15,9 +15,9 @@
         or explain why no such example exists.
       </p>
     </statement>
-  </exercise>
+  </task>
 
-  <exercise>
+  <task>
     <statement>
       <p>
         Let <m>V = \begin{pmatrix} 1 \\ 1\\ 1 \end{pmatrix}</m>. Find a unit
@@ -25,6 +25,6 @@
         so that <m>V\cdot X = 10</m>, or explain why no such vector exists.
       </p>
     </statement>
-  </exercise>
+  </task>
 
-  <!-- that is all for chapter one -->  
+  <!-- that is all for chapter one -->

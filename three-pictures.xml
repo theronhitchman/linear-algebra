@@ -234,23 +234,23 @@
   <subsection>
     <title>Exercises</title>
 
-    <exercise>
+    <task>
       <statement>
         Make an example of a system of linear equations which some students might
         find challenging to change into an equation involving a linear combination.
         Explain what the challenge is and how you can think clearly to overcome it.
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         Make an example of a linear combination equation which some students might
         find challenging to change into a system of linear equations. Explain
         what the challenge is and how you can think clearly to overcome it.
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         Consider the matrix equation<me>
         \begin{pmatrix}1 &amp; 2 &amp; 4 \\ 2 &amp; 0 &amp; 1 \end{pmatrix}
@@ -266,27 +266,27 @@
           </li>
         </ol>
       </statement>
-    </exercise>
+    </task>
 
 
 
-    <exercise>
+    <task>
       <statement>
         Make an example of a system of linear equations so that the
         corresponding column picture is about linear combinations of four 2-vecs
         becoming the zero vector.
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         Find a linear combination equation so that the corresponding system of
         linear equations corresponds to finding the intersection of three lines
         in the plane.
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         Find an example of a vector <m>b</m> so that the equation<me>
           \begin{pmatrix} -1 &amp; 2 \\ 5 &amp; -9 \end{pmatrix} v = b
@@ -294,9 +294,9 @@
         has no solution <m>v</m>, or explain why it is impossible to find
         such an example.
       </statement>
-    </exercise>
+    </task>
 
-    <exercise>
+    <task>
       <statement>
         In each of the below, find an example of a matrix <m>B</m> which has the
         described effect.
@@ -320,7 +320,7 @@
           </li>
         </ol>
       </statement>
-    </exercise>
+    </task>
 
 
 
