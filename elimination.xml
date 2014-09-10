@@ -81,9 +81,9 @@
           the vector on the right-hand side. In the example above, that
           augmented matrix is
           <me>
-            \begin{amatrix}{3}
+            \left(\begin{array}{ccc|c}
             3 &amp; 2 &amp; -\pi &amp; 0 \\ -4 &amp; -33 &amp; 1 &amp; 12
-            \end{amatrix}
+            \end{array}\right)
           </me>
           All of the row operations can be performed on just this augmented
           matrix, without losing any of the essential information.
