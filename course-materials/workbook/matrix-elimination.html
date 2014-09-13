@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-09T22:51:34-05:00    *-->
+<!--*    on 2014-09-13T18:44:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -106,15 +106,428 @@ $(function () {
 <span class="type">Section</span><span class="codenumber">2.3</span><span class="title">Elimination using Matrices</span>
 </h1></header><section class="subsection" id="subsection-28"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
-</h1></header></section><section class="subsection" id="subsection-29"><header><h1 class="heading">
+</h1></header><ul>
+<li>Read section 2.3 of <em>Strang</em>.</li>
+<li>Read the discussion below and work out the exercises.</li>
+</ul></section><section class="subsection" id="subsection-29"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header></section><section class="subsection" id="subsection-30"><header><h1 class="heading">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
-</h1></header></section><section class="subsection" id="subsection-31"><header><h1 class="heading">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and xxx</span>
-</h1></header></section><section class="subsection" id="subsection-32"><header><h1 class="heading">
+</h1></header><p>
+        Before class, a student should be able to:
+      </p>
+<ul>
+<li>
+          Translate a system of linear equations into the form of an augmented matrix
+          and back.
+        </li>
+<li>
+          Perform the forward pass elimination process to an augmented matrix.
+        </li>
+<li>
+          Multiply a pair of square matrices having the same size.
+        </li>
+<li>
+          Identify the matrix which performs the operation “add a multiple of row
+          i to row j.”
+        </li>
+<li>Identify the matrix which performs the operation “swap the places of
+          row i and row j.”
+        </li>
+</ul>
+<p>
+        Some time after class, a student should be able to:
+      </p>
+<ul><li>
+          Use the steps from a forward pass elimination step to write a correct
+          equation of the form
+          \[
+            E_{\bullet}E_{\bullet}\cdots E_{\bullet} (A\ |\ b) = (U\ |\ b')
+          \]
+          where \(U\) is an upper triangular matrix.
+        </li></ul></section><section class="subsection" id="subsection-30"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Elimnation and Using Matrices as “Transformations”</span>
+</h1></header><p>
+      Let us focus (for now) on square systems of equations, where the number of
+      unknowns is equal to the number of equations.
+    </p>
+<section class="subsubsection" id="subsubsection-13"><header><h1 class="heading">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Four Ways to Write a System</span>
+</h1></header><p>
+        Recall that there are three equivalent ways to write the typical linear
+        algebra problem: (1) a system of linear equations to be solved
+        simultaneously, (2) an equation expressing some linear combination of
+        vectors with unknown coefficients as equal to another vector, and (3) a
+        matrix equation.
+      </p>
+<p>
+        Here is an example: This system of linear equations
+        \[
+          \left\{ \begin{array}{rrrrrrr}
+              &amp;  &amp;3y &amp;+ &amp;2z &amp;= &amp;8 \\
+            x &amp;- &amp; y &amp;+ &amp; z &amp;= &amp;-1 \\
+          3 x &amp;+ &amp;2y &amp;+ &amp;3z &amp;= &amp;1
+          \end{array}\right.
+        \]
+        is equivalent to this equation using a linear combination of vectors
+        \[
+        x \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
+        y \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
+        z \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+        \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+        \]
+        and both of those are equivalent to this matrix equation
+        \[
+          \begin{pmatrix} 0 &amp;3 &amp;2 \\ 1 &amp;-1 &amp;1 \\ 3 &amp;2 &amp;3
+          \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix} .
+        \]
+      </p>
+<p>
+        Each of these viewpoints has its advantages when talking about the
+        geometry of linear algebra. But one way that things steadily improve as
+        you move down the page is in the amount of notational baggage.
+        From each version to the next, we lose repetitive bits of symbol that
+        one can just remember from context.
+        Often, this is taken one step further! We now throw away the unknowns,
+        the equal signs and some of the parentheses surrounding the matrices and
+        vectors, and just write an \emph{augmented} matrix.
+        \[
+          \augmatrix{ccc}{
+          0 &amp;3 &amp;2 &amp;8\\ 1 &amp;-1 &amp;1 &amp;-1\\ 3 &amp;2 &amp;3 &amp;1
+          }
+        \]
+        This is the minimum fuss way to keep track of all the information you
+        need to solve the original system.
+      </p></section><section class="subsubsection" id="subsubsection-14"><header><h1 class="heading">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Representing Elimination with Matrices</span>
+</h1></header><p>
+        The process of elimination starts by performing operations on the
+        system of equations. In the example above, one simplification we can
+        make is to add \(-3\) times equation (ii) to equation (iii).
+      </p>
+<p>
+        Then the new system looks like this:
+        \[
+          \left\{ \begin{array}{rrrrrrr}
+          &amp;  &amp;3y &amp;+ &amp;2z &amp;= &amp;8 \\
+          x &amp;- &amp; y &amp;+ &amp; z &amp;= &amp;-1 \\
+          &amp;  &amp;5y &amp;  &amp;   &amp;= &amp;4
+          \end{array}\right.
+        \]
+        Let's translate that into the linear combination format:
+        \[
+          x \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} +
+          y \begin{pmatrix} 3 \\ -1 \\ 5 \end{pmatrix} +
+          z \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix} .
+        \]
+        What has happened to each of the vectors? Well, in each case, we have
+        added \(-3\) times the second component to the third component.
+        We have seen that one way to change vectors into other vectors is by
+        (left-)multiplying them by matrices. Could we be so lucky that the
+        operation “add \(-3\) times the second component to the third
+        component” is representable by a matrix operation? YES. It is not
+        hard to check that the matrix we need is
+        \[
+          E = \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3 &amp;1 \end{pmatrix} .
+        \]
+        In fact, let's check it now for each of the four vectors we have in our system:
+        \[
+          E \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix}
+          = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+        \]
+        and
+        \[
+          E \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3
+          &amp;1 \end{pmatrix} \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} =
+          \begin{pmatrix} 3 \\ -1 \\ 5 \end{pmatrix}
+        \]
+        and
+        \[
+          E \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 2 \\ 1 \\ 3
+          \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}
+        \]
+        and
+        \[
+          E \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+          = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
+        \]
+      </p>
+<p>
+        Ha Ha! It all checks out. Those are the four vectors from our second
+        system. This means that we can even use a simple subsitution to rewrite
+        things. (It is not obvious at the moment why this is helpful. Hang on a
+        bit.)
+        \[
+          x* E\begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
+          y* E\begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
+          z* E\begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+          E\begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+        \]
+        Boy, it sure would be nice if we had a compact way to write that down...
+      </p></section><section class="subsubsection" id="subsubsection-15"><header><h1 class="heading">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix Multiplication</span>
+</h1></header><p>
+        We make a compact way to write down that last equation by defining an
+        operation of multiplying two matrices.
+        If \(E\) and \(A\) are two matrices, we define their
+        <em class="terminology">matrix product</em>
+        to be a new matrix as follows:
+      </p>
+<p>
+        First, write \(A\) as a collection of columns \(v_i\)
+        \[
+          A = \begin{pmatrix} v_1 &amp;v_2 &amp;v_3 \end{pmatrix}
+        \]
+        and then we declare that \(EA\) is the matrix made up of the columns
+        \(Ev_i\) in the corresponding order.
+        \[
+          EA = \begin{pmatrix} Ev_1 &amp;Ev_2 &amp;Ev_3 \end{pmatrix}
+        \]
+      </p>
+<p>
+        By way of example, we have already considered the matrices
+        \[
+          E = \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3 &amp;1 \end{pmatrix} \quad \text{ and } \quad
+          A = \begin{pmatrix} 0 &amp;3 &amp;2 \\ 1 &amp;-1 &amp;1 \\ 3 &amp;2 &amp;3 \end{pmatrix}.
+        \]
+        You should check that their product is now
+        \[
+          EA = \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3 &amp;1 \end{pmatrix}\begin{pmatrix} 0 &amp;3 &amp;2 \\ 1 &amp;-1 &amp;1 \\ 3 &amp;2 &amp;3 \end{pmatrix} =
+          \begin{pmatrix} 0 &amp;3 &amp;2 \\ 1 &amp;-1 &amp;1 \\ 0 &amp;5 &amp;0 \end{pmatrix}
+        \]
+      </p>
+<p>
+        Finally, let's see how this influences our last two forms of the equations.
+        The matrix form of our system was \(Ax = v\) where \(A\) is as above, and the
+        vectors are \(v = \left(\begin{smallmatrix} 8 \\ -1 \\ 1
+        \end{smallmatrix}\right)\) and
+        \(x = \left( \begin{smallmatrix} x \\ y \\ z \end{smallmatrix}\right)\).
+        The neat part is that our new definition of matrix multiplication means
+        that our elimination step transformed the equation
+        \[
+          Ax = v \quad \text{ or }\quad
+          \begin{pmatrix} 0 &amp;3 &amp;2 \\ 1 &amp;-1 &amp;1 \\ 3 &amp;2 &amp;3
+          \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+        \]
+        into the newer equation
+        \[
+          (EA) x = Ev \quad \text{ or } \quad \begin{pmatrix} 0 &amp;3 &amp;2
+          \\ 1 &amp;-1 &amp;1 \\ 0 &amp;5 &amp;0 \end{pmatrix} \begin{pmatrix} x
+          \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
+        \]
+      </p>
+<p>
+        The same thing works for the augmented matrix. The augmented matrix form
+        is really just writing down
+        \[
+          \augmatrix{c}{A &amp;v }
+          =\augmatrix{ccc}{
+          0 &amp;3 &amp;2 &amp;8\\ 1 &amp;-1 &amp;1 &amp;-1\\ 3 &amp;2 &amp;3 &amp;1 }
+        \]
+        and the elimination step changes this into
+        \[
+          \augmatrix{c}{EA &amp;Ev}
+          = \augmatrix{ccc}{
+          0 &amp;3 &amp;2 &amp;8 \\ 1 &amp;-1 &amp;1 &amp;-1 \\ 0 &amp;5 &amp;0 &amp;4
+          }.
+        \]
+      </p></section><section class="subsubsection" id="subsubsection-16"><header><h1 class="heading">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrices as Transformations</span>
+</h1></header><p>
+        Take a moment and reflect on the key transition in what happens above.
+        The most important thing that made it all work was that a matrix (the
+        elimination matrix \(E\)) was used to perform some sort of operation on
+        vectors.
+      </p>
+<p>
+        This is a key property of matrices. The matrix \(E\) defines a kind of
+        function. For every vector \(w\) with three components, we can compute
+        exactly one new vector \(Ew\), still with three components. This means that
+        \(E\) defines a function from the set of \(3\)-vectors to the set of
+        \(3\)-vectors.
+      </p></section></section><section class="subsection" id="subsection-31"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Multiplication</span>
+</h1></header><p>
+      Sage has built-in matrix multiplication. You do the obvious thing and it
+      works.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 2,2, [[2,1],[1,1]])
+B = matrix(QQ, 2,2, [[0,3],[1,1]])
+A, B
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A*B
+</script></div>
+<p>
+      You can check that it works with the way we defined matrix multiplication
+      as a linear combination of vectors, too.
+    </p>
+<p>
+      First, we define the column vectors by pulling out the entries from <tt class="code-inline" style="color: red; font-size: 120%">B</tt>
+      and arranging them. To be sure, we ask Sage to display them as columns.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">b1 = vector([B[0,0], B[1,0]])
+b2 = vector([B[0,1], B[1,1]])
+b1.column(), b2.column()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A*b1.column(), A*b2.column()
+</script></div>
+<p>
+      Now we can pile these rows into a matrix and then use the transpose to
+      put them in columns.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">C = matrix([A*b1, A*b2]).transpose()
+C
+</script></div>
+<p>
+      And we can double check everything by asking Sage if these things are equal.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">C == A*B
+</script></div>
+<p>
+      This kind of test can be useful for checking our work! The discussion above
+      has this multiplication:
+    </p>
+<div class="sage-compute"><script type="text/x-sage">D = matrix(QQ,3,4, [0,3,2,8,1,-1,1,-1,3,2,3,1]); D
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">E = matrix.identity(3)
+E[2,1] = -3
+E
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">E*D
+</script></div>
+<p>
+      Ta-Da!!!
+    </p></section><section class="subsection" id="subsection-32"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header></section></section></div></main>
+</h1></header><article class="example-like" id="task-47"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+</h5>
+<p>
+      In the main example above
+      \[
+      \left\{ \begin{array}{rrrrrrr}
+         &amp;  &amp;3y &amp;+ &amp;2z &amp;= &amp;8 \\
+       x &amp;- &amp; y &amp;+ &amp; z &amp;= &amp;-1 \\
+      3x &amp;+ &amp;2y &amp;+ &amp;3z &amp;= &amp;1
+      \end{array}
+      \right.
+      \]
+      we would rather have our first pivot in the upper left corner (i.e. the
+      first row should have a non-zero coefficient for \(x\)). This can be
+      achieved by swapping the positions of rows (i) and (ii).
+    </p>
+<p>
+      Find a matrix \(P_{12}\) so that multiplying by \(P_{12}\) on the left
+      performs the corresponding row switching operation on the augmented matrix
+      \[
+      \augmatrix{ccc}{
+      0 &amp;3 &amp;2 &amp;8 \\ 1 &amp;-1 &amp;1 &amp;-1 \\ 3 &amp;2 &amp;3 &amp;1}
+      \]
+    </p></article><article class="example-like" id="task-48"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+</h5>
+<p>
+      Consider the system
+      \[
+      \left\{ \begin{array}{rrrrr}
+      6x &amp;- &amp;y &amp;= &amp;14 \\
+      97x &amp;- &amp;16y &amp;= &amp;2/3 \\
+      \end{array}
+      \right.
+      \]
+      Write this system in the other three forms: (1) an equation involving a
+      linear combination of vectors; (2) an equation involving a \(2\times 2\)
+      matrix; (3) an augmented matrix.
+    </p></article><article class="example-like" id="task-49"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+</h5>
+<p>
+      Perform an elimination step on the system from the last exercise to put the sytem in triangular form. You should get two pivots.
+    </p>
+<p>
+      Write the new system in each of our four forms.
+    </p></article><article class="example-like" id="task-50"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+</h5>
+<p>
+      Still working with the same system of equations, use Sage to make two column picture plots:
+    </p>
+<ul>
+<li> One showing the three relevant column vectors from the original system.</li>
+<li> One showing the three relevant column vectors from the system after the elimination step.</li>
+</ul>
+<p>
+      You may find it helpful to look through the Sage examples in previous sections
+      of this workbook.
+    </p></article><article class="example-like" id="task-51"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+</h5>
+<p>
+      One more time, stay with the same system of equations. Use Sage to make
+      two row picture plots:
+    </p>
+<ul>
+<li> One showing the two relevant lines in the original system.</li>
+<li> One showing the two relevant lines from the system after the elimination step.</li>
+</ul>
+<p>
+      You may find it helpful to look through the Sage examples in previous sections
+      of this workbook.
+    </p></article><article class="example-like" id="task-52"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+</h5>
+<p>
+      Consider this system of three equations in three unknowns:
+      \[
+      \left\{
+      \begin{array}{rrrrrrr}
+      -x &amp;+ &amp;\frac{2}{3} y &amp;+ &amp;z &amp;= &amp;1 \\
+       x &amp;+ &amp;           6y &amp;+ &amp;z &amp;= &amp;1 \\
+      3x &amp;  &amp;              &amp;+ &amp;3z&amp;= &amp;1 \\
+      \end{array}\right.
+      \]
+      Perform the elimination steps to transform this system into a triangular one.
+    </p>
+<p>
+      Write down the corresponding matrices you use to perform each of these
+      steps on the augmented matrix version of this system.
+    </p></article><article class="example-like" id="task-53"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+</h5>
+<p>
+      Still working with the system of equations from the last task, use Sage
+      to make two column picture plots:
+    </p>
+<ul>
+<li> One showing the four relevant column vectors from the original system.</li>
+<li> One showing the four relevant column vectors from the system after the elimination step.</li>
+</ul>
+<p>
+      You may find it helpful to look through the Sage examples in previous sections
+      of this workbook.
+    </p></article><article class="example-like" id="task-54"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+</h5>
+<p>
+      One more time, stay with the system of equations from previous two tasks.
+      Use Sage to make two row picture plots:
+    </p>
+<ul>
+<li> One showing the two relevant lines in the original system.</li>
+<li> One showing the two relevant lines from the system after the elimination step.</li>
+</ul>
+<p>
+      You may find it helpful to look through the Sage examples in previous sections
+      of this workbook.
+    </p></article></section></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-09T22:51:34-05:00    *-->
+<!--*    on 2014-09-13T18:44:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -189,16 +189,16 @@ $(function () {
       </p>
 <ul>
 <li>
-<tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A.rescale_row(r, num)</tt></tt> multiplies row <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">r</tt></tt> by the factor of <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">num</tt></tt>.</li>
+<tt class="code-inline" style="color: red; font-size: 120%">A.rescale_row(r, num)</tt> multiplies row <tt class="code-inline" style="color: red; font-size: 120%">r</tt> by the factor of <tt class="code-inline" style="color: red; font-size: 120%">num</tt>.</li>
 <li>
-<tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A.swap_rows(r1, r2)</tt></tt> switches the places of rows <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">r1</tt></tt> and <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">r2</tt></tt>.</li>
+<tt class="code-inline" style="color: red; font-size: 120%">A.swap_rows(r1, r2)</tt> switches the places of rows <tt class="code-inline" style="color: red; font-size: 120%">r1</tt> and <tt class="code-inline" style="color: red; font-size: 120%">r2</tt>.</li>
 <li>
-<tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A.add_multiple_of_row(target, useful, num)</tt></tt>. This adds <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">num</tt></tt>
-          times row <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">useful</tt></tt> to row <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">target</tt></tt>.</li>
+<tt class="code-inline" style="color: red; font-size: 120%">A.add_multiple_of_row(target, useful, num)</tt>. This adds <tt class="code-inline" style="color: red; font-size: 120%">num</tt>
+          times row <tt class="code-inline" style="color: red; font-size: 120%">useful</tt> to row <tt class="code-inline" style="color: red; font-size: 120%">target</tt>.</li>
 </ul>
 <p>
         Throughout, please remember that Sage uses \(0\)-based indexing! So
-        the rows are labeled <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">0, 1, 2, ...</tt></tt>
+        the rows are labeled <tt class="code-inline" style="color: red; font-size: 120%">0, 1, 2, ...</tt>
       </p>
 <div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 3,3, [0,2,4, 1,1,5, 6,2,5]); A
 </script></div>
@@ -219,19 +219,19 @@ A # this should add 4 times row 2 to row 2
         (Well, we did a bit more than Strang would. He wouldn't rescale the rows.)
       </p>
 <p>
-        Sometimes you do not want to change the matrix <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A</tt></tt>. If instead, you
-        want to leave <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A</tt></tt> alone, you can use these methods, which return
-        a new object and do not change <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A</tt></tt>.
+        Sometimes you do not want to change the matrix <tt class="code-inline" style="color: red; font-size: 120%">A</tt>. If instead, you
+        want to leave <tt class="code-inline" style="color: red; font-size: 120%">A</tt> alone, you can use these methods, which return
+        a new object and do not change <tt class="code-inline" style="color: red; font-size: 120%">A</tt>.
       </p>
 <ul>
-<li><tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A.with_rescaled_row(r, num)</tt></tt></li>
-<li><tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A.with_swapped_rows(r1, r2)</tt></tt></li>
-<li><tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A.with_added_multiple_of_row(t, u, num)</tt></tt></li>
+<li><tt class="code-inline" style="color: red; font-size: 120%">A.with_rescaled_row(r, num)</tt></li>
+<li><tt class="code-inline" style="color: red; font-size: 120%">A.with_swapped_rows(r1, r2)</tt></li>
+<li><tt class="code-inline" style="color: red; font-size: 120%">A.with_added_multiple_of_row(t, u, num)</tt></li>
 </ul>
 <p>
-        Let's do the same operations as above, but without changing <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">A</tt></tt>.
+        Let's do the same operations as above, but without changing <tt class="code-inline" style="color: red; font-size: 120%">A</tt>.
         This will mean making a bunch of new matrices. In fact, let's also change
-        the name of our matrix to <tt class="code=inline" style="color: red; font-size: 120%"><tt class="code-inline">B</tt></tt>
+        the name of our matrix to <tt class="code-inline" style="color: red; font-size: 120%">B</tt>
       </p>
 <div class="sage-compute"><script type="text/x-sage">B = matrix(QQ, 3,3, [0,2,4, 1,1,5, 6,2,5]); B
 </script></div>
@@ -256,8 +256,8 @@ B4 # this should add 4 times row 2 to row 2
 <div class="sage-compute"><script type="text/x-sage">B, B1, B2, B3, B4, B5
 </script></div></section><section class="subsection" id="subsection-27"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="exercise-like" id="exercise-38"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.9</span>
+</h1></header><article class="example-like" id="task-38"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
 </h5>
           Use the elimination method to transform this system into an easier
           one. (Can you make it triangular?) Circle the pivots in the final
@@ -272,8 +272,8 @@ B4 # this should add 4 times row 2 to row 2
           \]
           What two operations do you use to do this efficiently? Now use back
           substitution to solve the system.
-        </article><article class="exercise-like" id="exercise-39"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.10</span>
+        </article><article class="example-like" id="task-39"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
 </h5>
 <p>
             <em>(Sage Exercise)</em>:
@@ -284,15 +284,15 @@ B4 # this should add 4 times row 2 to row 2
 <p>
             Make row picture plots for each of the three systems. [Hint: Sage]
             How do the operations transform the pictures?
-          </p></article><article class="exercise-like" id="exercise-40"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.11</span>
+          </p></article><article class="example-like" id="task-40"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
 </h5>
           Suppose that a system of three equations in three unknowns has two
           solutions \((a,b,c)\) and \((A,B,C)\). Explain why the system must have
           other solutions than these two. Describe clearly two other solutions
           in terms of \(a,b,c,A,B,C\).
-        </article><article class="exercise-like" id="exercise-41"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.12</span>
+        </article><article class="example-like" id="task-41"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
 </h5>
           Find three examples of numbers \(a\) so that elimination will fail to
           give three pivots for this coefficient matrix:
@@ -300,13 +300,13 @@ B4 # this should add 4 times row 2 to row 2
             A = \begin{pmatrix}
             a &amp; 2 &amp; 3 \\ a &amp; a &amp; 4 \\ a &amp; a &amp; a
             \end{pmatrix}
-          \]</article><article class="exercise-like" id="exercise-42"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.13</span>
+          \]</article><article class="example-like" id="task-42"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
 </h5>
           How many ways can two lines in the plane meet? Make examples to
           represent as many <em>qualitatively different</em> situations as you can.
-        </article><article class="exercise-like" id="exercise-43"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.14</span>
+        </article><article class="example-like" id="task-43"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
 </h5>
           Complete the following to make an example of a system of two equations
           in two unknowns which is singular but still has a solution, or explain why
@@ -317,8 +317,8 @@ B4 # this should add 4 times row 2 to row 2
             2x &amp; + &amp; 3y &amp; = &amp; 1 \\
             \bullet x &amp; + &amp; \bullet y &amp; = &amp; \bullet
             \end{array}\right.
-          \]</article><article class="exercise-like" id="exercise-44"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.15</span>
+          \]</article><article class="example-like" id="task-44"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
 </h5>
           Complete the following to a system of three equations in three
           unknowns which is singular and does not have a solution, or explain
@@ -330,8 +330,8 @@ B4 # this should add 4 times row 2 to row 2
             2x &amp; - &amp; y &amp; + &amp; 3z &amp; = &amp; 0 \\
             \bullet x &amp; + &amp; \bullet y &amp; + &amp;\bullet z &amp;  = &amp; \bullet
             \end{array}\right.
-          \]</article><article class="exercise-like" id="exercise-45"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.16</span>
+          \]</article><article class="example-like" id="task-45"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
 </h5>
           Complete the following to a system of three equations in three
           unknowns which is singular but still has a solution, or explain why
@@ -343,8 +343,8 @@ B4 # this should add 4 times row 2 to row 2
             2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; 0 \\
             \bullet x &amp; + &amp; \bullet y &amp; + &amp;\bullet z &amp;  = &amp; \bullet
             \end{array}\right.
-          \]</article><article class="exercise-like" id="exercise-46"><h5 class="heading">
-<span class="type">Exercise</span> <span class="codenumber">2.17</span>
+          \]</article><article class="example-like" id="task-46"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
 </h5>
           How many ways can three planes in three dimensional space meet? Make
           examples to represent as many <em>qualitatively different</em>
