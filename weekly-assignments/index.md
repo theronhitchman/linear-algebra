@@ -10,3 +10,4 @@ paragraphs!
 
 * [Weekly Assignment \# 1]({{site.baseurl}}/weekly-assignments/week-1.html)
 * [Weekly Assignment \# 2]({{site.baseurl}}/weekly-assignments/week-2.html)
+* [Weekly Assignmetn \# 3]({{site.baseurl}}/weekly-assignments/week-3.html)
