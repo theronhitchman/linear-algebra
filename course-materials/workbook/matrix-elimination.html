@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-13T18:44:51-05:00    *-->
+<!--*    on 2014-09-14T22:03:10-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -49,7 +49,7 @@ $(function () {
 <body class="mathbook-book has-toc has-sidebar-left">
 <div style="display:none;">\(
     
-    \newcommand{augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
   \)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
@@ -60,12 +60,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="elimination.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="lin-eq-gf1.html">Next</a>
+<a class="previous-button toolbar-item button" href="elimination.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="lin-eq-going-further-1.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="elimination.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="lin-eq-gf1.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="elimination.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="lin-eq-going-further-1.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -87,7 +87,7 @@ $(function () {
 <li><a href="three-pictures.html">Three Geometric Models</a></li>
 <li><a href="elimination.html">Solving Systems</a></li>
 <li><a href="matrix-elimination.html" class="active">Elimination using Matrices</a></li>
-<li><a href="lin-eq-gf1.html">Systems: Going Further</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with the Basic Objects</a></li>
 <li><a href="matrix-algebra.html">Matrix Algebra</a></li>
 <li><a href="inverse.html">Matrix Inverses</a></li>
 <li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
@@ -104,12 +104,12 @@ $(function () {
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="matrix-elimination"><header><h1 class="heading">
 <span class="type">Section</span><span class="codenumber">2.3</span><span class="title">Elimination using Matrices</span>
-</h1></header><section class="subsection" id="subsection-28"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-29"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul>
 <li>Read section 2.3 of <em>Strang</em>.</li>
 <li>Read the discussion below and work out the exercises.</li>
-</ul></section><section class="subsection" id="subsection-29"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-30"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>
         Before class, a student should be able to:
@@ -143,7 +143,7 @@ $(function () {
             E_{\bullet}E_{\bullet}\cdots E_{\bullet} (A\ |\ b) = (U\ |\ b')
           \]
           where \(U\) is an upper triangular matrix.
-        </li></ul></section><section class="subsection" id="subsection-30"><header><h1 class="heading">
+        </li></ul></section><section class="subsection" id="subsection-31"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Elimnation and Using Matrices as “Transformations”</span>
 </h1></header><p>
       Let us focus (for now) on square systems of equations, where the number of
@@ -353,7 +353,7 @@ $(function () {
         exactly one new vector \(Ew\), still with three components. This means that
         \(E\) defines a function from the set of \(3\)-vectors to the set of
         \(3\)-vectors.
-      </p></section></section><section class="subsection" id="subsection-31"><header><h1 class="heading">
+      </p></section></section><section class="subsection" id="subsection-32"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Multiplication</span>
 </h1></header><p>
       Sage has built-in matrix multiplication. You do the obvious thing and it
@@ -405,10 +405,10 @@ E
 </script></div>
 <p>
       Ta-Da!!!
-    </p></section><section class="subsection" id="subsection-32"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-33"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-47"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">17</span><span class="title"></span>
 </h5>
 <p>
       In the main example above
@@ -432,7 +432,7 @@ E
       0 &amp;3 &amp;2 &amp;8 \\ 1 &amp;-1 &amp;1 &amp;-1 \\ 3 &amp;2 &amp;3 &amp;1}
       \]
     </p></article><article class="example-like" id="task-48"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">18</span><span class="title"></span>
 </h5>
 <p>
       Consider the system
@@ -447,7 +447,7 @@ E
       linear combination of vectors; (2) an equation involving a \(2\times 2\)
       matrix; (3) an augmented matrix.
     </p></article><article class="example-like" id="task-49"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">19</span><span class="title"></span>
 </h5>
 <p>
       Perform an elimination step on the system from the last exercise to put the sytem in triangular form. You should get two pivots.
@@ -455,7 +455,7 @@ E
 <p>
       Write the new system in each of our four forms.
     </p></article><article class="example-like" id="task-50"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">20</span><span class="title"></span>
 </h5>
 <p>
       Still working with the same system of equations, use Sage to make two column picture plots:
@@ -468,7 +468,7 @@ E
       You may find it helpful to look through the Sage examples in previous sections
       of this workbook.
     </p></article><article class="example-like" id="task-51"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">21</span><span class="title"></span>
 </h5>
 <p>
       One more time, stay with the same system of equations. Use Sage to make
@@ -482,7 +482,7 @@ E
       You may find it helpful to look through the Sage examples in previous sections
       of this workbook.
     </p></article><article class="example-like" id="task-52"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">22</span><span class="title"></span>
 </h5>
 <p>
       Consider this system of three equations in three unknowns:
@@ -500,7 +500,7 @@ E
       Write down the corresponding matrices you use to perform each of these
       steps on the augmented matrix version of this system.
     </p></article><article class="example-like" id="task-53"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">23</span><span class="title"></span>
 </h5>
 <p>
       Still working with the system of equations from the last task, use Sage
@@ -514,7 +514,7 @@ E
       You may find it helpful to look through the Sage examples in previous sections
       of this workbook.
     </p></article><article class="example-like" id="task-54"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">24</span><span class="title"></span>
 </h5>
 <p>
       One more time, stay with the system of equations from previous two tasks.

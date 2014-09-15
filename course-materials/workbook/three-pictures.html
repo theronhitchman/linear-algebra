@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-13T18:44:51-05:00    *-->
+<!--*    on 2014-09-14T22:03:10-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -49,7 +49,7 @@ $(function () {
 <body class="mathbook-book has-toc has-sidebar-left">
 <div style="display:none;">\(
     
-    \newcommand{augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
   \)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
@@ -87,7 +87,7 @@ $(function () {
 <li><a href="three-pictures.html" class="active">Three Geometric Models</a></li>
 <li><a href="elimination.html">Solving Systems</a></li>
 <li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
-<li><a href="lin-eq-gf1.html">Systems: Going Further</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with the Basic Objects</a></li>
 <li><a href="matrix-algebra.html">Matrix Algebra</a></li>
 <li><a href="inverse.html">Matrix Inverses</a></li>
 <li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
@@ -104,7 +104,7 @@ $(function () {
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="three-pictures"><header><h1 class="heading">
 <span class="type">Section</span><span class="codenumber">2.1</span><span class="title">Three Geometric Models</span>
-</h1></header><section class="subsection" id="subsection-18"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-19"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul>
 <li>
@@ -113,7 +113,7 @@ $(function () {
 <li>
         Read the following and complete the exercises below
       </li>
-</ul></section><section class="subsection" id="subsection-19"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-20"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>
       Before class, a student should be able to:
@@ -144,7 +144,7 @@ $(function () {
 <li>Given a system, interpret and plot the “column picture”.</li>
 <li>Use a matrix as a model of a <em class="terminology">transformation</em>, including stating
         the <em class="terminology">domain</em> and the <em class="terminology">range</em>.</li>
-</ul></section><section class="subsection" id="subsection-20"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-21"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
 </h1></header><p>
       Now we have a little experience with vectors and related things, it is
@@ -181,7 +181,7 @@ v &amp; \xmapsto[]{\phantom{T_A}} Av.
 \end{align*}
         One of our long term goals is to find a way to think about the geometry
         of linear algebra from this viewpoint, too.
-      </p></section></section><section class="subsection" id="subsection-21"><header><h1 class="heading">
+      </p></section></section><section class="subsection" id="subsection-22"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Plotting for Linear Algebra</span>
 </h1></header><p>There are a few new Sage commands that might be useful here. We have
       already seen how to take linear equations and turn them into vectors
@@ -248,7 +248,7 @@ print expr2
 <div class="sage-compute"><script type="text/x-sage">row_plot = implicit_plot(expr1, [x,-5,5], [y,-1,9], color='blue')
 row_plot+= implicit_plot(expr2, [x,-5,5], [y,-1,9], color='red')
 show(row_plot, axes=True)
-</script></div></section><section class="subsection" id="subsection-22"><header><h1 class="heading">
+</script></div></section><section class="subsection" id="subsection-23"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-31"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>

@@ -1,0 +1,2690 @@
+%%                                    %%
+%% Generated from MathBook XML source %%
+%%    on 2014-09-14T22:05:02-05:00    %%
+%%                                    %%
+%%   http://mathbook.pugetsound.edu   %%
+%%                                    %%
+\documentclass[10pt,]{book}
+%% Load geometry package to allow page margin adjustments
+\usepackage{geometry}
+\geometry{letterpaper,total={5.0in,9.0in}}
+%% Custom Preamble Entries, early (use latex.preamble.early)
+%% Inline math delimiters, \(, \), made robust with next package
+\usepackage{fixltx2e}
+%% Page Layout Adjustments (latex.geometry)
+%% For unicode character support, use the "xelatex" executable
+%% If never using xelatex, the next three lines can be removed
+\usepackage{ifxetex}
+\ifxetex\usepackage{xltxtra}\fi
+%% Symbols, align environment, bracket-matrix
+\usepackage{amsmath}
+\usepackage{amssymb}
+%% extpfeil package for certain extensible arrows,
+%% as also provided by MathJax extension of the same name
+\usepackage{extpfeil}
+%% allow more columns to a matrix
+%% can make this even bigger by overiding with  latex.preamble.late  processing option
+\setcounter{MaxMatrixCols}{30}
+%% XML, MathJax Conflict Macros
+%% Two nonstandard macros that MathJax supports automatically
+%% so we always define them in order to allow their use and
+%% maintain source level compatibility
+%% This avoids using two XML entities in source mathematics
+\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+%% Semantic Macros
+%% To preserve meaning in a LaTeX file
+%% Only defined here if required in this document
+\newcommand{\terminology}[1]{\textbf{#1}}
+%% Subdivision Numbering, Chapters, Sections, Subsections, etc
+%% Subdivision numbers may be turned off at some level ("depth")
+%% A section *always* has depth 1, contrary to us counting from the document root
+%% The latex default is 3.  If a larger number is present here, then
+%% removing this command may make some cross-references ambiguous
+%% The precursor variable $numbering-maxlevel is checked for consistency in the common XSL file
+\setcounter{secnumdepth}{1}
+%% Environments with amsthm package
+%% Theorem-like enviroments in "plain" style, with or without proof
+\usepackage{amsthm}
+\theoremstyle{plain}
+%% Numbering for Theorems, Conjectures, Examples, Figures, etc
+%% Controlled by  numbering.theorems.level  processing parameter
+%% Always need a theorem environment to set base numbering scheme
+%% even if document has no theorems (but has other environments)
+\newtheorem{theorem}{Theorem}[chapter]
+\renewcommand*{\proofname}{Proof}%% Only variants actually used in document appear here
+%% Numbering: all theorem-like numbered consecutively
+%% i.e. Corollary 4.3 follows Theorem 4.2
+%% Equation Numbering
+%% Controlled by  numbering.equations.level  processing parameter
+\numberwithin{equation}{section}
+%% Figures, Tables, Floats
+%% The [H]ere option of the float package fixes floats in-place,
+%% in deference to web usage, where floats are totally irrelevant
+%% We redefine the figure and table environments, if used
+%%   1) New mbxfigure and/or mbxtable environments are defined with float package
+%%   2) Standard LaTeX environments redefined to use new environments
+%%   3) Standard LaTeX environments redefined to step theorem counter
+%%   4) Counter for new enviroments is set to the theorem counter before caption
+%% You can remove all this figure/table setup, to restore standard LaTeX behavior
+%% HOWEVER, numbering of figures/tables AND theorems/examples/remarks, etc
+%% WILL ALL de-synchronize with the numbering in the HTML version
+%% You can remove the [H] argument of the \newfloat command, to allow flotation and 
+%% preserve numbering, BUT the numbering may then appear "out-of-order"
+\usepackage{float}
+\newfloat{mbxfigure}{H}{lof}[chapter]
+\floatname{mbxfigure}{Figure}
+\renewenvironment{figure}%
+{\begin{mbxfigure}\setcounter{mbxfigure}{\value{theorem}}\stepcounter{theorem}}%
+{\end{mbxfigure}}
+%% Raster graphics inclusion, wrapped figures in paragraphs
+\usepackage{graphicx}
+%% Colors for Sage boxes and author tools (red hilites)
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%% Program listing support, for Sage code or otherwise
+\usepackage{listings}
+%% We define \listingsfont to provide Bitstream Vera Mono font
+%% for program listings, under both pdflate and xelatex
+%% If you remove this, define \listingsfont to be \ttfamily perhaps
+\ifxetex
+\usepackage{fontspec}\newfontface\listingsfont[Path]{fvmr8a.pfb}
+\else
+\edef\oldtt{\ttdefault}\usepackage[scaled]{beramono}\usepackage[T1]{fontenc}
+\renewcommand*\ttdefault{\oldtt}\newcommand{\listingsfont}{\fontfamily{fvm}\selectfont}
+\fi
+%% End of program listing font definition
+%% Sage's blue is 50%, we go way lighter (blue!05 would work)
+\definecolor{sageblue}{rgb}{0.95,0.95,1}
+%% Sage input, listings package: Python syntax, boxed, colored, line breaking
+\lstdefinestyle{sageinput}{language=Python,breaklines=true,breakatwhitespace=true,basicstyle=\footnotesize\listingsfont,columns=fixed,frame=single,backgroundcolor=\color{sageblue},xleftmargin=4ex,xrightmargin=4ex}
+%% Sage output, similar, but not boxed, not colored
+\lstdefinestyle{sageoutput}{language=Python,breaklines=true,breakatwhitespace=true,basicstyle=\footnotesize\listingsfont,columns=fixed,xleftmargin=8ex,xrightmargin=4ex}
+%% hyperref driver does not need to be specified
+\usepackage{hyperref}
+%% latex.print parameter set to 'yes', all hyperlinks black
+\hypersetup{hidelinks}
+\hypersetup{pdftitle={Math 2500: Linear Algebra}}
+%% If you manually remove hyperref, leave in this next command
+\providecommand\phantomsection{}
+%% Custom Preamble Entries, late (use latex.preamble.late)
+\newtheorem{task}{Task}[chapter]
+
+%% Convenience macros
+\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+%% Title page information for book
+\title{Math 2500: Linear Algebra}
+\author{}
+\date{}
+\begin{document}
+\frontmatter
+%% half-title
+\thispagestyle{empty}
+\vspace*{\stretch{1}}
+\begin{center}
+{\Huge Math 2500: Linear Algebra}
+\end{center}\par
+\vspace*{\stretch{2}}
+\clearpage
+\thispagestyle{empty}
+\clearpage
+\maketitle
+\clearpage
+\thispagestyle{empty}
+\vspace*{\stretch{2}}
+\vspace*{\stretch{1}}
+\clearpage
+\setcounter{tocdepth}{1}
+\renewcommand*\contentsname{Contents}
+\tableofcontents
+\chapter{Preface}
+This is a set of class notes designed to guide an inquiry-based course
+      on linear algebra. This is not a complete resource! Rather, this text is
+      meant to accompany the book Introduction to Linear Algebra by
+      Gilbert Strang. Industrious students might also use it for a self-study
+      course.
+    %
+\par
+An important feature of this text is the integration of the Sage
+      Mathematical Software System. Students in this course will learn to use
+      Sage to perform long tedious computations (which linear algebra has in
+      spades) and create visualizations.
+    %
+I thank the Sage community, in particular William Stein, for creating
+      such a wonderful tool and making it open-source.
+    %
+\par
+I also thank Rob Beezer for creating the MathBook project which makes
+      this particular book project available on the web.
+    %
+\mainmatter
+\typeout{************************************************}
+\typeout{Chapter 1 Vectors, the Dot Product, and Matrices}
+\typeout{************************************************}
+\chapter[Vectors, the Dot Product, and Matrices]{Vectors, the Dot Product, and Matrices}\label{chapter-basic-objects}
+
+      This first chapter introduces the basic objects of linear algebra.
+      You will meet vectors, the dot product, and matrices.
+    %
+\par
+
+      Vectors are a generalization of the concept of number. Where real numbers
+      can help us model the geometry of points on a line, vectors will allow us to
+      model the geometry of a plane, or (three-dimensional) space, or even "spaces"
+      with higher dimensions. We begin by learning about the algebra of vectors,
+      and making connections to the geometry.
+    %
+\par
+
+      The dot product is a funny kind of multiplication. It plays an important
+      role in mathematics because it captures all of the basics of measurement.
+      We shall learn how to use the dot product to measure lengths and angles. By
+      its definition, the dot product is connected with the concept of a linear
+      equation, so it will make frequent appearances in our work.
+    %
+\par
+
+      Matrices are another way to generalize the concept of number. (In fact, they
+      generalize the concept of vector.) We start here by learning about the
+      algebra of matrices. The whole rest of this course will focus on matrices,
+      their uses, and their properties.
+    %
+\par
+
+      A running theme for this course is the use of the Sage mathematical software
+      system. In order to get started, the fourth section of this course is
+      dedicated to getting started with Sage using the SageMathCloud (SMC). You will
+      make an account and run through an introductory workshop with SMC.
+      Also, throughout this workbook you will find little embedded pieces of Sage
+      code. These are implemented using the Sage SingleCell server. Most of these
+      Sage cells are mutable. You can change the content in them and re-evaluate
+      your new Sage code. I encourage you to play with these---it is a good way to
+      learn the basics of Sage.
+    %
+\par
+
+      The fifth and final section of the chapter is a short assignment designed to
+      consolidate learning. You will get a chance to practice your skills and to
+      think more deeply about the concepts you have learned.
+    %
+\typeout{************************************************}
+\typeout{Section 1.1 Vectors}
+\typeout{************************************************}
+\section[Vectors]{Vectors}\label{vectors}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-1}
+\begin{itemize}
+\item{}Read section 1.1 of \emph{Strang} (pages 1-7).\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Objectives}
+\typeout{************************************************}
+\subsection[Learning Objectives]{Learning Objectives}\label{subsection-2}
+Before class, a student should be able to:
+      \begin{itemize}
+\item{}Add vectors.\item{}Multiply a vector by a scalar.\item{}Compute linear combinations.\item{}Draw pictures which correspond to the above operations.\end{itemize}
+
+      At some point, a student should be able to:
+      \begin{itemize}
+\item{}Solve linear combination equations involving unknown coefficients.\item{}Solve linear combination equations involving unknown vectors.\end{itemize}
+
+    %
+\typeout{************************************************}
+\typeout{Subsection  Some Discussion}
+\typeout{************************************************}
+\subsection[Some Discussion]{Some Discussion}\label{subsection-3}
+Algebraically, a \terminology{vector} is a stack of numbers in a set of
+     parentheses or brackets, like this\begin{align*}
+\begin{pmatrix} 2 \\ 7 \\ 9 \end{pmatrix}, \text{ or }
+          \begin{bmatrix}2 \\ 7 \\ 9 \end{bmatrix}, \text{ or }
+          \begin{pmatrix} 2 & 7 & 9 \end{pmatrix}.
+\end{align*}
+     The individual numbers are called the \terminology{components} or \terminology{entries}
+     or \terminology{coordinates} of the vector. For example, \(7\) is the second
+     component of the vectors above.%
+\par
+The first two vectors above are called \terminology{column} vectors
+        because they are stacked vertically. The third is called a \terminology{row} vector because it is arranged horizontally. For this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors. It is up to you to make the switch. (We will see later how this matters!)%
+\par
+Vectors can take lots of different sizes. The vectors above are all \(3\)-vectors. Here is a \(2\)-vector: \[\begin{pmatrix} 71 \\ -12 \end{pmatrix}.\] Here is a \(4\)-vector: \[\begin{pmatrix} \pi \\ 0 \\ -\pi \\ 1\end{pmatrix}.\]%
+\par
+The main value in using vectors lies in their standard interpretations. Let's focus on \(3\)-vectors for now. The vector \(\left(\begin{smallmatrix} a \\ b \\ c\end{smallmatrix}\right)\) can represent \begin{itemize}
+\item{}A point in space described in the standard three-dimensional rectangular coordinate system with \(x\) coordinate equal to \(a\), \(y\)-coordinate equal to \(b\) and \(z\) coordinate equal to \(c\).%
+\item{}An arrow in space which points from the origin \((0,0,0)\) to the point \((a,b,c)\).%
+\item{}An arrow in space which points from some point \((x,y,z)\) to the point \((x+a,y+b,z+c)\).%
+\end{itemize}
+
+        %
+\typeout{************************************************}
+\typeout{Subsubsection  Operations on Vectors}
+\typeout{************************************************}
+\subsubsection[Operations on Vectors]{Operations on Vectors}\label{subsubsection-1}
+There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)%
+\typeout{************************************************}
+\typeout{Paragraph  Scalar Multiplication}
+\typeout{************************************************}
+\paragraph[Scalar Multiplication]{Scalar Multiplication}\label{paragraph-1}
+Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\), we form the new vector \[\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\]%
+\typeout{************************************************}
+\typeout{Paragraph  Addition}
+\typeout{************************************************}
+\paragraph[Addition]{Addition}\label{paragraph-2}
+Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their \terminology{sum} \[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]%
+\typeout{************************************************}
+\typeout{Paragraph }
+\typeout{************************************************}
+\paragraph[]{}\label{paragraph-3}
+These operations have ``obvious'' generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called \terminology{coordinate-wise} operations.%
+\par
+Combining these two operations gives us the notion of a \emph{linear combination}. If \(\lambda\) and \(\mu\) are numbers and \(v\) and \(w\) are vectors of a common size, then the vector \[\lambda v + \mu w \] is a linear combination of \(v\) and \(w\).%
+\typeout{************************************************}
+\typeout{Subsection  Sage Instructions}
+\typeout{************************************************}
+\subsection[Sage Instructions]{Sage Instructions}\label{subsection-4}
+\typeout{************************************************}
+\typeout{Paragraph  Basic Constructions}
+\typeout{************************************************}
+\paragraph[Basic Constructions]{Basic Constructions}\label{paragraph-4}
+A vector in Sage is constructed by applying the \verb?vector? command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:%
+\begin{lstlisting}[style=sageinput]
+u = vector([1,1,2])
+\end{lstlisting}
+\par
+Notice that nothing was displayed. Sage just put the vector u into memory. We can ask for it by calling it.%
+\begin{lstlisting}[style=sageinput]
+u
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(1, 1, 2)
+\end{lstlisting}
+\par
+Sage defaults to displaying vectors horizontally, which is different from how we normally write them by hand.
+              This is okay. You will get used to it quickly.%
+\par
+Sage knows how to add, multiply by scalars, and form linear combinations, and the notation for it is just as easy as you would expect.%
+\begin{lstlisting}[style=sageinput]
+v = vector([-1,-1,2])
+u + v
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(0, 0, 4)
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+pi * u
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(pi, pi, 2*pi)
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+3*u + 4*v
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(-1, -1, 14)
+\end{lstlisting}
+\par
+If you ask Sage to plot a vector, you get this kind of picture:%
+\begin{lstlisting}[style=sageinput]
+plot(v)
+\end{lstlisting}
+\par
+And in two dimensions something similar...%
+\begin{lstlisting}[style=sageinput]
+a = vector([-1,1])
+plot(a)
+\end{lstlisting}
+\par
+If you find that you want a vector to have its tail someplace
+              that is not the origin, use the \verb?arrow? command.%
+\begin{lstlisting}[style=sageinput]
+plot(arrow([1,1],[2,3], color='red',
+           arrowsize=2, width=2),
+     figsize=5, aspect_ratio=1)
+\end{lstlisting}
+\par
+Note that Sage cut off some of this plot! Also, I used some options
+              just to show them off. The \verb?arrow? command works in three dimensions,
+              too.
+            %
+\typeout{************************************************}
+\typeout{Paragraph  Interactive Demonstrations}
+\typeout{************************************************}
+\paragraph[Interactive Demonstrations]{Interactive Demonstrations}\label{paragraph-5}
+This is a Sage "interact." You can use this to explore the idea of
+            linear combinations of \(2\)-vectors.%
+\begin{lstlisting}[style=sageinput]
+@interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
+def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,width=10), d=input_box(1,width=10),
+                 l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10)):
+    two_dim = arrow([0,0], [a,b], color ='red') + arrow([0,0],[c,d],color='blue')
+    two_dim+= arrow([0,0], [l*a,l*b], color='red') + arrow([m*c,m*d],[l*a+m*c,l*b+m*d],color='red')
+    two_dim+= arrow([0,0], [m*c,m*d], color='blue') + arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+    two_dim+= point([e,f],size=20,color='black',zorder=2)+ arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+    two_dim+= text('v = (a,b)', [a-.1,b+.1], color='red') + text('w=(c,d)', [c+.1,d-.1],color='purple')
+    two_dim+= text('l*v + m*w', [l*a+m*c+.1, l*b+m*d+.1],color='purple') + text('P=(e,f)', [e+.1,f+.1],color='black')
+    two_dim+= arrow([0,0],[l*a+m*c,l*b+m*d],color='purple', arrowsize=1, width=1)
+    two_dim.show(axes=True)
+\end{lstlisting}
+\par
+This is a different Sage interact. You can use this one to
+                explore linear combinations of \(2\)-vectors.
+              %
+\begin{lstlisting}[style=sageinput]
+@interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
+def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,width=10), d=input_box(1,width=10),
+                 l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10)):
+    two_dim = arrow([0,0], [a,b], color ='red') + arrow([0,0],[c,d],color='blue')
+    two_dim+= arrow([0,0], [l*a,l*b], color='red') + arrow([m*c,m*d],[l*a+m*c,l*b+m*d],color='red')
+    two_dim+= arrow([0,0], [m*c,m*d], color='blue') + arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+    two_dim+= point([e,f],size=20,color='black',zorder=2)+ arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
+    two_dim+= text('v = (a,b)', [a-.1,b+.1], color='red') + text('w=(c,d)', [c+.1,d-.1],color='purple')
+    two_dim+= text('l*v + m*w', [l*a+m*c+.1, l*b+m*d+.1],color='purple') + text('P=(e,f)', [e+.1,f+.1],color='black')
+    two_dim+= arrow([0,0],[l*a+m*c,l*b+m*d],color='purple', arrowsize=1, width=1)
+    two_dim.show(axes=True)
+\end{lstlisting}
+\begin{task}
+\label{task-1}
+Find an example of numbers \(\lambda\) and \(\mu\) so that \[\lambda \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \mu \begin{pmatrix} 2 \\ -1 \end{pmatrix}\] or describe why no such example can exist.%
+\end{task}
+\begin{task}
+\label{task-2}
+Find a vector \(b = \left( \begin{smallmatrix} b_1 \\ b_2
+                  \end{smallmatrix} \right)\) so that \[ \begin{pmatrix} 2
+                  \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+                  = \begin{pmatrix} 10 \\ -3 \end{pmatrix}\] or describe why
+                  no such example can exist.%
+\end{task}
+\begin{task}
+\label{task-3}
+Find a vector \(b = \left( \begin{smallmatrix} b_1 \\ b_2
+                  \end{smallmatrix} \right)\) so that this equation has at
+                  least one solution \(\lambda\) \[\begin{pmatrix} 1 \\ -2
+                  \end{pmatrix} + \lambda \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+                  = \begin{pmatrix} 2 \\ 3 \end{pmatrix}\] or describe why no
+                  such example can exist.%
+\end{task}
+\begin{task}
+\label{task-4}
+Give examples of numbers \(a\) and \(b\) such that \[ a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}\] or explain why no such numbers exist.%
+\end{task}
+In the situations like the last exercise, the pair of numbers \(a, b\) is called a \terminology{solution} to the equation.%
+\begin{task}
+\label{task-5}
+Give an example of a vector \(X = \left( \begin{smallmatrix} x \\ y \end{smallmatrix} \right)\) so that the equation \[a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b X = \begin{pmatrix}7 \\ 5 \end{pmatrix} \] has no solution \((a,b)\), or explain why no such example exists.%
+\end{task}
+\begin{task}
+\label{task-6}
+Give an example of a number \(\lambda\) so that \[\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + 3 \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}\] or explain why no such number exists.%
+\end{task}
+\begin{task}
+\label{task-7}
+Give an example of numbers \(\lambda\) and \(\mu\) which are a solution to the equation \[ \lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + \mu \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}\] or explain why no such solution exists.%
+\end{task}
+\begin{task}
+\label{task-8}
+Give an example of a vector \(w = \begin{pmatrix} x \\ y \\
+                  z \end{pmatrix}\) so that the equation \[a \begin{pmatrix}
+                  1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                  \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\]
+                  has no solution \((a,b)\), or explain why no such vector
+                  exists.%
+\end{task}
+\begin{task}
+\label{task-9}
+Give an example of a vector \(w = \begin{pmatrix} x \\ y \\ z
+                  \end{pmatrix}\) so that the equation \[ a \begin{pmatrix}
+                  1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                  \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\]
+                  has exactly one solution \((a,b)\), or explain why no such
+                  vector exists.%
+\end{task}
+\begin{task}
+\label{task-10}
+Give an example of a vector \(X =
+                  \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) such that the
+                  equation \[ a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b
+                  \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1
+                  \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}
+                \] has no solutions \((a,b,c)\), or explain why no such vector
+                  exists.%
+\end{task}
+\begin{task}
+\label{task-11}
+Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) such that the equation \[ a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}\] has exactly one solution, or explain why no such vector exists.%
+\end{task}
+\begin{task}
+\label{task-12}
+Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) such that the equation \[ a \begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} + b \begin{pmatrix} 0 \\ -1 \\ 0\end{pmatrix} + c \begin{pmatrix} x \\ y \\ z\end{pmatrix} = \begin{pmatrix}3 \\ 7 \\ 7 \end{pmatrix}\] has no solutions, or explain why no such vector exists.%
+\end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 1.2 The Dot Product}
+\typeout{************************************************}
+\section[The Dot Product]{The Dot Product}\label{dot-product}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-5}
+\begin{itemize}
+\item{}Read section 1.2 of \emph{Strang}\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Objectives}
+\typeout{************************************************}
+\subsection[Learning Objectives]{Learning Objectives}\label{subsection-6}
+
+      Before class, a student should be able to
+      \begin{itemize}
+\item{}Compute the dot product of two given vectors.\item{}Compute the length of a given vector.\item{}Normalize a given vector.\item{}Recognize that \(u \cdot v =0\) is the same as "\(u\) and \(
+            v\) are orthogonal."\item{}
+          Compute the angle between two given vectors using the cosine formula.
+        \end{itemize}
+
+      At some point, a student should be able to
+      \begin{itemize}
+\item{}
+          Interpret the statements \(u\cdot v < 0 \) and \(u \cdot v > 0\)
+          geometrically.
+        \item{}Pass back and forth between linear equations and equations involving
+          dot products.
+        \item{}Make pictures of level sets of the dot product operation.\end{itemize}
+
+    %
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-7}
+
+      The dot product is a wonderful tool for encoding the geometry of Euclidean
+      space, but it can be a bit mysterious at first. As Strang shows,
+      it somehow holds all of the information you need to measure lengths and
+      angles.
+    %
+\par
+
+      What does this weird thing have to do with linear algebra? A dot product
+      with a "variable vector" is a way of writing a linear equation. For example,
+      \begin{gather*}
+\begin{pmatrix} 7 \\ 3 \\ -2 \end{pmatrix} \cdot \begin{pmatrix}
+        x \\ y \\ z \end{pmatrix} = 7x+3y-2z.
+\end{gather*}
+      Sometimes this will allow us to connect linear algebra to geometry, and use
+      geometric thinking to answer algebraic questions.
+    %
+\typeout{************************************************}
+\typeout{Subsection  Sage and the dot product}
+\typeout{************************************************}
+\subsection[Sage and the dot product]{Sage and the dot product}\label{subsection-8}
+\typeout{************************************************}
+\typeout{Subsubsection  Basic Commands}
+\typeout{************************************************}
+\subsubsection[Basic Commands]{Basic Commands}\label{subsubsection-2}
+
+      Sage has a built-in dot product command \verb?u.dot_product(v)?. This
+      will return the dot product of the vectors \(u\) and \(v\).
+    %
+\begin{lstlisting}[style=sageinput]
+u = vector([1,1,1]); v = vector([-1,0,1])
+u.dot_product(v)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+0
+\end{lstlisting}
+\par
+
+      It also has a built-in command for computing lengths. Here sage uses the
+      synonym "norm": \verb?u.norm()?. Of course, you can also call this like
+      a function instead of like a method: \verb?norm(u)?.
+    %
+\begin{lstlisting}[style=sageinput]
+u.norm(), v.norm()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(sqrt(3), sqrt(2))
+\end{lstlisting}
+\par
+
+      There is no built-in command for angles. You just have to compute them
+      using the cosine formula, like below. (I will break up the computation,
+      but it is easy to do it all with one line.)
+    %
+\begin{lstlisting}[style=sageinput]
+num = u.dot_product(v)
+den = u.norm() * v.norm()
+angle = arccos(num / den)
+angle
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+1/2*pi
+\end{lstlisting}
+\par
+
+      Of course, Sage's \verb?arccos? command returns a result in \emph{radians}.
+      To switch to degrees, you must convert.
+    %
+\begin{lstlisting}[style=sageinput]
+angle*180/pi
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+90
+\end{lstlisting}
+\par
+Often, it is helpful to normalize a vector. You can do this with the
+      \verb?normalized? method like this:
+    %
+\begin{lstlisting}[style=sageinput]
+u.normalized()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(1/3*sqrt(3), 1/3*sqrt(3), 1/3*sqrt(3))
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Sage Interacts}
+\typeout{************************************************}
+\subsubsection[Sage Interacts]{Sage Interacts}\label{subsubsection-3}
+Interacts would go here...%
+\typeout{************************************************}
+\typeout{Subsection  Exercises about the Dot Product}
+\typeout{************************************************}
+\subsection[Exercises about the Dot Product]{Exercises about the Dot Product}\label{subsection-9}
+\begin{task}
+\label{task-13}
+What shape is the set of solutions \(\left(\begin{smallmatrix} x \\ y
+        \end{smallmatrix}\right)\) to the equation\[
+            \begin{pmatrix} 3 \\ 7\end{pmatrix} \cdot \begin{pmatrix} x \\ y
+            \end{pmatrix} = 5?
+        \]
+        %
+\par
+That is, if we look at all possible vectors \(\left(\begin{smallmatrix}
+          x \\ y \end{smallmatrix}\right)\) which make the equation true, what shape
+          does this make in the plane?%
+\par
+What happens if we change the vector \(\left(\begin{smallmatrix} 3
+          \\ 7 \end{smallmatrix}\right)\) to some other vector? What happens
+          if we change the number \(5\) to some other number?
+        %
+\par
+What happens if instead of \(2\)-vectors, we use \(3\)-vectors?
+        %
+\end{task}
+\begin{task}
+\label{task-14}
+Find an example of two \(2\)-vectors \(v\) and \(w\)
+      so that \(\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot v
+      =0\) and \(\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot
+      w = 0\), or explain why such an example is not possible.
+      \end{task}
+\begin{task}
+\label{task-15}
+Let \(v = \left(\begin{smallmatrix}3\\-1
+        \end{smallmatrix}\right)\). Find an example of a pair of vectors
+        \(u\) and \(w\) such that \(v \cdot u < 0\) and
+        \(v \cdot w < 0\) and \(w \cdot u = 0\), or explain why no such
+        pair of vectors can exist.
+      \end{task}
+\begin{task}
+\label{task-16}
+Find an example of three \(2\)-vectors \(u\), \(v\),
+        and \(w\) so that \( u \cdot v < 0\) and \(u\cdot w < 0 \)
+        and \(v \cdot w < 0\), or explain why no such example exists.
+      \end{task}
+\begin{task}
+\label{task-17}
+
+        Find an example of a number \(c\) so that \[
+        \begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
+          \end{pmatrix} = c
+        \] has the vector \(\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)\)
+        as a solution, or explain why no such number exists.
+      \end{task}
+\begin{task}
+\label{task-18}
+
+        Let \(v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)\) and
+        \(w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)\). Find
+        an example of a number \(c\) so that \begin{gather*}
+v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
+        \quad w \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c,
+\end{gather*}
+        or explain why this is not possible.
+      \end{task}
+\begin{task}
+\label{task-19}
+
+        Let \(P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)\).
+        Find an example of numbers \(c\) and \(d\) so that \begin{gather*}
+\begin{pmatrix} 2\\-1\end{pmatrix}\cdot P = c \quad\text{ and }
+        \quad \begin{pmatrix} 1\\-1\end{pmatrix}\cdot P = d,
+\end{gather*}
+        or explain why no such example is possible.
+      \end{task}
+Now we move to three dimensions!%
+\begin{task}
+\label{task-20}
+
+        Let \(V = \left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right)\).
+        Find a unit vector of the form \(X = \left(\begin{smallmatrix}x\\y\\0
+        \end{smallmatrix}\right)\) so that \(V\cdot X = \sqrt{2}\), or explain
+        why no such vector exists.
+      \end{task}
+\begin{task}
+\label{task-21}
+
+        Find an example of numbers \(c\), \(d\), and \(e\) so that there
+        is no solution vector \(X = \left(\begin{smallmatrix}x\\y\\z
+        \end{smallmatrix}\right)\) which simultaneously satisfies the three
+        equations \begin{gather*}
+\begin{pmatrix} 1\\1\\1\end{pmatrix}\cdot X = c, \qquad
+          \begin{pmatrix} 2\\2\\2\end{pmatrix}\cdot X = d, \qquad
+          \begin{pmatrix} 0\\0\\1\end{pmatrix}\cdot X = e,
+\end{gather*}
+          or explain why no such numbers exist.
+      \end{task}
+\begin{task}
+\label{task-22}
+
+        Find an example of numbers \(c\), \(d\), and \(e\) so that there
+        is no solution vector \(X = \left(\begin{smallmatrix}x\\y\\z
+        \end{smallmatrix}\right)\) which simultaneously satisfies the three
+        equations \begin{gather*}
+\begin{pmatrix} 1\\1\\1\end{pmatrix}\cdot X = c, \qquad
+          \begin{pmatrix} 0\\1\\1\end{pmatrix}\cdot X = d, \qquad
+          \begin{pmatrix} 0\\0\\1\end{pmatrix}\cdot X = e,
+\end{gather*}
+          or explain why no such numbers exist.
+      \end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 1.3 Matrices}
+\typeout{************************************************}
+\section[Matrices]{Matrices}\label{matrices}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-10}
+\begin{itemize}
+\item{}Read \emph{Strang} section 1.3 (pages 22-27).\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-11}
+Before class starts, a student should be able to:
+      \begin{itemize}
+\item{}multiply a matrix times a vector
+          \begin{itemize}
+\item{}as a linear combination of columns\item{}as a set of dot products, row times column\end{itemize}
+
+        \item{}translate back and forth between our three representations
+          \begin{itemize}
+\item{}a system of linear equations,\item{}a linear combination of vectors equation, and\item{}a matrix equation \(Ax=b\).\end{itemize}
+
+        \item{}Correctly identify the rows and columns of a matrix\item{}describe what is meant by a lower triangular matrix\end{itemize}
+
+    At some point, as student should be comfortable with these concepts, which
+    get a very brief informal introduction in this section:
+    \begin{itemize}
+\item{}linear dependence and linear independence\item{}the inverse of a matrix\end{itemize}
+
+  %
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-12}
+
+      A \terminology{matrix} is a two-dimensional array of numbers like this:\[
+        A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}.
+      \]
+      Sometimes it helps to think of a matrix as a collection of its \terminology{rows}
+      which are read across:\[
+        M = \begin{pmatrix} \longrightarrow \\ \longrightarrow \end{pmatrix}
+      \]
+      and sometimes it helps to think of a matrix as a collection of its
+      \terminology{columns} which are read down:\[
+        M = \begin{pmatrix} \downarrow & \downarrow \end{pmatrix}.
+      \]
+    %
+\par
+
+      It is often more clear to describe a matrix by giving the sizes of its
+      rows and columns. An \(m\) by \(n\) matrix is one having \(m\)
+      rows and \(n\) columns. It is really easy to get these reversed, so be
+      careful. For example, this is a \(2\times 3\) matrix, because it has
+      two rows and three columns:\[
+        B = \begin{pmatrix} 1 & 1 & 2 \\ 3 & 5 & 8 \end{pmatrix}
+      \]
+      A matrix is called a \terminology{square} matrix when the number of rows and
+      the number of columns is equal. The matrix \(A\) that I wrote down
+      above is square because it is a \(2\times 2\) matrix.
+    %
+\typeout{************************************************}
+\typeout{Subsubsection  Multiplying Matrices and Vectors}
+\typeout{************************************************}
+\subsubsection[Multiplying Matrices and Vectors]{Multiplying Matrices and Vectors}\label{subsubsection-4}
+
+        It is possible to multiply a matrix by a vector like this:\[
+          \begin{pmatrix} 1 & 1 & 2 \\ 3 & 5 & 8 \end{pmatrix}
+          \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
+          \begin{pmatrix} 102 \\ 416 \end{pmatrix}
+        \]
+        For this to work, it is absolutely crucial that the sizes match up
+        properly. If the matrix is \(m\) by \(n\), then the vector must have
+        size \(n\). In the above example \(m = 2\) and \(n=3\).
+      %
+\par
+
+        Later, we shall see that the word "multiplication" is not really the
+        best choice here. It is better to think of the matrix as "acting on"
+        the vector and turning it into a new vector. For now, the word
+        multiplication will serve.
+      %
+\par
+
+        How exactly does one define this matrix--vector multiplication?
+      %
+\typeout{************************************************}
+\typeout{Paragraph  Linear Combination of Columns Approach}
+\typeout{************************************************}
+\paragraph[Linear Combination of Columns Approach]{Linear Combination of Columns Approach}\label{paragraph-6}
+
+          The first way to perform the matrix-vector multiplication is to think
+          of the vector as holding some coefficients for forming a linear
+          combination of the columns of the matrix. In our example, it looks
+          like this:\[
+            \begin{pmatrix} 1 & 1 & 2 \\ 3 & 5 & 8 \end{pmatrix}
+            \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
+            13 \begin{pmatrix} 1 \\ 3 \end{pmatrix} + 21 \begin{pmatrix} 1 \\ 5
+            \end{pmatrix} + 34 \begin{pmatrix} 2 \\ 8 \end{pmatrix} =
+            \begin{pmatrix} 102 \\ 416 \end{pmatrix}
+          \]
+        %
+\typeout{************************************************}
+\typeout{Paragraph  Dot Products with the Rows Approach}
+\typeout{************************************************}
+\paragraph[Dot Products with the Rows Approach]{Dot Products with the Rows Approach}\label{paragraph-7}
+
+          The second way is to think of the matrix as a bundle of vectors lying
+          along the rows of the matrix, and use the dot product. In our example
+          above, this means that we consider the vectors\[
+            r_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \quad
+            r_2 = \begin{pmatrix} 3 \\ 5 \\ 8 \end{pmatrix}, \text{ and }
+            v = \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix}
+          \]
+          (notice I've rewritten the rows as columns) and then perform this
+          kind of operation:\[
+            \begin{pmatrix} 1 & 1 & 2 \\ 3 & 5 & 8 \end{pmatrix}
+            \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} = \begin{pmatrix} r_1
+            \\ r_2 \end{pmatrix} v =  \begin{pmatrix} r_1 \cdot v \\ r_2 \cdot
+            v \end{pmatrix} =
+            \begin{pmatrix} 102 \\ 416 \end{pmatrix} .
+          \]
+        %
+\par
+
+      Two important remarks:
+      \begin{itemize}
+\item{}
+          Note that these operations only make sense if the sizes match up properly.
+        \item{}
+          Note that the two versions of the operation give you the same results.
+        \end{itemize}
+
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Matrix Equations}
+\typeout{************************************************}
+\subsubsection[Matrix Equations]{Matrix Equations}\label{subsubsection-5}
+
+        There are many situations in linear algebra that can be rewritten in
+        the form of an equation that looks like this:\[
+          A v = b
+        \]
+        where \(A\) is a matrix, and \(v\) and \(b\) are vectors. The
+        interesting case is when we know \(A\) and \(b\), but we want to
+        find the unknown \(v\). We will call this a
+        \terminology{matrix-vector equation}.
+      %
+\par
+
+        Let's consider the case where you are given some \terminology{square}
+        matrix \(A\). Sometimes one can find another matrix \(B\) so that
+        no matter what vector \(b\) is chosen in the matrix-vector equation
+        above, the  solution vector takes the form \(v = Bb\). When this
+        happens, we say that \(A\) is \terminology{invertible} and call \(B\)
+        the \terminology{inverse} of \(A\). It is common to use the notation
+        \(A^{-1}\) in place of \(B\). This is a wonderful situation to be
+        in! Eventually, we will want to figure out some test for when a given
+        matrix is invertible, and find some ways to compute the inverse.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  A Note about Vectors}
+\typeout{************************************************}
+\subsubsection[A Note about Vectors]{A Note about Vectors}\label{subsubsection-6}
+
+        This reading also has a brief introduction to the idea of a set of
+        vectors being \terminology{linearly depedent} or \terminology{linearly independent}.
+        Strang is coy about the precise definition, so here it is:
+      %
+\par
+
+        A set of vectors \(v_1, v_2, \dots, v_n\) is called \terminology{linearly
+        depdendent} when there is some choice of numbers
+        \(a_1, a_2, \dots, a_n\) which are not all zero so that the
+        linear combination\[
+          a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
+        \]
+        A set of vectors which is not linearly dependent is called
+        \terminology{linearly independent}.
+      %
+\par
+
+        This is a little funny the first time you read it. Note that for any
+        set of vectors, you can make a linear combination of those vectors
+        come out as \(0\). Simply choose all of the coefficients to be
+        zero. But that is so easy to do we call it \terminology{trivial}. What the
+        definition is asking is that we find a \emph{nontrival linear
+        combination of the vectors to make zero}.
+      %
+\typeout{************************************************}
+\typeout{Subsection  Sage and Matrices}
+\typeout{************************************************}
+\subsection[Sage and Matrices]{Sage and Matrices}\label{subsection-13}
+
+      Sage has many useful commands for working with linear algebra, and
+      given the central role played by matrices in this subject, there are
+      lots of things Sage can do with matrices. We'll focus here on just basic
+      construction and matrix--vector multiplication.
+    %
+\typeout{************************************************}
+\typeout{Subsubsection  The matrix construction command}
+\typeout{************************************************}
+\subsubsection[The matrix construction command]{The matrix construction command}\label{subsubsection-7}
+The command to construct a matrix is pretty straightforward. One types
+        \verb?matrix(r, c, [list of entries])? where \verb?r? is
+        the number of rows and \verb?c? is the number of columns. The entries
+        should be read across the rows starting with the top row.
+      %
+\begin{lstlisting}[style=sageinput]
+A = matrix(2,3, [1,2,3,5,8,13]); A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  2  3]
+[ 5  8 13]
+\end{lstlisting}
+\par
+If you wish, you can structure that list of entries to be a list of lists,
+        where each sublist is a row in your matrix.
+      %
+\begin{lstlisting}[style=sageinput]
+B = matrix(2,3, [[1,2,3], [5,8,13]]); B
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  2   3]
+[ 5  8  13]
+\end{lstlisting}
+\par
+
+        Every once in a while, it might matter to you what kinds of numbers you
+        put into the matrix. Sage will let you specify them by putting in an optional
+        argument like this: \verb?matrix(number type, r, c, [list of entries])?
+      %
+\begin{lstlisting}[style=sageinput]
+C = matrix(ZZ, 2, 2, [2,1,1,1])
+C # the best matrix
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2 1]
+[1 1]
+\end{lstlisting}
+\par
+
+        The notation \verb?ZZ? means "integers." There are other sets of numbers
+        here:
+        \begin{itemize}
+\item{}\verb?QQ? the rational numbers (with exact arithmetic)\item{}\verb?RR? the real numbers (with computer precision arithmetic)\item{}\verb?CC? the complex numbers\item{}\verb?AA? the set of all algebraic numbers, that is, all of the
+            numbers that are roots of some polynomial with integer coefficients
+          \end{itemize}
+
+        You can find out what kind of entries a matrix thinks it has by calling the
+        \verb?.parent()? method on it.
+      %
+\begin{lstlisting}[style=sageinput]
+A.parent()
+# this should say something about the integers
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Full MatrixSpace of 2 by 3 dense matrices over Integer Ring
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+D = matrix(QQ, 3,3, [[1,0,1],[2/3, 1, 0],[0,0,9/5]])
+# this should say something about the rationals
+D.parent()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1   0   1]
+[2/3   1   0]
+[  0   0 9/5]
+Full MatrixSpace of 3 by 3 dense matrices over Rational Field
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Building a matrix from rows or columns}
+\typeout{************************************************}
+\subsubsection[Building a matrix from rows or columns]{Building a matrix from rows or columns}\label{subsubsection-8}
+
+        It is possible to build a matrix by bundling together a bunch of vectors,
+        too. Let's start with an example made using rows.
+      %
+\begin{lstlisting}[style=sageinput]
+v1 = vector([2,1]); v2= vector([3,4])
+# construct E with rows v1 and v2, then display
+E = matrix([ v1, v2]); E
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2 1]
+[3 4]
+\end{lstlisting}
+\par
+
+        Sage prefers rows. I wish it were the other way, but I am sure there is
+        a good reason it prefers rows. If you want to make a matrix whose columns
+        are the vectors \verb?v1? and \verb?v2?, you can use the
+        \verb?transpose? method. We'll talk more about the operation of transpose
+        later, but it basically "switches rows for columns and vice versa."
+      %
+\begin{lstlisting}[style=sageinput]
+F = matrix([v1,v2]).transpose(); F
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2 3]
+[1 4]
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Matrix action on vectors}
+\typeout{************************************************}
+\subsubsection[Matrix action on vectors]{Matrix action on vectors}\label{subsubsection-9}
+
+        Of course, Sage knows how to perform the action of a matrix on a vector.
+      %
+\begin{lstlisting}[style=sageinput]
+C; v1
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2 1]
+[1 1]
+(2, 1)
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+C*v1
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(5, 3)
+\end{lstlisting}
+\par
+And if you get the sizes wrong, it will return an error.%
+\begin{lstlisting}[style=sageinput]
+A; v1
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  2  3]
+[ 5  8 13]
+(2, 1)
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A*v1
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Error in lines 1-1
+...
+TypeError: unsupported operand parent(s) for '*': 'Full MatrixSpace of 2 by 3 dense matrices over Integer Ring' and 'Ambient free module of rank 2 over the principal ideal domain Integer Ring'
+\end{lstlisting}
+\par
+If you really need it, Sage can tell you about inverses.%
+\begin{lstlisting}[style=sageinput]
+A.is_invertible()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+False
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+C.is_invertible()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+C.inverse()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1 -1]
+[-1  2]
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-14}
+\begin{task}
+\label{task-23}
+
+          Make an example of a matrix \(\left(\begin{smallmatrix} 1 &
+          \bullet \\ -1 & \bullet \end{smallmatrix}\right)\) so that the
+          equation\[
+          \begin{pmatrix} 1 & \bullet \\ -1 & \bullet \end{pmatrix}
+          \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
+          \end{pmatrix}
+          \]
+          has exactly one solution, or explain why this is not possible.
+        %
+\par
+
+          Interpret this as a statement about \(2\)-vectors and draw the
+          picture which corresponds.
+        %
+\end{task}
+\begin{task}
+\label{task-24}
+
+          Make an example of a matrix \(\left(\begin{smallmatrix} 4 &
+          8 & \bullet \\ 3 & 6 & \bullet \\ 1 & 2 &
+          \bullet \end{smallmatrix}\right)\) so that the equation\[
+            \begin{pmatrix} 4 & 8 & \bullet \\ 3 & 6 & \bullet \\ 1 & 2 & \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
+          \]
+          has exactly one solution, or explain why this is not possible.
+        %
+\par
+
+          Interpret this as a statment about \(3\)-vectors and draw the
+          picture which corresponds.
+        %
+\end{task}
+\begin{task}
+\label{task-25}
+
+          Make an example of a matrix \(\left( \begin{smallmatrix} 2 & -1 \\
+          \bullet & \bullet \end{smallmatrix}\right)\) so that the equation\[
+            \begin{pmatrix} 2 & -1 \\ \bullet & \bullet \end{pmatrix}
+            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3
+            \end{pmatrix}
+          \]
+          has exactly one solution, or explain why this is not possible.
+        %
+\par
+
+          Interpret this as a statement about a pair of lines in the plane and
+          draw the picture which corresponds.
+        %
+\end{task}
+\begin{task}
+\label{task-26}
+
+          Make an example of a matrix \(\left( \begin{smallmatrix} 1 & 0
+          & 1\\ 1 & 1 & 3 \\ \bullet & \bullet & \bullet
+          \end{smallmatrix}\right)\) so that the equation\[
+            \begin{pmatrix} 1 & 0 & 1\\ 1 & 1 & 3 \\ \bullet
+            & \bullet & \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z
+            \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+          \]
+          has no solutions, or explain why this is not possible.
+        %
+\par
+
+          Interpret this as a statement about a planes in space and
+          draw the picture which corresponds.
+        %
+\end{task}
+\begin{task}
+\label{task-27}
+
+          Find a triple of numbers \(x\), \(y\), and \(z\) so that the
+          linear combination\[
+            x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} +
+            y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} +
+            z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
+          \]
+          yields the zero vector, or explain why this is not possible.
+        %
+\par
+
+          Rewrite the above as an equation which involves a matrix.
+        %
+\par
+
+          Plot the three vectors and describe the geometry of the situation.
+        %
+\end{task}
+\begin{task}
+\label{task-28}
+
+          The vectors\[
+            r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
+            r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
+            r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
+          \]
+          are linearly dependent because they lie in a common plane (through
+          the origin). Find a normal vector to this plane.
+        %
+\par
+
+          Since the vectors are linearly dependent, there must be (infinitely)
+          many choices of scalars \(x\), \(y\), and \(z\) so that
+          \(x r_1 + y r_2 + z r_3 = 0\). Find two sets of such numbers.
+        %
+\end{task}
+\begin{task}
+\label{task-29}
+
+          Consider the equation\[
+            \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}
+            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2
+            \end{pmatrix}.
+          \]
+          We are interested in being able to solve this for \(x\) and \(y\)
+          for any given choice of the numbers \(b_1\) and \(b_2\).
+          Figure out a way to do this by writing \(x\) and \(y\) in terms
+          of \(b_1\) and \(b_2\).
+        %
+\par
+
+          Rewrite your solution in the form\[
+            \begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix}
+            \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet
+            \\ \bullet \end{pmatrix}.
+          \]
+        %
+\par
+
+          How is this related to the inverse of the matrix
+          \(A = \left( \begin{smallmatrix} 2 & 1 \\ 1 & 1
+          \end{smallmatrix} \right)\)?
+        %
+\end{task}
+\begin{task}
+\label{task-30}
+
+          Find an example of a number \(c\) and a vector \(\left(
+          \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)\)
+          so that the equation\[
+            \begin{pmatrix} 3 & 51 \\ c & 17 \end{pmatrix}
+            \begin{pmatrix} x \\ y \end{pmatrix} =
+            \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+          \]
+          does not have a solution, or explain why no such example exists.
+        %
+\par
+
+          Explain your solution in terms of
+          \begin{itemize}
+\item{}lines in the plane,\item{}\(2\)-vectors and linear combinations, and\item{}invertibility of a matrix.\end{itemize}
+
+        %
+\end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 1.4 Getting Started with Sage}
+\typeout{************************************************}
+\section[Getting Started with Sage]{Getting Started with Sage}\label{start-sage}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-15}
+It it is time to get comfortable with the basics of using Sage. Begin by
+      setting up an account with SageMathCloud.%
+\begin{itemize}
+\item{}Be sure that you have login access to computers in student labs across
+          campus. Before class, drop by a campus lab and make sure your credentials
+          work properly and you can sign in to a machine. For our tutorial session
+          we will use one of the labs on the first floor of Wright Hall, so one
+          of those would make a good choice.%
+
+        \item{}Go to the course web site and follow the links to the Sage Intro
+          workshop.%
+
+        \item{}Complete the first two steps of the workshop set up process:
+          \begin{enumerate}
+\item{}Start: where you make an account at SageMathCloud.\item{}Get: where you create your first "project" and populate it with
+              files for a tutorial.\end{enumerate}
+%
+
+        \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Objectives}
+\typeout{************************************************}
+\subsection[Learning Objectives]{Learning Objectives}\label{subsection-16}
+At the end of this assignment, a student should have an account at
+        SageMathCloud and should be able to log into the service without trouble.
+        The student will also have a first project with some files.%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 1.5 Going Further with the Basic Objects}
+\typeout{************************************************}
+\section[Going Further with the Basic Objects]{Going Further with the Basic Objects}\label{basic-objects-going-further}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-17}
+\begin{itemize}
+\item{}
+        Go back through the exercises in this chapter. Complete any items you
+        did not complete the first time through. Prepare any that we have not
+        discussed in class so that you will be ready to present them.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-18}
+Now we take a short break to revisit and consolidate the learning you
+      have done so far. Revisit the reading and the exercises you have done in
+      Chapter One: Basic Objects. The important feature of this work should be
+      learning to think about your own thinking. This sort of \terminology{meta-cognition}
+      characterizes expert learners. Eventually, you want to be able to monitor
+      your work at all times and recognize when you understand deeply and when
+      you do not. This will allow you to self-correct.
+    %
+\par
+To help you get started with meta-cognition, I listed learning goals in
+      each section. To go further, you need to explicitly go through the process
+      of reviewing what you can do and what you cannot. Here are some prompts to
+      help you get started with this process.
+      \begin{itemize}
+\item{}
+          Review the learning goals from each section. Can you do the things
+          described? Can you do them sometimes, or have you mastered them so you
+          can do them consistently?
+        \item{}
+          Look through all of the tasks and go deeper into them. Can you
+          connect each exercise to one of our pictures? Try to build a mental
+          model of how the exercise and its solution work.
+        \item{}
+          If your first solution to an exercise involve a ``guess-and-check''
+          approach, can you now complete the exercise in a \emph{purposeful}
+          and systematic manner?
+        \item{}
+          Make a list of concepts or exercises that are not clear to you. Phrase
+          each item in your list as a question, and make each question as
+          specific as possible. Talk with fellow students or your
+          instructor until you can answer your own questions.
+        \end{itemize}
+
+    %
+\clearpage
+\typeout{************************************************}
+\typeout{Chapter 2 Linear Equations}
+\typeout{************************************************}
+\chapter[Linear Equations]{Linear Equations}\label{chapter-2}
+
+      This chapter is dedicated to the first major problem of
+      linear algebra: solving systems of linear equations. Restated as a set of
+      questions, we will consider these.
+    %
+\begin{itemize}
+\item{}
+        What is the set of solutions to a given system of linear equations?
+      \item{}
+        When does a given system have solution, and when does it not?
+      \item{}
+        If there is a solution, how many solutions are there?
+      \item{}
+        What ways do we have of describing the collection of solutions?
+      \item{}
+        Is there a computationally effective way to find those solutions?
+      \end{itemize}
+\par
+
+      Though we begin with the first question, we answer the last one first. As
+      we explore the process of finding solutions, we will start to build the
+      tools we need to finish answering the other questions in a later chapter.
+      In this chapter, we aim to get as complete understanding as we can for at
+      least a special case: \terminology{square systems}.
+    %
+\par
+
+      We will begin with a study of the two ways that vectors let us make pictures
+      of systems of linear equations. Then we take up a basic process for finding
+      solutions, where matrices will appear as a convenient notational device.
+      But as we dig a little further, matrices will become interesting in their
+      own way, so we will study those. But what we study will relate back to
+      the fundamental issue of solving systems of linear equations.
+    %
+\par
+
+      This chapter has two short review sections in it. One just after we learn
+      about elimination, and another at the end of the chapter.
+    %
+\typeout{************************************************}
+\typeout{Section 2.1 Three Geometric Models}
+\typeout{************************************************}
+\section[Three Geometric Models]{Three Geometric Models}\label{three-pictures}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-19}
+\begin{itemize}
+\item{}
+        Read section 2.1 of \emph{Strang} (pages 31-40).
+      \item{}
+        Read the following and complete the exercises below
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-20}
+
+      Before class, a student should be able to:
+    %
+\begin{itemize}
+\item{}Translate back and forth between the three algebraic representations:
+        \begin{itemize}
+\item{}
+            A system of linear equations.
+          \item{}
+            An equation involving a linear combination of vectors.
+          \item{}
+            A matrix equation.
+          \end{itemize}
+
+      \item{}
+        Can write down the \(n \times n\) \terminology{identity matrix}.
+      \end{itemize}
+\par
+
+      Sometime in the near future, a student should be able to:
+    %
+\begin{itemize}
+\item{}Given a system, interpret and plot the ``row picture''.\item{}Given a system, interpret and plot the ``column picture''.\item{}Use a matrix as a model of a \terminology{transformation}, including stating
+        the \terminology{domain} and the \terminology{range}.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-21}
+
+      Now we have a little experience with vectors and related things, it is
+      time to be aware of what we have done so we can use it as a foundation for
+      future work. So far, we have talked about two geometric interpretations
+      for a system of linear equations, the \terminology{row picture} and the
+      \terminology{column picture}.
+    %
+\par
+
+      Does the following picture make sense to you?
+    %
+\begin{figure}
+\centering
+\includegraphics[width=350pt,]{images/ThreePics.png}\caption{The three geometric models of linear algebra\label{figure-1}}
+\end{figure}
+\par
+
+      A deep understanding of linear algebra will involve a level of comfort with
+      each of these three views of the subject in the diagram, and also the ability
+      to pass back and forth between them.
+    %
+\typeout{************************************************}
+\typeout{Subsubsection  The Transformational View}
+\typeout{************************************************}
+\subsubsection[The Transformational View]{The Transformational View}\label{subsubsection-10}
+
+        We have seen that matrices can be made to "act upon" vectors by a kind of
+        multiplication. In particular, if \(A\) is an \(m\times n\) matrix,
+        then \(A\) can be multiplied (on the left) with a column vector of size
+        \(n\), and the result is a column vector of size \(m\).
+      %
+\par
+
+        This makes \(A\) into a kind of \terminology{function}. (We will use
+        the synonyms \terminology{mapping} or \terminology{transformation}, too.)
+        For every vector \(v\) of size \(n\), the matrix \(A\) allows
+        us to compute a new vector \(T_A(v) = Av\) of size \(m\). This is
+        the basic example of what we will eventually call a \terminology{linear
+        transformation}.\begin{align*}
+\mathbb{R}^m & \xrightarrow[]{T_A} \mathbb{R}^n\\
+v & \xmapsto[]{\phantom{T_A}} Av.
+\end{align*}
+        One of our long term goals is to find a way to think about the geometry
+        of linear algebra from this viewpoint, too.
+      %
+\typeout{************************************************}
+\typeout{Subsection  Sage and Plotting for Linear Algebra}
+\typeout{************************************************}
+\subsection[Sage and Plotting for Linear Algebra]{Sage and Plotting for Linear Algebra}\label{subsection-22}
+There are a few new Sage commands that might be useful here. We have
+      already seen how to take linear equations and turn them into vectors
+      and then turn the vector equation into a matrix equation. But Sage can
+      help us move in the other direction, too.
+    %
+\par
+
+      The keys are commands to pull out the rows and columns from a given matrix.
+      Let's start with a simple situation where the matrix equation is
+      \[
+        \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}
+        \begin{pmatrix} x & y \end{pmatrix} =
+        \begin{pmatrix} 3 & 4 \end{pmatrix}.
+      \]
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 2,2, [2,1,1,1]); A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2 1]
+[1 1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+x, y = var('x y')
+X = vector([x,y]); X
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(x, y)
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+b = vector([3,4]); b
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(3, 4)
+\end{lstlisting}
+\par
+
+      To get Sage to pull out the columns, we can use the \verb?.columns()?
+      method. If we want just one column, we can use the \verb?.column()? method,
+      but then we have to remember to specify which column we want.
+    %
+\begin{lstlisting}[style=sageinput]
+A.columns() # this will return a list
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[(2, 1), (1, )]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.column(1)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(1, 1)
+\end{lstlisting}
+\par
+
+      \emph{Big important note:} Sage always numbers lists starting with zero.
+      so the first element of every list is the \(0\) entry, and the second
+      element is the \(1\) entry.
+    %
+\par
+
+      Now it is possible to make Sage do things like this:
+    %
+\begin{lstlisting}[style=sageinput]
+column_plot = plot(A.column(0), color='red')
+column_plot+= plot(A.column(1), color='blue')
+column_plot+= plot(b, color='purple')
+show(column_plot, figsize=5, aspect_ratio=1)
+\end{lstlisting}
+\par
+
+      This is an example of the a column picture.
+    %
+\par
+
+      One can also pull out the rows with corresponding row methods. And if you
+      recall the way that matrix multiplication works if you think of rows, you
+      can make a row picture.
+    %
+\begin{lstlisting}[style=sageinput]
+A.rows()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[(2, 1), (1, 1)]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+expr1 = A.row(0).dot_product(X) == b[0]
+expr2 = A.row(1).dot_product(X) == b[1]
+
+print expr1
+print expr2
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+2*x + y == 3
+x + y == 4
+\end{lstlisting}
+\par
+
+      And now the picture:
+    %
+\begin{lstlisting}[style=sageinput]
+row_plot = implicit_plot(expr1, [x,-5,5], [y,-1,9], color='blue')
+row_plot+= implicit_plot(expr2, [x,-5,5], [y,-1,9], color='red')
+show(row_plot, axes=True)
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-23}
+\begin{task}
+\label{task-31}
+
+        Make an example of a system of linear equations which some students might
+        find challenging to change into an equation involving a linear combination.
+        Explain what the challenge is and how you can think clearly to overcome it.
+      \end{task}
+\begin{task}
+\label{task-32}
+
+        Make an example of a linear combination equation which some students might
+        find challenging to change into a system of linear equations. Explain
+        what the challenge is and how you can think clearly to overcome it.
+      \end{task}
+\begin{task}
+\label{task-33}
+
+        Consider the matrix equation\[
+        \begin{pmatrix}1 & 2 & 4 \\ 2 & 0 & 1 \end{pmatrix}
+          \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3
+          \end{pmatrix}.
+        \]\begin{enumerate}
+\item{}
+            Draw a diagram representing the row picture of this matrix equation.
+          \item{}
+            Draw a diagram representing the column picture of this matrix equation.
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-34}
+
+        Make an example of a system of linear equations so that the
+        corresponding column picture is about linear combinations of four 2-vecs
+        becoming the zero vector.
+      \end{task}
+\begin{task}
+\label{task-35}
+
+        Find a linear combination equation so that the corresponding system of
+        linear equations corresponds to finding the intersection of three lines
+        in the plane.
+      \end{task}
+\begin{task}
+\label{task-36}
+
+        Find an example of a vector \(b\) so that the equation\[
+          \begin{pmatrix} -1 & 2 \\ 5 & -9 \end{pmatrix} v = b
+        \]
+        has no solution \(v\), or explain why it is impossible to find
+        such an example.
+      \end{task}
+\begin{task}
+\label{task-37}
+
+        In each of the below, find an example of a matrix \(B\) which has the
+        described effect.
+        \begin{enumerate}
+\item{}
+            \(
+              B\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix}y \\ x \end{pmatrix}
+            \)
+          \item{}
+            Rotates vectors through \(45^{\circ}\) counter-clockwise.
+          \item{}
+            Reflects vectors across the \(y\)axis.
+          \item{}
+            \(
+              B\begin{pmatrix} x \\ y \end{pmatrix} =
+              \begin{pmatrix} x+y \\ y \end{pmatrix}.
+            \)
+          \end{enumerate}
+\end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 2.2 Solving Systems}
+\typeout{************************************************}
+\section[Solving Systems]{Solving Systems}\label{elimination}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-24}
+\begin{itemize}
+\item{}Read section 2.2 of Strang (pages 45-51).\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-25}
+
+      Before class, a student should be able to do the following things.
+    %
+\begin{itemize}
+\item{}Clearly state and use the following vocabulary words: pivot, multiplier,
+        triangular matrix, back substitution, singular, non-singular
+      \end{itemize}
+\par
+
+      Sometime after class, a student should be able to the following things.
+    %
+\begin{itemize}
+\item{}Perform elimination to put a system of linear equations into triangular form.\item{}Solve small systems by hand.\item{}Explain the two failure modes for elimination, and describe which leads to
+        no solutions, and which leads to infinitely many solutions.\item{}Solve larger systems with the help of a computer algebra package (Sage).\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: Elimination for Solving Systems of Linear Equations}
+\typeout{************************************************}
+\subsection[Discussion: Elimination for Solving Systems of Linear Equations]{Discussion: Elimination for Solving Systems of Linear Equations}\label{subsection-26}
+
+        Now we begin the process of learning how to solve a system of linear
+        equations systematically through a process called \terminology{elimination}.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Some terminology}
+\typeout{************************************************}
+\subsubsection[Some terminology]{Some terminology}\label{subsubsection-11}
+A typical system looks something like this:
+          \[
+            \left\{ \begin{array}{rrrrrrrr}
+                  3 x_1 & +&  2 x_2 & - & \pi x_3 & = & 0 \\
+                  -4 x_1 & -& 33 x_2 & + & x_3 & = & 12
+                  \end{array}\right.
+          \]
+          This situation is \emph{two} equations in \emph{three} unknowns.
+          The unknowns here are the three numbers \(x_1\), \(x_2\) and
+          \(x_3\) for which we search. Usually, we bundle the numbers
+          together as a vector \((x_1, x_2, x_3)\). If we can find a vector
+          which makes all of the equations true simultaneously, we call that
+          vector a \terminology{solution}.
+        %
+\par
+
+          Keep in mind that the process involves eliminating instances of the
+          variable below \terminology{pivots}. Strang describes the process
+          pretty well, and gives good examples. What Strang describes in this
+          section is sometimes called \terminology{the forward pass} elimination.
+        %
+\par
+
+          Watch out for situations which are \terminology{singular} in that they
+          have fewer pivots than unknowns. A system is called
+          \terminology{non-singular} if it has as many pivots as unknowns.
+        %
+\typeout{************************************************}
+\typeout{Subsubsection  Keeping track of things}
+\typeout{************************************************}
+\subsubsection[Keeping track of things]{Keeping track of things}\label{subsubsection-12}
+
+          Playing with all of the equations is nice, but all that really
+          matters is the collection of coefficients, and the numbers on the
+          right hand sides of the equal signs. Experienced solvers get tired
+          of copying notation from line to line in a computation, so they only
+          keep track of the matrix of coefficients, \terminology{augmented} by
+          the vector on the right-hand side. In the example above, that
+          augmented matrix is
+          \[
+            \augmatrix{ccc}{
+            3 & 2 & -\pi & 0 \\ -4 & -33 & 1 & 12
+            }
+          \]
+          All of the row operations can be performed on just this augmented
+          matrix, without losing any of the essential information.
+        %
+\typeout{************************************************}
+\typeout{Subsection  Sage and Row Operations}
+\typeout{************************************************}
+\subsection[Sage and Row Operations]{Sage and Row Operations}\label{subsection-27}
+
+        The process of elimination for systems of equations involves performing
+        operations on the equations. When translated to matrix form, it involves
+        operations on the rows of the coefficient matrix. The corresponding
+        matrix methods come in two types.
+      %
+\par
+
+        The first type of method modifies the matrix ``in place'', which means
+        that it \emph{Changes the input matrix}.
+      %
+\begin{itemize}
+\item{}\verb?A.rescale_row(r, num)? multiplies row \verb?r? by the factor of \verb?num?.\item{}\verb?A.swap_rows(r1, r2)? switches the places of rows \verb?r1? and \verb?r2?.\item{}\verb?A.add_multiple_of_row(target, useful, num)?. This adds \verb?num?
+          times row \verb?useful? to row \verb?target?.\end{itemize}
+\par
+
+        Throughout, please remember that Sage uses \(0\)-based indexing! So
+        the rows are labeled \verb?0, 1, 2, ...?
+      %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 3,3, [0,2,4, 1,1,5, 6,2,5]); A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0 2 4]
+[1 1 5]
+[6 2 5]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.swap_rows(0,1); A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 1 5]
+[0 2 4]
+[6 2 5]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.add_multiple_of_row(2,0,-6)
+A # this should add -6 times row 0 to row 2
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1   1   5]
+[  0   2   4]
+[  0  -4 -25]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.rescale_row(1,1/2); A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1   1   5]
+[  0   1   2]
+[  0  -4 -25]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.add_multiple_of_row(2,1,4)
+A # this should add 4 times row 2 to row 2
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1   1   5]
+[  0   1   2]
+[  0   0 -17]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.rescale_row(2,-1/17); A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 1 5]
+[0 1 2]
+[0 0 1]
+\end{lstlisting}
+\par
+
+        This just did the whole process of \terminology{forward pass elimination}.
+        (Well, we did a bit more than Strang would. He wouldn't rescale the rows.)
+      %
+\par
+
+        Sometimes you do not want to change the matrix \verb?A?. If instead, you
+        want to leave \verb?A? alone, you can use these methods, which return
+        a new object and do not change \verb?A?.
+      %
+\begin{itemize}
+\item{}\verb?A.with_rescaled_row(r, num)?\item{}\verb?A.with_swapped_rows(r1, r2)?\item{}\verb?A.with_added_multiple_of_row(t, u, num)?\end{itemize}
+\par
+
+        Let's do the same operations as above, but without changing \verb?A?.
+        This will mean making a bunch of new matrices. In fact, let's also change
+        the name of our matrix to \verb?B?
+      %
+\begin{lstlisting}[style=sageinput]
+B = matrix(QQ, 3,3, [0,2,4, 1,1,5, 6,2,5]); B
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0 2 4]
+[1 1 5]
+[6 2 5]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B1 = B.with_swapped_rows(0,1); B1
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 1 5]
+[0 2 4]
+[6 2 5]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B2 = B1.with_added_multiple_of_row(2,0,-6)
+B2 # this should add -6 times row 0 to row 2
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1   1   5]
+[  0   2   4]
+[  0  -4 -25]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B3 = B2.with_rescaled_row(1,1/2); B3
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1   1   5]
+[  0   1   2]
+[  0  -4 -25]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B4 = B3.with_added_multiple_of_row(2,1,4)
+B4 # this should add 4 times row 2 to row 2
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1   1   5]
+[  0   1   2]
+[  0   0 -17]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B5 = B4.with_rescaled_row(2,-1/17); B5
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 1 5]
+[0 1 2]
+[0 0 1]
+\end{lstlisting}
+\par
+
+        This second option has some advantages. At any point, you can revise your
+        work, because the original matrix is still in memory, and so are all of
+        the intermediate steps. Let's display all six of the matrices at once to
+        see that they all still exist.
+      %
+\begin{lstlisting}[style=sageinput]
+B, B1, B2, B3, B4, B5
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-28}
+\begin{task}
+\label{task-38}
+
+          Use the elimination method to transform this system into an easier
+          one. (Can you make it triangular?) Circle the pivots in the final
+          result.
+          \[
+            \left\{
+            \begin{array}{rrrrrrr}
+            2x & + & 3y & + &  z & = & 8\\
+            4x & + & 7y & + & 5z & = & 20 \\
+               & - & 2y & + & 2z & = & 0
+            \end{array}\right.
+          \]
+          What two operations do you use to do this efficiently? Now use back
+          substitution to solve the system.
+        \end{task}
+\begin{task}
+\label{task-39}
+
+            \emph{(Sage Exercise)}:
+            Because the last system can be transformed in two operations, there
+            are three equivalent systems generated through the process
+            (the original, the intermediate, and the final).
+          %
+\par
+
+            Make row picture plots for each of the three systems. [Hint: Sage]
+            How do the operations transform the pictures?
+          %
+\end{task}
+\begin{task}
+\label{task-40}
+
+          Suppose that a system of three equations in three unknowns has two
+          solutions \((a,b,c)\) and \((A,B,C)\). Explain why the system must have
+          other solutions than these two. Describe clearly two other solutions
+          in terms of \(a,b,c,A,B,C\).
+        \end{task}
+\begin{task}
+\label{task-41}
+
+          Find three examples of numbers \(a\) so that elimination will fail to
+          give three pivots for this coefficient matrix:
+          \[
+            A = \begin{pmatrix}
+            a & 2 & 3 \\ a & a & 4 \\ a & a & a
+            \end{pmatrix}
+          \]\end{task}
+\begin{task}
+\label{task-42}
+
+          How many ways can two lines in the plane meet? Make examples to
+          represent as many \emph{qualitatively different} situations as you can.
+        \end{task}
+\begin{task}
+\label{task-43}
+
+          Complete the following to make an example of a system of two equations
+          in two unknowns which is singular but still has a solution, or explain why
+          no such example exists.
+          \[
+            \left\{
+            \begin{array}{ccccc}
+            2x & + & 3y & = & 1 \\
+            \bullet x & + & \bullet y & = & \bullet
+            \end{array}\right.
+          \]\end{task}
+\begin{task}
+\label{task-44}
+
+          Complete the following to a system of three equations in three
+          unknowns which is singular and does not have a solution, or explain
+          why no such example exists.
+          \[
+            \left\{
+            \begin{array}{ccccccc}
+               &  & 3y & - & z & = & 1 \\
+            2x & - & y & + & 3z & = & 0 \\
+            \bullet x & + & \bullet y & + &\bullet z &  = & \bullet
+            \end{array}\right.
+          \]\end{task}
+\begin{task}
+\label{task-45}
+
+          Complete the following to a system of three equations in three
+          unknowns which is singular but still has a solution, or explain why
+          no such example exists.
+          \[
+            \left\{
+            \begin{array}{ccccccc}
+            x & + & y & + & z & = & 1 \\
+            2x & + & y & + & 2z & = & 0 \\
+            \bullet x & + & \bullet y & + &\bullet z &  = & \bullet
+            \end{array}\right.
+          \]\end{task}
+\begin{task}
+\label{task-46}
+
+          How many ways can three planes in three dimensional space meet? Make
+          examples to represent as many \emph{qualitatively different}
+          situations as you can.
+        \end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 2.3 Elimination using Matrices}
+\typeout{************************************************}
+\section[Elimination using Matrices]{Elimination using Matrices}\label{matrix-elimination}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-29}
+\begin{itemize}
+\item{}Read section 2.3 of \emph{Strang}.\item{}Read the discussion below and work out the exercises.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-30}
+
+        Before class, a student should be able to:
+      %
+\begin{itemize}
+\item{}
+          Translate a system of linear equations into the form of an augmented matrix
+          and back.
+        \item{}
+          Perform the forward pass elimination process to an augmented matrix.
+        \item{}
+          Multiply a pair of square matrices having the same size.
+        \item{}
+          Identify the matrix which performs the operation ``add a multiple of row
+          i to row j.''
+        \item{}Identify the matrix which performs the operation ``swap the places of
+          row i and row j.''
+        \end{itemize}
+\par
+
+        Some time after class, a student should be able to:
+      %
+\begin{itemize}
+\item{}
+          Use the steps from a forward pass elimination step to write a correct
+          equation of the form
+          \[
+            E_{\bullet}E_{\bullet}\cdots E_{\bullet} (A\ |\ b) = (U\ |\ b')
+          \]
+          where \(U\) is an upper triangular matrix.
+        \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: Elimnation and Using Matrices as ``Transformations''}
+\typeout{************************************************}
+\subsection[Discussion: Elimnation and Using Matrices as ``Transformations'']{Discussion: Elimnation and Using Matrices as ``Transformations''}\label{subsection-31}
+
+      Let us focus (for now) on square systems of equations, where the number of
+      unknowns is equal to the number of equations.
+    %
+\typeout{************************************************}
+\typeout{Subsubsection  The Four Ways to Write a System}
+\typeout{************************************************}
+\subsubsection[The Four Ways to Write a System]{The Four Ways to Write a System}\label{subsubsection-13}
+
+        Recall that there are three equivalent ways to write the typical linear
+        algebra problem: (1) a system of linear equations to be solved
+        simultaneously, (2) an equation expressing some linear combination of
+        vectors with unknown coefficients as equal to another vector, and (3) a
+        matrix equation.
+      %
+\par
+
+        Here is an example: This system of linear equations
+        \[
+          \left\{ \begin{array}{rrrrrrr}
+              &  &3y &+ &2z &= &8 \\
+            x &- & y &+ & z &= &-1 \\
+          3 x &+ &2y &+ &3z &= &1
+          \end{array}\right.
+        \]
+        is equivalent to this equation using a linear combination of vectors
+        \[
+        x \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
+        y \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
+        z \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+        \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+        \]
+        and both of those are equivalent to this matrix equation
+        \[
+          \begin{pmatrix} 0 &3 &2 \\ 1 &-1 &1 \\ 3 &2 &3
+          \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix} .
+        \]
+      %
+\par
+
+        Each of these viewpoints has its advantages when talking about the
+        geometry of linear algebra. But one way that things steadily improve as
+        you move down the page is in the amount of notational baggage.
+        From each version to the next, we lose repetitive bits of symbol that
+        one can just remember from context.
+        Often, this is taken one step further! We now throw away the unknowns,
+        the equal signs and some of the parentheses surrounding the matrices and
+        vectors, and just write an \emph{augmented} matrix.
+        \[
+          \augmatrix{ccc}{
+          0 &3 &2 &8\\ 1 &-1 &1 &-1\\ 3 &2 &3 &1
+          }
+        \]
+        This is the minimum fuss way to keep track of all the information you
+        need to solve the original system.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Representing Elimination with Matrices}
+\typeout{************************************************}
+\subsubsection[Representing Elimination with Matrices]{Representing Elimination with Matrices}\label{subsubsection-14}
+
+        The process of elimination starts by performing operations on the
+        system of equations. In the example above, one simplification we can
+        make is to add \(-3\) times equation (ii) to equation (iii).
+      %
+\par
+
+        Then the new system looks like this:
+        \[
+          \left\{ \begin{array}{rrrrrrr}
+          &  &3y &+ &2z &= &8 \\
+          x &- & y &+ & z &= &-1 \\
+          &  &5y &  &   &= &4
+          \end{array}\right.
+        \]
+        Let's translate that into the linear combination format:
+        \[
+          x \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} +
+          y \begin{pmatrix} 3 \\ -1 \\ 5 \end{pmatrix} +
+          z \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix} .
+        \]
+        What has happened to each of the vectors? Well, in each case, we have
+        added \(-3\) times the second component to the third component.
+        We have seen that one way to change vectors into other vectors is by
+        (left-)multiplying them by matrices. Could we be so lucky that the
+        operation ``add \(-3\) times the second component to the third
+        component'' is representable by a matrix operation? YES. It is not
+        hard to check that the matrix we need is
+        \[
+          E = \begin{pmatrix} 1 &0 &0 \\ 0 &1 &0 \\ 0 &-3 &1 \end{pmatrix} .
+        \]
+        In fact, let's check it now for each of the four vectors we have in our system:
+        \[
+          E \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} =
+          \begin{pmatrix} 1 &0 &0 \\ 0 &1 &0 \\
+          0 &-3 &1 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix}
+          = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+        \]
+        and
+        \[
+          E \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} =
+          \begin{pmatrix} 1 &0 &0 \\ 0 &1 &0 \\ 0 &-3
+          &1 \end{pmatrix} \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} =
+          \begin{pmatrix} 3 \\ -1 \\ 5 \end{pmatrix}
+        \]
+        and
+        \[
+          E \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+          \begin{pmatrix} 1 &0 &0 \\ 0 &1 &0 \\
+          0 &-3 &1 \end{pmatrix} \begin{pmatrix} 2 \\ 1 \\ 3
+          \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}
+        \]
+        and
+        \[
+          E \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix} =
+          \begin{pmatrix} 1 &0 &0 \\ 0 &1 &0 \\
+          0 &-3 &1 \end{pmatrix} \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+          = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
+        \]
+      %
+\par
+
+        Ha Ha! It all checks out. Those are the four vectors from our second
+        system. This means that we can even use a simple subsitution to rewrite
+        things. (It is not obvious at the moment why this is helpful. Hang on a
+        bit.)
+        \[
+          x* E\begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
+          y* E\begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
+          z* E\begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+          E\begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+        \]
+        Boy, it sure would be nice if we had a compact way to write that down...
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Matrix Multiplication}
+\typeout{************************************************}
+\subsubsection[Matrix Multiplication]{Matrix Multiplication}\label{subsubsection-15}
+
+        We make a compact way to write down that last equation by defining an
+        operation of multiplying two matrices.
+        If \(E\) and \(A\) are two matrices, we define their
+        \terminology{matrix product}
+        to be a new matrix as follows:
+      %
+\par
+
+        First, write \(A\) as a collection of columns \(v_i\)
+        \[
+          A = \begin{pmatrix} v_1 &v_2 &v_3 \end{pmatrix}
+        \]
+        and then we declare that \(EA\) is the matrix made up of the columns
+        \(Ev_i\) in the corresponding order.
+        \[
+          EA = \begin{pmatrix} Ev_1 &Ev_2 &Ev_3 \end{pmatrix}
+        \]
+      %
+\par
+
+        By way of example, we have already considered the matrices
+        \[
+          E = \begin{pmatrix} 1 &0 &0 \\ 0 &1 &0 \\ 0 &-3 &1 \end{pmatrix} \quad \text{ and } \quad
+          A = \begin{pmatrix} 0 &3 &2 \\ 1 &-1 &1 \\ 3 &2 &3 \end{pmatrix}.
+        \]
+        You should check that their product is now
+        \[
+          EA = \begin{pmatrix} 1 &0 &0 \\ 0 &1 &0 \\ 0 &-3 &1 \end{pmatrix}\begin{pmatrix} 0 &3 &2 \\ 1 &-1 &1 \\ 3 &2 &3 \end{pmatrix} =
+          \begin{pmatrix} 0 &3 &2 \\ 1 &-1 &1 \\ 0 &5 &0 \end{pmatrix}
+        \]
+      %
+\par
+
+        Finally, let's see how this influences our last two forms of the equations.
+        The matrix form of our system was \(Ax = v\) where \(A\) is as above, and the
+        vectors are \(v = \left(\begin{smallmatrix} 8 \\ -1 \\ 1
+        \end{smallmatrix}\right)\) and
+        \(x = \left( \begin{smallmatrix} x \\ y \\ z \end{smallmatrix}\right)\).
+        The neat part is that our new definition of matrix multiplication means
+        that our elimination step transformed the equation
+        \[
+          Ax = v \quad \text{ or }\quad
+          \begin{pmatrix} 0 &3 &2 \\ 1 &-1 &1 \\ 3 &2 &3
+          \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+        \]
+        into the newer equation
+        \[
+          (EA) x = Ev \quad \text{ or } \quad \begin{pmatrix} 0 &3 &2
+          \\ 1 &-1 &1 \\ 0 &5 &0 \end{pmatrix} \begin{pmatrix} x
+          \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
+        \]
+      %
+\par
+
+        The same thing works for the augmented matrix. The augmented matrix form
+        is really just writing down
+        \[
+          \augmatrix{c}{A &v }
+          =\augmatrix{ccc}{
+          0 &3 &2 &8\\ 1 &-1 &1 &-1\\ 3 &2 &3 &1 }
+        \]
+        and the elimination step changes this into
+        \[
+          \augmatrix{c}{EA &Ev}
+          = \augmatrix{ccc}{
+          0 &3 &2 &8 \\ 1 &-1 &1 &-1 \\ 0 &5 &0 &4
+          }.
+        \]
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Matrices as Transformations}
+\typeout{************************************************}
+\subsubsection[Matrices as Transformations]{Matrices as Transformations}\label{subsubsection-16}
+
+        Take a moment and reflect on the key transition in what happens above.
+        The most important thing that made it all work was that a matrix (the
+        elimination matrix \(E\)) was used to perform some sort of operation on
+        vectors.
+      %
+\par
+
+        This is a key property of matrices. The matrix \(E\) defines a kind of
+        function. For every vector \(w\) with three components, we can compute
+        exactly one new vector \(Ew\), still with three components. This means that
+        \(E\) defines a function from the set of \(3\)-vectors to the set of
+        \(3\)-vectors.
+      %
+\typeout{************************************************}
+\typeout{Subsection  Sage and Matrix Multiplication}
+\typeout{************************************************}
+\subsection[Sage and Matrix Multiplication]{Sage and Matrix Multiplication}\label{subsection-32}
+
+      Sage has built-in matrix multiplication. You do the obvious thing and it
+      works.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 2,2, [[2,1],[1,1]])
+B = matrix(QQ, 2,2, [[0,3],[1,1]])
+A, B
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(
+[2 1]  [0 3]
+[1 1], [1 1]
+)
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A*B
+\end{lstlisting}
+\par
+
+      You can check that it works with the way we defined matrix multiplication
+      as a linear combination of vectors, too.
+    %
+\par
+
+      First, we define the column vectors by pulling out the entries from \verb?B?
+      and arranging them. To be sure, we ask Sage to display them as columns.
+    %
+\begin{lstlisting}[style=sageinput]
+b1 = vector([B[0,0], B[1,0]])
+b2 = vector([B[0,1], B[1,1]])
+b1.column(), b2.column()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(
+[0]  [3]
+[1], [1]
+)
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A*b1.column(), A*b2.column()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(
+[1]  [7]
+[1], [4]
+)
+\end{lstlisting}
+\par
+
+      Now we can pile these rows into a matrix and then use the transpose to
+      put them in columns.
+    %
+\begin{lstlisting}[style=sageinput]
+C = matrix([A*b1, A*b2]).transpose()
+C
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 7]
+[1 4]
+\end{lstlisting}
+\par
+
+      And we can double check everything by asking Sage if these things are equal.
+    %
+\begin{lstlisting}[style=sageinput]
+C == A*B
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\par
+
+      This kind of test can be useful for checking our work! The discussion above
+      has this multiplication:
+    %
+\begin{lstlisting}[style=sageinput]
+D = matrix(QQ,3,4, [0,3,2,8,1,-1,1,-1,3,2,3,1]); D
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 0  3  2  8]
+[ 1 -1  1 -1]
+[ 3  2  3  1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+E = matrix.identity(3)
+E[2,1] = -3
+E
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  0  0]
+[ 0  1  0]
+[ 0 -3  1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+E*D
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 0  3  2  8]
+[ 1 -1  1 -1]
+[ 0  5  0  4]
+\end{lstlisting}
+\par
+
+      Ta-Da!!!
+    %
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-33}
+\begin{task}
+\label{task-47}
+
+      In the main example above
+      \[
+      \left\{ \begin{array}{rrrrrrr}
+         &  &3y &+ &2z &= &8 \\
+       x &- & y &+ & z &= &-1 \\
+      3x &+ &2y &+ &3z &= &1
+      \end{array}
+      \right.
+      \]
+      we would rather have our first pivot in the upper left corner (i.e. the
+      first row should have a non-zero coefficient for \(x\)). This can be
+      achieved by swapping the positions of rows (i) and (ii).
+    %
+\par
+
+      Find a matrix \(P_{12}\) so that multiplying by \(P_{12}\) on the left
+      performs the corresponding row switching operation on the augmented matrix
+      \[
+      \augmatrix{ccc}{
+      0 &3 &2 &8 \\ 1 &-1 &1 &-1 \\ 3 &2 &3 &1}
+      \]
+    %
+\end{task}
+\begin{task}
+\label{task-48}
+
+      Consider the system
+      \[
+      \left\{ \begin{array}{rrrrr}
+      6x &- &y &= &14 \\
+      97x &- &16y &= &2/3 \\
+      \end{array}
+      \right.
+      \]
+      Write this system in the other three forms: (1) an equation involving a
+      linear combination of vectors; (2) an equation involving a \(2\times 2\)
+      matrix; (3) an augmented matrix.
+    %
+\end{task}
+\begin{task}
+\label{task-49}
+
+      Perform an elimination step on the system from the last exercise to put the sytem in triangular form. You should get two pivots.
+    %
+\par
+
+      Write the new system in each of our four forms.
+    %
+\end{task}
+\begin{task}
+\label{task-50}
+
+      Still working with the same system of equations, use Sage to make two column picture plots:
+    %
+\begin{itemize}
+\item{} One showing the three relevant column vectors from the original system.\item{} One showing the three relevant column vectors from the system after the elimination step.\end{itemize}
+\par
+
+      You may find it helpful to look through the Sage examples in previous sections
+      of this workbook.
+    %
+\end{task}
+\begin{task}
+\label{task-51}
+
+      One more time, stay with the same system of equations. Use Sage to make
+      two row picture plots:
+    %
+\begin{itemize}
+\item{} One showing the two relevant lines in the original system.\item{} One showing the two relevant lines from the system after the elimination step.\end{itemize}
+\par
+
+      You may find it helpful to look through the Sage examples in previous sections
+      of this workbook.
+    %
+\end{task}
+\begin{task}
+\label{task-52}
+
+      Consider this system of three equations in three unknowns:
+      \[
+      \left\{
+      \begin{array}{rrrrrrr}
+      -x &+ &\frac{2}{3} y &+ &z &= &1 \\
+       x &+ &           6y &+ &z &= &1 \\
+      3x &  &              &+ &3z&= &1 \\
+      \end{array}\right.
+      \]
+      Perform the elimination steps to transform this system into a triangular one.
+    %
+\par
+
+      Write down the corresponding matrices you use to perform each of these
+      steps on the augmented matrix version of this system.
+    %
+\end{task}
+\begin{task}
+\label{task-53}
+
+      Still working with the system of equations from the last task, use Sage
+      to make two column picture plots:
+    %
+\begin{itemize}
+\item{} One showing the four relevant column vectors from the original system.\item{} One showing the four relevant column vectors from the system after the elimination step.\end{itemize}
+\par
+
+      You may find it helpful to look through the Sage examples in previous sections
+      of this workbook.
+    %
+\end{task}
+\begin{task}
+\label{task-54}
+
+      One more time, stay with the system of equations from previous two tasks.
+      Use Sage to make two row picture plots:
+    %
+\begin{itemize}
+\item{} One showing the two relevant lines in the original system.\item{} One showing the two relevant lines from the system after the elimination step.\end{itemize}
+\par
+
+      You may find it helpful to look through the Sage examples in previous sections
+      of this workbook.
+    %
+\end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 2.4 Going Further with Elimination}
+\typeout{************************************************}
+\section[Going Further with Elimination]{Going Further with Elimination}\label{lin-eq-going-further-1}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-34}
+\begin{itemize}
+\item{}
+        Go back through the exercises in the first three sections of this chapter.
+        Complete any items you
+        did not complete the first time through. Prepare any that we have not
+        discussed in class so that you will be ready to present them.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-35}
+Now we take a short break to revisit and consolidate the learning you
+      have done so far. Revisit the reading and the exercises you have done in
+      Chapter One: Basic Objects. The important feature of this work should be
+      learning to think about your own thinking. This sort of \terminology{meta-cognition}
+      characterizes expert learners. Eventually, you want to be able to monitor
+      your work at all times and recognize when you understand deeply and when
+      you do not. This will allow you to self-correct.
+    %
+\par
+To help you get started with meta-cognition, I listed learning goals in
+      each section. To go further, you need to explicitly go through the process
+      of reviewing what you can do and what you cannot. Here are some prompts to
+      help you get started with this process.
+      \begin{itemize}
+\item{}
+          Review the learning goals from each section. Can you do the things
+          described? Can you do them sometimes, or have you mastered them so you
+          can do them consistently?
+        \item{}
+          Look through all of the tasks and go deeper into them. Can you
+          connect each exercise to one of our pictures? Try to build a mental
+          model of how the exercise and its solution work.
+        \item{}
+          If your first solution to an exercise involve a ``guess-and-check''
+          approach, can you now complete the exercise in a \emph{purposeful}
+          and systematic manner?
+        \item{}
+          Make a list of concepts or exercises that are not clear to you. Phrase
+          each item in your list as a question, and make each question as
+          specific as possible. Talk with fellow students or your
+          instructor until you can answer your own questions.
+        \end{itemize}
+
+    %
+\clearpage
+\typeout{************************************************}
+\typeout{Section 2.5 Matrix Algebra}
+\typeout{************************************************}
+\section[Matrix Algebra]{Matrix Algebra}\label{matrix-algebra}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-36}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-37}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-38}
+\typeout{************************************************}
+\typeout{Subsection  Sage and xxx}
+\typeout{************************************************}
+\subsection[Sage and xxx]{Sage and xxx}\label{subsection-39}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-40}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 2.6 Matrix Inverses}
+\typeout{************************************************}
+\section[Matrix Inverses]{Matrix Inverses}\label{inverse}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-41}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-42}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-43}
+\typeout{************************************************}
+\typeout{Subsection  Sage and xxx}
+\typeout{************************************************}
+\subsection[Sage and xxx]{Sage and xxx}\label{subsection-44}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-45}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 2.7 The \(LU\) Decomposition}
+\typeout{************************************************}
+\section[The \(LU\) Decomposition]{The \(LU\) Decomposition}\label{lu-decomposition}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-46}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-47}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-48}
+\typeout{************************************************}
+\typeout{Subsection  Sage and xxx}
+\typeout{************************************************}
+\subsection[Sage and xxx]{Sage and xxx}\label{subsection-49}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-50}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 2.8 Permutation Matrices}
+\typeout{************************************************}
+\section[Permutation Matrices]{Permutation Matrices}\label{permutations}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-51}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-52}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-53}
+\typeout{************************************************}
+\typeout{Subsection  Sage and xxx}
+\typeout{************************************************}
+\subsection[Sage and xxx]{Sage and xxx}\label{subsection-54}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-55}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 2.9 Matrix Algebra: Going Further}
+\typeout{************************************************}
+\section[Matrix Algebra: Going Further]{Matrix Algebra: Going Further}\label{lin-eq-gf2}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-56}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-57}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-58}
+\typeout{************************************************}
+\typeout{Subsection  Sage and xxx}
+\typeout{************************************************}
+\subsection[Sage and xxx]{Sage and xxx}\label{subsection-59}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-60}
+\clearpage
+\typeout{************************************************}
+\typeout{Chapter 3 Vector Spaces and Subspaces}
+\typeout{************************************************}
+\chapter[Vector Spaces and Subspaces]{Vector Spaces and Subspaces}\label{chapter-subspaces}
+Here is some introductory text.\typeout{************************************************}
+\typeout{Chapter 4 Orthogonality}
+\typeout{************************************************}
+\chapter[Orthogonality]{Orthogonality}\label{chapter-orthogonality}
+Here is some introductory text.\typeout{************************************************}
+\typeout{Chapter 5 Determinants}
+\typeout{************************************************}
+\chapter[Determinants]{Determinants}\label{chapter-determinants}
+Here is some introductory text.\typeout{************************************************}
+\typeout{Chapter 6 Eigendata and the Singular Value decomposition}
+\typeout{************************************************}
+\chapter[Eigendata and the Singular Value decomposition]{Eigendata and the Singular Value decomposition}\label{chapter-eigendata-and-svd}
+Here is some introductory text.\appendix
+\backmatter
+\end{document}

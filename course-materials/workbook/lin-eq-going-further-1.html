@@ -8,7 +8,7 @@
 <!--*                                    *-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Linear Equations</title>
+<title>Going Further with the Basic Objects</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -60,12 +60,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="basic-objects-going-further.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="three-pictures.html">Next</a>
+<a class="previous-button toolbar-item button" href="matrix-elimination.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="matrix-algebra.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="basic-objects-going-further.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="three-pictures.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="matrix-elimination.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="matrix-algebra.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -87,7 +87,7 @@ $(function () {
 <li><a href="three-pictures.html">Three Geometric Models</a></li>
 <li><a href="elimination.html">Solving Systems</a></li>
 <li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
-<li><a href="lin-eq-going-further-1.html">Going Further with the Basic Objects</a></li>
+<li><a href="lin-eq-going-further-1.html" class="active">Going Further with the Basic Objects</a></li>
 <li><a href="matrix-algebra.html">Matrix Algebra</a></li>
 <li><a href="inverse.html">Matrix Inverses</a></li>
 <li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
@@ -102,49 +102,53 @@ $(function () {
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-2"><header><h1 class="heading">
-<span class="type">Chapter</span><span class="codenumber">2</span><span class="title">Linear Equations</span>
-</h1></header><article class="introduction" id="introduction-2"><p>
-      This chapter is dedicated to the first major problem of
-      linear algebra: solving systems of linear equations. Restated as a set of
-      questions, we will consider these.
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="lin-eq-going-further-1"><header><h1 class="heading">
+<span class="type">Section</span><span class="codenumber">2.4</span><span class="title">Going Further with the Basic Objects</span>
+</h1></header><section class="subsection" id="subsection-34"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul><li>
+        Go back through the exercises in the first three sections of this chapter.
+        Complete any items you
+        did not complete the first time through. Prepare any that we have not
+        discussed in class so that you will be ready to present them.
+      </li></ul></section><section class="subsection" id="subsection-35"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
+</h1></header><p>Now we take a short break to revisit and consolidate the learning you
+      have done so far. Revisit the reading and the exercises you have done in
+      Chapter One: Basic Objects. The important feature of this work should be
+      learning to think about your own thinking. This sort of <em class="terminology">meta-cognition</em>
+      characterizes expert learners. Eventually, you want to be able to monitor
+      your work at all times and recognize when you understand deeply and when
+      you do not. This will allow you to self-correct.
     </p>
-<ul>
+<p>To help you get started with meta-cognition, I listed learning goals in
+      each section. To go further, you need to explicitly go through the process
+      of reviewing what you can do and what you cannot. Here are some prompts to
+      help you get started with this process.
+      <ul>
 <li>
-        What is the set of solutions to a given system of linear equations?
-      </li>
+          Review the learning goals from each section. Can you do the things
+          described? Can you do them sometimes, or have you mastered them so you
+          can do them consistently?
+        </li>
 <li>
-        When does a given system have solution, and when does it not?
-      </li>
+          Look through all of the tasks and go deeper into them. Can you
+          connect each exercise to one of our pictures? Try to build a mental
+          model of how the exercise and its solution work.
+        </li>
 <li>
-        If there is a solution, how many solutions are there?
-      </li>
+          If your first solution to an exercise involve a “guess-and-check”
+          approach, can you now complete the exercise in a <em>purposeful</em>
+          and systematic manner?
+        </li>
 <li>
-        What ways do we have of describing the collection of solutions?
-      </li>
-<li>
-        Is there a computationally effective way to find those solutions?
-      </li>
+          Make a list of concepts or exercises that are not clear to you. Phrase
+          each item in your list as a question, and make each question as
+          specific as possible. Talk with fellow students or your
+          instructor until you can answer your own questions.
+        </li>
 </ul>
-<p>
-      Though we begin with the first question, we answer the last one first. As
-      we explore the process of finding solutions, we will start to build the
-      tools we need to finish answering the other questions in a later chapter.
-      In this chapter, we aim to get as complete understanding as we can for at
-      least a special case: <em class="terminology">square systems</em>.
-    </p>
-<p>
-      We will begin with a study of the two ways that vectors let us make pictures
-      of systems of linear equations. Then we take up a basic process for finding
-      solutions, where matrices will appear as a convenient notational device.
-      But as we dig a little further, matrices will become interesting in their
-      own way, so we will study those. But what we study will relate back to
-      the fundamental issue of solving systems of linear equations.
-    </p>
-<p>
-      This chapter has two short review sections in it. One just after we learn
-      about elimination, and another at the end of the chapter.
-    </p></article><nav class="summary-links"><a href="three-pictures.html"><span class="codenumber">2.1</span><span class="title">Three Geometric Models</span></a><a href="elimination.html"><span class="codenumber">2.2</span><span class="title">Solving Systems</span></a><a href="matrix-elimination.html"><span class="codenumber">2.3</span><span class="title">Elimination using Matrices</span></a><a href="lin-eq-going-further-1.html"><span class="codenumber">2.4</span><span class="title">Going Further with the Basic Objects</span></a><a href="matrix-algebra.html"><span class="codenumber">2.5</span><span class="title">Matrix Algebra</span></a><a href="inverse.html"><span class="codenumber">2.6</span><span class="title">Matrix Inverses</span></a><a href="lu-decomposition.html"><span class="codenumber">2.7</span><span class="title">The \(LU\) Decomposition</span></a><a href="permutations.html"><span class="codenumber">2.8</span><span class="title">Permutation Matrices</span></a><a href="lin-eq-gf2.html"><span class="codenumber">2.9</span><span class="title">Matrix Algebra: Going Further</span></a></nav></section></div></main>
+    </p></section></section></div></main>
 </div>
 </body>
 </html>

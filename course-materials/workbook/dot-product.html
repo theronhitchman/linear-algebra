@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-13T18:44:51-05:00    *-->
+<!--*    on 2014-09-14T22:03:10-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -49,7 +49,7 @@ $(function () {
 <body class="mathbook-book has-toc has-sidebar-left">
 <div style="display:none;">\(
     
-    \newcommand{augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
   \)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
@@ -87,7 +87,7 @@ $(function () {
 <li><a href="three-pictures.html">Three Geometric Models</a></li>
 <li><a href="elimination.html">Solving Systems</a></li>
 <li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
-<li><a href="lin-eq-gf1.html">Systems: Going Further</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with the Basic Objects</a></li>
 <li><a href="matrix-algebra.html">Matrix Algebra</a></li>
 <li><a href="inverse.html">Matrix Inverses</a></li>
 <li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
@@ -195,7 +195,7 @@ angle
 </h1></header><p>Interacts would go here...</p></section></section><section class="subsection" id="subsection-9"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises about the Dot Product</span>
 </h1></header><article class="example-like" id="task-13"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
 </h5>
 <p>What shape is the set of solutions \(\left(\begin{smallmatrix} x \\ y
         \end{smallmatrix}\right)\) to the equation\[
@@ -212,25 +212,25 @@ angle
         </p>
 <p>What happens if instead of \(2\)-vectors, we use \(3\)-vectors?
         </p></article><article class="example-like" id="task-14"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">14</span><span class="title"></span>
 </h5>Find an example of two \(2\)-vectors \(v\) and \(w\)
       so that \(\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot v
       =0\) and \(\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot
       w = 0\), or explain why such an example is not possible.
       </article><article class="example-like" id="task-15"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">15</span><span class="title"></span>
 </h5>Let \(v = \left(\begin{smallmatrix}3\\-1
         \end{smallmatrix}\right)\). Find an example of a pair of vectors
         \(u\) and \(w\) such that \(v \cdot u &lt; 0\) and
         \(v \cdot w &lt; 0\) and \(w \cdot u = 0\), or explain why no such
         pair of vectors can exist.
       </article><article class="example-like" id="task-16"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">16</span><span class="title"></span>
 </h5>Find an example of three \(2\)-vectors \(u\), \(v\),
         and \(w\) so that \( u \cdot v &lt; 0\) and \(u\cdot w &lt; 0 \)
         and \(v \cdot w &lt; 0\), or explain why no such example exists.
       </article><article class="example-like" id="task-17"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">17</span><span class="title"></span>
 </h5>
         Find an example of a number \(c\) so that \[
         \begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
@@ -238,7 +238,7 @@ angle
         \] has the vector \(\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)\)
         as a solution, or explain why no such number exists.
       </article><article class="example-like" id="task-18"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">18</span><span class="title"></span>
 </h5>
         Let \(v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)\) and
         \(w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)\). Find
@@ -248,7 +248,7 @@ v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
 \end{gather*}
         or explain why this is not possible.
       </article><article class="example-like" id="task-19"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">19</span><span class="title"></span>
 </h5>
         Let \(P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)\).
         Find an example of numbers \(c\) and \(d\) so that \begin{gather*}
@@ -258,14 +258,14 @@ v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
         or explain why no such example is possible.
       </article><p>Now we move to three dimensions!</p>
 <article class="example-like" id="task-20"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">20</span><span class="title"></span>
 </h5>
         Let \(V = \left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right)\).
         Find a unit vector of the form \(X = \left(\begin{smallmatrix}x\\y\\0
         \end{smallmatrix}\right)\) so that \(V\cdot X = \sqrt{2}\), or explain
         why no such vector exists.
       </article><article class="example-like" id="task-21"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">21</span><span class="title"></span>
 </h5>
         Find an example of numbers \(c\), \(d\), and \(e\) so that there
         is no solution vector \(X = \left(\begin{smallmatrix}x\\y\\z
@@ -277,7 +277,7 @@ v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
 \end{gather*}
           or explain why no such numbers exist.
       </article><article class="example-like" id="task-22"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">22</span><span class="title"></span>
 </h5>
         Find an example of numbers \(c\), \(d\), and \(e\) so that there
         is no solution vector \(X = \left(\begin{smallmatrix}x\\y\\z
