@@ -18,7 +18,8 @@ a matrix equation really means, and about how to think about how what shape an e
 Here is what got finished today:
 
   * \#2.1 Weber
-  * \#2.2 Van Nevele
+  * \#2.2 Weber
+  * \#2.3 Van Nevele
   * \#2.6 King, Bray, Leinen
 
 
