@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Weekly Assignment 2
+title: Weekly Assignment 3
 ---
 
 **Deadline:** 4pm Tuesday, September 16
