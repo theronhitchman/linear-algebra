@@ -12,23 +12,426 @@
 
   <subsection>
     <title>The Assignment</title>
+    <ul>
+      <li>Read section 2.4 of <em>Strang</em>.</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
 
   </subsection>
 
   <subsection>
     <title>Learning Goals</title>
+    <p>
+      Before class, a student should be able to:
+    </p>
+    <ul>
+      <li>Add and subtract matrices of the same size.</li>
+      <li>Multiply matrices of appropriate sizes by one method.</li>
+      <li>Compute powers <m>A^p</m> of a given square matrix <m>A</m>.</li>
+      <li>Use the distributive law for matrix multiplication and matrix addition correctly.</li>
+    </ul>
+    <p>
+      Sometime after our meeting, a student should be able to:
+    </p>
+    <ul>
+      <li>Multiply block matrices.</li>
+      <li>Multiply matrices by <em>three</em> methods.</li>
+      <li>Give examples to show how matrix multiplication is not like
+        ordinary multiplication of real numbers: including the trouble
+        with commutativity, and the difficulty with inverses.
+      </li>
+    </ul>
+
   </subsection>
 
   <subsection>
-    <title>Discussion</title>
+    <title>Discussion on Matrix Algebra</title>
+    <p>
+      At the simplest level, this section is just about how to deal with the
+      basic operations on matrices. We can add them and we can multiply them.
+      We have already encountered matrix multiplication, and addition is even
+      more natural.
+    </p>
+    <p>
+      But a subtle and important thing is happening here. Matrices are taking
+      on a life of their own. They are becoming first class objects, whose
+      properties are interesting and possibly useful.
+    </p>
+    <p>
+      This is an instance of the beginnings of <em>Modern Algebra</em>, which
+      is the study of the algebraic structures of abstracted objects. In this
+      case, we study whole collections of matrices of a common shape, and we
+      try to treat them like generalized numbers. Then the natural questions
+      are how much like <q>regular numbers</q> are these matrices?
+    </p>
+    <p>
+      Addition is about as well-behaved as you can expect, but multiplication
+      is a bit trickier. Suddenly, two properties of multiplication for numbers
+      don't quite work for matrices:
+    </p>
+    <ul>
+      <li>multiplication does not necessarily commute: It need not be the case
+        that <m>AB</m> is the same as <m>BA</m>.
+      </li>
+      <li>we may not always have inverses: just because there is a
+        matrix <m>A</m> which is not the zero matrix, it may not be the case
+        that we can make sense of <m>A^{-1}</m> and get <m>AA^{-1} = I</m>.
+      </li>
+    </ul>
   </subsection>
 
   <subsection>
-    <title>Sage and xxx</title>
+    <title>Sage and Matrix Algebra</title>
+    <p>
+      Sage is aware of the basic matrix operations, and it won't let you get
+      away with nonsense. Matrix multiplication and matrix addition are only
+      defined if the dimensions of the matrices line up properly.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 2,3, [0,1,2,3,6,6])# A 2 by 3 matrix
+        B = matrix(QQ, 2,2, [4,2,3,1]) # 2 by 2 square matrix
+        C = matrix(QQ, 3,3, [2,1,2,1,2,1,2,1,2]) # a 3 by 3 square matrix
+        D = matrix(QQ, 2,3, [1,1,1,1,1,1]) # another 2 by 3 matrix
+        E = matrix(QQ, 3,2, [3,4,2,5,6,1]) # a 3 by 2 matrix
+      </input>
+    </sage>
+    <p>
+      Let's see which of these Sage doesn't like. Can you predict, before
+      evaluating the cells below, which of these will return an error?
+    </p>
+    <sage>
+      <input>A*B</input>
+    </sage>
+    <sage>
+      <input>B*A</input>
+      <output>
+        [ 6 16 20]
+        [ 3  9 12]
+      </output>
+    </sage>
+    <sage>
+      <input>A+B</input>
+    </sage>
+    <sage>
+      <input>A*C</input>
+      <output>
+        [ 5  4  5]
+        [24 21 24]
+      </output>
+    </sage>
+    <sage>
+      <input>C*A</input>
+    </sage>
+    <sage>
+      <input>A*D</input>
+    </sage>
+    <sage>
+      <input>A+D</input>
+    </sage>
+
+    <subsubsection>
+      <title>Sage and Matrix Addition</title>
+      <p>Matrix addition works a lot like addition of integers, as long as you fix
+        a size first.</p>
+      <ul>
+        <li>There is a zero element.</li>
+        <li>There are additive inverses (i.e. <em>negatives</em>).</li>
+        <li>The operation is commutative.</li>
+      </ul>
+      <sage>
+        <input>
+          #This constructs the zero matrix
+          Z = zero_matrix(2,3); Z
+        </input>
+        <output>
+          [0 0 0]
+          [0 0 0]
+        </output>
+      </sage>
+      <p>Let us add <c>A</c> and <c>Z</c>:</p>
+      <sage>
+        <input>A + Z</input>
+        <output>
+          [0 1 2]
+          [3 6 6]
+        </output>
+      </sage>
+      <p>We can check that adding <c>Z</c> doesn't change anything.</p>
+      <sage>
+        <input>A + Z == A</input>
+        <output>True</output>
+      </sage>
+      <p>And we can do the natural thing to get an additive inverse.</p>
+      <sage>
+        <input>L = -A; L</input>
+        <output>
+          [ 0 -1 -2]
+          [-3 -6 -6]
+        </output>
+      </sage>
+      <p>Finally, this last thing should return zero.</p>
+      <sage>
+        <input>A + L</input>
+        <output>
+          [0 0 0]
+          [0 0 0]
+        </output>
+      </sage>
+    </subsubsection>
+
+    <subsubsection>
+      <title>Sage and Matrix Multiplication</title>
+      <p>
+        Sage already has the structure of matrix multiplication built-in, and
+        it can help with investigating the ways that matrix multiplicaiton
+        is different from regular multiplication of numbers.
+      </p>
+      <p>
+        We have seen above
+        that Sage will not let us multiply matrices whose sizes do not match
+        correctly.  Of course, one way around that trouble is to stick to square
+        matrices. But even there we can have trouble with the fact that matrix
+        multiplication might not commute. It is rarely the case that <m>XY = YX</m>.
+      </p>
+      <p>
+        For those of you who will eventually study Modern Algebra, the collection
+        of all <m>n</m>-square matrices is an example of a non-commutative ring
+        with unit.
+      </p>
+
+      <sage>
+        <input>A*E, E*A</input>
+        <output>
+          (
+                   [12 27 30]
+          [14  7]  [15 32 34]
+          [57 48], [ 3 12 18]
+          )
+        </output>
+      </sage>
+      <p>Sage knows about the ring structure. We can check for an inverse.</p>
+      <sage>
+        <input>B.is_invertible()</input>
+        <output>True</output>
+      </sage>
+      <sage>
+        <input>C.is_invertible()</input>
+        <output>False</output>
+      </sage>
+      <p>And we can ask for the inverse in a couple of ways.</p>
+      <sage>
+        <input>B.inverse()</input>
+        <output>
+          [-1/2   1]
+          [ 3/2  -2]
+        </output>
+      </sage>
+      <sage>
+        <input>B^(-1)</input>
+        <output>
+          [-1/2   1]
+          [ 3/2  -2]
+        </output>
+      </sage>
+      <p>One can even construct the whole ring of all <m>n\times n</m> matrices
+      and play around inside it.</p>
+      <sage>
+        <input>
+          M = MatrixSpace(QQ, 2,2); M
+        </input>
+        <output>
+          Full MatrixSpace of 2 by 2 dense matrices over Rational Field
+        </output>
+      </sage>
+      <p>It is then not too hard to construct the identity element, which is
+        the regular identity matrix of the correct size.
+      </p>
+      <sage>
+        <input>M(1)</input>
+        <output>
+          [1 0]
+          [0 1]
+        </output>
+      </sage>
+      <p>Also, the zero matrix of the correct size is easy to make.</p>
+      <sage>
+        <input>M(0)</input>
+        <output>
+          [0 0]
+          [0 0]
+        </output>
+      </sage>
+      <p>
+        In fact, this allows you to short cut the construction of any matrix in
+        <c>M</c>. This can be really useful if you are going to work with a lot
+        of matrices of the same shape.
+      </p>
+      <sage>
+        <input>
+          H = M([2,1,1,1]); H
+        </input>
+        <output>
+          [2 1]
+          [1 1]
+        </output>
+      </sage>
+      <p>You can even use this to make complicated expressions out of matrix operations.
+        As long as everything makes sense, Sage will do all the work.
+      </p>
+      <sage>
+        <input>
+          H^2 + H
+        </input>
+        <output>
+          [7 4]
+          [4 3]
+        </output>
+      </sage>
+      <sage>
+        <input>H * (H - 5*M(1) + 2*H^2)</input>
+        <output>
+          [21 14]
+          [14  7]
+        </output>
+      </sage>
+      <sage>
+        <input>
+          # this one should turn out to be zero.
+          # I know this because of a theorem.
+          H^2 - 3*H + M(1)
+        </input>
+        <output>
+          [0 0]
+          [0 0]
+        </output>
+      </sage>
+    </subsubsection>
+
+    <subsubsection>
+      <title>Sage and Block Matrices</title>
+
+      <p>Sage has a built-in method for constructing matrices out of blocks, too.
+        It is easiest to see an example.
+      </p>
+      <p>
+        To make this work, you have to tell Sage when you have a vector if you
+        want it to be either a row or a column vector in the appropriate places.
+      </p>
+      <sage>
+        <input>
+          X = matrix(QQ, 2,2, [0,-1,1,0])
+          v = vector([2,3])
+          w = matrix(QQ, 1,1, [1])
+          Blockey = block_matrix(QQ, 2,3,
+                                 [[X, X, v.column()],
+                                 [v.row(), v.row(), w]])
+          Blockey
+        </input>
+        <output>
+          [ 0 -1| 0 -1| 2]
+          [ 1  0| 1  0| 3]
+          [-----+-----+--]
+          [ 2  3| 2  3| 1]
+        </output>
+      </sage>
+    </subsubsection>
   </subsection>
 
   <subsection>
     <title>Exercises</title>
+    <task>
+      <statement>
+        Make an example of a <m>2\times 3</m> matrix and a <m>3\times 3</m>
+        matrix, and use this to demonstrate the three different ways to multiply
+        matrices.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Give an example of a pair of <m>2\times 2</m> matrices <m>A</m> and
+        <m>B</m> so that <m>AB = 0</m> but <m>BA\neq 0</m>, or explain why
+        this is  impossible.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Give an example of a <m>3\times 3</m> matrix <m>A</m> such that neither
+        <m>A</m> nor <m>A^2</m> is the zero matrix, but <m>A^3=0</m>.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Find all examples of matrices <m>A</m> which commute with both
+        <m>B = \left( \begin{smallmatrix} 1 &amp; 0 \\ 0 &amp; 0
+          \end{smallmatrix}\right)</m> and
+        <m>C = \left( \begin{smallmatrix} 0 &amp; 1 \\ 0 &amp; 0
+          \end{smallmatrix}\right)</m>. That is, find all matrices <m>A</m>
+        so that <m>AB = BA</m> and <m>AC= CA</m>. How do you know you have
+        all such matrices?
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          Consider the matrix
+          <me>
+            A = \begin{pmatrix} 2 &amp; 1 &amp; 0 \\ -2 &amp; 0 &amp; 1 \\ 8 &amp; 5 &amp; 3 \end{pmatrix}.
+          </me>
+          Which elimination matrices <m>E_{21}</m> and <m>E_{31}</m> produce zeros in the
+          <m>(2,1)</m> and <m>(3,1)</m> positions of <m>E_{21}A</m>
+          and <m>E_{31}A</m>?
+        </p>
+        <p>
+          Find a single matrix <m>E</m> which produces both zeros at once.
+          Multiply <m>EA</m> to verify your result.
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          Let's take a different view of the last computation.
+          Block multiplication says that column 1 is eliminated by
+          a step that looks like this one:
+          <me>
+            EA = \begin{pmatrix} 1 &amp; 0 \\ -c/a &amp; I \end{pmatrix}
+            \begin{pmatrix} a &amp; b \\ c &amp; D \end{pmatrix} =
+            \begin{pmatrix} a &amp; b \\ 0 &amp; D - cb/a \end{pmatrix}.
+          </me>
+          Here <m>I</m> is the <m>2\times 2</m> identity matrix, <m>D</m> is a
+          <m>2\times 2</m> matrix, etc.
+        </p>
+        <p>
+          So, in the last exercise, what are <m>a</m>, <m>b</m>, <m>c</m>
+          and <m>D</m> and what
+          is <m>D-cb/a</m>? Be sure to describe what shape each matrix has: the
+          number of rows and columns.
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Suppose that we have already solved the equation <m>Ax=b</m> for the
+        following three special choices of <m>b</m>:
+        <me>
+          Ax_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \text{ , } Ax_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \text{, and } Ax_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
+        </me>
+        If the three solutions are called <m>x_1</m>, <m>x_2</m> and <m>x_3</m>
+        and then bundled together to make the columns of a matrix
+        <me>X =  \begin{pmatrix} | &amp; | &amp; | \\
+          x_1 &amp; x_2 &amp; x_3 \\ | &amp; | &amp; |
+          \end{pmatrix},
+        </me> what is the matrix <m>AX</m>? What does this mean about <m>X</m>?
+      </statement>
+    </task>
+
   </subsection>
 
 
