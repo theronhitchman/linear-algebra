@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-09-14T22:05:02-05:00    %%
+%%    on 2014-09-17T23:27:43-05:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -2552,22 +2552,412 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-36}
+\begin{itemize}
+\item{}Read section 2.4 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-37}
+
+      Before class, a student should be able to:
+    %
+\begin{itemize}
+\item{}Add and subtract matrices of the same size.\item{}Multiply matrices of appropriate sizes by one method.\item{}Compute powers \(A^p\) of a given square matrix \(A\).\item{}Use the distributive law for matrix multiplication and matrix addition correctly.\end{itemize}
+\par
+
+      Sometime after our meeting, a student should be able to:
+    %
+\begin{itemize}
+\item{}Multiply block matrices.\item{}Multiply matrices by \emph{three} methods.\item{}Give examples to show how matrix multiplication is not like
+        ordinary multiplication of real numbers: including the trouble
+        with commutativity, and the difficulty with inverses.
+      \end{itemize}
 \typeout{************************************************}
-\typeout{Subsection  Discussion}
+\typeout{Subsection  Discussion on Matrix Algebra}
 \typeout{************************************************}
-\subsection[Discussion]{Discussion}\label{subsection-38}
+\subsection[Discussion on Matrix Algebra]{Discussion on Matrix Algebra}\label{subsection-38}
+
+      At the simplest level, this section is just about how to deal with the
+      basic operations on matrices. We can add them and we can multiply them.
+      We have already encountered matrix multiplication, and addition is even
+      more natural.
+    %
+\par
+
+      But a subtle and important thing is happening here. Matrices are taking
+      on a life of their own. They are becoming first class objects, whose
+      properties are interesting and possibly useful.
+    %
+\par
+
+      This is an instance of the beginnings of \emph{Modern Algebra}, which
+      is the study of the algebraic structures of abstracted objects. In this
+      case, we study whole collections of matrices of a common shape, and we
+      try to treat them like generalized numbers. Then the natural questions
+      are how much like ``regular numbers'' are these matrices?
+    %
+\par
+
+      Addition is about as well-behaved as you can expect, but multiplication
+      is a bit trickier. Suddenly, two properties of multiplication for numbers
+      don't quite work for matrices:
+    %
+\begin{itemize}
+\item{}multiplication does not necessarily commute: It need not be the case
+        that \(AB\) is the same as \(BA\).
+      \item{}we may not always have inverses: just because there is a
+        matrix \(A\) which is not the zero matrix, it may not be the case
+        that we can make sense of \(A^{-1}\) and get \(AA^{-1} = I\).
+      \end{itemize}
 \typeout{************************************************}
-\typeout{Subsection  Sage and xxx}
+\typeout{Subsection  Sage and Matrix Algebra}
 \typeout{************************************************}
-\subsection[Sage and xxx]{Sage and xxx}\label{subsection-39}
+\subsection[Sage and Matrix Algebra]{Sage and Matrix Algebra}\label{subsection-39}
+
+      Sage is aware of the basic matrix operations, and it won't let you get
+      away with nonsense. Matrix multiplication and matrix addition are only
+      defined if the dimensions of the matrices line up properly.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 2,3, [0,1,2,3,6,6])# A 2 by 3 matrix
+B = matrix(QQ, 2,2, [4,2,3,1]) # 2 by 2 square matrix
+C = matrix(QQ, 3,3, [2,1,2,1,2,1,2,1,2]) # a 3 by 3 square matrix
+D = matrix(QQ, 2,3, [1,1,1,1,1,1]) # another 2 by 3 matrix
+E = matrix(QQ, 3,2, [3,4,2,5,6,1]) # a 3 by 2 matrix
+\end{lstlisting}
+\par
+
+      Let's see which of these Sage doesn't like. Can you predict, before
+      evaluating the cells below, which of these will return an error?
+    %
+\begin{lstlisting}[style=sageinput]
+A*B
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B*A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 6 16 20]
+[ 3  9 12]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A+B
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A*C
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 5  4  5]
+[24 21 24]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+C*A
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A*D
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A+D
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Sage and Matrix Addition}
+\typeout{************************************************}
+\subsubsection[Sage and Matrix Addition]{Sage and Matrix Addition}\label{subsubsection-17}
+Matrix addition works a lot like addition of integers, as long as you fix
+        a size first.%
+\begin{itemize}
+\item{}There is a zero element.\item{}There are additive inverses (i.e. \emph{negatives}).\item{}The operation is commutative.\end{itemize}
+\begin{lstlisting}[style=sageinput]
+#This constructs the zero matrix
+Z = zero_matrix(2,3); Z
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0 0 0]
+[0 0 0]
+\end{lstlisting}
+\par
+Let us add \verb?A? and \verb?Z?:%
+\begin{lstlisting}[style=sageinput]
+A + Z
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0 1 2]
+[3 6 6]
+\end{lstlisting}
+\par
+We can check that adding \verb?Z? doesn't change anything.%
+\begin{lstlisting}[style=sageinput]
+A + Z == A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\par
+And we can do the natural thing to get an additive inverse.%
+\begin{lstlisting}[style=sageinput]
+L = -A; L
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 0 -1 -2]
+[-3 -6 -6]
+\end{lstlisting}
+\par
+Finally, this last thing should return zero.%
+\begin{lstlisting}[style=sageinput]
+A + L
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0 0 0]
+[0 0 0]
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Sage and Matrix Multiplication}
+\typeout{************************************************}
+\subsubsection[Sage and Matrix Multiplication]{Sage and Matrix Multiplication}\label{subsubsection-18}
+
+        Sage already has the structure of matrix multiplication built-in, and
+        it can help with investigating the ways that matrix multiplicaiton
+        is different from regular multiplication of numbers.
+      %
+\par
+
+        We have seen above
+        that Sage will not let us multiply matrices whose sizes do not match
+        correctly.  Of course, one way around that trouble is to stick to square
+        matrices. But even there we can have trouble with the fact that matrix
+        multiplication might not commute. It is rarely the case that \(XY = YX\).
+      %
+\par
+
+        For those of you who will eventually study Modern Algebra, the collection
+        of all \(n\)-square matrices is an example of a non-commutative ring
+        with unit.
+      %
+\begin{lstlisting}[style=sageinput]
+A*E, E*A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(
+         [12 27 30]
+[14  7]  [15 32 34]
+[57 48], [ 3 12 18]
+)
+\end{lstlisting}
+\par
+Sage knows about the ring structure. We can check for an inverse.%
+\begin{lstlisting}[style=sageinput]
+B.is_invertible()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+C.is_invertible()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+False
+\end{lstlisting}
+\par
+And we can ask for the inverse in a couple of ways.%
+\begin{lstlisting}[style=sageinput]
+B.inverse()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[-1/2   1]
+[ 3/2  -2]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B^(-1)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[-1/2   1]
+[ 3/2  -2]
+\end{lstlisting}
+\par
+One can even construct the whole ring of all \(n\times n\) matrices
+      and play around inside it.%
+\begin{lstlisting}[style=sageinput]
+M = MatrixSpace(QQ, 2,2); M
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Full MatrixSpace of 2 by 2 dense matrices over Rational Field
+\end{lstlisting}
+\par
+It is then not too hard to construct the identity element, which is
+        the regular identity matrix of the correct size.
+      %
+\begin{lstlisting}[style=sageinput]
+M(1)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 0]
+[0 1]
+\end{lstlisting}
+\par
+Also, the zero matrix of the correct size is easy to make.%
+\begin{lstlisting}[style=sageinput]
+M(0)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0 0]
+[0 0]
+\end{lstlisting}
+\par
+
+        In fact, this allows you to short cut the construction of any matrix in
+        \verb?M?. This can be really useful if you are going to work with a lot
+        of matrices of the same shape.
+      %
+\begin{lstlisting}[style=sageinput]
+H = M([2,1,1,1]); H
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2 1]
+[1 1]
+\end{lstlisting}
+\par
+You can even use this to make complicated expressions out of matrix operations.
+        As long as everything makes sense, Sage will do all the work.
+      %
+\begin{lstlisting}[style=sageinput]
+H^2 + H
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[7 4]
+[4 3]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+H * (H - 5*M(1) + 2*H^2)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[21 14]
+[14  7]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+# this one should turn out to be zero.
+# I know this because of a theorem.
+H^2 - 3*H + M(1)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0 0]
+[0 0]
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Sage and Block Matrices}
+\typeout{************************************************}
+\subsubsection[Sage and Block Matrices]{Sage and Block Matrices}\label{subsubsection-19}
+Sage has a built-in method for constructing matrices out of blocks, too.
+        It is easiest to see an example.
+      %
+\par
+
+        To make this work, you have to tell Sage when you have a vector if you
+        want it to be either a row or a column vector in the appropriate places.
+      %
+\begin{lstlisting}[style=sageinput]
+X = matrix(QQ, 2,2, [0,-1,1,0])
+v = vector([2,3])
+w = matrix(QQ, 1,1, [1])
+Blockey = block_matrix(QQ, 2,3,
+                       [[X, X, v.column()],
+                       [v.row(), v.row(), w]])
+Blockey
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 0 -1| 0 -1| 2]
+[ 1  0| 1  0| 3]
+[-----+-----+--]
+[ 2  3| 2  3| 1]
+\end{lstlisting}
 \typeout{************************************************}
 \typeout{Subsection  Exercises}
 \typeout{************************************************}
 \subsection[Exercises]{Exercises}\label{subsection-40}
+\begin{task}
+\label{task-55}
+
+        Make an example of a \(2\times 3\) matrix and a \(3\times 3\)
+        matrix, and use this to demonstrate the three different ways to multiply
+        matrices.
+      \end{task}
+\begin{task}
+\label{task-56}
+
+        Give an example of a pair of \(2\times 2\) matrices \(A\) and
+        \(B\) so that \(AB = 0\) but \(BA\neq 0\), or explain why
+        this is  impossible.
+      \end{task}
+\begin{task}
+\label{task-57}
+
+        Give an example of a \(3\times 3\) matrix \(A\) such that neither
+        \(A\) nor \(A^2\) is the zero matrix, but \(A^3=0\).
+      \end{task}
+\begin{task}
+\label{task-58}
+
+        Find all examples of matrices \(A\) which commute with both
+        \(B = \left( \begin{smallmatrix} 1 & 0 \\ 0 & 0
+          \end{smallmatrix}\right)\) and
+        \(C = \left( \begin{smallmatrix} 0 & 1 \\ 0 & 0
+          \end{smallmatrix}\right)\). That is, find all matrices \(A\)
+        so that \(AB = BA\) and \(AC= CA\). How do you know you have
+        all such matrices?
+      \end{task}
+\begin{task}
+\label{task-59}
+
+          Consider the matrix
+          \[
+            A = \begin{pmatrix} 2 & 1 & 0 \\ -2 & 0 & 1 \\ 8 & 5 & 3 \end{pmatrix}.
+          \]
+          Which elimination matrices \(E_{21}\) and \(E_{31}\) produce zeros in the
+          \((2,1)\) and \((3,1)\) positions of \(E_{21}A\)
+          and \(E_{31}A\)?
+        %
+\par
+
+          Find a single matrix \(E\) which produces both zeros at once.
+          Multiply \(EA\) to verify your result.
+        %
+\end{task}
+\begin{task}
+\label{task-60}
+
+          Let's take a different view of the last computation.
+          Block multiplication says that column 1 is eliminated by
+          a step that looks like this one:
+          \[
+            EA = \begin{pmatrix} 1 & 0 \\ -c/a & I \end{pmatrix}
+            \begin{pmatrix} a & b \\ c & D \end{pmatrix} =
+            \begin{pmatrix} a & b \\ 0 & D - cb/a \end{pmatrix}.
+          \]
+          Here \(I\) is the \(2\times 2\) identity matrix, \(D\) is a
+          \(2\times 2\) matrix, etc.
+        %
+\par
+
+          So, in the last exercise, what are \(a\), \(b\), \(c\)
+          and \(D\) and what
+          is \(D-cb/a\)? Be sure to describe what shape each matrix has: the
+          number of rows and columns.
+        %
+\end{task}
+\begin{task}
+\label{task-61}
+
+        Suppose that we have already solved the equation \(Ax=b\) for the
+        following three special choices of \(b\):
+        \[
+          Ax_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \text{ , } Ax_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \text{, and } Ax_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
+        \]
+        If the three solutions are called \(x_1\), \(x_2\) and \(x_3\)
+        and then bundled together to make the columns of a matrix
+        \[X =  \begin{pmatrix} | & | & | \\
+          x_1 & x_2 & x_3 \\ | & | & |
+          \end{pmatrix},
+        \] what is the matrix \(AX\)? What does this mean about \(X\)?
+      \end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 2.6 Matrix Inverses}
