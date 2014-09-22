@@ -13,22 +13,466 @@
   <subsection>
     <title>The Assignment</title>
 
+    <ul>
+      <li>Read section 2.6 of <em>Strang</em>.</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+
   </subsection>
 
   <subsection>
     <title>Learning Goals</title>
+
+    <p>
+      Before class, a student should be able to:
+    </p>
+    <ul>
+      <li>
+        Use Gaussian Elimination to find the <m>LU</m> and <m>LDU</m>
+        decompositions of a matrix.
+      </li>
+      <li>
+        Describe when the process of Gaussian Elimination will fail to
+        produce an <m>LU</m> decomposition.
+      </li>
+    </ul>
+    <p>
+      Sometime after class, a student should be able to:
+    </p>
+    <ul>
+      <li>
+        Solve a system of equations by using the <m>LU</m> decomposition and
+        two triangular systems.
+      </li>
+      <li>
+        Explain the connection between matrix elimination and the <m>LU</m>
+        or <m>LDU</m> factorization of a matrix.
+      </li>
+    </ul>
+
   </subsection>
 
   <subsection>
-    <title>Discussion</title>
+    <title>Discussion: The <m>LU</m> Decomposition of a Matrix</title>
+
+    <p>
+      We now look at the ideas behind elimination from a more advanced
+      perspective. If we think about the matrix multiplication form of the
+      forward pass, we can realize it a <em>matrix decomposition theorem</em>:
+    </p>
+    <theorem>
+      <statement>
+        Any square matrix <m>A</m> can be written as a product <m>A = LU</m>
+        where <m>L</m>
+        is a lower triangular matrix and <m>U</m> is an upper triangular matrix.
+        Moreover, the matrix <m>L</m> will have <m>1</m>'s down its diagonal.
+      </statement>
+    </theorem>
+
+    <p>
+      There are three key observations that make this work:
+    </p>
+    <ul>
+      <li>
+        Each of the matrices <m>E_{ij}</m> that affects a row operation of the
+        form <em>add a multiple of row <m>i</m> to row <m>j</m></em> is an invertible
+        matrix, with an easy to find inverse.
+      </li>
+
+      <li>
+        If we make a sequence of row operations in the forward pass using
+        matrices <m>E_k</m>, then we are essentially computing a big product
+        <me>
+        E_k \dots E_1 A = U
+        </me>
+        where each of the <m>E_i</m>'s is a lower triangular matrix and the matrix
+        <m>U</m> is upper triangular. This can the be rewritten as
+        <me>
+        A = \left(E_1^{-1} \dots E_k^{-1} \right) U .
+        </me>
+        Note that the inverses have to be done <em>in reverse order</em> for things
+        to cancel out properly.
+      </li>
+
+      <li>
+        Finally, the product <m>L = E_1^{-1} \dots E_k^{-1}</m> is really easy to
+        compute, because its entries are simply the negatives of the multipliers
+        we used to do the operations in the forward pass.
+      </li>
+    </ul>
+
+    <subsubsection>
+      <title>A Nice Computational Result</title>
+
+      <p>
+        One important output of this comes into play when we want to compute
+        solutions to equations like <m>Ax = b</m>. Since we can write <m>A = LU</m>,
+        then our equation can be split into two (big) steps:
+        <ol>
+          <li> First find the solution to the equation <m>Ly = b</m>.</li>
+
+          <li> Then find the solution to the equation <m>Ux = y</m>.</li>
+        </ol>
+      </p>
+      <p>
+        First, note that this is a good thing because both of the systems
+        <m>Ly = b</m> and <m>Ux = y</m> are triangular. They can be solved by back
+        substitution. In <m>Ly = b</m> you work from the top down, and in <m>Ux=y</m>
+        you work from the bottom up.
+      </p>
+      <p>
+        Second, this works because following this process gives us a
+        vector <m>x</m> which will satisfy this:
+        <me>
+        Ax = (LU)x = L (Ux) = Ly = b.
+        </me>
+      </p>
+      <p>
+        Third, this doesn't really save time when you only want to solve
+        one equation <m>Ax= b</m>. But if you have lots of different values
+        of <m>b_i</m>, and you want to solve all of the equations <m>Ax = b_i</m>,
+        it becomes a lot faster to factor the matrix <m>A= LU</m> once and do
+        two back substitutions for each value of <m>b_i</m>.
+      </p>
+    </subsubsection>
   </subsection>
 
   <subsection>
-    <title>Sage and xxx</title>
+    <title>Sage and The <m>LU</m> Decomposition</title>
+    <p>
+      A neat feature of linear algebra is that simple facts about solving equations
+      have several different incarnations. This section contains the first big
+      example: Gaussian Elimination leads to a multiplicative decomposition (a
+      factorization) for matrices.
+    </p>
+    <p>
+      Each step of Gaussian elimination is a simple row operation, and if we do
+      the process in the standard order, then the <m>LU</m> decomposition can
+      be read out directly, without any extra computation.
+    </p>
+    <p>
+      First, let us recall how Sage can help us check bits of
+      the three key observations above.
+    </p>
+    <sage>
+      <input>
+        M = MatrixSpace(QQ,3,3)
+        One = M(1); One
+      </input>
+      <output>
+        [1 0 0]
+        [0 1 0]
+        [0 0 1]
+      </output>
+    </sage>
+    <p>
+      Consider a matrix which performs an elementary row operation of the
+      form <q>add a multiple of one row to another</q>. The matrix <m>E</m>
+      below performs the operations <em>add <m>-4</m> times row 2 to row 3</em>.
+    </p>
+    <sage>
+      <input>
+        E = One.with_added_multiple_of_row(2,1,-4); E
+      </input>
+      <output>
+        [1  0  0]
+        [0  1  0]
+        [0 -4  1]
+      </output>
+    </sage>
+    <sage>
+      <input>
+        E.is_invertible()
+      </input>
+      <output>
+        True
+      </output>
+    </sage>
+    <sage>
+      <input>E.inverse()</input>
+      <output>
+        [1 0 0]
+        [0 1 0]
+        [0 4 1]
+      </output>
+    </sage>
+    <p>
+      Note that the inverse just came from changing the sign of that one entry.
+      This makes sense for the following reason: the opposite operation to
+      <q>add <m>-4</m> times row 2 to row 3</q> should be <q>Add <m>4</m> times
+      row 2 to row 3</q>. That is the way you undo the operation!
+    </p>
+    <subsubsection>
+      <title>Study Break: Try it yourself</title>
+      <p>
+        Make your own <m>3\times 3</m> matrix and check the whole procedure.
+      </p>
+    </subsubsection>
+
+    <subsubsection>
+      <title>Sage Commands to short-cut the process</title>
+      <p>
+        Here is the basic command for getting Sage to compute the <m>LU</m>
+        decomposition directly.
+      </p>
+      <sage>
+        <input>A = M([2,3,1,-1,3,5,6,5,4]); A</input>
+        <output>
+          [ 2  3  1]
+          [-1  3  5]
+          [ 6  5  4]
+        </output>
+      </sage>
+      <sage>
+        <input>A.LU()</input>
+        <output>
+          (
+          [0 0 1]  [   1    0    0]  [     6      5      4]
+          [0 1 0]  [-1/6    1    0]  [     0   23/6   17/3]
+          [1 0 0], [ 1/3 8/23    1], [     0      0 -53/23]
+          )
+        </output>
+      </sage>
+      <p>
+        Hold on, the output is three matrices. Not two, but three. One is upper
+        triangular, one is lower triangular, but the first one is a
+        <term>permutation matrix</term>. (It switches rows 1 and 3.) What is
+        going on? If you perform a search in the Sage documentation, you find
+        <url href="http://www.sagemath.org/doc/reference/matrices/sage/matrix/matrix2.html">this page</url>.
+        There is a description of the command, and the first bit is something about
+        a <q>pivoting strategy</q> and row swaps. But we don't want row swaps.
+      </p>
+      <p>
+        By reading carefully, we can see what the way through is, too. We can
+        specify our pivoting strategy by adding the keyword argument
+        <c>pivot="nonzero"</c> inside the parentheses. Then the algorithm used
+        will match the one Strang describes.
+      </p>
+      <p>(If you are using SMC, you can access the help using many other ways.
+        But a Google search for <c>Sage math "topic"</c> will hit the documentation
+        pretty reliably.)
+      </p>
+
+      <sage>
+        <input>A.LU(pivot='nonzero')</input>
+        <output>
+          (
+          [1 0 0]  [   1    0    0]  [   2    3    1]
+          [0 1 0]  [-1/2    1    0]  [   0  9/2 11/2]
+          [0 0 1], [   3 -8/9    1], [   0    0 53/9]
+          )
+        </output>
+      </sage>
+      <p>
+        Aaah! There we go, now the permutation part is the identity. Note that
+        the command returns a <q>tuple</q>. This is a collection of things,
+        kind of like a list. (Technical Python details omitted here.)
+        To grab the information out, we assign the parts of that output to different
+        names so we can use them.
+      </p>
+      <sage>
+        <input>
+          P, L, U = A.LU(pivot='nonzero')
+        </input>
+      </sage>
+      <sage>
+        <input>L # this is the lower triangular part</input>
+        <output>
+          [   1    0    0]
+          [-1/2    1    0]
+          [   3 -8/9    1]
+        </output>
+      </sage>
+      <sage>
+        <input>U # this is the upper triangular part</input>
+        <output>
+          [   2    3    1]
+          [   0  9/2 11/2]
+          [   0    0 53/9]
+        </output>
+      </sage>
+      <p>
+        Those parts should be factors of <m>A</m>. We can check:
+      </p>
+      <sage>
+        <input>L*U # this should multiply to A</input>
+        <output>
+          [ 2  3  1]
+          [-1  3  5]
+          [ 6  5  4]
+        </output>
+      </sage>
+      <p>
+        And we can have Sage check if they are really equal.
+      </p>
+      <sage>
+        <input>L*U == A</input>
+        <output>True</output>
+      </sage>
+    </subsubsection>
+    <subsubsection>
+      <title>What about the <m>LDU</m> decomposition?</title>
+      <p>For now, Sage has no built-in <m>LDU</m> decomposition.</p>
+    </subsubsection>
+
+    <subsubsection>
+      <title>An insurmountable obstacle</title>
+      <p>
+        Some matrices <em>require</em> permutations of rows. In these cases, we
+        have to have some pivoting strategy <em>must</em> be employed. Consider this
+        example.
+      </p>
+      <sage>
+        <input>B = M([0,2,2,1,3,1,1,1,1]); B</input>
+        <output>
+          [ 0  2  2]
+          [ 1  3 -1]
+          [ 1  1  1]
+        </output>
+      </sage>
+      <sage>
+        <input>B.LU(pivot='nonzero')</input>
+        <output>
+          (
+          [0 1 0]  [ 1  0  0]  [ 1  3 -1]
+          [1 0 0]  [ 0  1  0]  [ 0  2  2]
+          [0 0 1], [ 1 -1  1], [ 0  0  4]
+          )
+        </output>
+      </sage>
+      <p>
+        This has a row-swap permutation matrix, and <em>it must</em>. Since the
+        (1,1) entry of <c>B</c> is zero, but numbers below that are not zero,
+        we cannot use zero as a pivot. We'll sort out how to handle this in the next
+        section.
+      </p>
+    </subsubsection>
   </subsection>
 
   <subsection>
     <title>Exercises</title>
+    <p>
+    Keep this in mind. The computations are simple, but tedious.
+    Perhaps you want to use an appropriate tool.
+  </p>
+
+  <task>
+    <statement>
+      <p>
+        Consider the following system of 3 linear equations in 3 unknowns.
+        <me>\left\{
+        \begin{array}{rrrrrrr}
+        x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 5 \\
+        x &amp; + &amp; 2y &amp; + &amp; 3z &amp; = &amp; 7 \\
+        x &amp; + &amp; 3y &amp; + &amp; 6z &amp; = &amp; 11
+        \end{array}\right.
+        </me>
+        Perform the forward pass of elimination to find an equivalent upper
+        triangular system. Write down this upper triangular system. What three
+        row operations do you need to perform to make this work?
+      </p>
+      <p>
+        Use the information you just found to write a matrix
+        decomposition <m>A = LU</m> for the coefficient matrix <m>A</m> for this
+        system of equations. (Be sure to multiply the matrices <m>L</m> and <m>U</m>
+        to check your work.)
+      </p>
+    </statement>
+  </task>
+
+  <task>
+    <statement>
+      <p>
+        Solve the two systems <m>Ly = b</m> and <m>Ux=y</m> obtained in the last
+        exercise.
+      </p>
+      <p>
+        Solve the system <m>Ax=b</m> directly using Gauss-Jordan
+        elimination (hint: use Sage) and make sure that the results
+        are the same.
+      </p>
+    </statement>
+  </task>
+
+  <task>
+    <statement>
+      Consider the matrix <m>A</m> below. Find the matrix <m>E</m> which
+      transforms <m>A</m> into an upper triangular matrix <m>EA = U</m>.
+      Find <m>L = E^{-1}</m>. Use this to write down the <m>LU</m> decomposition
+      <m>A= LU</m> of <m>A</m>.
+      <me>
+        A =
+        \begin{pmatrix}
+        2 &amp; 1 &amp; 0 \\
+        0 &amp; 4 &amp; 2 \\
+        6 &amp; 3 &amp; 5
+        \end{pmatrix}
+      </me>
+    </statement>
+  </task>
+
+  <task>
+    <statement>
+      The matrix below is <term>symmetric</term>, because if you flip it across
+      its main diagonal you get the same thing. Find the <m>LDU</m> triple
+      decomposition of this symmetric matrix.
+      <me>
+        B =
+        \begin{pmatrix}
+        2 &amp; 4 \\
+        4 &amp; 11
+        \end{pmatrix}
+      </me>
+    </statement>
+  </task>
+
+  <task>
+    <statement>
+      The matrix below is <term>symmetric</term>, because if you flip it
+      across its main diagonal you get the same thing. Find the <m>LDU</m>
+      triple decomposition of this symmetric matrix.
+      <me>
+        C =
+        \begin{pmatrix}
+        1 &amp; 4 &amp; 0 \\
+        4 &amp; 12 &amp; 4 \\
+        0 &amp; 4 &amp; 0
+        \end{pmatrix}
+      </me>
+    </statement>
+  </task>
+
+  <task>
+    <statement>
+      The matrix below is <term>symmetric</term>, because if you flip it
+      across its main diagonal you get the same thing. Find the <m>LU</m>
+      decomposition of this symmetric matrix.
+      <me>
+        D =
+        \begin{pmatrix}
+        a &amp; a &amp; a &amp; a \\
+        a &amp; b &amp; b &amp; b \\
+        a &amp; b &amp; c &amp; c \\
+        a &amp; b &amp; c &amp; d
+        \end{pmatrix}
+      </me>
+      What conditions on the variables <m>a</m>, <m>b</m>, <m>c</m>,
+      and <m>d</m> will guarantee that this matrix has four pivots?
+    </statement>
+  </task>
+
+  <task>
+    <statement>
+      Find an example of a <m>3\times 3</m> matrix <m>A</m> which has all of
+      its entries non-zero, so that the <m>LU</m> decomposition has
+      <m>U = I</m>, where <m>I</m> is the identity matrix, or explain why no
+      such example exists.
+    </statement>
+  </task>
+
+
+
+
   </subsection>
 
 
