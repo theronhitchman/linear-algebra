@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-09-18T23:01:45-05:00    %%
+%%    on 2014-09-22T01:03:52-05:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -2511,7 +2511,7 @@ E*D
 \subsection[Discussion]{Discussion}\label{subsection-35}
 Now we take a short break to revisit and consolidate the learning you
       have done so far. Revisit the reading and the exercises you have done in
-      Chapter One: Basic Objects. The important feature of this work should be
+      Chapter Two: Linear Equations. The important feature of this work should be
       learning to think about your own thinking. This sort of \terminology{meta-cognition}
       characterizes expert learners. Eventually, you want to be able to monitor
       your work at all times and recognize when you understand deeply and when
@@ -3373,22 +3373,443 @@ E = D.rref().matrix_from_columns([2,3]); E
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-46}
+\begin{itemize}
+\item{}Read section 2.6 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-47}
+
+      Before class, a student should be able to:
+    %
+\begin{itemize}
+\item{}
+        Use Gaussian Elimination to find the \(LU\) and \(LDU\)
+        decompositions of a matrix.
+      \item{}
+        Describe when the process of Gaussian Elimination will fail to
+        produce an \(LU\) decomposition.
+      \end{itemize}
+\par
+
+      Sometime after class, a student should be able to:
+    %
+\begin{itemize}
+\item{}
+        Solve a system of equations by using the \(LU\) decomposition and
+        two triangular systems.
+      \item{}
+        Explain the connection between matrix elimination and the \(LU\)
+        or \(LDU\) factorization of a matrix.
+      \end{itemize}
 \typeout{************************************************}
-\typeout{Subsection  Discussion}
+\typeout{Subsection  Discussion: The \(LU\) Decomposition of a Matrix}
 \typeout{************************************************}
-\subsection[Discussion]{Discussion}\label{subsection-48}
+\subsection[Discussion: The \(LU\) Decomposition of a Matrix]{Discussion: The \(LU\) Decomposition of a Matrix}\label{subsection-48}
+
+      We now look at the ideas behind elimination from a more advanced
+      perspective. If we think about the matrix multiplication form of the
+      forward pass, we can realize it a \emph{matrix decomposition theorem}:
+    %
+\begin{theorem}\label{theorem-2}
+
+        Any square matrix \(A\) can be written as a product \(A = LU\)
+        where \(L\)
+        is a lower triangular matrix and \(U\) is an upper triangular matrix.
+        Moreover, the matrix \(L\) will have \(1\)'s down its diagonal.
+      \end{theorem}
+\par
+
+      There are three key observations that make this work:
+    %
+\begin{itemize}
+\item{}
+        Each of the matrices \(E_{ij}\) that affects a row operation of the
+        form \emph{add a multiple of row \(i\) to row \(j\)} is an invertible
+        matrix, with an easy to find inverse.
+      \item{}
+        If we make a sequence of row operations in the forward pass using
+        matrices \(E_k\), then we are essentially computing a big product
+        \[
+        E_k \dots E_1 A = U
+        \]
+        where each of the \(E_i\)'s is a lower triangular matrix and the matrix
+        \(U\) is upper triangular. This can the be rewritten as
+        \[
+        A = \left(E_1^{-1} \dots E_k^{-1} \right) U .
+        \]
+        Note that the inverses have to be done \emph{in reverse order} for things
+        to cancel out properly.
+      \item{}
+        Finally, the product \(L = E_1^{-1} \dots E_k^{-1}\) is really easy to
+        compute, because its entries are simply the negatives of the multipliers
+        we used to do the operations in the forward pass.
+      \end{itemize}
 \typeout{************************************************}
-\typeout{Subsection  Sage and xxx}
+\typeout{Subsubsection  A Nice Computational Result}
 \typeout{************************************************}
-\subsection[Sage and xxx]{Sage and xxx}\label{subsection-49}
+\subsubsection[A Nice Computational Result]{A Nice Computational Result}\label{subsubsection-24}
+
+        One important output of this comes into play when we want to compute
+        solutions to equations like \(Ax = b\). Since we can write \(A = LU\),
+        then our equation can be split into two (big) steps:
+        \begin{enumerate}
+\item{} First find the solution to the equation \(Ly = b\).\item{} Then find the solution to the equation \(Ux = y\).\end{enumerate}
+
+      %
+\par
+
+        First, note that this is a good thing because both of the systems
+        \(Ly = b\) and \(Ux = y\) are triangular. They can be solved by back
+        substitution. In \(Ly = b\) you work from the top down, and in \(Ux=y\)
+        you work from the bottom up.
+      %
+\par
+
+        Second, this works because following this process gives us a
+        vector \(x\) which will satisfy this:
+        \[
+        Ax = (LU)x = L (Ux) = Ly = b.
+        \]
+      %
+\par
+
+        Third, this doesn't really save time when you only want to solve
+        one equation \(Ax= b\). But if you have lots of different values
+        of \(b_i\), and you want to solve all of the equations \(Ax = b_i\),
+        it becomes a lot faster to factor the matrix \(A= LU\) once and do
+        two back substitutions for each value of \(b_i\).
+      %
+\typeout{************************************************}
+\typeout{Subsection  Sage and The \(LU\) Decomposition}
+\typeout{************************************************}
+\subsection[Sage and The \(LU\) Decomposition]{Sage and The \(LU\) Decomposition}\label{subsection-49}
+
+      A neat feature of linear algebra is that simple facts about solving equations
+      have several different incarnations. This section contains the first big
+      example: Gaussian Elimination leads to a multiplicative decomposition (a
+      factorization) for matrices.
+    %
+\par
+
+      Each step of Gaussian elimination is a simple row operation, and if we do
+      the process in the standard order, then the \(LU\) decomposition can
+      be read out directly, without any extra computation.
+    %
+\par
+
+      First, let us recall how Sage can help us check bits of
+      the three key observations above.
+    %
+\begin{lstlisting}[style=sageinput]
+M = MatrixSpace(QQ,3,3)
+One = M(1); One
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 0 0]
+[0 1 0]
+[0 0 1]
+\end{lstlisting}
+\par
+
+      Consider a matrix which performs an elementary row operation of the
+      form ``add a multiple of one row to another''. The matrix \(E\)
+      below performs the operations \emph{add \(-4\) times row 2 to row 3}.
+    %
+\begin{lstlisting}[style=sageinput]
+E = One.with_added_multiple_of_row(2,1,-4); E
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1  0  0]
+[0  1  0]
+[0 -4  1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+E.is_invertible()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+E.inverse()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 0 0]
+[0 1 0]
+[0 4 1]
+\end{lstlisting}
+\par
+
+      Note that the inverse just came from changing the sign of that one entry.
+      This makes sense for the following reason: the opposite operation to
+      ``add \(-4\) times row 2 to row 3'' should be ``Add \(4\) times
+      row 2 to row 3''. That is the way you undo the operation!
+    %
+\typeout{************************************************}
+\typeout{Subsubsection  Study Break: Try it yourself}
+\typeout{************************************************}
+\subsubsection[Study Break: Try it yourself]{Study Break: Try it yourself}\label{subsubsection-25}
+
+        Make your own \(3\times 3\) matrix and check the whole procedure.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Sage Commands to short-cut the process}
+\typeout{************************************************}
+\subsubsection[Sage Commands to short-cut the process]{Sage Commands to short-cut the process}\label{subsubsection-26}
+
+        Here is the basic command for getting Sage to compute the \(LU\)
+        decomposition directly.
+      %
+\begin{lstlisting}[style=sageinput]
+A = M([2,3,1,-1,3,5,6,5,4]); A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 2  3  1]
+[-1  3  5]
+[ 6  5  4]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.LU()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(
+[0 0 1]  [   1    0    0]  [     6      5      4]
+[0 1 0]  [-1/6    1    0]  [     0   23/6   17/3]
+[1 0 0], [ 1/3 8/23    1], [     0      0 -53/23]
+)
+\end{lstlisting}
+\par
+
+        Hold on, the output is three matrices. Not two, but three. One is upper
+        triangular, one is lower triangular, but the first one is a
+        \terminology{permutation matrix}. (It switches rows 1 and 3.) What is
+        going on? If you perform a search in the Sage documentation, you find
+        \href{http://www.sagemath.org/doc/reference/matrices/sage/matrix/matrix2.html}{this page}.
+        There is a description of the command, and the first bit is something about
+        a ``pivoting strategy'' and row swaps. But we don't want row swaps.
+      %
+\par
+
+        By reading carefully, we can see what the way through is, too. We can
+        specify our pivoting strategy by adding the keyword argument
+        \verb?pivot="nonzero"? inside the parentheses. Then the algorithm used
+        will match the one Strang describes.
+      %
+\par
+(If you are using SMC, you can access the help using many other ways.
+        But a Google search for \verb?Sage math "topic"? will hit the documentation
+        pretty reliably.)
+      %
+\begin{lstlisting}[style=sageinput]
+A.LU(pivot='nonzero')
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(
+[1 0 0]  [   1    0    0]  [   2    3    1]
+[0 1 0]  [-1/2    1    0]  [   0  9/2 11/2]
+[0 0 1], [   3 -8/9    1], [   0    0 53/9]
+)
+\end{lstlisting}
+\par
+
+        Aaah! There we go, now the permutation part is the identity. Note that
+        the command returns a ``tuple''. This is a collection of things,
+        kind of like a list. (Technical Python details omitted here.)
+        To grab the information out, we assign the parts of that output to different
+        names so we can use them.
+      %
+\begin{lstlisting}[style=sageinput]
+P, L, U = A.LU(pivot='nonzero')
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+L # this is the lower triangular part
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[   1    0    0]
+[-1/2    1    0]
+[   3 -8/9    1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+U # this is the upper triangular part
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[   2    3    1]
+[   0  9/2 11/2]
+[   0    0 53/9]
+\end{lstlisting}
+\par
+
+        Those parts should be factors of \(A\). We can check:
+      %
+\begin{lstlisting}[style=sageinput]
+L*U # this should multiply to A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 2  3  1]
+[-1  3  5]
+[ 6  5  4]
+\end{lstlisting}
+\par
+
+        And we can have Sage check if they are really equal.
+      %
+\begin{lstlisting}[style=sageinput]
+L*U == A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  What about the \(LDU\) decomposition?}
+\typeout{************************************************}
+\subsubsection[What about the \(LDU\) decomposition?]{What about the \(LDU\) decomposition?}\label{subsubsection-27}
+For now, Sage has no built-in \(LDU\) decomposition.%
+\typeout{************************************************}
+\typeout{Subsubsection  An insurmountable obstacle}
+\typeout{************************************************}
+\subsubsection[An insurmountable obstacle]{An insurmountable obstacle}\label{subsubsection-28}
+
+        Some matrices \emph{require} permutations of rows. In these cases, we
+        have to have some pivoting strategy \emph{must} be employed. Consider this
+        example.
+      %
+\begin{lstlisting}[style=sageinput]
+B = M([0,2,2,1,3,1,1,1,1]); B
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 0  2  2]
+[ 1  3 -1]
+[ 1  1  1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B.LU(pivot='nonzero')
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(
+[0 1 0]  [ 1  0  0]  [ 1  3 -1]
+[1 0 0]  [ 0  1  0]  [ 0  2  2]
+[0 0 1], [ 1 -1  1], [ 0  0  4]
+)
+\end{lstlisting}
+\par
+
+        This has a row-swap permutation matrix, and \emph{it must}. Since the
+        (1,1) entry of \verb?B? is zero, but numbers below that are not zero,
+        we cannot use zero as a pivot. We'll sort out how to handle this in the next
+        section.
+      %
 \typeout{************************************************}
 \typeout{Subsection  Exercises}
 \typeout{************************************************}
 \subsection[Exercises]{Exercises}\label{subsection-50}
+
+    Keep this in mind. The computations are simple, but tedious.
+    Perhaps you want to use an appropriate tool.
+  %
+\begin{task}
+\label{task-69}
+
+        Consider the following system of 3 linear equations in 3 unknowns.
+        \[\left\{
+        \begin{array}{rrrrrrr}
+        x & + & y & + & z & = & 5 \\
+        x & + & 2y & + & 3z & = & 7 \\
+        x & + & 3y & + & 6z & = & 11
+        \end{array}\right.
+        \]
+        Perform the forward pass of elimination to find an equivalent upper
+        triangular system. Write down this upper triangular system. What three
+        row operations do you need to perform to make this work?
+      %
+\par
+
+        Use the information you just found to write a matrix
+        decomposition \(A = LU\) for the coefficient matrix \(A\) for this
+        system of equations. (Be sure to multiply the matrices \(L\) and \(U\)
+        to check your work.)
+      %
+\end{task}
+\begin{task}
+\label{task-70}
+
+        Solve the two systems \(Ly = b\) and \(Ux=y\) obtained in the last
+        exercise.
+      %
+\par
+
+        Solve the system \(Ax=b\) directly using Gauss-Jordan
+        elimination (hint: use Sage) and make sure that the results
+        are the same.
+      %
+\end{task}
+\begin{task}
+\label{task-71}
+
+      Consider the matrix \(A\) below. Find the matrix \(E\) which
+      transforms \(A\) into an upper triangular matrix \(EA = U\).
+      Find \(L = E^{-1}\). Use this to write down the \(LU\) decomposition
+      \(A= LU\) of \(A\).
+      \[
+        A =
+        \begin{pmatrix}
+        2 & 1 & 0 \\
+        0 & 4 & 2 \\
+        6 & 3 & 5
+        \end{pmatrix}
+      \]\end{task}
+\begin{task}
+\label{task-72}
+
+      The matrix below is \terminology{symmetric}, because if you flip it across
+      its main diagonal you get the same thing. Find the \(LDU\) triple
+      decomposition of this symmetric matrix.
+      \[
+        B =
+        \begin{pmatrix}
+        2 & 4 \\
+        4 & 11
+        \end{pmatrix}
+      \]\end{task}
+\begin{task}
+\label{task-73}
+
+      The matrix below is \terminology{symmetric}, because if you flip it
+      across its main diagonal you get the same thing. Find the \(LDU\)
+      triple decomposition of this symmetric matrix.
+      \[
+        C =
+        \begin{pmatrix}
+        1 & 4 & 0 \\
+        4 & 12 & 4 \\
+        0 & 4 & 0
+        \end{pmatrix}
+      \]\end{task}
+\begin{task}
+\label{task-74}
+
+      The matrix below is \terminology{symmetric}, because if you flip it
+      across its main diagonal you get the same thing. Find the \(LU\)
+      decomposition of this symmetric matrix.
+      \[
+        D =
+        \begin{pmatrix}
+        a & a & a & a \\
+        a & b & b & b \\
+        a & b & c & c \\
+        a & b & c & d
+        \end{pmatrix}
+      \]
+      What conditions on the variables \(a\), \(b\), \(c\),
+      and \(d\) will guarantee that this matrix has four pivots?
+    \end{task}
+\begin{task}
+\label{task-75}
+
+      Find an example of a \(3\times 3\) matrix \(A\) which has all of
+      its entries non-zero, so that the \(LU\) decomposition has
+      \(U = I\), where \(I\) is the identity matrix, or explain why no
+      such example exists.
+    \end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 2.8 Permutation Matrices}
@@ -3398,22 +3819,541 @@ E = D.rref().matrix_from_columns([2,3]); E
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-51}
+\begin{itemize}
+\item{}Read section 2.7 of \emph{Strang}\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-52}
+Before class, a student should be able to:%
+\begin{itemize}
+\item{}
+        Compute the transpose of a matrix.
+      \item{}
+        Correctly perform calculations where the transpose interacts with the
+        operations of matrix sum, matrix product, and matrix inverse.
+      \item{}
+        Compute inner and outer products using the transpose.
+      \item{}
+        Decide if a matrix is symmetric or not.
+      \item{}
+        Recognize permutation matrices, and design permutation matrices which
+        correspond to given row swaps.
+      \end{itemize}
+\par
+
+      Some time after class, a student should be able to:
+    %
+\begin{itemize}
+\item{}
+        Find the \(LDL^T\) decomposition for symmetric matrices.
+      \item{}
+        Explain how the necessity of permuting rows during Gaussian elimination
+        leads to the decomposition \(PA = LU\).
+      \item{}
+        Explain why \(P^T = P^{-1}\) for permutation matrices.
+      \end{itemize}
 \typeout{************************************************}
-\typeout{Subsection  Discussion}
+\typeout{Subsection  Discussion: Transposes, Symmetric Matrices, and Permutations}
 \typeout{************************************************}
-\subsection[Discussion]{Discussion}\label{subsection-53}
+\subsection[Discussion: Transposes, Symmetric Matrices, and Permutations]{Discussion: Transposes, Symmetric Matrices, and Permutations}\label{subsection-53}
+
+      An important operation on matrices we have yet to encounter is called the
+      \terminology{transpose}. If \(A\) is an \(m\times n\) matrix, the
+      transpose \(A^T\) of
+      \(A\) is made by changing the roles of the rows and the columns. The result
+      \(A^T\) will be an \(n \times m\) matrix, because of this switch.
+    %
+\par
+
+      For now, the transpose will feel like some random thing, but its primary
+      importance comes from its connection with the dot product. If we think of
+      column vectors \(u\) and \(v\) of size \(n\) as if they are \(n \times 1\)
+      matrices, then the dot product \(u \cdot v\) can be computed with a nice
+      combination of matrix multiplication and the transpose:
+      \[
+      u \cdot v = u^T v .
+      \]
+      On the right, this is matrix multiplication! That makes sense because
+      \(u^T\) is \(1 \times n\) and \(v\) is \(n \times 1\). This
+      means that the result
+      is a \(1\times 1\) matrix, i.e. a number.
+    %
+\par
+
+      Since the dot product contains all of the geometry of Euclidean space in
+      it, the transpose becomes an important operation. I know that sounds weird,
+      but the dot product contains all of the information we need to measure
+      lengths and angles, so basically all of the \emph{metric} information in
+      Euclidean geometry is there.
+    %
 \typeout{************************************************}
-\typeout{Subsection  Sage and xxx}
+\typeout{Subsubsection  Algebraic results about the transpose}
 \typeout{************************************************}
-\subsection[Sage and xxx]{Sage and xxx}\label{subsection-54}
+\subsubsection[Algebraic results about the transpose]{Algebraic results about the transpose}\label{subsubsection-29}
+
+        There are some key results about the way the transpose interacts with
+        other matrix operations, each of these can be checked with some tedious
+        computation:
+      %
+\begin{itemize}
+\item{}
+          If \(A\) and \(B\) are matrices of the same shape, then
+          \((A+B)^T = A^T + B^T\).
+        \item{}
+          If \(A\) and \(B\) are of sizes so that \(AB\) is defined,
+          then \((AB)^T = B^T A^T\).
+        \item{}
+          If \(A\) is an invertible matrix, with inverse \(A^{-1}\),
+          then \(A^T\) is also invertible and it has inverse
+          \(\left(A^T\right)^{-1} = \left(A^{-1}\right)^T \).
+        \end{itemize}
+\typeout{************************************************}
+\typeout{Subsubsection  Symmetric Matrices}
+\typeout{************************************************}
+\subsubsection[Symmetric Matrices]{Symmetric Matrices}\label{subsubsection-30}
+
+        A matrix \(A\) is called \emph{symmetric} when \(A^T = A\). These
+        pop up in lots of interesting places in linear algebra. A neat result
+        is that a symmetric matrix has a symmetric looking \(LDU\) decomposition:
+        \[
+        \text{if } A^T=A\text{, then } A = LDL^T .
+        \]
+        That is, in the LDU decomposition, \(U = L^T\).
+      %
+\par
+
+        There are several ways to get symmetric matrices. For example, if
+        \(A\) is any matrix, the new matrix \(B = A^T A\) will be symmetric.
+        (Check this.) Also, the matrix \(S = A^T + A\) will be symmetric.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination}
+\typeout{************************************************}
+\subsubsection[Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination]{Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination}\label{subsubsection-31}
+
+        It is sometimes the case that Gauss-Jordan elimination requires a row
+        swap. As we have seen, the operation of swapping a row can be achieved
+        by left multiplying by a matrix of a special type. If we take a bunch of
+        those and multiply them together, we still get a matrix which is in a
+        special class: \emph{the permutation matrices}.
+      %
+\par
+
+        A permutation matrix is square matrix having a single \(1\) in each column
+        and in each row. A helpful property of permutation matrices is that they
+        are invertible, and their inverses are the same as their transposes:
+        \[
+        P^{-1} = P^T .
+        \]
+      %
+\par
+
+        Gauss-Jordan elimination is easy enough to understand, now. It is time
+        to let go of performing all those arithmetic operations by hand. So,
+        permutation matrices become important for a different reason! Even if
+        Gauss-Jordan elimination can be done without a row swap, it may be
+        numerically better for a computer to swap out for a larger number as a
+        pivot, so a row swap is used anyway. This partial pivoting strategy is
+        encapsulated in most computer algebra algorithms in some way, and is
+        part of the computation involved in computing a PLU decomposition.
+        Strang has a decent discussion of the choices, below we will
+        discuss how Sage handles this.
+      %
+\typeout{************************************************}
+\typeout{Subsection  Sage and Transposes, Symmetry, Permutations, and Pivots}
+\typeout{************************************************}
+\subsection[Sage and Transposes, Symmetry, Permutations, and Pivots]{Sage and Transposes, Symmetry, Permutations, and Pivots}\label{subsection-54}
+
+      There is a lot going on in this little section. At first glance, it is a
+      bit intimidating. But we have seen most of the ideas before.
+    %
+\typeout{************************************************}
+\typeout{Subsubsection  The Transpose}
+\typeout{************************************************}
+\subsubsection[The Transpose]{The Transpose}\label{subsubsection-32}
+
+        The transpose of a matrix is what you get by switching the roles of rows
+        and columns. Sage has a simple method for this.
+      %
+\begin{lstlisting}[style=sageinput]
+M = MatrixSpace(QQ, 3,3)
+A = M([1,2,3,4,5,6,7,8,9]); A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 2 3]
+[4 5 6]
+[7 8 9]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.transpose()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 4 7]
+[2 5 8]
+[3 6 9]
+\end{lstlisting}
+\par
+
+        One place that the transpose is useful is in describing the dot product.
+        Check this out.
+      %
+\begin{lstlisting}[style=sageinput]
+u = vector([1,2,3])
+v = vector([4,5,6])
+u.dot_product(v)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+32
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+U = u.column(); U # this puts u into a column matrix
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1]
+[2]
+[3]
+\end{lstlisting}
+\par
+
+        To be sure, we check what the ``parent'' of \verb?U? is.
+      %
+\begin{lstlisting}[style=sageinput]
+U.parent()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Full MatrixSpace of 3 by 1 dense matrices over Integer Ring
+\end{lstlisting}
+\par
+
+        See! Sage thinks of \verb?U? as a matrix with 3 rows and 1 column.
+      %
+\par
+
+        Now we do the same with \verb?v?
+      %
+\begin{lstlisting}[style=sageinput]
+V = v.column()
+V
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[4]
+[5]
+[6]
+\end{lstlisting}
+\par
+
+        Now the magic.
+      %
+\begin{lstlisting}[style=sageinput]
+U.transpose()*V
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+32
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+V.transpose()*U
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+32
+\end{lstlisting}
+\par
+
+        That is the dot product, but stuffed into a \(1\times 1\) matrix!
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Other Properties}
+\typeout{************************************************}
+\subsubsection[Other Properties]{Other Properties}\label{subsubsection-33}
+
+        The transpose has other useful properties. Strang lists the big ones,
+        including how the transpose interacts with matrix multiplication and
+        matrix inverses.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Symmetry}
+\typeout{************************************************}
+\subsubsection[Symmetry]{Symmetry}\label{subsubsection-34}
+
+        A matrix is called \terminology{symmetric} when it is equal to its
+        transpose. Sage has some built-in commands for this.
+      %
+\begin{lstlisting}[style=sageinput]
+B = M([2,1,0,1,1,0,0,0,1])
+B
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2 1 0]
+[1 1 0]
+[0 0 1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B.transpose()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2 1 0]
+[1 1 0]
+[0 0 1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B.is_symmetric()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+C = M([1,0,1,1,1,1,0,0,0]); C
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 0 1]
+[1 1 1]
+[0 0 0]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+C.is_symmetric()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+False
+\end{lstlisting}
+\par
+
+        Strang notes a really neat property of symmetric matrices. Their
+        \(LDU\) decompostions are nicer than average.
+      %
+\begin{lstlisting}[style=sageinput]
+P, L, U = B.LU(pivot='nonzero')
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+P # here, things are good and no row swaps are needed
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 0 0]
+[0 1 0]
+[0 0 1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+L
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1   0   0]
+[1/2   1   0]
+[  0   0   1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+U
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  2   1   0]
+[  0 1/2   0]
+[  0   0   1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+D = M([2,0,0,0,1/2,0,0,0,1])
+Uprime = D.inverse()*U
+Uprime
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1 1/2   0]
+[  0   1   0]
+[  0   0   1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B == L*D*Uprime
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+L.transpose() # this is the neat part
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1 1/2   0]
+[  0   1   0]
+[  0   0   1]
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Permutations and Pivots}
+\typeout{************************************************}
+\subsubsection[Permutations and Pivots]{Permutations and Pivots}\label{subsubsection-35}
+
+        We have seen that elimination sometimes requires us to perform a row
+        operation of swapping the position of two rows to put a pivot in a good
+        place. At first, we want to do this to avoid a zero. But for computational
+        reasons, a machine really likes to have a \emph{big} number as a pivot.
+        So software often uses rows swaps even when not strictly needed.
+      %
+\par
+
+        If all we care about is finding the reduced row echelon form (rref),
+        then this won't worry us. You do whatever operations you want, and the
+        rref is always the same thing. But if we want to keep track with matrices,
+        things get a little complicated.
+      %
+\par
+
+        Here is the important stuff to remember:
+        \begin{enumerate}
+\item{}A row swap is performed by a permutation matrix. A permutation matrix
+            is a matrix with exactly one \(1\) in each column and in each row.
+            These matrices have the important property that their transposes and
+            their inverses are equal. That is, if \(P\) is a permutation matrix,
+            then \(P^T\) is equal to \(P^{-1}\). (Not every matrix with
+            this extra property is a permutation matrix. Be careful.)
+          \item{}
+            It is possible to figure out what all of the row swaps should be, and
+            then rearrange all of the amtrices in an LU decomposition routine.
+            If you do it correctly, you get:
+            \[
+              P'A = LU
+            \]
+            or
+            \[
+              A = PLU
+            \]
+            where \(P'\) and \(P\) are permutation matrices.
+          \end{enumerate}
+
+      %
+\par
+
+        Note: Strang prefers to write things as \(P'A = LU\), but Sage writes
+        \(A = PLU\). Fortunately, there is a simple relationship here. Strang's
+        \(P'\) is the transpose (and hence the inverse!) of Sage's \(P\).
+      %
+\par
+
+        If you haven't figured it out by now, I think that row reduction by hand
+        is really for chumps. Sage (or whatever computational tool you use) makes
+        it waaaaaaaaay easier.
+      %
+\begin{lstlisting}[style=sageinput]
+# using 'partial pivoting' where we get "big pivots"
+P, L, U = A.LU()
+x = '{0!r}\n\n{1!r}\n\n{2!r}'.format(P,L,U)
+print x # fancy python tricks for readable display
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+          [0 1 0]
+          [0 0 1]
+          [1 0 0]
+
+          [  1   0   0]
+          [1/7   1   0]
+          [4/7 1/2   1]
+
+          [   7    8    9]
+          [   0  6/7 12/7]
+          [   0    0    0]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+P*L*U
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 2 3]
+[4 5 6]
+[7 8 9]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A == P*L*U
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+P.transpose()*A == L*U
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+P.transpose()*A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[7 8 9]
+[1 2 3]
+[4 5 6]
+\end{lstlisting}
 \typeout{************************************************}
 \typeout{Subsection  Exercises}
 \typeout{************************************************}
 \subsection[Exercises]{Exercises}\label{subsection-55}
+
+      Keep this in mind. The computations are simple, but tedious.
+      Perhaps you want to use an appropriate tool.
+    %
+\begin{task}
+\label{task-76}
+
+        Find an example of a matrix \(A\) such that \(A^T A = 0\),
+        but \(A \neq 0\).
+      \end{task}
+\begin{task}
+\label{task-77}
+
+        These are true or false questions. If the statement is true, explain why
+        you know it is true. If the statement is false, give an example that
+        shows it is false.
+        \begin{enumerate}
+\item{}
+            The block matrix \(\left( \begin{smallmatrix} A & 0 \\
+            0 & A \end{smallmatrix}\right)\) is automatically symmetric.
+          \item{}
+            If \(A\) and \(B\) are symmetric, then their product \(AB\)
+            is symmetric.
+          \item{}
+            If \(A\) is not symmetric, then \(A^{-1}\) is not symmetric.
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-78}
+
+        If \(P_1\) and \(P_2\) are permuation matrices, then so is
+        \(P_1P_2\). Give examples with \(P_1P_2 \neq P_2P_1\) and
+        \(P_3P_4 = P_4P_3\).
+      \end{task}
+\begin{task}
+\label{task-79}
+
+        Explain the following phenomena in terms of row operations.
+        \begin{enumerate}
+\item{}
+            For any permutation matrix \(P\), it is the case that
+            \(P^T P = I\).
+          \item{}
+            All row exchange matrices are symmetric: \(P^T = P\).
+            (other permutation matrices may or may not be symmetric.)
+          \item{}
+            If \(P\) is a row exchange matrix, then \(P^2 = I\).
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-80}
+
+        For each of the following, find an example of a \(2\times 2\)
+        symmetric matrix with the given property:
+        \begin{enumerate}
+\item{} \(A\) is not invertible.\item{} \(A\) is invertible but cannot be factored into \(LU\).\item{}
+            \(A\) can be factored into \(LDL^T\), but not into
+            \(LL^T\) because \(D\) has negative entries.
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-81}
+
+          This is a new factorization of \(A\) into \emph{triangular
+          times symmetric}:
+        %
+\par
+
+          Start with \(A = LDU\). Then \(A = B S\),
+          where \(B = L\left(U^T\right)^{-1}\) and \(S = U^T D U\).
+        %
+\par
+
+          Explain why this choice of \(B\) is lower triangular with
+          \(1\)'s on the diagonal. Expain why \(S\) is symmetric.
+        %
+\end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 2.9 Matrix Algebra: Going Further}
@@ -3423,22 +4363,51 @@ E = D.rref().matrix_from_columns([2,3]); E
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-56}
-\typeout{************************************************}
-\typeout{Subsection  Learning Goals}
-\typeout{************************************************}
-\subsection[Learning Goals]{Learning Goals}\label{subsection-57}
+\begin{itemize}
+\item{}
+      Go back through the exercises in the last four sections of this chapter.
+      Complete any items you
+      did not complete the first time through. Prepare any that we have not
+      discussed in class so that you will be ready to present them.
+    \end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Discussion}
 \typeout{************************************************}
-\subsection[Discussion]{Discussion}\label{subsection-58}
-\typeout{************************************************}
-\typeout{Subsection  Sage and xxx}
-\typeout{************************************************}
-\subsection[Sage and xxx]{Sage and xxx}\label{subsection-59}
-\typeout{************************************************}
-\typeout{Subsection  Exercises}
-\typeout{************************************************}
-\subsection[Exercises]{Exercises}\label{subsection-60}
+\subsection[Discussion]{Discussion}\label{subsection-57}
+Now we take a short break to revisit and consolidate the learning you
+    have done so far. Revisit the reading and the exercises you have done in
+    Chapter Two: Linear Equations. The important feature of this work should be
+    learning to think about your own thinking. This sort of \terminology{meta-cognition}
+    characterizes expert learners. Eventually, you want to be able to monitor
+    your work at all times and recognize when you understand deeply and when
+    you do not. This will allow you to self-correct.
+  %
+\par
+To help you get started with meta-cognition, I listed learning goals in
+    each section. To go further, you need to explicitly go through the process
+    of reviewing what you can do and what you cannot. Here are some prompts to
+    help you get started with this process.
+    \begin{itemize}
+\item{}
+        Review the learning goals from each section. Can you do the things
+        described? Can you do them sometimes, or have you mastered them so you
+        can do them consistently?
+      \item{}
+        Look through all of the tasks and go deeper into them. Can you
+        connect each exercise to one of our pictures? Try to build a mental
+        model of how the exercise and its solution work.
+      \item{}
+        If your first solution to an exercise involve a ``guess-and-check''
+        approach, can you now complete the exercise in a \emph{purposeful}
+        and systematic manner?
+      \item{}
+        Make a list of concepts or exercises that are not clear to you. Phrase
+        each item in your list as a question, and make each question as
+        specific as possible. Talk with fellow students or your
+        instructor until you can answer your own questions.
+      \end{itemize}
+
+  %
 \clearpage
 \typeout{************************************************}
 \typeout{Chapter 3 Vector Spaces and Subspaces}
