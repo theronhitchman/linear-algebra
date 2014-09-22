@@ -58,7 +58,7 @@
   </subsection>
 
   <subsection>
-    <title>Discussion: Transposes, Symmetric Matrices, &amp; Permutations</title>
+    <title>Discussion: Transposes, Symmetric Matrices, and Permutations</title>
 
     <p>
       An important operation on matrices we have yet to encounter is called the
@@ -352,7 +352,11 @@
       </sage>
       <sage>
         <input>L.transpose() # this is the neat part</input>
-        <output>True</output>
+        <output>
+          [  1 1/2   0]
+          [  0   1   0]
+          [  0   0   1]
+        </output>
       </sage>
 
     </subsubsection>
