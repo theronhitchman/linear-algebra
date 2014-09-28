@@ -40,7 +40,7 @@ meaning for the structure of linear algebra.
 
 
   </div>
-  <div class="col-xs-12 sm-6">
+  <div class="col-xs-12 col-sm-6">
     <h3>Advanced</h3>
 
     <ul>
