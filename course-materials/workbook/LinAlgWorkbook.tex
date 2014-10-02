@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-09-22T01:03:52-05:00    %%
+%%    on 2014-10-01T21:01:39-05:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -4413,7 +4413,306 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Chapter 3 Vector Spaces and Subspaces}
 \typeout{************************************************}
 \chapter[Vector Spaces and Subspaces]{Vector Spaces and Subspaces}\label{chapter-subspaces}
-Here is some introductory text.\typeout{************************************************}
+
+      In the last chapter we took on the central problem of linear algebra: solving
+      systems of linear equations. We built a lot of useful tools, but we only
+      answered the questions in the case of \emph{square systems} where the
+      number of variables is equal to the number of equations.
+    %
+\par
+
+      Now it is time to solve the problem in general. As a reminder, the set of
+      questions is this:
+    %
+\begin{itemize}
+\item{}
+        What is the set of solutions to a given system of linear equations?
+      \item{}
+        When does a given system have solution, and when does it not?
+      \item{}
+        If there is a solution, how many solutions are there?
+      \item{}
+        What ways do we have of describing the collection of solutions?
+      \item{}
+        Is there a computationally effective way to find those solutions?
+      \end{itemize}
+\par
+
+      We will run into the need for a few new tools, each of which has been
+      hiding in the background in our work so far. For square systems, we could
+      get away without this level of detail, but now we will need these concepts
+      to clarify our work: \terminology{subspaces}, \terminology{rank} and
+      \terminology{reduced row echelon form}, and \terminology{bases}.
+    %
+\par
+
+      This chapter concludes with a description of the \emph{four fundamental subspaces}
+      associated to a matrix. These will help us put together an understanding of
+      the transformational model of an \(m\times n\) matrix as a function with
+      domain \(\mathbb{R}^n\) and target \(\mathbb{R}^m\).
+    %
+\typeout{************************************************}
+\typeout{Section 3.1 Subspaces of \(\mathbb{R}^n\)}
+\typeout{************************************************}
+\section[Subspaces of \(\mathbb{R}^n\)]{Subspaces of \(\mathbb{R}^n\)}\label{vector-spaces}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-58}
+\begin{itemize}
+\item{}Read Chapter 3 section 1 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-59}
+Before class, a student should be able to:%
+\begin{itemize}
+\item{}Identify the column space of a matrix.\item{}Decide if a set in \(\mathbb{R}^n\) is a subspace or not.\end{itemize}
+\par
+Some time after class, a student should be able to:%
+\begin{itemize}
+\item{}
+        Use the notion of column space to decide if a given linear system has a
+        solution or not.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: Vector Spaces and Subspaces}
+\typeout{************************************************}
+\subsection[Discussion: Vector Spaces and Subspaces]{Discussion: Vector Spaces and Subspaces}\label{subsection-60}
+
+      The key concepts in this section are those of a \terminology{vector space}
+      and of a \terminology{subspace}. The basic idea is that a vector space is
+      a kind of place where the basic operations involved in a linear
+      combination make sense. There is a set of rules for being a vector space,
+      but they are all aimed at the fact that there are two operations
+      (addition and scalar multiplication) and we can form linear combinations
+      with them that make sense.
+    %
+\par
+
+      The biggest thing is that we possibly enlarge the kinds of things we
+      call ``vectors.'' To a professional mathematician, a vector is
+      anything that is an element of some vector space under consideration.
+      My favorites are things like this:
+    %
+\begin{itemize}
+\item{}
+        The set \(M_{2,2}\) of \(2\times 2\) matrices is a vector space.
+        But now the things we call vectors are actually matrices.
+      \item{}
+        The set \(\mathcal{C}(\mathbb{R})\) of continuous functions with
+        domain and range both equal to the set of real numbers is a vector
+        space. But now the things we call vectors are actually functions.
+      \item{}
+        The set \(\ell(\mathbb{R})\) of sequences
+        \((x_1, x_2, x_3, x_4, \ldots)\) of real numbers is a vector space.
+        But now the things we call vectors are actually whole infinite sequences.
+      \end{itemize}
+\par
+
+      In more advanced mathematics, vector spaces are extremely important. They
+      show up everywhere. But for us, we will mostly stick to the family of vector
+      spaces \(\mathbb{R}^n\). It will be much more important for us to understand
+      subspaces.
+    %
+\par
+
+      The idea of a subspace is some subset, some part, of a vector space which
+      is a vector space in its own right. The prototype is the \(xy\)-plane
+      inside of \(\mathbb{R}^3\).
+    %
+\par
+
+      For now, the most important subspaces we see will be derived from
+      individual matrices. Our first example is the column space of a matrix
+      \(A\). If \(A\) is an \(m\times n\) matrix, then the column
+      space \(\mathrm{col}(A)\) of \(A\) is the collection of
+      \(n\)-vectors which can be expressed as linear combinations of the
+      columns of \(A\). This is our first exposure to the idea of a
+      \terminology{span}. The column space of \(A\) is the subspace of
+      \(\mathbb{R}\) spanned by the columns of \(A\).
+    %
+\typeout{************************************************}
+\typeout{Subsection  Sage and subspaces}
+\typeout{************************************************}
+\subsection[Sage and subspaces]{Sage and subspaces}\label{subsection-61}
+Sage allows you to construct different kinds of vector spaces. The most
+      important is the standard vector space \(\mathbb{R}^n\).
+    %
+\begin{lstlisting}[style=sageinput]
+V = VectorSpace(QQ, 3)
+V
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of dimension 3 over Rational Field
+\end{lstlisting}
+\par
+
+      This is like the \verb?MatrixSpace? construction we have seen before.
+      \verb?V? is now the collection of all vectors of size \(3\) with
+      rational numbers as entries.
+    %
+\par
+
+      More important for us is the fact that Sage knows how to find the subspaces
+      associated to matrices.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 2,3, [4,5,3,0,1,1])
+A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[4 5 3]
+[0 1 1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.column_space()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 2 and dimension 2 over Rational Field
+Basis matrix:
+[1 0]
+[0 1]
+\end{lstlisting}
+\par
+
+      Note that Sage gives information in terms of a basis. We will talk about
+      this concept soon.
+    %
+\begin{lstlisting}[style=sageinput]
+B = matrix(QQ, 3,3 , [1,2,3,4,5,6,7,8,9])
+B
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 2 3]
+[4 5 6]
+[7 8 9]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B.column_space()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 3 and dimension 2 over Rational Field
+Basis matrix:
+[ 1  0 -1]
+[ 0  1  2]
+\end{lstlisting}
+\par
+
+      This last bit here is interesting.
+      Our original matrix has size \(2\times 3\), so the columns are \(3\)-vectors.
+      But this basis is displayed as a matrix where the columns are size \(2\).
+      What is going on?
+    %
+\par
+
+      Sage prefers to display vectors as rows! This is a big interal preference.
+      We just have to get over it. Well, we have to \emph{remember it} and get over it.
+      To access the basis vectors and display them as columns,
+      we will use the following:
+    %
+\begin{lstlisting}[style=sageinput]
+B.column_space().basis()[0].column() # first basis vector
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1]
+[ 0]
+[-1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B.column_space().basis()[1].column() # second basis vector
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0]
+[1]
+[2]
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-62}
+\begin{task}
+\label{task-82}
+
+        Find an example of a vector which is not in the column space of the
+        matrix \[
+        A = \begin{pmatrix} 2 & 1  \\ 1 & 1 \end{pmatrix},
+        \] or explain why that is not possible.
+      \end{task}
+\begin{task}
+\label{task-83}
+
+        Find an example of a vector which is not in the column space of the
+        matrix \[
+        B = \begin{pmatrix} 3 & 2 \\ 6 & 4 \end{pmatrix},
+        \] or explain why it is not possible.
+      \end{task}
+\begin{task}
+\label{task-84}
+
+        Let \(\mathcal{P}\) be the set of polynomials of degree 3 or less.
+        Explain why \(\mathcal{P}\) is a vector space, or explain why it is not.
+      \end{task}
+\begin{task}
+\label{task-85}
+
+        Consider the vector space \(\mathbb{R}^2\). Explain why the following
+        are not subspaces:
+        \begin{itemize}
+\item{}The unit circle.\item{}The line \(x+y = 4\).\item{}The union of lines \(2x+3y = 0\) and \(x-y=0\).\item{}The first quadrant where \(x\geq 0\) and \(y\geq 0\).\end{itemize}
+\end{task}
+\begin{task}
+\label{task-86}
+
+        Let \(W\) be the set of functions \(f\) in
+        \(\mathcal{C}(\mathbb{R})\) which satisfy the differential equation
+        \(f''(x) = 0\). Decide if \(W\) is a subspace of
+        \(\mathcal{C}(\mathbb{R})\), and explain your thinking.
+      \end{task}
+\begin{task}
+\label{task-87}
+
+        Design a \(3\times 2\) matrix whose column space does not contain the
+        vector \(\begin{pmatrix} 4 \\ 4 \end{pmatrix}\), or explain why this is
+        not possible.
+      \end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 3.2 The Nullspace}
+\typeout{************************************************}
+\section[The Nullspace]{The Nullspace}\label{nullspace}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 3.3 Rank and the RREF}
+\typeout{************************************************}
+\section[Rank and the RREF]{Rank and the RREF}\label{rank}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 3.4 Solving a System}
+\typeout{************************************************}
+\section[Solving a System]{Solving a System}\label{complete-solution}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 3.5 Going Further with Solving Systems}
+\typeout{************************************************}
+\section[Going Further with Solving Systems]{Going Further with Solving Systems}\label{soln-gf}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 3.6 Bases}
+\typeout{************************************************}
+\section[Bases]{Bases}\label{basis}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 3.7 The Four Subspaces}
+\typeout{************************************************}
+\section[The Four Subspaces]{The Four Subspaces}\label{four-subspaces}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 3.8 Going Further with the Fundamental Theorem}
+\typeout{************************************************}
+\section[Going Further with the Fundamental Theorem]{Going Further with the Fundamental Theorem}\label{ftla-gf.xml}
+\clearpage
+\typeout{************************************************}
 \typeout{Chapter 4 Orthogonality}
 \typeout{************************************************}
 \chapter[Orthogonality]{Orthogonality}\label{chapter-orthogonality}

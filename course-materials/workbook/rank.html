@@ -8,7 +8,7 @@
 <!--*                                    *-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Matrix Algebra: Going Further</title>
+<title>Rank and the RREF</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -60,12 +60,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="permutations.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="chapter-subspaces.html">Next</a>
+<a class="previous-button toolbar-item button" href="nullspace.html">Previous</a><a class="up-button button toolbar-item" href="chapter-subspaces.html">Up</a><a class="next-button button toolbar-item" href="complete-solution.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="permutations.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="chapter-subspaces.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="nullspace.html">Previous</a><a class="up-button button toolbar-item" href="chapter-subspaces.html">Up</a><a class="next-button button toolbar-item" href="complete-solution.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -82,7 +82,7 @@ $(function () {
 <li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
-<h2 class="link active"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
 <ul>
 <li><a href="three-pictures.html">Three Geometric Models</a></li>
 <li><a href="elimination.html">Solving Systems</a></li>
@@ -92,13 +92,13 @@ $(function () {
 <li><a href="inverse.html">Matrix Inverses</a></li>
 <li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
 <li><a href="permutations.html">Permutation Matrices</a></li>
-<li><a href="lin-eq-gf2.html" class="active">Matrix Algebra: Going Further</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
 </ul>
-<h2 class="link"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
+<h2 class="link active"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
 <ul>
 <li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
 <li><a href="nullspace.html">The Nullspace</a></li>
-<li><a href="rank.html">Rank and the RREF</a></li>
+<li><a href="rank.html" class="active">Rank and the RREF</a></li>
 <li><a href="complete-solution.html">Solving a System</a></li>
 <li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
 <li><a href="basis.html">Bases</a></li>
@@ -111,53 +111,9 @@ $(function () {
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="lin-eq-gf2"><header><h1 class="heading">
-<span class="type">Section</span><span class="codenumber">2.9</span><span class="title">Matrix Algebra: Going Further</span>
-</h1></header><section class="subsection" id="subsection-56"><header><h1 class="heading">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
-</h1></header><ul><li>
-      Go back through the exercises in the last four sections of this chapter.
-      Complete any items you
-      did not complete the first time through. Prepare any that we have not
-      discussed in class so that you will be ready to present them.
-    </li></ul></section><section class="subsection" id="subsection-57"><header><h1 class="heading">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
-</h1></header><p>Now we take a short break to revisit and consolidate the learning you
-    have done so far. Revisit the reading and the exercises you have done in
-    Chapter Two: Linear Equations. The important feature of this work should be
-    learning to think about your own thinking. This sort of <em class="terminology">meta-cognition</em>
-    characterizes expert learners. Eventually, you want to be able to monitor
-    your work at all times and recognize when you understand deeply and when
-    you do not. This will allow you to self-correct.
-  </p>
-<p>To help you get started with meta-cognition, I listed learning goals in
-    each section. To go further, you need to explicitly go through the process
-    of reviewing what you can do and what you cannot. Here are some prompts to
-    help you get started with this process.
-    <ul>
-<li>
-        Review the learning goals from each section. Can you do the things
-        described? Can you do them sometimes, or have you mastered them so you
-        can do them consistently?
-      </li>
-<li>
-        Look through all of the tasks and go deeper into them. Can you
-        connect each exercise to one of our pictures? Try to build a mental
-        model of how the exercise and its solution work.
-      </li>
-<li>
-        If your first solution to an exercise involve a “guess-and-check”
-        approach, can you now complete the exercise in a <em>purposeful</em>
-        and systematic manner?
-      </li>
-<li>
-        Make a list of concepts or exercises that are not clear to you. Phrase
-        each item in your list as a question, and make each question as
-        specific as possible. Talk with fellow students or your
-        instructor until you can answer your own questions.
-      </li>
-</ul>
-  </p></section></section></div></main>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="rank"><header><h1 class="heading">
+<span class="type">Section</span><span class="codenumber">3.3</span><span class="title">Rank and the RREF</span>
+</h1></header></section></div></main>
 </div>
 </body>
 </html>

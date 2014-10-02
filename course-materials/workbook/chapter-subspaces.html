@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-09-22T01:03:58-05:00    *-->
+<!--*    on 2014-10-01T21:00:14-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -60,12 +60,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="lin-eq-gf2.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="chapter-orthogonality.html">Next</a>
+<a class="previous-button toolbar-item button" href="lin-eq-gf2.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="vector-spaces.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="lin-eq-gf2.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="chapter-orthogonality.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="lin-eq-gf2.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="vector-spaces.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -95,7 +95,16 @@ $(function () {
 <li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
 </ul>
 <h2 class="link active"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
-<ul></ul>
+<ul>
+<li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
+<li><a href="nullspace.html">The Nullspace</a></li>
+<li><a href="rank.html">Rank and the RREF</a></li>
+<li><a href="complete-solution.html">Solving a System</a></li>
+<li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
+<li><a href="basis.html">Bases</a></li>
+<li><a href="four-subspaces.html">The Four Subspaces</a></li>
+<li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
+</ul>
 <h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
 <ul></ul>
 <h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
@@ -104,7 +113,46 @@ $(function () {
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-subspaces"><header><h1 class="heading">
 <span class="type">Chapter</span><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span>
-</h1></header><article class="introduction" id="introduction-3">Here is some introductory text.</article></section></div></main>
+</h1></header><article class="introduction" id="introduction-3"><p>
+      In the last chapter we took on the central problem of linear algebra: solving
+      systems of linear equations. We built a lot of useful tools, but we only
+      answered the questions in the case of <em>square systems</em> where the
+      number of variables is equal to the number of equations.
+    </p>
+<p>
+      Now it is time to solve the problem in general. As a reminder, the set of
+      questions is this:
+    </p>
+<ul>
+<li>
+        What is the set of solutions to a given system of linear equations?
+      </li>
+<li>
+        When does a given system have solution, and when does it not?
+      </li>
+<li>
+        If there is a solution, how many solutions are there?
+      </li>
+<li>
+        What ways do we have of describing the collection of solutions?
+      </li>
+<li>
+        Is there a computationally effective way to find those solutions?
+      </li>
+</ul>
+<p>
+      We will run into the need for a few new tools, each of which has been
+      hiding in the background in our work so far. For square systems, we could
+      get away without this level of detail, but now we will need these concepts
+      to clarify our work: <em class="terminology">subspaces</em>, <em class="terminology">rank</em> and
+      <em class="terminology">reduced row echelon form</em>, and <em class="terminology">bases</em>.
+    </p>
+<p>
+      This chapter concludes with a description of the <em>four fundamental subspaces</em>
+      associated to a matrix. These will help us put together an understanding of
+      the transformational model of an \(m\times n\) matrix as a function with
+      domain \(\mathbb{R}^n\) and target \(\mathbb{R}^m\).
+    </p></article><nav class="summary-links"><a href="vector-spaces.html"><span class="codenumber">3.1</span><span class="title">Subspaces of \(\mathbb{R}^n\)</span></a><a href="nullspace.html"><span class="codenumber">3.2</span><span class="title">The Nullspace</span></a><a href="rank.html"><span class="codenumber">3.3</span><span class="title">Rank and the RREF</span></a><a href="complete-solution.html"><span class="codenumber">3.4</span><span class="title">Solving a System</span></a><a href="soln-gf.html"><span class="codenumber">3.5</span><span class="title">Going Further with Solving Systems</span></a><a href="basis.html"><span class="codenumber">3.6</span><span class="title">Bases</span></a><a href="four-subspaces.html"><span class="codenumber">3.7</span><span class="title">The Four Subspaces</span></a><a href="ftla-gf.xml.html"><span class="codenumber">3.8</span><span class="title">Going Further with the Fundamental Theorem</span></a></nav></section></div></main>
 </div>
 </body>
 </html>
