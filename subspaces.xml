@@ -62,7 +62,7 @@
   <xi:include href="complete-solution.xml" />
   <xi:include href="soln-gf.xml"/>
   <xi:include href="basis.xml" />
-  <xi:include href="four-subspaces" />
-  <xi:include href="ftla-gf.xml"
+  <xi:include href="four-subspaces.xml" />
+  <xi:include href="ftla-gf.xml" />
 
 </chapter>
