@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-10-01T21:00:14-05:00    *-->
+<!--*    on 2014-10-02T21:40:55-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -113,7 +113,285 @@ $(function () {
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="nullspace"><header><h1 class="heading">
 <span class="type">Section</span><span class="codenumber">3.2</span><span class="title">The Nullspace</span>
-</h1></header></section></div></main>
+</h1></header><section class="subsection" id="subsection-63"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul>
+<li>Read chapter 3 section 2 of <em>Strang</em>.</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-64"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
+</h1></header><p>Before coming to class, a student should be able to:</p>
+<ul>
+<li>Find the special solutions associated to a matrix.</li>
+<li>Compute the <em class="terminology">reduced row echelon form</em> of a matrix.</li>
+<li>Identify the free variables and the pivot variables associated to
+        a matrix.
+      </li>
+<li>
+        Describe the nullspace of a matrix with the “simplest” set of
+        equations possible.
+      </li>
+</ul>
+<p>Some time after class, a student should be able to:</p>
+<ul>
+<li>Describe the complete solution to a homogeneous system of equations
+        \(Ax = 0\).
+      </li>
+<li>Give an argument for why the nullspace is a vector subspace.</li>
+</ul></section><section class="subsection" id="subsection-65"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Nullspace, RREF, and Special Solutions</span>
+</h1></header><p>
+      Strang aims right at the heart of things in this section, and does not
+      waste any space. Let me highlight a few things:
+    </p>
+<p>
+      Let \(A\) be an \(m\times n\) matrix. We do not require that \(A\) is a square
+      matrix, that is, it may not be the case that \(m=n\). What we are most
+      interested in is solving the equation \(Ax = 0\). Note that if \(A\) is not
+      square, then the vectors \(x\) and \(0\) have different sizes.
+    </p>
+<p>
+      By the way, an equation like \(Ax=0\) where the right hand side is zero
+      is called a <em class="terminology">homogeneous equation</em>.
+    </p>
+<ul>
+<li>The nullspace of \(A\) is the set of vectors \(x\) such that \(Ax=0\). It
+        is a theorem that this is a vector subspace of \(\mathbb{R}^n\). It is a
+        common to use the synonym <em class="terminology">the kernel of \(A\)</em> in place of the
+        terminology <em class="terminology">the nullspace of \(A\).</em>
+      </li>
+<li>The key to everything is to not mind that your matrix isn't square.
+        Just do Gauss-Jordan elimination anyway. The end result is called the
+        <em class="terminology">reduced row echelon form</em> of the matrix, or RREF for short.
+      </li>
+<li>Note that there is no discussion of using an augmented matrix in this
+        section, even though we are solving systems of equations \(Ax=0\). This
+        is because the vector on the right hand side is zero and will stay
+        zero. There is nothing interesting to track!
+      </li>
+<li>The RREF is good for several things. One that is often overlooked is
+        that one can use it to rewrite the system of equations in a “simplest
+        form.” I mean that the equations left over in the RREF are somehow
+        the easiest equations to use to cut out the solution as an intersection
+        of hyperplanes.
+      </li>
+<li>In the RREF, all of the structure can be inferred from the splitting
+        of the columns into two types: the pivot columns and the free columns.
+        Since each column is associated to a variable in our system of linear
+        equations (the columns hold coefficients!), it is also common to refer
+        to pivot variables and free variables.
+      </li>
+<li>The number of free columns basically determines the “size” of the
+        nullspace. This is an entry point to the concept of the
+        <em class="terminology">dimension</em> of a vector space. We shall see this in more detail
+        later.
+      </li>
+<li>Strang points out an easy way to find some individual vectors in the
+        null space: he calls these the <em class="terminology">special solutions</em>. This is
+        because they are solutions to the equation \(Ax=0\).
+      </li>
+</ul></section><section class="subsection" id="subsection-66"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Nullspace</span>
+</h1></header><p>
+      The main idea in this section is to get solutions to homogeneous
+      systems \(Ax=0\) by using the reduced row echelon form. This will
+      compute the nullspace of the matrix \(A\). Sage has some useful built
+      in commands for this. Let us explore an example.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">entries = [1,2,3,4,5,6,7,8,9,10,11,12]
+A = matrix(QQ, 3,4, entries); A
+</script></div>
+<p>
+      The most direct way is to ask Sage for the nullspace. But Sage doesn't
+      call it that. It uses the synonym <em class="terminology">kernel</em>. Also, because we
+      do matrix vector multiplication with vectors on the right, we ahve to
+      tell Sage to do it that way.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A.right_kernel()
+</script></div>
+<p>
+      Notice that Sage returns the nullspace by specifying a basis. This is
+      a complete set of special solutions! How can we be sure?
+    </p>
+<p>
+      Let's check that those vectors are actually in the nullspace. This command
+      should return two zero vectors in \(\mathbb{R}^3\).
+    </p>
+<div class="sage-compute"><script type="text/x-sage">sage1 = vector([1,0,-3,2])
+sage2 = vector([0,1,-2,1])
+A*sage1, A*sage2
+</script></div>
+<p>
+      Remember that the method to find the reduced row
+      echelon form is .rref().
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A.rref()
+</script></div>
+<p>
+      What this means is that the null space is described by the two equations
+      \[
+        \left\{
+        \begin{array}{rrrrrrrrr}
+        v &amp; &amp; &amp; - &amp; y &amp; - &amp; 2 z &amp; = &amp; 0 \\
+          &amp; &amp; x &amp; + &amp; 2y &amp; + &amp; 3 z &amp; = &amp; 0
+        \end{array}\right.
+      \]
+      That is, the nullspace is the intersection of these two hyperplanes in
+      \(\mathbb{R}^4\).
+    </p>
+<div class="sage-compute"><script type="text/x-sage"># Let's see what Sage's solve command tells us:
+v,x,y,z = var('v x y z')
+expr1 = v - y - 2*z == 0
+expr2 = x + 2*y + 3*z == 0
+solve([expr1, expr2], [v,x,y,z])
+</script></div>
+<p>
+      Aha! Sage is trying to tell us that the pivot variables \(v\)
+      and \(x\) should be
+      written in terms of the free variables \(y\) and \(z\).
+      Strang's "easy way out" is to choose the free variables to be
+      \(0\)'s and \(1\)'s in
+      combination. Here we have two of them, so we will alternate.
+      One special solution will be to choose \(y = 1\) and \(z=0\).
+      Then we solve to get \(v = 1\) and \(x = -2\).
+    </p>
+<div class="sage-compute"><script type="text/x-sage">special1 = vector([1,-2,1,0])
+
+# let's check
+A*special1
+</script></div>
+<p>
+      Similarly, we can choose \(y=0\) and
+      \(z=1\) to get a second special solution. This leads to
+      \(v=2\) and \(x = -3\).
+    </p>
+<div class="sage-compute"><script type="text/x-sage">special2 = vector([2,-3,0,1])
+
+#let's check
+A*special2
+</script></div>
+<p>
+      These two vectors form a <em class="terminology">basis</em> for the nullspace. Every
+      vector in the nullspace can be written as a linear combination of
+      these two vectors.
+    </p>
+<p>
+      What is weird is that Sage always wants its basis to look
+      like \(1\)'s and \(0\)'s at the beginning, and our process makes
+      them look like that at the end!
+    </p>
+<p>
+      How can we be sure everything lines up?  Well, it is possible to
+      express the two vectors that Sage gives us as a linear combination
+      of the ones we just found, and vice versa. So we are getting <em>two</em>
+      descriptions of the same space.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">sage1 == -3* special1 + 2* special2
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">sage2 == -2* special1 + special2
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">special1 ==  sage1 - 2* sage2
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">special2 == 2* sage1 - 3* sage2
+</script></div>
+<p>
+      Can you see the matrix and its inverse hiding behind that? I found those
+      relationships using row operations and a matrix inverse.
+    </p>
+<p>
+      Anyway, what has happened is that Sage has performed our calculations above,
+      and then taken the extra steps of putting the matrix of basis vectors into
+      reduced row echelon form, too.
+    </p></section><section class="subsection" id="subsection-67"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><p>
+      For the first three exercises, your job is to find both
+      <ul>
+<li>The minimal set of equations which cuts out the nullspace of the
+          given matrix as an intersection of hyperplanes; and
+        </li>
+<li>the size of the nullspace, expressed through the number
+          “independent directions” it contains.
+        </li>
+</ul>
+      As always, it will be crucial to explain how you know you are correct.
+    </p>
+<article class="example-like" id="task-88"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+</h5>
+        Consider the matrix
+        \[
+          A = \begin{pmatrix}
+          1 &amp; 2 &amp; 3 \\
+          4 &amp; 8 &amp; 5 \\
+          -1 &amp; -2 &amp; 0
+          \end{pmatrix}
+        \]</article><article class="example-like" id="task-89"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+</h5>
+      Consider the matrix
+      \[
+        A = \begin{pmatrix}
+        2 &amp; 1 &amp; 3 &amp; 7 \\
+        1 &amp; 1 &amp; 1 &amp; -3
+        \end{pmatrix}
+      \]</article><article class="example-like" id="task-90"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
+</h5>
+        Consider the matrix
+        \[
+          A = \begin{pmatrix}
+          2 &amp; 3 &amp; 5 &amp; 6 \\
+          1 &amp; 1 &amp; 2 &amp; 3 \\
+          0 &amp; 1 &amp; 1 &amp; 0 \\
+          -1 &amp; -1 &amp; -2 &amp; -3 \\
+          1 &amp; 1 &amp; 2 &amp; 3
+          \end{pmatrix}
+        \]</article><p>
+      For the next three exercises, your job is to find a complete set of
+      special solutions to the homogeneous equation \(Ax=0\).
+      By a “complete set,” we mean “enough special solutions so that
+      any vector in the nullspace of \(A\) can be expressed as a linear
+      combination of your vectors.”
+    </p>
+<p>
+      As always, it will be crucial to explain how you know you are correct.
+    </p>
+<article class="example-like" id="task-91"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
+</h5>
+        Consider the matrix
+        \[
+          A = \begin{pmatrix}
+          6 &amp; 7 \\
+          7 &amp; 8 \\
+          1 &amp; 0 \\
+          4 &amp; 5
+          \end{pmatrix}
+        \]</article><article class="example-like" id="task-92"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">11</span><span class="title"></span>
+</h5>
+        Consider the matrix
+        \[
+          A = \begin{pmatrix}
+          23 &amp; 17 &amp; 9 &amp; 2 \\
+          1 &amp; -2 &amp; 4 &amp; 1 \\
+          22 &amp; 19 &amp; 5 &amp; 1
+          \end{pmatrix}
+        \]</article><article class="example-like" id="task-93"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">12</span><span class="title"></span>
+</h5>
+        Consider the matrix
+        \[
+          A = \begin{pmatrix}
+          -3 &amp; -6 &amp; -9 &amp; -12 \\
+          1 &amp; 2 &amp; 3 &amp; 4 \\
+          1 &amp; 4 &amp; 9 &amp; 16 \\
+          1 &amp; 8 &amp; 27 &amp; 64 \\
+          -1 &amp; -1 &amp; -1 &amp; -1 \\
+          0 &amp; 0 &amp; 1 &amp; 0
+          \end{pmatrix}
+        \]</article></section></section></div></main>
 </div>
 </body>
 </html>
