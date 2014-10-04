@@ -1,5 +1,6 @@
 linear-algebra
 ==============
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/theronhitchman/linear-algebra?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Materials for Math 2500: Linear Algebra for Applications
 at University of Northern Iowa.
