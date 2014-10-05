@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-10-03T01:15:54-05:00    %%
+%%    on 2014-10-05T14:37:40-05:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -5038,16 +5038,747 @@ True
 \typeout{Section 3.3 Rank and the RREF}
 \typeout{************************************************}
 \section[Rank and the RREF]{Rank and the RREF}\label{rank}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-68}
+\begin{itemize}
+\item{}Read chapter 3 section 3 of \emph{Strang}.\item{}Read the following and do the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-69}
+Before class, a student should be able to:%
+\begin{itemize}
+\item{}State a definition of the rank of a matrix.\item{}Compute the rank of a matrix.\item{}Describe the relation between the rank and the size of the column
+        space.
+      \item{}Construct the nullspace matrix associated to a matrix.\end{itemize}
+\par
+Some time after class, a student should be able to:%
+\begin{itemize}
+\item{}Use the RREF and special solutions associated to a matrix to describe
+        how free columns are linear combinations of earlier pivot columns.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: The Rank of a Matrix}
+\typeout{************************************************}
+\subsection[Discussion: The Rank of a Matrix]{Discussion: The Rank of a Matrix}\label{subsection-70}
+
+      The new concept for this section is the \terminology{rank} of a matrix.
+      There are \emph{three} definitions of rank given in the first two
+      pages of this section. It is important to know them and see that they
+      are equivalent.
+    %
+\par
+
+      Another important part of what happens here is the realization that
+      putting the matrix into reduced row echelon form, which uses \emph{row}
+      operations, actually tells us something about the \emph{columns} of the
+      matrix. This is kind of amazing.
+    %
+\par
+
+      Take a matrix \(A\) and put it into reduced row echelon form
+      \(R = \mathrm{rref}(A)\). Then \(A\) and \(R\) have the same shape.
+      In particular, they have the same number of columns. But in \(R\)
+      it is easy to see the location of the pivots. This divides up the
+      columns of \(R\) into those columns having a pivot, the \terminology{pivot columns},
+      and those which do not, the \terminology{free columns}.
+      We will label a column of \(A\) as a pivot column or a free column in a way
+      that corresponds. Here is the startling fact:
+    %
+\begin{theorem}\label{theorem-3}
+
+        Let \(A\) be a matrix.
+        The pivot columns of \(A\) are those which cannot be expressed as linear
+        combinations of the columns to their left.
+        The free columns of \(A\) are those which can be expressed as linear
+        combinations of the columns to their left.
+      \end{theorem}
+\par
+
+      How exactly can we see this? Strang uses the construction of a
+      \terminology{nullspace matrix}. The special solutions we learned about
+      in the last section can be bundled together as the columns of a matrix
+      \(N\), called the nullspace matrix. This matrix has two important
+      properties:
+    %
+\begin{itemize}
+\item{} \(AN = 0\); and\item{} Each column of \(N\) (i.e. each special solution) holds the
+          coefficients needed to write down a interesting linear combination
+          equation on the columns of \(A\).
+        \end{itemize}
+\par
+
+        Finally, please use some caution when reading through the area
+        with blue boxes and equations (4) and (5) on page 147. Note that
+        Strang introduces a big simplifying assumption that makes his work
+        easier. The general principles will hold, but those nice, neat
+        equations won't always look so good for an arbitrary matrix.
+      %
+\typeout{************************************************}
+\typeout{Subsection  Sage and the Rank}
+\typeout{************************************************}
+\subsection[Sage and the Rank]{Sage and the Rank}\label{subsection-71}
+
+      Sage has a built-in command for the rank of a matrix. It is called
+      \verb?.rank()?, of course.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 3,4, [1,2,3,4,5,6,7,8,9,10,11,12])
+A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  2  3  4]
+[ 5  6  7  8]
+[ 9 10 11 12]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.rank()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+2
+\end{lstlisting}
+\par
+
+      Sage knows how to do the underlying computations, too. Let's have Sage
+      compute the reduced row echelon form of \verb?A?:
+    %
+\begin{lstlisting}[style=sageinput]
+A.rref()
+\end{lstlisting}
+\par
+
+      Nice! Note that this fits the ``special case'' form that Strang uses on
+      page 147. Let's see what else it can do.
+    %
+\begin{lstlisting}[style=sageinput]
+A.right_kernel()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 4 and dimension 2 over Rational Field
+Basis matrix:
+[ 1  0 -3  2]
+[ 0  1 -2  1]
+\end{lstlisting}
+\par
+
+      We can make Sage give us just the matrix in that last response.
+    %
+\begin{lstlisting}[style=sageinput]
+A.right_kernel().basis_matrix()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  0 -3  2]
+[ 0  1 -2  1]
+\end{lstlisting}
+\par
+
+      That is \emph{almost} Strang's version of a nullspace matrix in this case.
+      Part of what we need to do is make the rows into columns. The transpose command is
+      the way to do that:
+    %
+\begin{lstlisting}[style=sageinput]
+N = A.right_kernel().basis_matrix().transpose()
+N
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  0]
+[ 0  1]
+[-3 -2]
+[ 2  1]
+\end{lstlisting}
+\par
+
+      That is \emph{NOT} exactly Strang's nullspace matrix. But it is very close.
+      In fact, it still has this crucial property:
+    %
+\begin{lstlisting}[style=sageinput]
+A*N
+\end{lstlisting}
+\par
+
+      What has happened here is that Sage constructs a \emph{different} version
+      of the nullspace matrix than Strang does. Strang's version is easier to
+      find by hand and tends to have \(1\)'s and \(0\)'s and the end.
+      The Sage version comes from a routine that strongly prefers to
+      start with \(1\)'s and \(0\)'s.
+    %
+\par
+
+      The two version of nullspace matrix are related, of course. Let's see how:
+    %
+\begin{lstlisting}[style=sageinput]
+E = N.matrix_from_rows([2,3]); E
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[-3 -2]
+[ 2  1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+F = N*E.inverse(); F
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  2]
+[-2 -3]
+[ 1  0]
+[ 0  1]
+\end{lstlisting}
+\par
+
+      \emph{That} is Strang's nullspace matrix.
+    %
+\begin{lstlisting}[style=sageinput]
+A*F
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[0 0]
+[0 0]
+[0 0]
+[0 0]
+\end{lstlisting}
+\par
+
+      Where does this relationship come from? I have a hint: \emph{Column Operations}.
+      How can we use the structure of matrix multiplication to see why left multiplication
+      by \verb?E.inverse()? performs some column operations?
+    %
+\par
+
+      Here is another thing to think about: where does that \verb?E? come from?
+      Compare \verb?A? and \verb?N?. Notice anything? Remember that Strang wants
+      the nullspace matrix to have \(1\)'s and \(0\)'s in the free columns.
+    %
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-72}
+\begin{task}
+\label{task-94}
+
+        Give an example of a \(5 \times 3\) matrix which has
+        \begin{itemize}
+\item{}rank equal to 3, and\item{}no non-zero entries,\end{itemize}
+
+        or explain why no such example is possible.
+      \end{task}
+\begin{task}
+\label{task-95}
+
+        Give an example of a \(3 \times 3\) matrix which has
+        \begin{itemize}
+\item{}rank equal to 2,\item{}a nullspace of \(\{0\}\), and\item{}no non-zero entries,\end{itemize}
+
+        or explain why no such example is possible.
+      \end{task}
+\begin{task}
+\label{task-96}
+
+        Consider the matrix \[
+        A = \left( \begin{smallmatrix} 2 & 1 & 5 \\ 1 & 1
+        & 7 \end{smallmatrix}\right).\]
+        Find the reduced row echelon form \(R = \mathrm{rref}(A)\)
+        of \(A\). Track the row operations you use, and use them to
+        find an invertible matrix \(E\) so that \(EA = R\).
+      \end{task}
+\begin{task}
+\label{task-97}
+
+        Contine with the matrix of the last exercise. Find the null space matrix of
+        \(A\). Use the information contained in the nullspace matrix to
+        write down a linear combination equation on the columns of
+        \(R = \mathrm{rref}(A)\) of the form
+        \[
+          a * \text{(column1)} + b * \text{(column2)} + c * \text{(column3)} = 0.
+        \]
+        Explain why the matrix \(E\) allows us to translate this equation
+        into this one on the columns of \(A\):
+        \[
+          a\begin{pmatrix} 2 \\ 1 \end{pmatrix} +
+          b \begin{pmatrix} 1 \\ 1 \end{pmatrix} +
+          c \begin{pmatrix} 5 \\ 7 \end{pmatrix} =
+          \begin{pmatrix}0\\ 0 \end{pmatrix}.
+        \]\end{task}
+\begin{task}
+\label{task-98}
+
+        Consider the matrix \(N\) given below. Make an example of two
+        different matrices \(A\) and \(B\) which have different shapes
+        and each have \(N\) as nullspace matrix, or explain why such an
+        example is not possible.
+        \[
+        N = \begin{pmatrix}
+        -3 & 2 & -1 \\
+         1 & 0 &  0 \\
+         0 & 1 &  0 \\
+         2 & 6 &  1 \\
+         0 & 0 &  1
+        \end{pmatrix}
+        \]\end{task}
+\begin{task}
+\label{task-99}
+
+        Consider the matrix \(T = \left(\begin{smallmatrix} 2 &
+        1 \\ 1 & 1 \end{smallmatrix}\right)\). What is the nullspace
+        matrix of \(T\)?
+      \end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 3.4 Solving a System}
 \typeout{************************************************}
 \section[Solving a System]{Solving a System}\label{complete-solution}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-73}
+\begin{itemize}
+\item{}Read chapter 3 section 4 of Strang.\item{}Read the following and complete the tasks below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-74}
+
+      Before class, a student should be able to:
+    %
+\begin{itemize}
+\item{}
+        Identify a particular solution to a matrix-vector equation \(Ax=b\).
+        (Provided there is one.)
+      \item{}
+        Find the complete solution to a matrix-vector equation \(Ax=b\)
+        as a parametrized object. (Provided there is one.)
+      \end{itemize}
+\par
+
+      After class, a student should be able to:
+    %
+\begin{itemize}
+\item{}
+        Describe the complete solution to a matrix-vector equation \(Ax=b\)
+        as an implicit object, cut out by equations.
+      \item{}
+        Describe the possibilities for the number of solutions to a matrix-vector
+        equation \(Ax=b\) in terms of the shape of the matrix.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  
+      Discussion: The Complete Solution to a System of Equations
+    }
+\typeout{************************************************}
+\subsection[
+      Discussion: The Complete Solution to a System of Equations
+    ]{
+      Discussion: The Complete Solution to a System of Equations
+    }\label{subsection-75}
+
+      This is the big day! We finally learn how to write out the general
+      solution to a system of linear equations. We have spent so much time
+      understanding things related to this, that it should go pretty quickly.
+    %
+\par
+
+      The tiny little facts underneath the analysis for this section are
+      these: For a matrix \(A\), vectors \(v\) and \(w\) and a scalar
+      \(\lambda\), all chosen so that the equations make any sense,
+      \[
+        \begin{array}{rcl}
+        A(v+w) &= &Av + Aw \\
+        A(\lambda v) &= &\lambda ( Av )
+        \end{array}
+      \]
+    %
+\par
+
+      The first is a kind of \terminology{distributive property}, and the second
+      is a kind of \terminology{commutative property}. When taken together, these
+      things say that the operation of ``left-multiply by the matrix \(A\)''
+      is a special kind of function. The kind of function here is important
+      enough that we have a special word for this combined property: it is
+      called \terminology{linearity}. That is, left-multiplication by \(A\) is a
+      \terminology{linear operation} or a \terminology{linear transformation}.
+    %
+\par
+
+      The linearity property makes it possible to check the following two results.
+    %
+\begin{theorem}\label{theorem-4}
+
+        Let \(Ax=b\) be a system of linear equations, and let \(Ax=0\) be
+        the associated homogeneous system. If \(x_p\) and \(x_p'\) are
+        two particular solutions to \(Ax=b\), then \(x_p - x_p'\) is a
+        solution to the homogeneous system \(Ax=0\).
+      \end{theorem}
+\begin{theorem}\label{theorem-5}
+
+        Let \(Ax=b\) be a system of linear equations, and let \(Ax=0\)
+        be the associated homogeneous system.
+        If \(x_p\) is some particular solution to \(Ax=b\) and
+        \(x_n\) is some solution to \(Ax=0\), then \(x_p + x_n\) is
+        another solution to \(Ax=b\).
+      \end{theorem}
+\par
+
+      And if we put these two theorems together, we find this result which
+      sounds fancier, but has exactly the same content.
+    %
+\begin{theorem}\label{theorem-6}
+
+        The complete set of solutions to the system \(Ax=b\) is the set
+        \[
+          \left\{ x_p + x_n \mid x_n \in \mathrm{null}(A) \right\},
+        \]
+        where \(x_p\) is any one particular solution to \(Ax=b\).
+      \end{theorem}
+\par
+
+      This leads us to Strang's very sensible advice about finding the
+      complete solution:
+    %
+\begin{itemize}
+\item{}
+        Form the augmented matrix \(\left( A \mid b \right)\) and use
+        Gauss-Jordan elimination to put it in reduced row echelon form
+        \(\left( R \mid d \right)\).
+      \item{}
+        Use the information from the RREF to find a particular solution
+        \(x_p\) by solving for the pivot variables from the vector
+        \(d\) and setting the free variables to zero.
+      \item{}
+        Use the special solutions \(s_1, s_2, \dots, s_k\)
+        (if any exist!) to describe the nullspace \(\mathrm{null}(A)\).
+      \item{}
+        Write down the resulting general solution:
+        \[
+          x = x_p + a_1 s_1 + a_2 s_2 + \dots + a_k s_k,
+          \quad \text{for any scalars } a_i \in \mathbb{R}.
+        \]
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Sage and Solving General Systems}
+\typeout{************************************************}
+\subsection[Sage and Solving General Systems]{Sage and Solving General Systems}\label{subsection-76}
+
+      Sage has many built-in methods for solving systems of linear equations.
+      We will investigate three common ones with a single example considered
+      several times.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 3,4, [1,0,2,3, 1,3,2,0, 2,0,4,9])
+b = vector([2,5,10])
+print A
+print b
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 0 2 3]
+[1 3 2 0]
+[2 0 4 9]
+(2, 5, 10)
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Method One: RREF and the Nullspace}
+\typeout{************************************************}
+\subsubsection[Method One: RREF and the Nullspace]{Method One: RREF and the Nullspace}\label{subsubsection-36}
+
+        First we find a particular solution.
+      %
+\begin{lstlisting}[style=sageinput]
+X = A.augment(b, subdivide=True).rref()
+X  # this subdivide thing is pretty handy!
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1  0  2  0|-4]
+[ 0  1  0  0| 3]
+[ 0  0  0  1| 2]
+\end{lstlisting}
+\par
+
+        This clearly has three pivots, and all belong in the original matrix.
+        So there will be a solution. We pull out the particular solution.
+      %
+\begin{lstlisting}[style=sageinput]
+xp = vector([-4, 3, 0, 2])
+xp
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(-4, 3, 0, 2)
+\end{lstlisting}
+\par
+
+        Since we typed that in by hand, we should check our work.
+      %
+\begin{lstlisting}[style=sageinput]
+A*xp == b
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\par
+
+        Now we need to find the nullspace and the special solutions.
+      %
+\begin{lstlisting}[style=sageinput]
+A.right_kernel()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 4 and dimension 1 over Rational Field
+Basis matrix:
+[   1    0 -1/2    0]
+\end{lstlisting}
+\par
+
+        The basis has only one row, so there is only one special solution.
+        This matches our expectation. Our system is \(3\times 4\) and has
+        rank \(3\). So there is only one free column, and hence only one
+        special solution.
+      %
+\begin{lstlisting}[style=sageinput]
+s1 = vector([-2, 0, 1, 0])
+A*s1 == 0
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\par
+
+        Now we can check the ``general solution''.
+      %
+\begin{lstlisting}[style=sageinput]
+t = var('t')
+gensol = xp + t * s1
+gensol
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(-2*t - 4, 3, t, 2)
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A*gensol == b
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  Method Two: A Sage built-in}
+\typeout{************************************************}
+\subsubsection[Method Two: A Sage built-in]{Method Two: A Sage built-in}\label{subsubsection-37}
+
+        Sage has a built-in method that looks like ``Matrix division''. Here
+        we ``left divide'' by the matrix. This is odd notation, and is just
+        something Sage allows.
+      %
+\begin{lstlisting}[style=sageinput]
+A\b
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(-4, 3, 0, 2)
+\end{lstlisting}
+\par
+
+        It is weird, but this works even if \verb?A? is not invertible, like now.
+      %
+\begin{lstlisting}[style=sageinput]
+A.inverse()*b
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Error in lines 2-2
+Traceback (most recent call last):
+...
+ArithmeticError: self must be a square matrix
+\end{lstlisting}
+\par
+
+        The downside to this particular method is that in only gives you one
+        particular solution. It does not produce the complete solution. You have
+        to do that bit for yourself, maybe like the above.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Method Three: Another Sage Built-in}
+\typeout{************************************************}
+\subsubsection[Method Three: Another Sage Built-in]{Method Three: Another Sage Built-in}\label{subsubsection-38}
+
+        Finally, Sage will also try to solve the system if you apply the
+        \verb?.solve_right()? method to \verb?A?. You have to supply the vector
+        \verb?b? as an argument to the command.
+      %
+\begin{lstlisting}[style=sageinput]
+A.solve_right(b)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+(-4, 3, 0, 2)
+\end{lstlisting}
+\par
+
+        Again, this only pulls out a single particular solution. It is up to you
+        to figure out the rest.
+      %
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-77}
+\begin{task}
+\label{task-100}
+(Strang ex 3.4.4)
+        Find the complete solution (also called the general solution) to
+        \[
+          \begin{pmatrix} 1 & 3 & 1 & 2 \\
+          2 & 6 & 4 & 8 \\
+          0 & 0 & 2 & 4 \end{pmatrix}
+          \begin{pmatrix} x \\ y \\ z \\ t \end{pmatrix} =
+          \begin{pmatrix} 1 \\ 3 \\ 1 \end{pmatrix}.
+        \]\end{task}
+\begin{task}
+\label{task-101}
+(Strang ex 3.4.6)
+        What conditions on \(b_1\), \(b_2\), \(b_3\) and \(b_4\) make
+        each of these systems solvable? Find a solution in those cases.
+        \begin{enumerate}
+\item{}
+            \[
+              \begin{pmatrix} 1 & 2 \\ 2 & 4 \\ 2 & 5 \\ 3 & 9 \end{pmatrix}
+              \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} =
+              \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}.
+            \]
+          \item{}
+            \[
+              \begin{pmatrix} 1 & 2 & 3\\ 2 & 4 & 6\\
+              2 & 5 & 7\\ 3 & 9 & 12\end{pmatrix}
+              \begin{pmatrix} x_1 \\ x_2 \\ x_3\end{pmatrix} =
+              \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}.
+            \]
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-102}
+(Strang ex 3.4.11)
+        It is impossible for a \(1 \times 3\) system of equations to have
+        \(x_p = (2,4,0)\) and \(x_n = \text{ any multiple of } (1,1,1)\).
+        Explain why.
+      \end{task}
+\begin{task}
+\label{task-103}
+(Strang ex 3.4.13)
+        Each of the statments below is false. Find a \(2\times 2\) counterexample
+        to each one.
+        \begin{enumerate}
+\item{}
+            The complete solution is any linear combination of \(x_p\) and
+            \(X_n\).
+          \item{}
+            A system \(Ax=b\) has at most one particular solution.
+          \item{}
+            The solution \(x_p\) with all free variables zero is the shortest
+            solution, in that it has the minimum norm \(||x_p||\).
+          \item{}
+            If \(A\) is an invertible matrix, there is no solution \(x_n\)
+            in the nullspace.
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-104}
+(Strang ex 3.4.21)
+        Find the complete solution in the form \(x_p + x_n\) to these full
+        rank systems.
+        \begin{enumerate}
+\item{}
+            \[ x+y+z = 4\]
+          \item{}
+            \[
+              \begin{array}{ccccccc}
+              x & + & y & + & z & = & 4 \\
+              x & - & y & + & z & = & 4
+              \end{array}
+            \]
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-105}
+(Strang ex 3.4.24)
+        Give examples of matrices \(A\) for which the number of solutions
+        to \(Ax = b\) is
+        \begin{enumerate}
+\item{}\(0\) or \(1\), depending on \(b\);\item{}\(\infty\), regardless of \(b\);\item{}\(0\) or \(\infty\), depending on \(b\);\item{}\(1\), regardless of \(b\).\end{enumerate}
+\end{task}
+\begin{task}
+\label{task-106}
+(Strang ex 3.4.31)
+        Find examples of matrices with the given property, or explain why it is
+        impossible:
+        \begin{enumerate}
+\item{}
+            The only solution of \(Ax = \left(\begin{smallmatrix}
+            1 \\ 2 \\ 3 \end{smallmatrix}\right)\) is \(x = \left(\begin{smallmatrix}
+            0 \\ 1 \end{smallmatrix}\right)\).
+          \item{}
+            The only solution of \(Bx = \left(\begin{smallmatrix}
+            0 \\ 1 \end{smallmatrix}\right)\) is
+            \(x = \left(\begin{smallmatrix}
+            1 \\ 2 \\ 3 \end{smallmatrix}\right)\).
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-107}
+(Strang ex 3.4.33)
+        The complete solution to the equation \(Ax = \left(\begin{smallmatrix}
+        1 \\ 3\end{smallmatrix}\right)\) is \(x = \left(\begin{smallmatrix}
+        1 \\ 0\end{smallmatrix}\right) +
+        c\left(\begin{smallmatrix}0\\ 1 \end{smallmatrix}\right)\).
+        Find the matrix \(A\). Write the set of equations that corresponds to
+        \(Ax = b\). (This is the \emph{implicit} description of this set!)
+      \end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 3.5 Going Further with Solving Systems}
 \typeout{************************************************}
 \section[Going Further with Solving Systems]{Going Further with Solving Systems}\label{soln-gf}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-78}
+\begin{itemize}
+\item{}
+        Go back through the exercises in the first four sections of this chapter.
+        Complete any items you
+        did not complete the first time through. Prepare any that we have not
+        discussed in class so that you will be ready to present them.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-79}
+Now we take a short break to revisit and consolidate the learning you
+      have done so far. Revisit the reading and the exercises you have done in
+      the first four sections of Chapter Three: Vector Space and Subspaces. The
+      important feature of this work should be
+      learning to think about your own thinking. This sort of \terminology{meta-cognition}
+      characterizes expert learners. Eventually, you want to be able to monitor
+      your work at all times and recognize when you understand deeply and when
+      you do not. This will allow you to self-correct.
+    %
+\par
+To help you get started with meta-cognition, I listed learning goals in
+      each section. To go further, you need to explicitly go through the process
+      of reviewing what you can do and what you cannot. Here are some prompts to
+      help you get started with this process.
+      \begin{itemize}
+\item{}
+          Review the learning goals from each section. Can you do the things
+          described? Can you do them sometimes, or have you mastered them so you
+          can do them consistently?
+        \item{}
+          Look through all of the tasks and go deeper into them. Can you
+          connect each exercise to one of our pictures? Try to build a mental
+          model of how the exercise and its solution work.
+        \item{}
+          If your first solution to an exercise involve a ``guess-and-check''
+          approach, can you now complete the exercise in a \emph{purposeful}
+          and systematic manner?
+        \item{}
+          Make a list of concepts or exercises that are not clear to you. Phrase
+          each item in your list as a question, and make each question as
+          specific as possible. Talk with fellow students or your
+          instructor until you can answer your own questions.
+        \end{itemize}
+
+    %
 \clearpage
 \typeout{************************************************}
 \typeout{Section 3.6 Bases}
