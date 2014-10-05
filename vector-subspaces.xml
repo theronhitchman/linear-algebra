@@ -248,7 +248,7 @@
 
     <task>
       <statement>
-        Design a <m>3\times 2</m> matrix whose column space does not contain the
+        Design a <m>2\times 3</m> matrix whose column space does not contain the
         vector <m>\begin{pmatrix} 4 \\ 4 \end{pmatrix}</m>, or explain why this is
         not possible.
       </statement>
