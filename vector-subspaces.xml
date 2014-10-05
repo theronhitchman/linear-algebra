@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<section xml:id="vector-spaces">
+  <title>Subspaces of <m>\mathbb{R}^n</m></title>
+
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>Read Chapter 3 section 1 of <em>Strang</em>.</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Learning Goals</title>
+    <p>Before class, a student should be able to:</p>
+    <ul>
+      <li>Identify the column space of a matrix.</li>
+      <li>Decide if a set in <m>\mathbb{R}^n</m> is a subspace or not.</li>
+    </ul>
+    <p>Some time after class, a student should be able to:</p>
+    <ul>
+      <li>
+        Use the notion of column space to decide if a given linear system has a
+        solution or not.
+      </li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Discussion: Vector Spaces and Subspaces</title>
+    <p>
+      The key concepts in this section are those of a <term>vector space</term>
+      and of a <term>subspace</term>. The basic idea is that a vector space is
+      a kind of place where the basic operations involved in a linear
+      combination make sense. There is a set of rules for being a vector space,
+      but they are all aimed at the fact that there are two operations
+      (addition and scalar multiplication) and we can form linear combinations
+      with them that make sense.
+    </p>
+    <p>
+      The biggest thing is that we possibly enlarge the kinds of things we
+      call <q>vectors.</q> To a professional mathematician, a vector is
+      anything that is an element of some vector space under consideration.
+      My favorites are things like this:
+    </p>
+    <ul>
+      <li>
+        The set <m>M_{2,2}</m> of <m>2\times 2</m> matrices is a vector space.
+        But now the things we call vectors are actually matrices.
+      </li>
+      <li>
+        The set <m>\mathcal{C}(\mathbb{R})</m> of continuous functions with
+        domain and range both equal to the set of real numbers is a vector
+        space. But now the things we call vectors are actually functions.
+      </li>
+      <li>
+        The set <m>\ell(\mathbb{R})</m> of sequences
+        <m>(x_1, x_2, x_3, x_4, \ldots)</m> of real numbers is a vector space.
+        But now the things we call vectors are actually whole infinite sequences.
+      </li>
+    </ul>
+    <p>
+      In more advanced mathematics, vector spaces are extremely important. They
+      show up everywhere. But for us, we will mostly stick to the family of vector
+      spaces <m>\mathbb{R}^n</m>. It will be much more important for us to understand
+      subspaces.
+    </p>
+    <p>
+      The idea of a subspace is some subset, some part, of a vector space which
+      is a vector space in its own right. The prototype is the <m>xy</m>-plane
+      inside of <m>\mathbb{R}^3</m>.
+    </p>
+
+    <p>
+      For now, the most important subspaces we see will be derived from
+      individual matrices. Our first example is the column space of a matrix
+      <m>A</m>. If <m>A</m> is an <m>m\times n</m> matrix, then the column
+      space <m>\mathrm{col}(A)</m> of <m>A</m> is the collection of
+      <m>n</m>-vectors which can be expressed as linear combinations of the
+      columns of <m>A</m>. This is our first exposure to the idea of a
+      <term>span</term>. The column space of <m>A</m> is the subspace of
+      <m>\mathbb{R}</m> spanned by the columns of <m>A</m>.
+    </p>
+
+
+
+  </subsection>
+
+  <subsection>
+    <title>Sage and subspaces</title>
+
+    <p>Sage allows you to construct different kinds of vector spaces. The most
+      important is the standard vector space <m>\mathbb{R}^n</m>.
+    </p>
+    <sage>
+      <input>
+        V = VectorSpace(QQ, 3)
+        V
+      </input>
+      <output>Vector space of dimension 3 over Rational Field</output>
+    </sage>
+    <p>
+      This is like the <c>MatrixSpace</c> construction we have seen before.
+      <c>V</c> is now the collection of all vectors of size <m>3</m> with
+      rational numbers as entries.
+    </p>
+    <p>
+      More important for us is the fact that Sage knows how to find the subspaces
+      associated to matrices.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 2,3, [4,5,3,0,1,1])
+        A
+      </input>
+      <output>
+        [4 5 3]
+        [0 1 1]
+      </output>
+    </sage>
+    <sage>
+      <input>
+        A.column_space()
+      </input>
+      <output>
+        Vector space of degree 2 and dimension 2 over Rational Field
+        Basis matrix:
+        [1 0]
+        [0 1]
+      </output>
+    </sage>
+    <p>
+      Note that Sage gives information in terms of a basis. We will talk about
+      this concept soon.
+    </p>
+    <sage>
+      <input>
+        B = matrix(QQ, 3,3 , [1,2,3,4,5,6,7,8,9])
+        B
+      </input>
+      <output>
+        [1 2 3]
+        [4 5 6]
+        [7 8 9]
+      </output>
+    </sage>
+    <sage>
+      <input>B.column_space()</input>
+      <output>
+        Vector space of degree 3 and dimension 2 over Rational Field
+        Basis matrix:
+        [ 1  0 -1]
+        [ 0  1  2]
+      </output>
+    </sage>
+    <p>
+      This last bit here is interesting.
+      Our original matrix has size <m>2\times 3</m>, so the columns are <m>3</m>-vectors.
+      But this basis is displayed as a matrix where the columns are size <m>2</m>.
+      What is going on?
+    </p>
+    <p>
+      Sage prefers to display vectors as rows! This is a big interal preference.
+      We just have to get over it. Well, we have to <em>remember it</em> and get over it.
+      To access the basis vectors and display them as columns,
+      we will use the following:
+    </p>
+    <sage>
+      <input>
+        B.column_space().basis()[0].column() # first basis vector
+      </input>
+      <output>
+        [ 1]
+        [ 0]
+        [-1]
+      </output>
+    </sage>
+    <sage>
+      <input>
+        B.column_space().basis()[1].column() # second basis vector
+      </input>
+      <output>
+        [0]
+        [1]
+        [2]
+      </output>
+    </sage>
+
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+
+    <task>
+      <statement>
+        Find an example of a vector which is not in the column space of the
+        matrix <me>
+        A = \begin{pmatrix} 2 &amp; 1  \\ 1 &amp; 1 \end{pmatrix},
+        </me> or explain why that is not possible.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Find an example of a vector which is not in the column space of the
+        matrix <me>
+        B = \begin{pmatrix} 3 &amp; 2 \\ 6 &amp; 4 \end{pmatrix},
+        </me> or explain why it is not possible.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Let <m>\mathcal{P}</m> be the set of polynomials of degree 3 or less.
+        Explain why <m>\mathcal{P}</m> is a vector space, or explain why it is not.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Consider the vector space <m>\mathbb{R}^2</m>. Explain why the following
+        are not subspaces:
+        <ul>
+          <li>The unit circle.</li>
+          <li>The line <m>x+y = 4</m>.</li>
+          <li>The union of lines <m>2x+3y = 0</m> and <m>x-y=0</m>.</li>
+          <li>The first quadrant where <m>x\geq 0</m> and <m>y\geq 0</m>.</li>
+        </ul>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Let <m>W</m> be the set of functions <m>f</m> in
+        <m>\mathcal{C}(\mathbb{R})</m> which satisfy the differential equation
+        <m>f''(x) = 0</m>. Decide if <m>W</m> is a subspace of
+        <m>\mathcal{C}(\mathbb{R})</m>, and explain your thinking.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Design a <m>3\times 2</m> matrix whose column space does not contain the
+        vector <m>\begin{pmatrix} 4 \\ 4 \end{pmatrix}</m>, or explain why this is
+        not possible.
+      </statement>
+    </task>
+
+
+  </subsection>
+
+</section>

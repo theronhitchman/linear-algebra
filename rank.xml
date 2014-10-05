@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<section xml:id="rank">
+  <title>Rank and the RREF</title>
+
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>Read chapter 3 section 3 of <em>Strang</em>.</li>
+      <li>Read the following and do the exercises below.</li>
+    </ul>
+
+  </subsection>
+
+  <subsection>
+    <title>Learning Goals</title>
+    <p>Before class, a student should be able to:</p>
+    <ul>
+      <li>State a definition of the rank of a matrix.</li>
+      <li>Compute the rank of a matrix.</li>
+      <li>Describe the relation between the rank and the size of the column
+        space.
+      </li>
+      <li>Construct the nullspace matrix associated to a matrix.</li>
+    </ul>
+    <p>Some time after class, a student should be able to:</p>
+    <ul>
+      <li>Use the RREF and special solutions associated to a matrix to describe
+        how free columns are linear combinations of earlier pivot columns.
+      </li>
+    </ul>
+
+  </subsection>
+
+  <subsection>
+    <title>Discussion: The Rank of a Matrix</title>
+
+    <p>
+      The new concept for this section is the <term>rank</term> of a matrix.
+      There are <em>three</em> definitions of rank given in the first two
+      pages of this section. It is important to know them and see that they
+      are equivalent.
+    </p>
+    <p>
+      Another important part of what happens here is the realization that
+      putting the matrix into reduced row echelon form, which uses <em>row</em>
+      operations, actually tells us something about the <em>columns</em> of the
+      matrix. This is kind of amazing.
+    </p>
+    <p>
+      Take a matrix <m>A</m> and put it into reduced row echelon form
+      <m>R = \mathrm{rref}(A)</m>. Then <m>A</m> and <m>R</m> have the same shape.
+      In particular, they have the same number of columns. But in <m>R</m>
+      it is easy to see the location of the pivots. This divides up the
+      columns of <m>R</m> into those columns having a pivot, the <term>pivot columns</term>,
+      and those which do not, the <term>free columns</term>.
+      We will label a column of <m>A</m> as a pivot column or a free column in a way
+      that corresponds. Here is the startling fact:
+    </p>
+
+    <theorem>
+      <statement>
+        Let <m>A</m> be a matrix.
+        The pivot columns of <m>A</m> are those which cannot be expressed as linear
+        combinations of the columns to their left.
+        The free columns of <m>A</m> are those which can be expressed as linear
+        combinations of the columns to their left.
+      </statement>
+    </theorem>
+    <p>
+      How exactly can we see this? Strang uses the construction of a
+      <term>nullspace matrix</term>. The special solutions we learned about
+      in the last section can be bundled together as the columns of a matrix
+      <m>N</m>, called the nullspace matrix. This matrix has two important
+      properties:
+    </p>
+      <ul>
+        <li> <m>AN = 0</m>; and</li>
+        <li> Each column of <m>N</m> (i.e. each special solution) holds the
+          coefficients needed to write down a interesting linear combination
+          equation on the columns of <m>A</m>.
+        </li>
+      </ul>
+      <p>
+        Finally, please use some caution when reading through the area
+        with blue boxes and equations (4) and (5) on page 147. Note that
+        Strang introduces a big simplifying assumption that makes his work
+        easier. The general principles will hold, but those nice, neat
+        equations won't always look so good for an arbitrary matrix.
+      </p>
+
+  </subsection>
+
+  <subsection>
+    <title>Sage and the Rank</title>
+
+    <p>
+      Sage has a built-in command for the rank of a matrix. It is called
+      <c>.rank()</c>, of course.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 3,4, [1,2,3,4,5,6,7,8,9,10,11,12])
+        A
+      </input>
+      <output>
+        [ 1  2  3  4]
+        [ 5  6  7  8]
+        [ 9 10 11 12]
+      </output>
+    </sage>
+    <sage>
+      <input>A.rank()</input>
+      <output>2</output>
+    </sage>
+    <p>
+      Sage knows how to do the underlying computations, too. Let's have Sage
+      compute the reduced row echelon form of <c>A</c>:
+    </p>
+    <sage>
+      <input>A.rref()</input>
+      <ouput>
+        [ 1  0 -1 -2]
+        [ 0  1  2  3]
+        [ 0  0  0  0]
+      </ouput>
+    </sage>
+    <p>
+      Nice! Note that this fits the <q>special case</q> form that Strang uses on
+      page 147. Let's see what else it can do.
+    </p>
+    <sage>
+      <input>A.right_kernel()</input>
+      <output>
+        Vector space of degree 4 and dimension 2 over Rational Field
+        Basis matrix:
+        [ 1  0 -3  2]
+        [ 0  1 -2  1]
+      </output>
+    </sage>
+    <p>
+      We can make Sage give us just the matrix in that last response.
+    </p>
+    <sage>
+      <input>A.right_kernel().basis_matrix()</input>
+      <output>
+        [ 1  0 -3  2]
+        [ 0  1 -2  1]
+      </output>
+    </sage>
+    <p>
+      That is <em>almost</em> Strang's version of a nullspace matrix in this case.
+      Part of what we need to do is make the rows into columns. The transpose command is
+      the way to do that:
+    </p>
+    <sage>
+      <input>
+        N = A.right_kernel().basis_matrix().transpose()
+        N
+      </input>
+      <output>
+        [ 1  0]
+        [ 0  1]
+        [-3 -2]
+        [ 2  1]
+      </output>
+    </sage>
+    <p>
+      That is <em>NOT</em> exactly Strang's nullspace matrix. But it is very close.
+      In fact, it still has this crucial property:
+    </p>
+    <sage>
+      <input>A*N</input>
+      <ouput>
+        [0 0]
+        [0 0]
+        [0 0]
+      </ouput>
+    </sage>
+    <p>
+      What has happened here is that Sage constructs a <em>different</em> version
+      of the nullspace matrix than Strang does. Strang's version is easier to
+      find by hand and tends to have <m>1</m>'s and <m>0</m>'s and the end.
+      The Sage version comes from a routine that strongly prefers to
+      start with <m>1</m>'s and <m>0</m>'s.
+    </p>
+    <p>
+      The two version of nullspace matrix are related, of course. Let's see how:
+    </p>
+    <sage>
+      <input>
+        E = N.matrix_from_rows([2,3]); E
+      </input>
+      <output>
+        [-3 -2]
+        [ 2  1]
+      </output>
+    </sage>
+    <sage>
+      <input>F = N*E.inverse(); F</input>
+      <output>
+        [ 1  2]
+        [-2 -3]
+        [ 1  0]
+        [ 0  1]
+      </output>
+    </sage>
+    <p>
+      <em>That</em> is Strang's nullspace matrix.
+    </p>
+    <sage>
+      <input>A*F</input>
+      <output>
+        [0 0]
+        [0 0]
+        [0 0]
+        [0 0]
+      </output>
+    </sage>
+    <p>
+      Where does this relationship come from? I have a hint: <em>Column Operations</em>.
+      How can we use the structure of matrix multiplication to see why left multiplication
+      by <c>E.inverse()</c> performs some column operations?
+    </p>
+    <p>
+      Here is another thing to think about: where does that <c>E</c> come from?
+      Compare <c>A</c> and <c>N</c>. Notice anything? Remember that Strang wants
+      the nullspace matrix to have <m>1</m>'s and <m>0</m>'s in the free columns.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+
+    <task>
+      <statement>
+        Give an example of a <m>5 \times 3</m> matrix which has
+        <ul>
+          <li>rank equal to 3, and</li>
+          <li>no non-zero entries,</li>
+        </ul>
+        or explain why no such example is possible.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Give an example of a <m>3 \times 3</m> matrix which has
+        <ul>
+          <li>rank equal to 2,</li>
+          <li>a nullspace of <m>\{0\}</m>, and</li>
+          <li>no non-zero entries,</li>
+        </ul>
+        or explain why no such example is possible.
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>
+        Consider the matrix <me>
+        A = \left( \begin{smallmatrix} 2 &amp; 1 &amp; 5 \\ 1 &amp; 1
+        &amp; 7 \end{smallmatrix}\right).</me>
+        Find the reduced row echelon form <m>R = \mathrm{rref}(A)</m>
+        of <m>A</m>. Track the row operations you use, and use them to
+        find an invertible matrix <m>E</m> so that <m>EA = R</m>.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Contine with the matrix of the last exercise. Find the null space matrix of
+        <m>A</m>. Use the information contained in the nullspace matrix to
+        write down a linear combination equation on the columns of
+        <m>R = \mathrm{rref}(A)</m> of the form
+        <me>
+          a * \text{(column1)} + b * \text{(column2)} + c * \text{(column3)} = 0.
+        </me>
+        Explain why the matrix <m>E</m> allows us to translate this equation
+        into this one on the columns of <m>A</m>:
+        <me>
+          a\begin{pmatrix} 2 \\ 1 \end{pmatrix} +
+          b \begin{pmatrix} 1 \\ 1 \end{pmatrix} +
+          c \begin{pmatrix} 5 \\ 7 \end{pmatrix} =
+          \begin{pmatrix}0\\ 0 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Consider the matrix <m>N</m> given below. Make an example of two
+        different matrices <m>A</m> and <m>B</m> which have different shapes
+        and each have <m>N</m> as nullspace matrix, or explain why such an
+        example is not possible.
+        <me>
+        N = \begin{pmatrix}
+        -3 &amp; 2 &amp; -1 \\
+         1 &amp; 0 &amp;  0 \\
+         0 &amp; 1 &amp;  0 \\
+         2 &amp; 6 &amp;  1 \\
+         0 &amp; 0 &amp;  1
+        \end{pmatrix}
+        </me>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Consider the matrix <m>T = \left(\begin{smallmatrix} 2 &amp;
+        1 \\ 1 &amp; 1 \end{smallmatrix}\right)</m>. What is the nullspace
+        matrix of <m>T</m>?
+      </statement>
+    </task>
+  </subsection>
+
+
+
+
+</section>

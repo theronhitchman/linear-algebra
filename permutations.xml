@@ -12,23 +12,552 @@
 
   <subsection>
     <title>The Assignment</title>
-
+    <ul>
+      <li>Read section 2.7 of <em>Strang</em></li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
   </subsection>
 
   <subsection>
     <title>Learning Goals</title>
+    <p>Before class, a student should be able to:</p>
+    <ul>
+      <li>
+        Compute the transpose of a matrix.
+      </li>
+      <li>
+        Correctly perform calculations where the transpose interacts with the
+        operations of matrix sum, matrix product, and matrix inverse.
+      </li>
+      <li>
+        Compute inner and outer products using the transpose.
+      </li>
+      <li>
+        Decide if a matrix is symmetric or not.
+      </li>
+      <li>
+        Recognize permutation matrices, and design permutation matrices which
+        correspond to given row swaps.
+      </li>
+    </ul>
+    <p>
+      Some time after class, a student should be able to:
+    </p>
+    <ul>
+      <li>
+        Find the <m>LDL^T</m> decomposition for symmetric matrices.
+      </li>
+      <li>
+        Explain how the necessity of permuting rows during Gaussian elimination
+        leads to the decomposition <m>PA = LU</m>.
+      </li>
+      <li>
+        Explain why <m>P^T = P^{-1}</m> for permutation matrices.
+      </li>
+    </ul>
   </subsection>
 
   <subsection>
-    <title>Discussion</title>
+    <title>Discussion: Transposes, Symmetric Matrices, and Permutations</title>
+
+    <p>
+      An important operation on matrices we have yet to encounter is called the
+      <term>transpose</term>. If <m>A</m> is an <m>m\times n</m> matrix, the
+      transpose <m>A^T</m> of
+      <m>A</m> is made by changing the roles of the rows and the columns. The result
+      <m>A^T</m> will be an <m>n \times m</m> matrix, because of this switch.
+    </p>
+    <p>
+      For now, the transpose will feel like some random thing, but its primary
+      importance comes from its connection with the dot product. If we think of
+      column vectors <m>u</m> and <m>v</m> of size <m>n</m> as if they are <m>n \times 1</m>
+      matrices, then the dot product <m>u \cdot v</m> can be computed with a nice
+      combination of matrix multiplication and the transpose:
+      <me>
+      u \cdot v = u^T v .
+      </me>
+      On the right, this is matrix multiplication! That makes sense because
+      <m>u^T</m> is <m>1 \times n</m> and <m>v</m> is <m>n \times 1</m>. This
+      means that the result
+      is a <m>1\times 1</m> matrix, i.e. a number.
+    </p>
+    <p>
+      Since the dot product contains all of the geometry of Euclidean space in
+      it, the transpose becomes an important operation. I know that sounds weird,
+      but the dot product contains all of the information we need to measure
+      lengths and angles, so basically all of the <em>metric</em> information in
+      Euclidean geometry is there.
+    </p>
+    <subsubsection>
+      <title>Algebraic results about the transpose</title>
+      <p>
+        There are some key results about the way the transpose interacts with
+        other matrix operations, each of these can be checked with some tedious
+        computation:
+      </p>
+      <ul>
+        <li>
+          If <m>A</m> and <m>B</m> are matrices of the same shape, then
+          <m>(A+B)^T = A^T + B^T</m>.
+        </li>
+        <li>
+          If <m>A</m> and <m>B</m> are of sizes so that <m>AB</m> is defined,
+          then <m>(AB)^T = B^T A^T</m>.
+        </li>
+        <li>
+          If <m>A</m> is an invertible matrix, with inverse <m>A^{-1}</m>,
+          then <m>A^T</m> is also invertible and it has inverse
+          <m>\left(A^T\right)^{-1} = \left(A^{-1}\right)^T </m>.
+        </li>
+      </ul>
+    </subsubsection>
+
+    <subsubsection>
+      <title>Symmetric Matrices</title>
+      <p>
+        A matrix <m>A</m> is called <em>symmetric</em> when <m>A^T = A</m>. These
+        pop up in lots of interesting places in linear algebra. A neat result
+        is that a symmetric matrix has a symmetric looking <m>LDU</m> decomposition:
+        <me>
+        \text{if } A^T=A\text{, then } A = LDL^T .
+        </me>
+        That is, in the LDU decomposition, <m>U = L^T</m>.
+      </p>
+      <p>
+        There are several ways to get symmetric matrices. For example, if
+        <m>A</m> is any matrix, the new matrix <m>B = A^T A</m> will be symmetric.
+        (Check this.) Also, the matrix <m>S = A^T + A</m> will be symmetric.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination</title>
+      <p>
+        It is sometimes the case that Gauss-Jordan elimination requires a row
+        swap. As we have seen, the operation of swapping a row can be achieved
+        by left multiplying by a matrix of a special type. If we take a bunch of
+        those and multiply them together, we still get a matrix which is in a
+        special class: <em>the permutation matrices</em>.
+      </p>
+      <p>
+        A permutation matrix is square matrix having a single <m>1</m> in each column
+        and in each row. A helpful property of permutation matrices is that they
+        are invertible, and their inverses are the same as their transposes:
+        <me>
+        P^{-1} = P^T .
+        </me>
+      </p>
+      <p>
+        Gauss-Jordan elimination is easy enough to understand, now. It is time
+        to let go of performing all those arithmetic operations by hand. So,
+        permutation matrices become important for a different reason! Even if
+        Gauss-Jordan elimination can be done without a row swap, it may be
+        numerically better for a computer to swap out for a larger number as a
+        pivot, so a row swap is used anyway. This partial pivoting strategy is
+        encapsulated in most computer algebra algorithms in some way, and is
+        part of the computation involved in computing a PLU decomposition.
+        Strang has a decent discussion of the choices, below we will
+        discuss how Sage handles this.
+      </p>
+    </subsubsection>
   </subsection>
 
   <subsection>
-    <title>Sage and xxx</title>
+    <title>Sage and Transposes, Symmetry, Permutations, and Pivots</title>
+
+    <p>
+      There is a lot going on in this little section. At first glance, it is a
+      bit intimidating. But we have seen most of the ideas before.
+    </p>
+    <subsubsection>
+      <title>The Transpose</title>
+      <p>
+        The transpose of a matrix is what you get by switching the roles of rows
+        and columns. Sage has a simple method for this.
+      </p>
+      <sage>
+        <input>
+          M = MatrixSpace(QQ, 3,3)
+          A = M([1,2,3,4,5,6,7,8,9]); A
+        </input>
+        <output>
+          [1 2 3]
+          [4 5 6]
+          [7 8 9]
+        </output>
+      </sage>
+      <sage>
+        <input>A.transpose()</input>
+        <output>
+          [1 4 7]
+          [2 5 8]
+          [3 6 9]
+        </output>
+      </sage>
+      <p>
+        One place that the transpose is useful is in describing the dot product.
+        Check this out.
+      </p>
+      <sage>
+        <input>
+          u = vector([1,2,3])
+          v = vector([4,5,6])
+          u.dot_product(v)
+        </input>
+        <output>32</output>
+      </sage>
+      <sage>
+        <input>
+          U = u.column(); U # this puts u into a column matrix
+        </input>
+        <output>
+          [1]
+          [2]
+          [3]
+        </output>
+      </sage>
+      <p>
+        To be sure, we check what the <q>parent</q> of <c>U</c> is.
+      </p>
+      <sage>
+        <input>U.parent()</input>
+        <output>Full MatrixSpace of 3 by 1 dense matrices over Integer Ring</output>
+      </sage>
+      <p>
+        See! Sage thinks of <c>U</c> as a matrix with 3 rows and 1 column.
+      </p>
+      <p>
+        Now we do the same with <c>v</c>
+      </p>
+      <sage>
+        <input>
+          V = v.column()
+          V
+        </input>
+        <output>
+          [4]
+          [5]
+          [6]
+        </output>
+      </sage>
+      <p>
+        Now the magic.
+      </p>
+      <sage>
+        <input>U.transpose()*V</input>
+        <output>32</output>
+      </sage>
+      <sage>
+        <input>V.transpose()*U</input>
+        <output>32</output>
+      </sage>
+      <p>
+        That is the dot product, but stuffed into a <m>1\times 1</m> matrix!
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Other Properties</title>
+      <p>
+        The transpose has other useful properties. Strang lists the big ones,
+        including how the transpose interacts with matrix multiplication and
+        matrix inverses.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Symmetry</title>
+      <p>
+        A matrix is called <term>symmetric</term> when it is equal to its
+        transpose. Sage has some built-in commands for this.
+      </p>
+      <sage>
+        <input>
+          B = M([2,1,0,1,1,0,0,0,1])
+          B
+        </input>
+        <output>
+          [2 1 0]
+          [1 1 0]
+          [0 0 1]
+        </output>
+      </sage>
+      <sage>
+        <input>B.transpose()</input>
+        <output>
+          [2 1 0]
+          [1 1 0]
+          [0 0 1]
+        </output>
+      </sage>
+      <sage>
+        <input>B.is_symmetric()</input>
+        <output>True</output>
+      </sage>
+      <sage>
+        <input>C = M([1,0,1,1,1,1,0,0,0]); C</input>
+        <output>
+          [1 0 1]
+          [1 1 1]
+          [0 0 0]
+        </output>
+      </sage>
+      <sage>
+        <input>C.is_symmetric()</input>
+        <output>False</output>
+      </sage>
+      <p>
+        Strang notes a really neat property of symmetric matrices. Their
+        <m>LDU</m> decompostions are nicer than average.
+      </p>
+      <sage>
+        <input>P, L, U = B.LU(pivot='nonzero')</input>
+      </sage>
+      <sage>
+        <input>P # here, things are good and no row swaps are needed</input>
+        <output>
+          [1 0 0]
+          [0 1 0]
+          [0 0 1]
+        </output>
+      </sage>
+      <sage>
+        <input>L</input>
+        <output>
+          [  1   0   0]
+          [1/2   1   0]
+          [  0   0   1]
+        </output>
+      </sage>
+      <sage>
+        <input>U</input>
+        <output>
+          [  2   1   0]
+          [  0 1/2   0]
+          [  0   0   1]
+        </output>
+      </sage>
+      <sage>
+        <input>
+          D = M([2,0,0,0,1/2,0,0,0,1])
+          Uprime = D.inverse()*U
+          Uprime
+        </input>
+        <output>
+          [  1 1/2   0]
+          [  0   1   0]
+          [  0   0   1]
+        </output>
+      </sage>
+      <sage>
+        <input>B == L*D*Uprime</input>
+        <output>True</output>
+      </sage>
+      <sage>
+        <input>L.transpose() # this is the neat part</input>
+        <output>
+          [  1 1/2   0]
+          [  0   1   0]
+          [  0   0   1]
+        </output>
+      </sage>
+
+    </subsubsection>
+    <subsubsection>
+      <title>Permutations and Pivots</title>
+      <p>
+        We have seen that elimination sometimes requires us to perform a row
+        operation of swapping the position of two rows to put a pivot in a good
+        place. At first, we want to do this to avoid a zero. But for computational
+        reasons, a machine really likes to have a <em>big</em> number as a pivot.
+        So software often uses rows swaps even when not strictly needed.
+      </p>
+      <p>
+        If all we care about is finding the reduced row echelon form (rref),
+        then this won't worry us. You do whatever operations you want, and the
+        rref is always the same thing. But if we want to keep track with matrices,
+        things get a little complicated.
+      </p>
+      <p>
+        Here is the important stuff to remember:
+        <ol>
+          <li>A row swap is performed by a permutation matrix. A permutation matrix
+            is a matrix with exactly one <m>1</m> in each column and in each row.
+            These matrices have the important property that their transposes and
+            their inverses are equal. That is, if <m>P</m> is a permutation matrix,
+            then <m>P^T</m> is equal to <m>P^{-1}</m>. (Not every matrix with
+            this extra property is a permutation matrix. Be careful.)
+          </li>
+          <li>
+            It is possible to figure out what all of the row swaps should be, and
+            then rearrange all of the amtrices in an LU decomposition routine.
+            If you do it correctly, you get:
+            <me>
+              P'A = LU
+            </me>
+            or
+            <me>
+              A = PLU
+            </me>
+            where <m>P'</m> and <m>P</m> are permutation matrices.
+          </li>
+        </ol>
+      </p>
+      <p>
+        Note: Strang prefers to write things as <m>P'A = LU</m>, but Sage writes
+        <m>A = PLU</m>. Fortunately, there is a simple relationship here. Strang's
+        <m>P'</m> is the transpose (and hence the inverse!) of Sage's <m>P</m>.
+      </p>
+      <p>
+        If you haven't figured it out by now, I think that row reduction by hand
+        is really for chumps. Sage (or whatever computational tool you use) makes
+        it waaaaaaaaay easier.
+      </p>
+      <sage>
+        <input>
+          # using 'partial pivoting' where we get "big pivots"
+          P, L, U = A.LU()
+          x = '{0!r}\n\n{1!r}\n\n{2!r}'.format(P,L,U)
+          print x # fancy python tricks for readable display
+        </input>
+        <output>
+          [0 1 0]
+          [0 0 1]
+          [1 0 0]
+
+          [  1   0   0]
+          [1/7   1   0]
+          [4/7 1/2   1]
+
+          [   7    8    9]
+          [   0  6/7 12/7]
+          [   0    0    0]
+        </output>
+      </sage>
+      <sage>
+        <input>P*L*U</input>
+        <output>
+          [1 2 3]
+          [4 5 6]
+          [7 8 9]
+        </output>
+      </sage>
+      <sage>
+        <input>A == P*L*U</input>
+        <output>True</output>
+      </sage>
+      <sage>
+        <input>P.transpose()*A == L*U</input>
+        <output>True</output>
+      </sage>
+      <sage>
+        <input>P.transpose()*A</input>
+        <output>
+          [7 8 9]
+          [1 2 3]
+          [4 5 6]
+        </output>
+      </sage>
+    </subsubsection>
   </subsection>
 
   <subsection>
     <title>Exercises</title>
+    <p>
+      Keep this in mind. The computations are simple, but tedious.
+      Perhaps you want to use an appropriate tool.
+    </p>
+
+    <task>
+      <statement>
+        Find an example of a matrix <m>A</m> such that <m>A^T A = 0</m>,
+        but <m>A \neq 0</m>.
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>
+        These are true or false questions. If the statement is true, explain why
+        you know it is true. If the statement is false, give an example that
+        shows it is false.
+        <ol>
+          <li>
+            The block matrix <m>\left( \begin{smallmatrix} A &amp; 0 \\
+            0 &amp; A \end{smallmatrix}\right)</m> is automatically symmetric.
+          </li>
+          <li>
+            If <m>A</m> and <m>B</m> are symmetric, then their product <m>AB</m>
+            is symmetric.
+          </li>
+          <li>
+            If <m>A</m> is not symmetric, then <m>A^{-1}</m> is not symmetric.
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>
+        If <m>P_1</m> and <m>P_2</m> are permuation matrices, then so is
+        <m>P_1P_2</m>. Give examples with <m>P_1P_2 \neq P_2P_1</m> and
+        <m>P_3P_4 = P_4P_3</m>.
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>
+        Explain the following phenomena in terms of row operations.
+        <ol>
+          <li>
+            For any permutation matrix <m>P</m>, it is the case that
+            <m>P^T P = I</m>.
+          </li>
+          <li>
+            All row exchange matrices are symmetric: <m>P^T = P</m>.
+            (other permutation matrices may or may not be symmetric.)
+          </li>
+          <li>
+            If <m>P</m> is a row exchange matrix, then <m>P^2 = I</m>.
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>
+        For each of the following, find an example of a <m>2\times 2</m>
+        symmetric matrix with the given property:
+        <ol>
+          <li> <m>A</m> is not invertible.</li>
+          <li> <m>A</m> is invertible but cannot be factored into <m>LU</m>.</li>
+          <li>
+            <m>A</m> can be factored into <m>LDL^T</m>, but not into
+            <m>LL^T</m> because <m>D</m> has negative entries.
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>
+        <p>
+          This is a new factorization of <m>A</m> into <em>triangular
+          times symmetric</em>:
+        </p>
+        <p>
+          Start with <m>A = LDU</m>. Then <m>A = B S</m>,
+          where <m>B = L\left(U^T\right)^{-1}</m> and <m>S = U^T D U</m>.
+        </p>
+        <p>
+          Explain why this choice of <m>B</m> is lower triangular with
+          <m>1</m>'s on the diagonal. Expain why <m>S</m> is symmetric.
+        </p>
+      </statement>
+    </task>
+
+
   </subsection>
 
 

@@ -7,15 +7,14 @@
 <!-- Copyright (C) 2014  Theron J. Hitchman                   -->
 <!-- See the file COPYING for copying conditions.             -->
 
-<section xml:id="lin-eq-going-further-1">
-  <title>Going Further with Elimination</title>
-
+<section xml:id="soln-gf">
+  <title>Going Further with Solving Systems</title>
 
   <subsection>
     <title>The Assignment</title>
     <ul>
       <li>
-        Go back through the exercises in the first three sections of this chapter.
+        Go back through the exercises in the first four sections of this chapter.
         Complete any items you
         did not complete the first time through. Prepare any that we have not
         discussed in class so that you will be ready to present them.
@@ -30,7 +29,8 @@
 
     <p>Now we take a short break to revisit and consolidate the learning you
       have done so far. Revisit the reading and the exercises you have done in
-      Chapter Two: Linear Equations. The important feature of this work should be
+      the first four sections of Chapter Three: Vector Space and Subspaces. The
+      important feature of this work should be
       learning to think about your own thinking. This sort of <term>meta-cognition</term>
       characterizes expert learners. Eventually, you want to be able to monitor
       your work at all times and recognize when you understand deeply and when
