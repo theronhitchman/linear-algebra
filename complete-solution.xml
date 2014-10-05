@@ -9,4 +9,427 @@
 
 <section xml:id="complete-solution">
   <title>Solving a System</title>
+
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>Read chapter 3 section 4 of Strang.</li>
+      <li>Read the following and complete the tasks below.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Learning Goals</title>
+
+    <p>
+      Before class, a student should be able to:
+    </p>
+    <ul>
+      <li>
+        Identify a particular solution to a matrix-vector equation <m>Ax=b</m>.
+        (Provided there is one.)
+      </li>
+      <li>
+        Find the complete solution to a matrix-vector equation <m>Ax=b</m>
+        as a parametrized object. (Provided there is one.)
+      </li>
+    </ul>
+    <p>
+      After class, a student should be able to:
+    </p>
+    <ul>
+      <li>
+        Describe the complete solution to a matrix-vector equation <m>Ax=b</m>
+        as an implicit object, cut out by equations.
+      </li>
+      <li>
+        Describe the possibilities for the number of solutions to a matrix-vector
+        equation <m>Ax=b</m> in terms of the shape of the matrix.
+      </li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>
+      Discussion: The Complete Solution to a System of Equations
+    </title>
+    <p>
+      This is the big day! We finally learn how to write out the general
+      solution to a system of linear equations. We have spent so much time
+      understanding things related to this, that it should go pretty quickly.
+    </p>
+    <p>
+      The tiny little facts underneath the analysis for this section are
+      these: For a matrix <m>A</m>, vectors <m>v</m> and <m>w</m> and a scalar
+      <m>\lambda</m>, all chosen so that the equations make any sense,
+      <me>
+        \begin{array}{rcl}
+        A(v+w) &amp;= &amp;Av + Aw \\
+        A(\lambda v) &amp;= &amp;\lambda ( Av )
+        \end{array}
+      </me>
+    </p>
+    <p>
+      The first is a kind of <term>distributive property</term>, and the second
+      is a kind of <term>commutative property</term>. When taken together, these
+      things say that the operation of <q>left-multiply by the matrix <m>A</m></q>
+      is a special kind of function. The kind of function here is important
+      enough that we have a special word for this combined property: it is
+      called <term>linearity</term>. That is, left-multiplication by <m>A</m> is a
+      <term>linear operation</term> or a <term>linear transformation</term>.
+    </p>
+    <p>
+      The linearity property makes it possible to check the following two results.
+    </p>
+    <theorem>
+      <statement>
+        Let <m>Ax=b</m> be a system of linear equations, and let <m>Ax=0</m> be
+        the associated homogeneous system. If <m>x_p</m> and <m>x_p'</m> are
+        two particular solutions to <m>Ax=b</m>, then <m>x_p - x_p'</m> is a
+        solution to the homogeneous system <m>Ax=0</m>.
+      </statement>
+    </theorem>
+
+    <theorem>
+      <statement>
+        Let <m>Ax=b</m> be a system of linear equations, and let <m>Ax=0</m>
+        be the associated homogeneous system.
+        If <m>x_p</m> is some particular solution to <m>Ax=b</m> and
+        <m>x_n</m> is some solution to <m>Ax=0</m>, then <m>x_p + x_n</m> is
+        another solution to <m>Ax=b</m>.
+      </statement>
+    </theorem>
+    <p>
+      And if we put these two theorems together, we find this result which
+      sounds fancier, but has exactly the same content.
+    </p>
+    <theorem>
+      <statement>
+        The complete set of solutions to the system <m>Ax=b</m> is the set
+        <me>
+          \left\{ x_p + x_n \mid x_n \in \mathrm{null}(A) \right\},
+        </me>
+        where <m>x_p</m> is any one particular solution to <m>Ax=b</m>.
+      </statement>
+    </theorem>
+
+    <p>
+      This leads us to Strang's very sensible advice about finding the
+      complete solution:
+    </p>
+    <ul>
+      <li>
+        Form the augmented matrix <m>\left( A \mid b \right)</m> and use
+        Gauss-Jordan elimination to put it in reduced row echelon form
+        <m>\left( R \mid d \right)</m>.
+      </li>
+      <li>
+        Use the information from the RREF to find a particular solution
+        <m>x_p</m> by solving for the pivot variables from the vector
+        <m>d</m> and setting the free variables to zero.
+      </li>
+      <li>
+        Use the special solutions <m>s_1, s_2, \dots, s_k</m>
+        (if any exist!) to describe the nullspace <m>\mathrm{null}(A)</m>.
+      </li>
+      <li>
+        Write down the resulting general solution:
+        <me>
+          x = x_p + a_1 s_1 + a_2 s_2 + \dots + a_k s_k,
+          \quad \text{for any scalars } a_i \in \mathbb{R}.
+        </me>
+      </li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Sage and Solving General Systems</title>
+
+    <p>
+      Sage has many built-in methods for solving systems of linear equations.
+      We will investigate three common ones with a single example considered
+      several times.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 3,4, [1,0,2,3, 1,3,2,0, 2,0,4,9])
+        b = vector([2,5,10])
+        print A
+        print b
+      </input>
+      <output>
+        [1 0 2 3]
+        [1 3 2 0]
+        [2 0 4 9]
+        (2, 5, 10)
+      </output>
+    </sage>
+
+    <subsubsection>
+      <title>Method One: RREF and the Nullspace</title>
+
+      <p>
+        First we find a particular solution.
+      </p>
+      <sage>
+        <input>
+          X = A.augment(b, subdivide=True).rref()
+          X  # this subdivide thing is pretty handy!
+        </input>
+        <output>
+          [ 1  0  2  0|-4]
+          [ 0  1  0  0| 3]
+          [ 0  0  0  1| 2]
+        </output>
+      </sage>
+      <p>
+        This clearly has three pivots, and all belong in the original matrix.
+        So there will be a solution. We pull out the particular solution.
+      </p>
+      <sage>
+        <input>
+          xp = vector([-4, 3, 0, 2])
+          xp
+        </input>
+        <output>
+          (-4, 3, 0, 2)
+        </output>
+      </sage>
+      <p>
+        Since we typed that in by hand, we should check our work.
+      </p>
+      <sage>
+        <input>A*xp == b</input>
+        <output>True</output>
+      </sage>
+      <p>
+        Now we need to find the nullspace and the special solutions.
+      </p>
+      <sage>
+        <input>A.right_kernel()</input>
+        <output>
+          Vector space of degree 4 and dimension 1 over Rational Field
+          Basis matrix:
+          [   1    0 -1/2    0]
+        </output>
+      </sage>
+      <p>
+        The basis has only one row, so there is only one special solution.
+        This matches our expectation. Our system is <m>3\times 4</m> and has
+        rank <m>3</m>. So there is only one free column, and hence only one
+        special solution.
+      </p>
+      <sage>
+        <input>
+          s1 = vector([-2, 0, 1, 0])
+          A*s1 == 0
+        </input>
+        <output>True</output>
+      </sage>
+      <p>
+        Now we can check the <q>general solution</q>.
+      </p>
+      <sage>
+        <input>
+          t = var('t')
+          gensol = xp + t * s1
+          gensol
+        </input>
+        <output>
+          (-2*t - 4, 3, t, 2)
+        </output>
+      </sage>
+      <sage>
+        <input>
+          A*gensol == b
+        </input>
+        <output>
+          True
+        </output>
+      </sage>
+    </subsubsection>
+    <subsubsection>
+      <title>Method Two: A Sage built-in</title>
+      <p>
+        Sage has a built-in method that looks like <q>Matrix division</q>. Here
+        we <q>left divide</q> by the matrix. This is odd notation, and is just
+        something Sage allows.
+      </p>
+      <sage>
+        <input>A\b</input>
+        <output>(-4, 3, 0, 2)</output>
+      </sage>
+      <p>
+        It is weird, but this works even if <c>A</c> is not invertible, like now.
+      </p>
+      <sage>
+        <input>A.inverse()*b</input>
+        <output>
+          Error in lines 2-2
+          Traceback (most recent call last):
+          ...
+          ArithmeticError: self must be a square matrix
+        </output>
+      </sage>
+      <p>
+        The downside to this particular method is that in only gives you one
+        particular solution. It does not produce the complete solution. You have
+        to do that bit for yourself, maybe like the above.
+      </p>
+    </subsubsection>
+
+    <subsubsection>
+      <title>Method Three: Another Sage Built-in</title>
+      <p>
+        Finally, Sage will also try to solve the system if you apply the
+        <c>.solve_right()</c> method to <c>A</c>. You have to supply the vector
+        <c>b</c> as an argument to the command.
+      </p>
+      <sage>
+        <input>A.solve_right(b)</input>
+        <output>(-4, 3, 0, 2)</output>
+      </sage>
+      <p>
+        Again, this only pulls out a single particular solution. It is up to you
+        to figure out the rest.
+      </p>
+    </subsubsection>
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+
+    <task>
+      <statement>(Strang ex 3.4.4)
+        Find the complete solution (also called the general solution) to
+        <me>
+          \begin{pmatrix} 1 &amp; 3 &amp; 1 &amp; 2 \\
+          2 &amp; 6 &amp; 4 &amp; 8 \\
+          0 &amp; 0 &amp; 2 &amp; 4 \end{pmatrix}
+          \begin{pmatrix} x \\ y \\ z \\ t \end{pmatrix} =
+          \begin{pmatrix} 1 \\ 3 \\ 1 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex 3.4.6)
+        What conditions on <m>b_1</m>, <m>b_2</m>, <m>b_3</m> and <m>b_4</m> make
+        each of these systems solvable? Find a solution in those cases.
+        <ol>
+          <li>
+            <me>
+              \begin{pmatrix} 1 &amp; 2 \\ 2 &amp; 4 \\ 2 &amp; 5 \\ 3 &amp; 9 \end{pmatrix}
+              \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} =
+              \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}.
+            </me>
+          </li>
+          <li>
+            <me>
+              \begin{pmatrix} 1 &amp; 2 &amp; 3\\ 2 &amp; 4 &amp; 6\\
+              2 &amp; 5 &amp; 7\\ 3 &amp; 9 &amp; 12\end{pmatrix}
+              \begin{pmatrix} x_1 \\ x_2 \\ x_3\end{pmatrix} =
+              \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}.
+            </me>
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex 3.4.11)
+        It is impossible for a <m>1 \times 3</m> system of equations to have
+        <m>x_p = (2,4,0)</m> and <m>x_n = \text{ any multiple of } (1,1,1)</m>.
+        Explain why.
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex 3.4.13)
+        Each of the statments below is false. Find a <m>2\times 2</m> counterexample
+        to each one.
+        <ol>
+          <li>
+            The complete solution is any linear combination of <m>x_p</m> and
+            <m>X_n</m>.
+          </li>
+          <li>
+            A system <m>Ax=b</m> has at most one particular solution.
+          </li>
+          <li>
+            The solution <m>x_p</m> with all free variables zero is the shortest
+            solution, in that it has the minimum norm <m>||x_p||</m>.
+          </li>
+          <li>
+            If <m>A</m> is an invertible matrix, there is no solution <m>x_n</m>
+            in the nullspace.
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex 3.4.21)
+        Find the complete solution in the form <m>x_p + x_n</m> to these full
+        rank systems.
+        <ol>
+          <li>
+            <me> x+y+z = 4</me>
+          </li>
+          <li>
+            <me>
+              \begin{array}{ccccccc}
+              x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 4 \\
+              x &amp; - &amp; y &amp; + &amp; z &amp; = &amp; 4
+              \end{array}
+            </me>
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex 3.4.24)
+        Give examples of matrices <m>A</m> for which the number of solutions
+        to <m>Ax = b</m> is
+        <ol>
+          <li><m>0</m> or <m>1</m>, depending on <m>b</m>;</li>
+          <li><m>\infty</m>, regardless of <m>b</m>;</li>
+          <li><m>0</m> or <m>\infty</m>, depending on <m>b</m>;</li>
+          <li><m>1</m>, regardless of <m>b</m>.</li>
+        </ol>
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex 3.4.31)
+        Find examples of matrices with the given property, or explain why it is
+        impossible:
+        <ol>
+          <li>
+            The only solution of <m>Ax = \left(\begin{smallmatrix}
+            1 \\ 2 \\ 3 \end{smallmatrix}\right)</m> is <m>x = \left(\begin{smallmatrix}
+            0 \\ 1 \end{smallmatrix}\right)</m>.
+          </li>
+          <li>
+            The only solution of <m>Bx = \left(\begin{smallmatrix}
+            0 \\ 1 \end{smallmatrix}\right)</m> is
+            <m>x = \left(\begin{smallmatrix}
+            1 \\ 2 \\ 3 \end{smallmatrix}\right)</m>.
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex 3.4.33)
+        The complete solution to the equation <m>Ax = \left(\begin{smallmatrix}
+        1 \\ 3\end{smallmatrix}\right)</m> is <m>x = \left(\begin{smallmatrix}
+        1 \\ 0\end{smallmatrix}\right) +
+        c\left(\begin{smallmatrix}0\\ 1 \end{smallmatrix}\right)</m>.
+        Find the matrix <m>A</m>. Write the set of equations that corresponds to
+        <m>Ax = b</m>. (This is the <em>implicit</em> description of this set!)
+      </statement>
+    </task>
+  </subsection>
 </section>
