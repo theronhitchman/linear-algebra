@@ -245,7 +245,7 @@
         Give an example of a <m>5 \times 3</m> matrix which has
         <ul>
           <li>rank equal to 3, and</li>
-          <li>no non-zero entries,</li>
+          <li>all non-zero entries,</li>
         </ul>
         or explain why no such example is possible.
       </statement>
@@ -257,7 +257,7 @@
         <ul>
           <li>rank equal to 2,</li>
           <li>a nullspace of <m>\{0\}</m>, and</li>
-          <li>no non-zero entries,</li>
+          <li>all non-zero entries,</li>
         </ul>
         or explain why no such example is possible.
       </statement>
