@@ -17,3 +17,9 @@ Weekly Assignment \# 5 is available through the SageMathCloud. Sign in, and you
 should find a new project that I created for you. Inside will be a directory
 for this assignment. I should be able to _automatically collect_ this assignment
 at the deadline, which is Thursday, October 9 at 10pm CDT.
+
+
+Weekly Assignment \# 6 is available through the SageMathCloud. Sign in, and you
+should find a directory called "Weekly Assignment 6" inside the project I previously
+created for you. I will automatically collect this assignment through SMC sometime
+after the deadline, which is Tuesday, October 14 at 10 CDT.
