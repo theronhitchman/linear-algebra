@@ -9,4 +9,475 @@
 
 <section xml:id="basis">
   <title>Bases</title>
+
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>Read <em>Strang</em> chapter 3 section 5.</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Learning Goals</title>
+    <p>Before class, a student should be able to:</p>
+    <ul>
+      <li>Use the row space algorithm to decide if a set of vectors is
+        linearly independent or linearly dependent.</li>
+      <li>Use the column space algorithm to decide if a set of vectors is
+        linearly independent or linearly dependent</li>
+      <li>Compute the dimension of a subspace.</li>
+    </ul>
+    <p>Sometime after class, a student should be able to:</p>
+    <ul>
+      <li>Explain the connection between a set of vectors being
+      linearly independent, a spanning set, and a basis.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Discussion: Linear Independence, Spanning, Basis, and Dimension</title>
+    <p>
+      The purpose of this lesson is to introduce specific terms for several
+      concepts we have been dancing around. This is a spot that sometimes gives
+      students difficulty because they are unused to the way mathematicians
+      talk. So, here is a big warning:
+    </p>
+    <blockquote>
+      <p>
+        <q>When I use a word,</q> Humpty Dumpty said in rather a scornful tone,
+        <q>it means just what I choose it to mean -- neither more nor less.</q>
+      </p>
+      <p>
+      --<em>Through the Looking Glass</em>, Lewis Carroll</p>
+    </blockquote>
+    <p>
+      That is the essence of it. We have several new words, and they will
+      mean <em>exactly</em> what we declare them to mean, no more, no less.
+    </p>
+    <p>
+      What are the new terms?
+    </p>
+    <ul>
+      <li>
+        A set <m>\{v_1, v_2, \ldots, v_k\}</m> of vectors is <term>linearly
+        independent</term>, or <term>linearly dependent</term>.
+      </li>
+      <li>
+        A set of vectors <term>spans</term> a vector space or a subspace.
+      </li>
+      <li>
+        A set of vectors is a <term>basis</term> or not.
+      </li>
+      <li>
+        The <term>dimension</term> of a vector space, or of a vector subspace.
+      </li>
+    </ul>
+    <p>
+      You should take away from this reading what those four terms are, how
+      to check them, and some examples and non-examples.
+    </p>
+    <p>
+      A bit of notation: If we have a set <m>\{ v_1, v_2, \dots, v_k\}</m> of
+      vectors in some vector space, then we denote the subspace which they
+      span by <m>\mathrm{span}(\{v_1, v_2, \ldots, v_k\})</m>. (This has to
+      be the easiest possible notational choice ever.)
+    </p>
+
+    <subsubsection>
+      <title>Other Vector Spaces</title>
+      <p>
+        Once you understand these terms as they apply to the Euclidean
+        spaces <m>\mathbb{R}^n</m> and their subspaces (especially those
+        associated to matrices), you should pause to admire your achievement.
+      </p>
+      <p>
+        But next, realize that those terms apply generally to all sorts of
+        vector spaces! Can you make examples and non-examples in some of
+        these other situtations?
+      </p>
+      <ul>
+        <li>
+          The set <m>\mathcal{P}_3</m> of polynomials in <m>x</m> of degree
+          no more than 3?
+        </li>
+        <li>
+          The set <m>M_{m,n}</m> of <m>m\times n</m> matrices.
+        </li>
+        <li>
+          The set <m>\mathcal{C}(\mathbb{R})</m> of continuous functions.
+        </li>
+        <li>
+          The set of all functions which are solutions to the differential
+          equation <m>y'' = y</m>.
+        </li>
+      </ul>
+    </subsubsection>
+    <subsubsection>
+      <title>Two Methods of Sorting out Linear Independence</title>
+      <p>
+        We have enough information to collect two ways to answer the question:
+        <q>Is this set linearly independent?</q>
+        Well, at least when working with vectors in some Euclidean space
+        <m>\mathbb{R}^n</m>.
+      </p>
+      <subsubsubsection>
+        <title>The Column Space Algorithm</title>
+        <p>
+          Given a set of vectors <m>\{v_1, v_2, \ldots, v_k\}</m> from
+          <m>\mathbb{R}^n</m>:
+        </p>
+        <ul>
+          <li>Form the <m>n\times k</m> matrix
+            <m>A = \left( \begin{smallmatrix} v_1 &amp; v_2 &amp; \dots &amp;
+            v_k\end{smallmatrix}\right)</m>.
+          </li>
+          <li>Put <m>A</m> into reduced row echelon form
+            <m>R = \mathrm{rref}(A)</m>. (Really, you only need to go to
+            echelon form, here.)
+          </li>
+          <li>Read out pivot columns and free columns of <m>R</m>.
+            Those columns of <m>A</m> which are free columns are linear
+            combinations of previous columns to the left! So, if any column
+            of <m>R</m> (and <m>A</m>) is a free columns, the set of vectors
+            is linearly dependent. If all of the columns of <m>R</m>
+            (and <m>A</m>) are pivot columns, then the set is linearly
+            independent.
+          </li>
+        </ul>
+        <p>
+          This method is particularly good for identifying which subset of
+          our original set of vectors would form a basis of the vector
+          subspace <m>\mathrm{span}(\{v_1, v_2, \ldots, v_k\})</m>.
+        </p>
+      </subsubsubsection>
+      <subsubsubsection>
+        <title>The Row Space Algorithm</title>
+        <p>(We will see the reason for the name soon.)
+          Given a set of vectors <m>\{v_1, v_2, \ldots, v_k\}</m> from
+          <m>\mathbb{R}^n</m>:
+        </p>
+        <ul>
+          <li>Form the <m>k\times n</m> matrix
+          <m>A = \left( \begin{smallmatrix} v_1^T \\ v_2^T \\ \vdots
+            \\ v_k^T \end{smallmatrix}\right)</m>.
+          </li>
+          <li>Put <m>A</m> into reduced row echelon form
+            <m>R = \mathrm{rref}(A)</m>.
+          </li>
+          <li>The rows of <m>R</m> will contain a basis for the vector
+            subspace <m>\mathrm{span}(\{v_1, v_2, \ldots, v_k\})</m> (written as
+            rows instead of columns, of course).
+            If <m>R</m> has any zero rows, the original set was linearly
+            dependent, otherwise it was linearly independent.
+          </li>
+        </ul>
+        <p>
+          This method is good at picking out a simple basis of the vector
+          subspace <m>\mathrm{span}(\{v_1, v_2, \ldots, v_k\})</m>, but the
+          resulting vectors \emph{probably won't come from your original set}.
+        </p>
+      </subsubsubsection>
+    </subsubsection>
+  </subsection>
+
+  <subsection>
+    <title>Sage and Bases</title>
+    <p>
+      Sage has several commands which are useful for dealing with the concpets
+      of this section.
+    </p>
+    <subsubsection>
+      <title>Commands for span, dimension, and basis</title>
+      <p>
+        This first command will
+        construct a vector subspace of <m>3</m>-space which is spanned by the two
+        vectors we pass in as arguments.
+      </p>
+      <sage>
+        <input>
+          v1 = vector([1,0,2])
+          v2 = vector([1,1,3])
+
+          V = span([v1,v2], QQ)
+          V
+        </input>
+        <output>
+          Vector space of degree 3 and dimension 2 over Rational Field
+          Basis matrix:
+          [1 0 2]
+          [0 1 1]
+        </output>
+      </sage>
+      <p>
+        Note that Sage already gives us some information:
+        <ul>
+          <li>dimension</li>
+          <li>a basis</li>
+        </ul>
+        Sage has chosen its preferred basis, as usual.
+      </p>
+      <sage>
+        <input>V.dimension()</input>
+        <ouput>2</ouput>
+      </sage>
+      <sage>
+        <input>V.basis()</input>
+        <output>
+          [
+          (1, 0, 2),
+          (0, 1, 1)
+          ]
+        </output>
+      </sage>
+    </subsubsection>
+    <subsubsection>
+      <title>The Algorithms for Checking Linear Independence</title>
+      <p>
+        Sage does not have built-in commands with names for checking linear independence
+        or linear dependence. Instead, you have to just use the algorithms.
+      </p>
+      <subsubsubsection>
+        <title>The Row Space Algorithm</title>
+        <sage>
+          <input>
+            row_matrix = matrix(QQ, 2,3, [v1,v2])
+            row_matrix
+          </input>
+          <output>
+            [1 0 2]
+            [1 1 3]
+          </output>
+        </sage>
+        <sage>
+          <input>
+            R = row_matrix.rref()
+            R
+          </input>
+          <output>
+            [1 0 2]
+            [0 1 1]
+          </output>
+        </sage>
+        <p>
+          (Where have we seen that before?) From this, it is clear that <m>\left\{
+          v_1, v_2 \right\}</m> is linearly dependent because both rows have pivots.
+        </p>
+      </subsubsubsection>
+      <subsubsubsection>
+        <title>The Column Space Algorithm</title>
+        <p>
+          We work much the same way here.
+        </p>
+        <sage>
+          <input>
+            col_matrix = matrix(2,3, [v1,v2]).transpose()
+            col_matrix
+          </input>
+          <output>
+            [1 1]
+            [0 1]
+            [2 3]
+          </output>
+        </sage>
+        <sage>
+          <input>
+            col_matrix.rref()
+          </input>
+          <output>
+            [1 0]
+            [0 1]
+            [0 0]
+          </output>
+        </sage>
+        <p>
+          This tells us that our first two columns are pivot columns, so we
+          should
+          keep those as part of our basis for
+          <m>\mathrm{span}\left(v_1, v_2\right)</m>.
+        </p>
+      </subsubsubsection>
+    </subsubsection>
+    <subsubsection>
+      <title>Spaces Associated to a Matrix</title>
+      <p>
+        Sage knows about the column space and row space associated to a
+        matrix. For this next example, we will work over the ring <c>AA</c>
+        of <q>algebraic numbers</q>, so we can include <m>\sqrt{2}</m>.
+      </p>
+      <sage>
+        <input>
+          entries = [453, 1/3, 34, 2.sqrt(),
+                     9, 11/9, -3, 8, 98, 10,
+                     21, -4]
+          A = matrix(AA, 3,4, entries); A
+        </input>
+        <output>
+          [               453                1/3                 34 1.414213562373095?]
+          [                 9               11/9                 -3                  8]
+          [                98                 10                 21                 -4]
+        </output>
+      </sage>
+      <sage>
+        <input>A.column_space()</input>
+        <output>
+          Vector space of degree 3 and dimension 3 over Algebraic Real Field
+          Basis matrix:
+          [1 0 0]
+          [0 1 0]
+          [0 0 1]
+        </output>
+      </sage>
+      <sage>
+        <input>A.column_space().dimension()</input>
+        <output>3</output>
+      </sage>
+      <sage>
+        <input>A.column_space().basis()</input>
+        <output>
+          [
+          (1, 0, 0),
+          (0, 1, 1),
+          (0, 0, 1)
+          ]
+        </output>
+      </sage>
+      <sage>
+        <input>A.row_space()</input>
+        <output>
+          Vector space of degree 4 and dimension 3 over Algebraic Real Field
+          Basis matrix:
+          [                   1                    0                    0 0.12115291228302765?]
+          [                   0                    1                    0   1.751194192226904?]
+          [                   0                    0                    1  -1.589758444095512?]
+        </output>
+      </sage>
+      <sage>
+        <input>A.row_space().dimension()</input>
+        <output>3</output>
+      </sage>
+      <p>
+        Or we could do this in other ways.
+      </p>
+      <sage>
+        <input>span(A.columns()).dimension()</input>
+        <output>3</output>
+      </sage>
+      <sage>
+        <input>span(A.rows()).dimension()</input>
+        <output>3</output>
+      </sage>
+      <sage>
+        <input>A.right_kernel().dimension()</input>
+        <output>1</output>
+      </sage>
+    </subsubsection>
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+    <p>
+      Note: We may not present all of these in class.
+    </p>
+
+    <task>
+      <statement>
+        Make an example of a vector <m>v \in \mathbb{R}^4</m> so that the set
+        <me>
+          \left\{
+          \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix},
+          \begin{pmatrix} 0 \\ 1 \\ 2 \\ 1 \end{pmatrix},
+          \begin{pmatrix} -2\\ 1 \\ 0 \\ -5 \end{pmatrix},
+          v
+          \right\}
+        </me>
+        is a linearly independent set, or explain why it is impossible to find
+        such an example.
+        Is your resulting set a basis?
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Make an example of a vector <m>w \in \mathbb{R}^3</m> so that the set
+        <me>
+          \left\{
+          \begin{pmatrix} 2 \\ 3 \\ 4 \end{pmatrix},
+          \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix},
+          \begin{pmatrix} -2\\ -4 \\ -5 \end{pmatrix},
+          w
+          \right\}
+        </me>
+        is a spanning set, or explain why it is impossible to find such an
+        example. Is your resulting set a basis?
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang 3.5.10)
+        Find two independent vectors on the plane <m>x+2y-3z-t=0</m> in
+        <m>\mathbb{R}^4</m>. Then find three independent vectors on this plane.
+        Why not four? Find a matrix for which this plane is the nullspace.
+      </statement>
+    </task>
+    <task>
+      <statement>(Strang 3.5.21)
+        Suppose that the columns of a <m>5 \times 5 </m> matrix <m>A</m> are a
+        basis for <m>\mathbb{R}^5</m>.
+        <ol>
+          <li>
+            Explain why the equation <m>Ax = 0</m> has only the solution
+            <m>x=0</m>.
+          </li>
+          <li>
+            What fact about the column vectors guarantees that for any <m>b</m>
+            in <m>\mathbb{R}^5</m> the equation <m>Ax =b</m> is solvable?
+          </li>
+        </ol>
+        Conclusion: <m>A</m> is invertible. Its rank is <m>5</m>. Its rows are
+        also a basis for <m>\mathbb{R}^5</m>.
+      </statement>
+    </task>
+    <task>
+      <statement>(Strang 3.5.22)
+        Suppose that <m>S</m> is a <m>5</m>-dimensional subspace of
+        <m>\mathbb{R}^6</m>.
+        Determine if the following statements are true or false. If true, give
+        an explanation for why it is true. If false, give a counterexample.
+        <ol>
+          <li>
+            Every basis for <m>S</m> can be extended to a basis for
+            <m>\mathbb{R}^6</m> by adding one more vector.
+          </li>
+          <li>
+            Every basis for <m>\mathbb{R}^6</m> can be reduced to a basis for
+            <m>S</m> by removing one vector.
+          </li>
+        </ol>
+      </statement>
+    </task>
+    <task>
+      <statement>(Strang 3.5.26)
+        Find a basis (and the dimension) for each of these subspaces of the vector
+        space of <m>3\times 3</m> matrices:
+        <ol>
+          <li>
+            All diagonal matrices.
+          </li>
+          <li>
+            All symmetric matrices. (<m>A^T = A</m>)
+          </li>
+          <li>
+            All skew-symmetric matrices. (<m>A^T = -A</m>)
+          </li>
+        </ol>
+      </statement>
+    </task>
+    <task>
+      <statement>(Strang 3.5.35)
+        Find a basis for the space of polynomials <m>p(x)</m> of degree less than
+        or equal to <m>3</m>. Find a basis for the subspace with <m>p(1)=0</m>.
+      </statement>
+    </task>
+  </subsection>
 </section>
