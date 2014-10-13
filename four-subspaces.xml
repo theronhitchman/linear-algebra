@@ -9,4 +9,261 @@
 
 <section xml:id="four-subspaces">
   <title>The Four Subspaces</title>
+
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>Read chapter 3 section 6 of <em>Strang</em>.</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Learning Goals</title>
+    <p>Before class, a student should be able to:</p>
+    <ul>
+      <li>Identify the four subspaces associated to a matrix by giving a basis
+        of each.
+      </li>
+      <li>Determine the dimension of each of the four subspaces associated to a
+        matrix.
+      </li>
+    </ul>
+    <p>Some time after class, a student should be able to:</p>
+    <ul>
+      <li>Describe each of the four subspaces associated to a matrix by
+        giving minimal sets of equations which <q>cut them out.</q>
+      </li>
+      <li>State and use the Fundamental Theorem of Linear Algebra (FTLA)
+        to reason about matrices.
+      </li>
+      <li>Use the RREF of a matrix to explain why the FTLA is true.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Discussion: The Four Subspaces</title>
+    <p>
+      This section summarizes a big tool for understanding the behavior of a
+      matrix as a function.
+      Recall that if <m>A</m> is an <m>m\times n</m> matrix, then we can
+      think of it as defining a function
+      <me>
+        \begin{array}{rcl}
+        T_A: \mathbb{R}^n &amp; \rightarrow &amp; \mathbb{R}^m \\
+        v\phantom{R} &amp; \mapsto &amp; Av
+        \end{array}
+      </me>
+      which takes as inputs vectors from <m>\mathbb{R}^n</m> and has as
+      outputs vectors in <m>\mathbb{R}^m</m>. We have also seen that
+      properties of matrix multiplication translate into properties that
+      make into a <term>linear transformation</term>.
+    </p>
+    <p>
+      We now have four fundamental subspaces associated to the matrix <m>A</m>.
+    </p>
+    <ul>
+      <li>The column space, <m>\mathrm{col}(A)</m>, spanned by all of the
+        columns of <m>A</m>. This is a subspace of <m>\mathbb{R}^m</m>.
+      </li>
+      <li>The row space, <m>\mathrm{row}(A)</m>, spanned by all of the rows
+        of <m>A</m>. This is a subspace of <m>\mathbb{R}^n</m>. This also
+        happens to be the column space of <m>A^T</m>.
+      </li>
+      <li>The nullspace (or kernel), <m>\mathrm{null}(A)</m>, consisting of
+        all those vectors <m>x</m> for which <m>Ax=0</m>. This is a subspace
+        of <m>\mathbb{R}^n</m>.
+      </li>
+      <li>The left nullspace, which is just the nullspace of <m>A^T</m>. This
+        is a subspace of <m>\mathbb{R}^m</m>.
+      </li>
+    </ul>
+    <p>
+      And we have a big result:
+    </p>
+    <theorem>
+      <statement>
+        If <m>A</m> is an <m>m\times n</m> matrix with rank
+        <m>\mathrm{rank}(A) = r</m>, then
+        <ul>
+          <li><m>\dim(\mathrm{col}(A)) = \dim(\mathrm{row}(A)) = r</m>,</li>
+          <li><m>\dim(\mathrm{null}(A)) = n-r</m>, and</li>
+          <li><m>\dim(\mathrm{null}(A^T))= m-r</m>.</li>
+        </ul>
+      </statement>
+    </theorem>
+    <p>
+      (<em>Study Hint: Write that out in English, with no notation.
+      It will help you remember it.</em>)
+    </p>
+    <p>
+      We will have more to say about these spaces when we reconsider the uses
+      of the dot product in chapter 4.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Sage and the Four Subspaces</title>
+    <p>
+      We have already seen enough Sage commands to work with the four subspaces:
+      <c>.row_space()</c>, <c>.column_space()</c>, <c>.left_kernel()</c>, and
+      <c>.right_kernel()</c> all work.
+      Alternatively, we need only remember that the left nullspace and the row
+      space are just the nullspace and column space of the transpose. Let us
+      take a look at some of the options.
+    </p>
+    <sage>
+      <input>
+        A = matrix(AA, 2,5, [3,4,5,-1,-1, 1,1,2,-1,1])
+        A
+      </input>
+      <output>
+        [ 3  4  5 -1 -1]
+        [ 1  1  2 -1  1]
+      </output>
+    </sage>
+    <sage>
+      <input>A.column_space()</input>
+      <output>
+        Vector space of degree 2 and dimension 2 over Algebraic Real Field
+        Basis matrix:
+        [1 0]
+        [0 1]
+      </output>
+    </sage>
+    <sage>
+      <input>A.right_kernel()</input>
+      <output>
+        Vector space of degree 5 and dimension 3 over Algebraic Real Field
+        Basis matrix:
+        [  1   0   0   2   1]
+        [  0   1   0 5/2 3/2]
+        [  0   0   1 7/2 3/2]
+      </output>
+    </sage>
+    <p>
+      We have computed column spaces and nullspaces before. What about our
+      new friends?
+    </p>
+    <sage>
+      <input>A.row_space()</input>
+      <output>
+        Vector space of degree 5 and dimension 2 over Algebraic Real Field
+        Basis matrix:
+        [ 1  0  3 -3  5]
+        [ 0  1 -1  2 -4]
+      </output>
+    </sage>
+    <sage>
+      <input>A.transpose().column_space()</input>
+      <output>
+        Vector space of degree 5 and dimension 2 over Algebraic Real Field
+        Basis matrix:
+        [ 1  0  3 -3  5]
+        [ 0  1 -1  2 -4]
+      </output>
+    </sage>
+    <sage>
+      <input>A.transpose().column_space() == A.row_space()</input>
+      <output>True</output>
+    </sage>
+    <p>
+      Since Sage prefers rows under the hood, the left nullspace is easy to find.
+    </p>
+    <sage>
+      <input>A.left_kernel()</input>
+      <output>
+        Vector space of degree 2 and dimension 0 over Algebraic Real Field
+        Basis matrix:
+        []
+      </output>
+    </sage>
+    <sage>
+      <input>A.transpose().right_kernel()</input>
+      <output>
+        Vector space of degree 2 and dimension 0 over Algebraic Real Field
+        Basis matrix:
+        []
+      </output>
+    </sage>
+    <sage>
+      <input>A.left_kernel() == A.transpose().right_kernel()</input>
+      <output>True</output>
+    </sage>
+    <p>
+      And there you have it. Sage can construct all four fundamental subspaces,
+      and each comes with a basis computed by Sage. (Using the row algorithm!)
+      Note that the FTLA works in this case.
+    </p>
+
+  </subsection>
+  <subsection>
+    <title>Questions for Section 3.6</title>
+    <task>
+      <statement>
+        Find the four subspaces, including a basis of each, for the matrix
+        <me>
+          A = \begin{pmatrix}
+          7 &amp; -1 &amp; 3 \\
+          -2 &amp; 4 &amp; -5 \\
+          1 &amp; 11 &amp; -12
+          \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        Find the four subspaces, including a basis of each, for the matrix
+        <me>
+          B = \begin{pmatrix}
+          1 &amp; 3 &amp; -2 &amp; 0 &amp; 2 &amp; 0 \\
+          2 &amp; 6 &amp; -5 &amp; -2 &amp; 4 &amp; -3 \\
+          0 &amp; 0 &amp; 5 &amp; 10 &amp; 0 &amp; 15 \\
+          2 &amp; 6 &amp; 0 &amp; 8 &amp; 4 &amp; 18
+          \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+    <task>
+      <statement>(Strang 3.6.12)
+        <p>
+          Find an example of a matrix which has <m>(1,0,1)</m> and <m>(1,2,0)</m>
+          as a basis for its row space and its column space.
+        </p>
+        <p>
+          Why can't this be a basis for the row space and the nullspace?
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>(Strang 3.6.14)
+        Without computing <m>A</m>, find bases for its four fundamental subspaces:
+        <me>
+          A = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\
+          6 &amp; 1 &amp; 0 \\ 9 &amp; 8 &amp; 1 \end{pmatrix}
+          \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\
+          0 &amp; 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 1 &amp; 2 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+    <task>
+      <statement>(Strang 3.6.16)
+        Explain why the vector <m>v = (1, 0, -1)</m> cannot be a row of <m>A</m>
+        and also in the nullspace of <m>A</m>.
+      </statement>
+    </task>
+    <task>
+      <statement>(Strang 3.6.24)
+        <p>
+          The equation <m>A^Ty = d</m> is solvable exactly when <m>d</m> lies in
+          one of the four subspaces associated to <m>A</m>. Which is it?
+        </p>
+        <p>
+          Which subspace can you use to determine if the solution to that
+          equation is unique? How do you use that subspace?
+        </p>
+      </statement>
+    </task>
+
+  </subsection>
+
 </section>
