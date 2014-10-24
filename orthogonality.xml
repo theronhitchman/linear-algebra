@@ -12,7 +12,41 @@
 
   <title>Orthogonality</title>
 
-  <introduction>Here is some introductory text.</introduction>
+  <introduction>
+    <p>
+      We introduced the dot product in Chapter One, but we have not found a lot
+      of use for it so far. In this chapter, we pick it back up and see what
+      we can do with it. Of course, the dot product hides a lot of geometry
+      in its mysteries, but for us the key is the notion of <em>orthogonality</em>.
+    </p>
+    <p>
+      In this chapter we will address two important questions:
+      <ol>
+        <li>
+          How can we find <em>approximate solutions</em> to equations <m>Ax=b</m>
+          when we know (or suspect) that finding a true solutions is impossible?
+        </li>
+        <li>
+          How can we use geometry to find a <em>good</em> basis for a subspace?
+        </li>
+      </ol>
+      The answers to both of these questions will involve using the dot product
+      to check for orthogonality.
+    </p>
+    <p>
+      Now, to begin, we shall explore the idea of <em>subspaces</em> being orthogonal,
+      rather than just vectors, and strengthen the Fundamental Theorem of Linear
+      Algebra.
+    </p>
+
+  </introduction>
+
+  <xi:include href="ftla2.xml" />
+  <xi:include href="projections.xml" />
+  <xi:include href="gf-proj.xml" />
+  <xi:include href="least-squares.xml" />
+  <xi:include href="gram-schmidt.xml" />
+  <xi:include href="gf-ls-gs.xml" />
 
 
 </chapter>
