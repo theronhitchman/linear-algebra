@@ -31,7 +31,8 @@
         </li>
       </ol>
       The answers to both of these questions will involve using the dot product
-      to check for orthogonality.
+      to check for orthogonality. This will be leveraged into the technique of
+      <term>orthogonal projection.</term>
     </p>
     <p>
       Now, to begin, we shall explore the idea of <em>subspaces</em> being orthogonal,
