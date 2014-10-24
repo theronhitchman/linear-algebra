@@ -8,7 +8,297 @@
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="section-ftla2">
+  <title>Orthogonality and the Four Subspaces</title>
 
-  <p>Filler text.</p>
+  <subsection>
+    <title>The Assignment</title>
 
+    <ul>
+      <li>Read section 4.1 of <em>Strang</em>.</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+
+  </subsection>
+
+  <subsection>
+    <title>Learning Goals</title>
+    <p>
+      Before class, a student should be able to:
+    </p>
+    <ul>
+      <li>
+        Find the four subspaces associated to a matrix and verify that they
+        are orthogonal subspaces.
+      </li>
+      <li>
+        Draw the <q>Big Picture</q> associated to a matrix as a schematic drawing,
+        with the four subspaces properly located and their dimensions identified.
+      </li>
+    </ul>
+    <p>
+      Some time after class, a student should be able to:
+    </p>
+    <ul>
+      <li>Find the orthogonal complement to a subspace.</li>
+      <li>
+        Reason about the structure of a matrix as a transformation using information
+        about its four subspaces.
+      </li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Discussion: Orthogonality for subspaces</title>
+
+    <p>
+      Previously, we had the notion of orthogonality for two vectors in
+      Euclidean space. In this section, the concept gets extended to subspaces.
+    </p>
+    <definition>
+      <statement>
+        Let <m>V</m> and <m>W</m> be subspaces of <m>\mathbb{R}^n</m>. We say that
+        <m>\mathbb{R}^n</m> and <m>\mathbb{R}^m</m> are <term>orthogonal</term>
+        when for each vector <m>v \in V</m> and each vector <m>w \in W</m> we
+        have <m>v \cdot w =0</m>.
+      </statement>
+    </definition>
+    <p>
+      Two orthogonal subspaces always have as intersection the trivial subspace
+      <m>\{ 0\}</m>. The reason for this is that if some vector <m>x</m> lay in
+      both <m>V</m> and <m>W</m>, then we must have that <m>x \cdot x =0</m>.
+      (Think of the first <m>x</m> as lying in <m>V</m>, and the second in
+      <m>W</m>.) But the properties of the dot product then mean that <m>x</m>
+      is the zero vector.
+    </p>
+    <p>
+      There is a further concept:
+    </p>
+    <definition>
+      <statement>
+        Let <m>V</m> be a vector subspace of <m>\mathbb{R}^n</m>. The
+        <term>orthogonal complement</term> of <m>V</m> is the set
+        <me>
+          V^{\perp} = \{ w \in \mathbb{R}^n \mid w \cdot v = 0 \text{ for all } v \in V \}.
+        </me>
+      </statement>
+    </definition>
+    <p>
+      The basic idea is that two spaces are orthogonal complements if they are
+      orthogonal, and together they contain enough vectors to span the entire
+      space. The definition looks like it is a one-directional thing: for a
+      subspace, you find its orthogonal complement. But really it is a
+      <em>complementary</em> relationship. If <m>W</m> is the orthogonal
+      complement to <m>V</m>, then <m>V</m> is the orthogonal complement to
+      <m>W</m>.
+    </p>
+    <p>
+      Recall the four fundamental subspaces associated to an <m>m\times n</m>
+      matrix <m>A</m>.
+      <itemize>
+        <li>
+          The column space, <m>\mathrm{col}(A)</m>, spanned by all of the
+          columns of <m>A</m>. This is a subspace of <m>\mathbb{R}^m</m>.
+        </li>
+        <li>
+          The row space, <m>\mathrm{row}(A)</m>, spanned by all of the rows of
+          <m>A</m>. This is a subspace of <m>\mathbb{R}^n</m>. This also happens
+          to be the column space of <m>A^T</m>.
+        </li>
+        <li>
+          The nullspace (or kernel), <m>\mathrm{null}(A)</m>, consisting of all
+          those vectors <m>x</m> for which <m>Ax=0</m>. This is a subspace of
+          <m>\mathbb{R}^n</m>.
+        </li>
+        <li>
+          The left nullspace, which is just the nullspace of <m>A^T</m>. This is
+          a subspace of <m>\mathbb{R}^m</m>.
+        </li>
+      </itemize>
+    </p>
+    <p>
+      And we have another big result, which is a sharpening of the Fundamental
+      Theorem of Linear Algebra from the end of Chapter Three.
+    </p>
+    <theorem>
+      <statement>
+        If <m>A</m> is an <m>m\times n</m> matrix, then
+        <ul>
+          <li>
+            The nullspace of <m>A</m> and the row space of <m>A</m> are
+            orthogonal complements of one another.
+          </li>
+          <li>
+            The column space of <m>A</m> and the left nullspace of <m>A</m>
+            are orthogonal complements of one another.
+          </li>
+        </ul>
+      </statement>
+    </theorem>
+  </subsection>
+
+  <subsection>
+    <title>Sage and the Orthogonal Complement</title>
+    <p>
+      It is not hard to find the four subspaces associated to a matrix with Sage's
+      built-in commands. But Sage also has a general purpose <c>.complement()</c>
+      method available for vector subspaces which can be used.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 3,2, [12,3,4,5,6,7])
+        A
+      </input>
+      <output>
+        [12 3]
+        [ 4 5]
+        [ 6 7]
+      </output>
+    </sage>
+    <sage>
+      <input>A.right_kernel() # the nullspace</input>
+      <output>
+        Vector space of degree 2 and dimension 0 over Rational Field
+        Basis matrix:
+        []
+      </output>
+    </sage>
+    <sage>
+      <input>A.column_space()</input>
+      <output>
+        Vector space of degree 3 and dimension 2 over Rational Field
+        Basis matrix:
+        [   1    0 1/24]
+        [   0    1 11/8]
+      </output>
+    </sage>
+    <sage>
+      <input>A.row_space()</input>
+      <output>
+        Vector space of degree 2 and dimension 2 over Rational Field
+        Basis matrix:
+        [1 0]
+        [0 1]
+      </output>
+    </sage>
+    <p>
+      Those are the easy ones to find. The left nullspace is just a touch trickier.
+      What is the deal? It is just the nullspace of the matrix <m>A^T</m>, of course.
+      But by the Fundamental Theorem of Linear Algebra, the left nullspace is the
+      orthogonal complement of the column space. Let's see if they agree.
+    </p>
+    <sage>
+      <input>A.column_space().complement()</input>
+      <output>
+        Vector space of degree 3 and dimension 1 over Rational Field
+        Basis matrix:
+        [  1  33 -24]
+      </output>
+    </sage>
+    <sage>
+      <input>A.transpose().right_kernel()</input>
+      <output>
+        Vector space of degree 3 and dimension 1 over Rational Field
+        Basis matrix:
+        [  1  33 -24]
+      </output>
+    </sage>
+    <sage>
+      <input>A.left_kernel()</input>
+      <output>
+        Vector space of degree 3 and dimension 1 over Rational Field
+        Basis matrix:
+        [  1  33 -24]
+      </output>
+    </sage>
+    <p>
+      That is good news! It looks like the three ways we have of computing the
+      left nullspace agree. As a check for understanding, you should be able to
+      ask Sage if the rowspace of <m>A</m> is the orthogonal complement to the
+      nullspace of <m>A</m>.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+
+    <task>
+      <statement>(Strang ex. 4.1.2)
+        Draw the <q>Big Picture</q> for a <m>3\times 2</m> matrix of rank <m>2</m>.
+        Which subspace has to be the zero subspace?
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex. 4.1.3)
+        For each of the following, give an example of a matrix with the required
+        properties, or explain why that is impossible.
+        <ol>
+          <li>
+            The column space contains <m>\begin{pmatrix} 1 \\ 2 \\ -3\end{pmatrix}</m>
+            and <m>\begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}</m>, and the nullspace
+            contains <m>\begin{pmatrix} 1\\1\\1 \end{pmatrix}</m>.
+          </li>
+          <li>
+            the row space contains <m>\begin{pmatrix} 1 \\ 2 \\ -3\end{pmatrix}</m>
+            and <m>\begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}</m>, and the nullspace
+            contains <m>\begin{pmatrix} 1\\1\\1 \end{pmatrix}</m>.
+          </li>
+          <li>
+            <m>Ax = \begin{pmatrix}1 \\ 1\\ 1\end{pmatrix}</m> has a solution, and
+            <m>A^T\begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix} =
+              \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}</m>.
+          </li>
+          <li>
+            Every row is orthogonal to every column, but <m>A</m> is not the zero matrix.
+          </li>
+          <li>
+            The columns add up to a column of zeros, and the rows add up to a row of <m>1</m>'s.
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang ex 4.1.4)
+        If <m>AB = 0</m>, how do the columns of <m>B</m> relate to the subspaces
+        of <m>A</m>? How do the rows of <m>A</m> relate to the subspaces of <m>B</m>?
+        Why can't we make an example of this where <m>A</m> and <m>B</m> are both
+        <m>3 \times 3</m> matrices of rank <m>2</m>?
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang ex 4.1.9)
+        Use the four subspace of <m>A</m> to explain why this is always true:
+        <me>\text{If } A^T Ax = 0, \text{then } Ax = 0.</me>
+        (This fact will be useful later! It will help us see that <m>A^TA</m> and
+        <m>A</m> have the same nullspace.)
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang ex 4.1.12)
+        Find the pieces <m>x_r</m> and <m>x_n</m> and draw the <q>Big Picture</q>
+        carefully when:
+        <me> A = \begin{pmatrix} 1 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}
+          \qquad \text{and } x = \begin{pmatrix} 2 \\ 0 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang ex. 4.1.22)
+        Let <m>P</m> be the hyperplane of vectors in <m>\mathbb{R}^4</m> which
+        satisfy the equation
+        <me> x_1 + x_2 + x_3 + x_4 = 0 .</me>
+        Write down a basis for <m>P^{\perp}</m>. Construct a matrix <m>X</m> which
+        has <m>P</m> as its nullspace.
+      </statement>
+    </task>
+  </subsection>
 </section>
