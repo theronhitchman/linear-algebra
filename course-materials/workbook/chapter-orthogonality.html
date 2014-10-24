@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-10-12T23:29:02-05:00    *-->
+<!--*    on 2014-10-24T00:11:19-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -61,12 +61,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="ftla-gf.xml.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="chapter-determinants.html">Next</a>
+<a class="previous-button toolbar-item button" href="ftla-gf.xml.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="section-ftla2.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ftla-gf.xml.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="chapter-determinants.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="ftla-gf.xml.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="section-ftla2.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -107,14 +107,46 @@ $(function () {
 <li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
 </ul>
 <h2 class="link active"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
-<ul></ul>
+<ul>
+<li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
+<li><a href="section-projections.html"></a></li>
+<li><a href="section-gf-proj.html"></a></li>
+<li><a href="section-least-squares.html"></a></li>
+<li><a href="section-gram-schmidt.html"></a></li>
+<li><a href="section-gf-ls-gs.html"></a></li>
+</ul>
 <h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-orthogonality"><header><h1 class="heading">
 <span class="type">Chapter</span><span class="codenumber">4</span><span class="title">Orthogonality</span>
-</h1></header><article class="introduction" id="introduction-4">Here is some introductory text.</article></section></div></main>
+</h1></header><article class="introduction" id="introduction-4"><p>
+      We introduced the dot product in Chapter One, but we have not found a lot
+      of use for it so far. In this chapter, we pick it back up and see what
+      we can do with it. Of course, the dot product hides a lot of geometry
+      in its mysteries, but for us the key is the notion of <em>orthogonality</em>.
+    </p>
+<p>
+      In this chapter we will address two important questions:
+      <ol>
+<li>
+          How can we find <em>approximate solutions</em> to equations \(Ax=b\)
+          when we know (or suspect) that finding a true solutions is impossible?
+        </li>
+<li>
+          How can we use geometry to find a <em>good</em> basis for a subspace?
+        </li>
+</ol>
+      The answers to both of these questions will involve using the dot product
+      to check for orthogonality. This will be leveraged into the technique of
+      <em class="terminology">orthogonal projection.</em>
+    </p>
+<p>
+      Now, to begin, we shall explore the idea of <em>subspaces</em> being orthogonal,
+      rather than just vectors, and strengthen the Fundamental Theorem of Linear
+      Algebra.
+    </p></article><nav class="summary-links"><a href="section-ftla2.html"><span class="codenumber">4.1</span><span class="title">Orthogonality and the Four Subspaces</span></a><a href="section-projections.html"><span class="codenumber">4.2</span><span class="title"></span></a><a href="section-gf-proj.html"><span class="codenumber">4.3</span><span class="title"></span></a><a href="section-least-squares.html"><span class="codenumber">4.4</span><span class="title"></span></a><a href="section-gram-schmidt.html"><span class="codenumber">4.5</span><span class="title"></span></a><a href="section-gf-ls-gs.html"><span class="codenumber">4.6</span><span class="title"></span></a></nav></section></div></main>
 </div>
 </body>
 </html>

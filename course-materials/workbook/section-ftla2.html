@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<!--*                                    *-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2014-10-24T00:11:19-05:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Orthogonality and the Four Subspaces</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+$(function () {
+    // Make *any* div with class 'sage-compute' an executable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+                           linked: true,
+                           evalButtonText: 'Evaluate'});
+});
+$(function () {
+    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-display',
+                           editor: 'codemirror-readonly',
+                           hide: ['evalButton', 'editorToggle', 'language']});
+});
+    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+    
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+  \)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="chapter-orthogonality.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-projections.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-orthogonality.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-projections.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="index.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="preface-1.html">Preface</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+</ul>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
+<ul>
+<li><a href="vectors.html">Vectors</a></li>
+<li><a href="dot-product.html">The Dot Product</a></li>
+<li><a href="matrices.html">Matrices</a></li>
+<li><a href="start-sage.html">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<ul>
+<li><a href="three-pictures.html">Three Geometric Models</a></li>
+<li><a href="elimination.html">Solving Systems</a></li>
+<li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with Elimination</a></li>
+<li><a href="matrix-algebra.html">Matrix Algebra</a></li>
+<li><a href="inverse.html">Matrix Inverses</a></li>
+<li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
+<li><a href="permutations.html">Permutation Matrices</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
+</ul>
+<h2 class="link"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
+<ul>
+<li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
+<li><a href="nullspace.html">The Nullspace</a></li>
+<li><a href="rank.html">Rank and the RREF</a></li>
+<li><a href="complete-solution.html">Solving a System</a></li>
+<li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
+<li><a href="basis.html">Bases</a></li>
+<li><a href="four-subspaces.html">The Four Subspaces</a></li>
+<li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<ul>
+<li><a href="section-ftla2.html" class="active">Orthogonality and the Four Subspaces</a></li>
+<li><a href="section-projections.html"></a></li>
+<li><a href="section-gf-proj.html"></a></li>
+<li><a href="section-least-squares.html"></a></li>
+<li><a href="section-gram-schmidt.html"></a></li>
+<li><a href="section-gf-ls-gs.html"></a></li>
+</ul>
+<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<ul></ul>
+<h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-ftla2"><header><h1 class="heading">
+<span class="type">Section</span><span class="codenumber">4.1</span><span class="title">Orthogonality and the Four Subspaces</span>
+</h1></header><section class="subsection" id="subsection-92"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul>
+<li>Read section 4.1 of <em>Strang</em>.</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-93"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
+</h1></header><p>
+      Before class, a student should be able to:
+    </p>
+<ul>
+<li>
+        Find the four subspaces associated to a matrix and verify that they
+        are orthogonal subspaces.
+      </li>
+<li>
+        Draw the “Big Picture” associated to a matrix as a schematic drawing,
+        with the four subspaces properly located and their dimensions identified.
+      </li>
+</ul>
+<p>
+      Some time after class, a student should be able to:
+    </p>
+<ul>
+<li>Find the orthogonal complement to a subspace.</li>
+<li>
+        Reason about the structure of a matrix as a transformation using information
+        about its four subspaces.
+      </li>
+</ul></section><section class="subsection" id="subsection-94"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Orthogonality for subspaces</span>
+</h1></header><p>
+      Previously, we had the notion of orthogonality for two vectors in
+      Euclidean space. In this section, the concept gets extended to subspaces.
+    </p>
+<article class="definition-like" id="definition-1"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">4.1</span>
+</h5>
+        Let \(V\) and \(W\) be subspaces of \(\mathbb{R}^n\). We say that
+        \(\mathbb{R}^n\) and \(\mathbb{R}^m\) are <em class="terminology">orthogonal</em>
+        when for each vector \(v \in V\) and each vector \(w \in W\) we
+        have \(v \cdot w =0\).
+      </article><p>
+      Two orthogonal subspaces always have as intersection the trivial subspace
+      \(\{ 0\}\). The reason for this is that if some vector \(x\) lay in
+      both \(V\) and \(W\), then we must have that \(x \cdot x =0\).
+      (Think of the first \(x\) as lying in \(V\), and the second in
+      \(W\).) But the properties of the dot product then mean that \(x\)
+      is the zero vector.
+    </p>
+<p>
+      There is a further concept:
+    </p>
+<article class="definition-like" id="definition-2"><h5 class="heading">
+<span class="type">Definition</span><span class="codenumber">4.2</span>
+</h5>
+        Let \(V\) be a vector subspace of \(\mathbb{R}^n\). The
+        <em class="terminology">orthogonal complement</em> of \(V\) is the set
+        \[
+          V^{\perp} = \{ w \in \mathbb{R}^n \mid w \cdot v = 0 \text{ for all } v \in V \}.
+        \]</article><p>
+      The basic idea is that two spaces are orthogonal complements if they are
+      orthogonal, and together they contain enough vectors to span the entire
+      space. The definition looks like it is a one-directional thing: for a
+      subspace, you find its orthogonal complement. But really it is a
+      <em>complementary</em> relationship. If \(W\) is the orthogonal
+      complement to \(V\), then \(V\) is the orthogonal complement to
+      \(W\).
+    </p>
+<p>
+      Recall the four fundamental subspaces associated to an \(m\times n\)
+      matrix \(A\).
+      
+        <li>
+          The column space, \(\mathrm{col}(A)\), spanned by all of the
+          columns of \(A\). This is a subspace of \(\mathbb{R}^m\).
+        </li>
+        <li>
+          The row space, \(\mathrm{row}(A)\), spanned by all of the rows of
+          \(A\). This is a subspace of \(\mathbb{R}^n\). This also happens
+          to be the column space of \(A^T\).
+        </li>
+        <li>
+          The nullspace (or kernel), \(\mathrm{null}(A)\), consisting of all
+          those vectors \(x\) for which \(Ax=0\). This is a subspace of
+          \(\mathbb{R}^n\).
+        </li>
+        <li>
+          The left nullspace, which is just the nullspace of \(A^T\). This is
+          a subspace of \(\mathbb{R}^m\).
+        </li>
+      
+    </p>
+<p>
+      And we have another big result, which is a sharpening of the Fundamental
+      Theorem of Linear Algebra from the end of Chapter Three.
+    </p>
+<article class="theorem-like" id="theorem-8"><h5 class="heading">
+<span class="type">Theorem</span><span class="codenumber">4.3</span>
+</h5>
+        If \(A\) is an \(m\times n\) matrix, then
+        <ul>
+<li>
+            The nullspace of \(A\) and the row space of \(A\) are
+            orthogonal complements of one another.
+          </li>
+<li>
+            The column space of \(A\) and the left nullspace of \(A\)
+            are orthogonal complements of one another.
+          </li>
+</ul></article></section><section class="subsection" id="subsection-95"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Orthogonal Complement</span>
+</h1></header><p>
+      It is not hard to find the four subspaces associated to a matrix with Sage's
+      built-in commands. But Sage also has a general purpose <tt class="code-inline" style="color: red; font-size: 120%">.complement()</tt>
+      method available for vector subspaces which can be used.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 3,2, [12,3,4,5,6,7])
+A
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.right_kernel() # the nullspace
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.column_space()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.row_space()
+</script></div>
+<p>
+      Those are the easy ones to find. The left nullspace is just a touch trickier.
+      What is the deal? It is just the nullspace of the matrix \(A^T\), of course.
+      But by the Fundamental Theorem of Linear Algebra, the left nullspace is the
+      orthogonal complement of the column space. Let's see if they agree.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A.column_space().complement()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.transpose().right_kernel()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.left_kernel()
+</script></div>
+<p>
+      That is good news! It looks like the three ways we have of computing the
+      left nullspace agree. As a check for understanding, you should be able to
+      ask Sage if the rowspace of \(A\) is the orthogonal complement to the
+      nullspace of \(A\).
+    </p></section><section class="subsection" id="subsection-96"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><article class="example-like" id="task-121"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+</h5>(Strang ex. 4.1.2)
+        Draw the “Big Picture” for a \(3\times 2\) matrix of rank \(2\).
+        Which subspace has to be the zero subspace?
+      </article><article class="example-like" id="task-122"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+</h5>(Strang ex. 4.1.3)
+        For each of the following, give an example of a matrix with the required
+        properties, or explain why that is impossible.
+        <ol>
+<li>
+            The column space contains \(\begin{pmatrix} 1 \\ 2 \\ -3\end{pmatrix}\)
+            and \(\begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}\), and the nullspace
+            contains \(\begin{pmatrix} 1\\1\\1 \end{pmatrix}\).
+          </li>
+<li>
+            the row space contains \(\begin{pmatrix} 1 \\ 2 \\ -3\end{pmatrix}\)
+            and \(\begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}\), and the nullspace
+            contains \(\begin{pmatrix} 1\\1\\1 \end{pmatrix}\).
+          </li>
+<li>
+            \(Ax = \begin{pmatrix}1 \\ 1\\ 1\end{pmatrix}\) has a solution, and
+            \(A^T\begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix} =
+              \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\).
+          </li>
+<li>
+            Every row is orthogonal to every column, but \(A\) is not the zero matrix.
+          </li>
+<li>
+            The columns add up to a column of zeros, and the rows add up to a row of \(1\)'s.
+          </li>
+</ol></article><article class="example-like" id="task-123"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+</h5>(Strang ex 4.1.4)
+        If \(AB = 0\), how do the columns of \(B\) relate to the subspaces
+        of \(A\)? How do the rows of \(A\) relate to the subspaces of \(B\)?
+        Why can't we make an example of this where \(A\) and \(B\) are both
+        \(3 \times 3\) matrices of rank \(2\)?
+      </article><article class="example-like" id="task-124"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+</h5>(Strang ex 4.1.9)
+        Use the four subspace of \(A\) to explain why this is always true:
+        \[\text{If } A^T Ax = 0, \text{then } Ax = 0.\]
+        (This fact will be useful later! It will help us see that \(A^TA\) and
+        \(A\) have the same nullspace.)
+      </article><article class="example-like" id="task-125"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+</h5>(Strang ex 4.1.12)
+        Find the pieces \(x_r\) and \(x_n\) and draw the “Big Picture”
+        carefully when:
+        \[ A = \begin{pmatrix} 1 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}
+          \qquad \text{and } x = \begin{pmatrix} 2 \\ 0 \end{pmatrix}.
+        \]</article><article class="example-like" id="task-126"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+</h5>(Strang ex. 4.1.22)
+        Let \(P\) be the hyperplane of vectors in \(\mathbb{R}^4\) which
+        satisfy the equation
+        \[ x_1 + x_2 + x_3 + x_4 = 0 .\]
+        Write down a basis for \(P^{\perp}\). Construct a matrix \(X\) which
+        has \(P\) as its nullspace.
+      </article></section></section></div></main>
+</div>
+</body>
+</html>

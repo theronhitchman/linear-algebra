@@ -2,13 +2,13 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-10-24T00:11:18-05:00    *-->
+<!--*    on 2014-10-24T00:11:19-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Linear Equations</title>
+<title></title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -61,12 +61,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="basic-objects-going-further.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="three-pictures.html">Next</a>
+<a class="previous-button toolbar-item button" href="section-projections.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-least-squares.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="basic-objects-going-further.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="three-pictures.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-projections.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-least-squares.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -83,7 +83,7 @@ $(function () {
 <li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
-<h2 class="link active"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
 <ul>
 <li><a href="three-pictures.html">Three Geometric Models</a></li>
 <li><a href="elimination.html">Solving Systems</a></li>
@@ -106,11 +106,11 @@ $(function () {
 <li><a href="four-subspaces.html">The Four Subspaces</a></li>
 <li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
 </ul>
-<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<h2 class="link active"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
 <ul>
 <li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
 <li><a href="section-projections.html"></a></li>
-<li><a href="section-gf-proj.html"></a></li>
+<li><a href="section-gf-proj.html" class="active"></a></li>
 <li><a href="section-least-squares.html"></a></li>
 <li><a href="section-gram-schmidt.html"></a></li>
 <li><a href="section-gf-ls-gs.html"></a></li>
@@ -119,49 +119,9 @@ $(function () {
 <ul></ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-2"><header><h1 class="heading">
-<span class="type">Chapter</span><span class="codenumber">2</span><span class="title">Linear Equations</span>
-</h1></header><article class="introduction" id="introduction-2"><p>
-      This chapter is dedicated to the first major problem of
-      linear algebra: solving systems of linear equations. Restated as a set of
-      questions, we will consider these.
-    </p>
-<ul>
-<li>
-        What is the set of solutions to a given system of linear equations?
-      </li>
-<li>
-        When does a given system have solution, and when does it not?
-      </li>
-<li>
-        If there is a solution, how many solutions are there?
-      </li>
-<li>
-        What ways do we have of describing the collection of solutions?
-      </li>
-<li>
-        Is there a computationally effective way to find those solutions?
-      </li>
-</ul>
-<p>
-      Though we begin with the first question, we answer the last one first. As
-      we explore the process of finding solutions, we will start to build the
-      tools we need to finish answering the other questions in a later chapter.
-      In this chapter, we aim to get as complete understanding as we can for at
-      least a special case: <em class="terminology">square systems</em>.
-    </p>
-<p>
-      We will begin with a study of the two ways that vectors let us make pictures
-      of systems of linear equations. Then we take up a basic process for finding
-      solutions, where matrices will appear as a convenient notational device.
-      But as we dig a little further, matrices will become interesting in their
-      own way, so we will study those. But what we study will relate back to
-      the fundamental issue of solving systems of linear equations.
-    </p>
-<p>
-      This chapter has two short review sections in it. One just after we learn
-      about elimination, and another at the end of the chapter.
-    </p></article><nav class="summary-links"><a href="three-pictures.html"><span class="codenumber">2.1</span><span class="title">Three Geometric Models</span></a><a href="elimination.html"><span class="codenumber">2.2</span><span class="title">Solving Systems</span></a><a href="matrix-elimination.html"><span class="codenumber">2.3</span><span class="title">Elimination using Matrices</span></a><a href="lin-eq-going-further-1.html"><span class="codenumber">2.4</span><span class="title">Going Further with Elimination</span></a><a href="matrix-algebra.html"><span class="codenumber">2.5</span><span class="title">Matrix Algebra</span></a><a href="inverse.html"><span class="codenumber">2.6</span><span class="title">Matrix Inverses</span></a><a href="lu-decomposition.html"><span class="codenumber">2.7</span><span class="title">The \(LU\) Decomposition</span></a><a href="permutations.html"><span class="codenumber">2.8</span><span class="title">Permutation Matrices</span></a><a href="lin-eq-gf2.html"><span class="codenumber">2.9</span><span class="title">Matrix Algebra: Going Further</span></a></nav></section></div></main>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-gf-proj"><header><h1 class="heading">
+<span class="type">Section</span><span class="codenumber">4.3</span><span class="title"></span>
+</h1></header><p>Filler text.</p></section></div></main>
 </div>
 </body>
 </html>

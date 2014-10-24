@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-10-12T23:32:53-05:00    %%
+%%    on 2014-10-24T00:12:24-05:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -56,6 +56,11 @@
 \renewcommand*{\proofname}{Proof}%% Only variants actually used in document appear here
 %% Numbering: all theorem-like numbered consecutively
 %% i.e. Corollary 4.3 follows Theorem 4.2
+%% Definition-like environments, normal text
+%% Numbering for definition, examples is in sync with theorems, etc
+%% also for free-form exercises, not in exercise sections
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
 %% Equation Numbering
 %% Controlled by  numbering.equations.level  processing parameter
 \numberwithin{equation}{section}
@@ -6563,7 +6568,335 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Chapter 4 Orthogonality}
 \typeout{************************************************}
 \chapter[Orthogonality]{Orthogonality}\label{chapter-orthogonality}
-Here is some introductory text.\typeout{************************************************}
+
+      We introduced the dot product in Chapter One, but we have not found a lot
+      of use for it so far. In this chapter, we pick it back up and see what
+      we can do with it. Of course, the dot product hides a lot of geometry
+      in its mysteries, but for us the key is the notion of \emph{orthogonality}.
+    %
+\par
+
+      In this chapter we will address two important questions:
+      \begin{enumerate}
+\item{}
+          How can we find \emph{approximate solutions} to equations \(Ax=b\)
+          when we know (or suspect) that finding a true solutions is impossible?
+        \item{}
+          How can we use geometry to find a \emph{good} basis for a subspace?
+        \end{enumerate}
+
+      The answers to both of these questions will involve using the dot product
+      to check for orthogonality. This will be leveraged into the technique of
+      \terminology{orthogonal projection.}
+    %
+\par
+
+      Now, to begin, we shall explore the idea of \emph{subspaces} being orthogonal,
+      rather than just vectors, and strengthen the Fundamental Theorem of Linear
+      Algebra.
+    %
+\typeout{************************************************}
+\typeout{Section 4.1 Orthogonality and the Four Subspaces}
+\typeout{************************************************}
+\section[Orthogonality and the Four Subspaces]{Orthogonality and the Four Subspaces}\label{section-ftla2}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-92}
+\begin{itemize}
+\item{}Read section 4.1 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-93}
+
+      Before class, a student should be able to:
+    %
+\begin{itemize}
+\item{}
+        Find the four subspaces associated to a matrix and verify that they
+        are orthogonal subspaces.
+      \item{}
+        Draw the ``Big Picture'' associated to a matrix as a schematic drawing,
+        with the four subspaces properly located and their dimensions identified.
+      \end{itemize}
+\par
+
+      Some time after class, a student should be able to:
+    %
+\begin{itemize}
+\item{}Find the orthogonal complement to a subspace.\item{}
+        Reason about the structure of a matrix as a transformation using information
+        about its four subspaces.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: Orthogonality for subspaces}
+\typeout{************************************************}
+\subsection[Discussion: Orthogonality for subspaces]{Discussion: Orthogonality for subspaces}\label{subsection-94}
+
+      Previously, we had the notion of orthogonality for two vectors in
+      Euclidean space. In this section, the concept gets extended to subspaces.
+    %
+\begin{definition}\label{definition-1}
+
+        Let \(V\) and \(W\) be subspaces of \(\mathbb{R}^n\). We say that
+        \(\mathbb{R}^n\) and \(\mathbb{R}^m\) are \terminology{orthogonal}
+        when for each vector \(v \in V\) and each vector \(w \in W\) we
+        have \(v \cdot w =0\).
+      \end{definition}
+\par
+
+      Two orthogonal subspaces always have as intersection the trivial subspace
+      \(\{ 0\}\). The reason for this is that if some vector \(x\) lay in
+      both \(V\) and \(W\), then we must have that \(x \cdot x =0\).
+      (Think of the first \(x\) as lying in \(V\), and the second in
+      \(W\).) But the properties of the dot product then mean that \(x\)
+      is the zero vector.
+    %
+\par
+
+      There is a further concept:
+    %
+\begin{definition}\label{definition-2}
+
+        Let \(V\) be a vector subspace of \(\mathbb{R}^n\). The
+        \terminology{orthogonal complement} of \(V\) is the set
+        \[
+          V^{\perp} = \{ w \in \mathbb{R}^n \mid w \cdot v = 0 \text{ for all } v \in V \}.
+        \]\end{definition}
+\par
+
+      The basic idea is that two spaces are orthogonal complements if they are
+      orthogonal, and together they contain enough vectors to span the entire
+      space. The definition looks like it is a one-directional thing: for a
+      subspace, you find its orthogonal complement. But really it is a
+      \emph{complementary} relationship. If \(W\) is the orthogonal
+      complement to \(V\), then \(V\) is the orthogonal complement to
+      \(W\).
+    %
+\par
+
+      Recall the four fundamental subspaces associated to an \(m\times n\)
+      matrix \(A\).
+      
+        
+          The column space, \(\mathrm{col}(A)\), spanned by all of the
+          columns of \(A\). This is a subspace of \(\mathbb{R}^m\).
+        
+        
+          The row space, \(\mathrm{row}(A)\), spanned by all of the rows of
+          \(A\). This is a subspace of \(\mathbb{R}^n\). This also happens
+          to be the column space of \(A^T\).
+        
+        
+          The nullspace (or kernel), \(\mathrm{null}(A)\), consisting of all
+          those vectors \(x\) for which \(Ax=0\). This is a subspace of
+          \(\mathbb{R}^n\).
+        
+        
+          The left nullspace, which is just the nullspace of \(A^T\). This is
+          a subspace of \(\mathbb{R}^m\).
+        
+      
+    %
+\par
+
+      And we have another big result, which is a sharpening of the Fundamental
+      Theorem of Linear Algebra from the end of Chapter Three.
+    %
+\begin{theorem}\label{theorem-8}
+
+        If \(A\) is an \(m\times n\) matrix, then
+        \begin{itemize}
+\item{}
+            The nullspace of \(A\) and the row space of \(A\) are
+            orthogonal complements of one another.
+          \item{}
+            The column space of \(A\) and the left nullspace of \(A\)
+            are orthogonal complements of one another.
+          \end{itemize}
+\end{theorem}
+\typeout{************************************************}
+\typeout{Subsection  Sage and the Orthogonal Complement}
+\typeout{************************************************}
+\subsection[Sage and the Orthogonal Complement]{Sage and the Orthogonal Complement}\label{subsection-95}
+
+      It is not hard to find the four subspaces associated to a matrix with Sage's
+      built-in commands. But Sage also has a general purpose \verb?.complement()?
+      method available for vector subspaces which can be used.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 3,2, [12,3,4,5,6,7])
+A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[12 3]
+[ 4 5]
+[ 6 7]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.right_kernel() # the nullspace
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 2 and dimension 0 over Rational Field
+Basis matrix:
+[]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.column_space()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 3 and dimension 2 over Rational Field
+Basis matrix:
+[   1    0 1/24]
+[   0    1 11/8]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.row_space()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 2 and dimension 2 over Rational Field
+Basis matrix:
+[1 0]
+[0 1]
+\end{lstlisting}
+\par
+
+      Those are the easy ones to find. The left nullspace is just a touch trickier.
+      What is the deal? It is just the nullspace of the matrix \(A^T\), of course.
+      But by the Fundamental Theorem of Linear Algebra, the left nullspace is the
+      orthogonal complement of the column space. Let's see if they agree.
+    %
+\begin{lstlisting}[style=sageinput]
+A.column_space().complement()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 3 and dimension 1 over Rational Field
+Basis matrix:
+[  1  33 -24]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.transpose().right_kernel()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 3 and dimension 1 over Rational Field
+Basis matrix:
+[  1  33 -24]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.left_kernel()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Vector space of degree 3 and dimension 1 over Rational Field
+Basis matrix:
+[  1  33 -24]
+\end{lstlisting}
+\par
+
+      That is good news! It looks like the three ways we have of computing the
+      left nullspace agree. As a check for understanding, you should be able to
+      ask Sage if the rowspace of \(A\) is the orthogonal complement to the
+      nullspace of \(A\).
+    %
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-96}
+\begin{task}
+\label{task-121}
+(Strang ex. 4.1.2)
+        Draw the ``Big Picture'' for a \(3\times 2\) matrix of rank \(2\).
+        Which subspace has to be the zero subspace?
+      \end{task}
+\begin{task}
+\label{task-122}
+(Strang ex. 4.1.3)
+        For each of the following, give an example of a matrix with the required
+        properties, or explain why that is impossible.
+        \begin{enumerate}
+\item{}
+            The column space contains \(\begin{pmatrix} 1 \\ 2 \\ -3\end{pmatrix}\)
+            and \(\begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}\), and the nullspace
+            contains \(\begin{pmatrix} 1\\1\\1 \end{pmatrix}\).
+          \item{}
+            the row space contains \(\begin{pmatrix} 1 \\ 2 \\ -3\end{pmatrix}\)
+            and \(\begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}\), and the nullspace
+            contains \(\begin{pmatrix} 1\\1\\1 \end{pmatrix}\).
+          \item{}
+            \(Ax = \begin{pmatrix}1 \\ 1\\ 1\end{pmatrix}\) has a solution, and
+            \(A^T\begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix} =
+              \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\).
+          \item{}
+            Every row is orthogonal to every column, but \(A\) is not the zero matrix.
+          \item{}
+            The columns add up to a column of zeros, and the rows add up to a row of \(1\)'s.
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-123}
+(Strang ex 4.1.4)
+        If \(AB = 0\), how do the columns of \(B\) relate to the subspaces
+        of \(A\)? How do the rows of \(A\) relate to the subspaces of \(B\)?
+        Why can't we make an example of this where \(A\) and \(B\) are both
+        \(3 \times 3\) matrices of rank \(2\)?
+      \end{task}
+\begin{task}
+\label{task-124}
+(Strang ex 4.1.9)
+        Use the four subspace of \(A\) to explain why this is always true:
+        \[\text{If } A^T Ax = 0, \text{then } Ax = 0.\]
+        (This fact will be useful later! It will help us see that \(A^TA\) and
+        \(A\) have the same nullspace.)
+      \end{task}
+\begin{task}
+\label{task-125}
+(Strang ex 4.1.12)
+        Find the pieces \(x_r\) and \(x_n\) and draw the ``Big Picture''
+        carefully when:
+        \[ A = \begin{pmatrix} 1 & -1 \\ 0 & 0 \\ 0 & 0 \end{pmatrix}
+          \qquad \text{and } x = \begin{pmatrix} 2 \\ 0 \end{pmatrix}.
+        \]\end{task}
+\begin{task}
+\label{task-126}
+(Strang ex. 4.1.22)
+        Let \(P\) be the hyperplane of vectors in \(\mathbb{R}^4\) which
+        satisfy the equation
+        \[ x_1 + x_2 + x_3 + x_4 = 0 .\]
+        Write down a basis for \(P^{\perp}\). Construct a matrix \(X\) which
+        has \(P\) as its nullspace.
+      \end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 4.2}
+\typeout{************************************************}
+\section[]{}\label{section-projections}
+Filler text.%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 4.3}
+\typeout{************************************************}
+\section[]{}\label{section-gf-proj}
+Filler text.%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 4.4}
+\typeout{************************************************}
+\section[]{}\label{section-least-squares}
+Filler text.%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 4.5}
+\typeout{************************************************}
+\section[]{}\label{section-gram-schmidt}
+Filler text.%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 4.6}
+\typeout{************************************************}
+\section[]{}\label{section-gf-ls-gs}
+Filler text.%
+\clearpage
+\typeout{************************************************}
 \typeout{Chapter 5 Determinants}
 \typeout{************************************************}
 \chapter[Determinants]{Determinants}\label{chapter-determinants}
