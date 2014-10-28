@@ -120,8 +120,8 @@
       <sage>
         <input>
           B = A.transpose()*A
-          print B.is_invertible
-          print B.is_symmetric
+          print B.is_invertible()
+          print B.is_symmetric()
           print B.parent()
         </input>
         <output>
@@ -145,7 +145,7 @@
           True
         </output>
       </sage>
-      <p>Also as expected.</p>          
+      <p>Also as expected.</p>
     </subsection>
 
     <subsection>
