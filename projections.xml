@@ -36,8 +36,174 @@
         </li>
         </ul>
     </subsection>
+    <subsection>
+      <title>Discussion: Orthogonal Projections</title>
+      <p>
+        One good use of the geometry in <m>\mathbb{R}^n</m> is the concept of
+        orthogonal projection. The basic idea is to mimic the behavior of
+        shadows under sunlight. Our everyday experience leads us to thinking
+        about the projection of a vector onto a plane (the ground--its roughly
+        a plane), but if you imagine holding out a pencil you can summon up the
+        visual of projection onto a line, too.
+      </p>
+      <p>
+        The key concept is to use the basic condition of orthogonality
+        (<m>u \cdot v = 0</m>) to figure things out.
+      </p>
+      <p>
+        Note that everything in this section is done by projecting onto
+        <em>subspaces</em>! This is a bit of a restriction. In practice, this
+        restriction can be removed by translating your whole problem to have a
+        new origin.
+      </p>
+    </subsection>
+    <subsection>
+      <title>Sage and Orthogonal Projection</title>
+      <p>
+        Sage has no built-in commands for orthogonal projections. But let us recall
+        those parts of Sage that will be useful right now:
+      </p>
+      <sage>
+        <input>
+          A = matrix(QQ, 3,2, [1,2,3,4,5,6])
+          A
+        </input>
+        <ouput>
+          [1 2]
+          [3 4]
+          [5 6]
+        </ouput>
+      </sage>
+      <sage>
+        <input>A.transpose()</input>
+        <output>
+          [1 3 5]
+          [2 4 6]
+        </output>
+      </sage>
+      <sage>
+        <input>A.inverse()</input>
+        <output>
+          Error in lines 1-1
+          ...
+          ArithmeticError: self must be a square matrix
+        </output>
+      </sage>
+      <p>
+        Sorry, that matrix isn't even square, so it can't be invertible. But
+        this will be:
+      </p>
+      <sage>
+        <input>(A.transpose()*A).inverse()</input>
+        <output>
+          [  7/3 -11/6]
+          [-11/6 35/24]
+        </output>
+      </sage>
+      <p>
+        Finally, this makes sense:
+      </p>
+      <sage>
+        <input>
+          P = A * (A.transpose()*A).inverse() * A.transpose()
+          P
+        </input>
+        <output>
+          [ 5/6  1/3 -1/6]
+          [ 1/3  1/3  1/3]
+          [-1/6  1/3  5/6]
+        </output>
+      </sage>
+      <p>
+        This process should have some basic properties. Let's check them.
+      </p>
+      <sage>
+        <input>
+          B = A.transpose()*A
+          print B.is_invertible
+          print B.is_symmetric
+          print B.parent()
+        </input>
+        <output>
+          True
+          True
+          Full MatrixSpace of 2 by 2 dense matrices over Rational Field
+        </output>
+      </sage>
+      <p>
+        So <m>A^TA</m> is square, symmetric, and invertible.
+      </p>
+      <sage>
+        <input>
+          print P.transpose() == P
+          print P.is_symmetric()
+          print P*P == P
+        </input>
+        <output>
+          True
+          True
+          True
+        </output>
+      </sage>
+      <p>Also as expected.</p>          
+    </subsection>
 
+    <subsection>
+      <title>Exercises</title>
+      <task>
+        <statement>
+          <p>
+            Find the projection matrix which computes projections of vectors in
+            <m>\mathbb{R}^2</m> onto the line <m>3x+2y=0</m>.
+            (Since it goes through zero, it is a subspace.)
+          </p>
+          <p>
+            Find the orthogonal projection of the vector
+            <m>\left( 17,3 \right)</m> onto this line.
+          </p>
+        </statement>
+      </task>
 
+      <task>
+        <statement>
+          <p>
+            Find the projection matrix which computes projections of vectors in
+            <m>\mathbb{R}^3</m> onto the line which is the intersection of the
+            planes <m>x-2y+3z = 0</m> and <m>y+2z=0</m>. (Again, that is a subspace.)
+          </p>
+          <p>
+            Find the orthogonal projection of the vector <m>\left(1,1,1\right)</m>
+            onto this line.
+          </p>
+        </statement>
+      </task>
 
+      <task>
+        <statement>
+          <p>
+            Find the projection matrix which computes projections of vectors in
+            <m>\mathbb{R}^3</m> onto the plane <m>-2x + y +3z = 0</m>.
+          </p>
+          <p>
+            Find the orthogonal projection of the vector <m>\left( 9,7,-5\right)</m>
+            onto this plane.
+          </p>
+        </statement>
+      </task>
 
+      <task>
+        <statement>
+          <p>
+            Find the projection matrix which computes projections of vectors in
+            <m>\mathbb{R}^4</m> onto the plane which is the intersectoin of
+            <m>5x+y +w=0</m> and <m>z+y+z+w=0</m>. (This subspace is the 2
+            dimensional plane where these two 3-dimensional hyperplanes meet.)
+          </p>
+          <p>
+            Find the orthogonal projection of the vector
+            <m>\left(-3,1,-3,1\right)</m> on this plane.
+          </p>
+        </statement>
+      </task>
+    </subsection>
 </section>
