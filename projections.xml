@@ -8,7 +8,36 @@
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="section-projections">
+  <title>Projections Onto Subspaces</title>
 
-  <p>Filler text.</p>
+    <subsection>
+        <title>The Assignment</title>
+        <ul>
+            <li>Read Chapter 4 section 2 of <em>Strang</em>.</li>
+            <li>Read the following and complete the exercises below.</li>
+        </ul>
+    </subsection>
+
+    <subsection>
+        <title>Learning Goals</title>
+        <p>Before class, a student should be able to:</p>
+        <ul>
+            <li>Compute the projection of a vector onto a line.</li>
+            <li>Find the projection matrix which computes the projections of vectors onto a given line.</li>
+            <li>Draw the schematic picture of a projection: the line, the vector, the projected vector, and the difference.</li>
+        </ul>
+        <p>Sometime after class, a student should be able to:</p>
+        <ul>
+        <li>Compute the projection of a vector onto a subspace.</li>
+        <li>Find the projection matrix which computes the projections of vectors onto a given subspace.</li>
+        <li>
+            Explain the process for finding the equations which determine the projection matrix, and say
+            why the transpose makes an appearance.
+        </li>
+        </ul>
+    </subsection>
+
+
+
 
 </section>
