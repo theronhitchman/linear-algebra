@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-10-24T00:12:24-05:00    %%
+%%    on 2014-10-28T11:26:30-05:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -6867,10 +6867,192 @@ Basis matrix:
       \end{task}
 \clearpage
 \typeout{************************************************}
-\typeout{Section 4.2}
+\typeout{Section 4.2 Projections Onto Subspaces}
 \typeout{************************************************}
-\section[]{}\label{section-projections}
-Filler text.%
+\section[Projections Onto Subspaces]{Projections Onto Subspaces}\label{section-projections}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-97}
+\begin{itemize}
+\item{}Read Chapter 4 section 2 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-98}
+Before class, a student should be able to:%
+\begin{itemize}
+\item{}Compute the projection of a vector onto a line.\item{}Find the projection matrix which computes the projections of vectors onto a given line.\item{}Draw the schematic picture of a projection: the line, the vector, the projected vector, and the difference.\end{itemize}
+\par
+Sometime after class, a student should be able to:%
+\begin{itemize}
+\item{}Compute the projection of a vector onto a subspace.\item{}Find the projection matrix which computes the projections of vectors onto a given subspace.\item{}
+            Explain the process for finding the equations which determine the projection matrix, and say
+            why the transpose makes an appearance.
+        \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: Orthogonal Projections}
+\typeout{************************************************}
+\subsection[Discussion: Orthogonal Projections]{Discussion: Orthogonal Projections}\label{subsection-99}
+
+        One good use of the geometry in \(\mathbb{R}^n\) is the concept of
+        orthogonal projection. The basic idea is to mimic the behavior of
+        shadows under sunlight. Our everyday experience leads us to thinking
+        about the projection of a vector onto a plane (the ground--its roughly
+        a plane), but if you imagine holding out a pencil you can summon up the
+        visual of projection onto a line, too.
+      %
+\par
+
+        The key concept is to use the basic condition of orthogonality
+        (\(u \cdot v = 0\)) to figure things out.
+      %
+\par
+
+        Note that everything in this section is done by projecting onto
+        \emph{subspaces}! This is a bit of a restriction. In practice, this
+        restriction can be removed by translating your whole problem to have a
+        new origin.
+      %
+\typeout{************************************************}
+\typeout{Subsection  Sage and Orthogonal Projection}
+\typeout{************************************************}
+\subsection[Sage and Orthogonal Projection]{Sage and Orthogonal Projection}\label{subsection-100}
+
+        Sage has no built-in commands for orthogonal projections. But let us recall
+        those parts of Sage that will be useful right now:
+      %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 3,2, [1,2,3,4,5,6])
+A
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.transpose()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 3 5]
+[2 4 6]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.inverse()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+Error in lines 1-1
+...
+ArithmeticError: self must be a square matrix
+\end{lstlisting}
+\par
+
+        Sorry, that matrix isn't even square, so it can't be invertible. But
+        this will be:
+      %
+\begin{lstlisting}[style=sageinput]
+(A.transpose()*A).inverse()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  7/3 -11/6]
+[-11/6 35/24]
+\end{lstlisting}
+\par
+
+        Finally, this makes sense:
+      %
+\begin{lstlisting}[style=sageinput]
+P = A * (A.transpose()*A).inverse() * A.transpose()
+P
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 5/6  1/3 -1/6]
+[ 1/3  1/3  1/3]
+[-1/6  1/3  5/6]
+\end{lstlisting}
+\par
+
+        This process should have some basic properties. Let's check them.
+      %
+\begin{lstlisting}[style=sageinput]
+B = A.transpose()*A
+print B.is_invertible()
+print B.is_symmetric()
+print B.parent()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+True
+Full MatrixSpace of 2 by 2 dense matrices over Rational Field
+\end{lstlisting}
+\par
+
+        So \(A^TA\) is square, symmetric, and invertible.
+      %
+\begin{lstlisting}[style=sageinput]
+print P.transpose() == P
+print P.is_symmetric()
+print P*P == P
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+True
+True
+\end{lstlisting}
+\par
+Also as expected.%
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-101}
+\begin{task}
+\label{task-127}
+
+            Find the projection matrix which computes projections of vectors in
+            \(\mathbb{R}^2\) onto the line \(3x+2y=0\).
+            (Since it goes through zero, it is a subspace.)
+          %
+\par
+
+            Find the orthogonal projection of the vector
+            \(\left( 17,3 \right)\) onto this line.
+          %
+\end{task}
+\begin{task}
+\label{task-128}
+
+            Find the projection matrix which computes projections of vectors in
+            \(\mathbb{R}^3\) onto the line which is the intersection of the
+            planes \(x-2y+3z = 0\) and \(y+2z=0\). (Again, that is a subspace.)
+          %
+\par
+
+            Find the orthogonal projection of the vector \(\left(1,1,1\right)\)
+            onto this line.
+          %
+\end{task}
+\begin{task}
+\label{task-129}
+
+            Find the projection matrix which computes projections of vectors in
+            \(\mathbb{R}^3\) onto the plane \(-2x + y +3z = 0\).
+          %
+\par
+
+            Find the orthogonal projection of the vector \(\left( 9,7,-5\right)\)
+            onto this plane.
+          %
+\end{task}
+\begin{task}
+\label{task-130}
+
+            Find the projection matrix which computes projections of vectors in
+            \(\mathbb{R}^4\) onto the plane which is the intersectoin of
+            \(5x+y +w=0\) and \(z+y+z+w=0\). (This subspace is the 2
+            dimensional plane where these two 3-dimensional hyperplanes meet.)
+          %
+\par
+
+            Find the orthogonal projection of the vector
+            \(\left(-3,1,-3,1\right)\) on this plane.
+          %
+\end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 4.3}
