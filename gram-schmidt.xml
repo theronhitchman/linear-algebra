@@ -8,7 +8,239 @@
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="section-gram-schmidt">
+  <title>Orthonormal Bases and Gram-Schmidt</title>
 
-  <p>Filler text.</p>
+  <subsection>
+    <title>The assignment</title>
+    <ul>
+      <li>Read section 4.4 of <em>Strang</em>.</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Learning Goals</title>
+    <p>Before class, a student should be able to:</p>
+    <ul>
+      <li>Correctly decide if a matrix is orthogonal or not.</li>
+      <li>
+        Use the Gram-Schmidt algorithm to turn a basis into an
+        orthonormal basis.
+      </li>
+    </ul>
+    <p>Some time after class, a student should be able to:</p>
+    <ul>
+      <li>Find the QR decomposition of a matrix.</li>
+      <li>Describe the Gram-Schmidt process geometrically using orthogonal
+        projections.
+      </li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Discussion: Gram-Schmidt</title>
+    <p>
+      There are four main points to take away from this section:
+      <ul>
+        <li>The idea of an orthonormal basis.</li>
+        <li>The idea of an orthogonal matrix. The special property that
+          <m>Q^T = Q^{-1}</m> for an orthogonal matrix <m>Q</m>.
+        </li>
+        <li>The Gram-Schimdt algorithm for constructing an orthonormal basis.</li>
+        <li>The <m>QR</m> decomposition of a matrix <m>A</m>.</li>
+      </ul>
+    </p>
+  </subsection>
+
+  <subsection>
+    <title>Sage and the QR decomposition</title>
+    <p>
+      Sage has a built-in command to find the QR decomposistion of a matrix.
+      Essentially, it does the Gram-Schmidt algorithm under the hood.
+    </p>
+    <p>
+      If you check the documentation, you will see that the matrix has to be defined
+      over a special type of ring, so use <c>QQbar</c>.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQbar, 4,4,
+                   [1,-1,0,0, 0,1,-1,0,
+                   0,0,1,-1, 1,1,1,1])
+        A
+      </input>
+      <output>
+        [ 1 -1  0  0]
+        [ 0  1 -1  0]
+        [ 0  0  1 -1]
+        [ 1  1  1  1]
+      </output>
+    </sage>
+    <sage>
+      <input>
+        Q, R = A.QR()
+        Q
+      </input>
+      <output>
+        [ 0.7071067811865475? -0.5773502691896258? -0.3162277660168379? -0.2581988897471611?]
+        [                   0  0.5773502691896258? -0.6324555320336758?  -0.516397779494323?]
+        [                   0                    0  0.6324555320336758?  -0.774596669241484?]
+        [ 0.7071067811865475?  0.5773502691896258?  0.3162277660168379?  0.2581988897471611?]
+      </output>
+    </sage>
+    <p>
+      This matrix should be an orthogonal matrix. Let's check that.
+    </p>
+    <sage>
+      <input>Q*Q.transpose()</input>
+      <output>
+        [1.000000000000000?            0.?e-17            0.?e-16            0.?e-17]
+        [           0.?e-17 1.000000000000000?            0.?e-16            0.?e-17]
+        [           0.?e-16            0.?e-16 1.000000000000000?            0.?e-16]
+        [           0.?e-17            0.?e-17            0.?e-16 1.000000000000000?]
+      </output>
+    </sage>
+    <p>
+      That is machine language for <q>I am pretty sure that's the identity.</q>
+      Those question marks are for machine precision representation of exact numbers.
+    </p>
+    <sage>
+      <input>R</input>
+      <output>
+        [  1.414213562373095?              0.?e-18  0.7071067811865475?  0.7071067811865475?]
+        [                   0   1.732050807568878?              0.?e-17  0.5773502691896258?]
+        [                   0                    0   1.581138830084190? -0.3162277660168379?]
+        [                   0                    0                    0   1.032795558988645?]
+      </output>
+    </sage>
+    <sage>
+      <input>Q*R</input>
+      <output>
+        [ 1.000000000000000? -1.000000000000000?             0.?e-17             0.?e-16]
+        [                  0  1.000000000000000? -1.000000000000000?             0.?e-16]
+        [                  0                   0  1.000000000000000? -1.000000000000000?]
+        [ 1.000000000000000?  1.000000000000000?  1.000000000000000?  1.000000000000000?]
+      </output>
+    </sage>
+    <sage>
+      <input>Q*R == A</input>
+      <output>True</output>
+    </sage>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+
+    <task>
+      <statement>(Strang ex. 4.4.12)
+        If <m>a_1</m>, <m>a_2</m>, <m>a_3</m> is a basis for <m>\mathbb{R}^3</m>,
+        then any vector <m>b</m> can be written as
+        <me>
+          b = x_1 a_1 + x_2 a_2 + x_3 a_3
+        </me>
+        or
+        <me>
+          \begin{pmatrix} | &amp; | &amp; | \\ a_1 &amp; a_2 &amp; a_3 \\
+          | &amp; | &amp; | \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3
+          \end{pmatrix} = b.
+        </me>
+        <ol>
+          <li>
+            Suppose the <m>a_i</m>'s are orthonormal.
+            Show that <m>x_1 = a_1^T b</m>.
+          </li>
+          <li>
+            Suppose the <m>a_i</m>'s are orthogonal.
+            Show that <m>x_1 = a_1^T b / a_1^T a_1</m>.
+          </li>
+          <li>
+            If the <m>a_i</m>'s are independent, <m>x_1</m> is the first component of
+            something times b. What is the something?
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex. 4.4.18)
+        Find orthogonal vectors <m>A</m>, <m>B</m>, <m>C</m> by Gram-Schmidt from
+        <m>a</m>, <m>b</m>, <m>c</m>:
+        <me>
+          a = (1,-1,0,0), \quad b = (0,1,-1,0), \quad c = (0,0,1,-1).
+        </me>
+        Note that both of these collections are bases for the hyperplane perpendicular
+        to <m>(1,1,1,1)</m>.
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex. 4.4.19)
+        If <m>A = QR</m>, then check that <m>A^TA</m> is the same thing as <m>R^TR</m>.
+        What can we say about the shape of the matrix <m>R</m>? Note that this means
+        that Gram-Schmidt on <m>A</m> corresponds to <em>elimination on <m>A^TA</m></em>!
+        The pivots for <m>A^TA</m> must be the squares of the diagonal entries of
+        <m>R</m>. Find <m>Q</m> and <m>R</m> by Gram-Schmidt for this <m>A</m>:
+        <me>
+          A = \begin{pmatrix} -1 &amp; 1 \\ 2 &amp; 1 \\ 2 &amp; 4 \end{pmatrix}.
+        </me>
+        Compare with the structure of this matrix:
+        <me>
+          A^TA = \begin{pmatrix} 9 &amp; 9 \\ 9 &amp; 18 \end{pmatrix}
+          = \begin{pmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{pmatrix}
+          \begin{pmatrix} 9 &amp; 0 \\ 0 &amp; 9 \end{pmatrix}
+          \begin{pmatrix}  1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang ex. 4.4.21)
+        Find an orthonormal basis for the column space of <m>A</m>, and then compute
+        the projection of <m>b</m> onto that column space.
+        <me>
+          A = \begin{pmatrix} 1 &amp; -2 \\ 1 &amp; 0 \\ 1 &amp; 1 \\ 1 &amp; 3\end{pmatrix}
+          \qquad \text{ and } \qquad b = \begin{pmatrix} -4 \\ -3 \\ 3 \\ 0 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+
+
+
+    <task>
+      <statement>(Strang ex. 4.4.23)
+        Let <m>a</m>, <m>b</m>, <m>c</m> be the columns of the matrix
+        <me>
+          A = \begin{pmatrix} 1 &amp; 2 &amp; 4 \\ 0 &amp; 0 &amp; 5 \\
+          0 &amp; 3 &amp; 6 \end{pmatrix}
+        </me>
+        Note that these vectors are linearly independent, so make a basis for
+        <m>\mathbb{R}^3</m>.
+        Find an orthonormal basis <m>q_1</m>, <m>q_2</m>, <m>q_3</m> and express
+        the vectors as linear combinations of <m>a</m>, <m>b</m>, <m>c</m>.
+        Finally, write <m>A</m> as <m>QR</m>.
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang ex. 4.4.24)
+        <ol>
+          <li>
+            Find a basis for the subspace <m>S</m> in <m>\mathbb{R}^4</m>
+            spanned by all solutions of
+            <me>
+              x_1 + x_2 + x_3 - x_4 = 0.
+            </me>
+          </li>
+          <li>
+            Find a basis for the orthogonal complement <m>S^{\perp}</m>.
+          </li>
+          <li>
+            Find <m>b_1</m> in <m>S</m> and <m>b_2</m> in <m>S^{\perp}</m> so that
+            <m>b_1 + b_2 = b = (1,1,1,1)</m>.
+          </li>
+        </ol>
+      </statement>
+    </task>
+  </subsection>
 
 </section>

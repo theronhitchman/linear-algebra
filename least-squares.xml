@@ -8,7 +8,203 @@
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="section-least-squares">
+  <title>Approximate Solutions: Least Squares</title>
 
-  <p>Filler text.</p>
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>Read section 4.3 of Strang.</li>
+      <li>Read the discussion below.</li>
+      <li>Complete exercises 1-11 from section 4.3 in Strang.</li>
+      <li>Prepare the items in the exercises for presentation.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Discussion: Least Squares Approximation</title>
+    <p>
+      (It is probably best to read this after you read the section in Strang.)
+    </p>
+    <subsubsection>
+      <title>Some Perspective</title>
+      <p>
+        Scientific problems often come down to something as simple as this: make
+        a bunch of observations, and then try to fit those observations with
+        some sort of model for greater understanding.
+      </p>
+      <p>
+        But data found in scientific problems is often noisy, or infected with
+        error in some way. This leads researchers to gather <em>more</em> data
+        so that chance variations and small errors might get smoothed out.  How
+        might we fit a curve to a lot of data? Lots of data points means that we
+        likely have too many points to have a curve of our specified model type
+        actually hit all of those points.
+      </p>
+      <p>
+        For example, fitting a line to five points is already problematic: any
+        two points gives us a line, and there is no reason to believe that the
+        other three points will all sit on that line.
+      </p>
+      <p>
+        If we set the problem up as a system of equations, things go like this:
+        We have a bunch of data set up as input-output pairs <m>\{ (a_i, y_i) \}</m>;
+        we are looking for a function <m>f</m> which has a specified type (linear,
+        quadratic, exponential, etc.) that passes through those points.
+      </p>
+      <ul>
+        <li>Each data point leads us to an equation <m>f(a_i) = y_i</m>.</li>
+        <li>
+          The modelling function $f$ has some parameters in it, and we want to
+          find the best value of those parameters so that the curve <q>fits</q>
+          the data well. These parameters are the unknowns in our equations.
+        </li>
+      </ul>
+      <p>
+        This is generally a challenging problem. The method of least squares is
+        a technique for solving it when the resulting equations make a linear
+        system.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Some History</title>
+      <p>
+        Gauss discovered the technique described in this section in the late
+        1790's. In 1801 he used it to help astronomers calculate the orbit of
+        the newly discovered asteroid Ceres, and thus find it after it re-emerged
+        from behind the sun.
+      </p>
+      <p>
+        See how the pattern fits? Several weeks worth of data about the position
+        of Ceres was known, but it surely had measurement errors in it. Since
+        the time of Kepler (Newton), we have known that the motion of the
+        asteroid must be an ellipse. This is a simple equation with only a few
+        parameters (the coefficients of the equation defining the ellipse). So,
+        the question confronting Gauss was this: find the ellipse which best
+        fits the data.
+      </p>
+      <p>
+        But plugging all the data into the correct model shape (a conic!) leads
+        to a rather large system of linear equations where the unknowns are the
+        coefficients we seek.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>So, what is really happening here?</title>
+      <p>
+        In the end, we get a system of the form <m>Ax = y</m>. Here <m>A</m> is
+        an <m>m\times n</m> matrix and <m>ym</m> is an <m>n</m>-vector, where
+        <m>m</m> is the number of equations and <m>n</m> is the number of
+        parameters we must find.
+        Typically, <m>m</m> is much larger than <m>n</m>, so the matrix <m>A</m>
+        is tall and skinny.
+      </p>
+      <p>
+        So the system likely has no solution. Instead, we will find the orthogonal
+        projection <m>\hat{y}</m> of <m>y</m> onto the column space
+        <m>\mathrm{col}(A)</m> of <m>A</m>, and then solve <m>Ax = \hat{y}</m>.
+        That's the secret. Since we have already mastered projections, this is
+        no big deal.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Sage instructions</title>
+
+    <p>
+      There are no new commands for dealing with matrices here, as we already
+      have all that we need. If you are interested, Sage does have a built-in
+      function called <c>find_fit</c>.
+    </p>
+    <sage>
+      <input>
+        Data = [[1,2], [-1,3], [4,1],[2,1],[1,.5]]
+        a, b, x = var('a b x')
+        model(x) = a*x + b
+
+        best = find_fit(Data, model, solution_dict=True)
+        best
+      </input>
+      <output>
+        {b: 2.030303030305277, a: -0.37878787879088605}
+      </output>
+    </sage>
+    <p>Just to check that, let's plot the data and the curve.</p>
+    <sage>
+      <input>
+        curve = model.subs(best)
+        plot(curve, (x,-1,6)) + points(Data, color='red', size=20)
+      </input>
+    </sage>
+    <p>
+      That is not so terrible. Keep in mind that, from a linear algebra perspective,
+      we just found the projection of <m>y = (2,3,1,1,.5) \in \mathbb{R}^5</m> on
+      the column space of the matrix
+      <me>
+        A = \begin{pmatrix} 1 &amp; 1 \\ -1 &amp; 1\\ 4 &amp; 1 \\ 2 &amp; 1 \\
+        1 &amp; 1 \end{pmatrix},
+      </me>
+      which is a <m>2</m>-dimensional plane in that <m>5</m>-dimensional space.
+      If I could, I would draw that picture, but five dimensions in challenging.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+    <p>
+      The best thing you can do to understand this is work some examples. Do
+      Strang 1 - 11 from section 4.3. We will present these:
+    </p>
+
+    <task>
+      <statement>
+        Exercise 1 from section 4.3 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 5 from section 4.3 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 6 from section 4.3 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 7 from section 4.3 of Strang.
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>
+        Exercise 8 from section 4.3 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 9 from section 4.3 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 10 from section 4.3 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 11 from section 4.3 of Strang.
+      </statement>
+    </task>
+
+  </subsection>
 
 </section>
