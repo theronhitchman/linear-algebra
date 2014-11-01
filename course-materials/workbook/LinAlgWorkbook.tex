@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-10-28T11:26:30-05:00    %%
+%%    on 2014-11-01T14:09:37-05:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -7055,28 +7055,517 @@ Also as expected.%
 \end{task}
 \clearpage
 \typeout{************************************************}
-\typeout{Section 4.3}
+\typeout{Section 4.3 Going Further: Projections}
 \typeout{************************************************}
-\section[]{}\label{section-gf-proj}
-Filler text.%
+\section[Going Further: Projections]{Going Further: Projections}\label{section-gf-proj}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-102}
+\begin{itemize}
+\item{}
+        Go back through the exercises in this chapter. Complete any items you
+        did not complete the first time through. Prepare any that we have not
+        discussed in class so that you will be ready to present them.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-103}
+Now we take a short break to revisit and consolidate the learning you
+      have done so far. Revisit the reading and the exercises you have done in
+      the first two sections of Chapter Four. The important feature of this work should be
+      learning to think about your own thinking. This sort of \terminology{meta-cognition}
+      characterizes expert learners. Eventually, you want to be able to monitor
+      your work at all times and recognize when you understand deeply and when
+      you do not. This will allow you to self-correct.
+    %
+\par
+To help you get started with meta-cognition, I listed learning goals in
+      each section. To go further, you need to explicitly go through the process
+      of reviewing what you can do and what you cannot. Here are some prompts to
+      help you get started with this process.
+      \begin{itemize}
+\item{}
+          Review the learning goals from each section. Can you do the things
+          described? Can you do them sometimes, or have you mastered them so you
+          can do them consistently?
+        \item{}
+          Look through all of the tasks and go deeper into them. Can you
+          connect each exercise to one of our pictures? Try to build a mental
+          model of how the exercise and its solution work.
+        \item{}
+          If your first solution to an exercise involve a ``guess-and-check''
+          approach, can you now complete the exercise in a \emph{purposeful}
+          and systematic manner?
+        \item{}
+          Make a list of concepts or exercises that are not clear to you. Phrase
+          each item in your list as a question, and make each question as
+          specific as possible. Talk with fellow students or your
+          instructor until you can answer your own questions.
+        \end{itemize}
+
+    %
 \clearpage
 \typeout{************************************************}
-\typeout{Section 4.4}
+\typeout{Section 4.4 Approximate Solutions: Least Squares}
 \typeout{************************************************}
-\section[]{}\label{section-least-squares}
-Filler text.%
+\section[Approximate Solutions: Least Squares]{Approximate Solutions: Least Squares}\label{section-least-squares}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-104}
+\begin{itemize}
+\item{}Read section 4.3 of Strang.\item{}Read the discussion below.\item{}Complete exercises 1-11 from section 4.3 in Strang.\item{}Prepare the items in the exercises for presentation.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: Least Squares Approximation}
+\typeout{************************************************}
+\subsection[Discussion: Least Squares Approximation]{Discussion: Least Squares Approximation}\label{subsection-105}
+
+      (It is probably best to read this after you read the section in Strang.)
+    %
+\typeout{************************************************}
+\typeout{Subsubsection  Some Perspective}
+\typeout{************************************************}
+\subsubsection[Some Perspective]{Some Perspective}\label{subsubsection-44}
+
+        Scientific problems often come down to something as simple as this: make
+        a bunch of observations, and then try to fit those observations with
+        some sort of model for greater understanding.
+      %
+\par
+
+        But data found in scientific problems is often noisy, or infected with
+        error in some way. This leads researchers to gather \emph{more} data
+        so that chance variations and small errors might get smoothed out.  How
+        might we fit a curve to a lot of data? Lots of data points means that we
+        likely have too many points to have a curve of our specified model type
+        actually hit all of those points.
+      %
+\par
+
+        For example, fitting a line to five points is already problematic: any
+        two points gives us a line, and there is no reason to believe that the
+        other three points will all sit on that line.
+      %
+\par
+
+        If we set the problem up as a system of equations, things go like this:
+        We have a bunch of data set up as input-output pairs \(\{ (a_i, y_i) \}\);
+        we are looking for a function \(f\) which has a specified type (linear,
+        quadratic, exponential, etc.) that passes through those points.
+      %
+\begin{itemize}
+\item{}Each data point leads us to an equation \(f(a_i) = y_i\).\item{}
+          The modelling function $f$ has some parameters in it, and we want to
+          find the best value of those parameters so that the curve ``fits''
+          the data well. These parameters are the unknowns in our equations.
+        \end{itemize}
+\par
+
+        This is generally a challenging problem. The method of least squares is
+        a technique for solving it when the resulting equations make a linear
+        system.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  Some History}
+\typeout{************************************************}
+\subsubsection[Some History]{Some History}\label{subsubsection-45}
+
+        Gauss discovered the technique described in this section in the late
+        1790's. In 1801 he used it to help astronomers calculate the orbit of
+        the newly discovered asteroid Ceres, and thus find it after it re-emerged
+        from behind the sun.
+      %
+\par
+
+        See how the pattern fits? Several weeks worth of data about the position
+        of Ceres was known, but it surely had measurement errors in it. Since
+        the time of Kepler (Newton), we have known that the motion of the
+        asteroid must be an ellipse. This is a simple equation with only a few
+        parameters (the coefficients of the equation defining the ellipse). So,
+        the question confronting Gauss was this: find the ellipse which best
+        fits the data.
+      %
+\par
+
+        But plugging all the data into the correct model shape (a conic!) leads
+        to a rather large system of linear equations where the unknowns are the
+        coefficients we seek.
+      %
+\typeout{************************************************}
+\typeout{Subsubsection  So, what is really happening here?}
+\typeout{************************************************}
+\subsubsection[So, what is really happening here?]{So, what is really happening here?}\label{subsubsection-46}
+
+        In the end, we get a system of the form \(Ax = y\). Here \(A\) is
+        an \(m\times n\) matrix and \(ym\) is an \(n\)-vector, where
+        \(m\) is the number of equations and \(n\) is the number of
+        parameters we must find.
+        Typically, \(m\) is much larger than \(n\), so the matrix \(A\)
+        is tall and skinny.
+      %
+\par
+
+        So the system likely has no solution. Instead, we will find the orthogonal
+        projection \(\hat{y}\) of \(y\) onto the column space
+        \(\mathrm{col}(A)\) of \(A\), and then solve \(Ax = \hat{y}\).
+        That's the secret. Since we have already mastered projections, this is
+        no big deal.
+      %
+\typeout{************************************************}
+\typeout{Subsection  Sage instructions}
+\typeout{************************************************}
+\subsection[Sage instructions]{Sage instructions}\label{subsection-106}
+
+      There are no new commands for dealing with matrices here, as we already
+      have all that we need. If you are interested, Sage does have a built-in
+      function called \verb?find_fit?.
+    %
+\begin{lstlisting}[style=sageinput]
+Data = [[1,2], [-1,3], [4,1],[2,1],[1,.5]]
+a, b, x = var('a b x')
+model(x) = a*x + b
+
+best = find_fit(Data, model, solution_dict=True)
+best
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+{b: 2.030303030305277, a: -0.37878787879088605}
+\end{lstlisting}
+\par
+Just to check that, let's plot the data and the curve.%
+\begin{lstlisting}[style=sageinput]
+curve = model.subs(best)
+plot(curve, (x,-1,6)) + points(Data, color='red', size=20)
+\end{lstlisting}
+\par
+
+      That is not so terrible. Keep in mind that, from a linear algebra perspective,
+      we just found the projection of \(y = (2,3,1,1,.5) \in \mathbb{R}^5\) on
+      the column space of the matrix
+      \[
+        A = \begin{pmatrix} 1 & 1 \\ -1 & 1\\ 4 & 1 \\ 2 & 1 \\
+        1 & 1 \end{pmatrix},
+      \]
+      which is a \(2\)-dimensional plane in that \(5\)-dimensional space.
+      If I could, I would draw that picture, but five dimensions in challenging.
+    %
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-107}
+
+      The best thing you can do to understand this is work some examples. Do
+      Strang 1 - 11 from section 4.3. We will present these:
+    %
+\begin{task}
+\label{task-131}
+
+        Exercise 1 from section 4.3 of Strang.
+      \end{task}
+\begin{task}
+\label{task-132}
+
+        Exercise 5 from section 4.3 of Strang.
+      \end{task}
+\begin{task}
+\label{task-133}
+
+        Exercise 6 from section 4.3 of Strang.
+      \end{task}
+\begin{task}
+\label{task-134}
+
+        Exercise 7 from section 4.3 of Strang.
+      \end{task}
+\begin{task}
+\label{task-135}
+
+        Exercise 8 from section 4.3 of Strang.
+      \end{task}
+\begin{task}
+\label{task-136}
+
+        Exercise 9 from section 4.3 of Strang.
+      \end{task}
+\begin{task}
+\label{task-137}
+
+        Exercise 10 from section 4.3 of Strang.
+      \end{task}
+\begin{task}
+\label{task-138}
+
+        Exercise 11 from section 4.3 of Strang.
+      \end{task}
 \clearpage
 \typeout{************************************************}
-\typeout{Section 4.5}
+\typeout{Section 4.5 Orthonormal Bases and Gram-Schmidt}
 \typeout{************************************************}
-\section[]{}\label{section-gram-schmidt}
-Filler text.%
+\section[Orthonormal Bases and Gram-Schmidt]{Orthonormal Bases and Gram-Schmidt}\label{section-gram-schmidt}
+\typeout{************************************************}
+\typeout{Subsection  The assignment}
+\typeout{************************************************}
+\subsection[The assignment]{The assignment}\label{subsection-108}
+\begin{itemize}
+\item{}Read section 4.4 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Learning Goals}
+\typeout{************************************************}
+\subsection[Learning Goals]{Learning Goals}\label{subsection-109}
+Before class, a student should be able to:%
+\begin{itemize}
+\item{}Correctly decide if a matrix is orthogonal or not.\item{}
+        Use the Gram-Schmidt algorithm to turn a basis into an
+        orthonormal basis.
+      \end{itemize}
+\par
+Some time after class, a student should be able to:%
+\begin{itemize}
+\item{}Find the QR decomposition of a matrix.\item{}Describe the Gram-Schmidt process geometrically using orthogonal
+        projections.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: Gram-Schmidt}
+\typeout{************************************************}
+\subsection[Discussion: Gram-Schmidt]{Discussion: Gram-Schmidt}\label{subsection-110}
+
+      There are four main points to take away from this section:
+      \begin{itemize}
+\item{}The idea of an orthonormal basis.\item{}The idea of an orthogonal matrix. The special property that
+          \(Q^T = Q^{-1}\) for an orthogonal matrix \(Q\).
+        \item{}The Gram-Schimdt algorithm for constructing an orthonormal basis.\item{}The \(QR\) decomposition of a matrix \(A\).\end{itemize}
+
+    %
+\typeout{************************************************}
+\typeout{Subsection  Sage and the QR decomposition}
+\typeout{************************************************}
+\subsection[Sage and the QR decomposition]{Sage and the QR decomposition}\label{subsection-111}
+
+      Sage has a built-in command to find the QR decomposistion of a matrix.
+      Essentially, it does the Gram-Schmidt algorithm under the hood.
+    %
+\par
+
+      If you check the documentation, you will see that the matrix has to be defined
+      over a special type of ring, so use \verb?QQbar?.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQbar, 4,4,
+           [1,-1,0,0, 0,1,-1,0,
+           0,0,1,-1, 1,1,1,1])
+A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1 -1  0  0]
+[ 0  1 -1  0]
+[ 0  0  1 -1]
+[ 1  1  1  1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+Q, R = A.QR()
+Q
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 0.7071067811865475? -0.5773502691896258? -0.3162277660168379? -0.2581988897471611?]
+[                   0  0.5773502691896258? -0.6324555320336758?  -0.516397779494323?]
+[                   0                    0  0.6324555320336758?  -0.774596669241484?]
+[ 0.7071067811865475?  0.5773502691896258?  0.3162277660168379?  0.2581988897471611?]
+\end{lstlisting}
+\par
+
+      This matrix should be an orthogonal matrix. Let's check that.
+    %
+\begin{lstlisting}[style=sageinput]
+Q*Q.transpose()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1.000000000000000?            0.?e-17            0.?e-16            0.?e-17]
+[           0.?e-17 1.000000000000000?            0.?e-16            0.?e-17]
+[           0.?e-16            0.?e-16 1.000000000000000?            0.?e-16]
+[           0.?e-17            0.?e-17            0.?e-16 1.000000000000000?]
+\end{lstlisting}
+\par
+
+      That is machine language for ``I am pretty sure that's the identity.''
+      Those question marks are for machine precision representation of exact numbers.
+    %
+\begin{lstlisting}[style=sageinput]
+R
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1.414213562373095?              0.?e-18  0.7071067811865475?  0.7071067811865475?]
+[                   0   1.732050807568878?              0.?e-17  0.5773502691896258?]
+[                   0                    0   1.581138830084190? -0.3162277660168379?]
+[                   0                    0                    0   1.032795558988645?]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+Q*R
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1.000000000000000? -1.000000000000000?             0.?e-17             0.?e-16]
+[                  0  1.000000000000000? -1.000000000000000?             0.?e-16]
+[                  0                   0  1.000000000000000? -1.000000000000000?]
+[ 1.000000000000000?  1.000000000000000?  1.000000000000000?  1.000000000000000?]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+Q*R == A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-112}
+\begin{task}
+\label{task-139}
+(Strang ex. 4.4.12)
+        If \(a_1\), \(a_2\), \(a_3\) is a basis for \(\mathbb{R}^3\),
+        then any vector \(b\) can be written as
+        \[
+          b = x_1 a_1 + x_2 a_2 + x_3 a_3
+        \]
+        or
+        \[
+          \begin{pmatrix} | & | & | \\ a_1 & a_2 & a_3 \\
+          | & | & | \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3
+          \end{pmatrix} = b.
+        \]\begin{enumerate}
+\item{}
+            Suppose the \(a_i\)'s are orthonormal.
+            Show that \(x_1 = a_1^T b\).
+          \item{}
+            Suppose the \(a_i\)'s are orthogonal.
+            Show that \(x_1 = a_1^T b / a_1^T a_1\).
+          \item{}
+            If the \(a_i\)'s are independent, \(x_1\) is the first component of
+            something times b. What is the something?
+          \end{enumerate}
+\end{task}
+\begin{task}
+\label{task-140}
+(Strang ex. 4.4.18)
+        Find orthogonal vectors \(A\), \(B\), \(C\) by Gram-Schmidt from
+        \(a\), \(b\), \(c\):
+        \[
+          a = (1,-1,0,0), \quad b = (0,1,-1,0), \quad c = (0,0,1,-1).
+        \]
+        Note that both of these collections are bases for the hyperplane perpendicular
+        to \((1,1,1,1)\).
+      \end{task}
+\begin{task}
+\label{task-141}
+(Strang ex. 4.4.19)
+        If \(A = QR\), then check that \(A^TA\) is the same thing as \(R^TR\).
+        What can we say about the shape of the matrix \(R\)? Note that this means
+        that Gram-Schmidt on \(A\) corresponds to \emph{elimination on \(A^TA\)}!
+        The pivots for \(A^TA\) must be the squares of the diagonal entries of
+        \(R\). Find \(Q\) and \(R\) by Gram-Schmidt for this \(A\):
+        \[
+          A = \begin{pmatrix} -1 & 1 \\ 2 & 1 \\ 2 & 4 \end{pmatrix}.
+        \]
+        Compare with the structure of this matrix:
+        \[
+          A^TA = \begin{pmatrix} 9 & 9 \\ 9 & 18 \end{pmatrix}
+          = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}
+          \begin{pmatrix} 9 & 0 \\ 0 & 9 \end{pmatrix}
+          \begin{pmatrix}  1 & 1 \\ 0 & 1 \end{pmatrix}.
+        \]\end{task}
+\begin{task}
+\label{task-142}
+(Strang ex. 4.4.21)
+        Find an orthonormal basis for the column space of \(A\), and then compute
+        the projection of \(b\) onto that column space.
+        \[
+          A = \begin{pmatrix} 1 & -2 \\ 1 & 0 \\ 1 & 1 \\ 1 & 3\end{pmatrix}
+          \qquad \text{ and } \qquad b = \begin{pmatrix} -4 \\ -3 \\ 3 \\ 0 \end{pmatrix}.
+        \]\end{task}
+\begin{task}
+\label{task-143}
+(Strang ex. 4.4.23)
+        Let \(a\), \(b\), \(c\) be the columns of the matrix
+        \[
+          A = \begin{pmatrix} 1 & 2 & 4 \\ 0 & 0 & 5 \\
+          0 & 3 & 6 \end{pmatrix}
+        \]
+        Note that these vectors are linearly independent, so make a basis for
+        \(\mathbb{R}^3\).
+        Find an orthonormal basis \(q_1\), \(q_2\), \(q_3\) and express
+        the vectors as linear combinations of \(a\), \(b\), \(c\).
+        Finally, write \(A\) as \(QR\).
+      \end{task}
+\begin{task}
+\label{task-144}
+(Strang ex. 4.4.24)
+        \begin{enumerate}
+\item{}
+            Find a basis for the subspace \(S\) in \(\mathbb{R}^4\)
+            spanned by all solutions of
+            \[
+              x_1 + x_2 + x_3 - x_4 = 0.
+            \]
+          \item{}
+            Find a basis for the orthogonal complement \(S^{\perp}\).
+          \item{}
+            Find \(b_1\) in \(S\) and \(b_2\) in \(S^{\perp}\) so that
+            \(b_1 + b_2 = b = (1,1,1,1)\).
+          \end{enumerate}
+\end{task}
 \clearpage
 \typeout{************************************************}
-\typeout{Section 4.6}
+\typeout{Section 4.6 Going Further: Least Squares and Gram-Schmidt}
 \typeout{************************************************}
-\section[]{}\label{section-gf-ls-gs}
-Filler text.%
+\section[Going Further: Least Squares and Gram-Schmidt]{Going Further: Least Squares and Gram-Schmidt}\label{section-gf-ls-gs}
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-113}
+\begin{itemize}
+\item{}
+        Go back through the exercises in this chapter. Complete any items you
+        did not complete the first time through. Prepare any that we have not
+        discussed in class so that you will be ready to present them.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-114}
+Now we take a short break to revisit and consolidate the learning you
+      have done so far. Revisit the reading and the exercises you have done in
+      the last two sections of Chapter Four. The important feature of this work should be
+      learning to think about your own thinking. This sort of \terminology{meta-cognition}
+      characterizes expert learners. Eventually, you want to be able to monitor
+      your work at all times and recognize when you understand deeply and when
+      you do not. This will allow you to self-correct.
+    %
+\par
+To help you get started with meta-cognition, I listed learning goals in
+      each section. To go further, you need to explicitly go through the process
+      of reviewing what you can do and what you cannot. Here are some prompts to
+      help you get started with this process.
+      \begin{itemize}
+\item{}
+          Review the learning goals from each section. Can you do the things
+          described? Can you do them sometimes, or have you mastered them so you
+          can do them consistently?
+        \item{}
+          Look through all of the tasks and go deeper into them. Can you
+          connect each exercise to one of our pictures? Try to build a mental
+          model of how the exercise and its solution work.
+        \item{}
+          If your first solution to an exercise involve a ``guess-and-check''
+          approach, can you now complete the exercise in a \emph{purposeful}
+          and systematic manner?
+        \item{}
+          Make a list of concepts or exercises that are not clear to you. Phrase
+          each item in your list as a question, and make each question as
+          specific as possible. Talk with fellow students or your
+          instructor until you can answer your own questions.
+        \end{itemize}
+
+    %
 \clearpage
 \typeout{************************************************}
 \typeout{Chapter 5 Determinants}
