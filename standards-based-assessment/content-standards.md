@@ -3,187 +3,121 @@ layout: default
 title: Content Standards
 ---
 
-The basic content standards for linear algebra are divided into _foundational_
-proficiencies, which are mostly computational, and _advanced_ proficiencies,
-which are about building good mental models and developing context and deeper
-meaning for the structure of linear algebra.
+
+# Standards for Linear Algebra Content Learning
+
+These are organized by the "big questions" that we address throughout the course.
+At first, the questions are pretty straightforward and focus on solving systems
+of equations. Eventually, the questions become more internal to linear algebra, and
+address things that come up in our study of systems, but are definitely at a "second
+level."
+
+## Foundational Goals
 
 
-------
+### Question One: What are the basic objects of linear algebra?
 
-## Chapter One
+ * Vector Algebra (Chapter 1)
 
-<div class="row">
-  <div class="col-xs-12 col-sm-6">
-    <h3>Foundational</h3>
+    > add vectors, plot vectors, compute scalar multiplication of number and vector,
+    > compute linear combinations, geometric interpretations of these operations
 
-    <ul>
-      <li>Add vectors</li>
-      <li>Multiply a vector by a scalar</li>
-      <li>compute linear combinations</li>
-      <li>draw pictures which correspond to the three above operaitons.</li>
-      <li>Compute the dot product of two given vectors.</li>
-      <li>Compoute the length of a given vector.</li>
-      <li>Normalize a given vector</li>
-      <li>recognize that \( u\cdot v = 0 \) is the same as "\(u\) and \(v\)
-        are orthogonal."</li>
-      <li>compute the angle between two given vectors using the cosine formula.</li>
-      <li>Multiply a matrix times a vector as a linear combination of columns.</li>
-      <li>Multiply a matrix times a vector as a set of dot products, row times
-      column.</li>
-      <li>Translate back and forth between our three algebraic representations:
-      systems of linear equations, linear combination equations, and matrix
-      equations.</li>
-      <li>correctly identify the rows and columns of a matrix.</li>
-      <li>describe waht is meant by a lower triangular matrix.</li>
-    </ul>
+ * Matrix Algebra (Chapter 1 and 2)
 
+    > add matrices, take transpose, multiply matrix times vector (two ways),
+    > multiply two matrices (three ways), identify troubles with matrix multiplication:
+    > commutativity, inverses
 
-  </div>
-  <div class="col-xs-12 col-sm-6">
-    <h3>Advanced</h3>
+ * The Dot Product (Chapter 1)
 
-    <ul>
-      <li>Solve linear combination equations involving unknown coefficients.</li>
-      <li>Solve linear combination equations involving unknown vectors.</li>
-      <li>Interpret the statements \(u \cdot v &lt; 0\) and  \(u \cdot v > 0\)
-        geometrically.</li>
-      <li>Pass back and forth between linear equations and equations involving
-      dot products.</li>
-      <li>Make pictures of level sets of the dot product operation.</li>
-      <li>Desribe what it means for vectors in the plane or in space to be
-      linearly dependent or linearly independent.</li>
-      <li>Describe what the inverse of a matrix is, and its significance.</li>
-    </ul>
+    > compute the dot product of two vectors, compute angles between vectors,
+    > compute length of a vector, normalize a vector, use connection between
+    > dot product and linear equations to work with normal vectors
 
-  </div>
-</div>
+### Question Two: How can we solve a square system of linear equations?
 
-## Chapter Two
+ * Gauss-Jordan Elimination (Chapter 2)
 
-<div class="row">
-  <div class="col-xs-12 col-sm-6">
-    <h3>Foundational</h3>
-    <ul>
-      <li>Translate back and forth between the three algebraic representations:
-        <ul>
-          <li>A system of linear equations.</li>
-          <li>An equation involving a linear combination of vectors.</li>
-          <li>A matrix equation.</li>
-        </ul>
-      </li>
-      <li>
-        Can write down the \(n \times n\) <em class="terminology">identity matrix</em>.
-      </li>
-      <li>Clearly state and use the following vocabulary words: pivot, multiplier,
-        triangular matrix, back substitution, singular, non-singular
-      </li>
-      <li>Translate a system of linear equations into the form of an augmented matrix
-        and back.</li>
-      <li>Perform the forward pass elimination process to an augmented matrix.</li>
-      <li>Multiply a pair of square matrices having the same size.</li>
-      <li>Identify the matrix which performs the operation “add a multiple of row
-        i to row j.”</li>
-      <li>Identify the matrix which performs the operation “swap the places of
-          row i and row j.”</li>
-      <li>Add and subtract matrices of the same size.</li>
-      <li>Multiply matrices of appropriate sizes by one method.</li>
-      <li>Compute powers \(A^p\) of a given square matrix \(A\).</li>
-      <li>Use the distributive law for matrix multiplication and matrix addition correctly.</li>
-      <li>State the definition of <em class="terminology">invertible</em> matrix.</li>
-      <li>Solve an equation \(Ax = b\) using the inverse of \(A\)
-              if it exists.
-            </li>
-      <li>State how inverses and multiplication interact.</li>
-      <li>Use Gauss-Jordan elimination to compute the inverse of a matrix.</li>
-      <li>State a test for invertibility of square matrices using pivots.</li>
-      <li>
-        Use Gaussian Elimination to find the \(LU\) and \(LDU\)
-        decompositions of a matrix.
-      </li>
-      <li>
-        Describe when the process of Gaussian Elimination will fail to
-        produce an \(LU\) decomposition.
-      </li>
-      <li>
-        Compute the transpose of a matrix.
-      </li>
-      <li>
-        Correctly perform calculations where the transpose interacts with the
-        operations of matrix sum, matrix product, and matrix inverse.
-      </li>
-      <li>
-        Compute inner and outer products using the transpose.
-      </li>
-      <li>
-        Decide if a matrix is symmetric or not.
-      </li>
-      <li>
-        Recognize permutation matrices, and design permutation matrices which
-        correspond to given row swaps.
-      </li>
-    </ul>
-  </div>
-  <div class="col-xs-12 col-sm-6">
-    <h3>Advanced</h3>
-    <ul>
-      <li>Given a system, interpret and plot the “row picture”.</li>
-      <li>Given a system, interpret and plot the “column picture”.</li>
-      <li>Use a matrix as a model of a transformation, including stating
-        the domain and the range.</li>
-      <li>Perform elimination to put a system of linear equations into triangular form.</li>
-      <li>Solve small systems by hand.</li>
-      <li>Explain the two failure modes for elimination, and describe which leads to
-        no solutions, and which leads to infinitely many solutions.</li>
-      <li>Solve larger systems with the help of a computer algebra package (Sage).</li>
-      <li>
-          Use the steps from a forward pass elimination step to write a correct
-          equation of the form
-          \[
-            E_{\bullet}E_{\bullet}\cdots E_{\bullet} (A\ |\ b) = (U\ |\ b')
-          \]
-          where \(U\) is an upper triangular matrix.
-      </li>
-      <li>Multiply block matrices.</li>
-      <li>Multiply matrices by <em>three</em> methods.</li>
-      <li>Give examples to show how matrix multiplication is not like
-        ordinary multiplication of real numbers: including the trouble
-        with commutativity, and the difficulty with inverses.
-      </li>
-      <li>Describe the connection between Gauss-Jordan elimination and solving
-        \(n\) different systems of equations.
-      </li>
-      <li>Describe the connection between Gauss-Jordan elimination, computing
-              matrix inverses, and the process of elimination by matrix multiplication.
-            </li>
-      <li>State the definition of the determinant of a square matrix.</li>
-      <li>State the connection between the determinant of a square matrix and
-              invertibility.</li>
-      <li>State the distinction between a matrix being invertible
-              and a matrix being singular.</li>
-      <li>
-        Solve a system of equations by using the \(LU\) decomposition and
-        two triangular systems.
-      </li>
-      <li>
-        Explain the connection between matrix elimination and the \(LU\)
-        or \(LDU\) factorization of a matrix.
-      </li>
-      <li>
-        Find the \(LDL^T\) decomposition for symmetric matrices.
-      </li>
-      <li>
-        Explain how the necessity of permuting rows during Gaussian elimination
-        leads to the decomposition \(PA = LU\).
-      </li>
-      <li>
-        Explain why \(P^T = P^{-1}\) for permutation matrices.
-      </li>
-    </ul>
-  </div>
-</div>
+    > Use Gauss-Jordan and back-solving to solve a system, find LU decomposition,
+    > identify when Gauss-Jordan breaks, identify when matrix does not have
+    > an LU decomposition and discuss workaround, compute determinant of a square matrix,
+    > compute the inverse of a square matrix
 
 
+### Question: How can we solve a general system of linear equations?
+How can we tell if there is a solution? What shape will the solution set have?
+When will the solution be unique? Is there a computationally effective way to
+find the solution set?
+
+ * Solving Systems of Equations (Chapter 3)
+
+    > Solve a general (rectangular) system of linear equations using the reduced row-echelon form,
+    > special solutions, a particular solution. Give the general solution to a
+    > system of linear equations. Compute the rank of a matrix. Use pivots
+    > and free variables to reason about the solution set to a system of equations
+
+ * The Four Subspaces (Chapter 3)
+
+    > Compute the nullspace, column space, row space, and left nullspace of a
+    > matrix. describe these subspaces by giving bases
+
+### Question: What are the good ways to understand subspaces?
+
+ * Implicit and Explicit Descriptions (Chapter 3)
+
+    > determine when a set of vectors is linearly dependent or linearly independent,
+    > determine the span of a set of vectors. determine if a collection of vectors
+    > is a basis for a subspace
+    > Find a basis for a subspace described using equations,
+    > find equations to describe a subspace described using a basis
+    > use the row space algorithm and the column space algorithm to find a basis
 
 
-<br class="visible-xs visible-sm"/>
+### Question: Can we find approximate solutions to systems that do not have an actual solution?
+
+ * Approximate Solutions and Least Squares (Chapter 4)
+
+    > Find the "best" available approximate solution to an unsolvable system
+    > of equations, draw pictures explaining how orthogonal projection is relevant,
+    > use approximate solutions to fit curves to data
+
+### Question: Is there a good way to test if a square matrix is invertible?
+
+ * Determinants and the Invertible Matrix Theorem (Chapter 5)
+
+### Question: How can we understand the geometry of square matrices as transformations?
+
+ * Eigenvalues, Eigenvectors, and the Spectral Theorem (Chapter 6)
+
+----
+
+----
+
+## Advanced Goals
+
+### Question: Are there any good geometric interpretations of a system of linear equations?
+
+ * The Three Viewpoints (Chapters 1 and 2)
+
+    > The row picture, the column picture, and the transformational picture. pass back and forth
+    > cleanly pass between the representations, and describe what a solution means in each case.
+
+### Question: How do we understand matrices as transformations?
+
+ * Four Subspaces and the Fundamental Theorem of Linear Algebra (Chapters 3 and 4)
+
+    > Use the four subspaces to describe the action of a matrix as a transformation (function)
+    > Draw reasonably accurate schematic of the transformational picture using information
+    > about the four subspaces, make conclusions about the nature of a matrix using
+    > the four subspaces
+
+### Question: Is there a way to choose a geometrically good basis for a subspace?
+
+ * Orthonormal Bases and the QR Decomposition (Chapter 4)
+
+    > Use Gram-Schmidt to compute an orthonormal basis for a subspace, decide if a
+    > matrix is orthogonal or not, compute the QR decomposition of a matrix
+
+### Question: Is there a good geometric way to understand the behavior of a general matrix as a function?
+
+ * Singular Value Decomposition (Chapter 6)
