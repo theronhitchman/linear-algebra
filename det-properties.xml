@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<section xml:id="section-least-squares">
+  <title>Properties of the Determinant</title>
+
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>
+        Read section chapter 5 section 1 of Strang.
+      </li>
+      <li>
+        Read the following and complete the exercises below.
+      </li>
+    </ul>
+  </subsection>
+  <subsection>
+    <title>Learning Goals</title>
+    <p>At some point, a student should be able to compute the determinant of a
+      square matrix using the properties outlined here.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Discussion: The Determinant</title>
+    <p>
+      Generally, the most interesting matrices to look at are the square ones.
+      For square matrices, there is an important number called the
+      <term>determinant</term> which helps us determine if the matrix is
+      invertible or not.
+    </p>
+    <p>
+      Strang lists 10 important properties of determinants in this section,
+      and verifies them for <m>2\times 2</m> matrices. The verifications for
+      general matrices aren't any harder, but they sure are <emph>longer</emph>,
+      so I am glad he skipped them. Anyway, these properties are enough to get
+      by when it is time to compute. In fact, clever use of these properties
+      can save you a lot of time.
+    </p>
+    <ol>
+      <li>The determinant of the identity matrix is always one: <m>\det(I)=1</m>.</li>
+      <li>If we exchange two rows of a matrix, the determinant changes sign.</li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+
+    <subsubsection>
+      <title>Interpretation</title>
+      <p>
+        Suppose that an <m>n\times n</m> matrix <m>A</m> is represented as a
+        collection of its column vectors:
+        <me>
+        A = \begin{pmatrix}
+        | &amp; | &amp;  &amp; | \\
+        v_1 &amp; v_2 &amp; \dots &amp; v_n \\
+        | &amp; | &amp;  &amp; |
+        \end{pmatrix} .
+        </me>
+        Then the geometric significance of the determinant is this: The number
+        <m>\det(A)</m> represents the <emph>signed</emph> <m>n</m>-dimensional
+        volume of the <m>n</m>-dimensional box in <m>\mathbb{R}^n</m> with sides
+        <m>v_1, v_2, \ldots, v_n</m>.
+      </p>
+      <p>
+        This takes a bit of getting used to, and the hardest part is the choice
+        of signs. We choose a positive sign if the vectors
+        <m>v_1, v_2, \ldots, v_n</m> have the same orientation as the standard
+        basis.
+      </p>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Sage and the Determinant</title>
+    <p>Sage has a built-in command for the determinant of a square matrix. It is
+      just what you expect: <c>A.determinant()</c>.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 3,3, [4,3,5, 2,-1,0, -5,2,10])
+        A
+      </input>
+      <output>
+        [ 4  3  5]
+        [ 2 -1  0]
+        [-5  2 10]
+      </output>
+    </sage>
+    <p>To be sure that this works properly, we can do it the old way, too:</p>
+    <sage>
+      <input>
+        P, L, U = A.LU(pivot="nonzero")
+        print(P)
+        print(L)
+        print(U)
+      </input>
+      <output>
+        [1 0 0]
+        [0 1 0]
+        [0 0 1]
+        [     1      0      0]
+        [   1/2      1      0]
+        [  -5/4 -23/10      1]
+        [   4    3    5]
+        [   0 -5/2 -5/2]
+        [   0    0 21/2]
+      </output>
+    </sage>
+    <p>
+      Clearly, there are no row swaps used, so it is easy to see that
+      <m>\det(A) = 4*(-5/2)*(21/2) = -105</m>.
+    </p>
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+
+  </subsection>
+</section>

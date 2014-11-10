@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is part of the workbook                        -->
+<!--                                                          -->
+<!--    Math 2500: Linear Algebra                             -->
+<!--                                                          -->
+<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- See the file COPYING for copying conditions.             -->
+
+<section xml:id="section-least-squares">
+  <title>Computing Determinants</title>
+
+  <subsection>
+    <title>The Assignment</title>
+  </subsection>
+
+
+\subsection{The Importance of the Determinant}
+
+The real importance of the determinant is described in the following theorem. Note that this is a special result for \emph{square} matrices. The shape is crucial for this result.
+
+\begin{theorem}[The Invertible Matrix Theorem]
+Let $A$ be an $n\times n$ matrix. Then the following conditions are equivalent:
+\begin{itemize}
+\item The columns of $A$ are linearly independent.
+\item The columns of $A$ are a spanning set for $\mathbb{R}^n$.
+\item The colums of $A$ are a basis for $\mathbb{R}^n$.
+\item The rows of $A$ are linearly independent.
+\item The rows of $A$ are a spanning set for $\mathbb{R}^n$.
+\item The rows of $A$ are a basis for $\mathbb{R}^n$.
+\item For any choice of vector $b \in \mathbb{R}^n$, the system of linear equations $Ax = b$ has a unique solution.
+\item $A$ is invertible.
+\item The transpose $A^T$ is invertible.
+\item $\det(A) \neq 0$.
+\item $\det(A^T) \neq 0$.
+\end{itemize}
+\end{theorem}
+
+
+
+
+</section>
