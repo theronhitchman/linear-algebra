@@ -12,7 +12,23 @@
 
   <title>Determinants</title>
 
-  <introduction>Here is some introductory text.</introduction>
+  <introduction>
+    <p>
+      Our next goal is to find a better understanding of the <term>determinant</term>
+      of a square matrix. We have seen this come up before as a measurement that allows
+      us to <q>determine</q> if a square matrix is invertible. But it has some more
+      information in it than that, and it has some interesting properties.
+    </p>
+    <p>
+      Our first section will take up the interesting properties, with special attention
+      to those properies which make the determinant easier to compute. Then we will
+      look at a few alternate methods of computation.
+    </p>
+  </introduction>
+
+  <xi:include href="det-properties.xml" />
+  <xi:include href="det-computation.xml" />
+  <xi:include href="det-gf.xml" />
 
 
 
