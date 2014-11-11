@@ -12,31 +12,124 @@
 
   <subsection>
     <title>The Assignment</title>
+    <ul>
+      <li>Read Chapter 5 section 2 of <emph>Strang</emph>.</li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
   </subsection>
+  <subsection>
+    <title>Learning Goals</title>
+    <p>Before class, a student should be able to compute the determinant by using
+      cofactors. A student should also be able to compute a determiant using the
+      <q>big formula</q> for matrices of size 2 or 3.
+    </p>
+    <p>
+      Some time after class, a student should be comfortable with the different parts
+      of the invertible matrix theorem.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Discussion: The Importance of the Determinant</title>
+    <p>Strang devotes all of his energy in this section to the different ways to
+      compute the determinant. I don't have much to add to that.
+    </p>
+    <p>
+      The real importance of the determinant is described in the following
+      theorem. Note that this is a special result for <emph>square</emph> matrices.
+      The shape is crucial for this result.
+    </p>
 
-<c>
-\subsection{The Importance of the Determinant}
+    <theorem>
+      <statement>(The Invertible Matrix Theorem)
+        <p>
+          Let <m>A</m> be an <m>n\times n</m> matrix. Then the following conditions
+          are equivalent:
+        </p>
+        <ul>
+          <li>The columns of <m>A</m> are linearly independent.</li>
+          <li>The columns of <m>A</m> are a spanning set for <m>\mathbb{R}^n</m>.</li>
+          <li>The colums of <m>A</m> are a basis for <m>\mathbb{R}^n</m>.</li>
+          <li>The rows of <m>A</m> are linearly independent.</li>
+          <li>The rows of <m>A</m> are a spanning set for <m>\mathbb{R}^n</m>.</li>
+          <li>The rows of <m>A</m> are a basis for <m>\mathbb{R}^n</m>.</li>
+          <li>For any choice of vector <m>b \in \mathbb{R}^n</m>, the system of linear
+            equations <m>Ax = b</m> has a unique solution.</li>
+          <li><m>A</m> is invertible.</li>
+          <li>The transpose <m>A^T</m> is invertible.</li>
+          <li><m>\det(A) \neq 0</m>.</li>
+          <li><m>\det(A^T) \neq 0</m>.</li>
+        </ul>
+      </statement>
+    </theorem>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
 
-The real importance of the determinant is described in the following theorem. Note that this is a special result for \emph{square} matrices. The shape is crucial for this result.
+    <task>
+      <statement> (Strang 5.2.2)
+        Compute determinants of the following matrices using the big formula. Are
+        the columns of these matrices linearly independent?
+        <me>
+          A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \end{pmatrix},
+          B = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{pmatrix},
+          C = \begin{pmatrix} A &amp; 0 \\ 0 &amp; A \end{pmatrix},
+          D = \begin{pmatrix} A &amp; 0 \\ 0 &amp; B \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
 
-\begin{theorem}[The Invertible Matrix Theorem]
-Let $A$ be an $n\times n$ matrix. Then the following conditions are equivalent:
-\begin{itemize}
-\item The columns of $A$ are linearly independent.
-\item The columns of $A$ are a spanning set for $\mathbb{R}^n$.
-\item The colums of $A$ are a basis for $\mathbb{R}^n$.
-\item The rows of $A$ are linearly independent.
-\item The rows of $A$ are a spanning set for $\mathbb{R}^n$.
-\item The rows of $A$ are a basis for $\mathbb{R}^n$.
-\item For any choice of vector $b \in \mathbb{R}^n$, the system of linear equations $Ax = b$ has a unique solution.
-\item $A$ is invertible.
-\item The transpose $A^T$ is invertible.
-\item $\det(A) \neq 0$.
-\item $\det(A^T) \neq 0$.
-\end{itemize}
-\end{theorem}
-</c>
+    <task>
+      <statement> (Strang 5.2.3)
+        Show that <m>\det(A)=0</m>, no matter what values are used to fill in the
+        five unknowns marked with dots. What are the cofactors of row 1? What is
+        the rank of <m>A</m>? What are the six terms in the big formula?
+        <me>
+          A = \begin{pmatrix} \bullet &amp; \bullet &amp; \bullet \\
+          0 &amp; 0 &amp; \bullet \\ 0 &amp; 0 &amp; \bullet \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
 
+    <task>
+      <statement> (Strang 5.2.4)
+        Use cofactors to compute the determinants below:
+        <me>
+          \det \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 &amp; 1 \\
+          1 &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad
+          \det \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; 3 &amp; 4 &amp; 5 \\
+          5 &amp; 4 &amp; 0 &amp; 3 \\ 2 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
 
+    <task>
+      <statement> (Strang 5.2.5)
+        What is the smallest arrangement of zeros you can place in a <m>4 \times 4</m>
+        matrix to guarantee that its determinant is zero? Try to place as many non-zero
+        entries as you can while keeping <m>\det A \neq 0</m>.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Decide if the columns of this matrix are linearly dependent without doing any
+        row operations:
+        <me>
+          A = \begin{pmatrix} 4 &amp; 21\\ 3 &amp; 16 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Complete this matrix to one with determinant zero in four genuinely different
+        ways. How did you make that happen?
+        <me>
+          X = \begin{pmatrix} 2 &amp; 1 &amp; \bullet \\ 1 &amp; 1 &amp; \bullet
+          \\ -1 &amp; 1 &amp; \bullet \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+  </subsection>
 
 </section>
