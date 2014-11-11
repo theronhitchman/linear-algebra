@@ -8,7 +8,7 @@
 <!--*                                    *-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Going Further: Projections</title>
+<title>Going Further: The Determinant</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -61,12 +61,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="section-projections.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-least-squares.html">Next</a>
+<a class="previous-button toolbar-item button" href="section-least-squares.html">Previous</a><a class="up-button button toolbar-item" href="chapter-determinants.html">Up</a><a class="next-button button toolbar-item" href="chapter-eigendata-and-svd.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-projections.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-least-squares.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-least-squares.html">Previous</a><a class="up-button button toolbar-item" href="chapter-determinants.html">Up</a><a class="next-button button toolbar-item" href="chapter-eigendata-and-svd.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -106,36 +106,36 @@ $(function () {
 <li><a href="four-subspaces.html">The Four Subspaces</a></li>
 <li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
 </ul>
-<h2 class="link active"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
 <ul>
 <li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
 <li><a href="section-projections.html">Projections Onto Subspaces</a></li>
-<li><a href="section-gf-proj.html" class="active">Going Further: Projections</a></li>
+<li><a href="section-gf-proj.html">Going Further: Projections</a></li>
 <li><a href="section-least-squares.html">Approximate Solutions: Least Squares</a></li>
 <li><a href="section-gram-schmidt.html">Orthonormal Bases and Gram-Schmidt</a></li>
 <li><a href="section-gf-ls-gs.html">Going Further: Least Squares and Gram-Schmidt</a></li>
 </ul>
-<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<h2 class="link active"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul>
 <li><a href="section-det-properties.html">Properties of the Determinant</a></li>
 <li><a href="section-least-squares.html">Computing Determinants</a></li>
-<li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
+<li><a href="section-det-gf.html" class="active">Going Further: The Determinant</a></li>
 </ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
 <ul></ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-gf-proj"><header><h1 class="heading">
-<span class="type">Section</span><span class="codenumber">4.3</span><span class="title">Going Further: Projections</span>
-</h1></header><section class="subsection" id="subsection-102"><header><h1 class="heading">
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-det-gf"><header><h1 class="heading">
+<span class="type">Section</span><span class="codenumber">5.3</span><span class="title">Going Further: The Determinant</span>
+</h1></header><section class="subsection" id="subsection-124"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul><li>
         Go back through the exercises in this chapter. Complete any items you
         did not complete the first time through. Prepare any that we have not
         discussed in class so that you will be ready to present them.
-      </li></ul></section><section class="subsection" id="subsection-103"><header><h1 class="heading">
+      </li></ul></section><section class="subsection" id="subsection-125"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
 </h1></header><p>Now we take a short break to revisit and consolidate the learning you
       have done so far. Revisit the reading and the exercises you have done in
-      the first two sections of Chapter Four. The important feature of this work should be
+      the last two sections of Chapter Five. The important feature of this work should be
       learning to think about your own thinking. This sort of <em class="terminology">meta-cognition</em>
       characterizes expert learners. Eventually, you want to be able to monitor
       your work at all times and recognize when you understand deeply and when
