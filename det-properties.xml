@@ -46,15 +46,24 @@
     <ol>
       <li>The determinant of the identity matrix is always one: <m>\det(I)=1</m>.</li>
       <li>If we exchange two rows of a matrix, the determinant changes sign.</li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>The determinant is linear in each row separately. (The fancy new word
+        here is that <m>\det</m> is a <term>multilinear</term> function.)</li>
+      <li>If two rows are equal, then the determinant is zero.</li>
+      <li>The row operation of <q>add a multiple of one row to another row</q>
+        does not change the determinant of a matrix.</li>
+      <li>If a matrix has a row of zeros, then its determinant is zero.</li>
+      <li>If <m>A</m> is triangular, then <m>\det(A)</m> is the product of the
+        diagonal entries of <m>A</m>.</li>
+      <li>A matrix is singular if its deterimant is zero. A matrix is invertible
+        exactly when its determinant is non-zero.</li>
+      <li>The determinant is a <term>multiplicative</term> function at the level
+      of matrices: <m>\det(AB) = \det(A)\det(B)</m>.</li>
+      <li>The determinant of a matrix and its transpose are the same.</li>
     </ol>
+    <p>
+      That last property can be helpful in a variety of ways: it allows us to translate
+      all of those statements about rows into statements about columns!
+    </p>
 
     <subsubsection>
       <title>Interpretation</title>
