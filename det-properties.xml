@@ -7,7 +7,7 @@
 <!-- Copyright (C) 2014  Theron J. Hitchman                   -->
 <!-- See the file COPYING for copying conditions.             -->
 
-<section xml:id="section-least-squares">
+<section xml:id="section-det-properties">
   <title>Properties of the Determinant</title>
 
   <subsection>
@@ -134,6 +134,103 @@
 
   <subsection>
     <title>Exercises</title>
+
+    <task>
+      <statement>(Strang Ex 5.1.1)
+        If a <m>4 \times 4</m> matrix <m>A</m> has <m>\det(A) = 1/2</m>, find
+        <ol>
+          <li><m>\det(2A)</m>,</li>
+          <li><m>\det(-A)</m>, and</li>
+          <li><m>\det(A^2)</m>.</li>
+        </ol>
+        Explain which properties of determinants you need to make your deductions.
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang Ex 5.1.2)
+        If a <m>3 \times 3</m> matrix has <m>\det(A) = -1</m>, find
+        <ol>
+          <li><m>\det(\frac{1}{2}A)</m>,</li>
+          <li><m>\det(-A)</m>,</li>
+          <li><m>\det(A^2)</m>, and </li>
+          <li><m>\det(A^{-1})</m></li>
+        </ol>
+      </statement>
+    </task>
+
+    <task>
+      <statement>(Strang Ex 5.1.10)
+        <p>
+          Suppose that <m>A</m> is a matrix with the property that the entries in
+          each of its rows add to zero. Solve the equation <m>Ax = 0</m> to prove
+          that <m>\det(A)=0</m>.
+        </p>
+        <p>
+          Then suppose that instead the entries in each row add to one. Show that
+          <m>\det(A-I)=0</m>. Does this mean that <m>\det(A) = 1</m>? Give an example
+          or an argument.
+        </p>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang Ex 5.1.12)
+        The inverse of a <m>2 \times 2</m> matrix seems to have determinant <m>1</m>
+        all the time:
+        <me>
+          \det(A^{-1}) = \det \frac{1}{ad-bc}\begin{pmatrix} d &amp; -b \\
+          -c &amp; a \end{pmatrix} = \frac{ad-bc}{ad-bc} = 1.
+        </me>
+        What is wrong with this argument? What should the value of <m>\det(A^{-1})</m>
+        be?
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang Ex 5.1.14)
+        Use row operations to reduce these matrices to upper triangular ones, then find
+        the determinants:
+        <me>
+          \det\begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 0 \\ 2 &amp; 6 &amp; 6 &amp; 1 \\ -1 &amp; 0 &amp; 0 &amp; 3 \\
+          0 &amp; 2 &amp; 0 &amp; 7 \end{pmatrix} \quad \text{ and } \quad
+          \det\begin{pmatrix} 2 &amp; -1 &amp; 0 &amp; 0 \\ -1 &amp; 2 &amp; -1 &amp; 0 \\ 0 &amp; -1 &amp; 2 &amp; -1 \\
+          0 &amp; 0 &amp; -1 &amp; 2 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang Ex 5.1.15)
+        Use row operations to simplify and compute these determinants:
+        <me>
+          \det\begin{pmatrix} 101 &amp; 201 &amp; 301 \\
+          102 &amp; 202 &amp; 302  \\ 103 &amp; 203 &amp; 303
+          \end{pmatrix} \quad \text{ and } \quad
+          \det\begin{pmatrix} 1 &amp; t &amp; t^2 \\ t &amp; 1 &amp; t \\
+          t^2 &amp; t &amp; 1 \end{pmatrix}.
+        </me>
+      </statement>
+    </task>
+
+
+    <task>
+      <statement>(Strang Ex 5.1.23)
+        <p>
+          Suppose that <m>A = \left( \begin{smallmatrix} 4 &amp; 1 \\ 2 &amp; 3
+          \end{smallmatrix} \right)</m> and that <m>\lambda</m> is some number.
+          Find <m>A^2</m>, <m>A^{-1}</m> and <m>A-\lambda I</m> and their determinants.
+        </p>
+        <p>
+          Which two numbers <m>\lambda</m> lead to <m>\det(A-\lambda I) = 0</m>?
+        </p>
+      </statement>
+    </task>
+
+
 
   </subsection>
 </section>

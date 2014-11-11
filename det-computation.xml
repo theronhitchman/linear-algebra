@@ -14,7 +14,7 @@
     <title>The Assignment</title>
   </subsection>
 
-
+<c>
 \subsection{The Importance of the Determinant}
 
 The real importance of the determinant is described in the following theorem. Note that this is a special result for \emph{square} matrices. The shape is crucial for this result.
@@ -35,7 +35,7 @@ Let $A$ be an $n\times n$ matrix. Then the following conditions are equivalent:
 \item $\det(A^T) \neq 0$.
 \end{itemize}
 \end{theorem}
-
+</c>
 
 
 
