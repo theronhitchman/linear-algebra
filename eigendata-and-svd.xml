@@ -12,9 +12,35 @@
 
   <title>Eigendata and the Singular Value decomposition</title>
 
-  <introduction>Here is some introductory text.</introduction>
+  <introduction>
+    <p>
+      We have studied the algebraic structure of matrices, and we have studied the
+      way that these algebraic properties are reflected in a geometric model where
+      a matrix represents a transformation from one Euclidean space to another.
+    </p>
+    <p>
+      In this chapter we shall study how to do this in a different way that cares
+      more about the geometry adapted to the specific matrix. First we shall take
+      up square matrices, where we will study <term>eigenvalues</term> and
+      <term>eigenvectors</term>. We shall see that some matrices can be reimagined
+      as if they are diagonal matrices. This idea of <term>diagonalization</term>
+      is powerful, but it doesn't always work. We will study one situation where
+      we know it will always work in the <term>spectral theorem</term> for symmetric
+      matrices.
+    </p>
+    <p>
+      Then we shall apply all that we have learned this term and put it together
+      to study the <term>singular value decomposition</term> of a general rectangular
+      matrix. This will be a good geometric understanding of how a matrix behaves
+      as a function.
+    </p>
+  </introduction>
 
-
-
+  <xi:include href="eigenvectors.xml" />
+  <xi:include href="diagonalization.xml" />
+  <xi:include href="spectral-theorem.xml" />
+  <xi:include href="gf-eigendata.xml" />
+  <xi:include href="svd.xml" />
+  <xi:include href="gf-svd.xml" />
 
 </chapter>
