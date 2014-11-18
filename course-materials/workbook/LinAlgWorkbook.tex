@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-11-10T20:22:21-06:00    %%
+%%    on 2014-11-17T20:57:29-06:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -142,7 +142,8 @@
 \setcounter{tocdepth}{1}
 \renewcommand*\contentsname{Contents}
 \tableofcontents
-\chapter{Preface}
+\chapter*{Preface}\label{preface-1}
+\addcontentsline{toc}{chapter}{Preface}
 This is a set of class notes designed to guide an inquiry-based course
       on linear algebra. This is not a complete resource! Rather, this text is
       meant to accompany the book Introduction to Linear Algebra by
@@ -155,6 +156,8 @@ An important feature of this text is the integration of the Sage
       Sage to perform long tedious computations (which linear algebra has in
       spades) and create visualizations.
     %
+\chapter*{Acknowledgements}\label{acknowledgement-1}
+\addcontentsline{toc}{chapter}{Acknowledgements}
 I thank the Sage community, in particular William Stein, for creating
       such a wonderful tool and making it open-source.
     %
@@ -7947,6 +7950,278 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Chapter 6 Eigendata and the Singular Value decomposition}
 \typeout{************************************************}
 \chapter[Eigendata and the Singular Value decomposition]{Eigendata and the Singular Value decomposition}\label{chapter-eigendata-and-svd}
-Here is some introductory text.\appendix
+
+      We have studied the algebraic structure of matrices, and we have studied the
+      way that these algebraic properties are reflected in a geometric model where
+      a matrix represents a transformation from one Euclidean space to another.
+    %
+\par
+
+      In this chapter we shall study how to do this in a different way that cares
+      more about the geometry adapted to the specific matrix. First we shall take
+      up square matrices, where we will study \terminology{eigenvalues} and
+      \terminology{eigenvectors}. We shall see that some matrices can be reimagined
+      as if they are diagonal matrices. This idea of \terminology{diagonalization}
+      is powerful, but it doesn't always work. We will study one situation where
+      we know it will always work in the \terminology{spectral theorem} for symmetric
+      matrices.
+    %
+\par
+
+      Then we shall apply all that we have learned this term and put it together
+      to study the \terminology{singular value decomposition} of a general rectangular
+      matrix. This will be a good geometric understanding of how a matrix behaves
+      as a function.
+    %
+\typeout{************************************************}
+\typeout{Section 6.1 Eigenvectors and Eigenvalues}
+\typeout{************************************************}
+\section[Eigenvectors and Eigenvalues]{Eigenvectors and Eigenvalues}\label{section-eigenvectors}
+\typeout{************************************************}
+\typeout{Subsection  The assignment}
+\typeout{************************************************}
+\subsection[The assignment]{The assignment}\label{subsection-126}
+\begin{itemize}
+\item{}Read section 6.1 of Strang (pages 283-292).\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: Eigenvalues and Eigenvectors}
+\typeout{************************************************}
+\subsection[Discussion: Eigenvalues and Eigenvectors]{Discussion: Eigenvalues and Eigenvectors}\label{subsection-127}
+
+      We have discussed the ``transformational view'' of the geometry of a
+      system of \(m\) linear equations \(Ax = b\) in \(n\) unknowns
+      \(x\), where we view the \(m \times n\) matrix \(A\) as defining
+      a function from \(\mathbb{R}^m\) to \(\mathbb{R}^n\). In the case of
+      a square matrix \(m=n\), the domain and the target are the same space
+      \(\mathbb{R}^n\). So we can think of \(A\) as making a function from
+      one space to itself.
+    %
+\par
+
+      This means it might be interesting to think about how \(A\) moves a
+      vector about inside of \(\mathbb{R}^n\). Usually, the vector \(v\)
+      will get turned into a vector \(Av\) which has a different length and
+      points in a completely different direction. But sometimes, sometimes,
+      \(v\) and \(Av\) will point in the same direction. This is an eigenvector.
+    %
+\par
+
+      A number \(\lambda\) is called an \terminology{eigenvalue} of the matrix
+      \(A\) when the matrix \(A-\lambda I\) is singular. A vector \(v\)
+      is called an \terminology{eigenvector} of \(A\) corresponding to \(\lambda\)
+      when \(v\) is not zero but still lies in the null space of \(A-\lambda I\).
+      We exclude \(0\) from being an eigenvector because it is boring. The
+      zero vector lies in every subspace, including the nullspace of any matrix.
+    %
+\par
+
+      As Strang discusses, the eigenvalues are found as roots of the
+      \terminology{characteristic polynomial} \(\det(A-\lambda \cdot I) = 0\).
+      That's right, we only need to find the roots of a polynomial! Sounds great,
+      but as a general thing this is pretty hard. Don't get too excited. Have you
+      heard this fact before? It is both depressing and interesting: there is no
+      general formula to find the roots of a polynomial of degree 5 or more.
+    %
+\typeout{************************************************}
+\typeout{Subsection  Sage and Eigenvectors}
+\typeout{************************************************}
+\subsection[Sage and Eigenvectors]{Sage and Eigenvectors}\label{subsection-128}
+
+      Since eigenvalues and eigenvectors are found using standard techniques, we
+      can use Sage to compute them without any new techniques.
+    %
+\typeout{************************************************}
+\typeout{Subsubsection  Using Nullspaces and root finding commands}
+\typeout{************************************************}
+\subsubsection[Using Nullspaces and root finding commands]{Using Nullspaces and root finding commands}\label{subsubsection-48}
+
+        Let's use basic sage commands we have seen before to compute eigenvalues
+        and eigenvectors. We start by finding the characteristic polynomial of
+        the mundane example matrix \(X\) below.
+      %
+\begin{lstlisting}[style=sageinput]
+X = matrix(QQ, 3,3, [1,2,3,4,5,6,7,8,9])
+X
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1 2 3]
+[4 5 6]
+[7 8 9]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+t = var('t')
+poly = (X - t*identity_matrix(3)).determinant()
+poly
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+-((t - 5)*(t - 9) - 48)*(t - 1) + 29*t + 3
+\end{lstlisting}
+\par
+
+        Now we need the roots of that polynomial. Sage has a simple built-in for
+        that, which returns a list of pairs: (root, multiplicity).
+      %
+\begin{lstlisting}[style=sageinput]
+poly.roots()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[(-3/2*sqrt(33) + 15/2, 1), (3/2*sqrt(33) + 15/2, 1), (0, 1)]
+\end{lstlisting}
+\par
+
+        In this case each of the three roots has (algebraic) multiplicity equal
+        to one. For now, we will look at just the first one. Let's pull it out of
+        this list, give it a more convenient name, and use it to find a corresponding
+        eigenvector.
+      %
+\begin{lstlisting}[style=sageinput]
+lam = poly.roots()[0][0]
+V = (X - lam * identity_matrix(3)).right_kernel()
+V
+\end{lstlisting}
+\par
+
+        So, that looks like a mess. We can get Sage to display the basis vector
+        more nicely. This is our eigenvector.
+      %
+\begin{lstlisting}[style=sageinput]
+show(V.basis()[0])
+\end{lstlisting}
+\par
+Well, that probably needs a simplification or two. But there it is!%
+\typeout{************************************************}
+\typeout{Subsubsection  Built-in Sage Commands}
+\typeout{************************************************}
+\subsubsection[Built-in Sage Commands]{Built-in Sage Commands}\label{subsubsection-49}
+
+        Sage has useful built-in commands that get at the same computations. But
+        for them to work, your matrix must be defined over a set of numbers that
+        is big enough to take roots of polynomials. We will use \verb?AA?, which
+        stands for the real algebraic numbers.
+      %
+\begin{lstlisting}[style=sageinput]
+A = matrix(AA, 4,4, [3,134,-123,4, 2,1,34,4, 2,36,54,7, 0,0,3,1])
+A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[   3  134 -123    4]
+[   2    1   34    4]
+[   2   36   54    7]
+[   0    0    3    1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.characteristic_polynomial()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+x^4 - 59*x^3 - 990*x^2 + 18135*x - 14675
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.eigenvalues()
+\end{lstlisting}
+\par
+The eigenvectors can be computed with this command, which again returns
+        pairs: (eigenvalue, eigenvector).
+      %
+\begin{lstlisting}[style=sageinput]
+A.eigenvectors_right()
+\end{lstlisting}
+\par
+
+        Or you can ask for the \terminology{eigenspaces} which return pairs:
+        (eigenvalue, subspace consisting of all eigenvectors which correspond).
+      %
+\begin{lstlisting}[style=sageinput]
+A.eigenspaces_right()
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsubsection  One more example...}
+\typeout{************************************************}
+\subsubsection[One more example...]{One more example...}\label{subsubsection-50}
+\begin{lstlisting}[style=sageinput]
+B = matrix(AA, 2,2, [5,1,0,5])
+B
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[5 1]
+[0 5]
+\end{lstlisting}
+This matrix has only one eigenvalue, but it has algebraic multiplicity 2.%
+\begin{lstlisting}[style=sageinput]
+B.eigenvalues()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[5, 5]
+\end{lstlisting}
+\par
+But 5 has \terminology{geometric multiplicity} only equal to one, because the corresponding
+        eigenspace has dimension one.
+      %
+\begin{lstlisting}[style=sageinput]
+B.eigenvectors_right()
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+B.eigenspaces_right()
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsection  Questions for Section 6.1}
+\typeout{************************************************}
+\subsection[Questions for Section 6.1]{Questions for Section 6.1}\label{subsection-129}
+\begin{task}
+\label{task-158}
+Exercise 5 from section 6.1 of Strang.
+      \end{task}
+\begin{task}
+\label{task-159}
+Exercise 6 from section 6.1 of Strang.
+      \end{task}
+\begin{task}
+\label{task-160}
+Exercise 7 from section 6.1 of Strang.
+      \end{task}
+\begin{task}
+\label{task-161}
+Exercise 12 from section 6.1 of Strang.
+      \end{task}
+\begin{task}
+\label{task-162}
+Exercise 14 from section 6.1 of Strang.
+      \end{task}
+\begin{task}
+\label{task-163}
+Exercise 19 from section 6.1 of Strang.
+      \end{task}
+\clearpage
+\typeout{************************************************}
+\typeout{Section 6.2 Diagonalizing Matrices}
+\typeout{************************************************}
+\section[Diagonalizing Matrices]{Diagonalizing Matrices}\label{section-diagonalization}
+Text%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 6.3 The Spectral Theorem}
+\typeout{************************************************}
+\section[The Spectral Theorem]{The Spectral Theorem}\label{section-spectral-theorem}
+Text%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 6.4 Going Further with Eigendata}
+\typeout{************************************************}
+\section[Going Further with Eigendata]{Going Further with Eigendata}\label{section-gf-eigendata}
+Text%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 6.5 Singular Value Decomposition}
+\typeout{************************************************}
+\section[Singular Value Decomposition]{Singular Value Decomposition}\label{section-svd}
+Text%
+\clearpage
+\typeout{************************************************}
+\typeout{Section 6.6 Going Further with the SVD}
+\typeout{************************************************}
+\section[Going Further with the SVD]{Going Further with the SVD}\label{section-gf-svd}
+Text%
+\clearpage
+%
 \backmatter
+%
 \end{document}
