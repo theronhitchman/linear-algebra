@@ -2,13 +2,13 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-11-17T20:51:26-06:00    *-->
+<!--*    on 2014-11-17T20:51:27-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Vectors, the Dot Product, and Matrices</title>
+<title>Diagonalizing Matrices</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -61,12 +61,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="acknowledgement-1.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="vectors.html">Next</a>
+<a class="previous-button toolbar-item button" href="section-eigenvectors.html">Previous</a><a class="up-button button toolbar-item" href="chapter-eigendata-and-svd.html">Up</a><a class="next-button button toolbar-item" href="section-spectral-theorem.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="acknowledgement-1.html">Previous</a><a class="up-button button toolbar-item" href="LinAlgWorkbook.html">Up</a><a class="next-button button toolbar-item" href="vectors.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-eigenvectors.html">Previous</a><a class="up-button button toolbar-item" href="chapter-eigendata-and-svd.html">Up</a><a class="next-button button toolbar-item" href="section-spectral-theorem.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -75,7 +75,7 @@ $(function () {
 <li><a href="preface-1.html">Preface</a></li>
 <li><a href="acknowledgement-1.html">Acknowledgements</a></li>
 </ul>
-<h2 class="link active"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
@@ -121,57 +121,18 @@ $(function () {
 <li><a href="section-least-squares.html">Computing Determinants</a></li>
 <li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
 </ul>
-<h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<h2 class="link active"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
 <ul>
 <li><a href="section-eigenvectors.html">Eigenvectors and Eigenvalues</a></li>
-<li><a href="section-diagonalization.html">Diagonalizing Matrices</a></li>
+<li><a href="section-diagonalization.html" class="active">Diagonalizing Matrices</a></li>
 <li><a href="section-spectral-theorem.html">The Spectral Theorem</a></li>
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
 </ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-basic-objects"><header><h1 class="heading">
-<span class="type">Chapter</span><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span>
-</h1></header><article class="introduction" id="introduction-1"><p>
-      This first chapter introduces the basic objects of linear algebra.
-      You will meet vectors, the dot product, and matrices.
-    </p>
-<p>
-      Vectors are a generalization of the concept of number. Where real numbers
-      can help us model the geometry of points on a line, vectors will allow us to
-      model the geometry of a plane, or (three-dimensional) space, or even "spaces"
-      with higher dimensions. We begin by learning about the algebra of vectors,
-      and making connections to the geometry.
-    </p>
-<p>
-      The dot product is a funny kind of multiplication. It plays an important
-      role in mathematics because it captures all of the basics of measurement.
-      We shall learn how to use the dot product to measure lengths and angles. By
-      its definition, the dot product is connected with the concept of a linear
-      equation, so it will make frequent appearances in our work.
-    </p>
-<p>
-      Matrices are another way to generalize the concept of number. (In fact, they
-      generalize the concept of vector.) We start here by learning about the
-      algebra of matrices. The whole rest of this course will focus on matrices,
-      their uses, and their properties.
-    </p>
-<p>
-      A running theme for this course is the use of the Sage mathematical software
-      system. In order to get started, the fourth section of this course is
-      dedicated to getting started with Sage using the SageMathCloud (SMC). You will
-      make an account and run through an introductory workshop with SMC.
-      Also, throughout this workbook you will find little embedded pieces of Sage
-      code. These are implemented using the Sage SingleCell server. Most of these
-      Sage cells are mutable. You can change the content in them and re-evaluate
-      your new Sage code. I encourage you to play with these---it is a good way to
-      learn the basics of Sage.
-    </p>
-<p>
-      The fifth and final section of the chapter is a short assignment designed to
-      consolidate learning. You will get a chance to practice your skills and to
-      think more deeply about the concepts you have learned.
-    </p></article><nav class="summary-links"><a href="vectors.html"><span class="codenumber">1.1</span><span class="title">Vectors</span></a><a href="dot-product.html"><span class="codenumber">1.2</span><span class="title">The Dot Product</span></a><a href="matrices.html"><span class="codenumber">1.3</span><span class="title">Matrices</span></a><a href="start-sage.html"><span class="codenumber">1.4</span><span class="title">Getting Started with Sage</span></a><a href="basic-objects-going-further.html"><span class="codenumber">1.5</span><span class="title">Going Further with the Basic Objects</span></a></nav></section></div></main>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-diagonalization"><header><h1 class="heading">
+<span class="type">Section</span><span class="codenumber">6.2</span><span class="title">Diagonalizing Matrices</span>
+</h1></header><p>Text</p></section></div></main>
 </div>
 </body>
 </html>
