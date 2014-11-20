@@ -10,6 +10,213 @@
 
 <section xml:id="section-diagonalization">
   <title>Diagonalizing Matrices</title>
-  <p>Text</p>
 
+  <subsection>
+    <title>The assignment</title>
+    <ul>
+      <li> Read section 6.2 of Strang (pages 298-307).</li>
+        <li> Read the following.</li>
+        <li> Prepare the items below for presentation.</li>
+      </ul>
+    </subsection>
+
+  <subsection>
+    <title>Diagonalizing Matrices</title>
+    <p>
+      The big result here is this:
+    </p>
+    <theorem>
+      <statement>
+        Let <m>A</m> be an <m>n\times n</m> square matrix. Then the following
+        two conditions are equivalent:
+        <ul>
+          <li>
+            There is a basis <m>\beta= \{ v_1, v_2, \ldots, v_n \}</m> for
+            <m>\mathbb{R}^n</m> consisting of eigenvectors for <m>A</m>.
+          </li>
+          <li>
+            It is possible to find an invertible matrix <m>S</m> so that
+            <m>A = S \Lambda S^{-1}</m>, where <m>\Lambda</m> is a diagonal
+            matrix whose entries are the eigenvalues of <m>A</m>.
+          </li>
+        </ul>
+      </statement>
+    </theorem>
+    <p>
+      The connection between the two conditions is that the matrix <m>S</m> has
+      as its columns the eigenvectors of <m>A</m>. (In fact, that is really the
+      heart of the proof of this theorem. The rest is just details.)
+    </p>
+    <p>
+      If a matrix satisfies these two conditions, then we say it is
+      <term>diagonalizable</term>. We should note right away that not all
+      matrices are diagonalizable. We have already seen examples of matrices
+      where the geometric multiplicity of an eigenvalue is less than the
+      algebraic multiplicity, like
+      <m>A = \left( \begin{smallmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{smallmatrix}\right)</m>.
+      In this case, it becomes impossible to find a basis consisting of eigenvectors.
+    </p>
+    <p>
+      In a way, this allows us to see something interesting: maybe a matrix
+      really wants to be a diagonal matrix, but we are looking at the
+      transformation <m>A</m> using <q>the wrong basis.</q> By wrong, here I
+      mean that the standard basis is not the most convenient one, and another
+      one makes our lives easier.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Sage and Diagonalization</title>
+    <p>
+      Sage has built-in commands about diagonalization. We shall try a few out here.
+      We need a matrix to play with, so we take this one:
+    </p>
+    <sage>
+      <input>
+        A = matrix(AA, 3,3, [1,2,3,4,5,6,7,8,-1])
+        A.rank()
+      </input>
+      <output>3</output>
+    </sage>
+    <p>
+      We chose to define this matrix over <kbd>AA</kbd> because we need to find
+      roots of polynomials when looking for eigenvalues. <kbd>AA</kbd> is the
+      set of <term>algebraic numbers</term>, which just means the collection of
+      all roots of polynomials with integer coefficients.
+    </p>
+    <sage>
+      <input>A.is_diagonalizable()</input>
+      <output>True</output>
+    </sage>
+    <p>
+      Sage has a command for finding the eigenvector decomposition
+      <m>A = S\Lambda S^{-1}</m>.
+    </p>
+    <sage>
+      <input>A.eigenmatrix_right()</input>
+      <output>
+        ([ 11.816056999423874?                    0                    0]
+        [                   0 -0.3954315737468559?                    0]
+        [                   0                    0  -6.420625425677017?], [  1.000000000000000?   1.000000000000000?   1.000000000000000?]
+        [  2.369820536283515?  -0.866496699124881?   1.460961877127081?]
+        [  2.025471975618948? 0.11252060816763521?  -3.447516393310393?])
+      </output>
+    </sage>
+    <p>
+      As you see, Sage returns a pair of matrices. One of them is diagonal, so that
+      is probably <m>\Lambda</m>. We'll use tuple unpacking to assign the matrices to
+      sensible names.
+    </p>
+    <sage>
+      <input>Lambda, S = A.eigenmatrix_right()</input>
+    </sage>
+    <sage>
+      <input>Lambda</input>
+      <output>
+        [ 11.816056999423874?                    0                    0]
+        [                   0 -0.3954315737468559?                    0]
+        [                   0                    0  -6.420625425677017?]
+      </output>
+    </sage>
+    <sage>
+      <input>S</input>
+      <output>
+        [  1.000000000000000?   1.000000000000000?   1.000000000000000?]
+        [  2.369820536283515?  -0.866496699124881?   1.460961877127081?]
+        [  2.025471975618948? 0.11252060816763521?  -3.447516393310393?]
+      </output>
+    </sage>
+    <p>
+      Note that <m>S</m> has the eigenvectors of <m>A</m> as its columns, and the
+      corresponding eigenvalues are lined up as the diagonal entries of <m>\Lambda</m>.
+    </p>
+    <sage>
+      <input>A.eigenvectors_right()</input>
+      <output>
+        [(11.816056999423874?, [
+        (1.000000000000000?, 2.369820536283515?, 2.025471975618948?)
+        ], 1), (-0.3954315737468559?, [
+        (1.000000000000000?, -0.866496699124881?, 0.11252060816763521?)
+        ], 1), (-6.420625425677017?, [
+        (1.000000000000000?, 1.460961877127081?, -3.447516393310393?)
+        ], 1)]
+      </output>
+    </sage>
+    <p>Anyway, now we can check that everything lines up correctly:</p>
+    <sage>
+      <input>S * Lambda * S.inverse()</input>
+      <output>
+        [ 1.000000000000000?  2.000000000000000?  3.000000000000000?]
+        [ 4.000000000000000?  5.000000000000000?  6.000000000000000?]
+        [ 7.000000000000000?   8.00000000000000? -1.000000000000000?]
+      </output>
+    </sage>
+    <sage>
+      <input>S * Lambda * S.inverse() == A</input>
+      <output>True</output>
+    </sage>
+  </subsection>
+  <subsection>
+    <title>Questions for Section 6.2</title>
+
+    <task>
+      <statement>
+        <p>
+          Let <m>e_1, e_2, e_3</m> be the standard basis of <m>\mathbb{R}^3</m>:
+          <me>
+            e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
+            e_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad
+            e_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
+          </me>
+          Make an example of an invertible <m>3 \times 3</m> matrix <m>S</m>.
+          Write your matrix as a matrix of column vectors.
+          <me>
+            S = \begin{pmatrix} | &amp; | &amp; | \\ v_1 &amp; v_2 &amp; v_3 \\
+             | &amp; | &amp; | \end{pmatrix}
+          </me>
+          How do you know that the set <m>\{ Se_1, Se_2, Se_3 \}</m> is a basis
+          for <m>\mathbb{R}^3</m>?
+        </p>
+        <p>
+          What is the connection between <m>Se_1</m>, <m>Se_2</m>, <m>Se_3</m>,
+          <m>S^{-1}v_1</m>, <m>S^{-1}v_2</m>, <m>S^{-1}v_3</m> and the original
+          vectors <m>e_1, e_2, e_3, v_1, v_2, v_3</m>?
+        </p>
+        <p>
+          Finally, how do we use this to understand the way that the decomposition
+          <m>A = S\Lambda S^{-1}</m> works?
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 1 from section 6.2 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 2 from section 6.2 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 3 from section 6.2 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 13 from section 6.2 of Strang.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        Exercise 19 from section 6.2 of Strang.
+      </statement>
+    </task>
+
+  </subsection>
 </section>
