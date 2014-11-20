@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-11-17T20:57:29-06:00    %%
+%%    on 2014-11-20T10:31:45-06:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -8195,7 +8195,217 @@ Exercise 19 from section 6.1 of Strang.
 \typeout{Section 6.2 Diagonalizing Matrices}
 \typeout{************************************************}
 \section[Diagonalizing Matrices]{Diagonalizing Matrices}\label{section-diagonalization}
-Text%
+\typeout{************************************************}
+\typeout{Subsection  The assignment}
+\typeout{************************************************}
+\subsection[The assignment]{The assignment}\label{subsection-130}
+\begin{itemize}
+\item{} Read section 6.2 of Strang (pages 298-307).\item{} Read the following.\item{} Prepare the items below for presentation.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Diagonalizing Matrices}
+\typeout{************************************************}
+\subsection[Diagonalizing Matrices]{Diagonalizing Matrices}\label{subsection-131}
+
+      The big result here is this:
+    %
+\begin{theorem}\label{theorem-10}
+
+        Let \(A\) be an \(n\times n\) square matrix. Then the following
+        two conditions are equivalent:
+        \begin{itemize}
+\item{}
+            There is a basis \(\beta= \{ v_1, v_2, \ldots, v_n \}\) for
+            \(\mathbb{R}^n\) consisting of eigenvectors for \(A\).
+          \item{}
+            It is possible to find an invertible matrix \(S\) so that
+            \(A = S \Lambda S^{-1}\), where \(\Lambda\) is a diagonal
+            matrix whose entries are the eigenvalues of \(A\).
+          \end{itemize}
+\end{theorem}
+\par
+
+      The connection between the two conditions is that the matrix \(S\) has
+      as its columns the eigenvectors of \(A\). (In fact, that is really the
+      heart of the proof of this theorem. The rest is just details.)
+    %
+\par
+
+      If a matrix satisfies these two conditions, then we say it is
+      \terminology{diagonalizable}. We should note right away that not all
+      matrices are diagonalizable. We have already seen examples of matrices
+      where the geometric multiplicity of an eigenvalue is less than the
+      algebraic multiplicity, like
+      \(A = \left( \begin{smallmatrix} 5 & 1 \\ 0 & 5 \end{smallmatrix}\right)\).
+      In this case, it becomes impossible to find a basis consisting of eigenvectors.
+    %
+\par
+
+      In a way, this allows us to see something interesting: maybe a matrix
+      really wants to be a diagonal matrix, but we are looking at the
+      transformation \(A\) using ``the wrong basis.'' By wrong, here I
+      mean that the standard basis is not the most convenient one, and another
+      one makes our lives easier.
+    %
+\typeout{************************************************}
+\typeout{Subsection  Sage and Diagonalization}
+\typeout{************************************************}
+\subsection[Sage and Diagonalization]{Sage and Diagonalization}\label{subsection-132}
+
+      Sage has built-in commands about diagonalization. We shall try a few out here.
+      We need a matrix to play with, so we take this one:
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(AA, 3,3, [1,2,3,4,5,6,7,8,-1])
+A.rank()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+3
+\end{lstlisting}
+\par
+
+      We chose to define this matrix over AA because we need to find
+      roots of polynomials when looking for eigenvalues. AA is the
+      set of \terminology{algebraic numbers}, which just means the collection of
+      all roots of polynomials with integer coefficients.
+    %
+\begin{lstlisting}[style=sageinput]
+A.is_diagonalizable()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\par
+
+      Sage has a command for finding the eigenvector decomposition
+      \(A = S\Lambda S^{-1}\).
+    %
+\begin{lstlisting}[style=sageinput]
+A.eigenmatrix_right()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+([ 11.816056999423874?                    0                    0]
+[                   0 -0.3954315737468559?                    0]
+[                   0                    0  -6.420625425677017?], [  1.000000000000000?   1.000000000000000?   1.000000000000000?]
+[  2.369820536283515?  -0.866496699124881?   1.460961877127081?]
+[  2.025471975618948? 0.11252060816763521?  -3.447516393310393?])
+\end{lstlisting}
+\par
+
+      As you see, Sage returns a pair of matrices. One of them is diagonal, so that
+      is probably \(\Lambda\). We'll use tuple unpacking to assign the matrices to
+      sensible names.
+    %
+\begin{lstlisting}[style=sageinput]
+Lambda, S = A.eigenmatrix_right()
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+Lambda
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 11.816056999423874?                    0                    0]
+[                   0 -0.3954315737468559?                    0]
+[                   0                    0  -6.420625425677017?]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+S
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1.000000000000000?   1.000000000000000?   1.000000000000000?]
+[  2.369820536283515?  -0.866496699124881?   1.460961877127081?]
+[  2.025471975618948? 0.11252060816763521?  -3.447516393310393?]
+\end{lstlisting}
+\par
+
+      Note that \(S\) has the eigenvectors of \(A\) as its columns, and the
+      corresponding eigenvalues are lined up as the diagonal entries of \(\Lambda\).
+    %
+\begin{lstlisting}[style=sageinput]
+A.eigenvectors_right()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[(11.816056999423874?, [
+(1.000000000000000?, 2.369820536283515?, 2.025471975618948?)
+], 1), (-0.3954315737468559?, [
+(1.000000000000000?, -0.866496699124881?, 0.11252060816763521?)
+], 1), (-6.420625425677017?, [
+(1.000000000000000?, 1.460961877127081?, -3.447516393310393?)
+], 1)]
+\end{lstlisting}
+\par
+Anyway, now we can check that everything lines up correctly:%
+\begin{lstlisting}[style=sageinput]
+S * Lambda * S.inverse()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[ 1.000000000000000?  2.000000000000000?  3.000000000000000?]
+[ 4.000000000000000?  5.000000000000000?  6.000000000000000?]
+[ 7.000000000000000?   8.00000000000000? -1.000000000000000?]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+S * Lambda * S.inverse() == A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+True
+\end{lstlisting}
+\typeout{************************************************}
+\typeout{Subsection  Questions for Section 6.2}
+\typeout{************************************************}
+\subsection[Questions for Section 6.2]{Questions for Section 6.2}\label{subsection-133}
+\begin{task}
+\label{task-164}
+
+          Let \(e_1, e_2, e_3\) be the standard basis of \(\mathbb{R}^3\):
+          \[
+            e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
+            e_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad
+            e_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
+          \]
+          Make an example of an invertible \(3 \times 3\) matrix \(S\).
+          Write your matrix as a matrix of column vectors.
+          \[
+            S = \begin{pmatrix} | & | & | \\ v_1 & v_2 & v_3 \\
+             | & | & | \end{pmatrix}
+          \]
+          How do you know that the set \(\{ Se_1, Se_2, Se_3 \}\) is a basis
+          for \(\mathbb{R}^3\)?
+        %
+\par
+
+          What is the connection between \(Se_1\), \(Se_2\), \(Se_3\),
+          \(S^{-1}v_1\), \(S^{-1}v_2\), \(S^{-1}v_3\) and the original
+          vectors \(e_1, e_2, e_3, v_1, v_2, v_3\)?
+        %
+\par
+
+          Finally, how do we use this to understand the way that the decomposition
+          \(A = S\Lambda S^{-1}\) works?
+        %
+\end{task}
+\begin{task}
+\label{task-165}
+
+        Exercise 1 from section 6.2 of Strang.
+      \end{task}
+\begin{task}
+\label{task-166}
+
+        Exercise 2 from section 6.2 of Strang.
+      \end{task}
+\begin{task}
+\label{task-167}
+
+        Exercise 3 from section 6.2 of Strang.
+      \end{task}
+\begin{task}
+\label{task-168}
+
+        Exercise 13 from section 6.2 of Strang.
+      \end{task}
+\begin{task}
+\label{task-169}
+
+        Exercise 19 from section 6.2 of Strang.
+      \end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 6.3 The Spectral Theorem}
