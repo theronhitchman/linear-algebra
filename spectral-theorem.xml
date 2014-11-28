@@ -95,7 +95,7 @@
       That second bit can be done in two steps, first find a basis for <m>E_{\lambda}</m>
       (special solutions!) and then apply the Gram-Schmidt algorithm to find an
       orthonormal basis for <m>E_{\lambda}</m>. Collecting all of these bases
-      together will make a basis for <m>\mathbb{R}^m</m>.
+      together will make a basis for <m>\mathbb{R}^n</m>.
     </p>
 
   </subsection>
