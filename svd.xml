@@ -10,6 +10,22 @@
 
 <section xml:id="section-svd">
   <title>Singular Value Decomposition</title>
-  <p>Text</p>
+
+  <subsection>
+    <title>The Assignment</title>
+  </subsection>
+
+  <subsection>
+    <title>Discussion</title>
+  </subsection>
+
+  <subsection>
+    <title>Sage and the SVD</title>
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+  </subsection>
+
 
 </section>

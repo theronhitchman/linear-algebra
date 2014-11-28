@@ -10,6 +10,249 @@
 
 <section xml:id="section-spectral-theorem">
   <title>The Spectral Theorem</title>
-  <p>Text</p>
+
+  <subsection>
+    <title>The Assignment</title>
+    <ul>
+      <li>Read chapter 6 section 4 of <em>Strang</em></li>
+      <li>Read the following and complete the exercises below.</li>
+    </ul>
+  </subsection>
+
+  <subsection>
+    <title>Discussion: The Spectral Theorem for Symmetric Matrices</title>
+    <p>
+      We are now in a position to discuss a major result about the structure of
+      symmetric (square) matrices: The Spectral Theorem.
+    </p>
+    <theorem>
+      <statement>
+        Suppose that <m>A</m> is a symmetric <m>n \times n</m> matrix. Then
+        there exists an orthonormal basis <m>\{ q_1, q_2, \ldots , q_n \}</m>
+        of <m>\mathbb{R}^n</m> consisting of eigenvectors of <m>A</m>.
+        This means that we can factor <m>A</m> as a product
+        <me>
+          A = Q \Lambda Q^{-1} = Q \Lambda Q^T,
+        </me>
+        where <m>Q</m> is an orthogonal matrix having the vectors <m>q_i</m> as
+        its columns, and <m>\Lambda</m> is a diagonal matrix with the eigenvalues
+        of <m>A</m> as its entries.
+      </statement>
+    </theorem>
+    <p>
+      I think Strang's argument for the truth of this theorem is too terse, and hence
+      confusing for a first time reader. The main points of the argument are these:
+    </p>
+    <ol>
+      <li>
+        If <m>X</m> is a symmetric matrix, then all of its eigenvalues are real
+        numbers.
+      </li>
+      <li>
+        If <m>X</m> is a symmetric matrix and <m>v</m> and <m>w</m> are eigenvectors
+        of <m>X</m> which correspond to <em>different</em> eigenvalues, then
+        <m>v</m> and <m>w</m> are orthogonal vectors.
+      </li>
+      <li>
+        If <m>X</m> is a symmetric matrix and <m>\lambda</m> is an eigenvalue of
+        <m>X</m>, then subspace of <m>\lambda</m>-eigenvectors for <m>X</m> has
+        dimension equal to the multiplicity of <m>\lambda</m> as a root of
+        the characteristic polynomial of <m>X</m>. (This point is often stated by
+        saying that the <term>geometric multiplicity</term> of <m>\lambda</m> is
+        equal to the <term>algebraic multiplicity</term> of <m>\lambda</m>.)
+      </li>
+    </ol>
+    <p>
+      Let's clear up that bit about the different types of multiplicity. We can
+      identify eigenvalues by finding them as roots of the characteristic polynomial
+      <m>p_A(t) = \mathrm{det}(A-t\cdot I)</m> of <m>A</m>. Of course, an particular
+      root can be a root <em>multiple times</em>. For example, <m>5</m> is a root of
+      the polynomial <m>t^2 - 5t + 25=0</m> twice. So we say <m>5</m> has multiplicity
+      two. In the context of eigenvalues, this multiplicity is called the
+      <term>algebraic multiplicity</term> of an eigenvalue, since it comes out of
+      the consideration of the algebra.
+    </p>
+    <p>
+      Another way to count up the number of times a number counts as an eigenvalue
+      is to use the number of eigenvectors corresponding to that number. But we
+      only want to count up truly independent directions, so we should use the
+      dimension of the subspace of eigenvectors. This is the <term>geometric
+      multiplicity</term> of an eigenvalue. It is a fact that the geometric
+      multiplicity is not greater than the algebraic multiplicity. But the two can
+      be different. For example, consider this matrix:
+      <me>G = \begin{pmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{pmatrix}.</me>
+    </p>
+    <p>
+      Now, how does one understand the Spectral Theorem? It basically guarantees
+      that we can always find (a) enough eigenvalues (as real numbers), and (b) for each eigenvalue,
+      enough eigenvectors. The hardest parts of the proof come from part (b) where
+      you have to produce enough eigenvectors. But in practice, if you have an
+      example of a symmetric matrix, you can find the decomposition mentioned in
+      the theorem pretty easily. First, find the eigenvalues. Then for each
+      eigenvalue <m>\lambda</m>, find an orthonormal basis for the
+      <term>eigenspace</term>
+      <me>E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).</me>
+      That second bit can be done in two steps, first find a basis for <m>E_{\lambda}</m>
+      (special solutions!) and then apply the Gram-Schmidt algorithm to find an
+      orthonormal basis for <m>E_{\lambda}</m>. Collecting all of these bases
+      together will make a basis for <m>\mathbb{R}^m</m>.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title>Sage and the Spectral Theorem</title>
+
+    <p>
+      Sage does not have any built-in commands that deal with the spectral
+      decomposition of a symmetric square matrix. But here are a few commands
+      that you might find useful as you hack your solution together by hand:
+    </p>
+    <p>
+      The first command you might find useful is <c>.change_ring()</c>. This is
+      helpful for those times when you define a matrix over some convenient ring
+      like <c>QQ</c>, but then want to work with eigevalues and eigenvectors and
+      so need a bigger ring that you can take roots in. Using this command doesn't
+      change the matrix, so much as tell Sage to think of it as having entries
+      from a different set of numbers.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 2,2, [1,2,3,4])
+        A.change_ring(AA)
+      </input>
+      <output>
+        [1, 2]
+        [3, 4]
+      </output>
+    </sage>
+    <p>
+      The command <c>.jordan_form(transformation=True)</c> will return a pair
+      consisting of
+      a diagonal matrix with the eigenvalues as entries and an invertible matrix
+      consisting of a basis of eigenvectors. These eigenvectors will NOT be an
+      orthonormal basis. You will have to use Gram-Schmidt to fix this to a
+      proper basis promised by the theorem.
+    </p>
+    <p>
+      Note: the <term>Jordan Form</term> is a generalization of the diagonalization
+      process that works for matrices which might not be symmetric. We'll use it
+      here to short-cut some of the work.
+    </p>
+    <p>
+      Let's do an example. First, we will make a symmetric matrix. Then we will
+      find the eigenvalues and eigenvectors
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 3,3, [1,2,4, 5,3,2, -1,3,3])
+        X = A.transpose()*A
+        Y = X.change_ring(AA); Y
+      </input>
+      <output>
+        [27 14 11]
+        [14 22 23]
+        [11 23 29]
+      </output>
+    </sage>
+    <sage>
+      <input>
+        D, S = Y.jordan_form(transformation=True)
+        D
+      </input>
+      <output>
+        [1.606673922554331?|                 0|                 0]
+        [------------------+------------------+------------------]
+        [                 0|17.88104756294764?|                 0]
+        [------------------+------------------+------------------]
+        [                 0|                 0|58.51227851449803?]
+      </output>
+    </sage>
+    <sage>
+      <input>S</input>
+      <output>
+        [  1.000000000000000?   1.000000000000000?   1.000000000000000?]
+        [ -4.402902344870359? -0.2014369844407669?   1.214399978615443?]
+        [  3.295209704612669? -0.5726213322619663?   1.319152619443804?]
+      </output>
+    </sage>
+    <p>
+      In this case, we have three different <m>1</m>-dimensional eigenspaces, so
+      things are not too hard! If we apply Gram-Schmidt, we will just normalize
+      those vectors.
+    </p>
+    <sage>
+      <input>
+        Q, R = S.QR()
+        Q * D * Q.transpose()
+      </input>
+      <output>
+        [27.00000000000000? 14.00000000000000? 11.00000000000000?]
+        [14.00000000000000? 22.00000000000000? 23.00000000000000?]
+        [11.00000000000000? 23.00000000000000? 29.00000000000000?]
+      </output>
+    </sage>
+    <p>
+      That is about as close as we can get to displaying the original <c>X</c>.
+    </p>
+  </subsection>
+
+  <subsection>
+    <title>Exercises</title>
+
+    <task>
+      <statement>
+        From Strang section 6.4, do exercise 3.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        From Strang section 6.4, do exercise 4.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        From Strang section 6.4, do exercise 5.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        From Strang section 6.4, do exercise 6.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        From Strang section 6.4, do exercise 8.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        From Strang section 6.4, do exercise 11.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        From Strang section 6.4, do exercise 12.
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        From Strang section 6.4, do exercise 24.
+      </statement>
+    </task>
+
+
+
+
+
+  </subsection>
+
 
 </section>
