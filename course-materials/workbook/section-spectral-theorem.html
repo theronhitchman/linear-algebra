@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-11-20T10:34:47-06:00    *-->
+<!--*    on 2014-11-28T15:40:36-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -132,7 +132,177 @@ $(function () {
 </ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
 </div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-spectral-theorem"><header><h1 class="heading">
 <span class="type">Section</span><span class="codenumber">6.3</span><span class="title">The Spectral Theorem</span>
-</h1></header><p>Text</p></section></div></main>
+</h1></header><section class="subsection" id="subsection-134"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul>
+<li>Read chapter 6 section 4 of <em>Strang</em>
+</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-135"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Spectral Theorem for Symmetric Matrices</span>
+</h1></header><p>
+      We are now in a position to discuss a major result about the structure of
+      symmetric (square) matrices: The Spectral Theorem.
+    </p>
+<article class="theorem-like" id="theorem-11"><h5 class="heading">
+<span class="type">Theorem</span><span class="codenumber">6.2</span>
+</h5>
+        Suppose that \(A\) is a symmetric \(n \times n\) matrix. Then
+        there exists an orthonormal basis \(\{ q_1, q_2, \ldots , q_n \}\)
+        of \(\mathbb{R}^n\) consisting of eigenvectors of \(A\).
+        This means that we can factor \(A\) as a product
+        \[
+          A = Q \Lambda Q^{-1} = Q \Lambda Q^T,
+        \]
+        where \(Q\) is an orthogonal matrix having the vectors \(q_i\) as
+        its columns, and \(\Lambda\) is a diagonal matrix with the eigenvalues
+        of \(A\) as its entries.
+      </article><p>
+      I think Strang's argument for the truth of this theorem is too terse, and hence
+      confusing for a first time reader. The main points of the argument are these:
+    </p>
+<ol>
+<li>
+        If \(X\) is a symmetric matrix, then all of its eigenvalues are real
+        numbers.
+      </li>
+<li>
+        If \(X\) is a symmetric matrix and \(v\) and \(w\) are eigenvectors
+        of \(X\) which correspond to <em>different</em> eigenvalues, then
+        \(v\) and \(w\) are orthogonal vectors.
+      </li>
+<li>
+        If \(X\) is a symmetric matrix and \(\lambda\) is an eigenvalue of
+        \(X\), then subspace of \(\lambda\)-eigenvectors for \(X\) has
+        dimension equal to the multiplicity of \(\lambda\) as a root of
+        the characteristic polynomial of \(X\). (This point is often stated by
+        saying that the <em class="terminology">geometric multiplicity</em> of \(\lambda\) is
+        equal to the <em class="terminology">algebraic multiplicity</em> of \(\lambda\).)
+      </li>
+</ol>
+<p>
+      Let's clear up that bit about the different types of multiplicity. We can
+      identify eigenvalues by finding them as roots of the characteristic polynomial
+      \(p_A(t) = \mathrm{det}(A-t\cdot I)\) of \(A\). Of course, an particular
+      root can be a root <em>multiple times</em>. For example, \(5\) is a root of
+      the polynomial \(t^2 - 5t + 25=0\) twice. So we say \(5\) has multiplicity
+      two. In the context of eigenvalues, this multiplicity is called the
+      <em class="terminology">algebraic multiplicity</em> of an eigenvalue, since it comes out of
+      the consideration of the algebra.
+    </p>
+<p>
+      Another way to count up the number of times a number counts as an eigenvalue
+      is to use the number of eigenvectors corresponding to that number. But we
+      only want to count up truly independent directions, so we should use the
+      dimension of the subspace of eigenvectors. This is the <em class="terminology">geometric
+      multiplicity</em> of an eigenvalue. It is a fact that the geometric
+      multiplicity is not greater than the algebraic multiplicity. But the two can
+      be different. For example, consider this matrix:
+      \[G = \begin{pmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{pmatrix}.\]
+    </p>
+<p>
+      Now, how does one understand the Spectral Theorem? It basically guarantees
+      that we can always find (a) enough eigenvalues (as real numbers), and (b) for each eigenvalue,
+      enough eigenvectors. The hardest parts of the proof come from part (b) where
+      you have to produce enough eigenvectors. But in practice, if you have an
+      example of a symmetric matrix, you can find the decomposition mentioned in
+      the theorem pretty easily. First, find the eigenvalues. Then for each
+      eigenvalue \(\lambda\), find an orthonormal basis for the
+      <em class="terminology">eigenspace</em>
+      \[E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).\]
+      That second bit can be done in two steps, first find a basis for \(E_{\lambda}\)
+      (special solutions!) and then apply the Gram-Schmidt algorithm to find an
+      orthonormal basis for \(E_{\lambda}\). Collecting all of these bases
+      together will make a basis for \(\mathbb{R}^n\).
+    </p></section><section class="subsection" id="subsection-136"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Spectral Theorem</span>
+</h1></header><p>
+      Sage does not have any built-in commands that deal with the spectral
+      decomposition of a symmetric square matrix. But here are a few commands
+      that you might find useful as you hack your solution together by hand:
+    </p>
+<p>
+      The first command you might find useful is <tt class="code-inline" style="color: red; font-size: 120%">.change_ring()</tt>. This is
+      helpful for those times when you define a matrix over some convenient ring
+      like <tt class="code-inline" style="color: red; font-size: 120%">QQ</tt>, but then want to work with eigevalues and eigenvectors and
+      so need a bigger ring that you can take roots in. Using this command doesn't
+      change the matrix, so much as tell Sage to think of it as having entries
+      from a different set of numbers.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 2,2, [1,2,3,4])
+A.change_ring(AA)
+</script></div>
+<p>
+      The command <tt class="code-inline" style="color: red; font-size: 120%">.jordan_form(transformation=True)</tt> will return a pair
+      consisting of
+      a diagonal matrix with the eigenvalues as entries and an invertible matrix
+      consisting of a basis of eigenvectors. These eigenvectors will NOT be an
+      orthonormal basis. You will have to use Gram-Schmidt to fix this to a
+      proper basis promised by the theorem.
+    </p>
+<p>
+      Note: the <em class="terminology">Jordan Form</em> is a generalization of the diagonalization
+      process that works for matrices which might not be symmetric. We'll use it
+      here to short-cut some of the work.
+    </p>
+<p>
+      Let's do an example. First, we will make a symmetric matrix. Then we will
+      find the eigenvalues and eigenvectors
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 3,3, [1,2,4, 5,3,2, -1,3,3])
+X = A.transpose()*A
+Y = X.change_ring(AA); Y
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">D, S = Y.jordan_form(transformation=True)
+D
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">S
+</script></div>
+<p>
+      In this case, we have three different \(1\)-dimensional eigenspaces, so
+      things are not too hard! If we apply Gram-Schmidt, we will just normalize
+      those vectors.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">Q, R = S.QR()
+Q * D * Q.transpose()
+</script></div>
+<p>
+      That is about as close as we can get to displaying the original <tt class="code-inline" style="color: red; font-size: 120%">X</tt>.
+    </p></section><section class="subsection" id="subsection-137"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><article class="example-like" id="task-170"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 3.
+      </article><article class="example-like" id="task-171"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">14</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 4.
+      </article><article class="example-like" id="task-172"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">15</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 5.
+      </article><article class="example-like" id="task-173"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">16</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 6.
+      </article><article class="example-like" id="task-174"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">17</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 8.
+      </article><article class="example-like" id="task-175"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">18</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 11.
+      </article><article class="example-like" id="task-176"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">19</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 12.
+      </article><article class="example-like" id="task-177"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">20</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 24.
+      </article></section></section></div></main>
 </div>
 </body>
 </html>

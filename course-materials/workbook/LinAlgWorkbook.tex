@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-11-20T10:31:45-06:00    %%
+%%    on 2014-11-28T15:40:59-06:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -8411,25 +8411,358 @@ True
 \typeout{Section 6.3 The Spectral Theorem}
 \typeout{************************************************}
 \section[The Spectral Theorem]{The Spectral Theorem}\label{section-spectral-theorem}
-Text%
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-134}
+\begin{itemize}
+\item{}Read chapter 6 section 4 of \emph{Strang}\item{}Read the following and complete the exercises below.\end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion: The Spectral Theorem for Symmetric Matrices}
+\typeout{************************************************}
+\subsection[Discussion: The Spectral Theorem for Symmetric Matrices]{Discussion: The Spectral Theorem for Symmetric Matrices}\label{subsection-135}
+
+      We are now in a position to discuss a major result about the structure of
+      symmetric (square) matrices: The Spectral Theorem.
+    %
+\begin{theorem}\label{theorem-11}
+
+        Suppose that \(A\) is a symmetric \(n \times n\) matrix. Then
+        there exists an orthonormal basis \(\{ q_1, q_2, \ldots , q_n \}\)
+        of \(\mathbb{R}^n\) consisting of eigenvectors of \(A\).
+        This means that we can factor \(A\) as a product
+        \[
+          A = Q \Lambda Q^{-1} = Q \Lambda Q^T,
+        \]
+        where \(Q\) is an orthogonal matrix having the vectors \(q_i\) as
+        its columns, and \(\Lambda\) is a diagonal matrix with the eigenvalues
+        of \(A\) as its entries.
+      \end{theorem}
+\par
+
+      I think Strang's argument for the truth of this theorem is too terse, and hence
+      confusing for a first time reader. The main points of the argument are these:
+    %
+\begin{enumerate}
+\item{}
+        If \(X\) is a symmetric matrix, then all of its eigenvalues are real
+        numbers.
+      \item{}
+        If \(X\) is a symmetric matrix and \(v\) and \(w\) are eigenvectors
+        of \(X\) which correspond to \emph{different} eigenvalues, then
+        \(v\) and \(w\) are orthogonal vectors.
+      \item{}
+        If \(X\) is a symmetric matrix and \(\lambda\) is an eigenvalue of
+        \(X\), then subspace of \(\lambda\)-eigenvectors for \(X\) has
+        dimension equal to the multiplicity of \(\lambda\) as a root of
+        the characteristic polynomial of \(X\). (This point is often stated by
+        saying that the \terminology{geometric multiplicity} of \(\lambda\) is
+        equal to the \terminology{algebraic multiplicity} of \(\lambda\).)
+      \end{enumerate}
+\par
+
+      Let's clear up that bit about the different types of multiplicity. We can
+      identify eigenvalues by finding them as roots of the characteristic polynomial
+      \(p_A(t) = \mathrm{det}(A-t\cdot I)\) of \(A\). Of course, an particular
+      root can be a root \emph{multiple times}. For example, \(5\) is a root of
+      the polynomial \(t^2 - 5t + 25=0\) twice. So we say \(5\) has multiplicity
+      two. In the context of eigenvalues, this multiplicity is called the
+      \terminology{algebraic multiplicity} of an eigenvalue, since it comes out of
+      the consideration of the algebra.
+    %
+\par
+
+      Another way to count up the number of times a number counts as an eigenvalue
+      is to use the number of eigenvectors corresponding to that number. But we
+      only want to count up truly independent directions, so we should use the
+      dimension of the subspace of eigenvectors. This is the \terminology{geometric
+      multiplicity} of an eigenvalue. It is a fact that the geometric
+      multiplicity is not greater than the algebraic multiplicity. But the two can
+      be different. For example, consider this matrix:
+      \[G = \begin{pmatrix} 5 & 1 \\ 0 & 5 \end{pmatrix}.\]
+    %
+\par
+
+      Now, how does one understand the Spectral Theorem? It basically guarantees
+      that we can always find (a) enough eigenvalues (as real numbers), and (b) for each eigenvalue,
+      enough eigenvectors. The hardest parts of the proof come from part (b) where
+      you have to produce enough eigenvectors. But in practice, if you have an
+      example of a symmetric matrix, you can find the decomposition mentioned in
+      the theorem pretty easily. First, find the eigenvalues. Then for each
+      eigenvalue \(\lambda\), find an orthonormal basis for the
+      \terminology{eigenspace}
+      \[E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).\]
+      That second bit can be done in two steps, first find a basis for \(E_{\lambda}\)
+      (special solutions!) and then apply the Gram-Schmidt algorithm to find an
+      orthonormal basis for \(E_{\lambda}\). Collecting all of these bases
+      together will make a basis for \(\mathbb{R}^n\).
+    %
+\typeout{************************************************}
+\typeout{Subsection  Sage and the Spectral Theorem}
+\typeout{************************************************}
+\subsection[Sage and the Spectral Theorem]{Sage and the Spectral Theorem}\label{subsection-136}
+
+      Sage does not have any built-in commands that deal with the spectral
+      decomposition of a symmetric square matrix. But here are a few commands
+      that you might find useful as you hack your solution together by hand:
+    %
+\par
+
+      The first command you might find useful is \verb?.change_ring()?. This is
+      helpful for those times when you define a matrix over some convenient ring
+      like \verb?QQ?, but then want to work with eigevalues and eigenvectors and
+      so need a bigger ring that you can take roots in. Using this command doesn't
+      change the matrix, so much as tell Sage to think of it as having entries
+      from a different set of numbers.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 2,2, [1,2,3,4])
+A.change_ring(AA)
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1, 2]
+[3, 4]
+\end{lstlisting}
+\par
+
+      The command \verb?.jordan_form(transformation=True)? will return a pair
+      consisting of
+      a diagonal matrix with the eigenvalues as entries and an invertible matrix
+      consisting of a basis of eigenvectors. These eigenvectors will NOT be an
+      orthonormal basis. You will have to use Gram-Schmidt to fix this to a
+      proper basis promised by the theorem.
+    %
+\par
+
+      Note: the \terminology{Jordan Form} is a generalization of the diagonalization
+      process that works for matrices which might not be symmetric. We'll use it
+      here to short-cut some of the work.
+    %
+\par
+
+      Let's do an example. First, we will make a symmetric matrix. Then we will
+      find the eigenvalues and eigenvectors
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 3,3, [1,2,4, 5,3,2, -1,3,3])
+X = A.transpose()*A
+Y = X.change_ring(AA); Y
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[27 14 11]
+[14 22 23]
+[11 23 29]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+D, S = Y.jordan_form(transformation=True)
+D
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[1.606673922554331?|                 0|                 0]
+[------------------+------------------+------------------]
+[                 0|17.88104756294764?|                 0]
+[------------------+------------------+------------------]
+[                 0|                 0|58.51227851449803?]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+S
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[  1.000000000000000?   1.000000000000000?   1.000000000000000?]
+[ -4.402902344870359? -0.2014369844407669?   1.214399978615443?]
+[  3.295209704612669? -0.5726213322619663?   1.319152619443804?]
+\end{lstlisting}
+\par
+
+      In this case, we have three different \(1\)-dimensional eigenspaces, so
+      things are not too hard! If we apply Gram-Schmidt, we will just normalize
+      those vectors.
+    %
+\begin{lstlisting}[style=sageinput]
+Q, R = S.QR()
+Q * D * Q.transpose()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[27.00000000000000? 14.00000000000000? 11.00000000000000?]
+[14.00000000000000? 22.00000000000000? 23.00000000000000?]
+[11.00000000000000? 23.00000000000000? 29.00000000000000?]
+\end{lstlisting}
+\par
+
+      That is about as close as we can get to displaying the original \verb?X?.
+    %
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-137}
+\begin{task}
+\label{task-170}
+
+        From Strang section 6.4, do exercise 3.
+      \end{task}
+\begin{task}
+\label{task-171}
+
+        From Strang section 6.4, do exercise 4.
+      \end{task}
+\begin{task}
+\label{task-172}
+
+        From Strang section 6.4, do exercise 5.
+      \end{task}
+\begin{task}
+\label{task-173}
+
+        From Strang section 6.4, do exercise 6.
+      \end{task}
+\begin{task}
+\label{task-174}
+
+        From Strang section 6.4, do exercise 8.
+      \end{task}
+\begin{task}
+\label{task-175}
+
+        From Strang section 6.4, do exercise 11.
+      \end{task}
+\begin{task}
+\label{task-176}
+
+        From Strang section 6.4, do exercise 12.
+      \end{task}
+\begin{task}
+\label{task-177}
+
+        From Strang section 6.4, do exercise 24.
+      \end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 6.4 Going Further with Eigendata}
 \typeout{************************************************}
 \section[Going Further with Eigendata]{Going Further with Eigendata}\label{section-gf-eigendata}
-Text%
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-138}
+\begin{itemize}
+\item{}
+        Go back through the exercises in the first three sections of this chapter.
+        Complete any items you
+        did not complete the first time through. Prepare any that we have not
+        discussed in class so that you will be ready to present them.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-139}
+Now we take a short break to revisit and consolidate the learning you
+      have done so far. Revisit the reading and the exercises you have done in
+      the first three sections of Chapter Six. The important feature of this work should be
+      learning to think about your own thinking. This sort of \terminology{meta-cognition}
+      characterizes expert learners. Eventually, you want to be able to monitor
+      your work at all times and recognize when you understand deeply and when
+      you do not. This will allow you to self-correct.
+    %
+\par
+To help you get started with meta-cognition, I listed learning goals in
+      each section. To go further, you need to explicitly go through the process
+      of reviewing what you can do and what you cannot. Here are some prompts to
+      help you get started with this process.
+      \begin{itemize}
+\item{}
+          Review the learning goals from each section. Can you do the things
+          described? Can you do them sometimes, or have you mastered them so you
+          can do them consistently?
+        \item{}
+          Look through all of the tasks and go deeper into them. Can you
+          connect each exercise to one of our pictures? Try to build a mental
+          model of how the exercise and its solution work.
+        \item{}
+          If your first solution to an exercise involve a ``guess-and-check''
+          approach, can you now complete the exercise in a \emph{purposeful}
+          and systematic manner?
+        \item{}
+          Make a list of concepts or exercises that are not clear to you. Phrase
+          each item in your list as a question, and make each question as
+          specific as possible. Talk with fellow students or your
+          instructor until you can answer your own questions.
+        \end{itemize}
+
+    %
 \clearpage
 \typeout{************************************************}
 \typeout{Section 6.5 Singular Value Decomposition}
 \typeout{************************************************}
 \section[Singular Value Decomposition]{Singular Value Decomposition}\label{section-svd}
-Text%
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-140}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-141}
+\typeout{************************************************}
+\typeout{Subsection  Sage and the SVD}
+\typeout{************************************************}
+\subsection[Sage and the SVD]{Sage and the SVD}\label{subsection-142}
+\typeout{************************************************}
+\typeout{Subsection  Exercises}
+\typeout{************************************************}
+\subsection[Exercises]{Exercises}\label{subsection-143}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 6.6 Going Further with the SVD}
 \typeout{************************************************}
 \section[Going Further with the SVD]{Going Further with the SVD}\label{section-gf-svd}
-Text%
+\typeout{************************************************}
+\typeout{Subsection  The Assignment}
+\typeout{************************************************}
+\subsection[The Assignment]{The Assignment}\label{subsection-144}
+\begin{itemize}
+\item{}
+        Go back through the exercises in the last section. Complete any items you
+        did not complete the first time through. Prepare any that we have not
+        discussed in class so that you will be ready to present them.
+      \end{itemize}
+\typeout{************************************************}
+\typeout{Subsection  Discussion}
+\typeout{************************************************}
+\subsection[Discussion]{Discussion}\label{subsection-145}
+Now we take a short break to revisit and consolidate the learning you
+      have done so far. Revisit the reading and the exercises you have done in
+      Chapter Six. The important feature of this work should be
+      learning to think about your own thinking. This sort of \terminology{meta-cognition}
+      characterizes expert learners. Eventually, you want to be able to monitor
+      your work at all times and recognize when you understand deeply and when
+      you do not. This will allow you to self-correct.
+    %
+\par
+To help you get started with meta-cognition, I listed learning goals in
+      each section. To go further, you need to explicitly go through the process
+      of reviewing what you can do and what you cannot. Here are some prompts to
+      help you get started with this process.
+      \begin{itemize}
+\item{}
+          Review the learning goals from each section. Can you do the things
+          described? Can you do them sometimes, or have you mastered them so you
+          can do them consistently?
+        \item{}
+          Look through all of the tasks and go deeper into them. Can you
+          connect each exercise to one of our pictures? Try to build a mental
+          model of how the exercise and its solution work.
+        \item{}
+          If your first solution to an exercise involve a ``guess-and-check''
+          approach, can you now complete the exercise in a \emph{purposeful}
+          and systematic manner?
+        \item{}
+          Make a list of concepts or exercises that are not clear to you. Phrase
+          each item in your list as a question, and make each question as
+          specific as possible. Talk with fellow students or your
+          instructor until you can answer your own questions.
+        \end{itemize}
+
+    %
 \clearpage
 %
 \backmatter
