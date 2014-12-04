@@ -71,7 +71,7 @@
           <p>
             Step One: Compute a spectral decomposition of <m>A^TA</m>.
             Since <m>A^TA</m> is a square symmetric matrix, we can find an orthonormal
-            basis <m>v_1, v_2, \ldots, v_n</m> for <m>\mathbb{R}^n<m> which consists
+            basis <m>v_1, v_2, \ldots, v_n</m> for <m>\mathbb{R}^n</m> which consists
             of eigenvectors for <m>A^TA</m>. If we bundle these together as the columns
             of a matrix <m>V</m>, we can make
             the spectral decomposition
@@ -89,6 +89,34 @@
             other <m>n-r</m> will be equal to zero. (Those come from the directions
             in the null space!) Don't sweat it. Everything is going to be fine.
           </p>
+        </li>
+        <li>
+          <p>
+            Step Two: For each <m>0 \leq i \leq r</m>, set
+            <me>\sigma_i = \sqrt(\lambda_i) .</me>
+            These are the <q>Singular Values</q> named in the singular value decomposition.
+          </p>
+        </li>
+        <li>
+          <p>
+            Step Three: for each <m>0 \leq i \leq r</m>, set
+            <me>
+              u_i = \dfrac{1}{\sigma_i} Av_i.
+            </me>
+            By the way things are set up, we are sure <m>\sigma_i</m> is not zero!
+            The vectors we just made are a basis for the column space of <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Step Four: Choose an orthonormal basis <m>u_{r+1}, \ldots, u_m</m>
+            for the null space of <m>A^T</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+
+    <p>Strang has a good run-down of the neat properties this set up has.</p>
 
   </subsection>
 
