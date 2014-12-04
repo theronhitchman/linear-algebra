@@ -60,7 +60,35 @@
 
     <subsubsection>
       <title>How to do it</title>
-      <p>So, suppose that <m>A</m> is an <m>m \times n</m> matrix.
+      <p>
+        So, suppose that <m>A</m> is an <m>m \times n</m> matrix. The key facts we
+        need are that <m>A^TA</m> is a symmetric <m>n \times n</m> matrix and
+        <m>AA^T</m> is a symmetric <m>m \times m</m> matrix, and also that
+        <m>A(A^TA) = (AA^T)A</m>.
+      </p>
+      <ol>
+        <li>
+          <p>
+            Step One: Compute a spectral decomposition of <m>A^TA</m>.
+            Since <m>A^TA</m> is a square symmetric matrix, we can find an orthonormal
+            basis <m>v_1, v_2, \ldots, v_n</m> for <m>\mathbb{R}^n<m> which consists
+            of eigenvectors for <m>A^TA</m>. If we bundle these together as the columns
+            of a matrix <m>V</m>, we can make
+            the spectral decomposition
+            <me>
+              A^TA = V D V^T,
+            </me>
+            where <m>D</m> is a diagonal matrix having the eigenvalues
+            <m>\lambda_1, \lambda_2, \ldots, \lambda_n</m> for entries.
+            NOTE: We will organize things so that the eigenvalues get smaller as
+            we go further in the list.
+          </p>
+          <p>
+            Now, some of the eigenvaules might be zero, but none will be negative.
+            We will have exactly <m>r = rank(A)</m> non-zero eigenvalues, and the
+            other <m>n-r</m> will be equal to zero. (Those come from the directions
+            in the null space!) Don't sweat it. Everything is going to be fine.
+          </p>
 
   </subsection>
 
