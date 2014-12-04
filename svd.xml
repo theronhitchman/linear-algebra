@@ -13,18 +13,135 @@
 
   <subsection>
     <title>The Assignment</title>
+    <ul>
+      <li>Read chapter 6 section 7 of <em>Strang</em>
+      <li>Read the following and complete the exercises below.</em>
+    </ul>
+
   </subsection>
 
   <subsection>
-    <title>Discussion</title>
+    <title>Discussion: The Singular Value Decomposition</title>
+    <p>
+      The <term>Singular Value Decomposition</term> is an adaptation of the ideas
+      behind eigenvectors and eigenvalues for non-square matrices. If our matrix
+      <m>A</m> is <m>n \times m</m>, the idea is to
+      choose
+    </p>
+    <ul>
+      <li>An orthonormal basis <m>\{ v_1, \ldots, v_n\}</m> for <m>\mathbb{R}^n</m>, </li>
+      <li>and an orthonormal basis <m>\{ u_1, \ldots, u_n \}</m> for <m>\mathbb{R}^m</m></li>
+    </ul>
+    <p>
+      so that <me>Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}</me>
+      where <m>r = rank(A)</m>. If we pile up all of those equations, we get a
+      statement like this one:
+    </p>
+    <me>
+      A \begin{pmatrix} | &amp; | &amp; \dots &amp; | \\
+                      v_1 &amp; v_2 &amp; \dots &amp; v_r \\
+                        | &amp; | &amp; \dots &amp; |
+                        \end{pmatrix} =
+        \begin{pmatrix} \sigma_1 &amp; 0 &amp; \dots &amp; 0 \\
+                        0 &amp; \sigma_2 &amp; \dots &amp; 0 \\
+                        \ddots &amp; \ddots; &amp; \ddots &amp; \ddots \\
+                         0 &amp; 0 &amp; \dots &amp; \sigma_n
+        \end{pmatrix}
+        \begin{pmatrix} | &amp; | &amp; \dots &amp; | \\
+                        u_1 &amp; u_2 &amp; \dots &amp; u_r \\
+                          | &amp; | &amp; \dots &amp; |
+                          \end{pmatrix}
+    </me>
+    <p>
+    Eventually, this will lead us to a matrix decomposition of the form
+    <p>
+    <me> A = U \Sigma V^T .</me>
+
+
+    <subsubsection>
+      <title>How to do it</title>
+      <p>So, suppose that <m>A</m> is an <m>m \times n</m> matrix.
+
   </subsection>
 
   <subsection>
     <title>Sage and the SVD</title>
+    <p>
+      Sage has a built in command for the singular value decomposition of a matrix.
+      If you have a matrix <c>A</c>, the command is <c>A.SVD()</c>. But there is a
+      little trick to using it! At present, Sage only has this function implemented
+      for matrices defined over rings of <q>floating point numbers</q>. The best
+      way around this is to either define your matrix with entries in the ring <c>RDF</c>,
+      or use the <c>.change_ring(RDF)</c> method on you matrix before you use the SVD.
+    </p>
+    <sage>
+      <input>
+        A = matrix(QQ, 2,2, [2,1,1,1])
+        A
+      </input>
+      <output>
+        [2, 1]
+        [1, 1]
+      </output>
+    </sage>
+    <sage>
+      <input>
+        A.change_ring(RDF).SVD()
+      </input>
+      <output>
+        (
+        [-0.850650808352 -0.525731112119]  [2.61803398875           0.0]
+        [-0.525731112119  0.850650808352], [          0.0 0.38196601125],
+
+        [-0.850650808352 -0.525731112119]
+        [-0.525731112119  0.850650808352]
+        )
+      </output>
   </subsection>
 
   <subsection>
     <title>Exercises</title>
+    <task>
+      <statement>Complete exercise 6.7.1 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.2 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.3 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.4 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.5 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.6 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.9 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.10 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.11 from <em>Strang</em>.
+      </statement>
+    </task>
+    <task>
+      <statement>Complete exercise 6.7.12 from <em>Strang</em>.
+      </statement>
+    </task>
+
   </subsection>
 
 
