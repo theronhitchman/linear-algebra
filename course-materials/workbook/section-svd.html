@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-11-28T15:40:36-06:00    *-->
+<!--*    on 2014-12-04T16:43:49-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -134,13 +134,153 @@ $(function () {
 <span class="type">Section</span><span class="codenumber">6.5</span><span class="title">Singular Value Decomposition</span>
 </h1></header><section class="subsection" id="subsection-140"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
-</h1></header></section><section class="subsection" id="subsection-141"><header><h1 class="heading">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
-</h1></header></section><section class="subsection" id="subsection-142"><header><h1 class="heading">
+</h1></header><ul>
+<li>Read chapter 6 section 7 of <em>Strang</em>
+</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-141"><header><h1 class="heading">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Singular Value Decomposition</span>
+</h1></header><p>
+      The <em class="terminology">Singular Value Decomposition</em> is an adaptation of the ideas
+      behind eigenvectors and eigenvalues for non-square matrices. If our matrix
+      \(A\) is \(n \times m\), the idea is to
+      choose
+    </p>
+<ul>
+<li>An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), </li>
+<li>and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)</li>
+</ul>
+<p>
+      so that \[Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}\]
+      where \(r = rank(A)\). If we pile up all of those equations, we get a
+      statement like this one:
+    </p>\[
+      A \begin{pmatrix} | &amp; | &amp; \dots &amp; | \\
+                      v_1 &amp; v_2 &amp; \dots &amp; v_r \\
+                        | &amp; | &amp; \dots &amp; |
+                        \end{pmatrix} =
+        \begin{pmatrix} \sigma_1 &amp; 0 &amp; \dots &amp; 0 \\
+                        0 &amp; \sigma_2 &amp; \dots &amp; 0 \\
+                        \vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\
+                         0 &amp; 0 &amp; \dots &amp; \sigma_r
+        \end{pmatrix}
+        \begin{pmatrix} | &amp; | &amp; \dots &amp; | \\
+                        u_1 &amp; u_2 &amp; \dots &amp; u_r \\
+                          | &amp; | &amp; \dots &amp; |
+                          \end{pmatrix}
+    \]<p>
+      Eventually, this will lead us to a matrix decomposition of the form
+    </p>\[ A = U \Sigma V^T .\]<section class="subsubsection" id="subsubsection-51"><header><h1 class="heading">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">How to do it</span>
+</h1></header><p>
+        So, suppose that \(A\) is an \(m \times n\) matrix. The key fact we
+        need is that \(A^TA\) is a symmetric \(n \times n\) matrix. Later,
+        when discussing properties, it is important that
+        \(AA^T\) is a symmetric \(m \times m\) matrix, and also that
+        \(A(A^TA) = (AA^T)A\).
+      </p>
+<ol>
+<li>
+          <p>
+            Step One: Compute a spectral decomposition of \(A^TA\).
+            Since \(A^TA\) is a square symmetric matrix, we can find an orthonormal
+            basis \(v_1, v_2, \ldots, v_n\) for \(\mathbb{R}^n\) which consists
+            of eigenvectors for \(A^TA\). If we bundle these together as the columns
+            of a matrix \(V\), we can make
+            the spectral decomposition
+            \[
+              A^TA = V D V^T,
+            \]
+            where \(D\) is a diagonal matrix having the eigenvalues
+            \(\lambda_1, \lambda_2, \ldots, \lambda_n\) for entries.
+            NOTE: We will organize things so that the eigenvalues get smaller as
+            we go further in the list.
+          </p>
+          <p>
+            Now, some of the eigenvaules might be zero, but none will be negative.
+            We will have exactly \(r = \mathrm{rank}(A)\) non-zero eigenvalues, and the
+            other \(n-r\) will be equal to zero. (Those come from the directions
+            in the null space!) Don't sweat it. Everything is going to be fine.
+          </p>
+        </li>
+<li>
+          <p>
+            Step Two: For each \(0 \leq i \leq r\), set
+            \[\sigma_i = \sqrt{\lambda_i} .\]
+            These are the “Singular Values” named in the singular value decomposition.
+          </p>
+        </li>
+<li>
+          <p>
+            Step Three: for each \(0 \leq i \leq r\), set
+            \[
+              u_i = \dfrac{1}{\sigma_i} Av_i.
+            \]
+            By the way things are set up, we are sure \(\sigma_i\) is not zero!
+            The vectors we just made are a basis for the column space of \(A\).
+          </p>
+        </li>
+<li>
+          <p>
+            Step Four: If \(m &gt; r \), Choose an orthonormal basis \(u_{r+1}, \ldots, u_m\)
+            for the null space of \(A^T\).
+          </p>
+        </li>
+<li>
+          Step Five: Bundle together the \(v_i\)'s as columns of an
+          \(n \times n\) matrix \(V\), and the \(u_i\)'s as the columns
+          of an \(m \times m\) matrix \(U\). Both of these are orthogonal matrices.
+          Then place the \(\sigma_i\)'s on the main diagonal of a rectangular
+          \(m \times n\) matrix which is otherwise filled with zeros. Call that
+          new matrix \(\Sigma\).
+        </li>
+</ol></section><p>Strang has a good run-down of the neat properties this set up has.</p></section><section class="subsection" id="subsection-142"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the SVD</span>
-</h1></header></section><section class="subsection" id="subsection-143"><header><h1 class="heading">
+</h1></header><p>
+      Sage has a built in command for the singular value decomposition of a matrix.
+      If you have a matrix <tt class="code-inline" style="color: red; font-size: 120%">A</tt>, the command is <tt class="code-inline" style="color: red; font-size: 120%">A.SVD()</tt>. But there is a
+      little trick to using it! At present, Sage only has this function implemented
+      for matrices defined over rings of “floating point numbers”. The best
+      way around this is to either define your matrix with entries in the ring <tt class="code-inline" style="color: red; font-size: 120%">RDF</tt>,
+      or use the <tt class="code-inline" style="color: red; font-size: 120%">.change_ring(RDF)</tt> method on you matrix before you use the SVD.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 2,2, [2,1,1,1])
+A
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.change_ring(RDF).SVD()
+</script></div></section><section class="subsection" id="subsection-143"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header></section></section></div></main>
+</h1></header><article class="example-like" id="task-178"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">21</span><span class="title"></span>
+</h5>Complete exercise 6.7.1 from <em>Strang</em>.
+      </article><article class="example-like" id="task-179"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">22</span><span class="title"></span>
+</h5>Complete exercise 6.7.2 from <em>Strang</em>.
+      </article><article class="example-like" id="task-180"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">23</span><span class="title"></span>
+</h5>Complete exercise 6.7.3 from <em>Strang</em>.
+      </article><article class="example-like" id="task-181"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">24</span><span class="title"></span>
+</h5>Complete exercise 6.7.4 from <em>Strang</em>.
+      </article><article class="example-like" id="task-182"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">25</span><span class="title"></span>
+</h5>Complete exercise 6.7.5 from <em>Strang</em>.
+      </article><article class="example-like" id="task-183"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">26</span><span class="title"></span>
+</h5>Complete exercise 6.7.6 from <em>Strang</em>.
+      </article><article class="example-like" id="task-184"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">27</span><span class="title"></span>
+</h5>Complete exercise 6.7.9 from <em>Strang</em>.
+      </article><article class="example-like" id="task-185"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">28</span><span class="title"></span>
+</h5>Complete exercise 6.7.10 from <em>Strang</em>.
+      </article><article class="example-like" id="task-186"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">29</span><span class="title"></span>
+</h5>Complete exercise 6.7.11 from <em>Strang</em>.
+      </article><article class="example-like" id="task-187"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">30</span><span class="title"></span>
+</h5>Complete exercise 6.7.12 from <em>Strang</em>.
+      </article></section></section></div></main>
 </div>
 </body>
 </html>

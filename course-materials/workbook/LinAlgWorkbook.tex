@@ -1,6 +1,6 @@
 %%                                    %%
 %% Generated from MathBook XML source %%
-%%    on 2014-11-28T15:40:59-06:00    %%
+%%    on 2014-12-04T16:46:07-06:00    %%
 %%                                    %%
 %%   http://mathbook.pugetsound.edu   %%
 %%                                    %%
@@ -8698,18 +8698,190 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-140}
+\begin{itemize}
+\item{}Read chapter 6 section 7 of \emph{Strang}\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
-\typeout{Subsection  Discussion}
+\typeout{Subsection  Discussion: The Singular Value Decomposition}
 \typeout{************************************************}
-\subsection[Discussion]{Discussion}\label{subsection-141}
+\subsection[Discussion: The Singular Value Decomposition]{Discussion: The Singular Value Decomposition}\label{subsection-141}
+
+      The \terminology{Singular Value Decomposition} is an adaptation of the ideas
+      behind eigenvectors and eigenvalues for non-square matrices. If our matrix
+      \(A\) is \(n \times m\), the idea is to
+      choose
+    %
+\begin{itemize}
+\item{}An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), \item{}and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)\end{itemize}
+\par
+
+      so that \[Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}\]
+      where \(r = rank(A)\). If we pile up all of those equations, we get a
+      statement like this one:
+    %
+\[
+      A \begin{pmatrix} | & | & \dots & | \\
+                      v_1 & v_2 & \dots & v_r \\
+                        | & | & \dots & |
+                        \end{pmatrix} =
+        \begin{pmatrix} \sigma_1 & 0 & \dots & 0 \\
+                        0 & \sigma_2 & \dots & 0 \\
+                        \vdots & \vdots & \ddots & \vdots  \\
+                         0 & 0 & \dots & \sigma_r
+        \end{pmatrix}
+        \begin{pmatrix} | & | & \dots & | \\
+                        u_1 & u_2 & \dots & u_r \\
+                          | & | & \dots & |
+                          \end{pmatrix}
+    \]\par
+
+      Eventually, this will lead us to a matrix decomposition of the form
+    %
+\[ A = U \Sigma V^T .\]\typeout{************************************************}
+\typeout{Subsubsection  How to do it}
+\typeout{************************************************}
+\subsubsection[How to do it]{How to do it}\label{subsubsection-51}
+
+        So, suppose that \(A\) is an \(m \times n\) matrix. The key fact we
+        need is that \(A^TA\) is a symmetric \(n \times n\) matrix. Later,
+        when discussing properties, it is important that
+        \(AA^T\) is a symmetric \(m \times m\) matrix, and also that
+        \(A(A^TA) = (AA^T)A\).
+      %
+\begin{enumerate}
+\item{}
+          
+            Step One: Compute a spectral decomposition of \(A^TA\).
+            Since \(A^TA\) is a square symmetric matrix, we can find an orthonormal
+            basis \(v_1, v_2, \ldots, v_n\) for \(\mathbb{R}^n\) which consists
+            of eigenvectors for \(A^TA\). If we bundle these together as the columns
+            of a matrix \(V\), we can make
+            the spectral decomposition
+            \[
+              A^TA = V D V^T,
+            \]
+            where \(D\) is a diagonal matrix having the eigenvalues
+            \(\lambda_1, \lambda_2, \ldots, \lambda_n\) for entries.
+            NOTE: We will organize things so that the eigenvalues get smaller as
+            we go further in the list.
+          %
+
+          \par
+
+            Now, some of the eigenvaules might be zero, but none will be negative.
+            We will have exactly \(r = \mathrm{rank}(A)\) non-zero eigenvalues, and the
+            other \(n-r\) will be equal to zero. (Those come from the directions
+            in the null space!) Don't sweat it. Everything is going to be fine.
+          %
+
+        \item{}
+          
+            Step Two: For each \(0 \leq i \leq r\), set
+            \[\sigma_i = \sqrt{\lambda_i} .\]
+            These are the ``Singular Values'' named in the singular value decomposition.
+          %
+
+        \item{}
+          
+            Step Three: for each \(0 \leq i \leq r\), set
+            \[
+              u_i = \dfrac{1}{\sigma_i} Av_i.
+            \]
+            By the way things are set up, we are sure \(\sigma_i\) is not zero!
+            The vectors we just made are a basis for the column space of \(A\).
+          %
+
+        \item{}
+          
+            Step Four: If \(m > r \), Choose an orthonormal basis \(u_{r+1}, \ldots, u_m\)
+            for the null space of \(A^T\).
+          %
+
+        \item{}
+          Step Five: Bundle together the \(v_i\)'s as columns of an
+          \(n \times n\) matrix \(V\), and the \(u_i\)'s as the columns
+          of an \(m \times m\) matrix \(U\). Both of these are orthogonal matrices.
+          Then place the \(\sigma_i\)'s on the main diagonal of a rectangular
+          \(m \times n\) matrix which is otherwise filled with zeros. Call that
+          new matrix \(\Sigma\).
+        \end{enumerate}
+\par
+Strang has a good run-down of the neat properties this set up has.%
 \typeout{************************************************}
 \typeout{Subsection  Sage and the SVD}
 \typeout{************************************************}
 \subsection[Sage and the SVD]{Sage and the SVD}\label{subsection-142}
+
+      Sage has a built in command for the singular value decomposition of a matrix.
+      If you have a matrix \verb?A?, the command is \verb?A.SVD()?. But there is a
+      little trick to using it! At present, Sage only has this function implemented
+      for matrices defined over rings of ``floating point numbers''. The best
+      way around this is to either define your matrix with entries in the ring \verb?RDF?,
+      or use the \verb?.change_ring(RDF)? method on you matrix before you use the SVD.
+    %
+\begin{lstlisting}[style=sageinput]
+A = matrix(QQ, 2,2, [2,1,1,1])
+A
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+[2, 1]
+[1, 1]
+\end{lstlisting}
+\begin{lstlisting}[style=sageinput]
+A.change_ring(RDF).SVD()
+\end{lstlisting}
+\begin{lstlisting}[style=sageoutput]
+        (
+        [-0.850650808352 -0.525731112119]  [2.61803398875           0.0]
+        [-0.525731112119  0.850650808352], [          0.0 0.38196601125],
+
+        [-0.850650808352 -0.525731112119]
+        [-0.525731112119  0.850650808352]
+        )
+\end{lstlisting}
 \typeout{************************************************}
 \typeout{Subsection  Exercises}
 \typeout{************************************************}
 \subsection[Exercises]{Exercises}\label{subsection-143}
+\begin{task}
+\label{task-178}
+Complete exercise 6.7.1 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-179}
+Complete exercise 6.7.2 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-180}
+Complete exercise 6.7.3 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-181}
+Complete exercise 6.7.4 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-182}
+Complete exercise 6.7.5 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-183}
+Complete exercise 6.7.6 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-184}
+Complete exercise 6.7.9 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-185}
+Complete exercise 6.7.10 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-186}
+Complete exercise 6.7.11 from \emph{Strang}.
+      \end{task}
+\begin{task}
+\label{task-187}
+Complete exercise 6.7.12 from \emph{Strang}.
+      \end{task}
 \clearpage
 \typeout{************************************************}
 \typeout{Section 6.6 Going Further with the SVD}
