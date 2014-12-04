@@ -14,8 +14,8 @@
   <subsection>
     <title>The Assignment</title>
     <ul>
-      <li>Read chapter 6 section 7 of <em>Strang</em>
-      <li>Read the following and complete the exercises below.</em>
+      <li>Read chapter 6 section 7 of <em>Strang</em></li>
+      <li>Read the following and complete the exercises below.</li>
     </ul>
 
   </subsection>
@@ -44,8 +44,8 @@
                         \end{pmatrix} =
         \begin{pmatrix} \sigma_1 &amp; 0 &amp; \dots &amp; 0 \\
                         0 &amp; \sigma_2 &amp; \dots &amp; 0 \\
-                        \ddots &amp; \ddots; &amp; \ddots &amp; \ddots \\
-                         0 &amp; 0 &amp; \dots &amp; \sigma_n
+                        \vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\
+                         0 &amp; 0 &amp; \dots &amp; \sigma_r
         \end{pmatrix}
         \begin{pmatrix} | &amp; | &amp; \dots &amp; | \\
                         u_1 &amp; u_2 &amp; \dots &amp; u_r \\
@@ -53,16 +53,17 @@
                           \end{pmatrix}
     </me>
     <p>
-    Eventually, this will lead us to a matrix decomposition of the form
-    <p>
+      Eventually, this will lead us to a matrix decomposition of the form
+    </p>
     <me> A = U \Sigma V^T .</me>
 
 
     <subsubsection>
       <title>How to do it</title>
       <p>
-        So, suppose that <m>A</m> is an <m>m \times n</m> matrix. The key facts we
-        need are that <m>A^TA</m> is a symmetric <m>n \times n</m> matrix and
+        So, suppose that <m>A</m> is an <m>m \times n</m> matrix. The key fact we
+        need is that <m>A^TA</m> is a symmetric <m>n \times n</m> matrix. Later,
+        when discussing properties, it is important that
         <m>AA^T</m> is a symmetric <m>m \times m</m> matrix, and also that
         <m>A(A^TA) = (AA^T)A</m>.
       </p>
@@ -85,7 +86,7 @@
           </p>
           <p>
             Now, some of the eigenvaules might be zero, but none will be negative.
-            We will have exactly <m>r = rank(A)</m> non-zero eigenvalues, and the
+            We will have exactly <m>r = \mathrm{rank}(A)</m> non-zero eigenvalues, and the
             other <m>n-r</m> will be equal to zero. (Those come from the directions
             in the null space!) Don't sweat it. Everything is going to be fine.
           </p>
@@ -93,7 +94,7 @@
         <li>
           <p>
             Step Two: For each <m>0 \leq i \leq r</m>, set
-            <me>\sigma_i = \sqrt(\lambda_i) .</me>
+            <me>\sigma_i = \sqrt{\lambda_i} .</me>
             These are the <q>Singular Values</q> named in the singular value decomposition.
           </p>
         </li>
@@ -109,9 +110,17 @@
         </li>
         <li>
           <p>
-            Step Four: Choose an orthonormal basis <m>u_{r+1}, \ldots, u_m</m>
+            Step Four: If <m>m > r </m>, Choose an orthonormal basis <m>u_{r+1}, \ldots, u_m</m>
             for the null space of <m>A^T</m>.
           </p>
+        </li>
+        <li>
+          Step Five: Bundle together the <m>v_i</m>'s as columns of an
+          <m>n \times n</m> matrix <m>V</m>, and the <m>u_i</m>'s as the columns
+          of an <m>m \times m</m> matrix <m>U</m>. Both of these are orthogonal matrices.
+          Then place the <m>\sigma_i</m>'s on the main diagonal of a rectangular
+          <m>m \times n</m> matrix which is otherwise filled with zeros. Call that
+          new matrix <m>\Sigma</m>.
         </li>
       </ol>
     </subsubsection>
@@ -153,6 +162,7 @@
         [-0.525731112119  0.850650808352]
         )
       </output>
+    </sage>
   </subsection>
 
   <subsection>
