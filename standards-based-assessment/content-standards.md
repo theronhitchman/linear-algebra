@@ -85,9 +85,15 @@ find the solution set?
 
  * Determinants and the Invertible Matrix Theorem (Chapter 5)
 
+    > Use properties of determinants, compute determinants in a variety of ways,
+    > Use the invertible matrix theorem
+
 ### Question: How can we understand the geometry of square matrices as transformations?
 
  * Eigenvalues, Eigenvectors, and the Spectral Theorem (Chapter 6)
+
+    > Compute eigenvalues and eigenvalues, diagonalize matrices when possible (and
+    > recognize limitations), know and use spectral theorem
 
 ----
 
@@ -121,3 +127,6 @@ find the solution set?
 ### Question: Is there a good geometric way to understand the behavior of a general matrix as a function?
 
  * Singular Value Decomposition (Chapter 6)
+
+    > Compute the SVD of a matrix, reason about the structure of a matrix using
+    > the SVD, build matrices with given properties using the SVD.
