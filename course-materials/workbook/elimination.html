@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-12-04T16:43:48-06:00    *-->
+<!--*    on 2015-03-10T13:54:26-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -29,7 +29,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -134,7 +134,7 @@ $(function () {
 <span class="type">Section</span><span class="codenumber">2.2</span><span class="title">Solving Systems</span>
 </h1></header><section class="subsection" id="subsection-24"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
-</h1></header><ul>
+</h1></header><ul style="list-style-type: disc;">
 <li>Read section 2.2 of Strang (pages 45-51).</li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-25"><header><h1 class="heading">
@@ -142,13 +142,13 @@ $(function () {
 </h1></header><p>
       Before class, a student should be able to do the following things.
     </p>
-<ul><li>Clearly state and use the following vocabulary words: pivot, multiplier,
+<ul style="list-style-type: disc;"><li>Clearly state and use the following vocabulary words: pivot, multiplier,
         triangular matrix, back substitution, singular, non-singular
       </li></ul>
 <p>
       Sometime after class, a student should be able to the following things.
     </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>Perform elimination to put a system of linear equations into triangular form.</li>
 <li>Solve small systems by hand.</li>
 <li>Explain the two failure modes for elimination, and describe which leads to
@@ -215,7 +215,7 @@ $(function () {
         The first type of method modifies the matrix “in place”, which means
         that it <em>Changes the input matrix</em>.
       </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>
 <tt class="code-inline" style="color: red; font-size: 120%">A.rescale_row(r, num)</tt> multiplies row <tt class="code-inline" style="color: red; font-size: 120%">r</tt> by the factor of <tt class="code-inline" style="color: red; font-size: 120%">num</tt>.</li>
 <li>
@@ -251,7 +251,7 @@ A # this should add 4 times row 2 to row 2
         want to leave <tt class="code-inline" style="color: red; font-size: 120%">A</tt> alone, you can use these methods, which return
         a new object and do not change <tt class="code-inline" style="color: red; font-size: 120%">A</tt>.
       </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li><tt class="code-inline" style="color: red; font-size: 120%">A.with_rescaled_row(r, num)</tt></li>
 <li><tt class="code-inline" style="color: red; font-size: 120%">A.with_swapped_rows(r1, r2)</tt></li>
 <li><tt class="code-inline" style="color: red; font-size: 120%">A.with_added_multiple_of_row(t, u, num)</tt></li>

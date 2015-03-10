@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-12-04T16:43:48-06:00    *-->
+<!--*    on 2015-03-10T13:54:26-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -29,7 +29,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -134,7 +134,7 @@ $(function () {
 <span class="type">Section</span><span class="codenumber">2.6</span><span class="title">Matrix Inverses</span>
 </h1></header><section class="subsection" id="subsection-41"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
-</h1></header><ul>
+</h1></header><ul style="list-style-type: disc;">
 <li>Read section 2.5 of <em>Strang</em>.</li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-42"><header><h1 class="heading">
@@ -142,7 +142,7 @@ $(function () {
 </h1></header><p>
       Before class, a student should be able to:
     </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>State the definition of <em class="terminology">invertible</em> matrix.</li>
 <li>Solve an equation \(Ax = b\) using the inverse of \(A\)
         if it exists.
@@ -154,7 +154,7 @@ $(function () {
 <p>
       Some time after class, a student should be able to:
     </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>Describe the connection between Gauss-Jordan elimination and solving
         \(n\) different systems of equations.
       </li>
@@ -197,7 +197,7 @@ $(function () {
 <p>
         <em>Gauss-Jordan Elimination</em>
       </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>
           <em>Augment:</em> Tack on a copy of the identity matrix of the same
           size to the right hand side of your matrix. It should now look like
@@ -205,7 +205,7 @@ $(function () {
         </li>
 <li>
           <em>Forward Pass:</em> This is a nested procedure:
-          <ul>
+          <ul style="list-style-type: circle;">
 <li>
               <em>preparation:</em> If necessary, use a row swap to make a
               non-zero entry in the upper left entry.
@@ -436,7 +436,7 @@ D.rref()
 <span class="type">Task</span><span class="codenumber">38</span><span class="title"></span>
 </h5>
         Design a \(6 \times 6\) matrix which has the following properties:
-        <ul>
+        <ul style="list-style-type: disc;">
 <li> no entry equal to zero</li>
 <li> the reduced row echelon form should have exactly 5 pivots</li>
 <li> the 5 pivots should be different numbers</li>

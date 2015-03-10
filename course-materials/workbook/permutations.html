@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-12-04T16:43:48-06:00    *-->
+<!--*    on 2015-03-10T13:54:26-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -29,7 +29,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -134,14 +134,14 @@ $(function () {
 <span class="type">Section</span><span class="codenumber">2.8</span><span class="title">Permutation Matrices</span>
 </h1></header><section class="subsection" id="subsection-51"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
-</h1></header><ul>
+</h1></header><ul style="list-style-type: disc;">
 <li>Read section 2.7 of <em>Strang</em>
 </li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-52"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to:</p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>
         Compute the transpose of a matrix.
       </li>
@@ -163,7 +163,7 @@ $(function () {
 <p>
       Some time after class, a student should be able to:
     </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>
         Find the \(LDL^T\) decomposition for symmetric matrices.
       </li>
@@ -211,7 +211,7 @@ $(function () {
         other matrix operations, each of these can be checked with some tedious
         computation:
       </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>
           If \(A\) and \(B\) are matrices of the same shape, then
           \((A+B)^T = A^T + B^T\).
@@ -377,7 +377,7 @@ Uprime
       </p>
 <p>
         Here is the important stuff to remember:
-        <ol>
+        <ol style="list-style-type: decimal;">
 <li>A row swap is performed by a permutation matrix. A permutation matrix
             is a matrix with exactly one \(1\) in each column and in each row.
             These matrices have the important property that their transposes and
@@ -439,7 +439,7 @@ print x # fancy python tricks for readable display
         These are true or false questions. If the statement is true, explain why
         you know it is true. If the statement is false, give an example that
         shows it is false.
-        <ol>
+        <ol style="list-style-type: decimal;">
 <li>
             The block matrix \(\left( \begin{smallmatrix} A &amp; 0 \\
             0 &amp; A \end{smallmatrix}\right)\) is automatically symmetric.
@@ -461,7 +461,7 @@ print x # fancy python tricks for readable display
 <span class="type">Task</span><span class="codenumber">49</span><span class="title"></span>
 </h5>
         Explain the following phenomena in terms of row operations.
-        <ol>
+        <ol style="list-style-type: decimal;">
 <li>
             For any permutation matrix \(P\), it is the case that
             \(P^T P = I\).
@@ -478,7 +478,7 @@ print x # fancy python tricks for readable display
 </h5>
         For each of the following, find an example of a \(2\times 2\)
         symmetric matrix with the given property:
-        <ol>
+        <ol style="list-style-type: decimal;">
 <li> \(A\) is not invertible.</li>
 <li> \(A\) is invertible but cannot be factored into \(LU\).</li>
 <li>

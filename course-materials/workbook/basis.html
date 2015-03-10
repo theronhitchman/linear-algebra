@@ -2,7 +2,7 @@
 <html>
 <!--*                                    *-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2014-12-04T16:43:48-06:00    *-->
+<!--*    on 2015-03-10T13:54:26-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -29,7 +29,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -134,13 +134,13 @@ $(function () {
 <span class="type">Section</span><span class="codenumber">3.6</span><span class="title">Bases</span>
 </h1></header><section class="subsection" id="subsection-80"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
-</h1></header><ul>
+</h1></header><ul style="list-style-type: disc;">
 <li>Read <em>Strang</em> chapter 3 section 5.</li>
 <li>Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-81"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to:</p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>Use the row space algorithm to decide if a set of vectors is
         linearly independent or linearly dependent.</li>
 <li>Use the column space algorithm to decide if a set of vectors is
@@ -148,7 +148,7 @@ $(function () {
 <li>Compute the dimension of a subspace.</li>
 </ul>
 <p>Sometime after class, a student should be able to:</p>
-<ul><li>Explain the connection between a set of vectors being
+<ul style="list-style-type: disc;"><li>Explain the connection between a set of vectors being
       linearly independent, a spanning set, and a basis.</li></ul></section><section class="subsection" id="subsection-82"><header><h1 class="heading">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Linear Independence, Spanning, Basis, and Dimension</span>
 </h1></header><p>
@@ -172,7 +172,7 @@ $(function () {
 <p>
       What are the new terms?
     </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>
         A set \(\{v_1, v_2, \ldots, v_k\}\) of vectors is <em class="terminology">linearly
         independent</em>, or <em class="terminology">linearly dependent</em>.
@@ -209,7 +209,7 @@ $(function () {
         vector spaces! Can you make examples and non-examples in some of
         these other situtations?
       </p>
-<ul>
+<ul style="list-style-type: disc;">
 <li>
           The set \(\mathcal{P}_3\) of polynomials in \(x\) of degree
           no more than 3?
@@ -237,7 +237,7 @@ $(function () {
           Given a set of vectors \(\{v_1, v_2, \ldots, v_k\}\) from
           \(\mathbb{R}^n\):
         </p>
-        <ul>
+        <ul style="list-style-type: disc;">
 <li>Form the \(n\times k\) matrix
             \(A = \left( \begin{smallmatrix} v_1 &amp; v_2 &amp; \dots &amp;
             v_k\end{smallmatrix}\right)\).
@@ -266,7 +266,7 @@ $(function () {
           Given a set of vectors \(\{v_1, v_2, \ldots, v_k\}\) from
           \(\mathbb{R}^n\):
         </p>
-        <ul>
+        <ul style="list-style-type: disc;">
 <li>Form the \(k\times n\) matrix
           \(A = \left( \begin{smallmatrix} v_1^T \\ v_2^T \\ \vdots
             \\ v_k^T \end{smallmatrix}\right)\).
@@ -307,7 +307,7 @@ V
 </script></div>
 <p>
         Note that Sage already gives us some information:
-        <ul>
+        <ul style="list-style-type: disc;">
 <li>dimension</li>
 <li>a basis</li>
 </ul>
@@ -424,7 +424,7 @@ A = matrix(AA, 3,4, entries); A
 </h5>(Strang 3.5.21)
         Suppose that the columns of a \(5 \times 5 \) matrix \(A\) are a
         basis for \(\mathbb{R}^5\).
-        <ol>
+        <ol style="list-style-type: decimal;">
 <li>
             Explain why the equation \(Ax = 0\) has only the solution
             \(x=0\).
@@ -443,7 +443,7 @@ A = matrix(AA, 3,4, entries); A
         \(\mathbb{R}^6\).
         Determine if the following statements are true or false. If true, give
         an explanation for why it is true. If false, give a counterexample.
-        <ol>
+        <ol style="list-style-type: decimal;">
 <li>
             Every basis for \(S\) can be extended to a basis for
             \(\mathbb{R}^6\) by adding one more vector.
@@ -457,7 +457,7 @@ A = matrix(AA, 3,4, entries); A
 </h5>(Strang 3.5.26)
         Find a basis (and the dimension) for each of these subspaces of the vector
         space of \(3\times 3\) matrices:
-        <ol>
+        <ol style="list-style-type: decimal;">
 <li>
             All diagonal matrices.
           </li>
