@@ -7,6 +7,25 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
+      <ul class="pager">
+        {% if page.previous.url %}
+          <li class="previous"><a href="{{page.previous.url | prepend: site.baseurl}}"
+            title="Previous: {{page.previous.title}}">
+        {% else %}
+          <li class="previous disabled"><a href="#">
+        {% endif %}
+        &larr; Previous</a></li>
+        <li><a href="{{site.baseurl}}/blog">All</a></li>
+        {% if page.next.url %}
+          <li class="next"><a href="{{page.next.url | prepend: site.baseurl}}"
+            title="Next: {{page.next.title}}">
+        {% else %}
+          <li class="next disabled"><a href="#">
+        {% endif %}
+        Next &rarr;</a></li>
+      </ul>
+
+
       {{ content }}
     </div>
     <div class="visible-xs visible-sm">
