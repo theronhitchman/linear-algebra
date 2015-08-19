@@ -1,10 +1,10 @@
 ---
 layout: section01
-title: Section 01 Notes
+title: Daily Class Notes
 ---
 
 
-{% for post in site.tags.section01 %}
+{% for post in site.posts %}
 	<div class="post">
 		<h3 class="title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
 		<p class="meta">Date: {{ post.date }}</p>
