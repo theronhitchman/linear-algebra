@@ -4,7 +4,7 @@ title: Syllabus for Math 2500
 ---
 
 *Linear Algebra*<br />
-*Math 2500, Fall 2014*
+*Math 2500, Fall 2015*
 
 
 ##Course Description:
@@ -31,7 +31,7 @@ Finally, student will learn the basics of the computer algebra system Sage.
 
 - Instructor: 		Theron J Hitchman
 - Office: 		    327 Wright Hall
-- Office Hours: 	MWF  2-3 pm.  
+- Office Hours: 	weekdays  2-3 pm.  
   To meet at another time, contact me by email to make an appointment.
 - contact info:
   <address>
@@ -46,10 +46,12 @@ Finally, student will learn the basics of the computer algebra system Sage.
 
 - Text: [Introduction to Linear Algebra, 4th Ed.][strang], by Gilbert Strang,
 Wellesley-Cambridge Press, 2009, ISBN 978-09802327-14.
-- Software: GeoGebra is a free, open-source geometry program. [Sage][].
+- Software: We will use the free, open-source computer algebra system [sage][]. Students
+  should make an account at the [SageMathCloud][SMC] site.
 - I will distribute many other materials through the course web page.
 
 [sage]: http://www.sagemath.org
+[SMC]: https://cloud.sagemath.com/
 
 ## Assessment:
 
@@ -57,10 +59,11 @@ I will be using a “standards based assessment” scheme for this course. See t
 [relevant handout][sba] for more detailed information. Grades in this course are
 based on the following assessments:
 
-- In-class participation, focusing on finding and presenting solutions
-- three exams
-- weekly written homework
+- in-class participation, focusing on finding and presenting solutions
+- several in-class quizzes and a final exam
+- bi-weekly written homework
 - a "technology" gateway assessment
+- an optional project to complete an advanced learning objective
 
 If you feel uncertain about your progress in the course at any time, please
 contact me.
@@ -86,5 +89,4 @@ contact me.
 
 [strang]: http://math.mit.edu/linearalgebra/
 [sba]: {{site.baseurl}}/standards-based-assessment
-[ggb]: www.geogebra.org
 [IBL]: http://theronhitchman.github.io/euclidean-geometry/inquiry-based-learning/
