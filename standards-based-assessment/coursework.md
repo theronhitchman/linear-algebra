@@ -3,6 +3,10 @@ layout: default
 title: Coursework Assessment
 ---
 
+<p class="text-danger">
+This needs to be updated. Coming Soon! - TJH 8/23/15
+</p>
+
 There are three types of regular coursework in Math 2500:
 
   - Daily Homework
@@ -11,7 +15,7 @@ There are three types of regular coursework in Math 2500:
 
 I have decided on a scheme for marking these which feels a little complicated,
 but should reward someone who basically keeps up with class work on a regular
-basis.  
+basis.
 
 ### Daily Homework
 

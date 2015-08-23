@@ -48,25 +48,8 @@ written them as vague ideas.
 
 ### Basic Grading Scheme
 
-In the canonical academic grading scheme, there are five levels (A, B, C, D, F).
-You will earn letter grade advancements by demonstrating competence in the
-standards.
-
-- Technology Standard: **One letter** for demonstrated competence with the basics of
-  a computer algebra system. (We will be learning Sage.) This will be assessed
-  through a "gateway examination" to be completed some time during the term.
-
-- Linear Algebra Content Standard: **One letter** for demonstrated competence in
-  90% of the foundational content standards (how many of these there are depends
-  on how far we go this term).
-
-  **One letter** for demonstrated competence with the advanced standards.
-  
-  These standards will be assessed on the three exams. I reserve the right to
-  give you credit for one of these standards any time I notice you have met one.
-
-- Communication and Argument Standards:  **One letter** will be assigned based
-  on the quality of regular coursework.
+<p class="text-danger"> This needs to be updated. Coming Soon! -TJH 8/23/15
+</p>
 
 
 
