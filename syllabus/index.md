@@ -23,23 +23,23 @@ will be able to describe and use the three pictures (row, column, and transforma
 behind a system of linear equations, and the Fundamental
 Theorem of Linear Algebra.
 
-Finally, student will learn the basics of the computer algebra system Sage.
-
+Finally, student will learn the basics of the computer algebra system Sage, including how it
+can be used to perform unpleasant computations efficiently and how it can make relevant
+visualizations.
 
 
 ##Basic Information:
 
 - Instructor: 		Theron J Hitchman
 - Office: 		    327 Wright Hall
-- Office Hours: 	weekdays  2-3 pm.  
+- Office Hours: 	weekdays  2-3 pm.
   To meet at another time, contact me by email to make an appointment.
 - contact info:
   <address>
-  <strong>email:</strong> theron.hitchman@uni.edu<br>
+  <strong>email:</strong> theron.hitchman@uni.edu <code><-this is the best way</code><br />
   <strong>office phone:</strong> 319-273-2646
   </address>
-- Course Web Page: <code>http://theronhitchman.github.io/linear-algebra</code>
-
+- Course Web Page: <code>http://theronhitchman.github.io/linear-algebra</code><br />
   Check this regularly. Lots of important things are at this page.
 
 ## Materials:
@@ -47,7 +47,7 @@ Finally, student will learn the basics of the computer algebra system Sage.
 - Text: [Introduction to Linear Algebra, 4th Ed.][strang], by Gilbert Strang,
 Wellesley-Cambridge Press, 2009, ISBN 978-09802327-14.
 - Software: We will use the free, open-source computer algebra system [sage][]. Students
-  should make an account at the [SageMathCloud][SMC] site.
+  should make an account at the [SageMathCloud][SMC] site using their UNI email address.
 - I will distribute many other materials through the course web page.
 
 [sage]: http://www.sagemath.org
@@ -60,7 +60,7 @@ I will be using a “standards based assessment” scheme for this course. See t
 based on the following assessments:
 
 - in-class participation, focusing on finding and presenting solutions
-- several in-class quizzes and a final exam
+- several in-class assessments focused on linear algebra content knowledge
 - bi-weekly written homework
 - a "technology" gateway assessment
 - an optional project to complete an advanced learning objective
@@ -85,7 +85,7 @@ contact me.
   Learning Center, located in 007/008 ITTC, also provides advising services and
   is the University's testing center for many standardized tests, including the
   PLT, GRE, and Praxis Core. Visit the website at `http://www.uni.edu/unialc/` or
-  call (319) 273-6023 for more information or to set up an appointment.  
+  call (319) 273-6023 for more information or to set up an appointment.
 
 [strang]: http://math.mit.edu/linearalgebra/
 [sba]: {{site.baseurl}}/standards-based-assessment
