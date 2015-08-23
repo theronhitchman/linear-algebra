@@ -6,9 +6,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
 <div class="row">
   <div class="col-xs-12">
     <p class="lead">
-      This is the course web site for Linear Algebra. I am mentoring two sections of
-      this course this term. The two sections will run in parallel, with the same
-      calendar and assignments.
+      This is the course web site for Linear Algebra. Here you can find all of the documentation for class, including a syllabus, a calendar, all of the assignments, the class workbook, and the class blog.
     </p>
   </div>
 </div>
