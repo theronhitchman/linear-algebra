@@ -13,10 +13,10 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
 
 <div class="row">
   <div class="col-xs-6 col-md-4">
-    <h3>Class Blogs</h3>
+    <h3>Class Blog</h3>
     <p>
       I keep a course blog for each section as a record of proceedings and to make
-      announcements. Be sure to follow the correct section!
+      announcements. This will be a simple run-down of what we accomplish each meeting.
     </p>
     <div>
       <p><br /></p>
