@@ -1,0 +1,15 @@
+"---\nlayout: default\ntitle: Weekly Assignments\n---\n\n<p class=\"text-wa\" This page is out of date. I'll patch it up soon. -TJH 8/23/15\n\nEach week, you will complete a short writing assignment. Weekly assignments are your chance to practice clear mathematical writing and\nget feedback on your work. Please write complete explanations, paying attention\nto grammar and style. Mathematics is written in prose, with sentences and\nparagraphs!\n\n* [Weekly Assignment \\# 1]({{site.baseurl}}/weekly-assignments/week-1.html)\n* [Weekly Assignment \\# 2]({{site.baseurl}}/weekly-assignments/week-2.html)\n* [Weekly Assignment \\# 3]({{site.baseurl}}/weekly-assignments/week-3.html)\n* [Weekly Assignment \\# 4]({{site.baseurl}}/weekly-assignments/week-4.html)\n\nWeekly Assignment \\# 5 is available through the SageMathCloud. Sign in, and you\nshould find a new project that I created for you. Inside will be a directory\nfor this assignment. I should be able to _automatically collect_ this assignment\nat the deadline, which is Thursday, October 9 at 10pm CDT.\n\n\nWeekly Assignment \\# 6 is available through the SageMathCloud. Sign in, and you\nshould find a directory called \"Weekly Assignment 6\" inside the project I previously\ncreated for you. I will automatically collect this assignment through SMC sometime\nafter the deadline, which is Tuesday, October 14 at 10 CDT.\n"
+{"patch":[[[[0,"clas"],[-1,"s=\"text-wa\""],[0," Thi"]],54,54,19,8]],"time":1440366264376}
+{"patch":[[[[0,"-\n\n<"],[-1,"p clas"],[0," Thi"]],48,48,14,8]],"time":1440366261373}
+{"patch":[[[[0,"--\n\n"],[-1,"<"],[1,"###"],[0," Thi"]],47,47,9,11]],"time":1440366258371}
+{"patch":[[[[0,"---\n\n###"],[1,"#"],[0," This pa"]],46,46,16,17]],"time":1440366255370}
+{"patch":[[[[0,"ts\n---\n\n"],[-1,"##"],[0,"## This "]],43,43,18,16]],"time":1440366252011}
+{"patch":[[[[0,"8/23"],[-1,"/15"],[0,"\n\nEa"]],108,108,11,8]],"time":1440366249009}
+{"patch":[[[[0,"TJH "],[-1,"8/23"],[0,"\n\nEa"]],104,104,12,8]],"time":1440366246010}
+{"patch":[[[[0,"n. -"],[-1,"TJH "],[0,"\n\nEa"]],100,100,12,8]],"time":1440366243008}
+{"patch":[[[[0,"oon."],[-1," -"],[0,"\n\nEa"]],98,98,10,8]],"time":1440366240007}
+{"patch":[[[[0,"atch"],[-1," it up soon."],[0,"\n\nEa"]],86,86,20,8]],"time":1440366237007}
+{"patch":[[[[0,"ate."],[-1," I'll patch"],[0,"\n\nEa"]],75,75,19,8]],"time":1440366234007}
+{"patch":[[[[0,"This"],[-1," page is out of date."],[0,"\n\nEa"]],54,54,29,8]],"time":1440366231007}
+{"patch":[[[[0,"--\n\n"],[-1,"## This\n"],[0,"\nEac"]],47,47,16,8]],"time":1440366228003}
+{"patch":[[[[0,"ts\n---\n\n"],[-1,"\n"],[0,"Each wee"]],43,43,17,16]],"time":1440366225044}

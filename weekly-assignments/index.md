@@ -3,6 +3,8 @@ layout: default
 title: Weekly Assignments
 ---
 
+<p class="text-danger"> This page is out of date. I'll patch it up soon. -TJH 8/23/15</p>
+
 Each week, you will complete a short writing assignment. Weekly assignments are your chance to practice clear mathematical writing and
 get feedback on your work. Please write complete explanations, paying attention
 to grammar and style. Mathematics is written in prose, with sentences and
