@@ -22,7 +22,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
       <p><br /></p>
     </div>
     <div class="btn-group btn-group-justified">
-      <a class="btn btn-success btn-lg" href="{{site.baseurl}}/section01/">Class Blog </a>
+      <a class="btn btn-success btn-lg" href="{{site.baseurl}}/blog/">Class Blog </a>
     </div>
     <div>
       <p><br /></p>
