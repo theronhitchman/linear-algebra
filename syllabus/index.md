@@ -89,4 +89,4 @@ contact me.
 
 [strang]: http://math.mit.edu/linearalgebra/
 [sba]: {{site.baseurl}}/standards-based-assessment
-[IBL]: http://theronhitchman.github.io/euclidean-geometry/inquiry-based-learning/
+[IBL]: http://theronhitchman.github.io/linear-algebra/inquiry-based-learning/
