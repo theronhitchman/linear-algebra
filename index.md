@@ -20,14 +20,14 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
       I keep a course blog for each section as a record of proceedings and to make
       announcements. Be sure to follow the correct section!
     </p>
-    <div class="btn-group btn-group-justified">
-      <a class="btn btn-primary btn-lg" href="{{site.baseurl}}/section01/">Section 01 (10a)</a>
-    </div>
     <div>
       <p><br /></p>
     </div>
     <div class="btn-group btn-group-justified">
-      <a class="btn btn-primary btn-lg" href="{{site.baseurl}}/section02/">Section 02 (1p)</a>
+      <a class="btn btn-success btn-lg" href="{{site.baseurl}}/section01/">Class Blog </a>
+    </div>
+    <div>
+      <p><br /></p>
     </div>
   </div>
   <div class="col-xs-6 col-md-4">
@@ -45,7 +45,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
       <p><br /></p>
     </div>
     <div class="btn-group btn-group-justified">
-      <a class="btn btn-primary btn-lg" href="{{site.baseurl}}/course-materials/workbook/LinAlgWorkbook.pdf">
+      <a class="btn btn-default btn-lg" href="{{site.baseurl}}/course-materials/workbook/LinAlgWorkbook.pdf">
         Print (PDF)
       </a>
     </div>
@@ -57,17 +57,13 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
       We will have regular assignments: we complete one section of the workbook
       for each class meeting, and we will have a weekly written assignment.
     </p>
-
       <div class="row">
-
         <div class="col-xs-6 col-md-12">
-
           <div class="btn-group btn-group-justified">
-            <a class="btn btn-primary btn-lg" href="{{site.baseurl}}/calendar/">
+            <a class="btn btn-warning btn-lg" href="{{site.baseurl}}/calendar/">
               Daily Calendar
             </a>
           </div>
-
         </div>
         <div class="col-md-12 hidden-xs hidden-sm">
           <p><br /></p>
@@ -75,17 +71,13 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
         <div class="col-xs-6 col-md-12">
 
           <div class="btn-group btn-group-justified">
-            <a class="btn btn-primary btn-lg" href="{{site.baseurl}}/weekly-assignments/">
+            <a class="btn btn-info btn-lg" href="{{site.baseurl}}/weekly-assignments/">
               Weekly Hwk
             </a>
           </div>
-
         </div>
-
       </div>
-
-    </div>  
-
+    </div>
   </div>
 
 <div class="row visible-xs visible-sm">
