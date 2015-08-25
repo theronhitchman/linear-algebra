@@ -1,1 +1,0 @@
-"---\nlayout: section01\ntitle: Daily Class Notes\n---\n\n\n{% for post in site.posts %}\n\t<div class=\"post\">\n\t\t<h3 class=\"title\"><a href=\"{{ post.url | prepend: site.baseurl }}\">{{ post.title }}</a></h3>\n\t\t<p class=\"meta\">Date: {{ post.date }}</p>\n\t\t<div class=\"entry\">\n\t\t\t{{ post.content | truncatewords: 25}}\n\t\t</div>\n\t</div>\n{% endfor %}\n"
