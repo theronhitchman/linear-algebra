@@ -52,19 +52,19 @@ written them as vague ideas.
 At the end of the semester, grades will be assigned based on your achievements
 using the following table:
 
-| Grade | Foundational | Advanced | Presentations | Bi-Weekly Hwk | Daily Hwk | Technology |
-|-------|--------------|----------|---------------|---------------|-----------|------------|
-| A     | 10           | 4        | 6             | 6             | 20        | yes        |
-| A-    | 10           | 3        | 6             | 6             | 20        | yes        |
-| B+    | 9            | 2        | 4             | 5             | 20        | yes        |
-| B     | 9            | 1        | 4             | 5             | 20        | yes        |
-| B-    | 8            |          | 4             | 5             | 15        | yes        |
-| C+    | 7            |          | 2             | 4             | 15        | yes        |
-| C     | 6            |          | 2             | 4             | 15        | yes        |
-| C-    | 5            |          | 2             | 4             | 10        | yes        |
-| D+    | 4            |          | 1             | 2             | 10        | yes        |
-| D     | 3            |          | 1             | 2             | 10        | x          |
-| F     | fail         | to       | meet          | standards     | for       | D          |
+| Grade |  | Foundational |  | Advanced |  | Presentations |  | Bi-Weekly Hwk |  | Daily Hwk |  | Technology |
+|-------|--|--------------|--|----------|--|---------------|--|---------------|--|-----------|--|------------|
+| A     |  | 10           |  | 4        |  | 6             |  | 6             |  | 20        |  | yes        |
+| A-    |  | 10           |  | 3        |  | 6             |  | 6             |  | 20        |  | yes        |
+| B+    |  | 9            |  | 2        |  | 4             |  | 5             |  | 20        |  | yes        |
+| B     |  | 9            |  | 1        |  | 4             |  | 5             |  | 20        |  | yes        |
+| B-    |  | 8            |  |          |  | 4             |  | 5             |  | 15        |  | yes        |
+| C+    |  | 7            |  |          |  | 2             |  | 4             |  | 15        |  | yes        |
+| C     |  | 6            |  |          |  | 2             |  | 4             |  | 15        |  | yes        |
+| C-    |  | 5            |  |          |  | 2             |  | 4             |  | 10        |  | yes        |
+| D+    |  | 4            |  |          |  | 1             |  | 2             |  | 10        |  | yes        |
+| D     |  | 3            |  |          |  | 1             |  | 2             |  | 10        |  | yes        |
+| F     |  | fail         |  | to       |  | meet          |  | standards     |  | for       |  | D          |
 
 
 <p>
