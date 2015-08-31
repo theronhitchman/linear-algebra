@@ -3,25 +3,14 @@ layout: default
 title: Weekly Assignments
 ---
 
-<p class="text-danger"> This page is out of date. I'll patch it up soon. -TJH 8/23/15</p>
-
-Each week, you will complete a short writing assignment. Weekly assignments are your chance to practice clear mathematical writing and
+About every other week, you will complete a short writing assignment. These
+assignments are your chance to practice clear mathematical writing and
 get feedback on your work. Please write complete explanations, paying attention
 to grammar and style. Mathematics is written in prose, with sentences and
 paragraphs!
 
-* [Weekly Assignment \# 1]({{site.baseurl}}/weekly-assignments/week-1.html)
-* [Weekly Assignment \# 2]({{site.baseurl}}/weekly-assignments/week-2.html)
-* [Weekly Assignment \# 3]({{site.baseurl}}/weekly-assignments/week-3.html)
-* [Weekly Assignment \# 4]({{site.baseurl}}/weekly-assignments/week-4.html)
-
-Weekly Assignment \# 5 is available through the SageMathCloud. Sign in, and you
-should find a new project that I created for you. Inside will be a directory
-for this assignment. I should be able to _automatically collect_ this assignment
-at the deadline, which is Thursday, October 9 at 10pm CDT.
-
-
-Weekly Assignment \# 6 is available through the SageMathCloud. Sign in, and you
-should find a directory called "Weekly Assignment 6" inside the project I previously
-created for you. I will automatically collect this assignment through SMC sometime
-after the deadline, which is Tuesday, October 14 at 10 CDT.
+I will make these assignments available to you through your SageMathCloud account,
+in a project which we can both access. You can find the assignment as both a
+markdown file (*.md) and a *.pdf. The content is the same. You should do
+your work in a SageMathCloud worksheet (*.sagews) and _leave it in the same
+folder_. That way, I can collect it automatically at the deadline.

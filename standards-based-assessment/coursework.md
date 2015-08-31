@@ -3,10 +3,6 @@ layout: default
 title: Coursework Assessment
 ---
 
-<p class="text-danger">
-This needs to be updated. Coming Soon! - TJH 8/23/15
-</p>
-
 There are three types of regular coursework in Math 2500:
 
   - Daily Homework
@@ -28,53 +24,34 @@ daily assignment will be marked with either a 1 or a 0. I will assign a 1 if I
 believe you made a good faith effort to attempt each problem and wrote up your
 progress in a reasonable manner. (I don't expect you will always get every task
 complete and correct. But I do want you to make a good faith effort to get every
-task complete and correct.) There will be about 40 of these assignments.
+task complete and correct.) There will be about 25 of these assignments.
 
 ### Class Presentations
 
 We will spend almost all of our time in class meetings with students presenting
-their work on the daily tasks. Each will be graded on a scale of 0-4, with one
-mark each for reasonable demonstration of the following standards:
+their work on the daily tasks. Each will be assessed as a successful or not,
+with the following standards in mind:
 
  - correct use of vocabulary
  - mathematically correct work
  - clear oral presentation
- - an extra mark for doing something particularly amazing.
-
-Most good presentations will earn 3 marks.
 
 The class conversation which follows your presentation will provide you with
-feedback on the quality of your work.
+feedback on the quality of your work. Mistakes happen, of course, so don't worry
+that these will be handled too strictly.
 
-Our class examinations will naturally divide the semester into three sections.
-I will use your top two presentation scores from each section. This means there
-are 24 available marks for this work.
+### Bi-Weekly Homework
 
-### Weekly Homework
-
-Each week I will select two tasks from the daily homework during the previous
-week to be written up carefully and professionally. Each of these will be marked
-strictly on a 4 point scale for:
+As an opportunity to work on your written communication, there will be assignments
+every other week or so that ask you to go further into the material and explain
+yourself carefully. Often, these will be based on things we have already discussed.
+Just as often, these assignments will ask you to use SageMath to do a computation
+or make a picture. This is to help break the ice between you and the computer.
 
   - clarity of written communication
   - correct use of vocabulary
   - clear reasoning from examples to generality
   - correct computational work
 
-So each assignment has a possible 8 marks. Individual problems may be resubmitted
-until they earn 3 points. With hard work, it should be that every assignment
-earns at least 6 points out of 8.
-
-I anticipate that there will be 14 of these assignments, so a total of 112 marks
-is possible.
-
-### Figuring the Grade
-
-I want this grading component to reflect only this: "The student generally kept
-up with coursework." So the letter grade will be awarded to students who meet
-the following threshold:
-
-  - 125 marks total
-  - at least 30 marks on daily homework
-  - at least 15 marks on class presentations
-  - at least 75 marks on weekly homework
+  Daily homework may be corrected and resubmitted for credit once. The second
+  submission should directly address the comments on the original paper.

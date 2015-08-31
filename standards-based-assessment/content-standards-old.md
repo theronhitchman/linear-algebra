@@ -21,7 +21,7 @@ meaning for the structure of linear algebra.
       <li>Add vectors</li>
       <li>Multiply a vector by a scalar</li>
       <li>compute linear combinations</li>
-      <li>draw pictures which correspond to the three above operaitons.</li>
+      <li>draw pictures which correspond to the three above operations.</li>
       <li>Compute the dot product of two given vectors.</li>
       <li>Compoute the length of a given vector.</li>
       <li>Normalize a given vector</li>

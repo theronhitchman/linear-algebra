@@ -40,6 +40,7 @@ written them as vague ideas.
   - Oral presentations of ideas
   - clear written communication
 3. Technology
+  - displayed competence with basic use of a computer algebra system.
 4. Linear Algebra Content
   - foundational proficiencies: computational fluency
   - advanced proficiencies: the three pictures, the four central problems,
@@ -48,10 +49,22 @@ written them as vague ideas.
 
 ### Basic Grading Scheme
 
-<p class="text-danger"> This needs to be updated. Coming Soon! -TJH 8/23/15
-</p>
+At the end of the semester, grades will be assigned based on your achievements
+using the following table:
 
-
+| Grade |  | Foundational |  | Advanced |  | Presentations |  | Bi-Weekly Hwk |  | Daily Hwk |  | Technology |
+|-------|--|--------------|--|----------|--|---------------|--|---------------|--|-----------|--|------------|
+| A     |  | 10           |  | 4        |  | 6             |  | 6             |  | 20        |  | yes        |
+| A-    |  | 10           |  | 3        |  | 6             |  | 6             |  | 20        |  | yes        |
+| B+    |  | 9            |  | 2        |  | 4             |  | 5             |  | 20        |  | yes        |
+| B     |  | 9            |  | 1        |  | 4             |  | 5             |  | 20        |  | yes        |
+| B-    |  | 8            |  |          |  | 4             |  | 5             |  | 15        |  | yes        |
+| C+    |  | 7            |  |          |  | 2             |  | 4             |  | 15        |  | yes        |
+| C     |  | 6            |  |          |  | 2             |  | 4             |  | 15        |  | yes        |
+| C-    |  | 5            |  |          |  | 2             |  | 4             |  | 10        |  | yes        |
+| D+    |  | 4            |  |          |  | 1             |  | 2             |  | 10        |  | yes        |
+| D     |  | 3            |  |          |  | 1             |  | 2             |  | 10        |  | yes        |
+| F     |  | fail         |  | to       |  | meet          |  | standards     |  | for       |  | D          |
 
 
 <p>
