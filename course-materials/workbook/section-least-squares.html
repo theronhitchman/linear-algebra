@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Computing Determinants</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-least-squares"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-least-squares"><header><h1 class="heading" alt="Section 5.2 Computing Determinants" title="Section 5.2 Computing Determinants">
 <span class="type">Section</span><span class="codenumber">5.2</span><span class="title">Computing Determinants</span>
-</h1></header><section class="subsection" id="subsection-120"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-120"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
 <li>Read Chapter 5 section 2 of Strang.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-121"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-121"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to compute the determinant by using
       cofactors. A student should also be able to compute a determiant using the
@@ -146,7 +147,7 @@ $(function () {
 <p>
       Some time after class, a student should be comfortable with the different parts
       of the invertible matrix theorem.
-    </p></section><section class="subsection" id="subsection-122"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-122"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Importance of the Determinant</span>
 </h1></header><p>Strang devotes all of his energy in this section to the different ways to
       compute the determinant. I don't have much to add to that.
@@ -176,58 +177,58 @@ $(function () {
 <li>The transpose \(A^T\) is invertible.</li>
 <li>\(\det(A) \neq 0\).</li>
 <li>\(\det(A^T) \neq 0\).</li>
-</ul></article></section><section class="subsection" id="subsection-123"><header><h1 class="heading">
+</ul></article></section><section class="subsection" id="subsection-123"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-152"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">152</span><span class="title"></span>
 </h5> (Strang 5.2.2)
         Compute determinants of the following matrices using the big formula. Are
         the columns of these matrices linearly independent?
-        \[
+        <article class="displaymath" id="me-140">\[
           A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \end{pmatrix},
           B = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{pmatrix},
           C = \begin{pmatrix} A &amp; 0 \\ 0 &amp; A \end{pmatrix},
           D = \begin{pmatrix} A &amp; 0 \\ 0 &amp; B \end{pmatrix}.
-        \]</article><article class="example-like" id="task-153"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-153"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">153</span><span class="title"></span>
 </h5> (Strang 5.2.3)
         Show that \(\det(A)=0\), no matter what values are used to fill in the
         five unknowns marked with dots. What are the cofactors of row 1? What is
         the rank of \(A\)? What are the six terms in the big formula?
-        \[
+        <article class="displaymath" id="me-141">\[
           A = \begin{pmatrix} \bullet &amp; \bullet &amp; \bullet \\
           0 &amp; 0 &amp; \bullet \\ 0 &amp; 0 &amp; \bullet \end{pmatrix}.
-        \]</article><article class="example-like" id="task-154"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-154"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">154</span><span class="title"></span>
 </h5> (Strang 5.2.4)
         Use cofactors to compute the determinants below:
-        \[
+        <article class="displaymath" id="me-142">\[
           \det \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 &amp; 1 \\
           1 &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad
           \det \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; 3 &amp; 4 &amp; 5 \\
           5 &amp; 4 &amp; 0 &amp; 3 \\ 2 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}.
-        \]</article><article class="example-like" id="task-155"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">11</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-155"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">155</span><span class="title"></span>
 </h5> (Strang 5.2.5)
         What is the smallest arrangement of zeros you can place in a \(4 \times 4\)
         matrix to guarantee that its determinant is zero? Try to place as many non-zero
         entries as you can while keeping \(\det A \neq 0\).
       </article><article class="example-like" id="task-156"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">12</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">156</span><span class="title"></span>
 </h5>
         Decide if the columns of this matrix are linearly dependent without doing any
         row operations:
-        \[
+        <article class="displaymath" id="me-143">\[
           A = \begin{pmatrix} 4 &amp; 21\\ 3 &amp; 16 \end{pmatrix}.
-        \]</article><article class="example-like" id="task-157"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-157"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">157</span><span class="title"></span>
 </h5>
         Complete this matrix to one with determinant zero in four genuinely different
         ways. How did you make that happen?
-        \[
+        <article class="displaymath" id="me-144">\[
           X = \begin{pmatrix} 2 &amp; 1 &amp; \bullet \\ 1 &amp; 1 &amp; \bullet
           \\ -1 &amp; 1 &amp; \bullet \end{pmatrix}.
-        \]</article></section></section></div></main>
+        \]</article></article></section></section></div></main>
 </div>
 </body>
 </html>

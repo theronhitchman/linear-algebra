@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:27-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Singular Value Decomposition</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,16 +130,16 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html" class="active">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-svd"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-svd"><header><h1 class="heading" alt="Section 6.5 Singular Value Decomposition" title="Section 6.5 Singular Value Decomposition">
 <span class="type">Section</span><span class="codenumber">6.5</span><span class="title">Singular Value Decomposition</span>
-</h1></header><section class="subsection" id="subsection-140"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-140"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 6 section 7 of <em>Strang</em>
+<li>Read chapter 6 section 7 of <!--Style me with CSS--><em>Strang</em>
 </li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-141"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-141"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Singular Value Decomposition</span>
 </h1></header><p>
       The <em class="terminology">Singular Value Decomposition</em> is an adaptation of the ideas
@@ -151,10 +152,11 @@ $(function () {
 <li>and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)</li>
 </ul>
 <p>
-      so that \[Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}\]
+      so that <article class="displaymath" id="me-150">\[Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}\]</article>
       where \(r = rank(A)\). If we pile up all of those equations, we get a
       statement like this one:
-    </p>\[
+    </p>
+<article class="displaymath" id="me-151">\[
       A \begin{pmatrix} | &amp; | &amp; \dots &amp; | \\
                       v_1 &amp; v_2 &amp; \dots &amp; v_r \\
                         | &amp; | &amp; \dots &amp; |
@@ -168,9 +170,10 @@ $(function () {
                         u_1 &amp; u_2 &amp; \dots &amp; u_r \\
                           | &amp; | &amp; \dots &amp; |
                           \end{pmatrix}
-    \]<p>
+    \]</article><p>
       Eventually, this will lead us to a matrix decomposition of the form
-    </p>\[ A = U \Sigma V^T .\]<section class="subsubsection" id="subsubsection-51"><header><h1 class="heading">
+    </p>
+<article class="displaymath" id="me-152">\[ A = U \Sigma V^T .\]</article><section class="subsubsection" id="subsubsection-51"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">How to do it</span>
 </h1></header><p>
         So, suppose that \(A\) is an \(m \times n\) matrix. The key fact we
@@ -188,9 +191,9 @@ $(function () {
             of eigenvectors for \(A^TA\). If we bundle these together as the columns
             of a matrix \(V\), we can make
             the spectral decomposition
-            \[
+            <article class="displaymath" id="me-153">\[
               A^TA = V D V^T,
-            \]
+            \]</article>
             where \(D\) is a diagonal matrix having the eigenvalues
             \(\lambda_1, \lambda_2, \ldots, \lambda_n\) for entries.
             NOTE: We will organize things so that the eigenvalues get smaller as
@@ -206,16 +209,16 @@ $(function () {
 <li>
           <p>
             Step Two: For each \(0 \leq i \leq r\), set
-            \[\sigma_i = \sqrt{\lambda_i} .\]
+            <article class="displaymath" id="me-154">\[\sigma_i = \sqrt{\lambda_i} .\]</article>
             These are the “Singular Values” named in the singular value decomposition.
           </p>
         </li>
 <li>
           <p>
             Step Three: for each \(0 \leq i \leq r\), set
-            \[
+            <article class="displaymath" id="me-155">\[
               u_i = \dfrac{1}{\sigma_i} Av_i.
-            \]
+            \]</article>
             By the way things are set up, we are sure \(\sigma_i\) is not zero!
             The vectors we just made are a basis for the column space of \(A\).
           </p>
@@ -234,7 +237,7 @@ $(function () {
           \(m \times n\) matrix which is otherwise filled with zeros. Call that
           new matrix \(\Sigma\).
         </li>
-</ol></section><p>Strang has a good run-down of the neat properties this set up has.</p></section><section class="subsection" id="subsection-142"><header><h1 class="heading">
+</ol></section><p>Strang has a good run-down of the neat properties this set up has.</p></section><section class="subsection" id="subsection-142"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the SVD</span>
 </h1></header><p>
       Sage has a built in command for the singular value decomposition of a matrix.
@@ -248,38 +251,38 @@ $(function () {
 A
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">A.change_ring(RDF).SVD()
-</script></div></section><section class="subsection" id="subsection-143"><header><h1 class="heading">
+</script></div></section><section class="subsection" id="subsection-143"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-178"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">21</span><span class="title"></span>
-</h5>Complete exercise 6.7.1 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">178</span><span class="title"></span>
+</h5>Complete exercise 6.7.1 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-179"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">22</span><span class="title"></span>
-</h5>Complete exercise 6.7.2 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">179</span><span class="title"></span>
+</h5>Complete exercise 6.7.2 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-180"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">23</span><span class="title"></span>
-</h5>Complete exercise 6.7.3 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">180</span><span class="title"></span>
+</h5>Complete exercise 6.7.3 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-181"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">24</span><span class="title"></span>
-</h5>Complete exercise 6.7.4 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">181</span><span class="title"></span>
+</h5>Complete exercise 6.7.4 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-182"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">25</span><span class="title"></span>
-</h5>Complete exercise 6.7.5 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">182</span><span class="title"></span>
+</h5>Complete exercise 6.7.5 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-183"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">26</span><span class="title"></span>
-</h5>Complete exercise 6.7.6 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">183</span><span class="title"></span>
+</h5>Complete exercise 6.7.6 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-184"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">27</span><span class="title"></span>
-</h5>Complete exercise 6.7.9 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">184</span><span class="title"></span>
+</h5>Complete exercise 6.7.9 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-185"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">28</span><span class="title"></span>
-</h5>Complete exercise 6.7.10 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">185</span><span class="title"></span>
+</h5>Complete exercise 6.7.10 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-186"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">29</span><span class="title"></span>
-</h5>Complete exercise 6.7.11 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">186</span><span class="title"></span>
+</h5>Complete exercise 6.7.11 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-187"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">30</span><span class="title"></span>
-</h5>Complete exercise 6.7.12 from <em>Strang</em>.
+<span class="type">Task</span><span class="codenumber">187</span><span class="title"></span>
+</h5>Complete exercise 6.7.12 from <!--Style me with CSS--><em>Strang</em>.
       </article></section></section></div></main>
 </div>
 </body>

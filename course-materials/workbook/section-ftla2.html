@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Orthogonality and the Four Subspaces</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-ftla2"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-ftla2"><header><h1 class="heading" alt="Section 4.1 Orthogonality and the Four Subspaces" title="Section 4.1 Orthogonality and the Four Subspaces">
 <span class="type">Section</span><span class="codenumber">4.1</span><span class="title">Orthogonality and the Four Subspaces</span>
-</h1></header><section class="subsection" id="subsection-92"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-92"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 4.1 of <em>Strang</em>.</li>
+<li>Read section 4.1 of <!--Style me with CSS--><em>Strang</em>.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-93"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-93"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>
       Before class, a student should be able to:
@@ -161,7 +162,7 @@ $(function () {
         Reason about the structure of a matrix as a transformation using information
         about its four subspaces.
       </li>
-</ul></section><section class="subsection" id="subsection-94"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-94"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Orthogonality for subspaces</span>
 </h1></header><p>
       Previously, we had the notion of orthogonality for two vectors in
@@ -190,14 +191,14 @@ $(function () {
 </h5>
         Let \(V\) be a vector subspace of \(\mathbb{R}^n\). The
         <em class="terminology">orthogonal complement</em> of \(V\) is the set
-        \[
+        <article class="displaymath" id="me-123">\[
           V^{\perp} = \{ w \in \mathbb{R}^n \mid w \cdot v = 0 \text{ for all } v \in V \}.
-        \]</article><p>
+        \]</article></article><p>
       The basic idea is that two spaces are orthogonal complements if they are
       orthogonal, and together they contain enough vectors to span the entire
       space. The definition looks like it is a one-directional thing: for a
       subspace, you find its orthogonal complement. But really it is a
-      <em>complementary</em> relationship. If \(W\) is the orthogonal
+      <!--Style me with CSS--><em>complementary</em> relationship. If \(W\) is the orthogonal
       complement to \(V\), then \(V\) is the orthogonal complement to
       \(W\).
     </p>
@@ -242,7 +243,7 @@ $(function () {
             The column space of \(A\) and the left nullspace of \(A\)
             are orthogonal complements of one another.
           </li>
-</ul></article></section><section class="subsection" id="subsection-95"><header><h1 class="heading">
+</ul></article></section><section class="subsection" id="subsection-95"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Orthogonal Complement</span>
 </h1></header><p>
       It is not hard to find the four subspaces associated to a matrix with Sage's
@@ -275,15 +276,15 @@ A
       left nullspace agree. As a check for understanding, you should be able to
       ask Sage if the rowspace of \(A\) is the orthogonal complement to the
       nullspace of \(A\).
-    </p></section><section class="subsection" id="subsection-96"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-96"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-121"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">121</span><span class="title"></span>
 </h5>(Strang ex. 4.1.2)
         Draw the “Big Picture” for a \(3\times 2\) matrix of rank \(2\).
         Which subspace has to be the zero subspace?
       </article><article class="example-like" id="task-122"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">122</span><span class="title"></span>
 </h5>(Strang ex. 4.1.3)
         For each of the following, give an example of a matrix with the required
         properties, or explain why that is impossible.
@@ -310,32 +311,32 @@ A
             The columns add up to a column of zeros, and the rows add up to a row of \(1\)'s.
           </li>
 </ol></article><article class="example-like" id="task-123"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">123</span><span class="title"></span>
 </h5>(Strang ex 4.1.4)
         If \(AB = 0\), how do the columns of \(B\) relate to the subspaces
         of \(A\)? How do the rows of \(A\) relate to the subspaces of \(B\)?
         Why can't we make an example of this where \(A\) and \(B\) are both
         \(3 \times 3\) matrices of rank \(2\)?
       </article><article class="example-like" id="task-124"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">124</span><span class="title"></span>
 </h5>(Strang ex 4.1.9)
         Use the four subspace of \(A\) to explain why this is always true:
-        \[\text{If } A^T Ax = 0, \text{then } Ax = 0.\]
+        <article class="displaymath" id="me-124">\[\text{If } A^T Ax = 0, \text{then } Ax = 0.\]</article>
         (This fact will be useful later! It will help us see that \(A^TA\) and
         \(A\) have the same nullspace.)
       </article><article class="example-like" id="task-125"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">125</span><span class="title"></span>
 </h5>(Strang ex 4.1.12)
         Find the pieces \(x_r\) and \(x_n\) and draw the “Big Picture”
         carefully when:
-        \[ A = \begin{pmatrix} 1 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}
+        <article class="displaymath" id="me-125">\[ A = \begin{pmatrix} 1 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}
           \qquad \text{and } x = \begin{pmatrix} 2 \\ 0 \end{pmatrix}.
-        \]</article><article class="example-like" id="task-126"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-126"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">126</span><span class="title"></span>
 </h5>(Strang ex. 4.1.22)
         Let \(P\) be the hyperplane of vectors in \(\mathbb{R}^4\) which
         satisfy the equation
-        \[ x_1 + x_2 + x_3 + x_4 = 0 .\]
+        <article class="displaymath" id="me-126">\[ x_1 + x_2 + x_3 + x_4 = 0 .\]</article>
         Write down a basis for \(P^{\perp}\). Construct a matrix \(X\) which
         has \(P\) as its nullspace.
       </article></section></section></div></main>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Matrices</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="matrices"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="matrices"><header><h1 class="heading" alt="Section 1.3 Matrices" title="Section 1.3 Matrices">
 <span class="type">Section</span><span class="codenumber">1.3</span><span class="title">Matrices</span>
-</h1></header><section class="subsection" id="subsection-10"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-10"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read <em>Strang</em> section 1.3 (pages 22-27).</li>
+<li>Read <!--Style me with CSS--><em>Strang</em> section 1.3 (pages 22-27).</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-11"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-11"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class starts, a student should be able to:
       <ul style="list-style-type: disc;">
@@ -163,41 +164,41 @@ $(function () {
 <li>linear dependence and linear independence</li>
 <li>the inverse of a matrix</li>
 </ul>
-  </p></section><section class="subsection" id="subsection-12"><header><h1 class="heading">
+  </p></section><section class="subsection" id="subsection-12"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
 </h1></header><p>
-      A <em class="terminology">matrix</em> is a two-dimensional array of numbers like this:\[
+      A <em class="terminology">matrix</em> is a two-dimensional array of numbers like this:<article class="displaymath" id="me-20">\[
         A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}.
-      \]
+      \]</article>
       Sometimes it helps to think of a matrix as a collection of its <em class="terminology">rows</em>
-      which are read across:\[
+      which are read across:<article class="displaymath" id="me-21">\[
         M = \begin{pmatrix} \longrightarrow \\ \longrightarrow \end{pmatrix}
-      \]
+      \]</article>
       and sometimes it helps to think of a matrix as a collection of its
-      <em class="terminology">columns</em> which are read down:\[
+      <em class="terminology">columns</em> which are read down:<article class="displaymath" id="me-22">\[
         M = \begin{pmatrix} \downarrow &amp; \downarrow \end{pmatrix}.
-      \]
+      \]</article>
     </p>
 <p>
       It is often more clear to describe a matrix by giving the sizes of its
       rows and columns. An \(m\) by \(n\) matrix is one having \(m\)
       rows and \(n\) columns. It is really easy to get these reversed, so be
       careful. For example, this is a \(2\times 3\) matrix, because it has
-      two rows and three columns:\[
+      two rows and three columns:<article class="displaymath" id="me-23">\[
         B = \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
-      \]
+      \]</article>
       A matrix is called a <em class="terminology">square</em> matrix when the number of rows and
       the number of columns is equal. The matrix \(A\) that I wrote down
       above is square because it is a \(2\times 2\) matrix.
     </p>
-<section class="subsubsection" id="subsubsection-4"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-4"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Multiplying Matrices and Vectors</span>
 </h1></header><p>
-        It is possible to multiply a matrix by a vector like this:\[
+        It is possible to multiply a matrix by a vector like this:<article class="displaymath" id="me-24">\[
           \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
           \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
           \begin{pmatrix} 102 \\ 416 \end{pmatrix}
-        \]
+        \]</article>
         For this to work, it is absolutely crucial that the sizes match up
         properly. If the matrix is \(m\) by \(n\), then the vector must have
         size \(n\). In the above example \(m = 2\) and \(n=3\).
@@ -210,35 +211,37 @@ $(function () {
       </p>
 <p>
         How exactly does one define this matrix--vector multiplication?
-      </p>Linear Combination of Columns Approach<p>
+      </p>
+<article class="paragraphs" id="paragraph-6"><h5 class="heading"><span class="title">Linear Combination of Columns Approach</span></h5>
+<p>
           The first way to perform the matrix-vector multiplication is to think
           of the vector as holding some coefficients for forming a linear
           combination of the columns of the matrix. In our example, it looks
-          like this:\[
+          like this:<article class="displaymath" id="me-25">\[
             \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
             \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} =
             13 \begin{pmatrix} 1 \\ 3 \end{pmatrix} + 21 \begin{pmatrix} 1 \\ 5
             \end{pmatrix} + 34 \begin{pmatrix} 2 \\ 8 \end{pmatrix} =
             \begin{pmatrix} 102 \\ 416 \end{pmatrix}
-          \]
-        </p>Dot Products with the Rows Approach<p>
+          \]</article>
+        </p></article><article class="paragraphs" id="paragraph-7"><h5 class="heading"><span class="title">Dot Products with the Rows Approach</span></h5>
+<p>
           The second way is to think of the matrix as a bundle of vectors lying
           along the rows of the matrix, and use the dot product. In our example
-          above, this means that we consider the vectors\[
+          above, this means that we consider the vectors<article class="displaymath" id="me-26">\[
             r_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \quad
             r_2 = \begin{pmatrix} 3 \\ 5 \\ 8 \end{pmatrix}, \text{ and }
             v = \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix}
-          \]
+          \]</article>
           (notice I've rewritten the rows as columns) and then perform this
-          kind of operation:\[
+          kind of operation:<article class="displaymath" id="me-27">\[
             \begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 3 &amp; 5 &amp; 8 \end{pmatrix}
             \begin{pmatrix} 13 \\ 21 \\ 34 \end{pmatrix} = \begin{pmatrix} r_1
             \\ r_2 \end{pmatrix} v =  \begin{pmatrix} r_1 \cdot v \\ r_2 \cdot
             v \end{pmatrix} =
             \begin{pmatrix} 102 \\ 416 \end{pmatrix} .
-          \]
-        </p>
-<p>
+          \]</article>
+        </p></article><p>
       Two important remarks:
       <ul style="list-style-type: disc;">
 <li>
@@ -248,13 +251,13 @@ $(function () {
           Note that the two versions of the operation give you the same results.
         </li>
 </ul>
-      </p></section><section class="subsubsection" id="subsubsection-5"><header><h1 class="heading">
+      </p></section><section class="subsubsection" id="subsubsection-5"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix Equations</span>
 </h1></header><p>
         There are many situations in linear algebra that can be rewritten in
-        the form of an equation that looks like this:\[
+        the form of an equation that looks like this:<article class="displaymath" id="me-28">\[
           A v = b
-        \]
+        \]</article>
         where \(A\) is a matrix, and \(v\) and \(b\) are vectors. The
         interesting case is when we know \(A\) and \(b\), but we want to
         find the unknown \(v\). We will call this a
@@ -270,7 +273,7 @@ $(function () {
         \(A^{-1}\) in place of \(B\). This is a wonderful situation to be
         in! Eventually, we will want to figure out some test for when a given
         matrix is invertible, and find some ways to compute the inverse.
-      </p></section><section class="subsubsection" id="subsubsection-6"><header><h1 class="heading">
+      </p></section><section class="subsubsection" id="subsubsection-6"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">A Note about Vectors</span>
 </h1></header><p>
         This reading also has a brief introduction to the idea of a set of
@@ -281,9 +284,9 @@ $(function () {
         A set of vectors \(v_1, v_2, \dots, v_n\) is called <em class="terminology">linearly
         depdendent</em> when there is some choice of numbers
         \(a_1, a_2, \dots, a_n\) which are not all zero so that the
-        linear combination\[
+        linear combination<article class="displaymath" id="me-29">\[
           a_1 v_1 + a_2 v_2 + \dots + a_n v_n = 0
-        \]
+        \]</article>
         A set of vectors which is not linearly dependent is called
         <em class="terminology">linearly independent</em>.
       </p>
@@ -292,9 +295,9 @@ $(function () {
         set of vectors, you can make a linear combination of those vectors
         come out as \(0\). Simply choose all of the coefficients to be
         zero. But that is so easy to do we call it <em class="terminology">trivial</em>. What the
-        definition is asking is that we find a <em>nontrival linear
+        definition is asking is that we find a <!--Style me with CSS--><em>nontrival linear
         combination of the vectors to make zero</em>.
-      </p></section></section><section class="subsection" id="subsection-13"><header><h1 class="heading">
+      </p></section></section><section class="subsection" id="subsection-13"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Matrices</span>
 </h1></header><p>
       Sage has many useful commands for working with linear algebra, and
@@ -302,7 +305,7 @@ $(function () {
       lots of things Sage can do with matrices. We'll focus here on just basic
       construction and matrix--vector multiplication.
     </p>
-<section class="subsubsection" id="subsubsection-7"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-7"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The matrix construction command</span>
 </h1></header><p>The command to construct a matrix is pretty straightforward. One types
         <tt class="code-inline" style="color: red; font-size: 120%">matrix(r, c, [list of entries])</tt> where <tt class="code-inline" style="color: red; font-size: 120%">r</tt> is
@@ -348,7 +351,7 @@ C # the best matrix
 <div class="sage-compute"><script type="text/x-sage">D = matrix(QQ, 3,3, [[1,0,1],[2/3, 1, 0],[0,0,9/5]])
 # this should say something about the rationals
 D.parent()
-</script></div></section><section class="subsubsection" id="subsubsection-8"><header><h1 class="heading">
+</script></div></section><section class="subsubsection" id="subsubsection-8"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Building a matrix from rows or columns</span>
 </h1></header><p>
         It is possible to build a matrix by bundling together a bunch of vectors,
@@ -366,7 +369,7 @@ E = matrix([ v1, v2]); E
         later, but it basically "switches rows for columns and vice versa."
       </p>
 <div class="sage-compute"><script type="text/x-sage">F = matrix([v1,v2]).transpose(); F
-</script></div></section><section class="subsubsection" id="subsubsection-9"><header><h1 class="heading">
+</script></div></section><section class="subsubsection" id="subsubsection-9"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix action on vectors</span>
 </h1></header><p>
         Of course, Sage knows how to perform the action of a matrix on a vector.
@@ -386,7 +389,7 @@ E = matrix([ v1, v2]); E
 <div class="sage-compute"><script type="text/x-sage">C.is_invertible()
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">C.inverse()
-</script></div></section></section><section class="subsection" id="subsection-14"><header><h1 class="heading">
+</script></div></section></section><section class="subsection" id="subsection-14"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-23"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">23</span><span class="title"></span>
@@ -394,11 +397,11 @@ E = matrix([ v1, v2]); E
 <p>
           Make an example of a matrix \(\left(\begin{smallmatrix} 1 &amp;
           \bullet \\ -1 &amp; \bullet \end{smallmatrix}\right)\) so that the
-          equation\[
+          equation<article class="displaymath" id="me-30">\[
           \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
           \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
           \end{pmatrix}
-          \]
+          \]</article>
           has exactly one solution, or explain why this is not possible.
         </p>
 <p>
@@ -410,9 +413,9 @@ E = matrix([ v1, v2]); E
 <p>
           Make an example of a matrix \(\left(\begin{smallmatrix} 4 &amp;
           8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp;
-          \bullet \end{smallmatrix}\right)\) so that the equation\[
+          \bullet \end{smallmatrix}\right)\) so that the equation<article class="displaymath" id="me-31">\[
             \begin{pmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp; \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
-          \]
+          \]</article>
           has exactly one solution, or explain why this is not possible.
         </p>
 <p>
@@ -423,11 +426,11 @@ E = matrix([ v1, v2]); E
 </h5>
 <p>
           Make an example of a matrix \(\left( \begin{smallmatrix} 2 &amp; -1 \\
-          \bullet &amp; \bullet \end{smallmatrix}\right)\) so that the equation\[
+          \bullet &amp; \bullet \end{smallmatrix}\right)\) so that the equation<article class="displaymath" id="me-32">\[
             \begin{pmatrix} 2 &amp; -1 \\ \bullet &amp; \bullet \end{pmatrix}
             \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3
             \end{pmatrix}
-          \]
+          \]</article>
           has exactly one solution, or explain why this is not possible.
         </p>
 <p>
@@ -439,11 +442,11 @@ E = matrix([ v1, v2]); E
 <p>
           Make an example of a matrix \(\left( \begin{smallmatrix} 1 &amp; 0
           &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet &amp; \bullet &amp; \bullet
-          \end{smallmatrix}\right)\) so that the equation\[
+          \end{smallmatrix}\right)\) so that the equation<article class="displaymath" id="me-33">\[
             \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet
             &amp; \bullet &amp; \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z
             \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
-          \]
+          \]</article>
           has no solutions, or explain why this is not possible.
         </p>
 <p>
@@ -454,11 +457,11 @@ E = matrix([ v1, v2]); E
 </h5>
 <p>
           Find a triple of numbers \(x\), \(y\), and \(z\) so that the
-          linear combination\[
+          linear combination<article class="displaymath" id="me-34">\[
             x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} +
             y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} +
             z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
-          \]
+          \]</article>
           yields the zero vector, or explain why this is not possible.
         </p>
 <p>
@@ -470,11 +473,11 @@ E = matrix([ v1, v2]); E
 <span class="type">Task</span><span class="codenumber">28</span><span class="title"></span>
 </h5>
 <p>
-          The vectors\[
+          The vectors<article class="displaymath" id="me-35">\[
             r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
             r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
             r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
-          \]
+          \]</article>
           are linearly dependent because they lie in a common plane (through
           the origin). Find a normal vector to this plane.
         </p>
@@ -486,22 +489,22 @@ E = matrix([ v1, v2]); E
 <span class="type">Task</span><span class="codenumber">29</span><span class="title"></span>
 </h5>
 <p>
-          Consider the equation\[
+          Consider the equation<article class="displaymath" id="me-36">\[
             \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
             \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2
             \end{pmatrix}.
-          \]
+          \]</article>
           We are interested in being able to solve this for \(x\) and \(y\)
           for any given choice of the numbers \(b_1\) and \(b_2\).
           Figure out a way to do this by writing \(x\) and \(y\) in terms
           of \(b_1\) and \(b_2\).
         </p>
 <p>
-          Rewrite your solution in the form\[
+          Rewrite your solution in the form<article class="displaymath" id="me-37">\[
             \begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix}
             \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet
             \\ \bullet \end{pmatrix}.
-          \]
+          \]</article>
         </p>
 <p>
           How is this related to the inverse of the matrix
@@ -513,11 +516,11 @@ E = matrix([ v1, v2]); E
 <p>
           Find an example of a number \(c\) and a vector \(\left(
           \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)\)
-          so that the equation\[
+          so that the equation<article class="displaymath" id="me-38">\[
             \begin{pmatrix} 3 &amp; 51 \\ c &amp; 17 \end{pmatrix}
             \begin{pmatrix} x \\ y \end{pmatrix} =
             \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
-          \]
+          \]</article>
           does not have a solution, or explain why no such example exists.
         </p>
 <p>

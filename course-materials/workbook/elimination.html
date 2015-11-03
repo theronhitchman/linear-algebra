@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Solving Systems</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="elimination"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="elimination"><header><h1 class="heading" alt="Section 2.2 Solving Systems" title="Section 2.2 Solving Systems">
 <span class="type">Section</span><span class="codenumber">2.2</span><span class="title">Solving Systems</span>
-</h1></header><section class="subsection" id="subsection-24"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-24"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
 <li>Read section 2.2 of Strang (pages 45-51).</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-25"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-25"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>
       Before class, a student should be able to do the following things.
@@ -154,22 +155,22 @@ $(function () {
 <li>Explain the two failure modes for elimination, and describe which leads to
         no solutions, and which leads to infinitely many solutions.</li>
 <li>Solve larger systems with the help of a computer algebra package (Sage).</li>
-</ul></section><section class="subsection" id="subsection-26"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-26"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Elimination for Solving Systems of Linear Equations</span>
 </h1></header><p>
         Now we begin the process of learning how to solve a system of linear
         equations systematically through a process called <em class="terminology">elimination</em>.
       </p>
-<section class="subsubsection" id="subsubsection-11"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-11"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Some terminology</span>
 </h1></header><p>A typical system looks something like this:
-          \[
+          <article class="displaymath" id="me-42">\[
             \left\{ \begin{array}{rrrrrrrr}
                   3 x_1 &amp; +&amp;  2 x_2 &amp; - &amp; \pi x_3 &amp; = &amp; 0 \\
                   -4 x_1 &amp; -&amp; 33 x_2 &amp; + &amp; x_3 &amp; = &amp; 12
                   \end{array}\right.
-          \]
-          This situation is <em>two</em> equations in <em>three</em> unknowns.
+          \]</article>
+          This situation is <!--Style me with CSS--><em>two</em> equations in <!--Style me with CSS--><em>three</em> unknowns.
           The unknowns here are the three numbers \(x_1\), \(x_2\) and
           \(x_3\) for which we search. Usually, we bundle the numbers
           together as a vector \((x_1, x_2, x_3)\). If we can find a vector
@@ -186,7 +187,7 @@ $(function () {
           Watch out for situations which are <em class="terminology">singular</em> in that they
           have fewer pivots than unknowns. A system is called
           <em class="terminology">non-singular</em> if it has as many pivots as unknowns.
-        </p></section><section class="subsubsection" id="subsubsection-12"><header><h1 class="heading">
+        </p></section><section class="subsubsection" id="subsubsection-12"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Keeping track of things</span>
 </h1></header><p>
           Playing with all of the equations is nice, but all that really
@@ -196,14 +197,14 @@ $(function () {
           keep track of the matrix of coefficients, <em class="terminology">augmented</em> by
           the vector on the right-hand side. In the example above, that
           augmented matrix is
-          \[
+          <article class="displaymath" id="me-43">\[
             \augmatrix{ccc}{
             3 &amp; 2 &amp; -\pi &amp; 0 \\ -4 &amp; -33 &amp; 1 &amp; 12
             }
-          \]
+          \]</article>
           All of the row operations can be performed on just this augmented
           matrix, without losing any of the essential information.
-        </p></section></section><section class="subsection" id="subsection-27"><header><h1 class="heading">
+        </p></section></section><section class="subsection" id="subsection-27"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Row Operations</span>
 </h1></header><p>
         The process of elimination for systems of equations involves performing
@@ -213,7 +214,7 @@ $(function () {
       </p>
 <p>
         The first type of method modifies the matrix “in place”, which means
-        that it <em>Changes the input matrix</em>.
+        that it <!--Style me with CSS--><em>Changes the input matrix</em>.
       </p>
 <ul style="list-style-type: disc;">
 <li>
@@ -282,29 +283,29 @@ B4 # this should add 4 times row 2 to row 2
         see that they all still exist.
       </p>
 <div class="sage-compute"><script type="text/x-sage">B, B1, B2, B3, B4, B5
-</script></div></section><section class="subsection" id="subsection-28"><header><h1 class="heading">
+</script></div></section><section class="subsection" id="subsection-28"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-38"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">38</span><span class="title"></span>
 </h5>
           Use the elimination method to transform this system into an easier
           one. (Can you make it triangular?) Circle the pivots in the final
           result.
-          \[
+          <article class="displaymath" id="me-44">\[
             \left\{
             \begin{array}{rrrrrrr}
             2x &amp; + &amp; 3y &amp; + &amp;  z &amp; = &amp; 8\\
             4x &amp; + &amp; 7y &amp; + &amp; 5z &amp; = &amp; 20 \\
                &amp; - &amp; 2y &amp; + &amp; 2z &amp; = &amp; 0
             \end{array}\right.
-          \]
+          \]</article>
           What two operations do you use to do this efficiently? Now use back
           substitution to solve the system.
         </article><article class="example-like" id="task-39"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">39</span><span class="title"></span>
 </h5>
 <p>
-            <em>(Sage Exercise)</em>:
+            <!--Style me with CSS--><em>(Sage Exercise)</em>:
             Because the last system can be transformed in two operations, there
             are three equivalent systems generated through the process
             (the original, the intermediate, and the final).
@@ -313,69 +314,69 @@ B4 # this should add 4 times row 2 to row 2
             Make row picture plots for each of the three systems. [Hint: Sage]
             How do the operations transform the pictures?
           </p></article><article class="example-like" id="task-40"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">40</span><span class="title"></span>
 </h5>
           Suppose that a system of three equations in three unknowns has two
           solutions \((a,b,c)\) and \((A,B,C)\). Explain why the system must have
           other solutions than these two. Describe clearly two other solutions
           in terms of \(a,b,c,A,B,C\).
         </article><article class="example-like" id="task-41"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">11</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">41</span><span class="title"></span>
 </h5>
           Find three examples of numbers \(a\) so that elimination will fail to
           give three pivots for this coefficient matrix:
-          \[
+          <article class="displaymath" id="me-45">\[
             A = \begin{pmatrix}
             a &amp; 2 &amp; 3 \\ a &amp; a &amp; 4 \\ a &amp; a &amp; a
             \end{pmatrix}
-          \]</article><article class="example-like" id="task-42"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">12</span><span class="title"></span>
+          \]</article></article><article class="example-like" id="task-42"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">42</span><span class="title"></span>
 </h5>
           How many ways can two lines in the plane meet? Make examples to
-          represent as many <em>qualitatively different</em> situations as you can.
+          represent as many <!--Style me with CSS--><em>qualitatively different</em> situations as you can.
         </article><article class="example-like" id="task-43"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">43</span><span class="title"></span>
 </h5>
           Complete the following to make an example of a system of two equations
           in two unknowns which is singular but still has a solution, or explain why
           no such example exists.
-          \[
+          <article class="displaymath" id="me-46">\[
             \left\{
             \begin{array}{ccccc}
             2x &amp; + &amp; 3y &amp; = &amp; 1 \\
             \bullet x &amp; + &amp; \bullet y &amp; = &amp; \bullet
             \end{array}\right.
-          \]</article><article class="example-like" id="task-44"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">14</span><span class="title"></span>
+          \]</article></article><article class="example-like" id="task-44"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">44</span><span class="title"></span>
 </h5>
           Complete the following to a system of three equations in three
           unknowns which is singular and does not have a solution, or explain
           why no such example exists.
-          \[
+          <article class="displaymath" id="me-47">\[
             \left\{
             \begin{array}{ccccccc}
                &amp;  &amp; 3y &amp; - &amp; z &amp; = &amp; 1 \\
             2x &amp; - &amp; y &amp; + &amp; 3z &amp; = &amp; 0 \\
             \bullet x &amp; + &amp; \bullet y &amp; + &amp;\bullet z &amp;  = &amp; \bullet
             \end{array}\right.
-          \]</article><article class="example-like" id="task-45"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">15</span><span class="title"></span>
+          \]</article></article><article class="example-like" id="task-45"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">45</span><span class="title"></span>
 </h5>
           Complete the following to a system of three equations in three
           unknowns which is singular but still has a solution, or explain why
           no such example exists.
-          \[
+          <article class="displaymath" id="me-48">\[
             \left\{
             \begin{array}{ccccccc}
             x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 1 \\
             2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; 0 \\
             \bullet x &amp; + &amp; \bullet y &amp; + &amp;\bullet z &amp;  = &amp; \bullet
             \end{array}\right.
-          \]</article><article class="example-like" id="task-46"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">16</span><span class="title"></span>
+          \]</article></article><article class="example-like" id="task-46"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">46</span><span class="title"></span>
 </h5>
           How many ways can three planes in three dimensional space meet? Make
-          examples to represent as many <em>qualitatively different</em>
+          examples to represent as many <!--Style me with CSS--><em>qualitatively different</em>
           situations as you can.
         </article></section></section></div></main>
 </div>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:27-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The Spectral Theorem</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,16 +130,16 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-spectral-theorem"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-spectral-theorem"><header><h1 class="heading" alt="Section 6.3 The Spectral Theorem" title="Section 6.3 The Spectral Theorem">
 <span class="type">Section</span><span class="codenumber">6.3</span><span class="title">The Spectral Theorem</span>
-</h1></header><section class="subsection" id="subsection-134"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-134"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 6 section 4 of <em>Strang</em>
+<li>Read chapter 6 section 4 of <!--Style me with CSS--><em>Strang</em>
 </li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-135"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-135"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Spectral Theorem for Symmetric Matrices</span>
 </h1></header><p>
       We are now in a position to discuss a major result about the structure of
@@ -151,9 +152,9 @@ $(function () {
         there exists an orthonormal basis \(\{ q_1, q_2, \ldots , q_n \}\)
         of \(\mathbb{R}^n\) consisting of eigenvectors of \(A\).
         This means that we can factor \(A\) as a product
-        \[
+        <article class="displaymath" id="me-147">\[
           A = Q \Lambda Q^{-1} = Q \Lambda Q^T,
-        \]
+        \]</article>
         where \(Q\) is an orthogonal matrix having the vectors \(q_i\) as
         its columns, and \(\Lambda\) is a diagonal matrix with the eigenvalues
         of \(A\) as its entries.
@@ -168,7 +169,7 @@ $(function () {
       </li>
 <li>
         If \(X\) is a symmetric matrix and \(v\) and \(w\) are eigenvectors
-        of \(X\) which correspond to <em>different</em> eigenvalues, then
+        of \(X\) which correspond to <!--Style me with CSS--><em>different</em> eigenvalues, then
         \(v\) and \(w\) are orthogonal vectors.
       </li>
 <li>
@@ -184,7 +185,7 @@ $(function () {
       Let's clear up that bit about the different types of multiplicity. We can
       identify eigenvalues by finding them as roots of the characteristic polynomial
       \(p_A(t) = \mathrm{det}(A-t\cdot I)\) of \(A\). Of course, an particular
-      root can be a root <em>multiple times</em>. For example, \(5\) is a root of
+      root can be a root <!--Style me with CSS--><em>multiple times</em>. For example, \(5\) is a root of
       the polynomial \(t^2 - 5t + 25=0\) twice. So we say \(5\) has multiplicity
       two. In the context of eigenvalues, this multiplicity is called the
       <em class="terminology">algebraic multiplicity</em> of an eigenvalue, since it comes out of
@@ -198,7 +199,7 @@ $(function () {
       multiplicity</em> of an eigenvalue. It is a fact that the geometric
       multiplicity is not greater than the algebraic multiplicity. But the two can
       be different. For example, consider this matrix:
-      \[G = \begin{pmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{pmatrix}.\]
+      <article class="displaymath" id="me-148">\[G = \begin{pmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{pmatrix}.\]</article>
     </p>
 <p>
       Now, how does one understand the Spectral Theorem? It basically guarantees
@@ -209,12 +210,12 @@ $(function () {
       the theorem pretty easily. First, find the eigenvalues. Then for each
       eigenvalue \(\lambda\), find an orthonormal basis for the
       <em class="terminology">eigenspace</em>
-      \[E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).\]
+      <article class="displaymath" id="me-149">\[E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).\]</article>
       That second bit can be done in two steps, first find a basis for \(E_{\lambda}\)
       (special solutions!) and then apply the Gram-Schmidt algorithm to find an
       orthonormal basis for \(E_{\lambda}\). Collecting all of these bases
       together will make a basis for \(\mathbb{R}^n\).
-    </p></section><section class="subsection" id="subsection-136"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-136"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Spectral Theorem</span>
 </h1></header><p>
       Sage does not have any built-in commands that deal with the spectral
@@ -268,38 +269,38 @@ Q * D * Q.transpose()
 </script></div>
 <p>
       That is about as close as we can get to displaying the original <tt class="code-inline" style="color: red; font-size: 120%">X</tt>.
-    </p></section><section class="subsection" id="subsection-137"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-137"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-170"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">170</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 3.
       </article><article class="example-like" id="task-171"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">14</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">171</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 4.
       </article><article class="example-like" id="task-172"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">15</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">172</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 5.
       </article><article class="example-like" id="task-173"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">16</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">173</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 6.
       </article><article class="example-like" id="task-174"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">17</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">174</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 8.
       </article><article class="example-like" id="task-175"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">18</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">175</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 11.
       </article><article class="example-like" id="task-176"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">19</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">176</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 12.
       </article><article class="example-like" id="task-177"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">20</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">177</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 24.
       </article></section></section></div></main>

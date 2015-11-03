@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Three Geometric Models</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,19 +130,19 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="three-pictures"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="three-pictures"><header><h1 class="heading" alt="Section 2.1 Three Geometric Models" title="Section 2.1 Three Geometric Models">
 <span class="type">Section</span><span class="codenumber">2.1</span><span class="title">Three Geometric Models</span>
-</h1></header><section class="subsection" id="subsection-19"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-19"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
 <li>
-        Read section 2.1 of <em>Strang</em> (pages 31-40).
+        Read section 2.1 of <!--Style me with CSS--><em>Strang</em> (pages 31-40).
       </li>
 <li>
         Read the following and complete the exercises below
       </li>
-</ul></section><section class="subsection" id="subsection-20"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-20"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>
       Before class, a student should be able to:
@@ -172,7 +173,7 @@ $(function () {
 <li>Given a system, interpret and plot the “column picture”.</li>
 <li>Use a matrix as a model of a <em class="terminology">transformation</em>, including stating
         the <em class="terminology">domain</em> and the <em class="terminology">range</em>.</li>
-</ul></section><section class="subsection" id="subsection-21"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-21"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
 </h1></header><p>
       Now we have a little experience with vectors and related things, it is
@@ -184,12 +185,12 @@ $(function () {
 <p>
       Does the following picture make sense to you?
     </p>
-<figure id="figure-1"><img width="350" src="images/ThreePics.png"><figcaption><span class="heading">Figure</span><span class="codenumber">2.1</span>The three geometric models of linear algebra</figcaption></figure><p>
+<figure class="figure-like" id="figure-1"><img width="100%" src="images/ThreePics.png"><figcaption><span class="heading">Figure</span><span class="codenumber">2.1</span>The three geometric models of linear algebra</figcaption></figure><p>
       A deep understanding of linear algebra will involve a level of comfort with
       each of these three views of the subject in the diagram, and also the ability
       to pass back and forth between them.
     </p>
-<section class="subsubsection" id="subsubsection-10"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-10"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Transformational View</span>
 </h1></header><p>
         We have seen that matrices can be made to "act upon" vectors by a kind of
@@ -203,13 +204,13 @@ $(function () {
         For every vector \(v\) of size \(n\), the matrix \(A\) allows
         us to compute a new vector \(T_A(v) = Av\) of size \(m\). This is
         the basic example of what we will eventually call a <em class="terminology">linear
-        transformation</em>.\begin{align*}
+        transformation</em>.<article class="displaymath" id="md-7">\begin{align*}
 \mathbb{R}^m &amp; \xrightarrow[]{T_A} \mathbb{R}^n\\
 v &amp; \xmapsto[]{\phantom{T_A}} Av.
-\end{align*}
+\end{align*}</article>
         One of our long term goals is to find a way to think about the geometry
         of linear algebra from this viewpoint, too.
-      </p></section></section><section class="subsection" id="subsection-22"><header><h1 class="heading">
+      </p></section></section><section class="subsection" id="subsection-22"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Plotting for Linear Algebra</span>
 </h1></header><p>There are a few new Sage commands that might be useful here. We have
       already seen how to take linear equations and turn them into vectors
@@ -219,11 +220,11 @@ v &amp; \xmapsto[]{\phantom{T_A}} Av.
 <p>
       The keys are commands to pull out the rows and columns from a given matrix.
       Let's start with a simple situation where the matrix equation is
-      \[
+      <article class="displaymath" id="me-39">\[
         \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
         \begin{pmatrix} x &amp; y \end{pmatrix} =
         \begin{pmatrix} 3 &amp; 4 \end{pmatrix}.
-      \]
+      \]</article>
     </p>
 <div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 2,2, [2,1,1,1]); A
 </script></div>
@@ -242,7 +243,7 @@ X = vector([x,y]); X
 <div class="sage-compute"><script type="text/x-sage">A.column(1)
 </script></div>
 <p>
-      <em>Big important note:</em> Sage always numbers lists starting with zero.
+      <!--Style me with CSS--><em>Big important note:</em> Sage always numbers lists starting with zero.
       so the first element of every list is the \(0\) entry, and the second
       element is the \(1\) entry.
     </p>
@@ -276,28 +277,28 @@ print expr2
 <div class="sage-compute"><script type="text/x-sage">row_plot = implicit_plot(expr1, [x,-5,5], [y,-1,9], color='blue')
 row_plot+= implicit_plot(expr2, [x,-5,5], [y,-1,9], color='red')
 show(row_plot, axes=True)
-</script></div></section><section class="subsection" id="subsection-23"><header><h1 class="heading">
+</script></div></section><section class="subsection" id="subsection-23"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-31"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">31</span><span class="title"></span>
 </h5>
         Make an example of a system of linear equations which some students might
         find challenging to change into an equation involving a linear combination.
         Explain what the challenge is and how you can think clearly to overcome it.
       </article><article class="example-like" id="task-32"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">32</span><span class="title"></span>
 </h5>
         Make an example of a linear combination equation which some students might
         find challenging to change into a system of linear equations. Explain
         what the challenge is and how you can think clearly to overcome it.
       </article><article class="example-like" id="task-33"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">33</span><span class="title"></span>
 </h5>
-        Consider the matrix equation\[
+        Consider the matrix equation<article class="displaymath" id="me-40">\[
         \begin{pmatrix}1 &amp; 2 &amp; 4 \\ 2 &amp; 0 &amp; 1 \end{pmatrix}
           \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3
           \end{pmatrix}.
-        \]<ol style="list-style-type: decimal;">
+        \]</article><ol style="list-style-type: decimal;">
 <li>
             Draw a diagram representing the row picture of this matrix equation.
           </li>
@@ -305,27 +306,27 @@ show(row_plot, axes=True)
             Draw a diagram representing the column picture of this matrix equation.
           </li>
 </ol></article><article class="example-like" id="task-34"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">34</span><span class="title"></span>
 </h5>
         Make an example of a system of linear equations so that the
         corresponding column picture is about linear combinations of four 2-vecs
         becoming the zero vector.
       </article><article class="example-like" id="task-35"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">35</span><span class="title"></span>
 </h5>
         Find a linear combination equation so that the corresponding system of
         linear equations corresponds to finding the intersection of three lines
         in the plane.
       </article><article class="example-like" id="task-36"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">36</span><span class="title"></span>
 </h5>
-        Find an example of a vector \(b\) so that the equation\[
+        Find an example of a vector \(b\) so that the equation<article class="displaymath" id="me-41">\[
           \begin{pmatrix} -1 &amp; 2 \\ 5 &amp; -9 \end{pmatrix} v = b
-        \]
+        \]</article>
         has no solution \(v\), or explain why it is impossible to find
         such an example.
       </article><article class="example-like" id="task-37"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">37</span><span class="title"></span>
 </h5>
         In each of the below, find an example of a matrix \(B\) which has the
         described effect.

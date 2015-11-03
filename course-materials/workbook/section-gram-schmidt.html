@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Orthonormal Bases and Gram-Schmidt</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-gram-schmidt"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-gram-schmidt"><header><h1 class="heading" alt="Section 4.5 Orthonormal Bases and Gram-Schmidt" title="Section 4.5 Orthonormal Bases and Gram-Schmidt">
 <span class="type">Section</span><span class="codenumber">4.5</span><span class="title">Orthonormal Bases and Gram-Schmidt</span>
-</h1></header><section class="subsection" id="subsection-108"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-108"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 4.4 of <em>Strang</em>.</li>
+<li>Read section 4.4 of <!--Style me with CSS--><em>Strang</em>.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-109"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-109"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
@@ -153,7 +154,7 @@ $(function () {
 <li>Describe the Gram-Schmidt process geometrically using orthogonal
         projections.
       </li>
-</ul></section><section class="subsection" id="subsection-110"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-110"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Gram-Schmidt</span>
 </h1></header><p>
       There are four main points to take away from this section:
@@ -165,7 +166,7 @@ $(function () {
 <li>The Gram-Schimdt algorithm for constructing an orthonormal basis.</li>
 <li>The \(QR\) decomposition of a matrix \(A\).</li>
 </ul>
-    </p></section><section class="subsection" id="subsection-111"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-111"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the QR decomposition</span>
 </h1></header><p>
       Sage has a built-in command to find the QR decomposistion of a matrix.
@@ -197,22 +198,22 @@ Q
 <div class="sage-compute"><script type="text/x-sage">Q*R
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">Q*R == A
-</script></div></section><section class="subsection" id="subsection-112"><header><h1 class="heading">
+</script></div></section><section class="subsection" id="subsection-112"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-139"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">19</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">139</span><span class="title"></span>
 </h5>(Strang ex. 4.4.12)
         If \(a_1\), \(a_2\), \(a_3\) is a basis for \(\mathbb{R}^3\),
         then any vector \(b\) can be written as
-        \[
+        <article class="displaymath" id="me-128">\[
           b = x_1 a_1 + x_2 a_2 + x_3 a_3
-        \]
+        \]</article>
         or
-        \[
+        <article class="displaymath" id="me-129">\[
           \begin{pmatrix} | &amp; | &amp; | \\ a_1 &amp; a_2 &amp; a_3 \\
           | &amp; | &amp; | \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3
           \end{pmatrix} = b.
-        \]<ol style="list-style-type: decimal;">
+        \]</article><ol style="list-style-type: decimal;">
 <li>
             Suppose the \(a_i\)'s are orthonormal.
             Show that \(x_1 = a_1^T b\).
@@ -226,63 +227,63 @@ Q
             something times b. What is the something?
           </li>
 </ol></article><article class="example-like" id="task-140"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">20</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">140</span><span class="title"></span>
 </h5>(Strang ex. 4.4.18)
         Find orthogonal vectors \(A\), \(B\), \(C\) by Gram-Schmidt from
         \(a\), \(b\), \(c\):
-        \[
+        <article class="displaymath" id="me-130">\[
           a = (1,-1,0,0), \quad b = (0,1,-1,0), \quad c = (0,0,1,-1).
-        \]
+        \]</article>
         Note that both of these collections are bases for the hyperplane perpendicular
         to \((1,1,1,1)\).
       </article><article class="example-like" id="task-141"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">21</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">141</span><span class="title"></span>
 </h5>(Strang ex. 4.4.19)
         If \(A = QR\), then check that \(A^TA\) is the same thing as \(R^TR\).
         What can we say about the shape of the matrix \(R\)? Note that this means
-        that Gram-Schmidt on \(A\) corresponds to <em>elimination on \(A^TA\)</em>!
+        that Gram-Schmidt on \(A\) corresponds to <!--Style me with CSS--><em>elimination on \(A^TA\)</em>!
         The pivots for \(A^TA\) must be the squares of the diagonal entries of
         \(R\). Find \(Q\) and \(R\) by Gram-Schmidt for this \(A\):
-        \[
+        <article class="displaymath" id="me-131">\[
           A = \begin{pmatrix} -1 &amp; 1 \\ 2 &amp; 1 \\ 2 &amp; 4 \end{pmatrix}.
-        \]
+        \]</article>
         Compare with the structure of this matrix:
-        \[
+        <article class="displaymath" id="me-132">\[
           A^TA = \begin{pmatrix} 9 &amp; 9 \\ 9 &amp; 18 \end{pmatrix}
           = \begin{pmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{pmatrix}
           \begin{pmatrix} 9 &amp; 0 \\ 0 &amp; 9 \end{pmatrix}
           \begin{pmatrix}  1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}.
-        \]</article><article class="example-like" id="task-142"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">22</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-142"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">142</span><span class="title"></span>
 </h5>(Strang ex. 4.4.21)
         Find an orthonormal basis for the column space of \(A\), and then compute
         the projection of \(b\) onto that column space.
-        \[
+        <article class="displaymath" id="me-133">\[
           A = \begin{pmatrix} 1 &amp; -2 \\ 1 &amp; 0 \\ 1 &amp; 1 \\ 1 &amp; 3\end{pmatrix}
           \qquad \text{ and } \qquad b = \begin{pmatrix} -4 \\ -3 \\ 3 \\ 0 \end{pmatrix}.
-        \]</article><article class="example-like" id="task-143"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">23</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-143"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">143</span><span class="title"></span>
 </h5>(Strang ex. 4.4.23)
         Let \(a\), \(b\), \(c\) be the columns of the matrix
-        \[
+        <article class="displaymath" id="me-134">\[
           A = \begin{pmatrix} 1 &amp; 2 &amp; 4 \\ 0 &amp; 0 &amp; 5 \\
           0 &amp; 3 &amp; 6 \end{pmatrix}
-        \]
+        \]</article>
         Note that these vectors are linearly independent, so make a basis for
         \(\mathbb{R}^3\).
         Find an orthonormal basis \(q_1\), \(q_2\), \(q_3\) and express
         the vectors as linear combinations of \(a\), \(b\), \(c\).
         Finally, write \(A\) as \(QR\).
       </article><article class="example-like" id="task-144"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">24</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">144</span><span class="title"></span>
 </h5>(Strang ex. 4.4.24)
         <ol style="list-style-type: decimal;">
 <li>
             Find a basis for the subspace \(S\) in \(\mathbb{R}^4\)
             spanned by all solutions of
-            \[
+            <article class="displaymath" id="me-135">\[
               x_1 + x_2 + x_3 - x_4 = 0.
-            \]
+            \]</article>
           </li>
 <li>
             Find a basis for the orthogonal complement \(S^{\perp}\).

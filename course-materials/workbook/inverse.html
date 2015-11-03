@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Matrix Inverses</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="inverse"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="inverse"><header><h1 class="heading" alt="Section 2.6 Matrix Inverses" title="Section 2.6 Matrix Inverses">
 <span class="type">Section</span><span class="codenumber">2.6</span><span class="title">Matrix Inverses</span>
-</h1></header><section class="subsection" id="subsection-41"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-41"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 2.5 of <em>Strang</em>.</li>
+<li>Read section 2.5 of <!--Style me with CSS--><em>Strang</em>.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-42"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-42"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>
       Before class, a student should be able to:
@@ -167,9 +168,9 @@ $(function () {
 <li>State the distinction between a matrix being <em class="terminology">invertible</em>
         and a matrix being <em class="terminology">singular</em>.
       </li>
-</ul></section><section class="subsection" id="subsection-43"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-43"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
-</h1></header><section class="subsubsection" id="subsubsection-20"><header><h1 class="heading">
+</h1></header><section class="subsubsection" id="subsubsection-20"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix Inverses</span>
 </h1></header><p>
         The main point of this section is to start focusing on the first big
@@ -180,12 +181,12 @@ $(function () {
         Of course, like all things we have been studying, this will have several
         different faces, all of which are equivalent. The one front and center
         right now is this: When does an \(n \times n\) square matrix have an inverse?
-      </p></section><section class="subsubsection" id="subsubsection-21"><header><h1 class="heading">
+      </p></section><section class="subsubsection" id="subsubsection-21"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Finding an Inverse: Gauss-Jordan Elimination</span>
 </h1></header><p>
         There is an effective method for finding the inverse, and it is
         Gauss-Jordan elimination. (This is sometimes just called
-        <em>Gaussian elimination</em>.) Essentially, you wish to solve \(n\)
+        <!--Style me with CSS--><em>Gaussian elimination</em>.) Essentially, you wish to solve \(n\)
         different systems \(Ax= b\) of size \(n\times n\) all at the same
         time, with specially chosen right hand sides.
       </p>
@@ -195,28 +196,28 @@ $(function () {
         to the process.
       </p>
 <p>
-        <em>Gauss-Jordan Elimination</em>
+        <!--Style me with CSS--><em>Gauss-Jordan Elimination</em>
       </p>
 <ul style="list-style-type: disc;">
 <li>
-          <em>Augment:</em> Tack on a copy of the identity matrix of the same
+          <!--Style me with CSS--><em>Augment:</em> Tack on a copy of the identity matrix of the same
           size to the right hand side of your matrix. It should now look like
           \((A \mid I)\).
         </li>
 <li>
-          <em>Forward Pass:</em> This is a nested procedure:
+          <!--Style me with CSS--><em>Forward Pass:</em> This is a nested procedure:
           <ul style="list-style-type: circle;">
 <li>
-              <em>preparation:</em> If necessary, use a row swap to make a
+              <!--Style me with CSS--><em>preparation:</em> If necessary, use a row swap to make a
               non-zero entry in the upper left entry.
             </li>
 <li>
-              <em>make zeros:</em> The upper left entry is our first pivot. Use
+              <!--Style me with CSS--><em>make zeros:</em> The upper left entry is our first pivot. Use
               the operation of adding a multiple of the first row to the other
               rows to kill the entries below this first pivot.
             </li>
 <li>
-              <em>step down:</em> Step down to the second row and repeat the
+              <!--Style me with CSS--><em>step down:</em> Step down to the second row and repeat the
               above, but ignoring rows and columns above and to the left. Repeat
               as necessary till you run out of rows.
             </li>
@@ -226,14 +227,14 @@ $(function () {
           pass is complete, you should have an upper triangular matrix.
         </li>
 <li>
-          <em>Backward Pass:</em> This is also nested, like the forward pass,
+          <!--Style me with CSS--><em>Backward Pass:</em> This is also nested, like the forward pass,
           except that instead of working down and to the right, you begin at
           the lower right with the last pivot and work up and to the left.
           When complete, the matrix should have at most one non-zero entry in
           each row. This entry will be a pivot.
         </li>
 <li>
-          <em>Rescale:</em> rescale rows to make the pivots into \(1\)'s.
+          <!--Style me with CSS--><em>Rescale:</em> rescale rows to make the pivots into \(1\)'s.
         </li>
 </ul>
 <p>
@@ -245,8 +246,8 @@ $(function () {
       </p>
 <p>
         What you have computed in the left hand block with the Gauss-Jordan
-        elimination is the <em>reduced row-echelon form</em> of your original matrix.
-      </p></section><section class="subsubsection" id="subsubsection-22"><header><h1 class="heading">
+        elimination is the <!--Style me with CSS--><em>reduced row-echelon form</em> of your original matrix.
+      </p></section><section class="subsubsection" id="subsubsection-22"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Big Theorem: invertibility, singularity, and the determinant</span>
 </h1></header><p>
         What is the key?
@@ -263,10 +264,10 @@ $(function () {
         important question exactly.
       </p>
 <p>
-        Note that we said a square matrix was <em>singular</em> when it did not
+        Note that we said a square matrix was <!--Style me with CSS--><em>singular</em> when it did not
         have enough pivots. So what the above says is that a matrix is invertible
         if and only if it is non-singular.
-      </p></section><section class="subsubsection" id="subsubsection-23"><header><h1 class="heading">
+      </p></section><section class="subsubsection" id="subsubsection-23"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">A simple test</span>
 </h1></header><p>
         We can use the above to make a simple numerical test of when a matrix is
@@ -276,7 +277,7 @@ $(function () {
         only happen if there are fewer than \(n\) pivots. This product is then
         helpful enough to test for invertibility, and so it deserves its own
         name: the <em class="terminology">determinant</em>. We shall learn more about this quantity later.
-      </p></section></section><section class="subsection" id="subsection-44"><header><h1 class="heading">
+      </p></section></section><section class="subsection" id="subsection-44"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Gauss-Jordan Elimination</span>
 </h1></header><p>
       We have already seen that Sage has commands for constructing matrices and
@@ -330,7 +331,7 @@ B.is_invertible()
 <div class="sage-compute"><script type="text/x-sage">A.echelon_form()
 </script></div>
 <p>
-      There is a related command which <em>will find the rref and then update the
+      There is a related command which <!--Style me with CSS--><em>will find the rref and then update the
       matrix</em>. It is called <tt class="code-inline" style="color: red; font-size: 120%">.echelonize()</tt>.
       Because I don't really want to mess with <tt class="code-inline" style="color: red; font-size: 120%">A</tt>, we will
       make a copy first.
@@ -368,72 +369,72 @@ D.rref()
 <p>
       It is often convenient to chain methods together like this. Then you can
       read what happens from left to right.
-    </p></section><section class="subsection" id="subsection-45"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-45"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><p>
       Keep this in mind. The computations are simple, but tedious.
       Perhaps you want to use an appropriate tool.
     </p>
 <article class="example-like" id="task-62"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">32</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">62</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(A\) below.
-        \[
+        <article class="displaymath" id="me-78">\[
         A = \begin{pmatrix} 3 &amp; 17 \\ 1 &amp; 6 \end{pmatrix}
-        \]
+        \]</article>
         Be sure to clearly write down the operations you use and the matrices
         which perform the operations by left multiplication.
       </article><article class="example-like" id="task-63"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">33</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">63</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(X\) below.
-        \[
+        <article class="displaymath" id="me-79">\[
         X = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}
-        \]
+        \]</article>
         Be sure to clearly write down the operations you use and the matrices
         which perform the operations by left multiplication.
       </article><article class="example-like" id="task-64"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">34</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">64</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(B\) below.
-        \[
+        <article class="displaymath" id="me-80">\[
         B = \begin{pmatrix} 3 &amp; 4 &amp; -1\\ 1 &amp; 6 &amp; 1 \\
         0 &amp; 3 &amp; -1 \end{pmatrix}
-        \]
+        \]</article>
         Be sure to clearly write down the operations you use and the matrices
         which perform the operations by left multiplication.
       </article><article class="example-like" id="task-65"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">35</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">65</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(B\) below.
-        \[
+        <article class="displaymath" id="me-81">\[
         B = \begin{pmatrix}
         0 &amp; 3 &amp; 4 &amp; -1\\
         0 &amp; 1 &amp; 6 &amp; 1 \\
         2 &amp; 0 &amp; 3 &amp; -1 \\
         5 &amp; -1 &amp; 1 &amp; 3
         \end{pmatrix}
-        \]
+        \]</article>
         Be sure to clearly write down the operations you use and the matrices
         which perform the operations by left multiplication.
       </article><article class="example-like" id="task-66"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">36</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">66</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(D\) below.
-        \[
+        <article class="displaymath" id="me-82">\[
         D = \begin{pmatrix}
         3 &amp; 17 &amp; -1 &amp; 3 &amp; 1 \\ 1 &amp; 6 &amp; -2 &amp; 1 &amp; 1 \\
         2 &amp; 2 &amp; 1 &amp; -5 &amp; 1 \\ 0 &amp; 0 &amp; 3 &amp; 1 &amp; -3 \\
         -2 &amp; 3 &amp; 4 &amp; 1 &amp; 1
         \end{pmatrix}
-        \]</article><article class="example-like" id="task-67"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">37</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-67"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">67</span><span class="title"></span>
 </h5>
         Suppose that for the matrix \(D\) in the last exercise we imagine solving the matrix
         equation \(Dx = b\) for some vector \(b\) of the appropriate size. What might one mean
         by the row picture in this case? What might the column picture mean?
       </article><article class="example-like" id="task-68"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">38</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">68</span><span class="title"></span>
 </h5>
         Design a \(6 \times 6\) matrix which has the following properties:
         <ul style="list-style-type: disc;">

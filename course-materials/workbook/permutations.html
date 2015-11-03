@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Permutation Matrices</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,16 +130,16 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="permutations"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="permutations"><header><h1 class="heading" alt="Section 2.8 Permutation Matrices" title="Section 2.8 Permutation Matrices">
 <span class="type">Section</span><span class="codenumber">2.8</span><span class="title">Permutation Matrices</span>
-</h1></header><section class="subsection" id="subsection-51"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-51"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 2.7 of <em>Strang</em>
+<li>Read section 2.7 of <!--Style me with CSS--><em>Strang</em>
 </li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-52"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-52"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
@@ -174,7 +175,7 @@ $(function () {
 <li>
         Explain why \(P^T = P^{-1}\) for permutation matrices.
       </li>
-</ul></section><section class="subsection" id="subsection-53"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-53"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Transposes, Symmetric Matrices, and Permutations</span>
 </h1></header><p>
       An important operation on matrices we have yet to encounter is called the
@@ -189,9 +190,9 @@ $(function () {
       column vectors \(u\) and \(v\) of size \(n\) as if they are \(n \times 1\)
       matrices, then the dot product \(u \cdot v\) can be computed with a nice
       combination of matrix multiplication and the transpose:
-      \[
+      <article class="displaymath" id="me-91">\[
       u \cdot v = u^T v .
-      \]
+      \]</article>
       On the right, this is matrix multiplication! That makes sense because
       \(u^T\) is \(1 \times n\) and \(v\) is \(n \times 1\). This
       means that the result
@@ -201,10 +202,10 @@ $(function () {
       Since the dot product contains all of the geometry of Euclidean space in
       it, the transpose becomes an important operation. I know that sounds weird,
       but the dot product contains all of the information we need to measure
-      lengths and angles, so basically all of the <em>metric</em> information in
+      lengths and angles, so basically all of the <!--Style me with CSS--><em>metric</em> information in
       Euclidean geometry is there.
     </p>
-<section class="subsubsection" id="subsubsection-29"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-29"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Algebraic results about the transpose</span>
 </h1></header><p>
         There are some key results about the way the transpose interacts with
@@ -225,37 +226,37 @@ $(function () {
           then \(A^T\) is also invertible and it has inverse
           \(\left(A^T\right)^{-1} = \left(A^{-1}\right)^T \).
         </li>
-</ul></section><section class="subsubsection" id="subsubsection-30"><header><h1 class="heading">
+</ul></section><section class="subsubsection" id="subsubsection-30"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Symmetric Matrices</span>
 </h1></header><p>
-        A matrix \(A\) is called <em>symmetric</em> when \(A^T = A\). These
+        A matrix \(A\) is called <!--Style me with CSS--><em>symmetric</em> when \(A^T = A\). These
         pop up in lots of interesting places in linear algebra. A neat result
         is that a symmetric matrix has a symmetric looking \(LDU\) decomposition:
-        \[
+        <article class="displaymath" id="me-92">\[
         \text{if } A^T=A\text{, then } A = LDL^T .
-        \]
+        \]</article>
         That is, in the LDU decomposition, \(U = L^T\).
       </p>
 <p>
         There are several ways to get symmetric matrices. For example, if
         \(A\) is any matrix, the new matrix \(B = A^T A\) will be symmetric.
         (Check this.) Also, the matrix \(S = A^T + A\) will be symmetric.
-      </p></section><section class="subsubsection" id="subsubsection-31"><header><h1 class="heading">
+      </p></section><section class="subsubsection" id="subsubsection-31"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination</span>
 </h1></header><p>
         It is sometimes the case that Gauss-Jordan elimination requires a row
         swap. As we have seen, the operation of swapping a row can be achieved
         by left multiplying by a matrix of a special type. If we take a bunch of
         those and multiply them together, we still get a matrix which is in a
-        special class: <em>the permutation matrices</em>.
+        special class: <!--Style me with CSS--><em>the permutation matrices</em>.
       </p>
 <p>
         A permutation matrix is square matrix having a single \(1\) in each column
         and in each row. A helpful property of permutation matrices is that they
         are invertible, and their inverses are the same as their transposes:
-        \[
+        <article class="displaymath" id="me-93">\[
         P^{-1} = P^T .
-        \]
+        \]</article>
       </p>
 <p>
         Gauss-Jordan elimination is easy enough to understand, now. It is time
@@ -268,13 +269,13 @@ $(function () {
         part of the computation involved in computing a PLU decomposition.
         Strang has a decent discussion of the choices, below we will
         discuss how Sage handles this.
-      </p></section></section><section class="subsection" id="subsection-54"><header><h1 class="heading">
+      </p></section></section><section class="subsection" id="subsection-54"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Transposes, Symmetry, Permutations, and Pivots</span>
 </h1></header><p>
       There is a lot going on in this little section. At first glance, it is a
       bit intimidating. But we have seen most of the ideas before.
     </p>
-<section class="subsubsection" id="subsubsection-32"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-32"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Transpose</span>
 </h1></header><p>
         The transpose of a matrix is what you get by switching the roles of rows
@@ -318,13 +319,13 @@ V
 </script></div>
 <p>
         That is the dot product, but stuffed into a \(1\times 1\) matrix!
-      </p></section><section class="subsubsection" id="subsubsection-33"><header><h1 class="heading">
+      </p></section><section class="subsubsection" id="subsubsection-33"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Other Properties</span>
 </h1></header><p>
         The transpose has other useful properties. Strang lists the big ones,
         including how the transpose interacts with matrix multiplication and
         matrix inverses.
-      </p></section><section class="subsubsection" id="subsubsection-34"><header><h1 class="heading">
+      </p></section><section class="subsubsection" id="subsubsection-34"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Symmetry</span>
 </h1></header><p>
         A matrix is called <em class="terminology">symmetric</em> when it is equal to its
@@ -360,13 +361,13 @@ Uprime
 <div class="sage-compute"><script type="text/x-sage">B == L*D*Uprime
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">L.transpose() # this is the neat part
-</script></div></section><section class="subsubsection" id="subsubsection-35"><header><h1 class="heading">
+</script></div></section><section class="subsubsection" id="subsubsection-35"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Permutations and Pivots</span>
 </h1></header><p>
         We have seen that elimination sometimes requires us to perform a row
         operation of swapping the position of two rows to put a pivot in a good
         place. At first, we want to do this to avoid a zero. But for computational
-        reasons, a machine really likes to have a <em>big</em> number as a pivot.
+        reasons, a machine really likes to have a <!--Style me with CSS--><em>big</em> number as a pivot.
         So software often uses rows swaps even when not strictly needed.
       </p>
 <p>
@@ -389,13 +390,13 @@ Uprime
             It is possible to figure out what all of the row swaps should be, and
             then rearrange all of the amtrices in an LU decomposition routine.
             If you do it correctly, you get:
-            \[
+            <article class="displaymath" id="me-94">\[
               P'A = LU
-            \]
+            \]</article>
             or
-            \[
+            <article class="displaymath" id="me-95">\[
               A = PLU
-            \]
+            \]</article>
             where \(P'\) and \(P\) are permutation matrices.
           </li>
 </ol>
@@ -422,19 +423,19 @@ print x # fancy python tricks for readable display
 <div class="sage-compute"><script type="text/x-sage">P.transpose()*A == L*U
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">P.transpose()*A
-</script></div></section></section><section class="subsection" id="subsection-55"><header><h1 class="heading">
+</script></div></section></section><section class="subsection" id="subsection-55"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><p>
       Keep this in mind. The computations are simple, but tedious.
       Perhaps you want to use an appropriate tool.
     </p>
 <article class="example-like" id="task-76"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">46</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">76</span><span class="title"></span>
 </h5>
         Find an example of a matrix \(A\) such that \(A^T A = 0\),
         but \(A \neq 0\).
       </article><article class="example-like" id="task-77"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">47</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">77</span><span class="title"></span>
 </h5>
         These are true or false questions. If the statement is true, explain why
         you know it is true. If the statement is false, give an example that
@@ -452,13 +453,13 @@ print x # fancy python tricks for readable display
             If \(A\) is not symmetric, then \(A^{-1}\) is not symmetric.
           </li>
 </ol></article><article class="example-like" id="task-78"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">48</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">78</span><span class="title"></span>
 </h5>
         If \(P_1\) and \(P_2\) are permuation matrices, then so is
         \(P_1P_2\). Give examples with \(P_1P_2 \neq P_2P_1\) and
         \(P_3P_4 = P_4P_3\).
       </article><article class="example-like" id="task-79"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">49</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">79</span><span class="title"></span>
 </h5>
         Explain the following phenomena in terms of row operations.
         <ol style="list-style-type: decimal;">
@@ -474,7 +475,7 @@ print x # fancy python tricks for readable display
             If \(P\) is a row exchange matrix, then \(P^2 = I\).
           </li>
 </ol></article><article class="example-like" id="task-80"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">50</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">80</span><span class="title"></span>
 </h5>
         For each of the following, find an example of a \(2\times 2\)
         symmetric matrix with the given property:
@@ -486,10 +487,10 @@ print x # fancy python tricks for readable display
             \(LL^T\) because \(D\) has negative entries.
           </li>
 </ol></article><article class="example-like" id="task-81"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">51</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">81</span><span class="title"></span>
 </h5>
 <p>
-          This is a new factorization of \(A\) into <em>triangular
+          This is a new factorization of \(A\) into <!--Style me with CSS--><em>triangular
           times symmetric</em>:
         </p>
 <p>

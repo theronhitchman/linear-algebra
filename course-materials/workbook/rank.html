@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Rank and the RREF</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="rank"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="rank"><header><h1 class="heading" alt="Section 3.3 Rank and the RREF" title="Section 3.3 Rank and the RREF">
 <span class="type">Section</span><span class="codenumber">3.3</span><span class="title">Rank and the RREF</span>
-</h1></header><section class="subsection" id="subsection-68"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-68"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 3 section 3 of <em>Strang</em>.</li>
+<li>Read chapter 3 section 3 of <!--Style me with CSS--><em>Strang</em>.</li>
 <li>Read the following and do the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-69"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-69"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
@@ -151,18 +152,18 @@ $(function () {
 <p>Some time after class, a student should be able to:</p>
 <ul style="list-style-type: disc;"><li>Use the RREF and special solutions associated to a matrix to describe
         how free columns are linear combinations of earlier pivot columns.
-      </li></ul></section><section class="subsection" id="subsection-70"><header><h1 class="heading">
+      </li></ul></section><section class="subsection" id="subsection-70"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Rank of a Matrix</span>
 </h1></header><p>
       The new concept for this section is the <em class="terminology">rank</em> of a matrix.
-      There are <em>three</em> definitions of rank given in the first two
+      There are <!--Style me with CSS--><em>three</em> definitions of rank given in the first two
       pages of this section. It is important to know them and see that they
       are equivalent.
     </p>
 <p>
       Another important part of what happens here is the realization that
-      putting the matrix into reduced row echelon form, which uses <em>row</em>
-      operations, actually tells us something about the <em>columns</em> of the
+      putting the matrix into reduced row echelon form, which uses <!--Style me with CSS--><em>row</em>
+      operations, actually tells us something about the <!--Style me with CSS--><em>columns</em> of the
       matrix. This is kind of amazing.
     </p>
 <p>
@@ -203,7 +204,7 @@ $(function () {
         Strang introduces a big simplifying assumption that makes his work
         easier. The general principles will hold, but those nice, neat
         equations won't always look so good for an arbitrary matrix.
-      </p></section><section class="subsection" id="subsection-71"><header><h1 class="heading">
+      </p></section><section class="subsection" id="subsection-71"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Rank</span>
 </h1></header><p>
       Sage has a built-in command for the rank of a matrix. It is called
@@ -232,7 +233,7 @@ A
 <div class="sage-compute"><script type="text/x-sage">A.right_kernel().basis_matrix()
 </script></div>
 <p>
-      That is <em>almost</em> Strang's version of a nullspace matrix in this case.
+      That is <!--Style me with CSS--><em>almost</em> Strang's version of a nullspace matrix in this case.
       Part of what we need to do is make the rows into columns. The transpose command is
       the way to do that:
     </p>
@@ -240,13 +241,13 @@ A
 N
 </script></div>
 <p>
-      That is <em>NOT</em> exactly Strang's nullspace matrix. But it is very close.
+      That is <!--Style me with CSS--><em>NOT</em> exactly Strang's nullspace matrix. But it is very close.
       In fact, it still has this crucial property:
     </p>
 <div class="sage-compute"><script type="text/x-sage">A*N
 </script></div>
 <p>
-      What has happened here is that Sage constructs a <em>different</em> version
+      What has happened here is that Sage constructs a <!--Style me with CSS--><em>different</em> version
       of the nullspace matrix than Strang does. Strang's version is easier to
       find by hand and tends to have \(1\)'s and \(0\)'s and the end.
       The Sage version comes from a routine that strongly prefers to
@@ -260,12 +261,12 @@ N
 <div class="sage-compute"><script type="text/x-sage">F = N*E.inverse(); F
 </script></div>
 <p>
-      <em>That</em> is Strang's nullspace matrix.
+      <!--Style me with CSS--><em>That</em> is Strang's nullspace matrix.
     </p>
 <div class="sage-compute"><script type="text/x-sage">A*F
 </script></div>
 <p>
-      Where does this relationship come from? I have a hint: <em>Column Operations</em>.
+      Where does this relationship come from? I have a hint: <!--Style me with CSS--><em>Column Operations</em>.
       How can we use the structure of matrix multiplication to see why left multiplication
       by <tt class="code-inline" style="color: red; font-size: 120%">E.inverse()</tt> performs some column operations?
     </p>
@@ -273,10 +274,10 @@ N
       Here is another thing to think about: where does that <tt class="code-inline" style="color: red; font-size: 120%">E</tt> come from?
       Compare <tt class="code-inline" style="color: red; font-size: 120%">A</tt> and <tt class="code-inline" style="color: red; font-size: 120%">N</tt>. Notice anything? Remember that Strang wants
       the nullspace matrix to have \(1\)'s and \(0\)'s in the free columns.
-    </p></section><section class="subsection" id="subsection-72"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-72"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-94"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">94</span><span class="title"></span>
 </h5>
         Give an example of a \(5 \times 3\) matrix which has
         <ul style="list-style-type: disc;">
@@ -285,7 +286,7 @@ N
 </ul>
         or explain why no such example is possible.
       </article><article class="example-like" id="task-95"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">14</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">95</span><span class="title"></span>
 </h5>
         Give an example of a \(3 \times 3\) matrix which has
         <ul style="list-style-type: disc;">
@@ -295,39 +296,39 @@ N
 </ul>
         or explain why no such example is possible.
       </article><article class="example-like" id="task-96"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">15</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">96</span><span class="title"></span>
 </h5>
-        Consider the matrix \[
+        Consider the matrix <article class="displaymath" id="me-105">\[
         A = \left( \begin{smallmatrix} 2 &amp; 1 &amp; 5 \\ 1 &amp; 1
-        &amp; 7 \end{smallmatrix}\right).\]
+        &amp; 7 \end{smallmatrix}\right).\]</article>
         Find the reduced row echelon form \(R = \mathrm{rref}(A)\)
         of \(A\). Track the row operations you use, and use them to
         find an invertible matrix \(E\) so that \(EA = R\).
       </article><article class="example-like" id="task-97"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">16</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">97</span><span class="title"></span>
 </h5>
         Contine with the matrix of the last exercise. Find the null space matrix of
         \(A\). Use the information contained in the nullspace matrix to
         write down a linear combination equation on the columns of
         \(R = \mathrm{rref}(A)\) of the form
-        \[
+        <article class="displaymath" id="me-106">\[
           a * \text{(column1)} + b * \text{(column2)} + c * \text{(column3)} = 0.
-        \]
+        \]</article>
         Explain why the matrix \(E\) allows us to translate this equation
         into this one on the columns of \(A\):
-        \[
+        <article class="displaymath" id="me-107">\[
           a\begin{pmatrix} 2 \\ 1 \end{pmatrix} +
           b \begin{pmatrix} 1 \\ 1 \end{pmatrix} +
           c \begin{pmatrix} 5 \\ 7 \end{pmatrix} =
           \begin{pmatrix}0\\ 0 \end{pmatrix}.
-        \]</article><article class="example-like" id="task-98"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">17</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-98"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">98</span><span class="title"></span>
 </h5>
         Consider the matrix \(N\) given below. Make an example of two
         different matrices \(A\) and \(B\) which have different shapes
         and each have \(N\) as nullspace matrix, or explain why such an
         example is not possible.
-        \[
+        <article class="displaymath" id="me-108">\[
         N = \begin{pmatrix}
         -3 &amp; 2 &amp; -1 \\
          1 &amp; 0 &amp;  0 \\
@@ -335,8 +336,8 @@ N
          2 &amp; 6 &amp;  1 \\
          0 &amp; 0 &amp;  1
         \end{pmatrix}
-        \]</article><article class="example-like" id="task-99"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">18</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-99"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">99</span><span class="title"></span>
 </h5>
         Consider the matrix \(T = \left(\begin{smallmatrix} 2 &amp;
         1 \\ 1 &amp; 1 \end{smallmatrix}\right)\). What is the nullspace

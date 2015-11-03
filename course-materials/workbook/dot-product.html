@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The Dot Product</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,16 +130,16 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="dot-product"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="dot-product"><header><h1 class="heading" alt="Section 1.2 The Dot Product" title="Section 1.2 The Dot Product">
 <span class="type">Section</span><span class="codenumber">1.2</span><span class="title">The Dot Product</span>
-</h1></header><section class="subsection" id="subsection-5"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-5"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 1.2 of <em>Strang</em>
+<li>Read section 1.2 of <!--Style me with CSS--><em>Strang</em>
 </li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-6"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-6"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Objectives</span>
 </h1></header><p>
       Before class, a student should be able to
@@ -163,7 +164,7 @@ $(function () {
         </li>
 <li>Make pictures of level sets of the dot product operation.</li>
 </ul>
-    </p></section><section class="subsection" id="subsection-7"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-7"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
 </h1></header><p>
       The dot product is a wonderful tool for encoding the geometry of Euclidean
@@ -174,15 +175,15 @@ $(function () {
 <p>
       What does this weird thing have to do with linear algebra? A dot product
       with a "variable vector" is a way of writing a linear equation. For example,
-      \begin{gather*}
+      <article class="displaymath" id="md-2">\begin{gather*}
 \begin{pmatrix} 7 \\ 3 \\ -2 \end{pmatrix} \cdot \begin{pmatrix}
         x \\ y \\ z \end{pmatrix} = 7x+3y-2z.
-\end{gather*}
+\end{gather*}</article>
       Sometimes this will allow us to connect linear algebra to geometry, and use
       geometric thinking to answer algebraic questions.
-    </p></section><section class="subsection" id="subsection-8"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-8"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the dot product</span>
-</h1></header><section class="subsubsection" id="subsubsection-2"><header><h1 class="heading">
+</h1></header><section class="subsubsection" id="subsubsection-2"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Basic Commands</span>
 </h1></header><p>
       Sage has a built-in dot product command <tt class="code-inline" style="color: red; font-size: 120%">u.dot_product(v)</tt>. This
@@ -209,7 +210,7 @@ angle = arccos(num / den)
 angle
 </script></div>
 <p>
-      Of course, Sage's <tt class="code-inline" style="color: red; font-size: 120%">arccos</tt> command returns a result in <em>radians</em>.
+      Of course, Sage's <tt class="code-inline" style="color: red; font-size: 120%">arccos</tt> command returns a result in <!--Style me with CSS--><em>radians</em>.
       To switch to degrees, you must convert.
     </p>
 <div class="sage-compute"><script type="text/x-sage">angle*180/pi
@@ -218,18 +219,18 @@ angle
       <tt class="code-inline" style="color: red; font-size: 120%">normalized</tt> method like this:
     </p>
 <div class="sage-compute"><script type="text/x-sage">u.normalized()
-</script></div></section><section class="subsubsection" id="subsubsection-3"><header><h1 class="heading">
+</script></div></section><section class="subsubsection" id="subsubsection-3"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage Interacts</span>
-</h1></header><p>Interacts would go here...</p></section></section><section class="subsection" id="subsection-9"><header><h1 class="heading">
+</h1></header><p>Interacts would go here...</p></section></section><section class="subsection" id="subsection-9"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises about the Dot Product</span>
 </h1></header><article class="example-like" id="task-13"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
 </h5>
 <p>What shape is the set of solutions \(\left(\begin{smallmatrix} x \\ y
-        \end{smallmatrix}\right)\) to the equation\[
+        \end{smallmatrix}\right)\) to the equation<article class="displaymath" id="me-18">\[
             \begin{pmatrix} 3 \\ 7\end{pmatrix} \cdot \begin{pmatrix} x \\ y
             \end{pmatrix} = 5?
-        \]
+        \]</article>
         </p>
 <p>That is, if we look at all possible vectors \(\left(\begin{smallmatrix}
           x \\ y \end{smallmatrix}\right)\) which make the equation true, what shape
@@ -260,29 +261,29 @@ angle
       </article><article class="example-like" id="task-17"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">17</span><span class="title"></span>
 </h5>
-        Find an example of a number \(c\) so that \[
+        Find an example of a number \(c\) so that <article class="displaymath" id="me-19">\[
         \begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
           \end{pmatrix} = c
-        \] has the vector \(\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)\)
+        \]</article> has the vector \(\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)\)
         as a solution, or explain why no such number exists.
       </article><article class="example-like" id="task-18"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">18</span><span class="title"></span>
 </h5>
         Let \(v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)\) and
         \(w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)\). Find
-        an example of a number \(c\) so that \begin{gather*}
+        an example of a number \(c\) so that <article class="displaymath" id="md-3">\begin{gather*}
 v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
         \quad w \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c,
-\end{gather*}
+\end{gather*}</article>
         or explain why this is not possible.
       </article><article class="example-like" id="task-19"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">19</span><span class="title"></span>
 </h5>
         Let \(P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)\).
-        Find an example of numbers \(c\) and \(d\) so that \begin{gather*}
+        Find an example of numbers \(c\) and \(d\) so that <article class="displaymath" id="md-4">\begin{gather*}
 \begin{pmatrix} 2\\-1\end{pmatrix}\cdot P = c \quad\text{ and }
         \quad \begin{pmatrix} 1\\-1\end{pmatrix}\cdot P = d,
-\end{gather*}
+\end{gather*}</article>
         or explain why no such example is possible.
       </article><p>Now we move to three dimensions!</p>
 <article class="example-like" id="task-20"><h5 class="heading">
@@ -298,11 +299,11 @@ v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
         Find an example of numbers \(c\), \(d\), and \(e\) so that there
         is no solution vector \(X = \left(\begin{smallmatrix}x\\y\\z
         \end{smallmatrix}\right)\) which simultaneously satisfies the three
-        equations \begin{gather*}
+        equations <article class="displaymath" id="md-5">\begin{gather*}
 \begin{pmatrix} 1\\1\\1\end{pmatrix}\cdot X = c, \qquad
           \begin{pmatrix} 2\\2\\2\end{pmatrix}\cdot X = d, \qquad
           \begin{pmatrix} 0\\0\\1\end{pmatrix}\cdot X = e,
-\end{gather*}
+\end{gather*}</article>
           or explain why no such numbers exist.
       </article><article class="example-like" id="task-22"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">22</span><span class="title"></span>
@@ -310,11 +311,11 @@ v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
         Find an example of numbers \(c\), \(d\), and \(e\) so that there
         is no solution vector \(X = \left(\begin{smallmatrix}x\\y\\z
         \end{smallmatrix}\right)\) which simultaneously satisfies the three
-        equations \begin{gather*}
+        equations <article class="displaymath" id="md-6">\begin{gather*}
 \begin{pmatrix} 1\\1\\1\end{pmatrix}\cdot X = c, \qquad
           \begin{pmatrix} 0\\1\\1\end{pmatrix}\cdot X = d, \qquad
           \begin{pmatrix} 0\\0\\1\end{pmatrix}\cdot X = e,
-\end{gather*}
+\end{gather*}</article>
           or explain why no such numbers exist.
       </article></section></section></div></main>
 </div>

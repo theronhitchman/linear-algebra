@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:27-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Diagonalizing Matrices</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,16 +130,16 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-diagonalization"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-diagonalization"><header><h1 class="heading" alt="Section 6.2 Diagonalizing Matrices" title="Section 6.2 Diagonalizing Matrices">
 <span class="type">Section</span><span class="codenumber">6.2</span><span class="title">Diagonalizing Matrices</span>
-</h1></header><section class="subsection" id="subsection-130"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-130"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The assignment</span>
 </h1></header><ul style="list-style-type: disc;">
 <li> Read section 6.2 of Strang (pages 298-307).</li>
 <li> Read the following.</li>
 <li> Prepare the items below for presentation.</li>
-</ul></section><section class="subsection" id="subsection-131"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-131"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Diagonalizing Matrices</span>
 </h1></header><p>
       The big result here is this:
@@ -178,7 +179,7 @@ $(function () {
       transformation \(A\) using “the wrong basis.” By wrong, here I
       mean that the standard basis is not the most convenient one, and another
       one makes our lives easier.
-    </p></section><section class="subsection" id="subsection-132"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-132"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Diagonalization</span>
 </h1></header><p>
       Sage has built-in commands about diagonalization. We shall try a few out here.
@@ -222,24 +223,24 @@ A.rank()
 <div class="sage-compute"><script type="text/x-sage">S * Lambda * S.inverse()
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">S * Lambda * S.inverse() == A
-</script></div></section><section class="subsection" id="subsection-133"><header><h1 class="heading">
+</script></div></section><section class="subsection" id="subsection-133"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Questions for Section 6.2</span>
 </h1></header><article class="example-like" id="task-164"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">164</span><span class="title"></span>
 </h5>
 <p>
           Let \(e_1, e_2, e_3\) be the standard basis of \(\mathbb{R}^3\):
-          \[
+          <article class="displaymath" id="me-145">\[
             e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
             e_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad
             e_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
-          \]
+          \]</article>
           Make an example of an invertible \(3 \times 3\) matrix \(S\).
           Write your matrix as a matrix of column vectors.
-          \[
+          <article class="displaymath" id="me-146">\[
             S = \begin{pmatrix} | &amp; | &amp; | \\ v_1 &amp; v_2 &amp; v_3 \\
              | &amp; | &amp; | \end{pmatrix}
-          \]
+          \]</article>
           How do you know that the set \(\{ Se_1, Se_2, Se_3 \}\) is a basis
           for \(\mathbb{R}^3\)?
         </p>
@@ -252,23 +253,23 @@ A.rank()
           Finally, how do we use this to understand the way that the decomposition
           \(A = S\Lambda S^{-1}\) works?
         </p></article><article class="example-like" id="task-165"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">165</span><span class="title"></span>
 </h5>
         Exercise 1 from section 6.2 of Strang.
       </article><article class="example-like" id="task-166"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">166</span><span class="title"></span>
 </h5>
         Exercise 2 from section 6.2 of Strang.
       </article><article class="example-like" id="task-167"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">167</span><span class="title"></span>
 </h5>
         Exercise 3 from section 6.2 of Strang.
       </article><article class="example-like" id="task-168"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">11</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">168</span><span class="title"></span>
 </h5>
         Exercise 13 from section 6.2 of Strang.
       </article><article class="example-like" id="task-169"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">12</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">169</span><span class="title"></span>
 </h5>
         Exercise 19 from section 6.2 of Strang.
       </article></section></section></div></main>

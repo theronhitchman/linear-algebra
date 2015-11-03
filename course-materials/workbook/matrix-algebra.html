@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Matrix Algebra</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="matrix-algebra"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="matrix-algebra"><header><h1 class="heading" alt="Section 2.5 Matrix Algebra" title="Section 2.5 Matrix Algebra">
 <span class="type">Section</span><span class="codenumber">2.5</span><span class="title">Matrix Algebra</span>
-</h1></header><section class="subsection" id="subsection-36"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-36"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 2.4 of <em>Strang</em>.</li>
+<li>Read section 2.4 of <!--Style me with CSS--><em>Strang</em>.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-37"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-37"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>
       Before class, a student should be able to:
@@ -153,12 +154,12 @@ $(function () {
     </p>
 <ul style="list-style-type: disc;">
 <li>Multiply block matrices.</li>
-<li>Multiply matrices by <em>three</em> methods.</li>
+<li>Multiply matrices by <!--Style me with CSS--><em>three</em> methods.</li>
 <li>Give examples to show how matrix multiplication is not like
         ordinary multiplication of real numbers: including the trouble
         with commutativity, and the difficulty with inverses.
       </li>
-</ul></section><section class="subsection" id="subsection-38"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-38"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion on Matrix Algebra</span>
 </h1></header><p>
       At the simplest level, this section is just about how to deal with the
@@ -172,7 +173,7 @@ $(function () {
       properties are interesting and possibly useful.
     </p>
 <p>
-      This is an instance of the beginnings of <em>Modern Algebra</em>, which
+      This is an instance of the beginnings of <!--Style me with CSS--><em>Modern Algebra</em>, which
       is the study of the algebraic structures of abstracted objects. In this
       case, we study whole collections of matrices of a common shape, and we
       try to treat them like generalized numbers. Then the natural questions
@@ -191,7 +192,7 @@ $(function () {
         matrix \(A\) which is not the zero matrix, it may not be the case
         that we can make sense of \(A^{-1}\) and get \(AA^{-1} = I\).
       </li>
-</ul></section><section class="subsection" id="subsection-39"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-39"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Algebra</span>
 </h1></header><p>
       Sage is aware of the basic matrix operations, and it won't let you get
@@ -222,13 +223,13 @@ E = matrix(QQ, 3,2, [3,4,2,5,6,1]) # a 3 by 2 matrix
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">A+D
 </script></div>
-<section class="subsubsection" id="subsubsection-17"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-17"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Addition</span>
 </h1></header><p>Matrix addition works a lot like addition of integers, as long as you fix
         a size first.</p>
 <ul style="list-style-type: disc;">
 <li>There is a zero element.</li>
-<li>There are additive inverses (i.e. <em>negatives</em>).</li>
+<li>There are additive inverses (i.e. <!--Style me with CSS--><em>negatives</em>).</li>
 <li>The operation is commutative.</li>
 </ul>
 <div class="sage-compute"><script type="text/x-sage">#This constructs the zero matrix
@@ -245,7 +246,7 @@ Z = zero_matrix(2,3); Z
 </script></div>
 <p>Finally, this last thing should return zero.</p>
 <div class="sage-compute"><script type="text/x-sage">A + L
-</script></div></section><section class="subsubsection" id="subsubsection-18"><header><h1 class="heading">
+</script></div></section><section class="subsubsection" id="subsubsection-18"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Multiplication</span>
 </h1></header><p>
         Sage already has the structure of matrix multiplication built-in, and
@@ -305,7 +306,7 @@ Z = zero_matrix(2,3); Z
 <div class="sage-compute"><script type="text/x-sage"># this one should turn out to be zero.
 # I know this because of a theorem.
 H^2 - 3*H + M(1)
-</script></div></section><section class="subsubsection" id="subsubsection-19"><header><h1 class="heading">
+</script></div></section><section class="subsubsection" id="subsubsection-19"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage and Block Matrices</span>
 </h1></header><p>Sage has a built-in method for constructing matrices out of blocks, too.
         It is easiest to see an example.
@@ -321,27 +322,27 @@ Blockey = block_matrix(QQ, 2,3,
                        [[X, X, v.column()],
                        [v.row(), v.row(), w]])
 Blockey
-</script></div></section></section><section class="subsection" id="subsection-40"><header><h1 class="heading">
+</script></div></section></section><section class="subsection" id="subsection-40"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-55"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">25</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">55</span><span class="title"></span>
 </h5>
         Make an example of a \(2\times 3\) matrix and a \(3\times 3\)
         matrix, and use this to demonstrate the three different ways to multiply
         matrices.
       </article><article class="example-like" id="task-56"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">26</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">56</span><span class="title"></span>
 </h5>
         Give an example of a pair of \(2\times 2\) matrices \(A\) and
         \(B\) so that \(AB = 0\) but \(BA\neq 0\), or explain why
         this is  impossible.
       </article><article class="example-like" id="task-57"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">27</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">57</span><span class="title"></span>
 </h5>
         Give an example of a \(3\times 3\) matrix \(A\) such that neither
         \(A\) nor \(A^2\) is the zero matrix, but \(A^3=0\).
       </article><article class="example-like" id="task-58"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">28</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">58</span><span class="title"></span>
 </h5>
         Find all examples of matrices \(A\) which commute with both
         \(B = \left( \begin{smallmatrix} 1 &amp; 0 \\ 0 &amp; 0
@@ -351,13 +352,13 @@ Blockey
         so that \(AB = BA\) and \(AC= CA\). How do you know you have
         all such matrices?
       </article><article class="example-like" id="task-59"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">29</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">59</span><span class="title"></span>
 </h5>
 <p>
           Consider the matrix
-          \[
+          <article class="displaymath" id="me-74">\[
             A = \begin{pmatrix} 2 &amp; 1 &amp; 0 \\ -2 &amp; 0 &amp; 1 \\ 8 &amp; 5 &amp; 3 \end{pmatrix}.
-          \]
+          \]</article>
           Which elimination matrices \(E_{21}\) and \(E_{31}\) produce zeros in the
           \((2,1)\) and \((3,1)\) positions of \(E_{21}A\)
           and \(E_{31}A\)?
@@ -366,17 +367,17 @@ Blockey
           Find a single matrix \(E\) which produces both zeros at once.
           Multiply \(EA\) to verify your result.
         </p></article><article class="example-like" id="task-60"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">30</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">60</span><span class="title"></span>
 </h5>
 <p>
           Let's take a different view of the last computation.
           Block multiplication says that column 1 is eliminated by
           a step that looks like this one:
-          \[
+          <article class="displaymath" id="me-75">\[
             EA = \begin{pmatrix} 1 &amp; 0 \\ -c/a &amp; I \end{pmatrix}
             \begin{pmatrix} a &amp; b \\ c &amp; D \end{pmatrix} =
             \begin{pmatrix} a &amp; b \\ 0 &amp; D - cb/a \end{pmatrix}.
-          \]
+          \]</article>
           Here \(I\) is the \(2\times 2\) identity matrix, \(D\) is a
           \(2\times 2\) matrix, etc.
         </p>
@@ -386,19 +387,19 @@ Blockey
           is \(D-cb/a\)? Be sure to describe what shape each matrix has: the
           number of rows and columns.
         </p></article><article class="example-like" id="task-61"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">31</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">61</span><span class="title"></span>
 </h5>
         Suppose that we have already solved the equation \(Ax=b\) for the
         following three special choices of \(b\):
-        \[
+        <article class="displaymath" id="me-76">\[
           Ax_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \text{ , } Ax_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \text{, and } Ax_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
-        \]
+        \]</article>
         If the three solutions are called \(x_1\), \(x_2\) and \(x_3\)
         and then bundled together to make the columns of a matrix
-        \[X =  \begin{pmatrix} | &amp; | &amp; | \\
+        <article class="displaymath" id="me-77">\[X =  \begin{pmatrix} | &amp; | &amp; | \\
           x_1 &amp; x_2 &amp; x_3 \\ | &amp; | &amp; |
           \end{pmatrix},
-        \] what is the matrix \(AX\)? What does this mean about \(X\)?
+        \]</article> what is the matrix \(AX\)? What does this mean about \(X\)?
       </article></section></section></div></main>
 </div>
 </body>

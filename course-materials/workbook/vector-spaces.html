@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Subspaces of \(\mathbb{R}^n\)</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="vector-spaces"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="vector-spaces"><header><h1 class="heading" alt="Section 3.1 Subspaces of \(\mathbb{R}^n\)" title="Section 3.1 Subspaces of \(\mathbb{R}^n\)">
 <span class="type">Section</span><span class="codenumber">3.1</span><span class="title">Subspaces of \(\mathbb{R}^n\)</span>
-</h1></header><section class="subsection" id="subsection-58"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-58"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read Chapter 3 section 1 of <em>Strang</em>.</li>
+<li>Read Chapter 3 section 1 of <!--Style me with CSS--><em>Strang</em>.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-59"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-59"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
@@ -148,7 +149,7 @@ $(function () {
 <ul style="list-style-type: disc;"><li>
         Use the notion of column space to decide if a given linear system has a
         solution or not.
-      </li></ul></section><section class="subsection" id="subsection-60"><header><h1 class="heading">
+      </li></ul></section><section class="subsection" id="subsection-60"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Vector Spaces and Subspaces</span>
 </h1></header><p>
       The key concepts in this section are those of a <em class="terminology">vector space</em>
@@ -201,7 +202,7 @@ $(function () {
       columns of \(A\). This is our first exposure to the idea of a
       <em class="terminology">span</em>. The column space of \(A\) is the subspace of
       \(\mathbb{R}\) spanned by the columns of \(A\).
-    </p></section><section class="subsection" id="subsection-61"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-61"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and subspaces</span>
 </h1></header><p>Sage allows you to construct different kinds of vector spaces. The most
       important is the standard vector space \(\mathbb{R}^n\).
@@ -240,36 +241,36 @@ B
     </p>
 <p>
       Sage prefers to display vectors as rows! This is a big interal preference.
-      We just have to get over it. Well, we have to <em>remember it</em> and get over it.
+      We just have to get over it. Well, we have to <!--Style me with CSS--><em>remember it</em> and get over it.
       To access the basis vectors and display them as columns,
       we will use the following:
     </p>
 <div class="sage-compute"><script type="text/x-sage">B.column_space().basis()[0].column() # first basis vector
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">B.column_space().basis()[1].column() # second basis vector
-</script></div></section><section class="subsection" id="subsection-62"><header><h1 class="heading">
+</script></div></section><section class="subsection" id="subsection-62"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-82"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">82</span><span class="title"></span>
 </h5>
         Find an example of a vector which is not in the column space of the
-        matrix \[
+        matrix <article class="displaymath" id="me-96">\[
         A = \begin{pmatrix} 2 &amp; 1  \\ 1 &amp; 1 \end{pmatrix},
-        \] or explain why that is not possible.
+        \]</article> or explain why that is not possible.
       </article><article class="example-like" id="task-83"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">83</span><span class="title"></span>
 </h5>
         Find an example of a vector which is not in the column space of the
-        matrix \[
+        matrix <article class="displaymath" id="me-97">\[
         B = \begin{pmatrix} 3 &amp; 2 \\ 6 &amp; 4 \end{pmatrix},
-        \] or explain why it is not possible.
+        \]</article> or explain why it is not possible.
       </article><article class="example-like" id="task-84"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">84</span><span class="title"></span>
 </h5>
         Let \(\mathcal{P}\) be the set of polynomials of degree 3 or less.
         Explain why \(\mathcal{P}\) is a vector space, or explain why it is not.
       </article><article class="example-like" id="task-85"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">85</span><span class="title"></span>
 </h5>
         Consider the vector space \(\mathbb{R}^2\). Explain why the following
         are not subspaces:
@@ -279,14 +280,14 @@ B
 <li>The union of lines \(2x+3y = 0\) and \(x-y=0\).</li>
 <li>The first quadrant where \(x\geq 0\) and \(y\geq 0\).</li>
 </ul></article><article class="example-like" id="task-86"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">86</span><span class="title"></span>
 </h5>
         Let \(W\) be the set of functions \(f\) in
         \(\mathcal{C}(\mathbb{R})\) which satisfy the differential equation
         \(f''(x) = 0\). Decide if \(W\) is a subspace of
         \(\mathcal{C}(\mathbb{R})\), and explain your thinking.
       </article><article class="example-like" id="task-87"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">87</span><span class="title"></span>
 </h5>
         Design a \(2\times 3\) matrix whose column space does not contain the
         vector \(\begin{pmatrix} 4 \\ 4 \end{pmatrix}\), or explain why this is

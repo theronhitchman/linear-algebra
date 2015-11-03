@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>The Nullspace</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="nullspace"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="nullspace"><header><h1 class="heading" alt="Section 3.2 The Nullspace" title="Section 3.2 The Nullspace">
 <span class="type">Section</span><span class="codenumber">3.2</span><span class="title">The Nullspace</span>
-</h1></header><section class="subsection" id="subsection-63"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-63"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 3 section 2 of <em>Strang</em>.</li>
+<li>Read chapter 3 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-64"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-64"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before coming to class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
@@ -157,7 +158,7 @@ $(function () {
         \(Ax = 0\).
       </li>
 <li>Give an argument for why the nullspace is a vector subspace.</li>
-</ul></section><section class="subsection" id="subsection-65"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-65"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Nullspace, RREF, and Special Solutions</span>
 </h1></header><p>
       Strang aims right at the heart of things in this section, and does not
@@ -209,7 +210,7 @@ $(function () {
         null space: he calls these the <em class="terminology">special solutions</em>. This is
         because they are solutions to the equation \(Ax=0\).
       </li>
-</ul></section><section class="subsection" id="subsection-66"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-66"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Nullspace</span>
 </h1></header><p>
       The main idea in this section is to get solutions to homogeneous
@@ -248,13 +249,13 @@ A*sage1, A*sage2
 </script></div>
 <p>
       What this means is that the null space is described by the two equations
-      \[
+      <article class="displaymath" id="me-98">\[
         \left\{
         \begin{array}{rrrrrrrrr}
         v &amp; &amp; &amp; - &amp; y &amp; - &amp; 2 z &amp; = &amp; 0 \\
           &amp; &amp; x &amp; + &amp; 2y &amp; + &amp; 3 z &amp; = &amp; 0
         \end{array}\right.
-      \]
+      \]</article>
       That is, the nullspace is the intersection of these two hyperplanes in
       \(\mathbb{R}^4\).
     </p>
@@ -302,7 +303,7 @@ A*special2
 <p>
       How can we be sure everything lines up?  Well, it is possible to
       express the two vectors that Sage gives us as a linear combination
-      of the ones we just found, and vice versa. So we are getting <em>two</em>
+      of the ones we just found, and vice versa. So we are getting <!--Style me with CSS--><em>two</em>
       descriptions of the same space.
     </p>
 <div class="sage-compute"><script type="text/x-sage">sage1 == -3* special1 + 2* special2
@@ -321,7 +322,7 @@ A*special2
       Anyway, what has happened is that Sage has performed our calculations above,
       and then taken the extra steps of putting the matrix of basis vectors into
       reduced row echelon form, too.
-    </p></section><section class="subsection" id="subsection-67"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-67"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><p>
       For the first three exercises, your job is to find both
@@ -336,29 +337,29 @@ A*special2
       As always, it will be crucial to explain how you know you are correct.
     </p>
 <article class="example-like" id="task-88"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">88</span><span class="title"></span>
 </h5>
         Consider the matrix
-        \[
+        <article class="displaymath" id="me-99">\[
           A = \begin{pmatrix}
           1 &amp; 2 &amp; 3 \\
           4 &amp; 8 &amp; 5 \\
           -1 &amp; -2 &amp; 0
           \end{pmatrix}
-        \]</article><article class="example-like" id="task-89"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-89"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">89</span><span class="title"></span>
 </h5>
       Consider the matrix
-      \[
+      <article class="displaymath" id="me-100">\[
         A = \begin{pmatrix}
         2 &amp; 1 &amp; 3 &amp; 7 \\
         1 &amp; 1 &amp; 1 &amp; -3
         \end{pmatrix}
-      \]</article><article class="example-like" id="task-90"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
+      \]</article></article><article class="example-like" id="task-90"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">90</span><span class="title"></span>
 </h5>
         Consider the matrix
-        \[
+        <article class="displaymath" id="me-101">\[
           A = \begin{pmatrix}
           2 &amp; 3 &amp; 5 &amp; 6 \\
           1 &amp; 1 &amp; 2 &amp; 3 \\
@@ -366,7 +367,7 @@ A*special2
           -1 &amp; -1 &amp; -2 &amp; -3 \\
           1 &amp; 1 &amp; 2 &amp; 3
           \end{pmatrix}
-        \]</article><p>
+        \]</article></article><p>
       For the next three exercises, your job is to find a complete set of
       special solutions to the homogeneous equation \(Ax=0\).
       By a “complete set,” we mean “enough special solutions so that
@@ -377,31 +378,31 @@ A*special2
       As always, it will be crucial to explain how you know you are correct.
     </p>
 <article class="example-like" id="task-91"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">91</span><span class="title"></span>
 </h5>
         Consider the matrix
-        \[
+        <article class="displaymath" id="me-102">\[
           A = \begin{pmatrix}
           6 &amp; 7 \\
           7 &amp; 8 \\
           1 &amp; 0 \\
           4 &amp; 5
           \end{pmatrix}
-        \]</article><article class="example-like" id="task-92"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">11</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-92"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">92</span><span class="title"></span>
 </h5>
         Consider the matrix
-        \[
+        <article class="displaymath" id="me-103">\[
           A = \begin{pmatrix}
           23 &amp; 17 &amp; 9 &amp; 2 \\
           1 &amp; -2 &amp; 4 &amp; 1 \\
           22 &amp; 19 &amp; 5 &amp; 1
           \end{pmatrix}
-        \]</article><article class="example-like" id="task-93"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">12</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-93"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">93</span><span class="title"></span>
 </h5>
         Consider the matrix
-        \[
+        <article class="displaymath" id="me-104">\[
           A = \begin{pmatrix}
           -3 &amp; -6 &amp; -9 &amp; -12 \\
           1 &amp; 2 &amp; 3 &amp; 4 \\
@@ -410,7 +411,7 @@ A*special2
           -1 &amp; -1 &amp; -1 &amp; -1 \\
           0 &amp; 0 &amp; 1 &amp; 0
           \end{pmatrix}
-        \]</article></section></section></div></main>
+        \]</article></article></section></section></div></main>
 </div>
 </body>
 </html>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:27-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Eigenvectors and Eigenvalues</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-eigenvectors"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-eigenvectors"><header><h1 class="heading" alt="Section 6.1 Eigenvectors and Eigenvalues" title="Section 6.1 Eigenvectors and Eigenvalues">
 <span class="type">Section</span><span class="codenumber">6.1</span><span class="title">Eigenvectors and Eigenvalues</span>
-</h1></header><section class="subsection" id="subsection-126"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-126"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The assignment</span>
 </h1></header><ul style="list-style-type: disc;">
 <li>Read section 6.1 of Strang (pages 283-292).</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-127"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-127"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Eigenvalues and Eigenvectors</span>
 </h1></header><p>
       We have discussed the “transformational view” of the geometry of a
@@ -170,13 +171,13 @@ $(function () {
       but as a general thing this is pretty hard. Don't get too excited. Have you
       heard this fact before? It is both depressing and interesting: there is no
       general formula to find the roots of a polynomial of degree 5 or more.
-    </p></section><section class="subsection" id="subsection-128"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-128"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Eigenvectors</span>
 </h1></header><p>
       Since eigenvalues and eigenvectors are found using standard techniques, we
       can use Sage to compute them without any new techniques.
     </p>
-<section class="subsubsection" id="subsubsection-48"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-48"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Using Nullspaces and root finding commands</span>
 </h1></header><p>
         Let's use basic sage commands we have seen before to compute eigenvalues
@@ -212,7 +213,7 @@ V
       </p>
 <div class="sage-compute"><script type="text/x-sage">show(V.basis()[0])
 </script></div>
-<p>Well, that probably needs a simplification or two. But there it is!</p></section><section class="subsubsection" id="subsubsection-49"><header><h1 class="heading">
+<p>Well, that probably needs a simplification or two. But there it is!</p></section><section class="subsubsection" id="subsubsection-49"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Built-in Sage Commands</span>
 </h1></header><p>
         Sage has useful built-in commands that get at the same computations. But
@@ -237,7 +238,7 @@ A
         (eigenvalue, subspace consisting of all eigenvectors which correspond).
       </p>
 <div class="sage-compute"><script type="text/x-sage">A.eigenspaces_right()
-</script></div></section><section class="subsubsection" id="subsubsection-50"><header><h1 class="heading">
+</script></div></section><section class="subsubsection" id="subsubsection-50"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">One more example...</span>
 </h1></header><div class="sage-compute"><script type="text/x-sage">B = matrix(AA, 2,2, [5,1,0,5])
 B
@@ -251,25 +252,25 @@ B
 <div class="sage-compute"><script type="text/x-sage">B.eigenvectors_right()
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">B.eigenspaces_right()
-</script></div></section></section><section class="subsection" id="subsection-129"><header><h1 class="heading">
+</script></div></section></section><section class="subsection" id="subsection-129"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Questions for Section 6.1</span>
 </h1></header><article class="example-like" id="task-158"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">158</span><span class="title"></span>
 </h5>Exercise 5 from section 6.1 of Strang.
       </article><article class="example-like" id="task-159"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">159</span><span class="title"></span>
 </h5>Exercise 6 from section 6.1 of Strang.
       </article><article class="example-like" id="task-160"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">160</span><span class="title"></span>
 </h5>Exercise 7 from section 6.1 of Strang.
       </article><article class="example-like" id="task-161"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">161</span><span class="title"></span>
 </h5>Exercise 12 from section 6.1 of Strang.
       </article><article class="example-like" id="task-162"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">162</span><span class="title"></span>
 </h5>Exercise 14 from section 6.1 of Strang.
       </article><article class="example-like" id="task-163"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">163</span><span class="title"></span>
 </h5>Exercise 19 from section 6.1 of Strang.
       </article></section></section></div></main>
 </div>

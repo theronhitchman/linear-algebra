@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:25-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Bases</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="basis"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="basis"><header><h1 class="heading" alt="Section 3.6 Bases" title="Section 3.6 Bases">
 <span class="type">Section</span><span class="codenumber">3.6</span><span class="title">Bases</span>
-</h1></header><section class="subsection" id="subsection-80"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-80"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read <em>Strang</em> chapter 3 section 5.</li>
+<li>Read <!--Style me with CSS--><em>Strang</em> chapter 3 section 5.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-81"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-81"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
@@ -149,7 +150,7 @@ $(function () {
 </ul>
 <p>Sometime after class, a student should be able to:</p>
 <ul style="list-style-type: disc;"><li>Explain the connection between a set of vectors being
-      linearly independent, a spanning set, and a basis.</li></ul></section><section class="subsection" id="subsection-82"><header><h1 class="heading">
+      linearly independent, a spanning set, and a basis.</li></ul></section><section class="subsection" id="subsection-82"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Linear Independence, Spanning, Basis, and Dimension</span>
 </h1></header><p>
       The purpose of this lesson is to introduce specific terms for several
@@ -163,11 +164,11 @@ $(function () {
         “it means just what I choose it to mean -- neither more nor less.”
       </p>
       <p>
-      --<em>Through the Looking Glass</em>, Lewis Carroll</p>
+      --<!--Style me with CSS--><em>Through the Looking Glass</em>, Lewis Carroll</p>
     </blockquote>
 <p>
       That is the essence of it. We have several new words, and they will
-      mean <em>exactly</em> what we declare them to mean, no more, no less.
+      mean <!--Style me with CSS--><em>exactly</em> what we declare them to mean, no more, no less.
     </p>
 <p>
       What are the new terms?
@@ -197,7 +198,7 @@ $(function () {
       span by \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\). (This has to
       be the easiest possible notational choice ever.)
     </p>
-<section class="subsubsection" id="subsubsection-39"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-39"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Other Vector Spaces</span>
 </h1></header><p>
         Once you understand these terms as they apply to the Euclidean
@@ -224,7 +225,7 @@ $(function () {
           The set of all functions which are solutions to the differential
           equation \(y'' = y\).
         </li>
-</ul></section><section class="subsubsection" id="subsubsection-40"><header><h1 class="heading">
+</ul></section><section class="subsubsection" id="subsubsection-40"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Two Methods of Sorting out Linear Independence</span>
 </h1></header><p>
         We have enough information to collect two ways to answer the question:
@@ -286,13 +287,13 @@ $(function () {
           subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\), but the
           resulting vectors \emph{probably won't come from your original set}.
         </p>
-      </section></section><section class="subsection" id="subsection-83"><header><h1 class="heading">
+      </section></section><section class="subsection" id="subsection-83"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Bases</span>
 </h1></header><p>
       Sage has several commands which are useful for dealing with the concpets
       of this section.
     </p>
-<section class="subsubsection" id="subsubsection-41"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-41"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Commands for span, dimension, and basis</span>
 </h1></header><p>
         This first command will
@@ -316,7 +317,7 @@ V
 <div class="sage-compute"><script type="text/x-sage">V.dimension()
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">V.basis()
-</script></div></section><section class="subsubsection" id="subsubsection-42"><header><h1 class="heading">
+</script></div></section><section class="subsubsection" id="subsubsection-42"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Algorithms for Checking Linear Independence</span>
 </h1></header><p>
         Sage does not have built-in commands with names for checking linear independence
@@ -349,7 +350,7 @@ col_matrix
           keep those as part of our basis for
           \(\mathrm{span}\left(v_1, v_2\right)\).
         </p>
-      </section><section class="subsubsection" id="subsubsection-43"><header><h1 class="heading">
+      </section><section class="subsubsection" id="subsubsection-43"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Spaces Associated to a Matrix</span>
 </h1></header><p>
         Sage knows about the column space and row space associated to a
@@ -379,48 +380,48 @@ A = matrix(AA, 3,4, entries); A
 <div class="sage-compute"><script type="text/x-sage">span(A.rows()).dimension()
 </script></div>
 <div class="sage-compute"><script type="text/x-sage">A.right_kernel().dimension()
-</script></div></section></section><section class="subsection" id="subsection-84"><header><h1 class="heading">
+</script></div></section></section><section class="subsection" id="subsection-84"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><p>
       Note: We may not present all of these in class.
     </p>
 <article class="example-like" id="task-108"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">27</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">108</span><span class="title"></span>
 </h5>
         Make an example of a vector \(v \in \mathbb{R}^4\) so that the set
-        \[
+        <article class="displaymath" id="me-117">\[
           \left\{
           \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix},
           \begin{pmatrix} 0 \\ 1 \\ 2 \\ 1 \end{pmatrix},
           \begin{pmatrix} -2\\ 1 \\ 0 \\ -5 \end{pmatrix},
           v
           \right\}
-        \]
+        \]</article>
         is a linearly independent set, or explain why it is impossible to find
         such an example.
         Is your resulting set a basis?
       </article><article class="example-like" id="task-109"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">28</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">109</span><span class="title"></span>
 </h5>
         Make an example of a vector \(w \in \mathbb{R}^3\) so that the set
-        \[
+        <article class="displaymath" id="me-118">\[
           \left\{
           \begin{pmatrix} 2 \\ 3 \\ 4 \end{pmatrix},
           \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix},
           \begin{pmatrix} -2\\ -4 \\ -5 \end{pmatrix},
           w
           \right\}
-        \]
+        \]</article>
         is a spanning set, or explain why it is impossible to find such an
         example. Is your resulting set a basis?
       </article><article class="example-like" id="task-110"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">29</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">110</span><span class="title"></span>
 </h5>(Strang 3.5.10)
         Find two independent vectors on the plane \(x+2y-3z-t=0\) in
         \(\mathbb{R}^4\). Then find three independent vectors on this plane.
         Why not four? Find a matrix for which this plane is the nullspace.
       </article><article class="example-like" id="task-111"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">30</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">111</span><span class="title"></span>
 </h5>(Strang 3.5.21)
         Suppose that the columns of a \(5 \times 5 \) matrix \(A\) are a
         basis for \(\mathbb{R}^5\).
@@ -437,7 +438,7 @@ A = matrix(AA, 3,4, entries); A
         Conclusion: \(A\) is invertible. Its rank is \(5\). Its rows are
         also a basis for \(\mathbb{R}^5\).
       </article><article class="example-like" id="task-112"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">31</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">112</span><span class="title"></span>
 </h5>(Strang 3.5.22)
         Suppose that \(S\) is a \(5\)-dimensional subspace of
         \(\mathbb{R}^6\).
@@ -453,7 +454,7 @@ A = matrix(AA, 3,4, entries); A
             \(S\) by removing one vector.
           </li>
 </ol></article><article class="example-like" id="task-113"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">32</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">113</span><span class="title"></span>
 </h5>(Strang 3.5.26)
         Find a basis (and the dimension) for each of these subspaces of the vector
         space of \(3\times 3\) matrices:
@@ -468,7 +469,7 @@ A = matrix(AA, 3,4, entries); A
             All skew-symmetric matrices. (\(A^T = -A\))
           </li>
 </ol></article><article class="example-like" id="task-114"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">33</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">114</span><span class="title"></span>
 </h5>(Strang 3.5.35)
         Find a basis for the space of polynomials \(p(x)\) of degree less than
         or equal to \(3\). Find a basis for the subspace with \(p(1)=0\).

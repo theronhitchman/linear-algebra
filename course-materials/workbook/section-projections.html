@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Projections Onto Subspaces</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,15 +130,15 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-projections"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-projections"><header><h1 class="heading" alt="Section 4.2 Projections Onto Subspaces" title="Section 4.2 Projections Onto Subspaces">
 <span class="type">Section</span><span class="codenumber">4.2</span><span class="title">Projections Onto Subspaces</span>
-</h1></header><section class="subsection" id="subsection-97"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-97"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read Chapter 4 section 2 of <em>Strang</em>.</li>
+<li>Read Chapter 4 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
 <li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-98"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-98"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
@@ -153,7 +154,7 @@ $(function () {
             Explain the process for finding the equations which determine the projection matrix, and say
             why the transpose makes an appearance.
         </li>
-</ul></section><section class="subsection" id="subsection-99"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-99"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Orthogonal Projections</span>
 </h1></header><p>
         One good use of the geometry in \(\mathbb{R}^n\) is the concept of
@@ -169,10 +170,10 @@ $(function () {
       </p>
 <p>
         Note that everything in this section is done by projecting onto
-        <em>subspaces</em>! This is a bit of a restriction. In practice, this
+        <!--Style me with CSS--><em>subspaces</em>! This is a bit of a restriction. In practice, this
         restriction can be removed by translating your whole problem to have a
         new origin.
-      </p></section><section class="subsection" id="subsection-100"><header><h1 class="heading">
+      </p></section><section class="subsection" id="subsection-100"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Orthogonal Projection</span>
 </h1></header><p>
         Sage has no built-in commands for orthogonal projections. But let us recall
@@ -212,10 +213,10 @@ print B.parent()
 print P.is_symmetric()
 print P*P == P
 </script></div>
-<p>Also as expected.</p></section><section class="subsection" id="subsection-101"><header><h1 class="heading">
+<p>Also as expected.</p></section><section class="subsection" id="subsection-101"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-127"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">127</span><span class="title"></span>
 </h5>
 <p>
             Find the projection matrix which computes projections of vectors in
@@ -226,7 +227,7 @@ print P*P == P
             Find the orthogonal projection of the vector
             \(\left( 17,3 \right)\) onto this line.
           </p></article><article class="example-like" id="task-128"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">128</span><span class="title"></span>
 </h5>
 <p>
             Find the projection matrix which computes projections of vectors in
@@ -237,7 +238,7 @@ print P*P == P
             Find the orthogonal projection of the vector \(\left(1,1,1\right)\)
             onto this line.
           </p></article><article class="example-like" id="task-129"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">129</span><span class="title"></span>
 </h5>
 <p>
             Find the projection matrix which computes projections of vectors in
@@ -247,7 +248,7 @@ print P*P == P
             Find the orthogonal projection of the vector \(\left( 9,7,-5\right)\)
             onto this plane.
           </p></article><article class="example-like" id="task-130"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">130</span><span class="title"></span>
 </h5>
 <p>
             Find the projection matrix which computes projections of vectors in

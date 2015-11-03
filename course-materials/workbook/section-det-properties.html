@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<!--*                                    *-->
+<!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-03-10T13:54:26-05:00    *-->
+<!--*    on 2015-11-03T16:30:26-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
+<!--**************************************-->
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Properties of the Determinant</title>
@@ -29,7 +30,7 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
 $(function () {
     // Make *any* div with class 'sage-compute' an executable Sage cell
     sagecell.makeSagecell({inputLocation: 'div.sage-compute',
@@ -129,10 +130,10 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-det-properties"><header><h1 class="heading">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-det-properties"><header><h1 class="heading" alt="Section 5.1 Properties of the Determinant" title="Section 5.1 Properties of the Determinant">
 <span class="type">Section</span><span class="codenumber">5.1</span><span class="title">Properties of the Determinant</span>
-</h1></header><section class="subsection" id="subsection-115"><header><h1 class="heading">
+</h1></header><section class="subsection" id="subsection-115"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
 <li>
@@ -141,11 +142,11 @@ $(function () {
 <li>
         Read the following and complete the exercises below.
       </li>
-</ul></section><section class="subsection" id="subsection-116"><header><h1 class="heading">
+</ul></section><section class="subsection" id="subsection-116"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p>At some point, a student should be able to compute the determinant of a
       square matrix using the properties outlined here.
-    </p></section><section class="subsection" id="subsection-117"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-117"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Determinant</span>
 </h1></header><p>
       Generally, the most interesting matrices to look at are the square ones.
@@ -182,18 +183,18 @@ $(function () {
       That last property can be helpful in a variety of ways: it allows us to translate
       all of those statements about rows into statements about columns!
     </p>
-<section class="subsubsection" id="subsubsection-47"><header><h1 class="heading">
+<section class="subsubsection" id="subsubsection-47"><header><h1 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Interpretation</span>
 </h1></header><p>
         Suppose that an \(n\times n\) matrix \(A\) is represented as a
         collection of its column vectors:
-        \[
+        <article class="displaymath" id="me-136">\[
         A = \begin{pmatrix}
         | &amp; | &amp;  &amp; | \\
         v_1 &amp; v_2 &amp; \dots &amp; v_n \\
         | &amp; | &amp;  &amp; |
         \end{pmatrix} .
-        \]
+        \]</article>
         Then the geometric significance of the determinant is this: The number
         \(\det(A)\) represents the signed \(n\)-dimensional
         volume of the \(n\)-dimensional box in \(\mathbb{R}^n\) with sides
@@ -204,7 +205,7 @@ $(function () {
         of signs. We choose a positive sign if the vectors
         \(v_1, v_2, \ldots, v_n\) have the same orientation as the standard
         basis.
-      </p></section></section><section class="subsection" id="subsection-118"><header><h1 class="heading">
+      </p></section></section><section class="subsection" id="subsection-118"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Determinant</span>
 </h1></header><p>Sage has a built-in command for the determinant of a square matrix. It is
       just what you expect: <tt class="code-inline" style="color: red; font-size: 120%">A.determinant()</tt>.
@@ -221,10 +222,10 @@ print(U)
 <p>
       Clearly, there are no row swaps used, so it is easy to see that
       \(\det(A) = 4*(-5/2)*(21/2) = -105\).
-    </p></section><section class="subsection" id="subsection-119"><header><h1 class="heading">
+    </p></section><section class="subsection" id="subsection-119"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-145"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">145</span><span class="title"></span>
 </h5>(Strang Ex 5.1.1)
         If a \(4 \times 4\) matrix \(A\) has \(\det(A) = 1/2\), find
         <ol style="list-style-type: decimal;">
@@ -234,7 +235,7 @@ print(U)
 </ol>
         Explain which properties of determinants you need to make your deductions.
       </article><article class="example-like" id="task-146"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">146</span><span class="title"></span>
 </h5>(Strang Ex 5.1.2)
         If a \(3 \times 3\) matrix has \(\det(A) = -1\), find
         <ol style="list-style-type: decimal;">
@@ -243,7 +244,7 @@ print(U)
 <li>\(\det(A^2)\), and </li>
 <li>\(\det(A^{-1})\)</li>
 </ol></article><article class="example-like" id="task-147"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">147</span><span class="title"></span>
 </h5>(Strang Ex 5.1.10)
         <p>
           Suppose that \(A\) is a matrix with the property that the entries in
@@ -255,38 +256,38 @@ print(U)
           \(\det(A-I)=0\). Does this mean that \(\det(A) = 1\)? Give an example
           or an argument.
         </p></article><article class="example-like" id="task-148"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">148</span><span class="title"></span>
 </h5>(Strang Ex 5.1.12)
         The inverse of a \(2 \times 2\) matrix seems to have determinant \(1\)
         all the time:
-        \[
+        <article class="displaymath" id="me-137">\[
           \det(A^{-1}) = \det \frac{1}{ad-bc}\begin{pmatrix} d &amp; -b \\
           -c &amp; a \end{pmatrix} = \frac{ad-bc}{ad-bc} = 1.
-        \]
+        \]</article>
         What is wrong with this argument? What should the value of \(\det(A^{-1})\)
         be?
       </article><article class="example-like" id="task-149"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
+<span class="type">Task</span><span class="codenumber">149</span><span class="title"></span>
 </h5>(Strang Ex 5.1.14)
         Use row operations to reduce these matrices to upper triangular ones, then find
         the determinants:
-        \[
+        <article class="displaymath" id="me-138">\[
           \det\begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 0 \\ 2 &amp; 6 &amp; 6 &amp; 1 \\ -1 &amp; 0 &amp; 0 &amp; 3 \\
           0 &amp; 2 &amp; 0 &amp; 7 \end{pmatrix} \quad \text{ and } \quad
           \det\begin{pmatrix} 2 &amp; -1 &amp; 0 &amp; 0 \\ -1 &amp; 2 &amp; -1 &amp; 0 \\ 0 &amp; -1 &amp; 2 &amp; -1 \\
           0 &amp; 0 &amp; -1 &amp; 2 \end{pmatrix}.
-        \]</article><article class="example-like" id="task-150"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-150"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">150</span><span class="title"></span>
 </h5>(Strang Ex 5.1.15)
         Use row operations to simplify and compute these determinants:
-        \[
+        <article class="displaymath" id="me-139">\[
           \det\begin{pmatrix} 101 &amp; 201 &amp; 301 \\
           102 &amp; 202 &amp; 302  \\ 103 &amp; 203 &amp; 303
           \end{pmatrix} \quad \text{ and } \quad
           \det\begin{pmatrix} 1 &amp; t &amp; t^2 \\ t &amp; 1 &amp; t \\
           t^2 &amp; t &amp; 1 \end{pmatrix}.
-        \]</article><article class="example-like" id="task-151"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
+        \]</article></article><article class="example-like" id="task-151"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">151</span><span class="title"></span>
 </h5>(Strang Ex 5.1.23)
         <p>
           Suppose that \(A = \left( \begin{smallmatrix} 4 &amp; 1 \\ 2 &amp; 3
