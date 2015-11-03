@@ -1,9 +1,10 @@
-%%                                    %%
-%% Generated from MathBook XML source %%
-%%    on 2014-12-04T16:46:07-06:00    %%
-%%                                    %%
-%%   http://mathbook.pugetsound.edu   %%
-%%                                    %%
+%**************************************%
+%* Generated from MathBook XML source *%
+%*    on 2015-11-03T17:12:54-06:00    *%
+%*                                    *%
+%*   http://mathbook.pugetsound.edu   *%
+%*                                    *%
+%**************************************%
 \documentclass[10pt,]{book}
 %% Load geometry package to allow page margin adjustments
 \usepackage{geometry}
@@ -19,9 +20,6 @@
 %% Symbols, align environment, bracket-matrix
 \usepackage{amsmath}
 \usepackage{amssymb}
-%% extpfeil package for certain extensible arrows,
-%% as also provided by MathJax extension of the same name
-\usepackage{extpfeil}
 %% allow more columns to a matrix
 %% can make this even bigger by overiding with  latex.preamble.late  processing option
 \setcounter{MaxMatrixCols}{30}
@@ -53,7 +51,7 @@
 %% Always need a theorem environment to set base numbering scheme
 %% even if document has no theorems (but has other environments)
 \newtheorem{theorem}{Theorem}[chapter]
-\renewcommand*{\proofname}{Proof}%% Only variants actually used in document appear here
+%% Only variants actually used in document appear here
 %% Numbering: all theorem-like numbered consecutively
 %% i.e. Corollary 4.3 follows Theorem 4.2
 %% Definition-like environments, normal text
@@ -61,6 +59,8 @@
 %% also for free-form exercises, not in exercise sections
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+%% Localize LaTeX supplied names (possibly none)
+\renewcommand*{\chaptername}{Chapter}
 %% Equation Numbering
 %% Controlled by  numbering.equations.level  processing parameter
 \numberwithin{equation}{section}
@@ -78,19 +78,22 @@
 %% You can remove the [H] argument of the \newfloat command, to allow flotation and 
 %% preserve numbering, BUT the numbering may then appear "out-of-order"
 \usepackage{float}
-\newfloat{mbxfigure}{H}{lof}[chapter]
-\floatname{mbxfigure}{Figure}
-\renewenvironment{figure}%
-{\begin{mbxfigure}\setcounter{mbxfigure}{\value{theorem}}\stepcounter{theorem}}%
-{\end{mbxfigure}}
+\usepackage[bf]{caption} % http://tex.stackexchange.com/questions/95631/defining-a-new-type-of-floating-environment 
+\usepackage{newfloat}
+% Figure environment setup so that it no longer floats
+\SetupFloatingEnvironment{figure}{fileext=lof,placement={H},within=chapter,name=Figure}
+% figures have the same number as theorems: http://tex.stackexchange.com/questions/16195/how-to-make-equations-figures-and-theorems-use-the-same-numbering-scheme 
+\makeatletter
+\let\c@figure\c@theorem
+\makeatother
 %% Raster graphics inclusion, wrapped figures in paragraphs
 \usepackage{graphicx}
 %% Colors for Sage boxes and author tools (red hilites)
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-%% Program listing support, for Sage code or otherwise
+%% Program listing support, for inline code, Sage code or otherwise
 \usepackage{listings}
 %% We define \listingsfont to provide Bitstream Vera Mono font
-%% for program listings, under both pdflate and xelatex
+%% for program listings, under both pdflatex and xelatex
 %% If you remove this, define \listingsfont to be \ttfamily perhaps
 \ifxetex
 \usepackage{fontspec}\newfontface\listingsfont[Path]{fvmr8a.pfb}
@@ -98,22 +101,53 @@
 \edef\oldtt{\ttdefault}\usepackage[scaled]{beramono}\usepackage[T1]{fontenc}
 \renewcommand*\ttdefault{\oldtt}\newcommand{\listingsfont}{\fontfamily{fvm}\selectfont}
 \fi
+%% To fix hyphens/dashes rendered in PDF as fancy minus signs by listing
+%% http://tex.stackexchange.com/questions/33185/listings-package-changes-hyphens-to-minus-signs
+\makeatletter
+\lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
+\@empty\z@\@empty
+\makeatother
 %% End of program listing font definition
+%% Inline code, typically from "c" element
+%% Global, document-wide options apply to \lstinline
+%% Search/replace \lstinline by \verb to remove this dependency
+%% (redefining \lstinline with \verb is unlikely to work)
+\lstset{basicstyle=\footnotesize\listingsfont,breaklines=true,breakatwhitespace=true}
 %% Sage's blue is 50%, we go way lighter (blue!05 would work)
 \definecolor{sageblue}{rgb}{0.95,0.95,1}
 %% Sage input, listings package: Python syntax, boxed, colored, line breaking
-\lstdefinestyle{sageinput}{language=Python,breaklines=true,breakatwhitespace=true,basicstyle=\footnotesize\listingsfont,columns=fixed,frame=single,backgroundcolor=\color{sageblue},xleftmargin=4ex,xrightmargin=4ex}
+%% Indent from left margin, flush at right margin
+\lstdefinestyle{sageinput}{language=Python,breaklines=true,breakatwhitespace=true,basicstyle=\footnotesize\listingsfont,columns=fixed,frame=single,backgroundcolor=\color{sageblue},xleftmargin=4ex}
 %% Sage output, similar, but not boxed, not colored
-\lstdefinestyle{sageoutput}{language=Python,breaklines=true,breakatwhitespace=true,basicstyle=\footnotesize\listingsfont,columns=fixed,xleftmargin=8ex,xrightmargin=4ex}
+\lstdefinestyle{sageoutput}{language=Python,breaklines=true,breakatwhitespace=true,basicstyle=\footnotesize\listingsfont,columns=fixed,xleftmargin=4ex}
+%% More flexible list management, esp. for references and exercises
+%% But also for specifying labels (ie custom order) on nested lists
+\usepackage{enumitem}
 %% hyperref driver does not need to be specified
 \usepackage{hyperref}
-%% latex.print parameter set to 'yes', all hyperlinks black
-\hypersetup{hidelinks}
+%% latex.print parameter set to 'yes', all hyperlinks black and inactive
+\hypersetup{draft}
 \hypersetup{pdftitle={Math 2500: Linear Algebra}}
 %% If you manually remove hyperref, leave in this next command
 \providecommand\phantomsection{}
+%% Use upright quotes rather than LaTeX's curly quotes
+%% If custom font substitutions follow, this might be ineffective
+%% If fonts lack upright quotes, the textcomp package is employed
+\usepackage{upquote}
+%% Graphics Preamble Entries
+%% extpfeil package for certain extensible arrows,
+%% as also provided by MathJax extension of the same name
+%% NB: this package loads mtools, which loads calc, which redefines
+%%     \setlength, so it can be removed if it seems to be in the 
+%%     way and your math does not use:
+%%     
+%%     \xtwoheadrightarrow, \xtwoheadleftarrow, \xmapsto, \xlongequal, \xtofrom
+%%     
+%%     we have had to be extra careful with variable thickness
+%%     lines in tables, and so also load this package late
+\usepackage{extpfeil}
 %% Custom Preamble Entries, late (use latex.preamble.late)
-\newtheorem{task}{Task}[chapter]
+\newtheorem{task}{Task}
 
 %% Convenience macros
 \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
@@ -123,25 +157,33 @@
 \date{}
 \begin{document}
 \frontmatter
-%% half-title
+%% begin: half-title
 \thispagestyle{empty}
-\vspace*{\stretch{1}}
-\begin{center}
-{\Huge Math 2500: Linear Algebra}
-\end{center}\par
+{\centering
+\vspace*{0.28\textheight}
+{\Huge Math 2500: Linear Algebra}\\}
+\clearpage
+%% end:   half-title
+%% begin: adcard
+\thispagestyle{empty}
+\null%
+\clearpage
+%% end:   adcard
+%% begin: title page
+%% Inspired by Peter Wilson's "titleDB" in "titlepages" CTAN package
+\thispagestyle{empty}
+{\centering
+\vspace*{0.14\textheight}
+{\Huge Math 2500: Linear Algebra}\\}
+\clearpage
+%% end:   title page
+%% begin: copyright-page
+\thispagestyle{empty}
 \vspace*{\stretch{2}}
-\clearpage
-\thispagestyle{empty}
-\clearpage
-\maketitle
-\clearpage
-\thispagestyle{empty}
-\vspace*{\stretch{2}}
 \vspace*{\stretch{1}}
-\clearpage
-\setcounter{tocdepth}{1}
-\renewcommand*\contentsname{Contents}
-\tableofcontents
+\null\clearpage
+%% end:   copyright-page
+%% begin: preface
 \chapter*{Preface}\label{preface-1}
 \addcontentsline{toc}{chapter}{Preface}
 This is a set of class notes designed to guide an inquiry-based course
@@ -156,6 +198,8 @@ An important feature of this text is the integration of the Sage
       Sage to perform long tedious computations (which linear algebra has in
       spades) and create visualizations.
     %
+%% end:   preface
+%% begin: acknowledgement
 \chapter*{Acknowledgements}\label{acknowledgement-1}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 I thank the Sage community, in particular William Stein, for creating
@@ -165,11 +209,20 @@ I thank the Sage community, in particular William Stein, for creating
 I also thank Rob Beezer for creating the MathBook project which makes
       this particular book project available on the web.
     %
+%% end:   acknowledgement
+%% begin: table of contents
+\setcounter{tocdepth}{1}
+\renewcommand*\contentsname{Contents}
+\tableofcontents
+%% end:   table of contents
 \mainmatter
 \typeout{************************************************}
 \typeout{Chapter 1 Vectors, the Dot Product, and Matrices}
 \typeout{************************************************}
 \chapter[Vectors, the Dot Product, and Matrices]{Vectors, the Dot Product, and Matrices}\label{chapter-basic-objects}
+\typeout{************************************************}
+\typeout{Introduction  }
+\typeout{************************************************}
 
       This first chapter introduces the basic objects of linear algebra.
       You will meet vectors, the dot product, and matrices.
@@ -223,18 +276,18 @@ I also thank Rob Beezer for creating the MathBook project which makes
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-1}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 1.1 of \emph{Strang} (pages 1-7).\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Objectives}
 \typeout{************************************************}
 \subsection[Learning Objectives]{Learning Objectives}\label{subsection-2}
 Before class, a student should be able to:
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}Add vectors.\item{}Multiply a vector by a scalar.\item{}Compute linear combinations.\item{}Draw pictures which correspond to the above operations.\end{itemize}
 
       At some point, a student should be able to:
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}Solve linear combination equations involving unknown coefficients.\item{}Solve linear combination equations involving unknown vectors.\end{itemize}
 
     %
@@ -257,7 +310,7 @@ The first two vectors above are called \terminology{column} vectors
 \par
 Vectors can take lots of different sizes. The vectors above are all \(3\)-vectors. Here is a \(2\)-vector: \[\begin{pmatrix} 71 \\ -12 \end{pmatrix}.\] Here is a \(4\)-vector: \[\begin{pmatrix} \pi \\ 0 \\ -\pi \\ 1\end{pmatrix}.\]%
 \par
-The main value in using vectors lies in their standard interpretations. Let's focus on \(3\)-vectors for now. The vector \(\left(\begin{smallmatrix} a \\ b \\ c\end{smallmatrix}\right)\) can represent \begin{itemize}
+The main value in using vectors lies in their standard interpretations. Let's focus on \(3\)-vectors for now. The vector \(\left(\begin{smallmatrix} a \\ b \\ c\end{smallmatrix}\right)\) can represent \begin{itemize}[label=\textbullet]
 \item{}A point in space described in the standard three-dimensional rectangular coordinate system with \(x\) coordinate equal to \(a\), \(y\)-coordinate equal to \(b\) and \(z\) coordinate equal to \(c\).%
 \item{}An arrow in space which points from the origin \((0,0,0)\) to the point \((a,b,c)\).%
 \item{}An arrow in space which points from some point \((x,y,z)\) to the point \((x+a,y+b,z+c)\).%
@@ -280,7 +333,7 @@ Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallm
 \paragraph[Addition]{Addition}\label{paragraph-2}
 Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their \terminology{sum} \[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]%
 \typeout{************************************************}
-\typeout{Paragraph }
+\typeout{Paragraph  }
 \typeout{************************************************}
 \paragraph[]{}\label{paragraph-3}
 These operations have ``obvious'' generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called \terminology{coordinate-wise} operations.%
@@ -294,7 +347,7 @@ Combining these two operations gives us the notion of a \emph{linear combination
 \typeout{Paragraph  Basic Constructions}
 \typeout{************************************************}
 \paragraph[Basic Constructions]{Basic Constructions}\label{paragraph-4}
-A vector in Sage is constructed by applying the \verb?vector? command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:%
+A vector in Sage is constructed by applying the \lstinline?vector? command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:%
 \begin{lstlisting}[style=sageinput]
 u = vector([1,1,2])
 \end{lstlisting}
@@ -343,7 +396,7 @@ plot(a)
 \end{lstlisting}
 \par
 If you find that you want a vector to have its tail someplace
-              that is not the origin, use the \verb?arrow? command.%
+              that is not the origin, use the \lstinline?arrow? command.%
 \begin{lstlisting}[style=sageinput]
 plot(arrow([1,1],[2,3], color='red',
            arrowsize=2, width=2),
@@ -351,7 +404,7 @@ plot(arrow([1,1],[2,3], color='red',
 \end{lstlisting}
 \par
 Note that Sage cut off some of this plot! Also, I used some options
-              just to show them off. The \verb?arrow? command works in three dimensions,
+              just to show them off. The \lstinline?arrow? command works in three dimensions,
               too.
             %
 \typeout{************************************************}
@@ -464,7 +517,6 @@ Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) suc
 \label{task-12}
 Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) such that the equation \[ a \begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} + b \begin{pmatrix} 0 \\ -1 \\ 0\end{pmatrix} + c \begin{pmatrix} x \\ y \\ z\end{pmatrix} = \begin{pmatrix}3 \\ 7 \\ 7 \end{pmatrix}\] has no solutions, or explain why no such vector exists.%
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 1.2 The Dot Product}
 \typeout{************************************************}
@@ -473,7 +525,7 @@ Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) suc
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-5}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 1.2 of \emph{Strang}\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Objectives}
@@ -481,14 +533,14 @@ Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) suc
 \subsection[Learning Objectives]{Learning Objectives}\label{subsection-6}
 
       Before class, a student should be able to
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}Compute the dot product of two given vectors.\item{}Compute the length of a given vector.\item{}Normalize a given vector.\item{}Recognize that \(u \cdot v =0\) is the same as "\(u\) and \(
             v\) are orthogonal."\item{}
           Compute the angle between two given vectors using the cosine formula.
         \end{itemize}
 
       At some point, a student should be able to
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Interpret the statements \(u\cdot v < 0 \) and \(u \cdot v > 0\)
           geometrically.
@@ -527,7 +579,7 @@ Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) suc
 \typeout{************************************************}
 \subsubsection[Basic Commands]{Basic Commands}\label{subsubsection-2}
 
-      Sage has a built-in dot product command \verb?u.dot_product(v)?. This
+      Sage has a built-in dot product command \lstinline?u.dot_product(v)?. This
       will return the dot product of the vectors \(u\) and \(v\).
     %
 \begin{lstlisting}[style=sageinput]
@@ -540,8 +592,8 @@ u.dot_product(v)
 \par
 
       It also has a built-in command for computing lengths. Here sage uses the
-      synonym "norm": \verb?u.norm()?. Of course, you can also call this like
-      a function instead of like a method: \verb?norm(u)?.
+      synonym "norm": \lstinline?u.norm()?. Of course, you can also call this like
+      a function instead of like a method: \lstinline?norm(u)?.
     %
 \begin{lstlisting}[style=sageinput]
 u.norm(), v.norm()
@@ -566,7 +618,7 @@ angle
 \end{lstlisting}
 \par
 
-      Of course, Sage's \verb?arccos? command returns a result in \emph{radians}.
+      Of course, Sage's \lstinline?arccos? command returns a result in \emph{radians}.
       To switch to degrees, you must convert.
     %
 \begin{lstlisting}[style=sageinput]
@@ -577,7 +629,7 @@ angle*180/pi
 \end{lstlisting}
 \par
 Often, it is helpful to normalize a vector. You can do this with the
-      \verb?normalized? method like this:
+      \lstinline?normalized? method like this:
     %
 \begin{lstlisting}[style=sageinput]
 u.normalized()
@@ -701,7 +753,6 @@ Now we move to three dimensions!%
 \end{gather*}
           or explain why no such numbers exist.
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 1.3 Matrices}
 \typeout{************************************************}
@@ -710,27 +761,27 @@ Now we move to three dimensions!%
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-10}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read \emph{Strang} section 1.3 (pages 22-27).\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-11}
 Before class starts, a student should be able to:
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}multiply a matrix times a vector
-          \begin{itemize}
+          \begin{itemize}[label=$\circ$]
 \item{}as a linear combination of columns\item{}as a set of dot products, row times column\end{itemize}
 
         \item{}translate back and forth between our three representations
-          \begin{itemize}
+          \begin{itemize}[label=$\circ$]
 \item{}a system of linear equations,\item{}a linear combination of vectors equation, and\item{}a matrix equation \(Ax=b\).\end{itemize}
 
         \item{}Correctly identify the rows and columns of a matrix\item{}describe what is meant by a lower triangular matrix\end{itemize}
 
     At some point, as student should be comfortable with these concepts, which
     get a very brief informal introduction in this section:
-    \begin{itemize}
+    \begin{itemize}[label=\textbullet]
 \item{}linear dependence and linear independence\item{}the inverse of a matrix\end{itemize}
 
   %
@@ -829,7 +880,7 @@ Before class starts, a student should be able to:
 \par
 
       Two important remarks:
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Note that these operations only make sense if the sizes match up properly.
         \item{}
@@ -907,8 +958,8 @@ Before class starts, a student should be able to:
 \typeout{************************************************}
 \subsubsection[The matrix construction command]{The matrix construction command}\label{subsubsection-7}
 The command to construct a matrix is pretty straightforward. One types
-        \verb?matrix(r, c, [list of entries])? where \verb?r? is
-        the number of rows and \verb?c? is the number of columns. The entries
+        \lstinline?matrix(r, c, [list of entries])? where \lstinline?r? is
+        the number of rows and \lstinline?c? is the number of columns. The entries
         should be read across the rows starting with the top row.
       %
 \begin{lstlisting}[style=sageinput]
@@ -933,7 +984,7 @@ B = matrix(2,3, [[1,2,3], [5,8,13]]); B
 
         Every once in a while, it might matter to you what kinds of numbers you
         put into the matrix. Sage will let you specify them by putting in an optional
-        argument like this: \verb?matrix(number type, r, c, [list of entries])?
+        argument like this: \lstinline?matrix(number type, r, c, [list of entries])?
       %
 \begin{lstlisting}[style=sageinput]
 C = matrix(ZZ, 2, 2, [2,1,1,1])
@@ -945,15 +996,15 @@ C # the best matrix
 \end{lstlisting}
 \par
 
-        The notation \verb?ZZ? means "integers." There are other sets of numbers
+        The notation \lstinline?ZZ? means "integers." There are other sets of numbers
         here:
-        \begin{itemize}
-\item{}\verb?QQ? the rational numbers (with exact arithmetic)\item{}\verb?RR? the real numbers (with computer precision arithmetic)\item{}\verb?CC? the complex numbers\item{}\verb?AA? the set of all algebraic numbers, that is, all of the
+        \begin{itemize}[label=\textbullet]
+\item{}\lstinline?QQ? the rational numbers (with exact arithmetic)\item{}\lstinline?RR? the real numbers (with computer precision arithmetic)\item{}\lstinline?CC? the complex numbers\item{}\lstinline?AA? the set of all algebraic numbers, that is, all of the
             numbers that are roots of some polynomial with integer coefficients
           \end{itemize}
 
         You can find out what kind of entries a matrix thinks it has by calling the
-        \verb?.parent()? method on it.
+        \lstinline?.parent()? method on it.
       %
 \begin{lstlisting}[style=sageinput]
 A.parent()
@@ -994,8 +1045,8 @@ E = matrix([ v1, v2]); E
 
         Sage prefers rows. I wish it were the other way, but I am sure there is
         a good reason it prefers rows. If you want to make a matrix whose columns
-        are the vectors \verb?v1? and \verb?v2?, you can use the
-        \verb?transpose? method. We'll talk more about the operation of transpose
+        are the vectors \lstinline?v1? and \lstinline?v2?, you can use the
+        \lstinline?transpose? method. We'll talk more about the operation of transpose
         later, but it basically "switches rows for columns and vice versa."
       %
 \begin{lstlisting}[style=sageinput]
@@ -1219,12 +1270,11 @@ C.inverse()
 \par
 
           Explain your solution in terms of
-          \begin{itemize}
+          \begin{itemize}[label=\textbullet]
 \item{}lines in the plane,\item{}\(2\)-vectors and linear combinations, and\item{}invertibility of a matrix.\end{itemize}
 
         %
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 1.4 Getting Started with Sage}
 \typeout{************************************************}
@@ -1235,7 +1285,7 @@ C.inverse()
 \subsection[The Assignment]{The Assignment}\label{subsection-15}
 It it is time to get comfortable with the basics of using Sage. Begin by
       setting up an account with SageMathCloud.%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Be sure that you have login access to computers in student labs across
           campus. Before class, drop by a campus lab and make sure your credentials
           work properly and you can sign in to a machine. For our tutorial session
@@ -1259,7 +1309,6 @@ It it is time to get comfortable with the basics of using Sage. Begin by
 At the end of this assignment, a student should have an account at
         SageMathCloud and should be able to log into the service without trouble.
         The student will also have a first project with some files.%
-\clearpage
 \typeout{************************************************}
 \typeout{Section 1.5 Going Further with the Basic Objects}
 \typeout{************************************************}
@@ -1268,7 +1317,7 @@ At the end of this assignment, a student should have an account at
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-17}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in this chapter. Complete any items you
         did not complete the first time through. Prepare any that we have not
@@ -1291,7 +1340,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -1312,17 +1361,19 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
 \typeout{************************************************}
 \typeout{Chapter 2 Linear Equations}
 \typeout{************************************************}
 \chapter[Linear Equations]{Linear Equations}\label{chapter-2}
+\typeout{************************************************}
+\typeout{Introduction  }
+\typeout{************************************************}
 
       This chapter is dedicated to the first major problem of
       linear algebra: solving systems of linear equations. Restated as a set of
       questions, we will consider these.
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         What is the set of solutions to a given system of linear equations?
       \item{}
@@ -1364,7 +1415,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-19}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Read section 2.1 of \emph{Strang} (pages 31-40).
       \item{}
@@ -1377,9 +1428,9 @@ To help you get started with meta-cognition, I listed learning goals in
 
       Before class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Translate back and forth between the three algebraic representations:
-        \begin{itemize}
+        \begin{itemize}[label=$\circ$]
 \item{}
             A system of linear equations.
           \item{}
@@ -1395,7 +1446,7 @@ To help you get started with meta-cognition, I listed learning goals in
 
       Sometime in the near future, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Given a system, interpret and plot the ``row picture''.\item{}Given a system, interpret and plot the ``column picture''.\item{}Use a matrix as a model of a \terminology{transformation}, including stating
         the \terminology{domain} and the \terminology{range}.\end{itemize}
 \typeout{************************************************}
@@ -1488,8 +1539,8 @@ b = vector([3,4]); b
 \end{lstlisting}
 \par
 
-      To get Sage to pull out the columns, we can use the \verb?.columns()?
-      method. If we want just one column, we can use the \verb?.column()? method,
+      To get Sage to pull out the columns, we can use the \lstinline?.columns()?
+      method. If we want just one column, we can use the \lstinline?.column()? method,
       but then we have to remember to specify which column we want.
     %
 \begin{lstlisting}[style=sageinput]
@@ -1632,7 +1683,6 @@ show(row_plot, axes=True)
             \)
           \end{enumerate}
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 2.2 Solving Systems}
 \typeout{************************************************}
@@ -1641,7 +1691,7 @@ show(row_plot, axes=True)
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-24}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 2.2 of Strang (pages 45-51).\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
@@ -1650,7 +1700,7 @@ show(row_plot, axes=True)
 
       Before class, a student should be able to do the following things.
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Clearly state and use the following vocabulary words: pivot, multiplier,
         triangular matrix, back substitution, singular, non-singular
       \end{itemize}
@@ -1658,7 +1708,7 @@ show(row_plot, axes=True)
 
       Sometime after class, a student should be able to the following things.
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Perform elimination to put a system of linear equations into triangular form.\item{}Solve small systems by hand.\item{}Explain the two failure modes for elimination, and describe which leads to
         no solutions, and which leads to infinitely many solutions.\item{}Solve larger systems with the help of a computer algebra package (Sage).\end{itemize}
 \typeout{************************************************}
@@ -1735,13 +1785,13 @@ A typical system looks something like this:
         The first type of method modifies the matrix ``in place'', which means
         that it \emph{Changes the input matrix}.
       %
-\begin{itemize}
-\item{}\verb?A.rescale_row(r, num)? multiplies row \verb?r? by the factor of \verb?num?.\item{}\verb?A.swap_rows(r1, r2)? switches the places of rows \verb?r1? and \verb?r2?.\item{}\verb?A.add_multiple_of_row(target, useful, num)?. This adds \verb?num?
-          times row \verb?useful? to row \verb?target?.\end{itemize}
+\begin{itemize}[label=\textbullet]
+\item{}\lstinline?A.rescale_row(r, num)? multiplies row \lstinline?r? by the factor of \lstinline?num?.\item{}\lstinline?A.swap_rows(r1, r2)? switches the places of rows \lstinline?r1? and \lstinline?r2?.\item{}\lstinline?A.add_multiple_of_row(target, useful, num)?. This adds \lstinline?num?
+          times row \lstinline?useful? to row \lstinline?target?.\end{itemize}
 \par
 
         Throughout, please remember that Sage uses \(0\)-based indexing! So
-        the rows are labeled \verb?0, 1, 2, ...?
+        the rows are labeled \lstinline?0, 1, 2, ...?
       %
 \begin{lstlisting}[style=sageinput]
 A = matrix(QQ, 3,3, [0,2,4, 1,1,5, 6,2,5]); A
@@ -1800,17 +1850,17 @@ A.rescale_row(2,-1/17); A
       %
 \par
 
-        Sometimes you do not want to change the matrix \verb?A?. If instead, you
-        want to leave \verb?A? alone, you can use these methods, which return
-        a new object and do not change \verb?A?.
+        Sometimes you do not want to change the matrix \lstinline?A?. If instead, you
+        want to leave \lstinline?A? alone, you can use these methods, which return
+        a new object and do not change \lstinline?A?.
       %
-\begin{itemize}
-\item{}\verb?A.with_rescaled_row(r, num)?\item{}\verb?A.with_swapped_rows(r1, r2)?\item{}\verb?A.with_added_multiple_of_row(t, u, num)?\end{itemize}
+\begin{itemize}[label=\textbullet]
+\item{}\lstinline?A.with_rescaled_row(r, num)?\item{}\lstinline?A.with_swapped_rows(r1, r2)?\item{}\lstinline?A.with_added_multiple_of_row(t, u, num)?\end{itemize}
 \par
 
-        Let's do the same operations as above, but without changing \verb?A?.
+        Let's do the same operations as above, but without changing \lstinline?A?.
         This will mean making a bunch of new matrices. In fact, let's also change
-        the name of our matrix to \verb?B?
+        the name of our matrix to \lstinline?B?
       %
 \begin{lstlisting}[style=sageinput]
 B = matrix(QQ, 3,3, [0,2,4, 1,1,5, 6,2,5]); B
@@ -1979,7 +2029,6 @@ B, B1, B2, B3, B4, B5
           examples to represent as many \emph{qualitatively different}
           situations as you can.
         \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 2.3 Elimination using Matrices}
 \typeout{************************************************}
@@ -1988,7 +2037,7 @@ B, B1, B2, B3, B4, B5
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-29}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 2.3 of \emph{Strang}.\item{}Read the discussion below and work out the exercises.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
@@ -1997,7 +2046,7 @@ B, B1, B2, B3, B4, B5
 
         Before class, a student should be able to:
       %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
           Translate a system of linear equations into the form of an augmented matrix
           and back.
@@ -2015,7 +2064,7 @@ B, B1, B2, B3, B4, B5
 
         Some time after class, a student should be able to:
       %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
           Use the steps from a forward pass elimination step to write a correct
           equation of the form
@@ -2286,7 +2335,7 @@ A*B
     %
 \par
 
-      First, we define the column vectors by pulling out the entries from \verb?B?
+      First, we define the column vectors by pulling out the entries from \lstinline?B?
       and arranging them. To be sure, we ask Sage to display them as columns.
     %
 \begin{lstlisting}[style=sageinput]
@@ -2428,7 +2477,7 @@ E*D
 
       Still working with the same system of equations, use Sage to make two column picture plots:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{} One showing the three relevant column vectors from the original system.\item{} One showing the three relevant column vectors from the system after the elimination step.\end{itemize}
 \par
 
@@ -2442,7 +2491,7 @@ E*D
       One more time, stay with the same system of equations. Use Sage to make
       two row picture plots:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{} One showing the two relevant lines in the original system.\item{} One showing the two relevant lines from the system after the elimination step.\end{itemize}
 \par
 
@@ -2476,7 +2525,7 @@ E*D
       Still working with the system of equations from the last task, use Sage
       to make two column picture plots:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{} One showing the four relevant column vectors from the original system.\item{} One showing the four relevant column vectors from the system after the elimination step.\end{itemize}
 \par
 
@@ -2490,7 +2539,7 @@ E*D
       One more time, stay with the system of equations from previous two tasks.
       Use Sage to make two row picture plots:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{} One showing the two relevant lines in the original system.\item{} One showing the two relevant lines from the system after the elimination step.\end{itemize}
 \par
 
@@ -2498,7 +2547,6 @@ E*D
       of this workbook.
     %
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 2.4 Going Further with Elimination}
 \typeout{************************************************}
@@ -2507,7 +2555,7 @@ E*D
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-34}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in the first three sections of this chapter.
         Complete any items you
@@ -2531,7 +2579,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -2552,7 +2600,6 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
 \typeout{************************************************}
 \typeout{Section 2.5 Matrix Algebra}
 \typeout{************************************************}
@@ -2561,7 +2608,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-36}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 2.4 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
@@ -2570,13 +2617,13 @@ To help you get started with meta-cognition, I listed learning goals in
 
       Before class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Add and subtract matrices of the same size.\item{}Multiply matrices of appropriate sizes by one method.\item{}Compute powers \(A^p\) of a given square matrix \(A\).\item{}Use the distributive law for matrix multiplication and matrix addition correctly.\end{itemize}
 \par
 
       Sometime after our meeting, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Multiply block matrices.\item{}Multiply matrices by \emph{three} methods.\item{}Give examples to show how matrix multiplication is not like
         ordinary multiplication of real numbers: including the trouble
         with commutativity, and the difficulty with inverses.
@@ -2611,7 +2658,7 @@ To help you get started with meta-cognition, I listed learning goals in
       is a bit trickier. Suddenly, two properties of multiplication for numbers
       don't quite work for matrices:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}multiplication does not necessarily commute: It need not be the case
         that \(AB\) is the same as \(BA\).
       \item{}we may not always have inverses: just because there is a
@@ -2674,7 +2721,7 @@ A+D
 \subsubsection[Sage and Matrix Addition]{Sage and Matrix Addition}\label{subsubsection-17}
 Matrix addition works a lot like addition of integers, as long as you fix
         a size first.%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}There is a zero element.\item{}There are additive inverses (i.e. \emph{negatives}).\item{}The operation is commutative.\end{itemize}
 \begin{lstlisting}[style=sageinput]
 #This constructs the zero matrix
@@ -2685,7 +2732,7 @@ Z = zero_matrix(2,3); Z
 [0 0 0]
 \end{lstlisting}
 \par
-Let us add \verb?A? and \verb?Z?:%
+Let us add \lstinline?A? and \lstinline?Z?:%
 \begin{lstlisting}[style=sageinput]
 A + Z
 \end{lstlisting}
@@ -2694,7 +2741,7 @@ A + Z
 [3 6 6]
 \end{lstlisting}
 \par
-We can check that adding \verb?Z? doesn't change anything.%
+We can check that adding \lstinline?Z? doesn't change anything.%
 \begin{lstlisting}[style=sageinput]
 A + Z == A
 \end{lstlisting}
@@ -2814,7 +2861,7 @@ M(0)
 \par
 
         In fact, this allows you to short cut the construction of any matrix in
-        \verb?M?. This can be really useful if you are going to work with a lot
+        \lstinline?M?. This can be really useful if you are going to work with a lot
         of matrices of the same shape.
       %
 \begin{lstlisting}[style=sageinput]
@@ -2967,7 +3014,6 @@ Blockey
           \end{pmatrix},
         \] what is the matrix \(AX\)? What does this mean about \(X\)?
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 2.6 Matrix Inverses}
 \typeout{************************************************}
@@ -2976,7 +3022,7 @@ Blockey
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-41}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 2.5 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
@@ -2985,7 +3031,7 @@ Blockey
 
       Before class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}State the definition of \terminology{invertible} matrix.\item{}Solve an equation \(Ax = b\) using the inverse of \(A\)
         if it exists.
       \item{}State how inverses and multiplication interact.\item{}Use Gauss-Jordan elimination to compute the inverse of a matrix.\item{}State a test for invertibility of square matrices using pivots.\end{itemize}
@@ -2993,7 +3039,7 @@ Blockey
 
       Some time after class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Describe the connection between Gauss-Jordan elimination and solving
         \(n\) different systems of equations.
       \item{}Describe the connection between Gauss-Jordan elimination, computing
@@ -3042,14 +3088,14 @@ Blockey
 
         \emph{Gauss-Jordan Elimination}
       %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
           \emph{Augment:} Tack on a copy of the identity matrix of the same
           size to the right hand side of your matrix. It should now look like
           \((A \mid I)\).
         \item{}
           \emph{Forward Pass:} This is a nested procedure:
-          \begin{itemize}
+          \begin{itemize}[label=$\circ$]
 \item{}
               \emph{preparation:} If necessary, use a row swap to make a
               non-zero entry in the upper left entry.
@@ -3145,8 +3191,8 @@ A = matrix(QQ, 2,2, [2,1,1,1])
 \end{lstlisting}
 \par
 
-      We can use the \verb?.is_invertible()? method to check that \verb?A? is
-      invertible. In general, this method returns \verb?True? or \verb?False?.
+      We can use the \lstinline?.is_invertible()? method to check that \lstinline?A? is
+      invertible. In general, this method returns \lstinline?True? or \lstinline?False?.
     %
 \begin{lstlisting}[style=sageinput]
 A.is_invertible()
@@ -3187,7 +3233,7 @@ ZeroDivisionError: input matrix must be nonsingular
 \end{lstlisting}
 \par
 
-      We can also ask Sage to compute determinants with the \verb?.determinant()?
+      We can also ask Sage to compute determinants with the \lstinline?.determinant()?
       method.
     %
 \begin{lstlisting}[style=sageinput]
@@ -3199,7 +3245,7 @@ A.determinant(), B.determinant()
 \par
 
       Sage is also capable of computing the reduced row echelon form
-      (the ``rref'') of a matrix with the appropriately named \verb?.rref()?
+      (the ``rref'') of a matrix with the appropriately named \lstinline?.rref()?
       method.
     %
 \begin{lstlisting}[style=sageinput]
@@ -3211,9 +3257,9 @@ A.rref()
 \end{lstlisting}
 \par
 
-      The method \verb?.rref()? does not change the matrix \verb?A?. There is
+      The method \lstinline?.rref()? does not change the matrix \lstinline?A?. There is
       another command which will work the same way for our purposes,
-      \verb?.echelon_form()?.
+      \lstinline?.echelon_form()?.
     %
 \begin{lstlisting}[style=sageinput]
 A.echelon_form()
@@ -3225,8 +3271,8 @@ A.echelon_form()
 \par
 
       There is a related command which \emph{will find the rref and then update the
-      matrix}. It is called \verb?.echelonize()?.
-      Because I don't really want to mess with \verb?A?, we will
+      matrix}. It is called \lstinline?.echelonize()?.
+      Because I don't really want to mess with \lstinline?A?, we will
       make a copy first.
     %
 \begin{lstlisting}[style=sageinput]
@@ -3368,12 +3414,11 @@ E = D.rref().matrix_from_columns([2,3]); E
 \label{task-68}
 
         Design a \(6 \times 6\) matrix which has the following properties:
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{} no entry equal to zero\item{} the reduced row echelon form should have exactly 5 pivots\item{} the 5 pivots should be different numbers\item{} no pair of rows should be scalar multiples of one another\end{itemize}
 
         Is your matrix invertible? How do you know? Does Sage say it is invertible?
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 2.7 The \(LU\) Decomposition}
 \typeout{************************************************}
@@ -3382,7 +3427,7 @@ E = D.rref().matrix_from_columns([2,3]); E
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-46}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 2.6 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
@@ -3391,7 +3436,7 @@ E = D.rref().matrix_from_columns([2,3]); E
 
       Before class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Use Gaussian Elimination to find the \(LU\) and \(LDU\)
         decompositions of a matrix.
@@ -3403,7 +3448,7 @@ E = D.rref().matrix_from_columns([2,3]); E
 
       Sometime after class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Solve a system of equations by using the \(LU\) decomposition and
         two triangular systems.
@@ -3431,7 +3476,7 @@ E = D.rref().matrix_from_columns([2,3]); E
 
       There are three key observations that make this work:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Each of the matrices \(E_{ij}\) that affects a row operation of the
         form \emph{add a multiple of row \(i\) to row \(j\)} is an invertible
@@ -3601,12 +3646,12 @@ A.LU()
 
         By reading carefully, we can see what the way through is, too. We can
         specify our pivoting strategy by adding the keyword argument
-        \verb?pivot="nonzero"? inside the parentheses. Then the algorithm used
+        \lstinline?pivot="nonzero"? inside the parentheses. Then the algorithm used
         will match the one Strang describes.
       %
 \par
 (If you are using SMC, you can access the help using many other ways.
-        But a Google search for \verb?Sage math "topic"? will hit the documentation
+        But a Google search for \lstinline?Sage math "topic"? will hit the documentation
         pretty reliably.)
       %
 \begin{lstlisting}[style=sageinput]
@@ -3703,7 +3748,7 @@ B.LU(pivot='nonzero')
 \par
 
         This has a row-swap permutation matrix, and \emph{it must}. Since the
-        (1,1) entry of \verb?B? is zero, but numbers below that are not zero,
+        (1,1) entry of \lstinline?B? is zero, but numbers below that are not zero,
         we cannot use zero as a pivot. We'll sort out how to handle this in the next
         section.
       %
@@ -3819,7 +3864,6 @@ B.LU(pivot='nonzero')
       \(U = I\), where \(I\) is the identity matrix, or explain why no
       such example exists.
     \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 2.8 Permutation Matrices}
 \typeout{************************************************}
@@ -3828,14 +3872,14 @@ B.LU(pivot='nonzero')
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-51}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 2.7 of \emph{Strang}\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-52}
 Before class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Compute the transpose of a matrix.
       \item{}
@@ -3853,7 +3897,7 @@ Before class, a student should be able to:%
 
       Some time after class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Find the \(LDL^T\) decomposition for symmetric matrices.
       \item{}
@@ -3905,7 +3949,7 @@ Before class, a student should be able to:%
         other matrix operations, each of these can be checked with some tedious
         computation:
       %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
           If \(A\) and \(B\) are matrices of the same shape, then
           \((A+B)^T = A^T + B^T\).
@@ -4025,7 +4069,7 @@ U = u.column(); U # this puts u into a column matrix
 \end{lstlisting}
 \par
 
-        To be sure, we check what the ``parent'' of \verb?U? is.
+        To be sure, we check what the ``parent'' of \lstinline?U? is.
       %
 \begin{lstlisting}[style=sageinput]
 U.parent()
@@ -4035,11 +4079,11 @@ Full MatrixSpace of 3 by 1 dense matrices over Integer Ring
 \end{lstlisting}
 \par
 
-        See! Sage thinks of \verb?U? as a matrix with 3 rows and 1 column.
+        See! Sage thinks of \lstinline?U? as a matrix with 3 rows and 1 column.
       %
 \par
 
-        Now we do the same with \verb?v?
+        Now we do the same with \lstinline?v?
       %
 \begin{lstlisting}[style=sageinput]
 V = v.column()
@@ -4363,7 +4407,6 @@ P.transpose()*A
           \(1\)'s on the diagonal. Expain why \(S\) is symmetric.
         %
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 2.9 Matrix Algebra: Going Further}
 \typeout{************************************************}
@@ -4372,7 +4415,7 @@ P.transpose()*A
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-56}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
       Go back through the exercises in the last four sections of this chapter.
       Complete any items you
@@ -4396,7 +4439,7 @@ To help you get started with meta-cognition, I listed learning goals in
     each section. To go further, you need to explicitly go through the process
     of reviewing what you can do and what you cannot. Here are some prompts to
     help you get started with this process.
-    \begin{itemize}
+    \begin{itemize}[label=\textbullet]
 \item{}
         Review the learning goals from each section. Can you do the things
         described? Can you do them sometimes, or have you mastered them so you
@@ -4417,11 +4460,13 @@ To help you get started with meta-cognition, I listed learning goals in
       \end{itemize}
 
   %
-\clearpage
 \typeout{************************************************}
 \typeout{Chapter 3 Vector Spaces and Subspaces}
 \typeout{************************************************}
 \chapter[Vector Spaces and Subspaces]{Vector Spaces and Subspaces}\label{chapter-subspaces}
+\typeout{************************************************}
+\typeout{Introduction  }
+\typeout{************************************************}
 
       In the last chapter we took on the central problem of linear algebra: solving
       systems of linear equations. We built a lot of useful tools, but we only
@@ -4433,7 +4478,7 @@ To help you get started with meta-cognition, I listed learning goals in
       Now it is time to solve the problem in general. As a reminder, the set of
       questions is this:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         What is the set of solutions to a given system of linear equations?
       \item{}
@@ -4468,18 +4513,18 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-58}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read Chapter 3 section 1 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-59}
 Before class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Identify the column space of a matrix.\item{}Decide if a set in \(\mathbb{R}^n\) is a subspace or not.\end{itemize}
 \par
 Some time after class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Use the notion of column space to decide if a given linear system has a
         solution or not.
@@ -4504,7 +4549,7 @@ Some time after class, a student should be able to:%
       anything that is an element of some vector space under consideration.
       My favorites are things like this:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         The set \(M_{2,2}\) of \(2\times 2\) matrices is a vector space.
         But now the things we call vectors are actually matrices.
@@ -4557,8 +4602,8 @@ Vector space of dimension 3 over Rational Field
 \end{lstlisting}
 \par
 
-      This is like the \verb?MatrixSpace? construction we have seen before.
-      \verb?V? is now the collection of all vectors of size \(3\) with
+      This is like the \lstinline?MatrixSpace? construction we have seen before.
+      \lstinline?V? is now the collection of all vectors of size \(3\) with
       rational numbers as entries.
     %
 \par
@@ -4667,7 +4712,7 @@ B.column_space().basis()[1].column() # second basis vector
 
         Consider the vector space \(\mathbb{R}^2\). Explain why the following
         are not subspaces:
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}The unit circle.\item{}The line \(x+y = 4\).\item{}The union of lines \(2x+3y = 0\) and \(x-y=0\).\item{}The first quadrant where \(x\geq 0\) and \(y\geq 0\).\end{itemize}
 \end{task}
 \begin{task}
@@ -4685,7 +4730,6 @@ B.column_space().basis()[1].column() # second basis vector
         vector \(\begin{pmatrix} 4 \\ 4 \end{pmatrix}\), or explain why this is
         not possible.
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 3.2 The Nullspace}
 \typeout{************************************************}
@@ -4694,14 +4738,14 @@ B.column_space().basis()[1].column() # second basis vector
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-63}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read chapter 3 section 2 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-64}
 Before coming to class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Find the special solutions associated to a matrix.\item{}Compute the \terminology{reduced row echelon form} of a matrix.\item{}Identify the free variables and the pivot variables associated to
         a matrix.
       \item{}
@@ -4710,7 +4754,7 @@ Before coming to class, a student should be able to:%
       \end{itemize}
 \par
 Some time after class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Describe the complete solution to a homogeneous system of equations
         \(Ax = 0\).
       \item{}Give an argument for why the nullspace is a vector subspace.\end{itemize}
@@ -4734,7 +4778,7 @@ Some time after class, a student should be able to:%
       By the way, an equation like \(Ax=0\) where the right hand side is zero
       is called a \terminology{homogeneous equation}.
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}The nullspace of \(A\) is the set of vectors \(x\) such that \(Ax=0\). It
         is a theorem that this is a vector subspace of \(\mathbb{R}^n\). It is a
         common to use the synonym \terminology{the kernel of \(A\)} in place of the
@@ -4949,7 +4993,7 @@ True
 \subsection[Exercises]{Exercises}\label{subsection-67}
 
       For the first three exercises, your job is to find both
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}The minimal set of equations which cuts out the nullspace of the
           given matrix as an intersection of hyperplanes; and
         \item{}the size of the nullspace, expressed through the number
@@ -5041,7 +5085,6 @@ True
           0 & 0 & 1 & 0
           \end{pmatrix}
         \]\end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 3.3 Rank and the RREF}
 \typeout{************************************************}
@@ -5050,20 +5093,20 @@ True
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-68}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read chapter 3 section 3 of \emph{Strang}.\item{}Read the following and do the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-69}
 Before class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}State a definition of the rank of a matrix.\item{}Compute the rank of a matrix.\item{}Describe the relation between the rank and the size of the column
         space.
       \item{}Construct the nullspace matrix associated to a matrix.\end{itemize}
 \par
 Some time after class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Use the RREF and special solutions associated to a matrix to describe
         how free columns are linear combinations of earlier pivot columns.
       \end{itemize}
@@ -5111,7 +5154,7 @@ Some time after class, a student should be able to:%
       \(N\), called the nullspace matrix. This matrix has two important
       properties:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{} \(AN = 0\); and\item{} Each column of \(N\) (i.e. each special solution) holds the
           coefficients needed to write down a interesting linear combination
           equation on the columns of \(A\).
@@ -5130,7 +5173,7 @@ Some time after class, a student should be able to:%
 \subsection[Sage and the Rank]{Sage and the Rank}\label{subsection-71}
 
       Sage has a built-in command for the rank of a matrix. It is called
-      \verb?.rank()?, of course.
+      \lstinline?.rank()?, of course.
     %
 \begin{lstlisting}[style=sageinput]
 A = matrix(QQ, 3,4, [1,2,3,4,5,6,7,8,9,10,11,12])
@@ -5150,7 +5193,7 @@ A.rank()
 \par
 
       Sage knows how to do the underlying computations, too. Let's have Sage
-      compute the reduced row echelon form of \verb?A?:
+      compute the reduced row echelon form of \lstinline?A?:
     %
 \begin{lstlisting}[style=sageinput]
 A.rref()
@@ -5249,12 +5292,12 @@ A*F
 
       Where does this relationship come from? I have a hint: \emph{Column Operations}.
       How can we use the structure of matrix multiplication to see why left multiplication
-      by \verb?E.inverse()? performs some column operations?
+      by \lstinline?E.inverse()? performs some column operations?
     %
 \par
 
-      Here is another thing to think about: where does that \verb?E? come from?
-      Compare \verb?A? and \verb?N?. Notice anything? Remember that Strang wants
+      Here is another thing to think about: where does that \lstinline?E? come from?
+      Compare \lstinline?A? and \lstinline?N?. Notice anything? Remember that Strang wants
       the nullspace matrix to have \(1\)'s and \(0\)'s in the free columns.
     %
 \typeout{************************************************}
@@ -5265,7 +5308,7 @@ A*F
 \label{task-94}
 
         Give an example of a \(5 \times 3\) matrix which has
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}rank equal to 3, and\item{}all non-zero entries,\end{itemize}
 
         or explain why no such example is possible.
@@ -5274,7 +5317,7 @@ A*F
 \label{task-95}
 
         Give an example of a \(3 \times 3\) matrix which has
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}rank equal to 2,\item{}a nullspace of \(\{0\}\), and\item{}all non-zero entries,\end{itemize}
 
         or explain why no such example is possible.
@@ -5330,7 +5373,6 @@ A*F
         1 \\ 1 & 1 \end{smallmatrix}\right)\). What is the nullspace
         matrix of \(T\)?
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 3.4 Solving a System}
 \typeout{************************************************}
@@ -5339,7 +5381,7 @@ A*F
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-73}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read chapter 3 section 4 of Strang.\item{}Read the following and complete the tasks below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
@@ -5348,7 +5390,7 @@ A*F
 
       Before class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Identify a particular solution to a matrix-vector equation \(Ax=b\).
         (Provided there is one.)
@@ -5360,7 +5402,7 @@ A*F
 
       After class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Describe the complete solution to a matrix-vector equation \(Ax=b\)
         as an implicit object, cut out by equations.
@@ -5442,7 +5484,7 @@ A*F
       This leads us to Strang's very sensible advice about finding the
       complete solution:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Form the augmented matrix \(\left( A \mid b \right)\) and use
         Gauss-Jordan elimination to put it in reduced row echelon form
@@ -5581,7 +5623,7 @@ A\b
 \end{lstlisting}
 \par
 
-        It is weird, but this works even if \verb?A? is not invertible, like now.
+        It is weird, but this works even if \lstinline?A? is not invertible, like now.
       %
 \begin{lstlisting}[style=sageinput]
 A.inverse()*b
@@ -5604,8 +5646,8 @@ ArithmeticError: self must be a square matrix
 \subsubsection[Method Three: Another Sage Built-in]{Method Three: Another Sage Built-in}\label{subsubsection-38}
 
         Finally, Sage will also try to solve the system if you apply the
-        \verb?.solve_right()? method to \verb?A?. You have to supply the vector
-        \verb?b? as an argument to the command.
+        \lstinline?.solve_right()? method to \lstinline?A?. You have to supply the vector
+        \lstinline?b? as an argument to the command.
       %
 \begin{lstlisting}[style=sageinput]
 A.solve_right(b)
@@ -5732,7 +5774,6 @@ A.solve_right(b)
         Find the matrix \(A\). Write the set of equations that corresponds to
         \(Ax = b\). (This is the \emph{implicit} description of this set!)
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 3.5 Going Further with Solving Systems}
 \typeout{************************************************}
@@ -5741,7 +5782,7 @@ A.solve_right(b)
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-78}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in the first four sections of this chapter.
         Complete any items you
@@ -5766,7 +5807,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -5787,7 +5828,6 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
 \typeout{************************************************}
 \typeout{Section 3.6 Bases}
 \typeout{************************************************}
@@ -5796,20 +5836,20 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-80}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read \emph{Strang} chapter 3 section 5.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-81}
 Before class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Use the row space algorithm to decide if a set of vectors is
         linearly independent or linearly dependent.\item{}Use the column space algorithm to decide if a set of vectors is
         linearly independent or linearly dependent\item{}Compute the dimension of a subspace.\end{itemize}
 \par
 Sometime after class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Explain the connection between a set of vectors being
       linearly independent, a spanning set, and a basis.\end{itemize}
 \typeout{************************************************}
@@ -5841,7 +5881,7 @@ Sometime after class, a student should be able to:%
 
       What are the new terms?
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         A set \(\{v_1, v_2, \ldots, v_k\}\) of vectors is \terminology{linearly
         independent}, or \terminology{linearly dependent}.
@@ -5879,7 +5919,7 @@ Sometime after class, a student should be able to:%
         vector spaces! Can you make examples and non-examples in some of
         these other situtations?
       %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
           The set \(\mathcal{P}_3\) of polynomials in \(x\) of degree
           no more than 3?
@@ -5908,7 +5948,7 @@ Sometime after class, a student should be able to:%
           \(\mathbb{R}^n\):
         %
 
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}Form the \(n\times k\) matrix
             \(A = \left( \begin{smallmatrix} v_1 & v_2 & \dots &
             v_k\end{smallmatrix}\right)\).
@@ -5938,7 +5978,7 @@ Sometime after class, a student should be able to:%
           \(\mathbb{R}^n\):
         %
 
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}Form the \(k\times n\) matrix
           \(A = \left( \begin{smallmatrix} v_1^T \\ v_2^T \\ \vdots
             \\ v_k^T \end{smallmatrix}\right)\).
@@ -5991,7 +6031,7 @@ Basis matrix:
 \par
 
         Note that Sage already gives us some information:
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}dimension\item{}a basis\end{itemize}
 
         Sage has chosen its preferred basis, as usual.
@@ -6080,7 +6120,7 @@ col_matrix.rref()
 \subsubsection[Spaces Associated to a Matrix]{Spaces Associated to a Matrix}\label{subsubsection-43}
 
         Sage knows about the column space and row space associated to a
-        matrix. For this next example, we will work over the ring \verb?AA?
+        matrix. For this next example, we will work over the ring \lstinline?AA?
         of ``algebraic numbers'', so we can include \(\sqrt{2}\).
       %
 \begin{lstlisting}[style=sageinput]
@@ -6256,7 +6296,6 @@ A.right_kernel().dimension()
         Find a basis for the space of polynomials \(p(x)\) of degree less than
         or equal to \(3\). Find a basis for the subspace with \(p(1)=0\).
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 3.7 The Four Subspaces}
 \typeout{************************************************}
@@ -6265,14 +6304,14 @@ A.right_kernel().dimension()
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-85}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read chapter 3 section 6 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-86}
 Before class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Identify the four subspaces associated to a matrix by giving a basis
         of each.
       \item{}Determine the dimension of each of the four subspaces associated to a
@@ -6280,7 +6319,7 @@ Before class, a student should be able to:%
       \end{itemize}
 \par
 Some time after class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Describe each of the four subspaces associated to a matrix by
         giving minimal sets of equations which ``cut them out.''
       \item{}State and use the Fundamental Theorem of Linear Algebra (FTLA)
@@ -6310,7 +6349,7 @@ Some time after class, a student should be able to:%
 
       We now have four fundamental subspaces associated to the matrix \(A\).
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}The column space, \(\mathrm{col}(A)\), spanned by all of the
         columns of \(A\). This is a subspace of \(\mathbb{R}^m\).
       \item{}The row space, \(\mathrm{row}(A)\), spanned by all of the rows
@@ -6330,7 +6369,7 @@ Some time after class, a student should be able to:%
 
         If \(A\) is an \(m\times n\) matrix with rank
         \(\mathrm{rank}(A) = r\), then
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}\(\dim(\mathrm{col}(A)) = \dim(\mathrm{row}(A)) = r\),\item{}\(\dim(\mathrm{null}(A)) = n-r\), and\item{}\(\dim(\mathrm{null}(A^T))= m-r\).\end{itemize}
 \end{theorem}
 \par
@@ -6349,8 +6388,8 @@ Some time after class, a student should be able to:%
 \subsection[Sage and the Four Subspaces]{Sage and the Four Subspaces}\label{subsection-88}
 
       We have already seen enough Sage commands to work with the four subspaces:
-      \verb?.row_space()?, \verb?.column_space()?, \verb?.left_kernel()?, and
-      \verb?.right_kernel()? all work.
+      \lstinline?.row_space()?, \lstinline?.column_space()?, \lstinline?.left_kernel()?, and
+      \lstinline?.right_kernel()? all work.
       Alternatively, we need only remember that the left nullspace and the row
       space are just the nullspace and column space of the transpose. Let us
       take a look at some of the options.
@@ -6511,7 +6550,6 @@ True
           equation is unique? How do you use that subspace?
         %
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 3.8 Going Further with the Fundamental Theorem}
 \typeout{************************************************}
@@ -6520,7 +6558,7 @@ True
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-90}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in the last two sections of this chapter.
         Complete any items you
@@ -6545,7 +6583,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -6566,11 +6604,13 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
 \typeout{************************************************}
 \typeout{Chapter 4 Orthogonality}
 \typeout{************************************************}
 \chapter[Orthogonality]{Orthogonality}\label{chapter-orthogonality}
+\typeout{************************************************}
+\typeout{Introduction  }
+\typeout{************************************************}
 
       We introduced the dot product in Chapter One, but we have not found a lot
       of use for it so far. In this chapter, we pick it back up and see what
@@ -6606,7 +6646,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-92}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 4.1 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
@@ -6615,7 +6655,7 @@ To help you get started with meta-cognition, I listed learning goals in
 
       Before class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Find the four subspaces associated to a matrix and verify that they
         are orthogonal subspaces.
@@ -6627,7 +6667,7 @@ To help you get started with meta-cognition, I listed learning goals in
 
       Some time after class, a student should be able to:
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Find the orthogonal complement to a subspace.\item{}
         Reason about the structure of a matrix as a transformation using information
         about its four subspaces.
@@ -6710,7 +6750,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \begin{theorem}\label{theorem-8}
 
         If \(A\) is an \(m\times n\) matrix, then
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}
             The nullspace of \(A\) and the row space of \(A\) are
             orthogonal complements of one another.
@@ -6725,7 +6765,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \subsection[Sage and the Orthogonal Complement]{Sage and the Orthogonal Complement}\label{subsection-95}
 
       It is not hard to find the four subspaces associated to a matrix with Sage's
-      built-in commands. But Sage also has a general purpose \verb?.complement()?
+      built-in commands. But Sage also has a general purpose \lstinline?.complement()?
       method available for vector subspaces which can be used.
     %
 \begin{lstlisting}[style=sageinput]
@@ -6868,7 +6908,6 @@ Basis matrix:
         Write down a basis for \(P^{\perp}\). Construct a matrix \(X\) which
         has \(P\) as its nullspace.
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 4.2 Projections Onto Subspaces}
 \typeout{************************************************}
@@ -6877,18 +6916,18 @@ Basis matrix:
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-97}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read Chapter 4 section 2 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-98}
 Before class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Compute the projection of a vector onto a line.\item{}Find the projection matrix which computes the projections of vectors onto a given line.\item{}Draw the schematic picture of a projection: the line, the vector, the projected vector, and the difference.\end{itemize}
 \par
 Sometime after class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Compute the projection of a vector onto a subspace.\item{}Find the projection matrix which computes the projections of vectors onto a given subspace.\item{}
             Explain the process for finding the equations which determine the projection matrix, and say
             why the transpose makes an appearance.
@@ -7056,7 +7095,6 @@ Also as expected.%
             \(\left(-3,1,-3,1\right)\) on this plane.
           %
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 4.3 Going Further: Projections}
 \typeout{************************************************}
@@ -7065,7 +7103,7 @@ Also as expected.%
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-102}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in this chapter. Complete any items you
         did not complete the first time through. Prepare any that we have not
@@ -7088,7 +7126,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -7109,7 +7147,6 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
 \typeout{************************************************}
 \typeout{Section 4.4 Approximate Solutions: Least Squares}
 \typeout{************************************************}
@@ -7118,7 +7155,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-104}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 4.3 of Strang.\item{}Read the discussion below.\item{}Complete exercises 1-11 from section 4.3 in Strang.\item{}Prepare the items in the exercises for presentation.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Discussion: Least Squares Approximation}
@@ -7158,7 +7195,7 @@ To help you get started with meta-cognition, I listed learning goals in
         we are looking for a function \(f\) which has a specified type (linear,
         quadratic, exponential, etc.) that passes through those points.
       %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Each data point leads us to an equation \(f(a_i) = y_i\).\item{}
           The modelling function $f$ has some parameters in it, and we want to
           find the best value of those parameters so that the curve ``fits''
@@ -7223,7 +7260,7 @@ To help you get started with meta-cognition, I listed learning goals in
 
       There are no new commands for dealing with matrices here, as we already
       have all that we need. If you are interested, Sage does have a built-in
-      function called \verb?find_fit?.
+      function called \lstinline?find_fit?.
     %
 \begin{lstlisting}[style=sageinput]
 Data = [[1,2], [-1,3], [4,1],[2,1],[1,.5]]
@@ -7302,7 +7339,6 @@ plot(curve, (x,-1,6)) + points(Data, color='red', size=20)
 
         Exercise 11 from section 4.3 of Strang.
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 4.5 Orthonormal Bases and Gram-Schmidt}
 \typeout{************************************************}
@@ -7311,21 +7347,21 @@ plot(curve, (x,-1,6)) + points(Data, color='red', size=20)
 \typeout{Subsection  The assignment}
 \typeout{************************************************}
 \subsection[The assignment]{The assignment}\label{subsection-108}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 4.4 of \emph{Strang}.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
 \typeout{************************************************}
 \subsection[Learning Goals]{Learning Goals}\label{subsection-109}
 Before class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Correctly decide if a matrix is orthogonal or not.\item{}
         Use the Gram-Schmidt algorithm to turn a basis into an
         orthonormal basis.
       \end{itemize}
 \par
 Some time after class, a student should be able to:%
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Find the QR decomposition of a matrix.\item{}Describe the Gram-Schmidt process geometrically using orthogonal
         projections.
       \end{itemize}
@@ -7335,7 +7371,7 @@ Some time after class, a student should be able to:%
 \subsection[Discussion: Gram-Schmidt]{Discussion: Gram-Schmidt}\label{subsection-110}
 
       There are four main points to take away from this section:
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}The idea of an orthonormal basis.\item{}The idea of an orthogonal matrix. The special property that
           \(Q^T = Q^{-1}\) for an orthogonal matrix \(Q\).
         \item{}The Gram-Schimdt algorithm for constructing an orthonormal basis.\item{}The \(QR\) decomposition of a matrix \(A\).\end{itemize}
@@ -7352,7 +7388,7 @@ Some time after class, a student should be able to:%
 \par
 
       If you check the documentation, you will see that the matrix has to be defined
-      over a special type of ring, so use \verb?QQbar?.
+      over a special type of ring, so use \lstinline?QQbar?.
     %
 \begin{lstlisting}[style=sageinput]
 A = matrix(QQbar, 4,4,
@@ -7516,7 +7552,6 @@ True
             \(b_1 + b_2 = b = (1,1,1,1)\).
           \end{enumerate}
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 4.6 Going Further: Least Squares and Gram-Schmidt}
 \typeout{************************************************}
@@ -7525,7 +7560,7 @@ True
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-113}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in this chapter. Complete any items you
         did not complete the first time through. Prepare any that we have not
@@ -7548,7 +7583,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -7569,11 +7604,13 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
 \typeout{************************************************}
 \typeout{Chapter 5 Determinants}
 \typeout{************************************************}
 \chapter[Determinants]{Determinants}\label{chapter-determinants}
+\typeout{************************************************}
+\typeout{Introduction  }
+\typeout{************************************************}
 
       Our next goal is to find a better understanding of the \terminology{determinant}
       of a square matrix. We have seen this come up before as a measurement that allows
@@ -7594,7 +7631,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-115}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Read section chapter 5 section 1 of Strang.
       \item{}
@@ -7669,7 +7706,7 @@ At some point, a student should be able to compute the determinant of a
 \typeout{************************************************}
 \subsection[Sage and the Determinant]{Sage and the Determinant}\label{subsection-118}
 Sage has a built-in command for the determinant of a square matrix. It is
-      just what you expect: \verb?A.determinant()?.
+      just what you expect: \lstinline?A.determinant()?.
     %
 \begin{lstlisting}[style=sageinput]
 A = matrix(QQ, 3,3, [4,3,5, 2,-1,0, -5,2,10])
@@ -7786,16 +7823,15 @@ print(U)
           Which two numbers \(\lambda\) lead to \(\det(A-\lambda I) = 0\)?
         %
 \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 5.2 Computing Determinants}
 \typeout{************************************************}
-\section[Computing Determinants]{Computing Determinants}\label{section-least-squares}
+\section[Computing Determinants]{Computing Determinants}\label{section-det-computation}
 \typeout{************************************************}
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-120}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read Chapter 5 section 2 of Strang.\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Learning Goals}
@@ -7829,7 +7865,7 @@ Strang devotes all of his energy in this section to the different ways to
           Let \(A\) be an \(n\times n\) matrix. Then the following conditions
           are equivalent:
         %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}The columns of \(A\) are linearly independent.\item{}The columns of \(A\) are a spanning set for \(\mathbb{R}^n\).\item{}The colums of \(A\) are a basis for \(\mathbb{R}^n\).\item{}The rows of \(A\) are linearly independent.\item{}The rows of \(A\) are a spanning set for \(\mathbb{R}^n\).\item{}The rows of \(A\) are a basis for \(\mathbb{R}^n\).\item{}For any choice of vector \(b \in \mathbb{R}^n\), the system of linear
             equations \(Ax = b\) has a unique solution.\item{}\(A\) is invertible.\item{}The transpose \(A^T\) is invertible.\item{}\(\det(A) \neq 0\).\item{}\(\det(A^T) \neq 0\).\end{itemize}
 \end{theorem}
@@ -7892,7 +7928,6 @@ Strang devotes all of his energy in this section to the different ways to
           X = \begin{pmatrix} 2 & 1 & \bullet \\ 1 & 1 & \bullet
           \\ -1 & 1 & \bullet \end{pmatrix}.
         \]\end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 5.3 Going Further: The Determinant}
 \typeout{************************************************}
@@ -7901,7 +7936,7 @@ Strang devotes all of his energy in this section to the different ways to
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-124}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in this chapter. Complete any items you
         did not complete the first time through. Prepare any that we have not
@@ -7924,7 +7959,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -7945,11 +7980,13 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
 \typeout{************************************************}
 \typeout{Chapter 6 Eigendata and the Singular Value decomposition}
 \typeout{************************************************}
 \chapter[Eigendata and the Singular Value decomposition]{Eigendata and the Singular Value decomposition}\label{chapter-eigendata-and-svd}
+\typeout{************************************************}
+\typeout{Introduction  }
+\typeout{************************************************}
 
       We have studied the algebraic structure of matrices, and we have studied the
       way that these algebraic properties are reflected in a geometric model where
@@ -7981,7 +8018,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The assignment}
 \typeout{************************************************}
 \subsection[The assignment]{The assignment}\label{subsection-126}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read section 6.1 of Strang (pages 283-292).\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Discussion: Eigenvalues and Eigenvectors}
@@ -8096,7 +8133,7 @@ Well, that probably needs a simplification or two. But there it is!%
 
         Sage has useful built-in commands that get at the same computations. But
         for them to work, your matrix must be defined over a set of numbers that
-        is big enough to take roots of polynomials. We will use \verb?AA?, which
+        is big enough to take roots of polynomials. We will use \lstinline?AA?, which
         stands for the real algebraic numbers.
       %
 \begin{lstlisting}[style=sageinput]
@@ -8190,7 +8227,6 @@ Exercise 14 from section 6.1 of Strang.
 \label{task-163}
 Exercise 19 from section 6.1 of Strang.
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 6.2 Diagonalizing Matrices}
 \typeout{************************************************}
@@ -8199,7 +8235,7 @@ Exercise 19 from section 6.1 of Strang.
 \typeout{Subsection  The assignment}
 \typeout{************************************************}
 \subsection[The assignment]{The assignment}\label{subsection-130}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{} Read section 6.2 of Strang (pages 298-307).\item{} Read the following.\item{} Prepare the items below for presentation.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Diagonalizing Matrices}
@@ -8212,7 +8248,7 @@ Exercise 19 from section 6.1 of Strang.
 
         Let \(A\) be an \(n\times n\) square matrix. Then the following
         two conditions are equivalent:
-        \begin{itemize}
+        \begin{itemize}[label=\textbullet]
 \item{}
             There is a basis \(\beta= \{ v_1, v_2, \ldots, v_n \}\) for
             \(\mathbb{R}^n\) consisting of eigenvectors for \(A\).
@@ -8406,7 +8442,6 @@ True
 
         Exercise 19 from section 6.2 of Strang.
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 6.3 The Spectral Theorem}
 \typeout{************************************************}
@@ -8415,7 +8450,7 @@ True
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-134}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read chapter 6 section 4 of \emph{Strang}\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Discussion: The Spectral Theorem for Symmetric Matrices}
@@ -8508,9 +8543,9 @@ True
     %
 \par
 
-      The first command you might find useful is \verb?.change_ring()?. This is
+      The first command you might find useful is \lstinline?.change_ring()?. This is
       helpful for those times when you define a matrix over some convenient ring
-      like \verb?QQ?, but then want to work with eigevalues and eigenvectors and
+      like \lstinline?QQ?, but then want to work with eigevalues and eigenvectors and
       so need a bigger ring that you can take roots in. Using this command doesn't
       change the matrix, so much as tell Sage to think of it as having entries
       from a different set of numbers.
@@ -8525,7 +8560,7 @@ A.change_ring(AA)
 \end{lstlisting}
 \par
 
-      The command \verb?.jordan_form(transformation=True)? will return a pair
+      The command \lstinline?.jordan_form(transformation=True)? will return a pair
       consisting of
       a diagonal matrix with the eigenvalues as entries and an invertible matrix
       consisting of a basis of eigenvectors. These eigenvectors will NOT be an
@@ -8589,7 +8624,7 @@ Q * D * Q.transpose()
 \end{lstlisting}
 \par
 
-      That is about as close as we can get to displaying the original \verb?X?.
+      That is about as close as we can get to displaying the original \lstinline?X?.
     %
 \typeout{************************************************}
 \typeout{Subsection  Exercises}
@@ -8635,7 +8670,6 @@ Q * D * Q.transpose()
 
         From Strang section 6.4, do exercise 24.
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 6.4 Going Further with Eigendata}
 \typeout{************************************************}
@@ -8644,7 +8678,7 @@ Q * D * Q.transpose()
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-138}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in the first three sections of this chapter.
         Complete any items you
@@ -8668,7 +8702,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -8689,7 +8723,6 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
 \typeout{************************************************}
 \typeout{Section 6.5 Singular Value Decomposition}
 \typeout{************************************************}
@@ -8698,7 +8731,7 @@ To help you get started with meta-cognition, I listed learning goals in
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-140}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}Read chapter 6 section 7 of \emph{Strang}\item{}Read the following and complete the exercises below.\end{itemize}
 \typeout{************************************************}
 \typeout{Subsection  Discussion: The Singular Value Decomposition}
@@ -8710,7 +8743,7 @@ To help you get started with meta-cognition, I listed learning goals in
       \(A\) is \(n \times m\), the idea is to
       choose
     %
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), \item{}and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)\end{itemize}
 \par
 
@@ -8812,11 +8845,11 @@ Strang has a good run-down of the neat properties this set up has.%
 \subsection[Sage and the SVD]{Sage and the SVD}\label{subsection-142}
 
       Sage has a built in command for the singular value decomposition of a matrix.
-      If you have a matrix \verb?A?, the command is \verb?A.SVD()?. But there is a
+      If you have a matrix \lstinline?A?, the command is \lstinline?A.SVD()?. But there is a
       little trick to using it! At present, Sage only has this function implemented
       for matrices defined over rings of ``floating point numbers''. The best
-      way around this is to either define your matrix with entries in the ring \verb?RDF?,
-      or use the \verb?.change_ring(RDF)? method on you matrix before you use the SVD.
+      way around this is to either define your matrix with entries in the ring \lstinline?RDF?,
+      or use the \lstinline?.change_ring(RDF)? method on you matrix before you use the SVD.
     %
 \begin{lstlisting}[style=sageinput]
 A = matrix(QQ, 2,2, [2,1,1,1])
@@ -8882,7 +8915,6 @@ Complete exercise 6.7.11 from \emph{Strang}.
 \label{task-187}
 Complete exercise 6.7.12 from \emph{Strang}.
       \end{task}
-\clearpage
 \typeout{************************************************}
 \typeout{Section 6.6 Going Further with the SVD}
 \typeout{************************************************}
@@ -8891,7 +8923,7 @@ Complete exercise 6.7.12 from \emph{Strang}.
 \typeout{Subsection  The Assignment}
 \typeout{************************************************}
 \subsection[The Assignment]{The Assignment}\label{subsection-144}
-\begin{itemize}
+\begin{itemize}[label=\textbullet]
 \item{}
         Go back through the exercises in the last section. Complete any items you
         did not complete the first time through. Prepare any that we have not
@@ -8914,7 +8946,7 @@ To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
-      \begin{itemize}
+      \begin{itemize}[label=\textbullet]
 \item{}
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
@@ -8935,8 +8967,4 @@ To help you get started with meta-cognition, I listed learning goals in
         \end{itemize}
 
     %
-\clearpage
-%
-\backmatter
-%
 \end{document}

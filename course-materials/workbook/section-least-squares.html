@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T16:30:26-06:00    *-->
+<!--*    on 2015-11-03T17:12:41-06:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Computing Determinants</title>
+<title>Approximate Solutions: Least Squares</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 <script type="text/x-mathjax-config">
@@ -62,12 +62,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="section-det-properties.html">Previous</a><a class="up-button button toolbar-item" href="chapter-determinants.html">Up</a><a class="next-button button toolbar-item" href="section-det-gf.html">Next</a>
+<a class="previous-button toolbar-item button" href="section-gf-proj.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-gram-schmidt.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-det-properties.html">Previous</a><a class="up-button button toolbar-item" href="chapter-determinants.html">Up</a><a class="next-button button toolbar-item" href="section-det-gf.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-gf-proj.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-gram-schmidt.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -107,19 +107,19 @@ $(function () {
 <li><a href="four-subspaces.html">The Four Subspaces</a></li>
 <li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
 </ul>
-<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<h2 class="link active"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
 <ul>
 <li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
 <li><a href="section-projections.html">Projections Onto Subspaces</a></li>
 <li><a href="section-gf-proj.html">Going Further: Projections</a></li>
-<li><a href="section-least-squares.html">Approximate Solutions: Least Squares</a></li>
+<li><a href="section-least-squares.html" class="active">Approximate Solutions: Least Squares</a></li>
 <li><a href="section-gram-schmidt.html">Orthonormal Bases and Gram-Schmidt</a></li>
 <li><a href="section-gf-ls-gs.html">Going Further: Least Squares and Gram-Schmidt</a></li>
 </ul>
-<h2 class="link active"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
 <ul>
 <li><a href="section-det-properties.html">Properties of the Determinant</a></li>
-<li><a href="section-least-squares.html" class="active">Computing Determinants</a></li>
+<li><a href="section-det-computation.html">Computing Determinants</a></li>
 <li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
 </ul>
 <h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
@@ -131,104 +131,162 @@ $(function () {
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
 </ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-least-squares"><header><h1 class="heading" alt="Section 5.2 Computing Determinants" title="Section 5.2 Computing Determinants">
-<span class="type">Section</span><span class="codenumber">5.2</span><span class="title">Computing Determinants</span>
-</h1></header><section class="subsection" id="subsection-120"><header><h1 class="heading hide-type">
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-least-squares"><header><h1 class="heading" alt="Section 4.4 Approximate Solutions: Least Squares" title="Section 4.4 Approximate Solutions: Least Squares">
+<span class="type">Section</span><span class="codenumber">4.4</span><span class="title">Approximate Solutions: Least Squares</span>
+</h1></header><section class="subsection" id="subsection-104"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read Chapter 5 section 2 of Strang.</li>
-<li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-121"><header><h1 class="heading hide-type">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p>Before class, a student should be able to compute the determinant by using
-      cofactors. A student should also be able to compute a determiant using the
-      “big formula” for matrices of size 2 or 3.
+<li>Read section 4.3 of Strang.</li>
+<li>Read the discussion below.</li>
+<li>Complete exercises 1-11 from section 4.3 in Strang.</li>
+<li>Prepare the items in the exercises for presentation.</li>
+</ul></section><section class="subsection" id="subsection-105"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Least Squares Approximation</span>
+</h1></header><p>
+      (It is probably best to read this after you read the section in Strang.)
     </p>
+<section class="subsubsection" id="subsubsection-44"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Some Perspective</span>
+</h1></header><p>
+        Scientific problems often come down to something as simple as this: make
+        a bunch of observations, and then try to fit those observations with
+        some sort of model for greater understanding.
+      </p>
 <p>
-      Some time after class, a student should be comfortable with the different parts
-      of the invertible matrix theorem.
-    </p></section><section class="subsection" id="subsection-122"><header><h1 class="heading hide-type">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Importance of the Determinant</span>
-</h1></header><p>Strang devotes all of his energy in this section to the different ways to
-      compute the determinant. I don't have much to add to that.
-    </p>
+        But data found in scientific problems is often noisy, or infected with
+        error in some way. This leads researchers to gather <!--Style me with CSS--><em>more</em> data
+        so that chance variations and small errors might get smoothed out.  How
+        might we fit a curve to a lot of data? Lots of data points means that we
+        likely have too many points to have a curve of our specified model type
+        actually hit all of those points.
+      </p>
 <p>
-      The real importance of the determinant is described in the following
-      theorem. Note that this is a special result for square matrices.
-      The shape is crucial for this result.
-    </p>
-<article class="theorem-like" id="theorem-9"><h5 class="heading">
-<span class="type">Theorem</span><span class="codenumber">5.1</span>
-</h5>(The Invertible Matrix Theorem)
-        <p>
-          Let \(A\) be an \(n\times n\) matrix. Then the following conditions
-          are equivalent:
-        </p>
+        For example, fitting a line to five points is already problematic: any
+        two points gives us a line, and there is no reason to believe that the
+        other three points will all sit on that line.
+      </p>
+<p>
+        If we set the problem up as a system of equations, things go like this:
+        We have a bunch of data set up as input-output pairs \(\{ (a_i, y_i) \}\);
+        we are looking for a function \(f\) which has a specified type (linear,
+        quadratic, exponential, etc.) that passes through those points.
+      </p>
 <ul style="list-style-type: disc;">
-<li>The columns of \(A\) are linearly independent.</li>
-<li>The columns of \(A\) are a spanning set for \(\mathbb{R}^n\).</li>
-<li>The colums of \(A\) are a basis for \(\mathbb{R}^n\).</li>
-<li>The rows of \(A\) are linearly independent.</li>
-<li>The rows of \(A\) are a spanning set for \(\mathbb{R}^n\).</li>
-<li>The rows of \(A\) are a basis for \(\mathbb{R}^n\).</li>
-<li>For any choice of vector \(b \in \mathbb{R}^n\), the system of linear
-            equations \(Ax = b\) has a unique solution.</li>
-<li>\(A\) is invertible.</li>
-<li>The transpose \(A^T\) is invertible.</li>
-<li>\(\det(A) \neq 0\).</li>
-<li>\(\det(A^T) \neq 0\).</li>
-</ul></article></section><section class="subsection" id="subsection-123"><header><h1 class="heading hide-type">
+<li>Each data point leads us to an equation \(f(a_i) = y_i\).</li>
+<li>
+          The modelling function $f$ has some parameters in it, and we want to
+          find the best value of those parameters so that the curve “fits”
+          the data well. These parameters are the unknowns in our equations.
+        </li>
+</ul>
+<p>
+        This is generally a challenging problem. The method of least squares is
+        a technique for solving it when the resulting equations make a linear
+        system.
+      </p></section><section class="subsubsection" id="subsubsection-45"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Some History</span>
+</h1></header><p>
+        Gauss discovered the technique described in this section in the late
+        1790's. In 1801 he used it to help astronomers calculate the orbit of
+        the newly discovered asteroid Ceres, and thus find it after it re-emerged
+        from behind the sun.
+      </p>
+<p>
+        See how the pattern fits? Several weeks worth of data about the position
+        of Ceres was known, but it surely had measurement errors in it. Since
+        the time of Kepler (Newton), we have known that the motion of the
+        asteroid must be an ellipse. This is a simple equation with only a few
+        parameters (the coefficients of the equation defining the ellipse). So,
+        the question confronting Gauss was this: find the ellipse which best
+        fits the data.
+      </p>
+<p>
+        But plugging all the data into the correct model shape (a conic!) leads
+        to a rather large system of linear equations where the unknowns are the
+        coefficients we seek.
+      </p></section><section class="subsubsection" id="subsubsection-46"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">So, what is really happening here?</span>
+</h1></header><p>
+        In the end, we get a system of the form \(Ax = y\). Here \(A\) is
+        an \(m\times n\) matrix and \(ym\) is an \(n\)-vector, where
+        \(m\) is the number of equations and \(n\) is the number of
+        parameters we must find.
+        Typically, \(m\) is much larger than \(n\), so the matrix \(A\)
+        is tall and skinny.
+      </p>
+<p>
+        So the system likely has no solution. Instead, we will find the orthogonal
+        projection \(\hat{y}\) of \(y\) onto the column space
+        \(\mathrm{col}(A)\) of \(A\), and then solve \(Ax = \hat{y}\).
+        That's the secret. Since we have already mastered projections, this is
+        no big deal.
+      </p></section></section><section class="subsection" id="subsection-106"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage instructions</span>
+</h1></header><p>
+      There are no new commands for dealing with matrices here, as we already
+      have all that we need. If you are interested, Sage does have a built-in
+      function called <tt class="code-inline" style="color: red; font-size: 120%">find_fit</tt>.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">Data = [[1,2], [-1,3], [4,1],[2,1],[1,.5]]
+a, b, x = var('a b x')
+model(x) = a*x + b
+
+best = find_fit(Data, model, solution_dict=True)
+best
+</script></div>
+<p>Just to check that, let's plot the data and the curve.</p>
+<div class="sage-compute"><script type="text/x-sage">curve = model.subs(best)
+plot(curve, (x,-1,6)) + points(Data, color='red', size=20)
+</script></div>
+<p>
+      That is not so terrible. Keep in mind that, from a linear algebra perspective,
+      we just found the projection of \(y = (2,3,1,1,.5) \in \mathbb{R}^5\) on
+      the column space of the matrix
+      <article class="displaymath" id="me-127">\[
+        A = \begin{pmatrix} 1 &amp; 1 \\ -1 &amp; 1\\ 4 &amp; 1 \\ 2 &amp; 1 \\
+        1 &amp; 1 \end{pmatrix},
+      \]</article>
+      which is a \(2\)-dimensional plane in that \(5\)-dimensional space.
+      If I could, I would draw that picture, but five dimensions in challenging.
+    </p></section><section class="subsection" id="subsection-107"><header><h1 class="heading hide-type">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-152"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">152</span><span class="title"></span>
-</h5> (Strang 5.2.2)
-        Compute determinants of the following matrices using the big formula. Are
-        the columns of these matrices linearly independent?
-        <article class="displaymath" id="me-140">\[
-          A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \end{pmatrix},
-          B = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{pmatrix},
-          C = \begin{pmatrix} A &amp; 0 \\ 0 &amp; A \end{pmatrix},
-          D = \begin{pmatrix} A &amp; 0 \\ 0 &amp; B \end{pmatrix}.
-        \]</article></article><article class="example-like" id="task-153"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">153</span><span class="title"></span>
-</h5> (Strang 5.2.3)
-        Show that \(\det(A)=0\), no matter what values are used to fill in the
-        five unknowns marked with dots. What are the cofactors of row 1? What is
-        the rank of \(A\)? What are the six terms in the big formula?
-        <article class="displaymath" id="me-141">\[
-          A = \begin{pmatrix} \bullet &amp; \bullet &amp; \bullet \\
-          0 &amp; 0 &amp; \bullet \\ 0 &amp; 0 &amp; \bullet \end{pmatrix}.
-        \]</article></article><article class="example-like" id="task-154"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">154</span><span class="title"></span>
-</h5> (Strang 5.2.4)
-        Use cofactors to compute the determinants below:
-        <article class="displaymath" id="me-142">\[
-          \det \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 &amp; 1 \\
-          1 &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad
-          \det \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; 3 &amp; 4 &amp; 5 \\
-          5 &amp; 4 &amp; 0 &amp; 3 \\ 2 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}.
-        \]</article></article><article class="example-like" id="task-155"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">155</span><span class="title"></span>
-</h5> (Strang 5.2.5)
-        What is the smallest arrangement of zeros you can place in a \(4 \times 4\)
-        matrix to guarantee that its determinant is zero? Try to place as many non-zero
-        entries as you can while keeping \(\det A \neq 0\).
-      </article><article class="example-like" id="task-156"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">156</span><span class="title"></span>
+</h1></header><p>
+      The best thing you can do to understand this is work some examples. Do
+      Strang 1 - 11 from section 4.3. We will present these:
+    </p>
+<article class="example-like" id="task-131"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">131</span><span class="title"></span>
 </h5>
-        Decide if the columns of this matrix are linearly dependent without doing any
-        row operations:
-        <article class="displaymath" id="me-143">\[
-          A = \begin{pmatrix} 4 &amp; 21\\ 3 &amp; 16 \end{pmatrix}.
-        \]</article></article><article class="example-like" id="task-157"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">157</span><span class="title"></span>
+        Exercise 1 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-132"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">132</span><span class="title"></span>
 </h5>
-        Complete this matrix to one with determinant zero in four genuinely different
-        ways. How did you make that happen?
-        <article class="displaymath" id="me-144">\[
-          X = \begin{pmatrix} 2 &amp; 1 &amp; \bullet \\ 1 &amp; 1 &amp; \bullet
-          \\ -1 &amp; 1 &amp; \bullet \end{pmatrix}.
-        \]</article></article></section></section></div></main>
+        Exercise 5 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-133"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">133</span><span class="title"></span>
+</h5>
+        Exercise 6 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-134"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">134</span><span class="title"></span>
+</h5>
+        Exercise 7 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-135"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">135</span><span class="title"></span>
+</h5>
+        Exercise 8 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-136"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">136</span><span class="title"></span>
+</h5>
+        Exercise 9 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-137"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">137</span><span class="title"></span>
+</h5>
+        Exercise 10 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-138"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">138</span><span class="title"></span>
+</h5>
+        Exercise 11 from section 4.3 of Strang.
+      </article></section></section></div></main>
 </div>
 </body>
 </html>
