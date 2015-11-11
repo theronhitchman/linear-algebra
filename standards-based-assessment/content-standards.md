@@ -110,7 +110,7 @@ find the solution set?
 
 ### Question: How do we understand matrices as transformations?
 
- * Four Subspaces and the Fundamental Theorem of Linear Algebra (Chapters 3 and 4)
+ * Four Subspaces and Matrices as Functions (Chapters 3 and 4)
 
     > Use the four subspaces to describe the action of a matrix as a transformation (function)
     > Draw reasonably accurate schematic of the transformational picture using information
