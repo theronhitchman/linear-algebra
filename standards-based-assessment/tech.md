@@ -15,15 +15,13 @@ The quasi-official policy document describing expectations is here:
   </div>
 </a>
 <br />
-<br /> 
+<br />
 </div>
 
 When a student feels ready, that student will make an appointment with Prof.
 Hitchman to do a technology assessment interview. This will take only 15-20
 minutes, and will be done sitting at a computer.
 
-A student who successfully completes the tasks on the assessment script will
-receive the credit for one letter grade improvement in the course.
 
 To prepare, students are encouraged to explore the Sage Mathematical Software
 System through the SageMathCloud tutorial. See the [Sage][] page for more
