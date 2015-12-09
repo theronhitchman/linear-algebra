@@ -5,9 +5,6 @@
     <div class="page-header">
       <h1>{{ page.title }}</h1>
     </div>
-    <div>
-      <a class="btn btn-default" href="{{site.baseurl}}/feed.xml">RSS Feed</a>
-    </div>
     <div class="row">
       <div class="col-xs-12 col-md-8 col-lg-9">
         {{ content }}
@@ -16,8 +13,10 @@
         <p><br />
         </p>
       </div>
-
       <div class="col-xs-12 col-md-4 col-lg-3">
+        <div>
+          <a class="btn btn-default" href="{{site.baseurl}}/feed.xml">RSS Feed</a>
+        </div>
         {% include sidebar.html %}
       </div>
     </div>
