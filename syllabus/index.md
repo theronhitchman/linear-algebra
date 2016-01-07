@@ -4,7 +4,7 @@ title: Syllabus for Math 2500
 ---
 
 *Linear Algebra*<br />
-*Math 2500, Fall 2015*
+*Spring 2500, Fall 2016*
 
 
 ##Course Description:
@@ -32,7 +32,7 @@ visualizations.
 
 - Instructor: 		Theron J Hitchman
 - Office: 		    327 Wright Hall
-- Office Hours: 	weekdays  2-3 pm.
+- Office Hours: 	Monday, Wednesday, Friday  2-3 pm.
   To meet at another time, contact me by email to make an appointment.
 - contact info:
   <address>
