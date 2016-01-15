@@ -91,9 +91,6 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
     </p>
     <div class="btn-group btn-group-justified">
       <a class="btn btn-default" href="{{site.baseurl}}/syllabus/">Syllabus</a>
-      <a class="btn btn-default" href="{{site.baseurl}}/standards-based-assessment/">
-        <span class="hidden-xs">Assessment</span><span class="visible-xs">Grades</span>
-      </a>
       <a class="btn btn-default" href="{{site.baseurl}}/inquiry-based-learning/">IBL</a>
       <a class="btn btn-default" href="{{site.baseurl}}/sage-math/">SageMath</a>
     </div>
