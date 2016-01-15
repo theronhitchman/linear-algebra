@@ -56,14 +56,13 @@ Wellesley-Cambridge Press, 2009, ISBN 978-09802327-14.
 ## Assessment:
 
 I will be using a “standards based assessment” scheme for this course. See the
-[relevant handout][sba] for more detailed information. Grades in this course are
+following discussion for more detailed information. Grades in this course are
 based on the following assessments:
 
 - in-class participation, focusing on finding and presenting solutions
 - several in-class assessments focused on linear algebra content knowledge
 - bi-weekly written homework
 - a "technology" gateway assessment
-- an optional project to complete an advanced learning objective
 
 If you feel uncertain about your progress in the course at any time, please
 contact me.
@@ -88,9 +87,9 @@ contact me.
   call (319) 273-6023 for more information or to set up an appointment.
 
 [strang]: http://math.mit.edu/linearalgebra/
-[sba]: {{site.baseurl}}/standards-based-assessment
 [IBL]: http://theronhitchman.github.io/linear-algebra/inquiry-based-learning/
 
+----
 
 ## Assessment
 
@@ -185,6 +184,7 @@ information about Sage.
 
 [sage]: {{site.baseurl}}/sage-math/
 
+----
 
 ### Regular Coursework
 
@@ -238,8 +238,10 @@ or make a picture. This is to help break the ice between you and the computer.
   - clear reasoning from examples to generality
   - correct computational work
 
-  Daily homework may be corrected and resubmitted for credit once. The second
+  Bi-Weekly homework may be corrected and resubmitted for credit once. The second
   submission should directly address the comments on the original paper.
+
+----
 
 ### Standards for Linear Algebra Content Learning
 
@@ -295,7 +297,7 @@ find the solution set?
 
  * The Four Subspaces (Chapter 3)
 
-    > Compute the nullspace, column space, row space, and left nullspace of a
+    > Compute the null space, column space, row space, and left null space of a
     > matrix. describe these subspaces by giving bases
 
 ##### Question: What are the good ways to understand subspaces?
