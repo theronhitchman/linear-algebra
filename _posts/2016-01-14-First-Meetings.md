@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Welcome to Linear Algebra
+title: Meetings One and Two
 date: 2016-01-14 22:30
 ---
 
