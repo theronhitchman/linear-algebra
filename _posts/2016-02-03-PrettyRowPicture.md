@@ -8,7 +8,8 @@ Today we only got through two items: \#38 by Miss Sanders; \#40 by Miss Nommense
 During Miss Nommensen's presentation we got sidetracked by a discussion where we
 could draw pretty pictures. We got this one:
 
-![A row picture]({{site.baseurl}}/images/row_pic.jpg =128x216)
+<img src="images/row_pic.jpg" alt="a row picture" style="width: 216px; height: 128px;" />
+
 
 ---
 
