@@ -8,7 +8,7 @@ baseurl:       "/linear-algebra"
 
 
 markdown:      kramdown
-highlighter:   pygments
+highlighter:   rouge
 
 
 section01url: "http://theronhitchman.github.io/linear-algebra"
