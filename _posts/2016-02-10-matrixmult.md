@@ -17,7 +17,7 @@ product \\(A B \\). But the ones I like best are:
 If I had to pick a fourth way, it would be breaking B into columns and performing
 a set of matrix-vector products:
 \\[
-A \begin{pmatrix} | & | & | \\ b_1 & b_2 & b_3 \\ | & | & | \end{pmatrix} = \begin{pmatrix} | & | & | \\ A b_1 & A b_2 & A b_3 \\ | & | & | \end{pmatrix}
+A = \begin{pmatrix} | & | & | \\\\ b\_1 & b\_2 & b\_3 \\\\ | & | & | \end{pmatrix} = \begin{pmatrix} | & | & | \\\\ A b\_1 & A b\_2 & A b\_3 \\\\ | & | & | \end{pmatrix}
 \\]
 
 We also had a chance to see that matrix multiplication is somehow different from
