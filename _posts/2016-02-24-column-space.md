@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Subspaces &colon; The column Subspaces
+title: Subspaces &colon; the column space
 ---
 
 Today we discussed the idea of a subspace of \\(\\mathbb{R}^n\\), and paid
