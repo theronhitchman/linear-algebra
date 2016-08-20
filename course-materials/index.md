@@ -49,7 +49,16 @@ The Workbook (PDF)
 </a>
 </div>
 
+### An Interesting Set of YouTube Videos:
 
+_YouTube_ user 3Blue1Brown has a fantastic set of videos about core geometric ideas
+in linear algebra.
+
+<div class="text-center">
+<a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" class="btn btn-primary btn-lg">
+The Essence of Linear Algebra
+</a>
+</div>
 
 ### Other Free, Open-Source Materials
 
@@ -72,7 +81,7 @@ These books are written for courses pitched in different ways than ours, so it
 may not be obvious how to use them. But it can often help to have a different
 viewpoint to read, so I want to make you aware of these.
 
-
+<!--
 ### The Sprinter's Guide
 
 In Fall 2006, I taught my first linear algebra course, and along the way I wrote
@@ -87,3 +96,4 @@ The Sprinter's Guide
 <p><br />
 </p>
 </div>
+-->
