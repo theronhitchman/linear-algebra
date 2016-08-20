@@ -43,10 +43,10 @@ instruction on related Sage commands, and your daily homework tasks.
 <a href="{{site.baseurl}}/course-materials/workbook/LinAlgWorkbook.html" class="btn btn-primary btn-lg">
 The Workbook (HTML)
 </a>
-
+<!--
 <a href="{{site.baseurl}}/course-materials/workbook/LinAlgWorkbook.pdf" class="btn btn-primary btn-lg">
 The Workbook (PDF)
-</a>
+</a>-->
 </div>
 
 ### An Interesting Set of YouTube Videos:
