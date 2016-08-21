@@ -98,6 +98,7 @@ contact me.
 # More Details
 
 ----
+
 ## Inquiry-Based Learning
 
 I conduct each of my classes in some sort of Inquiry Based Learning format.
@@ -155,7 +156,7 @@ algebra and, if you stick with it, it can help you with other parts of your stud
 To get through some of the basics, you will do an assignment before our Lab Day
 which is modeled on a introductory workshop.
 
-  ### What is SageMath?
+### What is SageMath?
 
   This semester, I have chosen to use the Computer Algebra System [SageMath][sagemath].
   Sage is free and open-source, which has some big benefits. The most important one
@@ -164,7 +165,7 @@ which is modeled on a introductory workshop.
   high-level programming language. Eventually, you will want to write some small
   programs, and Python is easy to learn and easy to use.
 
-  ### How Will You Use SageMath?
+### How Will You Use SageMath?
 
   To do our work, we will use the [SageMathCloud][sagecloud] service. SMC allows us
   to use Sage (and lots of other software) through a web browser. It essentially turns
@@ -172,7 +173,7 @@ which is modeled on a introductory workshop.
   (You won't need all that power at first, but you might come to appreciate it later. It
   is a system designed by mathematicians and programmers for doing what they need.)
 
-  ### The Linear Algebra Quick Reference Guide
+### The Linear Algebra Quick Reference Guide
 
   Rob Beezer wrote a [guide to the basic linear algebra functionality][laqr] available in
   SageMath. I find it useful to have a copy of this guide tucked in my textbook as a
@@ -186,57 +187,12 @@ which is modeled on a introductory workshop.
 ----
 
 ## Assessment
-  ### The Idea of Standards-Based Grading
-  ### The Idea of Specifications Grading
-  ### Conversion of Accomplishments to Grades
-  ### Daily Assignments
-    #### Where to Find Them
-    #### What to Make
-    #### How We Will Use These
-  ### SageMath Assignments
-    #### Where to Find Them
-    #### How to Turn Them In
-  ### Technology Gateway Assessment
-    #### What to Expect
-    #### When to Complete This
-    #### How to Complete This
-  ### Formal Content Assessments
-    #### What to Expect
-    #### How to Complete These
 
+I have mixed together ideas from two different ways of thinking about grading.
+The result is a system which is likely unfamiliar to you, so I want to describe
+things in some detail. Let's start with the "meta-goals" for the term.
 
-----
-----
-# Old Version to be cannibalized.
-
-## Assessment
-
-This semester I will use a _Standards Based Assessment_ strategy. I hope that
-this will bring some clarity and purpose to our work together. If everything
-fits properly, you will find that striving for a higher grade and working hard
-for deeper and more complete understanding of the course material are one and
-the same.
-
-The basic ideas are these:
-
-- I will set a collection of learning goals for the term, _and make them
-  explicit and public_. This way you will understand what things I will try to
-  assess in your work.
-
-- I will assign final grades for the course on the basis of demonstrated
-  competence on those learning goals.
-
-- Any assignment that is assessed will receive feedback in a way aligned with
-  the stated learning goals. This way, it should be clear in which ways you
-  should focus your efforts to improve your work.
-
-If I could get away with it, I would not assign grades at all, and just focus on
-giving you feedback on your abilities. But the registrar will ask me for grades
-at the end of the term, so I need a way to come up with them. Also, some students
-seem to need or want the motivation of grading to keep up with coursework. So I
-made up this funny system.
-
-### Outline of the "Standards"
+### Outline of the Learning Goals
 
 These are the big goals I have for learning for the term. In this list, I have
 written them as vague ideas.
@@ -250,10 +206,166 @@ written them as vague ideas.
 3. Technology
   - displayed competence with basic use of a computer algebra system.
 4. Linear Algebra Content
-  - foundational proficiencies: computational fluency
+  - foundational proficiencies: computational fluency with vectors, the dot product,
+  matrices, Gauss-Jordan elimination, solving systems, and the determinant.
   - advanced proficiencies: the three pictures, the four central problems,
     explicit vs. implicit descriptions, the Fundamental Theorem of Linear
     Algebra, and other organizing ideas.
+
+
+### The Idea of Standards-Based Grading
+
+As much as possible, grades should be based on demonstrated competence on the
+stated learning goals of the course. If everything fits properly, you will find
+that striving for a higher grade and working hard for deeper and more complete
+understanding of the course material are one and the same.
+
+- I will set a collection of learning goals for the term, _and make them
+  explicit and public_. This way you will understand what things I will try to
+  assess in your work.
+
+- I will assign final grades for the course on the basis of demonstrated
+  competence on those learning goals.
+
+- Any assignment that is assessed will receive feedback in a way aligned with
+  the stated learning goals. This way, it should be clear in which ways you
+  should focus your efforts to improve your work.
+
+
+### The Idea of Specifications Grading
+
+Work done is either sufficient to receive credit, or it isn't. The expectations
+for "good enough" work should be public, clear, and guide a learner in their
+efforts to improve.
+
+- Every assessment will have a public declaration of which learning outcomes it
+addresses, and a declared expectation of what constitutes passing.
+
+- Every assignment in this course will be graded on a Pass/Not-Yet binary scale.
+
+- Any assessment that is not deemed "Pass" will receive feedback on how to improve,
+and the student will have the opportunity to reassess, up to the natural time
+constraints of the semester.
+
+### Conversion of Accomplishments to Grades
+
+If I could get away with it, I would not assign grades at all, and just focus on
+giving you feedback on your abilities. But the registrar will ask me for grades
+at the end of the term, so I need a way to come up with them. Also, some students
+seem to need or want the motivation of grading to keep up with coursework. So I
+made up this funny system.
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-amwm">Grade</th>
+    <th class="tg-amwm">Content<br>Assessments</th>
+    <th class="tg-amwm">Technology<br>Assignments</th>
+    <th class="tg-amwm">Participation</th>
+  </tr>
+  <tr>
+    <td class="tg-baqh">A</td>
+    <td class="tg-baqh">Complete all 10 <br>of the Foundational <br>assessments<br>AND<br>Complete 4 of the 5<br>Advanced Assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND<br>Complete 3<br>SMC assignments</td>
+    <td class="tg-baqh">Give 6 or more<br>presentations<br>AND<br>Complete 16<br>Daily<br>Assignments</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">A-</td>
+    <td class="tg-baqh">Complete all 10 <br>of the Foundational <br>assessments<br>AND<br>Complete 3 of the 5<br>Advanced Assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND<br>Complete 3 <br>SMC assignments</td>
+    <td class="tg-baqh">Give 6 or more<br>presentations<br>AND<br>Complete 16<br>Daily<br>Assignments</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">B+</td>
+    <td class="tg-baqh">Complete all 10<br>of the Foundational<br>assessments<br>AND<br>Complete 1 of the<br>Advanced Assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND <br>Complete 2<br>SMC assignments</td>
+    <td class="tg-baqh">Give 4 or more<br>presentations<br>AND<br>Complete 12<br>Daily<br>Assignments</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">B</td>
+    <td class="tg-baqh">Complete all 6 of<br>the CORE content<br>assessments<br>AND<br>Complete the <br>Eigendata <br>assessment<br>AND<br>2 of the 3 <br>Remaining<br>Foundational<br>assessments<br>AND<br>Complete 1 of the<br>5 Advanced<br>assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND<br>Complete 2<br>SMC assignments</td>
+    <td class="tg-baqh">Give 4 or more<br>presentations<br>AND<br>Complete 12<br>Daily <br>Assignments</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">B-</td>
+    <td class="tg-baqh">Complete all 6 of<br>the CORE content<br>assessments<br>AND<br>Complete the <br>Eigendata <br>assessment<br>AND<br>Complete<br>1 of the 3 <br>Remaining<br>Foundational<br>assessments<br>AND<br>Complete 1 of the<br>5 Advanced<br>assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND<br>Complete 2<br>SMC assignments</td>
+    <td class="tg-baqh">Give 4 or more<br>presentations<br>AND<br>Complete 12<br>Daily <br>Assignments</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">C+</td>
+    <td class="tg-baqh">Complete all 6 of<br>the CORE content<br>assessments<br>AND<br>Complete the <br>Eigendata<br>assessment</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview<br>Assessment<br>AND<br>Complete 1<br>SMC assignment<br></td>
+    <td class="tg-baqh">Give 2 or more<br>presentations<br>AND<br>Complete 8 <br>Daily <br>Assignments</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">C</td>
+    <td class="tg-baqh">Complete all 6 of <br>the CORE content<br>assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview<br>Assessment<br>AND<br>Complete 1<br>SMC assignment</td>
+    <td class="tg-baqh">Give 2 or more<br>presentations<br>AND<br>Complete 8 <br>Daily <br>Assignments</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">C-</td>
+    <td class="tg-baqh">Complete 5 of the <br>CORE content<br>assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview<br>Assessment<br>AND<br>Complete 1<br>SMC assignment</td>
+    <td class="tg-baqh">Give 2 or more<br>presentations<br>AND<br>Complete 8 <br>Daily <br>Assignments</td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">D+</td>
+    <td class="tg-baqh">Complete 4 of the <br>CORE content<br>assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">D</td>
+    <td class="tg-baqh">Complete 3 of the <br>CORE content<br>assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">D-</td>
+    <td class="tg-baqh">Complete 2 of the <br>CORE content<br>assessments</td>
+    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment</td>
+    <td class="tg-baqh"></td>
+  </tr>
+  <tr>
+    <td class="tg-baqh">F</td>
+    <td class="tg-baqh" colspan="3">Fail to meet the requirements for D-</td>
+  </tr>
+</table>
+
+
+### Daily Assignments
+  #### Where to Find Them
+  #### What to Make
+  #### How We Will Use These
+### SageMath Assignments
+  #### Where to Find Them
+  #### How to Turn Them In
+### Technology Gateway Assessment
+  #### What to Expect
+  #### When to Complete This
+  #### How to Complete This
+### Formal Content Assessments
+  #### What to Expect
+  #### How to Complete These
+
+
+
+----
+----
+# Old Version to be cannibalized.
+
+
+
+
 
 ### Basic Grading Scheme
 
