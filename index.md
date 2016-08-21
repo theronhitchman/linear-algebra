@@ -101,7 +101,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
       <p><br /></p>
     </div>
     <div class="btn-group btn-group-justified">
-      <a class="btn btn-info btn-lg" href="{{site.baseurl}}/blog/">
+      <a class="btn btn-info btn-lg" href="{{site.baseurl}}/course-materials/">
         Other Materials
       </a>
     </div>
@@ -132,13 +132,6 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
 
 </div>
 
-<!--
 <div class="row visible-xs visible-sm">
  <p><br /></p>
 </div>
-
-
-<div class="row visible-xs visible-sm">
-  <p><br /></p>
-</div>
--->
