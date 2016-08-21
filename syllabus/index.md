@@ -341,99 +341,52 @@ made up this funny system.
   </tr>
 </table>
 
+The content assessments are split into these groups:
+
+- CORE content: Vector Algebra, Dot Product, Matrix Algebra, Gauss-Jordan elimination,
+Solving Systems, and the Determinant.
+
+- Remaining Foundational content: Eigendata, Implicit and Explicit descriptions,
+Approximate Solutions, The Four Subspaces.
+
+- Advanced content: Geometry of Linear Equations, Orthonormal Bases and Gram-Schmidt,
+Three Viewpoints, Matrices as Transformations, and the Singular Value Decomposition.
+
+More on these follows below.
+
+Now, let's discuss the different types of assignments.
 
 ### Daily Assignments
-  #### Where to Find Them
-  #### What to Make
-  #### How We Will Use These
-### SageMath Assignments
-  #### Where to Find Them
-  #### How to Turn Them In
-### Technology Gateway Assessment
-  #### What to Expect
-  #### When to Complete This
-  #### How to Complete This
-### Formal Content Assessments
-  #### What to Expect
-  #### How to Complete These
 
+Every day of class where we have new material to discuss, you have a daily
+assignment due. This will consist of reading, possibly watching some video,
+and attempting to complete a set of exercises which will guide our discussion
+at the meeting.
 
+#### Where to Find Them
 
-----
-----
-# Old Version to be cannibalized.
+Each assignment is detailed in the online Workbook I am revising.
 
+#### What to Make
 
+Your work for a daily assignment should generate a couple of pages consisting of
+  1. A set of reading notes. This should include: notes on new words and their
+  definitions, examples you tried, and questions that came up about things you
+  don't quite understand, yet. Also, include any questions on using SageMath
+  that come up as you play with the example code in the workbook.
+  2. A write up of your attempts to solve the exercises for the day.
 
+#### How We Will Use These
 
+Each class we will split into small groups to discuss the work for the day. Each
+group will be assigned one of the day's tasks to prepare for presentation. We will
+then rotate through presenting our solutions to the tasks and having class discussion
+on each.
 
-### Basic Grading Scheme
-
-At the end of the semester, grades will be assigned based on your achievements
-using the following table:
-
-| Grade |  | Foundational |  | Advanced |  | Presentations |  | Bi-Weekly Hwk |  | Daily Hwk |  | Technology |
-|-------|--|--------------|--|----------|--|---------------|--|---------------|--|-----------|--|------------|
-| A     |  | 10           |  | 4        |  | 6             |  | 6             |  | 20        |  | yes        |
-| A-    |  | 10           |  | 3        |  | 6             |  | 6             |  | 20        |  | yes        |
-| B+    |  | 9            |  | 2        |  | 4             |  | 5             |  | 20        |  | yes        |
-| B     |  | 9            |  | 1        |  | 4             |  | 5             |  | 20        |  | yes        |
-| B-    |  | 8            |  |          |  | 4             |  | 5             |  | 15        |  | yes        |
-| C+    |  | 7            |  |          |  | 2             |  | 4             |  | 15        |  | yes        |
-| C     |  | 6            |  |          |  | 2             |  | 4             |  | 15        |  | yes        |
-| C-    |  | 5            |  |          |  | 2             |  | 4             |  | 10        |  | yes        |
-| D+    |  | 4            |  |          |  | 1             |  | 2             |  | 10        |  | yes        |
-| D     |  | 3            |  |          |  | 1             |  | 2             |  | 10        |  | yes        |
-| F     |  | fail         |  | to       |  | meet          |  | standards     |  | for       |  | D          |
-
-### Technology Assessment
-
-The math department has specified Linear Algebra as a place where we explicitly
-teach and assess student basic competence with a computer algebra system.
-
-The quasi-official policy document describing expectations is here:
-
-<div class="text-center">
-<a href="https://docs.google.com/a/uni.edu/document/d/1Xu_pRDEyK5ATYlInlz3LzOLeOySh6c_F3El8gYKiIZc/edit">
-  <div class="btn btn-lg btn-primary">
-    Technology SLO Policy
-  </div>
-</a>
-<br />
-<br />
-</div>
-
-When a student feels ready, that student will make an appointment with Prof.
-Hitchman to do a technology assessment interview. This will take only 15-20
-minutes, and will be done sitting at a computer.
-
-
-To prepare, students are encouraged to explore the Sage Mathematical Software
-System through the SageMathCloud tutorial. See the [Sage][] page for more
-information about Sage.
-
-[sage]: {{site.baseurl}}/sage-math/
-
-----
-
-### Regular Coursework
-
-There are three types of regular coursework in Math 2500:
-
-  - Daily Homework
-  - Class Presentations
-  - Weekly Homework
-
-I have decided on a scheme for marking these which feels a little complicated,
-but should reward someone who basically keeps up with class work on a regular
-basis.
-
-#### Daily Homework
-
-For each class meeting you will complete a short set of tasks. These are to be
-written up carefully and brought with you. During class, you may mark up your
+During class I will distribute a set of felt-tip markers. You may mark up your
 paper as much as you wish to correct errors, incomplete understanding, or for
 any other reason. **All of these annotations will be made with a felt-tip pen.**
+
 At the end of class, I will collect these papers to look them over. Each
 daily assignment will be marked with either a 1 or a 0. I will assign a 1 if I
 believe you made a good faith effort to attempt each problem and wrote up your
@@ -443,7 +396,7 @@ task complete and correct.) There will be about 25 of these assignments.
 
 #### Class Presentations
 
-We will spend almost all of our time in class meetings with students presenting
+We will spend a lot of our time in class meetings with students presenting
 their work on the daily tasks. Each will be assessed as a successful or not,
 with the following standards in mind:
 
@@ -455,21 +408,70 @@ The class conversation which follows your presentation will provide you with
 feedback on the quality of your work. Mistakes happen, of course, so don't worry
 that these will be handled too strictly.
 
-#### Bi-Weekly Homework
 
-As an opportunity to work on your written communication, there will be assignments
-every other week or so that ask you to go further into the material and explain
-yourself carefully. Often, these will be based on things we have already discussed.
-Just as often, these assignments will ask you to use SageMath to do a computation
-or make a picture. This is to help break the ice between you and the computer.
+### SageMath Assignments
 
-  - clarity of written communication
-  - correct use of vocabulary
-  - clear reasoning from examples to generality
-  - correct computational work
+There will be several small projects to complete using a computer to assist your work.
 
-  Bi-Weekly homework may be corrected and resubmitted for credit once. The second
-  submission should directly address the comments on the original paper.
+#### Where to Find Them
+
+These assignments will be copied into your designated class project in SageMathCloud.
+
+#### How to Turn Them In
+
+Complete the assignment, and leave your answer file in the same folder where the
+assignment showed up. You need not do anything to turn in an assignment done on
+SageMathCloud. I will simply grab a copy out of your designated class project.
+
+### Technology Interview Assessment
+
+The math department has specified Linear Algebra as a place where we explicitly
+teach and assess student basic competence with a computer algebra system.
+
+#### What to Expect
+
+The quasi-official policy document describing expectations is here:
+
+<div class="text-center">
+<a href="https://docs.google.com/a/uni.edu/document/d/1Xu_pRDEyK5ATYlInlz3LzOLeOySh6c_F3El8gYKiIZc/edit">
+  <div class="btn btn-lg btn-primary">
+    Technology SLO Policy
+  </div>
+</a>
+<br />
+</div>
+
+#### When to Complete This
+
+Students can complete the technology interview assessment any time starting
+with the second week of class. Successful students tend to complete it some
+time in the first half of the semester.
+
+#### How to Complete This
+
+To do the technology interview assessment, schedule a 20 minute meeting with
+me during office hours. We will sit together at a laptop and I will ask you to
+complete some basic tasks.
+
+### Formal Content Assessments
+
+The core of the assessment system is based on demonstrated mastery of the content.
+
+
+#### How to Complete Content Assessments
+
+There are several class meetings set aside to attempt content assessment papers
+in class.
+
+Each paper is marked _as a whole_ with Pass or Not Yet. Generally speaking, to
+earn a mark of Pass, a student must demonstrate understanding and fluency with
+_all_ of the standards bundled together on that assessment.
+
+It is not uncommon for students to earn a "not yet" on a first attempt!
+This is how learning works, the feedback from a faltering attempt is the important
+thing. Students can schedule further attempts on content standards by making an
+office hour appointment with me, or some other mutually agreeable arrangement.
+
 
 ----
 
