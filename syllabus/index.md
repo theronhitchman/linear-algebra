@@ -7,33 +7,36 @@ title: Syllabus for Math 2500
 *Spring 2500, Fall 2016*
 
 
-##Course Description:
+## Course Description:
 
 This course is devoted to the basics of linear algebra: the study of systems of
 linear equations, vectors, matrices, and those things which arise when pursuing
 basic questions about these objects further.
 
 Students who complete this course will learn to work _as a mathematician does_.
-To meet this challenge, we will run class as an [Inquiry Based Learning][IBL]
-(IBL) environment.
+To meet this challenge, we will run class as an Inquiry Based Learning (IBL)
+environment.
 
 Successful students will learn to perform basic computations in linear algebra,
-but will also build mental models of the geometry behind linear algebra. They
+but will also build mental models of the geometry underlying linear algebra. They
 will be able to describe and use the three pictures (row, column, and transformation)
-behind a system of linear equations, and the Fundamental
-Theorem of Linear Algebra.
+behind a system of linear equations, and the Fundamental Theorem of Linear Algebra.
 
-Finally, student will learn the basics of the computer algebra system Sage, including how it
-can be used to perform unpleasant computations efficiently and how it can make relevant
-visualizations.
+Finally, student will learn the basics of the computer algebra system SageMath,
+including how it can be used to perform unpleasant computations efficiently and
+how it can make relevant visualizations.
 
 
-##Basic Information:
+## Basic Information:
 
 - Instructor: 		Theron J Hitchman
 - Office: 		    327 Wright Hall
-- Office Hours: 	Monday, Wednesday, Friday  2-3 pm, Wright Hall 319-273; Tuesday 7-8pm
-  To meet at another time, contact me by email to make an appointment.
+- Office Hours: 	This semester I am using the service YouCanBookMe.com as
+  an experiment.
+  I expect to be generally available MWF 3-5pm, and TTh 2:30-5pm.
+  To schedule an appointment, use the service at [https://theronhitchman.youcanbook.me/]().
+  If you take a chance and just drop by I might be free, or I might have a meeting.
+  If these hours won't work for some reason, send me an email.
 - contact info:
   <address>
   <strong>email:</strong> theron.hitchman@uni.edu <code><-this is the best way</code><br />
@@ -46,8 +49,11 @@ visualizations.
 
 - Text: [Introduction to Linear Algebra, 4th Ed.][strang], by Gilbert Strang,
 Wellesley-Cambridge Press, 2009, ISBN 978-09802327-14.
+- Workbook: I am writing (and currently revising) a workbook of daily exercises to
+accompany the text.
 - Software: We will use the free, open-source computer algebra system [sage][]. Students
-  should make an account at the [SageMathCloud][SMC] site using their UNI email address.
+  should make an account at the [SageMathCloud][SMC] (`https:/cloud.sagemath.com`)
+  site using their UNI email address.
 - I will distribute many other materials through the course web page.
 
 [sage]: http://www.sagemath.org
@@ -61,13 +67,10 @@ based on the following assessments:
 
 - in-class participation, focusing on finding and presenting solutions
 - several in-class assessments focused on linear algebra content knowledge
-- bi-weekly written homework
-- a "technology" gateway assessment
+- a "technology" gateway assessment, and several possible computer-based assignments
 
 If you feel uncertain about your progress in the course at any time, please
 contact me.
-
-
 
 ---
 
@@ -90,6 +93,121 @@ contact me.
 [IBL]: http://theronhitchman.github.io/linear-algebra/inquiry-based-learning/
 
 ----
+----
+
+# More Details
+
+----
+## Inquiry-Based Learning
+
+I conduct each of my classes in some sort of Inquiry Based Learning format.
+Essentially, this means that I strive for an active, student-centered
+environment. Lectures will be infrequent (if they happen at all), and instead
+students will engage in activities that have them participate as working
+mathematicians by conducting research at an appropriate level. It is important
+to note two fundamental differences between how Inquiry Based classes operate
+and traditional lecture classes do:
+
+1. Students will be responsible for producing mathematical understanding. They
+  must grapple with the material and construct their own arguments for why
+  things are as they appear to be.
+2. Students will be the arbiters of correctness in the classroom. The
+  instructor’s role is to guide discussion and set the parameters for student
+  inquiry. But the students are the ones who say whether a particular argument
+  is correct or not—students must take ownership of the mathematics being
+  developed.
+
+If you have not experienced an inquiry based learning environment before, this
+can be a bit unsettling. Have no fear! It is my job as the instructor to put you
+in a position to have success, and to help guide you back toward success when
+you miss the mark. Pretty soon, you will be much more comfortable.
+
+### Why are we doing this?
+
+It is my goal to help you increase your power and ability as a mathematician.
+Since I want you to help you improve at doing mathematics, I have structured
+our class as an environment where you must do mathematics. This gives you
+opportunity to practice and grow, and it gives me an opportunity to see what
+you are capable of doing and where I can help you the most.
+
+----
+
+## Technology: SageMath and SageMathCloud
+
+There are two main ways in which modern technology (computers of all kinds)
+can make the study of mathematics easier:
+
+* fast, reliable execution of routine computations, and
+* easily rendered, manipulable visualizations of shapes in three dimensions.
+
+It is getting to the point where calling yourself a mathematician means you can
+use a computer to do those things as part of problem solving, when appropriate.
+
+The UNI Math Department has decided that Math 2500 is the course where we
+will teach basic mathematical computing. The main reason is that introductory
+linear algebra is full of interesting things that can only be understood after
+routine, tedious computations, and also has a important 3d visualization component.
+
+We do not expect that you have any significant experience with computing or
+programming before you enroll. This semester, you will learn some of the basics
+of how to use a mathematical software system. This will help you with linear
+algebra and, if you stick with it, it can help you with other parts of your study.
+To get through some of the basics, you will do an assignment before our Lab Day
+which is modeled on a introductory workshop.
+
+  ### What is SageMath?
+
+  This semester, I have chosen to use the Computer Algebra System [SageMath][sagemath].
+  Sage is free and open-source, which has some big benefits. The most important one
+  is that you will learn a system you can take with you, and will always be free to
+  use. Another point in favor of SageMath is that it is built using [Python][python], a powerful,
+  high-level programming language. Eventually, you will want to write some small
+  programs, and Python is easy to learn and easy to use.
+
+  ### How Will You Use SageMath?
+
+  To do our work, we will use the [SageMathCloud][sagecloud] service. SMC allows us
+  to use Sage (and lots of other software) through a web browser. It essentially turns
+  whatever web browser you have on you into a terminal for a powerful linux machine.
+  (You won't need all that power at first, but you might come to appreciate it later. It
+  is a system designed by mathematicians and programmers for doing what they need.)
+
+  ### The Linear Algebra Quick Reference Guide
+
+  Rob Beezer wrote a [guide to the basic linear algebra functionality][laqr] available in
+  SageMath. I find it useful to have a copy of this guide tucked in my textbook as a
+  bookmark.
+
+  [laqr]: http://wiki.sagemath.org/quickref?action=AttachFile&do=get&target=quickref-linalg.pdf
+  [sagemath]: {{site.sageurl}}
+  [sagecloud]: {{site.smcurl}}
+  [python]: {{site.pythonurl}}
+
+----
+
+## Assessment
+  ### The Idea of Standards-Based Grading
+  ### The Idea of Specifications Grading
+  ### Conversion of Accomplishments to Grades
+  ### Daily Assignments
+    #### Where to Find Them
+    #### What to Make
+    #### How We Will Use These
+  ### SageMath Assignments
+    #### Where to Find Them
+    #### How to Turn Them In
+  ### Technology Gateway Assessment
+    #### What to Expect
+    #### When to Complete This
+    #### How to Complete This
+  ### Formal Content Assessments
+    #### What to Expect
+    #### How to Complete These
+
+
+----
+----
+# Old Version to be cannibalized.
 
 ## Assessment
 
@@ -123,7 +241,7 @@ made up this funny system.
 These are the big goals I have for learning for the term. In this list, I have
 written them as vague ideas.
 
-1. Transitioning mathematical argument
+1. Transition to mathematical argument
   - Precise use of language & correct use of vocabulary
   - Clear reasoning from examples to generality
 2. Communication
