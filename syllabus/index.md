@@ -580,9 +580,10 @@ find the solution set?
 
  * The Geometry of Hyperplanes (Chapter 1)
 
- > connect the geometry of the dot product to linear equation representing a Hyperplanes,
+ > connect the geometry of the dot product to the linear equation representing a hyperplane,
  > understand the effect of changes to the form of a linear equation on the location of
- > a hyperplane, understand the hyperplane as a level set of the dot product.
+ > a hyperplane, understand the hyperplane as a level set of the dot product,
+ > sketch a line or plane in \\(\mathbb{R}^2\\) or \\(\mathbb{R}^3\\).
 
 
  * The Three Viewpoints (Chapters 1 and 2)
