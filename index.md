@@ -42,7 +42,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
     </div>
     <div class="btn-group btn-group-justified">
       <a class="btn btn-primary btn-lg" href="{{site.baseurl}}/course-materials/workbook/LinAlgWorkbook.html">
-        Workbook (HTML)
+        Workbook <span class="hidden-xs">(HTML)</span>
       </a>
     </div>
     <div>
@@ -102,7 +102,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
     </div>
     <div class="btn-group btn-group-justified">
       <a class="btn btn-info btn-lg" href="{{site.baseurl}}/course-materials/">
-        Other Materials
+        Supplements
       </a>
     </div>
     <div>
@@ -111,7 +111,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
   </div>
 
   <div class="col-xs-6 col-md-4">
-    <h3>SageMathCloud</h3>
+    <h3>SageMath<span class="hidden-xs">Cloud</span></h3>
     <p>
       Linear algebra is full of necessary visualizations and long tedious
       computations. For these, we will use the free, cloud-based
@@ -122,7 +122,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
     </div>
     <div class="btn-group btn-group-justified">
       <a class="btn btn-default btn-lg" href="https://cloud.sagemath.com/">
-        SageMathCloud
+        SMC
       </a>
     </div>
     <div>
