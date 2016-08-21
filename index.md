@@ -68,13 +68,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
       <p><br /></p>
     </div>
   </div>
-</div>
-
-<div class="row visible-xs visible-sm">
- <p><br /></p>
-</div>
-
-<div class="row">
+  
   <div class="col-xs-6 col-md-4">
     <h3>Course Policies</h3>
     <p>
@@ -85,7 +79,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
       <p><br /></p>
     </div>
     <div class="btn-group btn-group-justified">
-      <a class="btn btn-danger" href="{{site.baseurl}}/syllabus/">
+      <a class="btn btn-danger btn-lg" href="{{site.baseurl}}/syllabus/">
         Syllabus
       </a>
     </div>
@@ -93,6 +87,11 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
       <p><br /></p>
     </div>
 </div>
+
+<div class="row visible-xs visible-sm">
+ <p><br /></p>
+</div>
+
 
 <div class="row visible-xs visible-sm">
   <p><br /></p>
