@@ -472,6 +472,10 @@ This is how learning works, the feedback from a faltering attempt is the importa
 thing. Students can schedule further attempts on content standards by making an
 office hour appointment with me, or some other mutually agreeable arrangement.
 
+Multiple attempts are expected and encouraged. But please plan ahead and leave time
+to get through all of these. It is difficult (for you and for me) to complete many
+standards in the last two weeks of the term. I advise you to get to work right away
+on a content standard that you have not mastered, so they don't pile up.
 
 ----
 
@@ -488,26 +492,26 @@ level."
 
 ##### Question One: What are the basic objects of linear algebra?
 
- * Vector Algebra (Chapter 1)
+ * Vector Algebra (Chapter 1, CORE)
 
     > add vectors, plot vectors, compute scalar multiplication of number and vector,
     > compute linear combinations, geometric interpretations of these operations
 
- * Matrix Algebra (Chapter 1 and 2)
+ * Matrix Algebra (Chapter 1 and 2, CORE)
 
     > add matrices, take transpose, multiply matrix times vector (two ways),
     > multiply two matrices (three ways), identify troubles with matrix multiplication:
     > commutativity, inverses
 
- * The Dot Product (Chapter 1)
+ * The Dot Product (Chapter 1, CORE)
 
     > compute the dot product of two vectors, compute angles between vectors,
-    > compute length of a vector, normalize a vector, use connection between
-    > dot product and linear equations to work with normal vectors
+    > interpret sign of dot product in terms of angle between the vectors,
+    > compute length of a vector, normalize a vector
 
 ##### Question Two: How can we solve a square system of linear equations?
 
- * Gauss-Jordan Elimination (Chapter 2)
+ * Gauss-Jordan Elimination (Chapter 2, CORE)
 
     > Use Gauss-Jordan and back-solving to solve a system, find LU decomposition,
     > identify when Gauss-Jordan breaks, identify when matrix does not have
@@ -520,7 +524,7 @@ How can we tell if there is a solution? What shape will the solution set have?
 When will the solution be unique? Is there a computationally effective way to
 find the solution set?
 
- * Solving Systems of Equations (Chapter 3)
+ * Solving Systems of Equations (Chapter 3, CORE)
 
     > Solve a general (rectangular) system of linear equations using the reduced row-echelon form,
     > special solutions, a particular solution. Give the general solution to a
@@ -554,7 +558,7 @@ find the solution set?
 
 ##### Question: Is there a good way to test if a square matrix is invertible?
 
- * Determinants and the Invertible Matrix Theorem (Chapter 5)
+ * Determinants and the Invertible Matrix Theorem (Chapter 5, CORE)
 
     > Use properties of determinants, compute determinants in a variety of ways,
     > Use the invertible matrix theorem
@@ -573,6 +577,13 @@ find the solution set?
 #### Advanced Goals
 
 ##### Question: Are there any good geometric interpretations of a system of linear equations?
+
+ * The Geometry of Hyperplanes (Chapter 1)
+
+ > connect the geometry of the dot product to linear equation representing a Hyperplanes,
+ > understand the effect of changes to the form of a linear equation on the location of
+ > a hyperplane, understand the hyperplane as a level set of the dot product.
+
 
  * The Three Viewpoints (Chapters 1 and 2)
 
