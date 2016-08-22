@@ -1,6 +1,6 @@
 ---
 layout: default
-Title: How to Do Daily Homework
+title: How to Do Daily Homework
 ---
 
 It is my experience that students often do not know how to read a mathematics
@@ -39,7 +39,7 @@ remember what you have to think about more.
 By the way, reading material once just doesn't work all that often. You should probably
 read the material again after a day or two. Our class work has built-in review days:
 use those to re-read. When you re-read, read your notes, too. Have you figured
-out the anwers to those question, yet? If not, it is time to bug someone about it.
+out the answers to those question, yet? If not, it is time to bug someone about it.
 Talk to a classmate. Come to office hours and talk with me. (It's my job and I love to
 talk about math with students.)
 
