@@ -12,7 +12,7 @@ title: First Day Activity
 Write the following on the board:
 
 Consider
-\\[ (\star) \begin{array}{ccccc} 3x & + & 2y & = & 4 \\\\ 2x & - & y & = & 1 \end{array} \\]
+\\[ (\star) \left\{\begin{array}{ccccc} 3x & + & 2y & = & 4 \\\\ 2x & - & y & = & 1 \end{array}\right. \\]
 
 Questions:
 
