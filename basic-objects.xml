@@ -26,6 +26,17 @@
       and making connections to the geometry.
     </p>
     <p>
+      A running theme for this course is the use of the SageMath mathematical software
+      system. In order to get started, the second section of this course is
+      dedicated to getting started with SageMath using the SageMathCloud (SMC). You will
+      make an account and run through an introductory workshop with SMC.
+      Also, throughout this workbook you will find little embedded pieces of SageMath
+      code. These are implemented using the SageMath SingleCell server. Most of these
+      SageMath cells are mutable. You can change the content in them and re-evaluate
+      your new SageMath code. I encourage you to play with these---it is a good way to
+      learn the basics of SageMath.
+    </p>
+    <p>
       The dot product is a funny kind of multiplication. It plays an important
       role in mathematics because it captures all of the basics of measurement.
       We shall learn how to use the dot product to measure lengths and angles. By
@@ -37,17 +48,6 @@
       generalize the concept of vector.) We start here by learning about the
       algebra of matrices. The whole rest of this course will focus on matrices,
       their uses, and their properties.
-    </p>
-    <p>
-      A running theme for this course is the use of the SageMath mathematical software
-      system. In order to get started, the fourth section of this course is
-      dedicated to getting started with SageMath using the SageMathCloud (SMC). You will
-      make an account and run through an introductory workshop with SMC.
-      Also, throughout this workbook you will find little embedded pieces of SageMath
-      code. These are implemented using the SageMath SingleCell server. Most of these
-      SageMath cells are mutable. You can change the content in them and re-evaluate
-      your new SageMath code. I encourage you to play with these---it is a good way to
-      learn the basics of SageMath.
     </p>
     <p>
       The fifth and final section of the chapter is a short assignment designed to
