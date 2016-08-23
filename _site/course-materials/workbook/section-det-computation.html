@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Computing Determinants</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+$(function () {
+    // Make *any* div with class 'sage-compute' an executable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+                           linked: true,
+                           evalButtonText: 'Evaluate'});
+});
+$(function () {
+    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-display',
+                           editor: 'codemirror-readonly',
+                           hide: ['evalButton', 'editorToggle', 'language']});
+});
+    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+    
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+  \)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="section-det-properties.html">Previous</a><a class="up-button button toolbar-item" href="chapter-determinants.html">Up</a><a class="next-button button toolbar-item" href="section-det-gf.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-det-properties.html">Previous</a><a class="up-button button toolbar-item" href="chapter-determinants.html">Up</a><a class="next-button button toolbar-item" href="section-det-gf.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="index.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="preface-1.html">Preface</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+</ul>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
+<ul>
+<li><a href="vectors.html">Vectors</a></li>
+<li><a href="dot-product.html">The Dot Product</a></li>
+<li><a href="matrices.html">Matrices</a></li>
+<li><a href="start-sage.html">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<ul>
+<li><a href="three-pictures.html">Three Geometric Models</a></li>
+<li><a href="elimination.html">Solving Systems</a></li>
+<li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with Elimination</a></li>
+<li><a href="matrix-algebra.html">Matrix Algebra</a></li>
+<li><a href="inverse.html">Matrix Inverses</a></li>
+<li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
+<li><a href="permutations.html">Permutation Matrices</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
+</ul>
+<h2 class="link"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
+<ul>
+<li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
+<li><a href="nullspace.html">The Nullspace</a></li>
+<li><a href="rank.html">Rank and the RREF</a></li>
+<li><a href="complete-solution.html">Solving a System</a></li>
+<li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
+<li><a href="basis.html">Bases</a></li>
+<li><a href="four-subspaces.html">The Four Subspaces</a></li>
+<li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
+</ul>
+<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<ul>
+<li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
+<li><a href="section-projections.html">Projections Onto Subspaces</a></li>
+<li><a href="section-gf-proj.html">Going Further: Projections</a></li>
+<li><a href="section-least-squares.html">Approximate Solutions: Least Squares</a></li>
+<li><a href="section-gram-schmidt.html">Orthonormal Bases and Gram-Schmidt</a></li>
+<li><a href="section-gf-ls-gs.html">Going Further: Least Squares and Gram-Schmidt</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-det-properties.html">Properties of the Determinant</a></li>
+<li><a href="section-det-computation.html" class="active">Computing Determinants</a></li>
+<li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
+</ul>
+<h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<ul>
+<li><a href="section-eigenvectors.html">Eigenvectors and Eigenvalues</a></li>
+<li><a href="section-diagonalization.html">Diagonalizing Matrices</a></li>
+<li><a href="section-spectral-theorem.html">The Spectral Theorem</a></li>
+<li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
+<li><a href="section-svd.html">Singular Value Decomposition</a></li>
+<li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-det-computation"><header><h1 class="heading" alt="Section 5.2 Computing Determinants" title="Section 5.2 Computing Determinants">
+<span class="type">Section</span><span class="codenumber">5.2</span><span class="title">Computing Determinants</span>
+</h1></header><section class="subsection" id="subsection-120"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul style="list-style-type: disc;">
+<li>Read Chapter 5 section 2 of Strang.</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-121"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
+</h1></header><p>Before class, a student should be able to compute the determinant by using
+      cofactors. A student should also be able to compute a determiant using the
+      “big formula” for matrices of size 2 or 3.
+    </p>
+<p>
+      Some time after class, a student should be comfortable with the different parts
+      of the invertible matrix theorem.
+    </p></section><section class="subsection" id="subsection-122"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Importance of the Determinant</span>
+</h1></header><p>Strang devotes all of his energy in this section to the different ways to
+      compute the determinant. I don't have much to add to that.
+    </p>
+<p>
+      The real importance of the determinant is described in the following
+      theorem. Note that this is a special result for square matrices.
+      The shape is crucial for this result.
+    </p>
+<article class="theorem-like" id="theorem-9"><h5 class="heading">
+<span class="type">Theorem</span><span class="codenumber">5.1</span>
+</h5>(The Invertible Matrix Theorem)
+        <p>
+          Let \(A\) be an \(n\times n\) matrix. Then the following conditions
+          are equivalent:
+        </p>
+<ul style="list-style-type: disc;">
+<li>The columns of \(A\) are linearly independent.</li>
+<li>The columns of \(A\) are a spanning set for \(\mathbb{R}^n\).</li>
+<li>The colums of \(A\) are a basis for \(\mathbb{R}^n\).</li>
+<li>The rows of \(A\) are linearly independent.</li>
+<li>The rows of \(A\) are a spanning set for \(\mathbb{R}^n\).</li>
+<li>The rows of \(A\) are a basis for \(\mathbb{R}^n\).</li>
+<li>For any choice of vector \(b \in \mathbb{R}^n\), the system of linear
+            equations \(Ax = b\) has a unique solution.</li>
+<li>\(A\) is invertible.</li>
+<li>The transpose \(A^T\) is invertible.</li>
+<li>\(\det(A) \neq 0\).</li>
+<li>\(\det(A^T) \neq 0\).</li>
+</ul></article></section><section class="subsection" id="subsection-123"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><article class="example-like" id="task-152"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">152</span><span class="title"></span>
+</h5> (Strang 5.2.2)
+        Compute determinants of the following matrices using the big formula. Are
+        the columns of these matrices linearly independent?
+        <article class="displaymath" id="me-140">\[
+          A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \end{pmatrix},
+          B = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{pmatrix},
+          C = \begin{pmatrix} A &amp; 0 \\ 0 &amp; A \end{pmatrix},
+          D = \begin{pmatrix} A &amp; 0 \\ 0 &amp; B \end{pmatrix}.
+        \]</article></article><article class="example-like" id="task-153"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">153</span><span class="title"></span>
+</h5> (Strang 5.2.3)
+        Show that \(\det(A)=0\), no matter what values are used to fill in the
+        five unknowns marked with dots. What are the cofactors of row 1? What is
+        the rank of \(A\)? What are the six terms in the big formula?
+        <article class="displaymath" id="me-141">\[
+          A = \begin{pmatrix} \bullet &amp; \bullet &amp; \bullet \\
+          0 &amp; 0 &amp; \bullet \\ 0 &amp; 0 &amp; \bullet \end{pmatrix}.
+        \]</article></article><article class="example-like" id="task-154"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">154</span><span class="title"></span>
+</h5> (Strang 5.2.4)
+        Use cofactors to compute the determinants below:
+        <article class="displaymath" id="me-142">\[
+          \det \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 &amp; 1 \\
+          1 &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad
+          \det \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; 3 &amp; 4 &amp; 5 \\
+          5 &amp; 4 &amp; 0 &amp; 3 \\ 2 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}.
+        \]</article></article><article class="example-like" id="task-155"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">155</span><span class="title"></span>
+</h5> (Strang 5.2.5)
+        What is the smallest arrangement of zeros you can place in a \(4 \times 4\)
+        matrix to guarantee that its determinant is zero? Try to place as many non-zero
+        entries as you can while keeping \(\det A \neq 0\).
+      </article><article class="example-like" id="task-156"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">156</span><span class="title"></span>
+</h5>
+        Decide if the columns of this matrix are linearly dependent without doing any
+        row operations:
+        <article class="displaymath" id="me-143">\[
+          A = \begin{pmatrix} 4 &amp; 21\\ 3 &amp; 16 \end{pmatrix}.
+        \]</article></article><article class="example-like" id="task-157"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">157</span><span class="title"></span>
+</h5>
+        Complete this matrix to one with determinant zero in four genuinely different
+        ways. How did you make that happen?
+        <article class="displaymath" id="me-144">\[
+          X = \begin{pmatrix} 2 &amp; 1 &amp; \bullet \\ 1 &amp; 1 &amp; \bullet
+          \\ -1 &amp; 1 &amp; \bullet \end{pmatrix}.
+        \]</article></article></section></section></div></main>
+</div>
+</body>
+</html>

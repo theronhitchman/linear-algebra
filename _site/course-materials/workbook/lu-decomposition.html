@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The \(LU\) Decomposition</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+$(function () {
+    // Make *any* div with class 'sage-compute' an executable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+                           linked: true,
+                           evalButtonText: 'Evaluate'});
+});
+$(function () {
+    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-display',
+                           editor: 'codemirror-readonly',
+                           hide: ['evalButton', 'editorToggle', 'language']});
+});
+    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+    
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+  \)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="inverse.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="permutations.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="inverse.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="permutations.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="index.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="preface-1.html">Preface</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+</ul>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
+<ul>
+<li><a href="vectors.html">Vectors</a></li>
+<li><a href="dot-product.html">The Dot Product</a></li>
+<li><a href="matrices.html">Matrices</a></li>
+<li><a href="start-sage.html">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<ul>
+<li><a href="three-pictures.html">Three Geometric Models</a></li>
+<li><a href="elimination.html">Solving Systems</a></li>
+<li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with Elimination</a></li>
+<li><a href="matrix-algebra.html">Matrix Algebra</a></li>
+<li><a href="inverse.html">Matrix Inverses</a></li>
+<li><a href="lu-decomposition.html" class="active">The \(LU\) Decomposition</a></li>
+<li><a href="permutations.html">Permutation Matrices</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
+</ul>
+<h2 class="link"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
+<ul>
+<li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
+<li><a href="nullspace.html">The Nullspace</a></li>
+<li><a href="rank.html">Rank and the RREF</a></li>
+<li><a href="complete-solution.html">Solving a System</a></li>
+<li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
+<li><a href="basis.html">Bases</a></li>
+<li><a href="four-subspaces.html">The Four Subspaces</a></li>
+<li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
+</ul>
+<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<ul>
+<li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
+<li><a href="section-projections.html">Projections Onto Subspaces</a></li>
+<li><a href="section-gf-proj.html">Going Further: Projections</a></li>
+<li><a href="section-least-squares.html">Approximate Solutions: Least Squares</a></li>
+<li><a href="section-gram-schmidt.html">Orthonormal Bases and Gram-Schmidt</a></li>
+<li><a href="section-gf-ls-gs.html">Going Further: Least Squares and Gram-Schmidt</a></li>
+</ul>
+<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-det-properties.html">Properties of the Determinant</a></li>
+<li><a href="section-det-computation.html">Computing Determinants</a></li>
+<li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
+</ul>
+<h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<ul>
+<li><a href="section-eigenvectors.html">Eigenvectors and Eigenvalues</a></li>
+<li><a href="section-diagonalization.html">Diagonalizing Matrices</a></li>
+<li><a href="section-spectral-theorem.html">The Spectral Theorem</a></li>
+<li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
+<li><a href="section-svd.html">Singular Value Decomposition</a></li>
+<li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="lu-decomposition"><header><h1 class="heading" alt="Section 2.7 The \(LU\) Decomposition" title="Section 2.7 The \(LU\) Decomposition">
+<span class="type">Section</span><span class="codenumber">2.7</span><span class="title">The \(LU\) Decomposition</span>
+</h1></header><section class="subsection" id="subsection-46"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul style="list-style-type: disc;">
+<li>Read section 2.6 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-47"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
+</h1></header><p>
+      Before class, a student should be able to:
+    </p>
+<ul style="list-style-type: disc;">
+<li>
+        Use Gaussian Elimination to find the \(LU\) and \(LDU\)
+        decompositions of a matrix.
+      </li>
+<li>
+        Describe when the process of Gaussian Elimination will fail to
+        produce an \(LU\) decomposition.
+      </li>
+</ul>
+<p>
+      Sometime after class, a student should be able to:
+    </p>
+<ul style="list-style-type: disc;">
+<li>
+        Solve a system of equations by using the \(LU\) decomposition and
+        two triangular systems.
+      </li>
+<li>
+        Explain the connection between matrix elimination and the \(LU\)
+        or \(LDU\) factorization of a matrix.
+      </li>
+</ul></section><section class="subsection" id="subsection-48"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The \(LU\) Decomposition of a Matrix</span>
+</h1></header><p>
+      We now look at the ideas behind elimination from a more advanced
+      perspective. If we think about the matrix multiplication form of the
+      forward pass, we can realize it a <!--Style me with CSS--><em>matrix decomposition theorem</em>:
+    </p>
+<article class="theorem-like" id="theorem-2"><h5 class="heading">
+<span class="type">Theorem</span><span class="codenumber">2.3</span>
+</h5>
+        Any square matrix \(A\) can be written as a product \(A = LU\)
+        where \(L\)
+        is a lower triangular matrix and \(U\) is an upper triangular matrix.
+        Moreover, the matrix \(L\) will have \(1\)'s down its diagonal.
+      </article><p>
+      There are three key observations that make this work:
+    </p>
+<ul style="list-style-type: disc;">
+<li>
+        Each of the matrices \(E_{ij}\) that affects a row operation of the
+        form <!--Style me with CSS--><em>add a multiple of row \(i\) to row \(j\)</em> is an invertible
+        matrix, with an easy to find inverse.
+      </li>
+<li>
+        If we make a sequence of row operations in the forward pass using
+        matrices \(E_k\), then we are essentially computing a big product
+        <article class="displaymath" id="me-83">\[
+        E_k \dots E_1 A = U
+        \]</article>
+        where each of the \(E_i\)'s is a lower triangular matrix and the matrix
+        \(U\) is upper triangular. This can the be rewritten as
+        <article class="displaymath" id="me-84">\[
+        A = \left(E_1^{-1} \dots E_k^{-1} \right) U .
+        \]</article>
+        Note that the inverses have to be done <!--Style me with CSS--><em>in reverse order</em> for things
+        to cancel out properly.
+      </li>
+<li>
+        Finally, the product \(L = E_1^{-1} \dots E_k^{-1}\) is really easy to
+        compute, because its entries are simply the negatives of the multipliers
+        we used to do the operations in the forward pass.
+      </li>
+</ul>
+<section class="subsubsection" id="subsubsection-24"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">A Nice Computational Result</span>
+</h1></header><p>
+        One important output of this comes into play when we want to compute
+        solutions to equations like \(Ax = b\). Since we can write \(A = LU\),
+        then our equation can be split into two (big) steps:
+        <ol style="list-style-type: decimal;">
+<li> First find the solution to the equation \(Ly = b\).</li>
+<li> Then find the solution to the equation \(Ux = y\).</li>
+</ol>
+      </p>
+<p>
+        First, note that this is a good thing because both of the systems
+        \(Ly = b\) and \(Ux = y\) are triangular. They can be solved by back
+        substitution. In \(Ly = b\) you work from the top down, and in \(Ux=y\)
+        you work from the bottom up.
+      </p>
+<p>
+        Second, this works because following this process gives us a
+        vector \(x\) which will satisfy this:
+        <article class="displaymath" id="me-85">\[
+        Ax = (LU)x = L (Ux) = Ly = b.
+        \]</article>
+      </p>
+<p>
+        Third, this doesn't really save time when you only want to solve
+        one equation \(Ax= b\). But if you have lots of different values
+        of \(b_i\), and you want to solve all of the equations \(Ax = b_i\),
+        it becomes a lot faster to factor the matrix \(A= LU\) once and do
+        two back substitutions for each value of \(b_i\).
+      </p></section></section><section class="subsection" id="subsection-49"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and The \(LU\) Decomposition</span>
+</h1></header><p>
+      A neat feature of linear algebra is that simple facts about solving equations
+      have several different incarnations. This section contains the first big
+      example: Gaussian Elimination leads to a multiplicative decomposition (a
+      factorization) for matrices.
+    </p>
+<p>
+      Each step of Gaussian elimination is a simple row operation, and if we do
+      the process in the standard order, then the \(LU\) decomposition can
+      be read out directly, without any extra computation.
+    </p>
+<p>
+      First, let us recall how Sage can help us check bits of
+      the three key observations above.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">M = MatrixSpace(QQ,3,3)
+One = M(1); One
+</script></div>
+<p>
+      Consider a matrix which performs an elementary row operation of the
+      form “add a multiple of one row to another”. The matrix \(E\)
+      below performs the operations <!--Style me with CSS--><em>add \(-4\) times row 2 to row 3</em>.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">E = One.with_added_multiple_of_row(2,1,-4); E
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">E.is_invertible()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">E.inverse()
+</script></div>
+<p>
+      Note that the inverse just came from changing the sign of that one entry.
+      This makes sense for the following reason: the opposite operation to
+      “add \(-4\) times row 2 to row 3” should be “Add \(4\) times
+      row 2 to row 3”. That is the way you undo the operation!
+    </p>
+<section class="subsubsection" id="subsubsection-25"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Study Break: Try it yourself</span>
+</h1></header><p>
+        Make your own \(3\times 3\) matrix and check the whole procedure.
+      </p></section><section class="subsubsection" id="subsubsection-26"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage Commands to short-cut the process</span>
+</h1></header><p>
+        Here is the basic command for getting Sage to compute the \(LU\)
+        decomposition directly.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">A = M([2,3,1,-1,3,5,6,5,4]); A
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.LU()
+</script></div>
+<p>
+        Hold on, the output is three matrices. Not two, but three. One is upper
+        triangular, one is lower triangular, but the first one is a
+        <em class="terminology">permutation matrix</em>. (It switches rows 1 and 3.) What is
+        going on? If you perform a search in the Sage documentation, you find
+        <a class="external-url" href="http://www.sagemath.org/doc/reference/matrices/sage/matrix/matrix2.html" target="_blank">this page</a>.
+        There is a description of the command, and the first bit is something about
+        a “pivoting strategy” and row swaps. But we don't want row swaps.
+      </p>
+<p>
+        By reading carefully, we can see what the way through is, too. We can
+        specify our pivoting strategy by adding the keyword argument
+        <tt class="code-inline" style="color: red; font-size: 120%">pivot="nonzero"</tt> inside the parentheses. Then the algorithm used
+        will match the one Strang describes.
+      </p>
+<p>(If you are using SMC, you can access the help using many other ways.
+        But a Google search for <tt class="code-inline" style="color: red; font-size: 120%">Sage math "topic"</tt> will hit the documentation
+        pretty reliably.)
+      </p>
+<div class="sage-compute"><script type="text/x-sage">A.LU(pivot='nonzero')
+</script></div>
+<p>
+        Aaah! There we go, now the permutation part is the identity. Note that
+        the command returns a “tuple”. This is a collection of things,
+        kind of like a list. (Technical Python details omitted here.)
+        To grab the information out, we assign the parts of that output to different
+        names so we can use them.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">P, L, U = A.LU(pivot='nonzero')
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">L # this is the lower triangular part
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">U # this is the upper triangular part
+</script></div>
+<p>
+        Those parts should be factors of \(A\). We can check:
+      </p>
+<div class="sage-compute"><script type="text/x-sage">L*U # this should multiply to A
+</script></div>
+<p>
+        And we can have Sage check if they are really equal.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">L*U == A
+</script></div></section><section class="subsubsection" id="subsubsection-27"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">What about the \(LDU\) decomposition?</span>
+</h1></header><p>For now, Sage has no built-in \(LDU\) decomposition.</p></section><section class="subsubsection" id="subsubsection-28"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">An insurmountable obstacle</span>
+</h1></header><p>
+        Some matrices <!--Style me with CSS--><em>require</em> permutations of rows. In these cases, we
+        have to have some pivoting strategy <!--Style me with CSS--><em>must</em> be employed. Consider this
+        example.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">B = M([0,2,2,1,3,1,1,1,1]); B
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">B.LU(pivot='nonzero')
+</script></div>
+<p>
+        This has a row-swap permutation matrix, and <!--Style me with CSS--><em>it must</em>. Since the
+        (1,1) entry of <tt class="code-inline" style="color: red; font-size: 120%">B</tt> is zero, but numbers below that are not zero,
+        we cannot use zero as a pivot. We'll sort out how to handle this in the next
+        section.
+      </p></section></section><section class="subsection" id="subsection-50"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><p>
+    Keep this in mind. The computations are simple, but tedious.
+    Perhaps you want to use an appropriate tool.
+  </p>
+<article class="example-like" id="task-69"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">69</span><span class="title"></span>
+</h5>
+<p>
+        Consider the following system of 3 linear equations in 3 unknowns.
+        <article class="displaymath" id="me-86">\[\left\{
+        \begin{array}{rrrrrrr}
+        x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 5 \\
+        x &amp; + &amp; 2y &amp; + &amp; 3z &amp; = &amp; 7 \\
+        x &amp; + &amp; 3y &amp; + &amp; 6z &amp; = &amp; 11
+        \end{array}\right.
+        \]</article>
+        Perform the forward pass of elimination to find an equivalent upper
+        triangular system. Write down this upper triangular system. What three
+        row operations do you need to perform to make this work?
+      </p>
+<p>
+        Use the information you just found to write a matrix
+        decomposition \(A = LU\) for the coefficient matrix \(A\) for this
+        system of equations. (Be sure to multiply the matrices \(L\) and \(U\)
+        to check your work.)
+      </p></article><article class="example-like" id="task-70"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">70</span><span class="title"></span>
+</h5>
+<p>
+        Solve the two systems \(Ly = b\) and \(Ux=y\) obtained in the last
+        exercise.
+      </p>
+<p>
+        Solve the system \(Ax=b\) directly using Gauss-Jordan
+        elimination (hint: use Sage) and make sure that the results
+        are the same.
+      </p></article><article class="example-like" id="task-71"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">71</span><span class="title"></span>
+</h5>
+      Consider the matrix \(A\) below. Find the matrix \(E\) which
+      transforms \(A\) into an upper triangular matrix \(EA = U\).
+      Find \(L = E^{-1}\). Use this to write down the \(LU\) decomposition
+      \(A= LU\) of \(A\).
+      <article class="displaymath" id="me-87">\[
+        A =
+        \begin{pmatrix}
+        2 &amp; 1 &amp; 0 \\
+        0 &amp; 4 &amp; 2 \\
+        6 &amp; 3 &amp; 5
+        \end{pmatrix}
+      \]</article></article><article class="example-like" id="task-72"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">72</span><span class="title"></span>
+</h5>
+      The matrix below is <em class="terminology">symmetric</em>, because if you flip it across
+      its main diagonal you get the same thing. Find the \(LDU\) triple
+      decomposition of this symmetric matrix.
+      <article class="displaymath" id="me-88">\[
+        B =
+        \begin{pmatrix}
+        2 &amp; 4 \\
+        4 &amp; 11
+        \end{pmatrix}
+      \]</article></article><article class="example-like" id="task-73"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">73</span><span class="title"></span>
+</h5>
+      The matrix below is <em class="terminology">symmetric</em>, because if you flip it
+      across its main diagonal you get the same thing. Find the \(LDU\)
+      triple decomposition of this symmetric matrix.
+      <article class="displaymath" id="me-89">\[
+        C =
+        \begin{pmatrix}
+        1 &amp; 4 &amp; 0 \\
+        4 &amp; 12 &amp; 4 \\
+        0 &amp; 4 &amp; 0
+        \end{pmatrix}
+      \]</article></article><article class="example-like" id="task-74"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">74</span><span class="title"></span>
+</h5>
+      The matrix below is <em class="terminology">symmetric</em>, because if you flip it
+      across its main diagonal you get the same thing. Find the \(LU\)
+      decomposition of this symmetric matrix.
+      <article class="displaymath" id="me-90">\[
+        D =
+        \begin{pmatrix}
+        a &amp; a &amp; a &amp; a \\
+        a &amp; b &amp; b &amp; b \\
+        a &amp; b &amp; c &amp; c \\
+        a &amp; b &amp; c &amp; d
+        \end{pmatrix}
+      \]</article>
+      What conditions on the variables \(a\), \(b\), \(c\),
+      and \(d\) will guarantee that this matrix has four pivots?
+    </article><article class="example-like" id="task-75"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">75</span><span class="title"></span>
+</h5>
+      Find an example of a \(3\times 3\) matrix \(A\) which has all of
+      its entries non-zero, so that the \(LU\) decomposition has
+      \(U = I\), where \(I\) is the identity matrix, or explain why no
+      such example exists.
+    </article></section></section></div></main>
+</div>
+</body>
+</html>

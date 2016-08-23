@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Bases</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+$(function () {
+    // Make *any* div with class 'sage-compute' an executable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+                           linked: true,
+                           evalButtonText: 'Evaluate'});
+});
+$(function () {
+    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-display',
+                           editor: 'codemirror-readonly',
+                           hide: ['evalButton', 'editorToggle', 'language']});
+});
+    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+    
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+  \)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="soln-gf.html">Previous</a><a class="up-button button toolbar-item" href="chapter-subspaces.html">Up</a><a class="next-button button toolbar-item" href="four-subspaces.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="soln-gf.html">Previous</a><a class="up-button button toolbar-item" href="chapter-subspaces.html">Up</a><a class="next-button button toolbar-item" href="four-subspaces.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="index.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="preface-1.html">Preface</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+</ul>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
+<ul>
+<li><a href="vectors.html">Vectors</a></li>
+<li><a href="dot-product.html">The Dot Product</a></li>
+<li><a href="matrices.html">Matrices</a></li>
+<li><a href="start-sage.html">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<ul>
+<li><a href="three-pictures.html">Three Geometric Models</a></li>
+<li><a href="elimination.html">Solving Systems</a></li>
+<li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with Elimination</a></li>
+<li><a href="matrix-algebra.html">Matrix Algebra</a></li>
+<li><a href="inverse.html">Matrix Inverses</a></li>
+<li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
+<li><a href="permutations.html">Permutation Matrices</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
+<ul>
+<li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
+<li><a href="nullspace.html">The Nullspace</a></li>
+<li><a href="rank.html">Rank and the RREF</a></li>
+<li><a href="complete-solution.html">Solving a System</a></li>
+<li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
+<li><a href="basis.html" class="active">Bases</a></li>
+<li><a href="four-subspaces.html">The Four Subspaces</a></li>
+<li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
+</ul>
+<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<ul>
+<li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
+<li><a href="section-projections.html">Projections Onto Subspaces</a></li>
+<li><a href="section-gf-proj.html">Going Further: Projections</a></li>
+<li><a href="section-least-squares.html">Approximate Solutions: Least Squares</a></li>
+<li><a href="section-gram-schmidt.html">Orthonormal Bases and Gram-Schmidt</a></li>
+<li><a href="section-gf-ls-gs.html">Going Further: Least Squares and Gram-Schmidt</a></li>
+</ul>
+<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-det-properties.html">Properties of the Determinant</a></li>
+<li><a href="section-det-computation.html">Computing Determinants</a></li>
+<li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
+</ul>
+<h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<ul>
+<li><a href="section-eigenvectors.html">Eigenvectors and Eigenvalues</a></li>
+<li><a href="section-diagonalization.html">Diagonalizing Matrices</a></li>
+<li><a href="section-spectral-theorem.html">The Spectral Theorem</a></li>
+<li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
+<li><a href="section-svd.html">Singular Value Decomposition</a></li>
+<li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="basis"><header><h1 class="heading" alt="Section 3.6 Bases" title="Section 3.6 Bases">
+<span class="type">Section</span><span class="codenumber">3.6</span><span class="title">Bases</span>
+</h1></header><section class="subsection" id="subsection-80"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul style="list-style-type: disc;">
+<li>Read <!--Style me with CSS--><em>Strang</em> chapter 3 section 5.</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-81"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
+</h1></header><p>Before class, a student should be able to:</p>
+<ul style="list-style-type: disc;">
+<li>Use the row space algorithm to decide if a set of vectors is
+        linearly independent or linearly dependent.</li>
+<li>Use the column space algorithm to decide if a set of vectors is
+        linearly independent or linearly dependent</li>
+<li>Compute the dimension of a subspace.</li>
+</ul>
+<p>Sometime after class, a student should be able to:</p>
+<ul style="list-style-type: disc;"><li>Explain the connection between a set of vectors being
+      linearly independent, a spanning set, and a basis.</li></ul></section><section class="subsection" id="subsection-82"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Linear Independence, Spanning, Basis, and Dimension</span>
+</h1></header><p>
+      The purpose of this lesson is to introduce specific terms for several
+      concepts we have been dancing around. This is a spot that sometimes gives
+      students difficulty because they are unused to the way mathematicians
+      talk. So, here is a big warning:
+    </p>
+<blockquote>
+      <p>
+        “When I use a word,” Humpty Dumpty said in rather a scornful tone,
+        “it means just what I choose it to mean -- neither more nor less.”
+      </p>
+      <p>
+      --<!--Style me with CSS--><em>Through the Looking Glass</em>, Lewis Carroll</p>
+    </blockquote>
+<p>
+      That is the essence of it. We have several new words, and they will
+      mean <!--Style me with CSS--><em>exactly</em> what we declare them to mean, no more, no less.
+    </p>
+<p>
+      What are the new terms?
+    </p>
+<ul style="list-style-type: disc;">
+<li>
+        A set \(\{v_1, v_2, \ldots, v_k\}\) of vectors is <em class="terminology">linearly
+        independent</em>, or <em class="terminology">linearly dependent</em>.
+      </li>
+<li>
+        A set of vectors <em class="terminology">spans</em> a vector space or a subspace.
+      </li>
+<li>
+        A set of vectors is a <em class="terminology">basis</em> or not.
+      </li>
+<li>
+        The <em class="terminology">dimension</em> of a vector space, or of a vector subspace.
+      </li>
+</ul>
+<p>
+      You should take away from this reading what those four terms are, how
+      to check them, and some examples and non-examples.
+    </p>
+<p>
+      A bit of notation: If we have a set \(\{ v_1, v_2, \dots, v_k\}\) of
+      vectors in some vector space, then we denote the subspace which they
+      span by \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\). (This has to
+      be the easiest possible notational choice ever.)
+    </p>
+<section class="subsubsection" id="subsubsection-39"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Other Vector Spaces</span>
+</h1></header><p>
+        Once you understand these terms as they apply to the Euclidean
+        spaces \(\mathbb{R}^n\) and their subspaces (especially those
+        associated to matrices), you should pause to admire your achievement.
+      </p>
+<p>
+        But next, realize that those terms apply generally to all sorts of
+        vector spaces! Can you make examples and non-examples in some of
+        these other situtations?
+      </p>
+<ul style="list-style-type: disc;">
+<li>
+          The set \(\mathcal{P}_3\) of polynomials in \(x\) of degree
+          no more than 3?
+        </li>
+<li>
+          The set \(M_{m,n}\) of \(m\times n\) matrices.
+        </li>
+<li>
+          The set \(\mathcal{C}(\mathbb{R})\) of continuous functions.
+        </li>
+<li>
+          The set of all functions which are solutions to the differential
+          equation \(y'' = y\).
+        </li>
+</ul></section><section class="subsubsection" id="subsubsection-40"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Two Methods of Sorting out Linear Independence</span>
+</h1></header><p>
+        We have enough information to collect two ways to answer the question:
+        “Is this set linearly independent?”
+        Well, at least when working with vectors in some Euclidean space
+        \(\mathbb{R}^n\).
+      </p>
+        The Column Space Algorithm
+        <p>
+          Given a set of vectors \(\{v_1, v_2, \ldots, v_k\}\) from
+          \(\mathbb{R}^n\):
+        </p>
+        <ul style="list-style-type: disc;">
+<li>Form the \(n\times k\) matrix
+            \(A = \left( \begin{smallmatrix} v_1 &amp; v_2 &amp; \dots &amp;
+            v_k\end{smallmatrix}\right)\).
+          </li>
+<li>Put \(A\) into reduced row echelon form
+            \(R = \mathrm{rref}(A)\). (Really, you only need to go to
+            echelon form, here.)
+          </li>
+<li>Read out pivot columns and free columns of \(R\).
+            Those columns of \(A\) which are free columns are linear
+            combinations of previous columns to the left! So, if any column
+            of \(R\) (and \(A\)) is a free columns, the set of vectors
+            is linearly dependent. If all of the columns of \(R\)
+            (and \(A\)) are pivot columns, then the set is linearly
+            independent.
+          </li>
+</ul>
+        <p>
+          This method is particularly good for identifying which subset of
+          our original set of vectors would form a basis of the vector
+          subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\).
+        </p>
+      
+        The Row Space Algorithm
+        <p>(We will see the reason for the name soon.)
+          Given a set of vectors \(\{v_1, v_2, \ldots, v_k\}\) from
+          \(\mathbb{R}^n\):
+        </p>
+        <ul style="list-style-type: disc;">
+<li>Form the \(k\times n\) matrix
+          \(A = \left( \begin{smallmatrix} v_1^T \\ v_2^T \\ \vdots
+            \\ v_k^T \end{smallmatrix}\right)\).
+          </li>
+<li>Put \(A\) into reduced row echelon form
+            \(R = \mathrm{rref}(A)\).
+          </li>
+<li>The rows of \(R\) will contain a basis for the vector
+            subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\) (written as
+            rows instead of columns, of course).
+            If \(R\) has any zero rows, the original set was linearly
+            dependent, otherwise it was linearly independent.
+          </li>
+</ul>
+        <p>
+          This method is good at picking out a simple basis of the vector
+          subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\), but the
+          resulting vectors \emph{probably won't come from your original set}.
+        </p>
+      </section></section><section class="subsection" id="subsection-83"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Bases</span>
+</h1></header><p>
+      Sage has several commands which are useful for dealing with the concpets
+      of this section.
+    </p>
+<section class="subsubsection" id="subsubsection-41"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Commands for span, dimension, and basis</span>
+</h1></header><p>
+        This first command will
+        construct a vector subspace of \(3\)-space which is spanned by the two
+        vectors we pass in as arguments.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">v1 = vector([1,0,2])
+v2 = vector([1,1,3])
+
+V = span([v1,v2], QQ)
+V
+</script></div>
+<p>
+        Note that Sage already gives us some information:
+        <ul style="list-style-type: disc;">
+<li>dimension</li>
+<li>a basis</li>
+</ul>
+        Sage has chosen its preferred basis, as usual.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">V.dimension()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">V.basis()
+</script></div></section><section class="subsubsection" id="subsubsection-42"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Algorithms for Checking Linear Independence</span>
+</h1></header><p>
+        Sage does not have built-in commands with names for checking linear independence
+        or linear dependence. Instead, you have to just use the algorithms.
+      </p>
+        The Row Space Algorithm
+        <div class="sage-compute"><script type="text/x-sage">row_matrix = matrix(QQ, 2,3, [v1,v2])
+row_matrix
+</script></div>
+        <div class="sage-compute"><script type="text/x-sage">R = row_matrix.rref()
+R
+</script></div>
+        <p>
+          (Where have we seen that before?) From this, it is clear that \(\left\{
+          v_1, v_2 \right\}\) is linearly dependent because both rows have pivots.
+        </p>
+      
+        The Column Space Algorithm
+        <p>
+          We work much the same way here.
+        </p>
+        <div class="sage-compute"><script type="text/x-sage">col_matrix = matrix(2,3, [v1,v2]).transpose()
+col_matrix
+</script></div>
+        <div class="sage-compute"><script type="text/x-sage">col_matrix.rref()
+</script></div>
+        <p>
+          This tells us that our first two columns are pivot columns, so we
+          should
+          keep those as part of our basis for
+          \(\mathrm{span}\left(v_1, v_2\right)\).
+        </p>
+      </section><section class="subsubsection" id="subsubsection-43"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Spaces Associated to a Matrix</span>
+</h1></header><p>
+        Sage knows about the column space and row space associated to a
+        matrix. For this next example, we will work over the ring <tt class="code-inline" style="color: red; font-size: 120%">AA</tt>
+        of “algebraic numbers”, so we can include \(\sqrt{2}\).
+      </p>
+<div class="sage-compute"><script type="text/x-sage">entries = [453, 1/3, 34, 2.sqrt(),
+           9, 11/9, -3, 8, 98, 10,
+           21, -4]
+A = matrix(AA, 3,4, entries); A
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.column_space()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.column_space().dimension()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.column_space().basis()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.row_space()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.row_space().dimension()
+</script></div>
+<p>
+        Or we could do this in other ways.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">span(A.columns()).dimension()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">span(A.rows()).dimension()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.right_kernel().dimension()
+</script></div></section></section><section class="subsection" id="subsection-84"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><p>
+      Note: We may not present all of these in class.
+    </p>
+<article class="example-like" id="task-108"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">108</span><span class="title"></span>
+</h5>
+        Make an example of a vector \(v \in \mathbb{R}^4\) so that the set
+        <article class="displaymath" id="me-117">\[
+          \left\{
+          \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix},
+          \begin{pmatrix} 0 \\ 1 \\ 2 \\ 1 \end{pmatrix},
+          \begin{pmatrix} -2\\ 1 \\ 0 \\ -5 \end{pmatrix},
+          v
+          \right\}
+        \]</article>
+        is a linearly independent set, or explain why it is impossible to find
+        such an example.
+        Is your resulting set a basis?
+      </article><article class="example-like" id="task-109"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">109</span><span class="title"></span>
+</h5>
+        Make an example of a vector \(w \in \mathbb{R}^3\) so that the set
+        <article class="displaymath" id="me-118">\[
+          \left\{
+          \begin{pmatrix} 2 \\ 3 \\ 4 \end{pmatrix},
+          \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix},
+          \begin{pmatrix} -2\\ -4 \\ -5 \end{pmatrix},
+          w
+          \right\}
+        \]</article>
+        is a spanning set, or explain why it is impossible to find such an
+        example. Is your resulting set a basis?
+      </article><article class="example-like" id="task-110"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">110</span><span class="title"></span>
+</h5>(Strang 3.5.10)
+        Find two independent vectors on the plane \(x+2y-3z-t=0\) in
+        \(\mathbb{R}^4\). Then find three independent vectors on this plane.
+        Why not four? Find a matrix for which this plane is the nullspace.
+      </article><article class="example-like" id="task-111"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">111</span><span class="title"></span>
+</h5>(Strang 3.5.21)
+        Suppose that the columns of a \(5 \times 5 \) matrix \(A\) are a
+        basis for \(\mathbb{R}^5\).
+        <ol style="list-style-type: decimal;">
+<li>
+            Explain why the equation \(Ax = 0\) has only the solution
+            \(x=0\).
+          </li>
+<li>
+            What fact about the column vectors guarantees that for any \(b\)
+            in \(\mathbb{R}^5\) the equation \(Ax =b\) is solvable?
+          </li>
+</ol>
+        Conclusion: \(A\) is invertible. Its rank is \(5\). Its rows are
+        also a basis for \(\mathbb{R}^5\).
+      </article><article class="example-like" id="task-112"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">112</span><span class="title"></span>
+</h5>(Strang 3.5.22)
+        Suppose that \(S\) is a \(5\)-dimensional subspace of
+        \(\mathbb{R}^6\).
+        Determine if the following statements are true or false. If true, give
+        an explanation for why it is true. If false, give a counterexample.
+        <ol style="list-style-type: decimal;">
+<li>
+            Every basis for \(S\) can be extended to a basis for
+            \(\mathbb{R}^6\) by adding one more vector.
+          </li>
+<li>
+            Every basis for \(\mathbb{R}^6\) can be reduced to a basis for
+            \(S\) by removing one vector.
+          </li>
+</ol></article><article class="example-like" id="task-113"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">113</span><span class="title"></span>
+</h5>(Strang 3.5.26)
+        Find a basis (and the dimension) for each of these subspaces of the vector
+        space of \(3\times 3\) matrices:
+        <ol style="list-style-type: decimal;">
+<li>
+            All diagonal matrices.
+          </li>
+<li>
+            All symmetric matrices. (\(A^T = A\))
+          </li>
+<li>
+            All skew-symmetric matrices. (\(A^T = -A\))
+          </li>
+</ol></article><article class="example-like" id="task-114"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">114</span><span class="title"></span>
+</h5>(Strang 3.5.35)
+        Find a basis for the space of polynomials \(p(x)\) of degree less than
+        or equal to \(3\). Find a basis for the subspace with \(p(1)=0\).
+      </article></section></section></div></main>
+</div>
+</body>
+</html>

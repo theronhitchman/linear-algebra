@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Rank and the RREF</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+$(function () {
+    // Make *any* div with class 'sage-compute' an executable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+                           linked: true,
+                           evalButtonText: 'Evaluate'});
+});
+$(function () {
+    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-display',
+                           editor: 'codemirror-readonly',
+                           hide: ['evalButton', 'editorToggle', 'language']});
+});
+    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+    
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+  \)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="nullspace.html">Previous</a><a class="up-button button toolbar-item" href="chapter-subspaces.html">Up</a><a class="next-button button toolbar-item" href="complete-solution.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="nullspace.html">Previous</a><a class="up-button button toolbar-item" href="chapter-subspaces.html">Up</a><a class="next-button button toolbar-item" href="complete-solution.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="index.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="preface-1.html">Preface</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+</ul>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
+<ul>
+<li><a href="vectors.html">Vectors</a></li>
+<li><a href="dot-product.html">The Dot Product</a></li>
+<li><a href="matrices.html">Matrices</a></li>
+<li><a href="start-sage.html">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<ul>
+<li><a href="three-pictures.html">Three Geometric Models</a></li>
+<li><a href="elimination.html">Solving Systems</a></li>
+<li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with Elimination</a></li>
+<li><a href="matrix-algebra.html">Matrix Algebra</a></li>
+<li><a href="inverse.html">Matrix Inverses</a></li>
+<li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
+<li><a href="permutations.html">Permutation Matrices</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
+<ul>
+<li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
+<li><a href="nullspace.html">The Nullspace</a></li>
+<li><a href="rank.html" class="active">Rank and the RREF</a></li>
+<li><a href="complete-solution.html">Solving a System</a></li>
+<li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
+<li><a href="basis.html">Bases</a></li>
+<li><a href="four-subspaces.html">The Four Subspaces</a></li>
+<li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
+</ul>
+<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<ul>
+<li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
+<li><a href="section-projections.html">Projections Onto Subspaces</a></li>
+<li><a href="section-gf-proj.html">Going Further: Projections</a></li>
+<li><a href="section-least-squares.html">Approximate Solutions: Least Squares</a></li>
+<li><a href="section-gram-schmidt.html">Orthonormal Bases and Gram-Schmidt</a></li>
+<li><a href="section-gf-ls-gs.html">Going Further: Least Squares and Gram-Schmidt</a></li>
+</ul>
+<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-det-properties.html">Properties of the Determinant</a></li>
+<li><a href="section-det-computation.html">Computing Determinants</a></li>
+<li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
+</ul>
+<h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<ul>
+<li><a href="section-eigenvectors.html">Eigenvectors and Eigenvalues</a></li>
+<li><a href="section-diagonalization.html">Diagonalizing Matrices</a></li>
+<li><a href="section-spectral-theorem.html">The Spectral Theorem</a></li>
+<li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
+<li><a href="section-svd.html">Singular Value Decomposition</a></li>
+<li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="rank"><header><h1 class="heading" alt="Section 3.3 Rank and the RREF" title="Section 3.3 Rank and the RREF">
+<span class="type">Section</span><span class="codenumber">3.3</span><span class="title">Rank and the RREF</span>
+</h1></header><section class="subsection" id="subsection-68"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul style="list-style-type: disc;">
+<li>Read chapter 3 section 3 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li>Read the following and do the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-69"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
+</h1></header><p>Before class, a student should be able to:</p>
+<ul style="list-style-type: disc;">
+<li>State a definition of the rank of a matrix.</li>
+<li>Compute the rank of a matrix.</li>
+<li>Describe the relation between the rank and the size of the column
+        space.
+      </li>
+<li>Construct the nullspace matrix associated to a matrix.</li>
+</ul>
+<p>Some time after class, a student should be able to:</p>
+<ul style="list-style-type: disc;"><li>Use the RREF and special solutions associated to a matrix to describe
+        how free columns are linear combinations of earlier pivot columns.
+      </li></ul></section><section class="subsection" id="subsection-70"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Rank of a Matrix</span>
+</h1></header><p>
+      The new concept for this section is the <em class="terminology">rank</em> of a matrix.
+      There are <!--Style me with CSS--><em>three</em> definitions of rank given in the first two
+      pages of this section. It is important to know them and see that they
+      are equivalent.
+    </p>
+<p>
+      Another important part of what happens here is the realization that
+      putting the matrix into reduced row echelon form, which uses <!--Style me with CSS--><em>row</em>
+      operations, actually tells us something about the <!--Style me with CSS--><em>columns</em> of the
+      matrix. This is kind of amazing.
+    </p>
+<p>
+      Take a matrix \(A\) and put it into reduced row echelon form
+      \(R = \mathrm{rref}(A)\). Then \(A\) and \(R\) have the same shape.
+      In particular, they have the same number of columns. But in \(R\)
+      it is easy to see the location of the pivots. This divides up the
+      columns of \(R\) into those columns having a pivot, the <em class="terminology">pivot columns</em>,
+      and those which do not, the <em class="terminology">free columns</em>.
+      We will label a column of \(A\) as a pivot column or a free column in a way
+      that corresponds. Here is the startling fact:
+    </p>
+<article class="theorem-like" id="theorem-3"><h5 class="heading">
+<span class="type">Theorem</span><span class="codenumber">3.1</span>
+</h5>
+        Let \(A\) be a matrix.
+        The pivot columns of \(A\) are those which cannot be expressed as linear
+        combinations of the columns to their left.
+        The free columns of \(A\) are those which can be expressed as linear
+        combinations of the columns to their left.
+      </article><p>
+      How exactly can we see this? Strang uses the construction of a
+      <em class="terminology">nullspace matrix</em>. The special solutions we learned about
+      in the last section can be bundled together as the columns of a matrix
+      \(N\), called the nullspace matrix. This matrix has two important
+      properties:
+    </p>
+<ul style="list-style-type: disc;">
+<li> \(AN = 0\); and</li>
+<li> Each column of \(N\) (i.e. each special solution) holds the
+          coefficients needed to write down a interesting linear combination
+          equation on the columns of \(A\).
+        </li>
+</ul>
+<p>
+        Finally, please use some caution when reading through the area
+        with blue boxes and equations (4) and (5) on page 147. Note that
+        Strang introduces a big simplifying assumption that makes his work
+        easier. The general principles will hold, but those nice, neat
+        equations won't always look so good for an arbitrary matrix.
+      </p></section><section class="subsection" id="subsection-71"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Rank</span>
+</h1></header><p>
+      Sage has a built-in command for the rank of a matrix. It is called
+      <tt class="code-inline" style="color: red; font-size: 120%">.rank()</tt>, of course.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 3,4, [1,2,3,4,5,6,7,8,9,10,11,12])
+A
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.rank()
+</script></div>
+<p>
+      Sage knows how to do the underlying computations, too. Let's have Sage
+      compute the reduced row echelon form of <tt class="code-inline" style="color: red; font-size: 120%">A</tt>:
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A.rref()
+</script></div>
+<p>
+      Nice! Note that this fits the “special case” form that Strang uses on
+      page 147. Let's see what else it can do.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A.right_kernel()
+</script></div>
+<p>
+      We can make Sage give us just the matrix in that last response.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A.right_kernel().basis_matrix()
+</script></div>
+<p>
+      That is <!--Style me with CSS--><em>almost</em> Strang's version of a nullspace matrix in this case.
+      Part of what we need to do is make the rows into columns. The transpose command is
+      the way to do that:
+    </p>
+<div class="sage-compute"><script type="text/x-sage">N = A.right_kernel().basis_matrix().transpose()
+N
+</script></div>
+<p>
+      That is <!--Style me with CSS--><em>NOT</em> exactly Strang's nullspace matrix. But it is very close.
+      In fact, it still has this crucial property:
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A*N
+</script></div>
+<p>
+      What has happened here is that Sage constructs a <!--Style me with CSS--><em>different</em> version
+      of the nullspace matrix than Strang does. Strang's version is easier to
+      find by hand and tends to have \(1\)'s and \(0\)'s and the end.
+      The Sage version comes from a routine that strongly prefers to
+      start with \(1\)'s and \(0\)'s.
+    </p>
+<p>
+      The two version of nullspace matrix are related, of course. Let's see how:
+    </p>
+<div class="sage-compute"><script type="text/x-sage">E = N.matrix_from_rows([2,3]); E
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">F = N*E.inverse(); F
+</script></div>
+<p>
+      <!--Style me with CSS--><em>That</em> is Strang's nullspace matrix.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A*F
+</script></div>
+<p>
+      Where does this relationship come from? I have a hint: <!--Style me with CSS--><em>Column Operations</em>.
+      How can we use the structure of matrix multiplication to see why left multiplication
+      by <tt class="code-inline" style="color: red; font-size: 120%">E.inverse()</tt> performs some column operations?
+    </p>
+<p>
+      Here is another thing to think about: where does that <tt class="code-inline" style="color: red; font-size: 120%">E</tt> come from?
+      Compare <tt class="code-inline" style="color: red; font-size: 120%">A</tt> and <tt class="code-inline" style="color: red; font-size: 120%">N</tt>. Notice anything? Remember that Strang wants
+      the nullspace matrix to have \(1\)'s and \(0\)'s in the free columns.
+    </p></section><section class="subsection" id="subsection-72"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><article class="example-like" id="task-94"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">94</span><span class="title"></span>
+</h5>
+        Give an example of a \(5 \times 3\) matrix which has
+        <ul style="list-style-type: disc;">
+<li>rank equal to 3, and</li>
+<li>all non-zero entries,</li>
+</ul>
+        or explain why no such example is possible.
+      </article><article class="example-like" id="task-95"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">95</span><span class="title"></span>
+</h5>
+        Give an example of a \(3 \times 3\) matrix which has
+        <ul style="list-style-type: disc;">
+<li>rank equal to 2,</li>
+<li>a nullspace of \(\{0\}\), and</li>
+<li>all non-zero entries,</li>
+</ul>
+        or explain why no such example is possible.
+      </article><article class="example-like" id="task-96"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">96</span><span class="title"></span>
+</h5>
+        Consider the matrix <article class="displaymath" id="me-105">\[
+        A = \left( \begin{smallmatrix} 2 &amp; 1 &amp; 5 \\ 1 &amp; 1
+        &amp; 7 \end{smallmatrix}\right).\]</article>
+        Find the reduced row echelon form \(R = \mathrm{rref}(A)\)
+        of \(A\). Track the row operations you use, and use them to
+        find an invertible matrix \(E\) so that \(EA = R\).
+      </article><article class="example-like" id="task-97"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">97</span><span class="title"></span>
+</h5>
+        Contine with the matrix of the last exercise. Find the null space matrix of
+        \(A\). Use the information contained in the nullspace matrix to
+        write down a linear combination equation on the columns of
+        \(R = \mathrm{rref}(A)\) of the form
+        <article class="displaymath" id="me-106">\[
+          a * \text{(column1)} + b * \text{(column2)} + c * \text{(column3)} = 0.
+        \]</article>
+        Explain why the matrix \(E\) allows us to translate this equation
+        into this one on the columns of \(A\):
+        <article class="displaymath" id="me-107">\[
+          a\begin{pmatrix} 2 \\ 1 \end{pmatrix} +
+          b \begin{pmatrix} 1 \\ 1 \end{pmatrix} +
+          c \begin{pmatrix} 5 \\ 7 \end{pmatrix} =
+          \begin{pmatrix}0\\ 0 \end{pmatrix}.
+        \]</article></article><article class="example-like" id="task-98"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">98</span><span class="title"></span>
+</h5>
+        Consider the matrix \(N\) given below. Make an example of two
+        different matrices \(A\) and \(B\) which have different shapes
+        and each have \(N\) as nullspace matrix, or explain why such an
+        example is not possible.
+        <article class="displaymath" id="me-108">\[
+        N = \begin{pmatrix}
+        -3 &amp; 2 &amp; -1 \\
+         1 &amp; 0 &amp;  0 \\
+         0 &amp; 1 &amp;  0 \\
+         2 &amp; 6 &amp;  1 \\
+         0 &amp; 0 &amp;  1
+        \end{pmatrix}
+        \]</article></article><article class="example-like" id="task-99"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">99</span><span class="title"></span>
+</h5>
+        Consider the matrix \(T = \left(\begin{smallmatrix} 2 &amp;
+        1 \\ 1 &amp; 1 \end{smallmatrix}\right)\). What is the nullspace
+        matrix of \(T\)?
+      </article></section></section></div></main>
+</div>
+</body>
+</html>

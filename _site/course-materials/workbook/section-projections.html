@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Projections Onto Subspaces</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+$(function () {
+    // Make *any* div with class 'sage-compute' an executable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+                           linked: true,
+                           evalButtonText: 'Evaluate'});
+});
+$(function () {
+    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-display',
+                           editor: 'codemirror-readonly',
+                           hide: ['evalButton', 'editorToggle', 'language']});
+});
+    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+    
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+  \)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="section-ftla2.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-gf-proj.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="section-ftla2.html">Previous</a><a class="up-button button toolbar-item" href="chapter-orthogonality.html">Up</a><a class="next-button button toolbar-item" href="section-gf-proj.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="index.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="preface-1.html">Preface</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+</ul>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
+<ul>
+<li><a href="vectors.html">Vectors</a></li>
+<li><a href="dot-product.html">The Dot Product</a></li>
+<li><a href="matrices.html">Matrices</a></li>
+<li><a href="start-sage.html">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
+</ul>
+<h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<ul>
+<li><a href="three-pictures.html">Three Geometric Models</a></li>
+<li><a href="elimination.html">Solving Systems</a></li>
+<li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with Elimination</a></li>
+<li><a href="matrix-algebra.html">Matrix Algebra</a></li>
+<li><a href="inverse.html">Matrix Inverses</a></li>
+<li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
+<li><a href="permutations.html">Permutation Matrices</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
+</ul>
+<h2 class="link"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
+<ul>
+<li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
+<li><a href="nullspace.html">The Nullspace</a></li>
+<li><a href="rank.html">Rank and the RREF</a></li>
+<li><a href="complete-solution.html">Solving a System</a></li>
+<li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
+<li><a href="basis.html">Bases</a></li>
+<li><a href="four-subspaces.html">The Four Subspaces</a></li>
+<li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<ul>
+<li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
+<li><a href="section-projections.html" class="active">Projections Onto Subspaces</a></li>
+<li><a href="section-gf-proj.html">Going Further: Projections</a></li>
+<li><a href="section-least-squares.html">Approximate Solutions: Least Squares</a></li>
+<li><a href="section-gram-schmidt.html">Orthonormal Bases and Gram-Schmidt</a></li>
+<li><a href="section-gf-ls-gs.html">Going Further: Least Squares and Gram-Schmidt</a></li>
+</ul>
+<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-det-properties.html">Properties of the Determinant</a></li>
+<li><a href="section-det-computation.html">Computing Determinants</a></li>
+<li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
+</ul>
+<h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<ul>
+<li><a href="section-eigenvectors.html">Eigenvectors and Eigenvalues</a></li>
+<li><a href="section-diagonalization.html">Diagonalizing Matrices</a></li>
+<li><a href="section-spectral-theorem.html">The Spectral Theorem</a></li>
+<li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
+<li><a href="section-svd.html">Singular Value Decomposition</a></li>
+<li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-projections"><header><h1 class="heading" alt="Section 4.2 Projections Onto Subspaces" title="Section 4.2 Projections Onto Subspaces">
+<span class="type">Section</span><span class="codenumber">4.2</span><span class="title">Projections Onto Subspaces</span>
+</h1></header><section class="subsection" id="subsection-97"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul style="list-style-type: disc;">
+<li>Read Chapter 4 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li>Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-98"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
+</h1></header><p>Before class, a student should be able to:</p>
+<ul style="list-style-type: disc;">
+<li>Compute the projection of a vector onto a line.</li>
+<li>Find the projection matrix which computes the projections of vectors onto a given line.</li>
+<li>Draw the schematic picture of a projection: the line, the vector, the projected vector, and the difference.</li>
+</ul>
+<p>Sometime after class, a student should be able to:</p>
+<ul style="list-style-type: disc;">
+<li>Compute the projection of a vector onto a subspace.</li>
+<li>Find the projection matrix which computes the projections of vectors onto a given subspace.</li>
+<li>
+            Explain the process for finding the equations which determine the projection matrix, and say
+            why the transpose makes an appearance.
+        </li>
+</ul></section><section class="subsection" id="subsection-99"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Orthogonal Projections</span>
+</h1></header><p>
+        One good use of the geometry in \(\mathbb{R}^n\) is the concept of
+        orthogonal projection. The basic idea is to mimic the behavior of
+        shadows under sunlight. Our everyday experience leads us to thinking
+        about the projection of a vector onto a plane (the ground--its roughly
+        a plane), but if you imagine holding out a pencil you can summon up the
+        visual of projection onto a line, too.
+      </p>
+<p>
+        The key concept is to use the basic condition of orthogonality
+        (\(u \cdot v = 0\)) to figure things out.
+      </p>
+<p>
+        Note that everything in this section is done by projecting onto
+        <!--Style me with CSS--><em>subspaces</em>! This is a bit of a restriction. In practice, this
+        restriction can be removed by translating your whole problem to have a
+        new origin.
+      </p></section><section class="subsection" id="subsection-100"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Orthogonal Projection</span>
+</h1></header><p>
+        Sage has no built-in commands for orthogonal projections. But let us recall
+        those parts of Sage that will be useful right now:
+      </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 3,2, [1,2,3,4,5,6])
+A
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.transpose()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.inverse()
+</script></div>
+<p>
+        Sorry, that matrix isn't even square, so it can't be invertible. But
+        this will be:
+      </p>
+<div class="sage-compute"><script type="text/x-sage">(A.transpose()*A).inverse()
+</script></div>
+<p>
+        Finally, this makes sense:
+      </p>
+<div class="sage-compute"><script type="text/x-sage">P = A * (A.transpose()*A).inverse() * A.transpose()
+P
+</script></div>
+<p>
+        This process should have some basic properties. Let's check them.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">B = A.transpose()*A
+print B.is_invertible()
+print B.is_symmetric()
+print B.parent()
+</script></div>
+<p>
+        So \(A^TA\) is square, symmetric, and invertible.
+      </p>
+<div class="sage-compute"><script type="text/x-sage">print P.transpose() == P
+print P.is_symmetric()
+print P*P == P
+</script></div>
+<p>Also as expected.</p></section><section class="subsection" id="subsection-101"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><article class="example-like" id="task-127"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">127</span><span class="title"></span>
+</h5>
+<p>
+            Find the projection matrix which computes projections of vectors in
+            \(\mathbb{R}^2\) onto the line \(3x+2y=0\).
+            (Since it goes through zero, it is a subspace.)
+          </p>
+<p>
+            Find the orthogonal projection of the vector
+            \(\left( 17,3 \right)\) onto this line.
+          </p></article><article class="example-like" id="task-128"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">128</span><span class="title"></span>
+</h5>
+<p>
+            Find the projection matrix which computes projections of vectors in
+            \(\mathbb{R}^3\) onto the line which is the intersection of the
+            planes \(x-2y+3z = 0\) and \(y+2z=0\). (Again, that is a subspace.)
+          </p>
+<p>
+            Find the orthogonal projection of the vector \(\left(1,1,1\right)\)
+            onto this line.
+          </p></article><article class="example-like" id="task-129"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">129</span><span class="title"></span>
+</h5>
+<p>
+            Find the projection matrix which computes projections of vectors in
+            \(\mathbb{R}^3\) onto the plane \(-2x + y +3z = 0\).
+          </p>
+<p>
+            Find the orthogonal projection of the vector \(\left( 9,7,-5\right)\)
+            onto this plane.
+          </p></article><article class="example-like" id="task-130"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">130</span><span class="title"></span>
+</h5>
+<p>
+            Find the projection matrix which computes projections of vectors in
+            \(\mathbb{R}^4\) onto the plane which is the intersectoin of
+            \(5x+y +w=0\) and \(z+y+z+w=0\). (This subspace is the 2
+            dimensional plane where these two 3-dimensional hyperplanes meet.)
+          </p>
+<p>
+            Find the orthogonal projection of the vector
+            \(\left(-3,1,-3,1\right)\) on this plane.
+          </p></article></section></section></div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--**************************************-->
+<!--* Generated from MathBook XML source *-->
+<!--*    on 2015-11-03T17:12:40-06:00    *-->
+<!--*                                    *-->
+<!--*   http://mathbook.pugetsound.edu   *-->
+<!--*                                    *-->
+<!--**************************************-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Three Geometric Models</title>
+<meta name="Keywords" content="Authored in MathBook XML">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['\\(','\\)']]
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        equationNumbers: { autoNumber: "none",
+                           useLabelIds: true,
+                           formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                         },
+        TagSide: "right",
+        TagIndent: ".8em",
+    },
+    "HTML-CSS": {
+        scale: 88,
+    },
+});
+    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
+$(function () {
+    // Make *any* div with class 'sage-compute' an executable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+                           linked: true,
+                           evalButtonText: 'Evaluate'});
+});
+$(function () {
+    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.sage-display',
+                           editor: 'codemirror-readonly',
+                           hide: ['evalButton', 'editorToggle', 'language']});
+});
+    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</head>
+<body class="mathbook-book has-toc has-sidebar-left">
+<div style="display:none;">\(
+    
+    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+  \)</div>
+<header id="masthead"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav id="primary-navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="previous-button toolbar-item button" href="chapter-2.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="elimination.html">Next</a>
+</div>
+<button class="sidebar-right-toggle-button button active">Annotations</button>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-2.html">Previous</a><a class="up-button button toolbar-item" href="chapter-2.html">Up</a><a class="next-button button toolbar-item" href="elimination.html">Next</a>
+</div>
+</div></nav></header><div class="page">
+<aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
+<nav id="toc"><h2 class="link"><a href="index.html"><span class="title">Front Matter</span></a></h2>
+<ul>
+<li><a href="preface-1.html">Preface</a></li>
+<li><a href="acknowledgement-1.html">Acknowledgements</a></li>
+</ul>
+<h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
+<ul>
+<li><a href="vectors.html">Vectors</a></li>
+<li><a href="dot-product.html">The Dot Product</a></li>
+<li><a href="matrices.html">Matrices</a></li>
+<li><a href="start-sage.html">Getting Started with Sage</a></li>
+<li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
+</ul>
+<h2 class="link active"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
+<ul>
+<li><a href="three-pictures.html" class="active">Three Geometric Models</a></li>
+<li><a href="elimination.html">Solving Systems</a></li>
+<li><a href="matrix-elimination.html">Elimination using Matrices</a></li>
+<li><a href="lin-eq-going-further-1.html">Going Further with Elimination</a></li>
+<li><a href="matrix-algebra.html">Matrix Algebra</a></li>
+<li><a href="inverse.html">Matrix Inverses</a></li>
+<li><a href="lu-decomposition.html">The \(LU\) Decomposition</a></li>
+<li><a href="permutations.html">Permutation Matrices</a></li>
+<li><a href="lin-eq-gf2.html">Matrix Algebra: Going Further</a></li>
+</ul>
+<h2 class="link"><a href="chapter-subspaces.html"><span class="codenumber">3</span><span class="title">Vector Spaces and Subspaces</span></a></h2>
+<ul>
+<li><a href="vector-spaces.html">Subspaces of \(\mathbb{R}^n\)</a></li>
+<li><a href="nullspace.html">The Nullspace</a></li>
+<li><a href="rank.html">Rank and the RREF</a></li>
+<li><a href="complete-solution.html">Solving a System</a></li>
+<li><a href="soln-gf.html">Going Further with Solving Systems</a></li>
+<li><a href="basis.html">Bases</a></li>
+<li><a href="four-subspaces.html">The Four Subspaces</a></li>
+<li><a href="ftla-gf.xml.html">Going Further with the Fundamental Theorem</a></li>
+</ul>
+<h2 class="link"><a href="chapter-orthogonality.html"><span class="codenumber">4</span><span class="title">Orthogonality</span></a></h2>
+<ul>
+<li><a href="section-ftla2.html">Orthogonality and the Four Subspaces</a></li>
+<li><a href="section-projections.html">Projections Onto Subspaces</a></li>
+<li><a href="section-gf-proj.html">Going Further: Projections</a></li>
+<li><a href="section-least-squares.html">Approximate Solutions: Least Squares</a></li>
+<li><a href="section-gram-schmidt.html">Orthonormal Bases and Gram-Schmidt</a></li>
+<li><a href="section-gf-ls-gs.html">Going Further: Least Squares and Gram-Schmidt</a></li>
+</ul>
+<h2 class="link"><a href="chapter-determinants.html"><span class="codenumber">5</span><span class="title">Determinants</span></a></h2>
+<ul>
+<li><a href="section-det-properties.html">Properties of the Determinant</a></li>
+<li><a href="section-det-computation.html">Computing Determinants</a></li>
+<li><a href="section-det-gf.html">Going Further: The Determinant</a></li>
+</ul>
+<h2 class="link"><a href="chapter-eigendata-and-svd.html"><span class="codenumber">6</span><span class="title">Eigendata and the Singular Value decomposition</span></a></h2>
+<ul>
+<li><a href="section-eigenvectors.html">Eigenvectors and Eigenvalues</a></li>
+<li><a href="section-diagonalization.html">Diagonalizing Matrices</a></li>
+<li><a href="section-spectral-theorem.html">The Spectral Theorem</a></li>
+<li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
+<li><a href="section-svd.html">Singular Value Decomposition</a></li>
+<li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="three-pictures"><header><h1 class="heading" alt="Section 2.1 Three Geometric Models" title="Section 2.1 Three Geometric Models">
+<span class="type">Section</span><span class="codenumber">2.1</span><span class="title">Three Geometric Models</span>
+</h1></header><section class="subsection" id="subsection-19"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
+</h1></header><ul style="list-style-type: disc;">
+<li>
+        Read section 2.1 of <!--Style me with CSS--><em>Strang</em> (pages 31-40).
+      </li>
+<li>
+        Read the following and complete the exercises below
+      </li>
+</ul></section><section class="subsection" id="subsection-20"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
+</h1></header><p>
+      Before class, a student should be able to:
+    </p>
+<ul style="list-style-type: disc;">
+<li>Translate back and forth between the three algebraic representations:
+        <ul style="list-style-type: circle;">
+<li>
+            A system of linear equations.
+          </li>
+<li>
+            An equation involving a linear combination of vectors.
+          </li>
+<li>
+            A matrix equation.
+          </li>
+</ul>
+      </li>
+<li>
+        Can write down the \(n \times n\) <em class="terminology">identity matrix</em>.
+      </li>
+</ul>
+<p>
+      Sometime in the near future, a student should be able to:
+    </p>
+<ul style="list-style-type: disc;">
+<li>Given a system, interpret and plot the “row picture”.</li>
+<li>Given a system, interpret and plot the “column picture”.</li>
+<li>Use a matrix as a model of a <em class="terminology">transformation</em>, including stating
+        the <em class="terminology">domain</em> and the <em class="terminology">range</em>.</li>
+</ul></section><section class="subsection" id="subsection-21"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
+</h1></header><p>
+      Now we have a little experience with vectors and related things, it is
+      time to be aware of what we have done so we can use it as a foundation for
+      future work. So far, we have talked about two geometric interpretations
+      for a system of linear equations, the <em class="terminology">row picture</em> and the
+      <em class="terminology">column picture</em>.
+    </p>
+<p>
+      Does the following picture make sense to you?
+    </p>
+<figure class="figure-like" id="figure-1"><img width="100%" src="images/ThreePics.png"><figcaption><span class="heading">Figure</span><span class="codenumber">2.1</span>The three geometric models of linear algebra</figcaption></figure><p>
+      A deep understanding of linear algebra will involve a level of comfort with
+      each of these three views of the subject in the diagram, and also the ability
+      to pass back and forth between them.
+    </p>
+<section class="subsubsection" id="subsubsection-10"><header><h1 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Transformational View</span>
+</h1></header><p>
+        We have seen that matrices can be made to "act upon" vectors by a kind of
+        multiplication. In particular, if \(A\) is an \(m\times n\) matrix,
+        then \(A\) can be multiplied (on the left) with a column vector of size
+        \(n\), and the result is a column vector of size \(m\).
+      </p>
+<p>
+        This makes \(A\) into a kind of <em class="terminology">function</em>. (We will use
+        the synonyms <em class="terminology">mapping</em> or <em class="terminology">transformation</em>, too.)
+        For every vector \(v\) of size \(n\), the matrix \(A\) allows
+        us to compute a new vector \(T_A(v) = Av\) of size \(m\). This is
+        the basic example of what we will eventually call a <em class="terminology">linear
+        transformation</em>.<article class="displaymath" id="md-7">\begin{align*}
+\mathbb{R}^m &amp; \xrightarrow[]{T_A} \mathbb{R}^n\\
+v &amp; \xmapsto[]{\phantom{T_A}} Av.
+\end{align*}</article>
+        One of our long term goals is to find a way to think about the geometry
+        of linear algebra from this viewpoint, too.
+      </p></section></section><section class="subsection" id="subsection-22"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Plotting for Linear Algebra</span>
+</h1></header><p>There are a few new Sage commands that might be useful here. We have
+      already seen how to take linear equations and turn them into vectors
+      and then turn the vector equation into a matrix equation. But Sage can
+      help us move in the other direction, too.
+    </p>
+<p>
+      The keys are commands to pull out the rows and columns from a given matrix.
+      Let's start with a simple situation where the matrix equation is
+      <article class="displaymath" id="me-39">\[
+        \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
+        \begin{pmatrix} x &amp; y \end{pmatrix} =
+        \begin{pmatrix} 3 &amp; 4 \end{pmatrix}.
+      \]</article>
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 2,2, [2,1,1,1]); A
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">x, y = var('x y')
+X = vector([x,y]); X
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">b = vector([3,4]); b
+</script></div>
+<p>
+      To get Sage to pull out the columns, we can use the <tt class="code-inline" style="color: red; font-size: 120%">.columns()</tt>
+      method. If we want just one column, we can use the <tt class="code-inline" style="color: red; font-size: 120%">.column()</tt> method,
+      but then we have to remember to specify which column we want.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A.columns() # this will return a list
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">A.column(1)
+</script></div>
+<p>
+      <!--Style me with CSS--><em>Big important note:</em> Sage always numbers lists starting with zero.
+      so the first element of every list is the \(0\) entry, and the second
+      element is the \(1\) entry.
+    </p>
+<p>
+      Now it is possible to make Sage do things like this:
+    </p>
+<div class="sage-compute"><script type="text/x-sage">column_plot = plot(A.column(0), color='red')
+column_plot+= plot(A.column(1), color='blue')
+column_plot+= plot(b, color='purple')
+show(column_plot, figsize=5, aspect_ratio=1)
+</script></div>
+<p>
+      This is an example of the a column picture.
+    </p>
+<p>
+      One can also pull out the rows with corresponding row methods. And if you
+      recall the way that matrix multiplication works if you think of rows, you
+      can make a row picture.
+    </p>
+<div class="sage-compute"><script type="text/x-sage">A.rows()
+</script></div>
+<div class="sage-compute"><script type="text/x-sage">expr1 = A.row(0).dot_product(X) == b[0]
+expr2 = A.row(1).dot_product(X) == b[1]
+
+print expr1
+print expr2
+</script></div>
+<p>
+      And now the picture:
+    </p>
+<div class="sage-compute"><script type="text/x-sage">row_plot = implicit_plot(expr1, [x,-5,5], [y,-1,9], color='blue')
+row_plot+= implicit_plot(expr2, [x,-5,5], [y,-1,9], color='red')
+show(row_plot, axes=True)
+</script></div></section><section class="subsection" id="subsection-23"><header><h1 class="heading hide-type">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><article class="example-like" id="task-31"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">31</span><span class="title"></span>
+</h5>
+        Make an example of a system of linear equations which some students might
+        find challenging to change into an equation involving a linear combination.
+        Explain what the challenge is and how you can think clearly to overcome it.
+      </article><article class="example-like" id="task-32"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">32</span><span class="title"></span>
+</h5>
+        Make an example of a linear combination equation which some students might
+        find challenging to change into a system of linear equations. Explain
+        what the challenge is and how you can think clearly to overcome it.
+      </article><article class="example-like" id="task-33"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">33</span><span class="title"></span>
+</h5>
+        Consider the matrix equation<article class="displaymath" id="me-40">\[
+        \begin{pmatrix}1 &amp; 2 &amp; 4 \\ 2 &amp; 0 &amp; 1 \end{pmatrix}
+          \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3
+          \end{pmatrix}.
+        \]</article><ol style="list-style-type: decimal;">
+<li>
+            Draw a diagram representing the row picture of this matrix equation.
+          </li>
+<li>
+            Draw a diagram representing the column picture of this matrix equation.
+          </li>
+</ol></article><article class="example-like" id="task-34"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">34</span><span class="title"></span>
+</h5>
+        Make an example of a system of linear equations so that the
+        corresponding column picture is about linear combinations of four 2-vecs
+        becoming the zero vector.
+      </article><article class="example-like" id="task-35"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">35</span><span class="title"></span>
+</h5>
+        Find a linear combination equation so that the corresponding system of
+        linear equations corresponds to finding the intersection of three lines
+        in the plane.
+      </article><article class="example-like" id="task-36"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">36</span><span class="title"></span>
+</h5>
+        Find an example of a vector \(b\) so that the equation<article class="displaymath" id="me-41">\[
+          \begin{pmatrix} -1 &amp; 2 \\ 5 &amp; -9 \end{pmatrix} v = b
+        \]</article>
+        has no solution \(v\), or explain why it is impossible to find
+        such an example.
+      </article><article class="example-like" id="task-37"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">37</span><span class="title"></span>
+</h5>
+        In each of the below, find an example of a matrix \(B\) which has the
+        described effect.
+        <ol style="list-style-type: decimal;">
+<li>
+            \(
+              B\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix}y \\ x \end{pmatrix}
+            \)
+          </li>
+<li>
+            Rotates vectors through \(45^{\circ}\) counter-clockwise.
+          </li>
+<li>
+            Reflects vectors across the \(y\)axis.
+          </li>
+<li>
+            \(
+              B\begin{pmatrix} x \\ y \end{pmatrix} =
+              \begin{pmatrix} x+y \\ y \end{pmatrix}.
+            \)
+          </li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

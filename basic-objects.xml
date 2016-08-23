@@ -15,7 +15,8 @@
   <introduction>
     <p>
       This first chapter introduces the basic objects of linear algebra.
-      You will meet vectors, the dot product, and matrices.
+      You will meet vectors, the dot product, matrices, and the computational
+      system SageMath.
     </p>
     <p>
       Vectors are a generalization of the concept of number. Where real numbers
@@ -38,15 +39,15 @@
       their uses, and their properties.
     </p>
     <p>
-      A running theme for this course is the use of the Sage mathematical software
+      A running theme for this course is the use of the SageMath mathematical software
       system. In order to get started, the fourth section of this course is
-      dedicated to getting started with Sage using the SageMathCloud (SMC). You will
+      dedicated to getting started with SageMath using the SageMathCloud (SMC). You will
       make an account and run through an introductory workshop with SMC.
-      Also, throughout this workbook you will find little embedded pieces of Sage
-      code. These are implemented using the Sage SingleCell server. Most of these
-      Sage cells are mutable. You can change the content in them and re-evaluate
-      your new Sage code. I encourage you to play with these---it is a good way to
-      learn the basics of Sage.
+      Also, throughout this workbook you will find little embedded pieces of SageMath
+      code. These are implemented using the SageMath SingleCell server. Most of these
+      SageMath cells are mutable. You can change the content in them and re-evaluate
+      your new SageMath code. I encourage you to play with these---it is a good way to
+      learn the basics of SageMath.
     </p>
     <p>
       The fifth and final section of the chapter is a short assignment designed to
@@ -57,9 +58,9 @@
 
 
   <xi:include href="vectors.xml" />
+  <xi:include href="bo-sage.xml" />
   <xi:include href="dot-product.xml" />
   <xi:include href="matrices.xml" />
-  <xi:include href="bo-sage.xml" />
   <xi:include href="bo-gf.xml" />
 
 
