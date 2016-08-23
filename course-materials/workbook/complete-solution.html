@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>Solving a System</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,62 +134,66 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="complete-solution"><header><h1 class="heading" alt="Section 3.4 Solving a System" title="Section 3.4 Solving a System">
-<span class="type">Section</span><span class="codenumber">3.4</span><span class="title">Solving a System</span>
-</h1></header><section class="subsection" id="subsection-73"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="complete-solution"><header title="Section 3.4 Solving a System"><h1 class="heading hide-type" alt="Section 3.4 Solving a System">
+<span class="type">Section</span><span class="codenumber">3.4</span><span class="title">Solving a System</span><a href="complete-solution.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-74"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 3 section 4 of Strang.</li>
-<li>Read the following and complete the tasks below.</li>
-</ul></section><section class="subsection" id="subsection-74"><header><h1 class="heading hide-type">
+<li id="li-245">Read chapter 3 section 4 of Strang.</li>
+<li id="li-246">Read the following and complete the tasks below.</li>
+</ul></section><section class="subsection" id="subsection-75"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p>
+</h1></header><p id="p-355">
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li>
+<li id="li-247">
         Identify a particular solution to a matrix-vector equation \(Ax=b\).
         (Provided there is one.)
       </li>
-<li>
+<li id="li-248">
         Find the complete solution to a matrix-vector equation \(Ax=b\)
         as a parametrized object. (Provided there is one.)
       </li>
 </ul>
-<p>
+<p id="p-356">
       After class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li>
+<li id="li-249">
         Describe the complete solution to a matrix-vector equation \(Ax=b\)
         as an implicit object, cut out by equations.
       </li>
-<li>
+<li id="li-250">
         Describe the possibilities for the number of solutions to a matrix-vector
         equation \(Ax=b\) in terms of the shape of the matrix.
       </li>
-</ul></section><section class="subsection" id="subsection-75"><header><h1 class="heading hide-type">
+</ul></section><section class="subsection" id="subsection-76"><header title="Subsection  
+      Discussion: The Complete Solution to a System of Equations
+    "><h1 class="heading hide-type" alt="Subsection  
+      Discussion: The Complete Solution to a System of Equations
+    ">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">
       Discussion: The Complete Solution to a System of Equations
     </span>
-</h1></header><p>
+</h1></header><p id="p-357">
       This is the big day! We finally learn how to write out the general
       solution to a system of linear equations. We have spent so much time
       understanding things related to this, that it should go pretty quickly.
     </p>
-<p>
+<p id="p-358">
       The tiny little facts underneath the analysis for this section are
       these: For a matrix \(A\), vectors \(v\) and \(w\) and a scalar
       \(\lambda\), all chosen so that the equations make any sense,
-      <article class="displaymath" id="me-109">\[
+      \begin{equation*}
         \begin{array}{rcl}
         A(v+w) &amp;= &amp;Av + Aw \\
         A(\lambda v) &amp;= &amp;\lambda ( Av )
         \end{array}
-      \]</article>
+      \end{equation*}
     </p>
-<p>
+<p id="p-359">
       The first is a kind of <em class="terminology">distributive property</em>, and the second
       is a kind of <em class="terminology">commutative property</em>. When taken together, these
       things say that the operation of “left-multiply by the matrix \(A\)”
@@ -194,7 +202,7 @@ $(function () {
       called <em class="terminology">linearity</em>. That is, left-multiplication by \(A\) is a
       <em class="terminology">linear operation</em> or a <em class="terminology">linear transformation</em>.
     </p>
-<p>
+<p id="p-360">
       The linearity property makes it possible to check the following two results.
     </p>
 <article class="theorem-like" id="theorem-4"><h5 class="heading">
@@ -212,7 +220,7 @@ $(function () {
         If \(x_p\) is some particular solution to \(Ax=b\) and
         \(x_n\) is some solution to \(Ax=0\), then \(x_p + x_n\) is
         another solution to \(Ax=b\).
-      </article><p>
+      </article><p id="p-361">
       And if we put these two theorems together, we find this result which
       sounds fancier, but has exactly the same content.
     </p>
@@ -220,226 +228,217 @@ $(function () {
 <span class="type">Theorem</span><span class="codenumber">3.4</span>
 </h5>
         The complete set of solutions to the system \(Ax=b\) is the set
-        <article class="displaymath" id="me-110">\[
+        \begin{equation*}
           \left\{ x_p + x_n \mid x_n \in \mathrm{null}(A) \right\},
-        \]</article>
+        \end{equation*}
         where \(x_p\) is any one particular solution to \(Ax=b\).
-      </article><p>
+      </article><p id="p-362">
       This leads us to Strang's very sensible advice about finding the
       complete solution:
     </p>
 <ul style="list-style-type: disc;">
-<li>
+<li id="li-251">
         Form the augmented matrix \(\left( A \mid b \right)\) and use
         Gauss-Jordan elimination to put it in reduced row echelon form
         \(\left( R \mid d \right)\).
       </li>
-<li>
+<li id="li-252">
         Use the information from the RREF to find a particular solution
         \(x_p\) by solving for the pivot variables from the vector
         \(d\) and setting the free variables to zero.
       </li>
-<li>
+<li id="li-253">
         Use the special solutions \(s_1, s_2, \dots, s_k\)
         (if any exist!) to describe the nullspace \(\mathrm{null}(A)\).
       </li>
-<li>
+<li id="li-254">
         Write down the resulting general solution:
-        <article class="displaymath" id="me-111">\[
+        \begin{equation*}
           x = x_p + a_1 s_1 + a_2 s_2 + \dots + a_k s_k,
           \quad \text{for any scalars } a_i \in \mathbb{R}.
-        \]</article>
-      </li>
-</ul></section><section class="subsection" id="subsection-76"><header><h1 class="heading hide-type">
+        \end{equation*}</li>
+</ul></section><section class="subsection" id="subsection-77"><header title="Subsection  Sage and Solving General Systems"><h1 class="heading hide-type" alt="Subsection  Sage and Solving General Systems">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Solving General Systems</span>
-</h1></header><p>
+</h1></header><p id="p-363">
       Sage has many built-in methods for solving systems of linear equations.
       We will investigate three common ones with a single example considered
       several times.
     </p>
-<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 3,4, [1,0,2,3, 1,3,2,0, 2,0,4,9])
+<div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 3,4, [1,0,2,3, 1,3,2,0, 2,0,4,9])
 b = vector([2,5,10])
 print A
 print b
 </script></div>
-<section class="subsubsection" id="subsubsection-36"><header><h1 class="heading hide-type">
+<section class="subsubsection" id="subsubsection-36"><header title="Subsubsection  Method One: RREF and the Nullspace"><h1 class="heading hide-type" alt="Subsubsection  Method One: RREF and the Nullspace">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method One: RREF and the Nullspace</span>
-</h1></header><p>
+</h1></header><p id="p-364">
         First we find a particular solution.
       </p>
-<div class="sage-compute"><script type="text/x-sage">X = A.augment(b, subdivide=True).rref()
+<div class="sagecell-sage"><script type="text/x-sage">X = A.augment(b, subdivide=True).rref()
 X  # this subdivide thing is pretty handy!
 </script></div>
-<p>
+<p id="p-365">
         This clearly has three pivots, and all belong in the original matrix.
         So there will be a solution. We pull out the particular solution.
       </p>
-<div class="sage-compute"><script type="text/x-sage">xp = vector([-4, 3, 0, 2])
+<div class="sagecell-sage"><script type="text/x-sage">xp = vector([-4, 3, 0, 2])
 xp
 </script></div>
-<p>
+<p id="p-366">
         Since we typed that in by hand, we should check our work.
       </p>
-<div class="sage-compute"><script type="text/x-sage">A*xp == b
+<div class="sagecell-sage"><script type="text/x-sage">A*xp == b
 </script></div>
-<p>
+<p id="p-367">
         Now we need to find the nullspace and the special solutions.
       </p>
-<div class="sage-compute"><script type="text/x-sage">A.right_kernel()
+<div class="sagecell-sage"><script type="text/x-sage">A.right_kernel()
 </script></div>
-<p>
+<p id="p-368">
         The basis has only one row, so there is only one special solution.
         This matches our expectation. Our system is \(3\times 4\) and has
         rank \(3\). So there is only one free column, and hence only one
         special solution.
       </p>
-<div class="sage-compute"><script type="text/x-sage">s1 = vector([-2, 0, 1, 0])
+<div class="sagecell-sage"><script type="text/x-sage">s1 = vector([-2, 0, 1, 0])
 A*s1 == 0
 </script></div>
-<p>
+<p id="p-369">
         Now we can check the “general solution”.
       </p>
-<div class="sage-compute"><script type="text/x-sage">t = var('t')
+<div class="sagecell-sage"><script type="text/x-sage">t = var('t')
 gensol = xp + t * s1
 gensol
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A*gensol == b
-</script></div></section><section class="subsubsection" id="subsubsection-37"><header><h1 class="heading hide-type">
+<div class="sagecell-sage"><script type="text/x-sage">A*gensol == b
+</script></div></section><section class="subsubsection" id="subsubsection-37"><header title="Subsubsection  Method Two: A Sage built-in"><h1 class="heading hide-type" alt="Subsubsection  Method Two: A Sage built-in">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method Two: A Sage built-in</span>
-</h1></header><p>
+</h1></header><p id="p-370">
         Sage has a built-in method that looks like “Matrix division”. Here
         we “left divide” by the matrix. This is odd notation, and is just
         something Sage allows.
       </p>
-<div class="sage-compute"><script type="text/x-sage">A\b
+<div class="sagecell-sage"><script type="text/x-sage">A\b
 </script></div>
-<p>
+<p id="p-371">
         It is weird, but this works even if <tt class="code-inline" style="color: red; font-size: 120%">A</tt> is not invertible, like now.
       </p>
-<div class="sage-compute"><script type="text/x-sage">A.inverse()*b
+<div class="sagecell-sage"><script type="text/x-sage">A.inverse()*b
 </script></div>
-<p>
+<p id="p-372">
         The downside to this particular method is that in only gives you one
         particular solution. It does not produce the complete solution. You have
         to do that bit for yourself, maybe like the above.
-      </p></section><section class="subsubsection" id="subsubsection-38"><header><h1 class="heading hide-type">
+      </p></section><section class="subsubsection" id="subsubsection-38"><header title="Subsubsection  Method Three: Another Sage Built-in"><h1 class="heading hide-type" alt="Subsubsection  Method Three: Another Sage Built-in">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method Three: Another Sage Built-in</span>
-</h1></header><p>
+</h1></header><p id="p-373">
         Finally, Sage will also try to solve the system if you apply the
         <tt class="code-inline" style="color: red; font-size: 120%">.solve_right()</tt> method to <tt class="code-inline" style="color: red; font-size: 120%">A</tt>. You have to supply the vector
         <tt class="code-inline" style="color: red; font-size: 120%">b</tt> as an argument to the command.
       </p>
-<div class="sage-compute"><script type="text/x-sage">A.solve_right(b)
+<div class="sagecell-sage"><script type="text/x-sage">A.solve_right(b)
 </script></div>
-<p>
+<p id="p-374">
         Again, this only pulls out a single particular solution. It is up to you
         to figure out the rest.
-      </p></section></section><section class="subsection" id="subsection-77"><header><h1 class="heading hide-type">
+      </p></section></section><section class="subsection" id="subsection-78"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-100"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">100</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-94"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">94</span><span class="title"></span>
 </h5>(Strang ex 3.4.4)
         Find the complete solution (also called the general solution) to
-        <article class="displaymath" id="me-112">\[
+        \begin{equation*}
           \begin{pmatrix} 1 &amp; 3 &amp; 1 &amp; 2 \\
           2 &amp; 6 &amp; 4 &amp; 8 \\
           0 &amp; 0 &amp; 2 &amp; 4 \end{pmatrix}
           \begin{pmatrix} x \\ y \\ z \\ t \end{pmatrix} =
           \begin{pmatrix} 1 \\ 3 \\ 1 \end{pmatrix}.
-        \]</article></article><article class="example-like" id="task-101"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">101</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-95"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">95</span><span class="title"></span>
 </h5>(Strang ex 3.4.6)
         What conditions on \(b_1\), \(b_2\), \(b_3\) and \(b_4\) make
         each of these systems solvable? Find a solution in those cases.
         <ol style="list-style-type: decimal;">
-<li>
-            <article class="displaymath" id="me-113">\[
+<li id="li-255">\begin{equation*}
               \begin{pmatrix} 1 &amp; 2 \\ 2 &amp; 4 \\ 2 &amp; 5 \\ 3 &amp; 9 \end{pmatrix}
               \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} =
               \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}.
-            \]</article>
-          </li>
-<li>
-            <article class="displaymath" id="me-114">\[
+            \end{equation*}</li>
+<li id="li-256">\begin{equation*}
               \begin{pmatrix} 1 &amp; 2 &amp; 3\\ 2 &amp; 4 &amp; 6\\
               2 &amp; 5 &amp; 7\\ 3 &amp; 9 &amp; 12\end{pmatrix}
               \begin{pmatrix} x_1 \\ x_2 \\ x_3\end{pmatrix} =
               \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}.
-            \]</article>
-          </li>
-</ol></article><article class="example-like" id="task-102"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">102</span><span class="title"></span>
+            \end{equation*}</li>
+</ol></article><article class="example-like" id="task-96"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">96</span><span class="title"></span>
 </h5>(Strang ex 3.4.11)
         It is impossible for a \(1 \times 3\) system of equations to have
         \(x_p = (2,4,0)\) and \(x_n = \text{ any multiple of } (1,1,1)\).
         Explain why.
-      </article><article class="example-like" id="task-103"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">103</span><span class="title"></span>
+      </article><article class="example-like" id="task-97"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">97</span><span class="title"></span>
 </h5>(Strang ex 3.4.13)
         Each of the statments below is false. Find a \(2\times 2\) counterexample
         to each one.
         <ol style="list-style-type: decimal;">
-<li>
+<li id="li-257">
             The complete solution is any linear combination of \(x_p\) and
             \(X_n\).
           </li>
-<li>
+<li id="li-258">
             A system \(Ax=b\) has at most one particular solution.
           </li>
-<li>
+<li id="li-259">
             The solution \(x_p\) with all free variables zero is the shortest
             solution, in that it has the minimum norm \(||x_p||\).
           </li>
-<li>
+<li id="li-260">
             If \(A\) is an invertible matrix, there is no solution \(x_n\)
             in the nullspace.
           </li>
-</ol></article><article class="example-like" id="task-104"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">104</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-98"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">98</span><span class="title"></span>
 </h5>(Strang ex 3.4.21)
         Find the complete solution in the form \(x_p + x_n\) to these full
         rank systems.
         <ol style="list-style-type: decimal;">
-<li>
-            <article class="displaymath" id="me-115">\[ x+y+z = 4\]</article>
-          </li>
-<li>
-            <article class="displaymath" id="me-116">\[
+<li id="li-261">\begin{equation*} x+y+z = 4\end{equation*}</li>
+<li id="li-262">\begin{equation*}
               \begin{array}{ccccccc}
               x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 4 \\
               x &amp; - &amp; y &amp; + &amp; z &amp; = &amp; 4
               \end{array}
-            \]</article>
-          </li>
-</ol></article><article class="example-like" id="task-105"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">105</span><span class="title"></span>
+            \end{equation*}</li>
+</ol></article><article class="example-like" id="task-99"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">99</span><span class="title"></span>
 </h5>(Strang ex 3.4.24)
         Give examples of matrices \(A\) for which the number of solutions
         to \(Ax = b\) is
         <ol style="list-style-type: decimal;">
-<li>\(0\) or \(1\), depending on \(b\);</li>
-<li>\(\infty\), regardless of \(b\);</li>
-<li>\(0\) or \(\infty\), depending on \(b\);</li>
-<li>\(1\), regardless of \(b\).</li>
-</ol></article><article class="example-like" id="task-106"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">106</span><span class="title"></span>
+<li id="li-263">\(0\) or \(1\), depending on \(b\);</li>
+<li id="li-264">\(\infty\), regardless of \(b\);</li>
+<li id="li-265">\(0\) or \(\infty\), depending on \(b\);</li>
+<li id="li-266">\(1\), regardless of \(b\).</li>
+</ol></article><article class="example-like" id="task-100"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">100</span><span class="title"></span>
 </h5>(Strang ex 3.4.31)
         Find examples of matrices with the given property, or explain why it is
         impossible:
         <ol style="list-style-type: decimal;">
-<li>
+<li id="li-267">
             The only solution of \(Ax = \left(\begin{smallmatrix}
             1 \\ 2 \\ 3 \end{smallmatrix}\right)\) is \(x = \left(\begin{smallmatrix}
             0 \\ 1 \end{smallmatrix}\right)\).
           </li>
-<li>
+<li id="li-268">
             The only solution of \(Bx = \left(\begin{smallmatrix}
             0 \\ 1 \end{smallmatrix}\right)\) is
             \(x = \left(\begin{smallmatrix}
             1 \\ 2 \\ 3 \end{smallmatrix}\right)\).
           </li>
-</ol></article><article class="example-like" id="task-107"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">107</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-101"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">101</span><span class="title"></span>
 </h5>(Strang ex 3.4.33)
         The complete solution to the equation \(Ax = \left(\begin{smallmatrix}
         1 \\ 3\end{smallmatrix}\right)\) is \(x = \left(\begin{smallmatrix}

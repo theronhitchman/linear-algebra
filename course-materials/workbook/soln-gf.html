@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>Going Further with Solving Systems</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,18 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
-                           linked: true,
-                           evalButtonText: 'Evaluate'});
-});
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +75,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,19 +126,19 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="soln-gf"><header><h1 class="heading" alt="Section 3.5 Going Further with Solving Systems" title="Section 3.5 Going Further with Solving Systems">
-<span class="type">Section</span><span class="codenumber">3.5</span><span class="title">Going Further with Solving Systems</span>
-</h1></header><section class="subsection" id="subsection-78"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="soln-gf"><header title="Section 3.5 Going Further with Solving Systems"><h1 class="heading hide-type" alt="Section 3.5 Going Further with Solving Systems">
+<span class="type">Section</span><span class="codenumber">3.5</span><span class="title">Going Further with Solving Systems</span><a href="soln-gf.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-79"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
-</h1></header><ul style="list-style-type: disc;"><li>
+</h1></header><ul style="list-style-type: disc;"><li id="li-269">
         Go back through the exercises in the first four sections of this chapter.
         Complete any items you
         did not complete the first time through. Prepare any that we have not
         discussed in class so that you will be ready to present them.
-      </li></ul></section><section class="subsection" id="subsection-79"><header><h1 class="heading hide-type">
+      </li></ul></section><section class="subsection" id="subsection-80"><header title="Subsection  Discussion"><h1 class="heading hide-type" alt="Subsection  Discussion">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
-</h1></header><p>Now we take a short break to revisit and consolidate the learning you
+</h1></header><p id="p-375">Now we take a short break to revisit and consolidate the learning you
       have done so far. Revisit the reading and the exercises you have done in
       the first four sections of Chapter Three: Vector Space and Subspaces. The
       important feature of this work should be
@@ -151,27 +147,27 @@ $(function () {
       your work at all times and recognize when you understand deeply and when
       you do not. This will allow you to self-correct.
     </p>
-<p>To help you get started with meta-cognition, I listed learning goals in
+<p id="p-376">To help you get started with meta-cognition, I listed learning goals in
       each section. To go further, you need to explicitly go through the process
       of reviewing what you can do and what you cannot. Here are some prompts to
       help you get started with this process.
       <ul style="list-style-type: disc;">
-<li>
+<li id="li-270">
           Review the learning goals from each section. Can you do the things
           described? Can you do them sometimes, or have you mastered them so you
           can do them consistently?
         </li>
-<li>
+<li id="li-271">
           Look through all of the tasks and go deeper into them. Can you
           connect each exercise to one of our pictures? Try to build a mental
           model of how the exercise and its solution work.
         </li>
-<li>
+<li id="li-272">
           If your first solution to an exercise involve a “guess-and-check”
           approach, can you now complete the exercise in a <!--Style me with CSS--><em>purposeful</em>
           and systematic manner?
         </li>
-<li>
+<li id="li-273">
           Make a list of concepts or exercises that are not clear to you. Phrase
           each item in your list as a question, and make each question as
           specific as possible. Talk with fellow students or your

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:31-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>Diagonalizing Matrices</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,18 +134,18 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-diagonalization"><header><h1 class="heading" alt="Section 6.2 Diagonalizing Matrices" title="Section 6.2 Diagonalizing Matrices">
-<span class="type">Section</span><span class="codenumber">6.2</span><span class="title">Diagonalizing Matrices</span>
-</h1></header><section class="subsection" id="subsection-130"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-diagonalization"><header title="Section 6.2 Diagonalizing Matrices"><h1 class="heading hide-type" alt="Section 6.2 Diagonalizing Matrices">
+<span class="type">Section</span><span class="codenumber">6.2</span><span class="title">Diagonalizing Matrices</span><a href="section-diagonalization.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-131"><header title="Subsection  The assignment"><h1 class="heading hide-type" alt="Subsection  The assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li> Read section 6.2 of Strang (pages 298-307).</li>
-<li> Read the following.</li>
-<li> Prepare the items below for presentation.</li>
-</ul></section><section class="subsection" id="subsection-131"><header><h1 class="heading hide-type">
+<li id="li-420"> Read section 6.2 of Strang (pages 298-307).</li>
+<li id="li-421"> Read the following.</li>
+<li id="li-422"> Prepare the items below for presentation.</li>
+</ul></section><section class="subsection" id="subsection-132"><header title="Subsection  Diagonalizing Matrices"><h1 class="heading hide-type" alt="Subsection  Diagonalizing Matrices">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Diagonalizing Matrices</span>
-</h1></header><p>
+</h1></header><p id="p-519">
       The big result here is this:
     </p>
 <article class="theorem-like" id="theorem-10"><h5 class="heading">
@@ -150,21 +154,21 @@ $(function () {
         Let \(A\) be an \(n\times n\) square matrix. Then the following
         two conditions are equivalent:
         <ul style="list-style-type: disc;">
-<li>
+<li id="li-423">
             There is a basis \(\beta= \{ v_1, v_2, \ldots, v_n \}\) for
             \(\mathbb{R}^n\) consisting of eigenvectors for \(A\).
           </li>
-<li>
+<li id="li-424">
             It is possible to find an invertible matrix \(S\) so that
             \(A = S \Lambda S^{-1}\), where \(\Lambda\) is a diagonal
             matrix whose entries are the eigenvalues of \(A\).
           </li>
-</ul></article><p>
+</ul></article><p id="p-520">
       The connection between the two conditions is that the matrix \(S\) has
       as its columns the eigenvectors of \(A\). (In fact, that is really the
       heart of the proof of this theorem. The rest is just details.)
     </p>
-<p>
+<p id="p-521">
       If a matrix satisfies these two conditions, then we say it is
       <em class="terminology">diagonalizable</em>. We should note right away that not all
       matrices are diagonalizable. We have already seen examples of matrices
@@ -173,103 +177,103 @@ $(function () {
       \(A = \left( \begin{smallmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{smallmatrix}\right)\).
       In this case, it becomes impossible to find a basis consisting of eigenvectors.
     </p>
-<p>
+<p id="p-522">
       In a way, this allows us to see something interesting: maybe a matrix
       really wants to be a diagonal matrix, but we are looking at the
       transformation \(A\) using “the wrong basis.” By wrong, here I
       mean that the standard basis is not the most convenient one, and another
       one makes our lives easier.
-    </p></section><section class="subsection" id="subsection-132"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-133"><header title="Subsection  Sage and Diagonalization"><h1 class="heading hide-type" alt="Subsection  Sage and Diagonalization">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Diagonalization</span>
-</h1></header><p>
+</h1></header><p id="p-523">
       Sage has built-in commands about diagonalization. We shall try a few out here.
       We need a matrix to play with, so we take this one:
     </p>
-<div class="sage-compute"><script type="text/x-sage">A = matrix(AA, 3,3, [1,2,3,4,5,6,7,8,-1])
+<div class="sagecell-sage"><script type="text/x-sage">A = matrix(AA, 3,3, [1,2,3,4,5,6,7,8,-1])
 A.rank()
 </script></div>
-<p>
+<p id="p-524">
       We chose to define this matrix over AA because we need to find
       roots of polynomials when looking for eigenvalues. AA is the
       set of <em class="terminology">algebraic numbers</em>, which just means the collection of
       all roots of polynomials with integer coefficients.
     </p>
-<div class="sage-compute"><script type="text/x-sage">A.is_diagonalizable()
+<div class="sagecell-sage"><script type="text/x-sage">A.is_diagonalizable()
 </script></div>
-<p>
+<p id="p-525">
       Sage has a command for finding the eigenvector decomposition
       \(A = S\Lambda S^{-1}\).
     </p>
-<div class="sage-compute"><script type="text/x-sage">A.eigenmatrix_right()
+<div class="sagecell-sage"><script type="text/x-sage">A.eigenmatrix_right()
 </script></div>
-<p>
+<p id="p-526">
       As you see, Sage returns a pair of matrices. One of them is diagonal, so that
       is probably \(\Lambda\). We'll use tuple unpacking to assign the matrices to
       sensible names.
     </p>
-<div class="sage-compute"><script type="text/x-sage">Lambda, S = A.eigenmatrix_right()
+<div class="sagecell-sage"><script type="text/x-sage">Lambda, S = A.eigenmatrix_right()
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">Lambda
+<div class="sagecell-sage"><script type="text/x-sage">Lambda
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">S
+<div class="sagecell-sage"><script type="text/x-sage">S
 </script></div>
-<p>
+<p id="p-527">
       Note that \(S\) has the eigenvectors of \(A\) as its columns, and the
       corresponding eigenvalues are lined up as the diagonal entries of \(\Lambda\).
     </p>
-<div class="sage-compute"><script type="text/x-sage">A.eigenvectors_right()
+<div class="sagecell-sage"><script type="text/x-sage">A.eigenvectors_right()
 </script></div>
-<p>Anyway, now we can check that everything lines up correctly:</p>
-<div class="sage-compute"><script type="text/x-sage">S * Lambda * S.inverse()
+<p id="p-528">Anyway, now we can check that everything lines up correctly:</p>
+<div class="sagecell-sage"><script type="text/x-sage">S * Lambda * S.inverse()
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">S * Lambda * S.inverse() == A
-</script></div></section><section class="subsection" id="subsection-133"><header><h1 class="heading hide-type">
+<div class="sagecell-sage"><script type="text/x-sage">S * Lambda * S.inverse() == A
+</script></div></section><section class="subsection" id="subsection-134"><header title="Subsection  Questions for Section 6.2"><h1 class="heading hide-type" alt="Subsection  Questions for Section 6.2">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Questions for Section 6.2</span>
-</h1></header><article class="example-like" id="task-164"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">164</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-158"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">158</span><span class="title"></span>
 </h5>
-<p>
+<p id="p-529">
           Let \(e_1, e_2, e_3\) be the standard basis of \(\mathbb{R}^3\):
-          <article class="displaymath" id="me-145">\[
+          \begin{equation*}
             e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
             e_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad
             e_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
-          \]</article>
+          \end{equation*}
           Make an example of an invertible \(3 \times 3\) matrix \(S\).
           Write your matrix as a matrix of column vectors.
-          <article class="displaymath" id="me-146">\[
+          \begin{equation*}
             S = \begin{pmatrix} | &amp; | &amp; | \\ v_1 &amp; v_2 &amp; v_3 \\
              | &amp; | &amp; | \end{pmatrix}
-          \]</article>
+          \end{equation*}
           How do you know that the set \(\{ Se_1, Se_2, Se_3 \}\) is a basis
           for \(\mathbb{R}^3\)?
         </p>
-<p>
+<p id="p-530">
           What is the connection between \(Se_1\), \(Se_2\), \(Se_3\),
           \(S^{-1}v_1\), \(S^{-1}v_2\), \(S^{-1}v_3\) and the original
           vectors \(e_1, e_2, e_3, v_1, v_2, v_3\)?
         </p>
-<p>
+<p id="p-531">
           Finally, how do we use this to understand the way that the decomposition
           \(A = S\Lambda S^{-1}\) works?
-        </p></article><article class="example-like" id="task-165"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">165</span><span class="title"></span>
+        </p></article><article class="example-like" id="task-159"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">159</span><span class="title"></span>
 </h5>
         Exercise 1 from section 6.2 of Strang.
-      </article><article class="example-like" id="task-166"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">166</span><span class="title"></span>
+      </article><article class="example-like" id="task-160"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">160</span><span class="title"></span>
 </h5>
         Exercise 2 from section 6.2 of Strang.
-      </article><article class="example-like" id="task-167"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">167</span><span class="title"></span>
+      </article><article class="example-like" id="task-161"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">161</span><span class="title"></span>
 </h5>
         Exercise 3 from section 6.2 of Strang.
-      </article><article class="example-like" id="task-168"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">168</span><span class="title"></span>
+      </article><article class="example-like" id="task-162"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">162</span><span class="title"></span>
 </h5>
         Exercise 13 from section 6.2 of Strang.
-      </article><article class="example-like" id="task-169"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">169</span><span class="title"></span>
+      </article><article class="example-like" id="task-163"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">163</span><span class="title"></span>
 </h5>
         Exercise 19 from section 6.2 of Strang.
       </article></section></section></div></main>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:40-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>Vectors, the Dot Product, and Matrices</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link active"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,50 +134,51 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-basic-objects"><header><h1 class="heading" alt="Chapter 1 Vectors, the Dot Product, and Matrices" title="Chapter 1 Vectors, the Dot Product, and Matrices">
-<span class="type">Chapter</span><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span>
-</h1></header><article class="introduction" id="introduction-1"><h5 class="heading"></h5>
-<p>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="chapter" id="chapter-basic-objects"><header title="Chapter 1 Vectors, the Dot Product, and Matrices"><h1 class="heading" alt="Chapter 1 Vectors, the Dot Product, and Matrices">
+<span class="type">Chapter</span><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span><a href="chapter-basic-objects.html" class="permalink">¶ permalink</a>
+</h1></header><article class="introduction" id="introduction-1"><h5 class="heading"><span></span></h5>
+<p id="p-5">
       This first chapter introduces the basic objects of linear algebra.
-      You will meet vectors, the dot product, and matrices.
+      You will meet vectors, the dot product, matrices, and the computational
+      system SageMath.
     </p>
-<p>
+<p id="p-6">
       Vectors are a generalization of the concept of number. Where real numbers
       can help us model the geometry of points on a line, vectors will allow us to
       model the geometry of a plane, or (three-dimensional) space, or even "spaces"
       with higher dimensions. We begin by learning about the algebra of vectors,
       and making connections to the geometry.
     </p>
-<p>
+<p id="p-7">
+      A running theme for this course is the use of the SageMath mathematical software
+      system. In order to get started, the second section of this course is
+      dedicated to getting started with SageMath using the SageMathCloud (SMC). You will
+      make an account and run through an introductory workshop with SMC.
+      Also, throughout this workbook you will find little embedded pieces of SageMath
+      code. These are implemented using the SageMath SingleCell server. Most of these
+      SageMath cells are mutable. You can change the content in them and re-evaluate
+      your new SageMath code. I encourage you to play with these---it is a good way to
+      learn the basics of SageMath.
+    </p>
+<p id="p-8">
       The dot product is a funny kind of multiplication. It plays an important
       role in mathematics because it captures all of the basics of measurement.
       We shall learn how to use the dot product to measure lengths and angles. By
       its definition, the dot product is connected with the concept of a linear
       equation, so it will make frequent appearances in our work.
     </p>
-<p>
+<p id="p-9">
       Matrices are another way to generalize the concept of number. (In fact, they
       generalize the concept of vector.) We start here by learning about the
       algebra of matrices. The whole rest of this course will focus on matrices,
       their uses, and their properties.
     </p>
-<p>
-      A running theme for this course is the use of the Sage mathematical software
-      system. In order to get started, the fourth section of this course is
-      dedicated to getting started with Sage using the SageMathCloud (SMC). You will
-      make an account and run through an introductory workshop with SMC.
-      Also, throughout this workbook you will find little embedded pieces of Sage
-      code. These are implemented using the Sage SingleCell server. Most of these
-      Sage cells are mutable. You can change the content in them and re-evaluate
-      your new Sage code. I encourage you to play with these---it is a good way to
-      learn the basics of Sage.
-    </p>
-<p>
+<p id="p-10">
       The fifth and final section of the chapter is a short assignment designed to
       consolidate learning. You will get a chance to practice your skills and to
       think more deeply about the concepts you have learned.
-    </p></article><nav class="summary-links"><a href="vectors.html"><span class="codenumber">1.1</span><span class="title">Vectors</span></a><a href="dot-product.html"><span class="codenumber">1.2</span><span class="title">The Dot Product</span></a><a href="matrices.html"><span class="codenumber">1.3</span><span class="title">Matrices</span></a><a href="start-sage.html"><span class="codenumber">1.4</span><span class="title">Getting Started with Sage</span></a><a href="basic-objects-going-further.html"><span class="codenumber">1.5</span><span class="title">Going Further with the Basic Objects</span></a></nav></section></div></main>
+    </p></article><nav class="summary-links"><a href="vectors.html"><span class="codenumber">1.1</span><span class="title">Vectors</span></a><a href="start-sage.html"><span class="codenumber">1.2</span><span class="title">Getting Started with SageMath</span></a><a href="dot-product.html"><span class="codenumber">1.3</span><span class="title">The Dot Product</span></a><a href="matrices.html"><span class="codenumber">1.4</span><span class="title">Matrices</span></a><a href="basic-objects-going-further.html"><span class="codenumber">1.5</span><span class="title">Going Further with the Basic Objects</span></a></nav></section></div></main>
 </div>
 </body>
 </html>

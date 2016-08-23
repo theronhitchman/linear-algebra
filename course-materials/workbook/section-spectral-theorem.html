@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:31-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>The Spectral Theorem</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,18 +134,18 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-spectral-theorem"><header><h1 class="heading" alt="Section 6.3 The Spectral Theorem" title="Section 6.3 The Spectral Theorem">
-<span class="type">Section</span><span class="codenumber">6.3</span><span class="title">The Spectral Theorem</span>
-</h1></header><section class="subsection" id="subsection-134"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-spectral-theorem"><header title="Section 6.3 The Spectral Theorem"><h1 class="heading hide-type" alt="Section 6.3 The Spectral Theorem">
+<span class="type">Section</span><span class="codenumber">6.3</span><span class="title">The Spectral Theorem</span><a href="section-spectral-theorem.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-135"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 6 section 4 of <!--Style me with CSS--><em>Strang</em>
+<li id="li-425">Read chapter 6 section 4 of <!--Style me with CSS--><em>Strang</em>
 </li>
-<li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-135"><header><h1 class="heading hide-type">
+<li id="li-426">Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-136"><header title="Subsection  Discussion: The Spectral Theorem for Symmetric Matrices"><h1 class="heading hide-type" alt="Subsection  Discussion: The Spectral Theorem for Symmetric Matrices">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Spectral Theorem for Symmetric Matrices</span>
-</h1></header><p>
+</h1></header><p id="p-532">
       We are now in a position to discuss a major result about the structure of
       symmetric (square) matrices: The Spectral Theorem.
     </p>
@@ -152,27 +156,27 @@ $(function () {
         there exists an orthonormal basis \(\{ q_1, q_2, \ldots , q_n \}\)
         of \(\mathbb{R}^n\) consisting of eigenvectors of \(A\).
         This means that we can factor \(A\) as a product
-        <article class="displaymath" id="me-147">\[
+        \begin{equation*}
           A = Q \Lambda Q^{-1} = Q \Lambda Q^T,
-        \]</article>
+        \end{equation*}
         where \(Q\) is an orthogonal matrix having the vectors \(q_i\) as
         its columns, and \(\Lambda\) is a diagonal matrix with the eigenvalues
         of \(A\) as its entries.
-      </article><p>
+      </article><p id="p-533">
       I think Strang's argument for the truth of this theorem is too terse, and hence
       confusing for a first time reader. The main points of the argument are these:
     </p>
 <ol style="list-style-type: decimal;">
-<li>
+<li id="li-427">
         If \(X\) is a symmetric matrix, then all of its eigenvalues are real
         numbers.
       </li>
-<li>
+<li id="li-428">
         If \(X\) is a symmetric matrix and \(v\) and \(w\) are eigenvectors
         of \(X\) which correspond to <!--Style me with CSS--><em>different</em> eigenvalues, then
         \(v\) and \(w\) are orthogonal vectors.
       </li>
-<li>
+<li id="li-429">
         If \(X\) is a symmetric matrix and \(\lambda\) is an eigenvalue of
         \(X\), then subspace of \(\lambda\)-eigenvectors for \(X\) has
         dimension equal to the multiplicity of \(\lambda\) as a root of
@@ -181,7 +185,7 @@ $(function () {
         equal to the <em class="terminology">algebraic multiplicity</em> of \(\lambda\).)
       </li>
 </ol>
-<p>
+<p id="p-534">
       Let's clear up that bit about the different types of multiplicity. We can
       identify eigenvalues by finding them as roots of the characteristic polynomial
       \(p_A(t) = \mathrm{det}(A-t\cdot I)\) of \(A\). Of course, an particular
@@ -191,7 +195,7 @@ $(function () {
       <em class="terminology">algebraic multiplicity</em> of an eigenvalue, since it comes out of
       the consideration of the algebra.
     </p>
-<p>
+<p id="p-535">
       Another way to count up the number of times a number counts as an eigenvalue
       is to use the number of eigenvectors corresponding to that number. But we
       only want to count up truly independent directions, so we should use the
@@ -199,9 +203,9 @@ $(function () {
       multiplicity</em> of an eigenvalue. It is a fact that the geometric
       multiplicity is not greater than the algebraic multiplicity. But the two can
       be different. For example, consider this matrix:
-      <article class="displaymath" id="me-148">\[G = \begin{pmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{pmatrix}.\]</article>
+      \begin{equation*}G = \begin{pmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{pmatrix}.\end{equation*}
     </p>
-<p>
+<p id="p-536">
       Now, how does one understand the Spectral Theorem? It basically guarantees
       that we can always find (a) enough eigenvalues (as real numbers), and (b) for each eigenvalue,
       enough eigenvectors. The hardest parts of the proof come from part (b) where
@@ -210,19 +214,19 @@ $(function () {
       the theorem pretty easily. First, find the eigenvalues. Then for each
       eigenvalue \(\lambda\), find an orthonormal basis for the
       <em class="terminology">eigenspace</em>
-      <article class="displaymath" id="me-149">\[E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).\]</article>
+      \begin{equation*}E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).\end{equation*}
       That second bit can be done in two steps, first find a basis for \(E_{\lambda}\)
       (special solutions!) and then apply the Gram-Schmidt algorithm to find an
       orthonormal basis for \(E_{\lambda}\). Collecting all of these bases
       together will make a basis for \(\mathbb{R}^n\).
-    </p></section><section class="subsection" id="subsection-136"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-137"><header title="Subsection  Sage and the Spectral Theorem"><h1 class="heading hide-type" alt="Subsection  Sage and the Spectral Theorem">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Spectral Theorem</span>
-</h1></header><p>
+</h1></header><p id="p-537">
       Sage does not have any built-in commands that deal with the spectral
       decomposition of a symmetric square matrix. But here are a few commands
       that you might find useful as you hack your solution together by hand:
     </p>
-<p>
+<p id="p-538">
       The first command you might find useful is <tt class="code-inline" style="color: red; font-size: 120%">.change_ring()</tt>. This is
       helpful for those times when you define a matrix over some convenient ring
       like <tt class="code-inline" style="color: red; font-size: 120%">QQ</tt>, but then want to work with eigevalues and eigenvectors and
@@ -230,10 +234,10 @@ $(function () {
       change the matrix, so much as tell Sage to think of it as having entries
       from a different set of numbers.
     </p>
-<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 2,2, [1,2,3,4])
+<div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 2,2, [1,2,3,4])
 A.change_ring(AA)
 </script></div>
-<p>
+<p id="p-539">
       The command <tt class="code-inline" style="color: red; font-size: 120%">.jordan_form(transformation=True)</tt> will return a pair
       consisting of
       a diagonal matrix with the eigenvalues as entries and an invertible matrix
@@ -241,66 +245,66 @@ A.change_ring(AA)
       orthonormal basis. You will have to use Gram-Schmidt to fix this to a
       proper basis promised by the theorem.
     </p>
-<p>
+<p id="p-540">
       Note: the <em class="terminology">Jordan Form</em> is a generalization of the diagonalization
       process that works for matrices which might not be symmetric. We'll use it
       here to short-cut some of the work.
     </p>
-<p>
+<p id="p-541">
       Let's do an example. First, we will make a symmetric matrix. Then we will
       find the eigenvalues and eigenvectors
     </p>
-<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 3,3, [1,2,4, 5,3,2, -1,3,3])
+<div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 3,3, [1,2,4, 5,3,2, -1,3,3])
 X = A.transpose()*A
 Y = X.change_ring(AA); Y
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">D, S = Y.jordan_form(transformation=True)
+<div class="sagecell-sage"><script type="text/x-sage">D, S = Y.jordan_form(transformation=True)
 D
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">S
+<div class="sagecell-sage"><script type="text/x-sage">S
 </script></div>
-<p>
+<p id="p-542">
       In this case, we have three different \(1\)-dimensional eigenspaces, so
       things are not too hard! If we apply Gram-Schmidt, we will just normalize
       those vectors.
     </p>
-<div class="sage-compute"><script type="text/x-sage">Q, R = S.QR()
+<div class="sagecell-sage"><script type="text/x-sage">Q, R = S.QR()
 Q * D * Q.transpose()
 </script></div>
-<p>
+<p id="p-543">
       That is about as close as we can get to displaying the original <tt class="code-inline" style="color: red; font-size: 120%">X</tt>.
-    </p></section><section class="subsection" id="subsection-137"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-138"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-170"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">170</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-164"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">164</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 3.
-      </article><article class="example-like" id="task-171"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">171</span><span class="title"></span>
+      </article><article class="example-like" id="task-165"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">165</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 4.
-      </article><article class="example-like" id="task-172"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">172</span><span class="title"></span>
+      </article><article class="example-like" id="task-166"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">166</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 5.
-      </article><article class="example-like" id="task-173"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">173</span><span class="title"></span>
+      </article><article class="example-like" id="task-167"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">167</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 6.
-      </article><article class="example-like" id="task-174"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">174</span><span class="title"></span>
+      </article><article class="example-like" id="task-168"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">168</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 8.
-      </article><article class="example-like" id="task-175"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">175</span><span class="title"></span>
+      </article><article class="example-like" id="task-169"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">169</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 11.
-      </article><article class="example-like" id="task-176"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">176</span><span class="title"></span>
+      </article><article class="example-like" id="task-170"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">170</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 12.
-      </article><article class="example-like" id="task-177"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">177</span><span class="title"></span>
+      </article><article class="example-like" id="task-171"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">171</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 24.
       </article></section></section></div></main>

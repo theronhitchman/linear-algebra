@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:40-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>Vectors</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -62,12 +66,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="chapter-basic-objects.html">Previous</a><a class="up-button button toolbar-item" href="chapter-basic-objects.html">Up</a><a class="next-button button toolbar-item" href="dot-product.html">Next</a>
+<a class="previous-button toolbar-item button" href="chapter-basic-objects.html">Previous</a><a class="up-button button toolbar-item" href="chapter-basic-objects.html">Up</a><a class="next-button button toolbar-item" href="start-sage.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-basic-objects.html">Previous</a><a class="up-button button toolbar-item" href="chapter-basic-objects.html">Up</a><a class="next-button button toolbar-item" href="dot-product.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chapter-basic-objects.html">Previous</a><a class="up-button button toolbar-item" href="chapter-basic-objects.html">Up</a><a class="next-button button toolbar-item" href="start-sage.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link active"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html" class="active">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,94 +134,100 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="vectors"><header><h1 class="heading" alt="Section 1.1 Vectors" title="Section 1.1 Vectors">
-<span class="type">Section</span><span class="codenumber">1.1</span><span class="title">Vectors</span>
-</h1></header><section class="subsection" id="subsection-1"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="vectors"><header title="Section 1.1 Vectors"><h1 class="heading hide-type" alt="Section 1.1 Vectors">
+<span class="type">Section</span><span class="codenumber">1.1</span><span class="title">Vectors</span><a href="vectors.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-1"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 1.1 of <!--Style me with CSS--><em>Strang</em> (pages 1-7).</li>
-<li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-2"><header><h1 class="heading hide-type">
+<li id="li-1">Read section 1.1 of <!--Style me with CSS--><em>Strang</em> (pages 1-7).</li>
+<li id="li-2">Read the following and complete the exercises below.</li>
+<li id="li-3">
+        Find the series of YouTube videos by user <!--Style me with CSS--><em>3Blue1Brown</em> titled
+        <!--Style me with CSS--><em>The Essence of Linear Algebra</em> and start watching. You only need
+        to watch one or two for now, but eventually you will want to watch them
+        all. Each runs between five and fifteen minutes.
+      </li>
+</ul></section><section class="subsection" id="subsection-2"><header title="Subsection  Learning Objectives"><h1 class="heading hide-type" alt="Subsection  Learning Objectives">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Objectives</span>
-</h1></header><p>Before class, a student should be able to:
+</h1></header><p id="p-11">Before class, a student should be able to:
       <ul style="list-style-type: disc;">
-<li>Add vectors.</li>
-<li>Multiply a vector by a scalar.</li>
-<li>Compute linear combinations.</li>
-<li>Draw pictures which correspond to the above operations.</li>
+<li id="li-4">Add vectors.</li>
+<li id="li-5">Multiply a vector by a scalar.</li>
+<li id="li-6">Compute linear combinations.</li>
+<li id="li-7">Draw pictures which correspond to the above operations.</li>
 </ul>
       At some point, a student should be able to:
       <ul style="list-style-type: disc;">
-<li>Solve linear combination equations involving unknown coefficients.</li>
-<li>Solve linear combination equations involving unknown vectors.</li>
+<li id="li-8">Solve linear combination equations involving unknown coefficients.</li>
+<li id="li-9">Solve linear combination equations involving unknown vectors.</li>
 </ul>
-    </p></section><section class="subsection" id="subsection-3"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-3"><header title="Subsection  Some Discussion"><h1 class="heading hide-type" alt="Subsection  Some Discussion">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Some Discussion</span>
-</h1></header><p>Algebraically, a <em class="terminology">vector</em> is a stack of numbers in a set of
-     parentheses or brackets, like this<article class="displaymath" id="md-1">\begin{align*}
+</h1></header><p id="p-12">Algebraically, a <em class="terminology">vector</em> is a stack of numbers in a set of
+     parentheses or brackets, like this\begin{align*}
 \begin{pmatrix} 2 \\ 7 \\ 9 \end{pmatrix}, \text{ or }
           \begin{bmatrix}2 \\ 7 \\ 9 \end{bmatrix}, \text{ or }
           \begin{pmatrix} 2 &amp; 7 &amp; 9 \end{pmatrix}.
-\end{align*}</article>
+\end{align*}
      The individual numbers are called the <em class="terminology">components</em> or <em class="terminology">entries</em>
      or <em class="terminology">coordinates</em> of the vector. For example, \(7\) is the second
      component of the vectors above.</p>
-<p>The first two vectors above are called <em class="terminology">column</em> vectors
+<p id="p-13">The first two vectors above are called <em class="terminology">column</em> vectors
         because they are stacked vertically. The third is called a <em class="terminology">row</em> vector because it is arranged horizontally. For this class, we will always use column vectors, but to save space, we might sometimes write them as row vectors. It is up to you to make the switch. (We will see later how this matters!)</p>
-<p>Vectors can take lots of different sizes. The vectors above are all \(3\)-vectors. Here is a \(2\)-vector: <article class="displaymath" id="me-1">\[\begin{pmatrix} 71 \\ -12 \end{pmatrix}.\]</article> Here is a \(4\)-vector: <article class="displaymath" id="me-2">\[\begin{pmatrix} \pi \\ 0 \\ -\pi \\ 1\end{pmatrix}.\]</article></p>
-<p>The main value in using vectors lies in their standard interpretations. Let's focus on \(3\)-vectors for now. The vector \(\left(\begin{smallmatrix} a \\ b \\ c\end{smallmatrix}\right)\) can represent <ul style="list-style-type: disc;">
-<li><p>A point in space described in the standard three-dimensional rectangular coordinate system with \(x\) coordinate equal to \(a\), \(y\)-coordinate equal to \(b\) and \(z\) coordinate equal to \(c\).</p></li>
-<li><p>An arrow in space which points from the origin \((0,0,0)\) to the point \((a,b,c)\).</p></li>
-<li><p>An arrow in space which points from some point \((x,y,z)\) to the point \((x+a,y+b,z+c)\).</p></li>
+<p id="p-14">Vectors can take lots of different sizes. The vectors above are all \(3\)-vectors. Here is a \(2\)-vector: \begin{equation*}\begin{pmatrix} 71 \\ -12 \end{pmatrix}.\end{equation*} Here is a \(4\)-vector: \begin{equation*}\begin{pmatrix} \pi \\ 0 \\ -\pi \\ 1\end{pmatrix}.\end{equation*}</p>
+<p id="p-15">The main value in using vectors lies in their standard interpretations. Let's focus on \(3\)-vectors for now. The vector \(\left(\begin{smallmatrix} a \\ b \\ c\end{smallmatrix}\right)\) can represent <ul style="list-style-type: disc;">
+<li id="li-10"><p id="p-16">A point in space described in the standard three-dimensional rectangular coordinate system with \(x\) coordinate equal to \(a\), \(y\)-coordinate equal to \(b\) and \(z\) coordinate equal to \(c\).</p></li>
+<li id="li-11"><p id="p-17">An arrow in space which points from the origin \((0,0,0)\) to the point \((a,b,c)\).</p></li>
+<li id="li-12"><p id="p-18">An arrow in space which points from some point \((x,y,z)\) to the point \((x+a,y+b,z+c)\).</p></li>
 </ul>
         </p>
-<section class="subsubsection" id="subsubsection-1"><header><h1 class="heading hide-type">
+<section class="subsubsection" id="subsubsection-1"><header title="Subsubsection  Operations on Vectors"><h1 class="heading hide-type" alt="Subsubsection  Operations on Vectors">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Operations on Vectors</span>
-</h1></header><p>There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>
-<article class="paragraphs" id="paragraph-1"><h5 class="heading"><span class="title">Scalar Multiplication</span></h5>
-<p>Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\), we form the new vector <article class="displaymath" id="me-3">\[\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\]</article></p></article><article class="paragraphs" id="paragraph-2"><h5 class="heading"><span class="title">Addition</span></h5>
-<p>Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their <em class="terminology">sum</em> <article class="displaymath" id="me-4">\[ v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \]</article></p></article><article class="paragraphs" id="paragraph-3"><h5 class="heading"><span class="title"></span></h5>
-<p>These operations have “obvious” generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em class="terminology">coordinate-wise</em> operations.</p>
-<p>Combining these two operations gives us the notion of a \emph{linear combination}. If \(\lambda\) and \(\mu\) are numbers and \(v\) and \(w\) are vectors of a common size, then the vector <article class="displaymath" id="me-5">\[\lambda v + \mu w \]</article> is a linear combination of \(v\) and \(w\).</p></article></section></section><section class="subsection" id="subsection-4"><header><h1 class="heading hide-type">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage Instructions</span>
-</h1></header><article class="paragraphs" id="paragraph-4"><h5 class="heading"><span class="title">Basic Constructions</span></h5>
-<p>A vector in Sage is constructed by applying the <tt class="code-inline" style="color: red; font-size: 120%">vector</tt> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
-<div class="sage-compute"><script type="text/x-sage">u = vector([1,1,2])
+</h1></header><p id="p-19">There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>
+<article class="paragraphs" id="paragraphs-1"><h5 class="heading"><span class="title">Scalar Multiplication</span></h5>
+<p id="p-20">Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\), we form the new vector \begin{equation*}\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\end{equation*}</p></article><article class="paragraphs" id="paragraphs-2"><h5 class="heading"><span class="title">Addition</span></h5>
+<p id="p-21">Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their <em class="terminology">sum</em> \begin{equation*} v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \end{equation*}</p></article><article class="paragraphs" id="paragraphs-3"><h5 class="heading"><span class="title"></span></h5>
+<p id="p-22">These operations have “obvious” generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em class="terminology">coordinate-wise</em> operations.</p>
+<p id="p-23">Combining these two operations gives us the notion of a \emph{linear combination}. If \(\lambda\) and \(\mu\) are numbers and \(v\) and \(w\) are vectors of a common size, then the vector \begin{equation*}\lambda v + \mu w \end{equation*} is a linear combination of \(v\) and \(w\).</p></article></section></section><section class="subsection" id="subsection-4"><header title="Subsection  SageMath Instructions"><h1 class="heading hide-type" alt="Subsection  SageMath Instructions">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath Instructions</span>
+</h1></header><article class="paragraphs" id="paragraphs-4"><h5 class="heading"><span class="title">Basic Constructions</span></h5>
+<p id="p-24">A vector in SageMath is constructed by applying the <tt class="code-inline" style="color: red; font-size: 120%">vector</tt> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
+<div class="sagecell-sage"><script type="text/x-sage">u = vector([1,1,2])
 </script></div>
-<p>Notice that nothing was displayed. Sage just put the vector u into memory. We can ask for it by calling it.</p>
-<div class="sage-compute"><script type="text/x-sage">u
+<p id="p-25">Notice that nothing was displayed. SageMath just put the vector u into memory. We can ask for it by calling it.</p>
+<div class="sagecell-sage"><script type="text/x-sage">u
 </script></div>
-<p>Sage defaults to displaying vectors horizontally, which is different from how we normally write them by hand.
+<p id="p-26">SageMath defaults to displaying vectors horizontally, which is different from how we normally write them by hand.
               This is okay. You will get used to it quickly.</p>
-<p>Sage knows how to add, multiply by scalars, and form linear combinations, and the notation for it is just as easy as you would expect.</p>
-<div class="sage-compute"><script type="text/x-sage">v = vector([-1,-1,2])
+<p id="p-27">SageMath knows how to add, multiply by scalars, and form linear combinations, and the notation for it is just as easy as you would expect.</p>
+<div class="sagecell-sage"><script type="text/x-sage">v = vector([-1,-1,2])
 u + v
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">pi * u
+<div class="sagecell-sage"><script type="text/x-sage">pi * u
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">3*u + 4*v
+<div class="sagecell-sage"><script type="text/x-sage">3*u + 4*v
 </script></div>
-<p>If you ask Sage to plot a vector, you get this kind of picture:</p>
-<div class="sage-compute"><script type="text/x-sage">plot(v)
+<p id="p-28">If you ask SageMath to plot a vector, you get this kind of picture:</p>
+<div class="sagecell-sage"><script type="text/x-sage">plot(v)
 </script></div>
-<p>And in two dimensions something similar...</p>
-<div class="sage-compute"><script type="text/x-sage">a = vector([-1,1])
+<p id="p-29">And in two dimensions something similar...</p>
+<div class="sagecell-sage"><script type="text/x-sage">a = vector([-1,1])
 plot(a)
 </script></div>
-<p>If you find that you want a vector to have its tail someplace
+<p id="p-30">If you find that you want a vector to have its tail someplace
               that is not the origin, use the <tt class="code-inline" style="color: red; font-size: 120%">arrow</tt> command.</p>
-<div class="sage-compute"><script type="text/x-sage">plot(arrow([1,1],[2,3], color='red',
+<div class="sagecell-sage"><script type="text/x-sage">plot(arrow([1,1],[2,3], color='red',
            arrowsize=2, width=2),
      figsize=5, aspect_ratio=1)
 </script></div>
-<p>Note that Sage cut off some of this plot! Also, I used some options
+<p id="p-31">Note that SageMath cut off some of this plot! Also, I used some options
               just to show them off. The <tt class="code-inline" style="color: red; font-size: 120%">arrow</tt> command works in three dimensions,
               too.
-            </p></article><article class="paragraphs" id="paragraph-5"><h5 class="heading"><span class="title">Interactive Demonstrations</span></h5>
-<p>This is a Sage "interact." You can use this to explore the idea of
+            </p></article><article class="paragraphs" id="paragraphs-5"><h5 class="heading"><span class="title">Interactive Demonstrations</span></h5>
+<p id="p-32">This is a SageMath "interact." You can use this to explore the idea of
             linear combinations of \(2\)-vectors.</p>
-<div class="sage-compute"><script type="text/x-sage">@interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
+<div class="sagecell-sage"><script type="text/x-sage">@interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
 def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,width=10), d=input_box(1,width=10),
                  l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10)):
     two_dim = arrow([0,0], [a,b], color ='red') + arrow([0,0],[c,d],color='blue')
@@ -228,84 +238,134 @@ def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,
     two_dim+= text('l*v + m*w', [l*a+m*c+.1, l*b+m*d+.1],color='purple') + text('P=(e,f)', [e+.1,f+.1],color='black')
     two_dim+= arrow([0,0],[l*a+m*c,l*b+m*d],color='purple', arrowsize=1, width=1)
     two_dim.show(axes=True)
-</script></div>
-<p>This is a different Sage interact. You can use this one to
-                explore linear combinations of \(2\)-vectors.
-              </p>
-<div class="sage-compute"><script type="text/x-sage">@interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
-def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,width=10), d=input_box(1,width=10),
-                 l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10)):
-    two_dim = arrow([0,0], [a,b], color ='red') + arrow([0,0],[c,d],color='blue')
-    two_dim+= arrow([0,0], [l*a,l*b], color='red') + arrow([m*c,m*d],[l*a+m*c,l*b+m*d],color='red')
-    two_dim+= arrow([0,0], [m*c,m*d], color='blue') + arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
-    two_dim+= point([e,f],size=20,color='black',zorder=2)+ arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
-    two_dim+= text('v = (a,b)', [a-.1,b+.1], color='red') + text('w=(c,d)', [c+.1,d-.1],color='purple')
-    two_dim+= text('l*v + m*w', [l*a+m*c+.1, l*b+m*d+.1],color='purple') + text('P=(e,f)', [e+.1,f+.1],color='black')
-    two_dim+= arrow([0,0],[l*a+m*c,l*b+m*d],color='purple', arrowsize=1, width=1)
-    two_dim.show(axes=True)
-</script></div></article></section><article class="example-like" id="task-1"><h5 class="heading">
+</script></div></article></section><section class="subsection" id="subsection-5"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
+</h1></header><p id="p-33">
+        When solving an equation built as a linear combination of vectors with
+        unknown coefficients, a set of values for those coefficients is called a
+        <em class="terminology">solution</em> to the equation if they make the equation true.
+      </p>
+<article class="example-like" id="task-1"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">1</span><span class="title"></span>
 </h5>
-<p>Find an example of numbers \(\lambda\) and \(\mu\) so that <article class="displaymath" id="me-6">\[\lambda \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \mu \begin{pmatrix} 2 \\ -1 \end{pmatrix}\]</article> or describe why no such example can exist.</p></article><article class="example-like" id="task-2"><h5 class="heading">
+<p id="p-34">
+                  <ol style="list-style-type: decimal;">
+<li id="li-13">
+                      Find an example of numbers \(\lambda\) and \(\mu\)
+                      so that \begin{equation*}\lambda \begin{pmatrix} 1 \\ 2 \end{pmatrix} =
+                      \mu \begin{pmatrix} 2 \\ -1 \end{pmatrix}\end{equation*} or describe
+                      why no such numbers can exist.
+                    </li>
+<li id="li-14">
+                      Find a vector \(b = \left( \begin{smallmatrix} b_1 \\ b_2
+                        \end{smallmatrix} \right)\) so that \begin{equation*} \begin{pmatrix} 2
+                        \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+                        = \begin{pmatrix} 10 \\ -3 \end{pmatrix}\end{equation*} or describe why
+                        no such vector can exist.
+                    </li>
+<li id="li-15">
+                      Give examples of numbers \(a\) and \(b\) such that
+                      \begin{equation*} a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix}
+                        1 \\ 1 \end{pmatrix} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}\end{equation*}
+                        or explain why no such numbers exist.
+                    </li>
+</ol>
+                </p></article><article class="example-like" id="task-2"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">2</span><span class="title"></span>
 </h5>
-<p>Find a vector \(b = \left( \begin{smallmatrix} b_1 \\ b_2
-                  \end{smallmatrix} \right)\) so that <article class="displaymath" id="me-7">\[ \begin{pmatrix} 2
-                  \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
-                  = \begin{pmatrix} 10 \\ -3 \end{pmatrix}\]</article> or describe why
-                  no such example can exist.</p></article><article class="example-like" id="task-3"><h5 class="heading">
+<p id="p-35">
+                  <ol style="list-style-type: decimal;">
+<li id="li-16">
+                      Give an example of a number \(\lambda\) so that
+                      \begin{equation*}\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + 3
+                        \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix}
+                        49 \\ -7 \\ 20 \end{pmatrix}\end{equation*} or explain why no such
+                        number exists.
+                    </li>
+<li id="li-17">
+                      Give an example of numbers \(\lambda\) and \(\mu\)
+                      which are a solution to the equation \begin{equation*} \lambda
+                      \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + \mu
+                      \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix}
+                      49 \\ -7 \\ 20 \end{pmatrix}\end{equation*} or explain why no such
+                      solution exists.
+                    </li>
+</ol>
+                </p></article><article class="example-like" id="task-3"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">3</span><span class="title"></span>
 </h5>
-<p>Find a vector \(b = \left( \begin{smallmatrix} b_1 \\ b_2
-                  \end{smallmatrix} \right)\) so that this equation has at
-                  least one solution \(\lambda\) <article class="displaymath" id="me-8">\[\begin{pmatrix} 1 \\ -2
-                  \end{pmatrix} + \lambda \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
-                  = \begin{pmatrix} 2 \\ 3 \end{pmatrix}\]</article> or describe why no
-                  such example can exist.</p></article><article class="example-like" id="task-4"><h5 class="heading">
+<p id="p-36">
+                  <ol style="list-style-type: decimal;">
+<li id="li-18">
+                      Find a vector \(b = \left( \begin{smallmatrix} b_1 \\ b_2
+                        \end{smallmatrix} \right)\) so that this equation has at
+                        least one solution \(\lambda\)\begin{equation*}\lambda
+                        \begin{pmatrix} 1 \\ -2 \end{pmatrix} +
+                        \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+                        = \begin{pmatrix} 2 \\ 3 \end{pmatrix}\end{equation*} or describe why no
+                        such vector \(b\) can exist.
+                    </li>
+<li id="li-19">Give an example of a vector \(X = \left( \begin{smallmatrix} x
+                      \\ y \end{smallmatrix} \right)\) so that the equation
+                      \begin{equation*}a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b X = \begin{pmatrix}7
+                        \\ 5 \end{pmatrix} \end{equation*} has no solution \((a,b)\),
+                        or explain why no such vector exists.
+                    </li>
+</ol>
+                </p></article><article class="example-like" id="task-4"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">4</span><span class="title"></span>
 </h5>
-<p>Give examples of numbers \(a\) and \(b\) such that <article class="displaymath" id="me-9">\[ a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}\]</article> or explain why no such numbers exist.</p></article><p>In the situations like the last exercise, the pair of numbers \(a, b\) is called a <em class="terminology">solution</em> to the equation.</p>
-<article class="example-like" id="task-5"><h5 class="heading">
+<p id="p-37">
+                  <ol style="list-style-type: decimal;">
+<li id="li-20">
+                      Give an example of a vector \(w = \begin{pmatrix} x \\ y \\
+                      z \end{pmatrix}\) so that the equation \begin{equation*}a \begin{pmatrix}
+                      1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                      \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\end{equation*}
+                      has no solution \((a,b)\), or explain why no such vector
+                      exists.
+                    </li>
+<li id="li-21">
+                      Give an example of a vector \(w = \begin{pmatrix} x \\ y \\ z
+                      \end{pmatrix}\) so that the equation \begin{equation*} a \begin{pmatrix}
+                      1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                      \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\end{equation*}
+                      has exactly one solution \((a,b)\), or explain why no such
+                      vector exists.
+                    </li>
+</ol>
+                </p></article><article class="example-like" id="task-5"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">5</span><span class="title"></span>
 </h5>
-<p>Give an example of a vector \(X = \left( \begin{smallmatrix} x \\ y \end{smallmatrix} \right)\) so that the equation <article class="displaymath" id="me-10">\[a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b X = \begin{pmatrix}7 \\ 5 \end{pmatrix} \]</article> has no solution \((a,b)\), or explain why no such example exists.</p></article><article class="example-like" id="task-6"><h5 class="heading">
+<p id="p-38">
+                  <ol style="list-style-type: decimal;">
+<li id="li-22">
+                      Give an example of a vector \(X =
+                      \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) such that the
+                      equation \begin{equation*} a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b
+                      \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1
+                      \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}
+                      \end{equation*} has no solution \((a,b,c)\), or explain why no such vector
+                      exists.
+                    </li>
+<li id="li-23">
+                      Give an example of a vector \(X = \begin{pmatrix} x \\ y \\
+                      z\end{pmatrix}\) such that the equation \begin{equation*} a \begin{pmatrix}
+                      1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                      \end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} =
+                      \begin{pmatrix}x \\ y \\ z \end{pmatrix}\end{equation*} has exactly one
+                      solution \((a,b,c)\), or explain why no such vector exists.
+                    </li>
+</ol>
+                </p></article><article class="example-like" id="task-6"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">6</span><span class="title"></span>
 </h5>
-<p>Give an example of a number \(\lambda\) so that <article class="displaymath" id="me-11">\[\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + 3 \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}\]</article> or explain why no such number exists.</p></article><article class="example-like" id="task-7"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
-</h5>
-<p>Give an example of numbers \(\lambda\) and \(\mu\) which are a solution to the equation <article class="displaymath" id="me-12">\[ \lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + \mu \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}\]</article> or explain why no such solution exists.</p></article><article class="example-like" id="task-8"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
-</h5>
-<p>Give an example of a vector \(w = \begin{pmatrix} x \\ y \\
-                  z \end{pmatrix}\) so that the equation <article class="displaymath" id="me-13">\[a \begin{pmatrix}
-                  1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
-                  \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\]</article>
-                  has no solution \((a,b)\), or explain why no such vector
-                  exists.</p></article><article class="example-like" id="task-9"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
-</h5>
-<p>Give an example of a vector \(w = \begin{pmatrix} x \\ y \\ z
-                  \end{pmatrix}\) so that the equation <article class="displaymath" id="me-14">\[ a \begin{pmatrix}
-                  1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
-                  \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\]</article>
-                  has exactly one solution \((a,b)\), or explain why no such
-                  vector exists.</p></article><article class="example-like" id="task-10"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
-</h5>
-<p>Give an example of a vector \(X =
-                  \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) such that the
-                  equation <article class="displaymath" id="me-15">\[ a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b
-                  \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1
-                  \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}
-                \]</article> has no solutions \((a,b,c)\), or explain why no such vector
-                  exists.</p></article><article class="example-like" id="task-11"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">11</span><span class="title"></span>
-</h5>
-<p>Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) such that the equation <article class="displaymath" id="me-16">\[ a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1 \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}\]</article> has exactly one solution, or explain why no such vector exists.</p></article><article class="example-like" id="task-12"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">12</span><span class="title"></span>
-</h5>
-<p>Give an example of a vector \(X = \begin{pmatrix} x \\ y \\ z\end{pmatrix}\) such that the equation <article class="displaymath" id="me-17">\[ a \begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} + b \begin{pmatrix} 0 \\ -1 \\ 0\end{pmatrix} + c \begin{pmatrix} x \\ y \\ z\end{pmatrix} = \begin{pmatrix}3 \\ 7 \\ 7 \end{pmatrix}\]</article> has no solutions, or explain why no such vector exists.</p></article></section></div></main>
+<p id="p-39">Give an example of a vector \(X = \begin{pmatrix} x \\ y \\
+                  z\end{pmatrix}\) such that the equation \begin{equation*} a \begin{pmatrix}
+                  1 \\ 0 \\ 2 \end{pmatrix} + b \begin{pmatrix} 0 \\ -1 \\ 0
+                  \end{pmatrix} + c \begin{pmatrix} x \\ y \\ z\end{pmatrix} =
+                  \begin{pmatrix}3 \\ 7 \\ 7 \end{pmatrix}\end{equation*} has no solutions,
+                  or explain why no such vector exists.</p></article></section></section></div></main>
 </div>
 </body>
 </html>

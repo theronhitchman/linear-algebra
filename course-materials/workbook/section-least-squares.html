@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>Approximate Solutions: Least Squares</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,29 +134,29 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-least-squares"><header><h1 class="heading" alt="Section 4.4 Approximate Solutions: Least Squares" title="Section 4.4 Approximate Solutions: Least Squares">
-<span class="type">Section</span><span class="codenumber">4.4</span><span class="title">Approximate Solutions: Least Squares</span>
-</h1></header><section class="subsection" id="subsection-104"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-least-squares"><header title="Section 4.4 Approximate Solutions: Least Squares"><h1 class="heading hide-type" alt="Section 4.4 Approximate Solutions: Least Squares">
+<span class="type">Section</span><span class="codenumber">4.4</span><span class="title">Approximate Solutions: Least Squares</span><a href="section-least-squares.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-105"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 4.3 of Strang.</li>
-<li>Read the discussion below.</li>
-<li>Complete exercises 1-11 from section 4.3 in Strang.</li>
-<li>Prepare the items in the exercises for presentation.</li>
-</ul></section><section class="subsection" id="subsection-105"><header><h1 class="heading hide-type">
+<li id="li-354">Read section 4.3 of Strang.</li>
+<li id="li-355">Read the discussion below.</li>
+<li id="li-356">Complete exercises 1-11 from section 4.3 in Strang.</li>
+<li id="li-357">Prepare the items in the exercises for presentation.</li>
+</ul></section><section class="subsection" id="subsection-106"><header title="Subsection  Discussion: Least Squares Approximation"><h1 class="heading hide-type" alt="Subsection  Discussion: Least Squares Approximation">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Least Squares Approximation</span>
-</h1></header><p>
+</h1></header><p id="p-455">
       (It is probably best to read this after you read the section in Strang.)
     </p>
-<section class="subsubsection" id="subsubsection-44"><header><h1 class="heading hide-type">
+<section class="subsubsection" id="subsubsection-44"><header title="Subsubsection  Some Perspective"><h1 class="heading hide-type" alt="Subsubsection  Some Perspective">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Some Perspective</span>
-</h1></header><p>
+</h1></header><p id="p-456">
         Scientific problems often come down to something as simple as this: make
         a bunch of observations, and then try to fit those observations with
         some sort of model for greater understanding.
       </p>
-<p>
+<p id="p-457">
         But data found in scientific problems is often noisy, or infected with
         error in some way. This leads researchers to gather <!--Style me with CSS--><em>more</em> data
         so that chance variations and small errors might get smoothed out.  How
@@ -160,38 +164,38 @@ $(function () {
         likely have too many points to have a curve of our specified model type
         actually hit all of those points.
       </p>
-<p>
+<p id="p-458">
         For example, fitting a line to five points is already problematic: any
         two points gives us a line, and there is no reason to believe that the
         other three points will all sit on that line.
       </p>
-<p>
+<p id="p-459">
         If we set the problem up as a system of equations, things go like this:
         We have a bunch of data set up as input-output pairs \(\{ (a_i, y_i) \}\);
         we are looking for a function \(f\) which has a specified type (linear,
         quadratic, exponential, etc.) that passes through those points.
       </p>
 <ul style="list-style-type: disc;">
-<li>Each data point leads us to an equation \(f(a_i) = y_i\).</li>
-<li>
+<li id="li-358">Each data point leads us to an equation \(f(a_i) = y_i\).</li>
+<li id="li-359">
           The modelling function $f$ has some parameters in it, and we want to
           find the best value of those parameters so that the curve “fits”
           the data well. These parameters are the unknowns in our equations.
         </li>
 </ul>
-<p>
+<p id="p-460">
         This is generally a challenging problem. The method of least squares is
         a technique for solving it when the resulting equations make a linear
         system.
-      </p></section><section class="subsubsection" id="subsubsection-45"><header><h1 class="heading hide-type">
+      </p></section><section class="subsubsection" id="subsubsection-45"><header title="Subsubsection  Some History"><h1 class="heading hide-type" alt="Subsubsection  Some History">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Some History</span>
-</h1></header><p>
+</h1></header><p id="p-461">
         Gauss discovered the technique described in this section in the late
         1790's. In 1801 he used it to help astronomers calculate the orbit of
         the newly discovered asteroid Ceres, and thus find it after it re-emerged
         from behind the sun.
       </p>
-<p>
+<p id="p-462">
         See how the pattern fits? Several weeks worth of data about the position
         of Ceres was known, but it surely had measurement errors in it. Since
         the time of Kepler (Newton), we have known that the motion of the
@@ -200,13 +204,13 @@ $(function () {
         the question confronting Gauss was this: find the ellipse which best
         fits the data.
       </p>
-<p>
+<p id="p-463">
         But plugging all the data into the correct model shape (a conic!) leads
         to a rather large system of linear equations where the unknowns are the
         coefficients we seek.
-      </p></section><section class="subsubsection" id="subsubsection-46"><header><h1 class="heading hide-type">
+      </p></section><section class="subsubsection" id="subsubsection-46"><header title="Subsubsection  So, what is really happening here?"><h1 class="heading hide-type" alt="Subsubsection  So, what is really happening here?">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">So, what is really happening here?</span>
-</h1></header><p>
+</h1></header><p id="p-464">
         In the end, we get a system of the form \(Ax = y\). Here \(A\) is
         an \(m\times n\) matrix and \(ym\) is an \(n\)-vector, where
         \(m\) is the number of equations and \(n\) is the number of
@@ -214,76 +218,76 @@ $(function () {
         Typically, \(m\) is much larger than \(n\), so the matrix \(A\)
         is tall and skinny.
       </p>
-<p>
+<p id="p-465">
         So the system likely has no solution. Instead, we will find the orthogonal
         projection \(\hat{y}\) of \(y\) onto the column space
         \(\mathrm{col}(A)\) of \(A\), and then solve \(Ax = \hat{y}\).
         That's the secret. Since we have already mastered projections, this is
         no big deal.
-      </p></section></section><section class="subsection" id="subsection-106"><header><h1 class="heading hide-type">
+      </p></section></section><section class="subsection" id="subsection-107"><header title="Subsection  Sage instructions"><h1 class="heading hide-type" alt="Subsection  Sage instructions">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage instructions</span>
-</h1></header><p>
+</h1></header><p id="p-466">
       There are no new commands for dealing with matrices here, as we already
       have all that we need. If you are interested, Sage does have a built-in
       function called <tt class="code-inline" style="color: red; font-size: 120%">find_fit</tt>.
     </p>
-<div class="sage-compute"><script type="text/x-sage">Data = [[1,2], [-1,3], [4,1],[2,1],[1,.5]]
+<div class="sagecell-sage"><script type="text/x-sage">Data = [[1,2], [-1,3], [4,1],[2,1],[1,.5]]
 a, b, x = var('a b x')
 model(x) = a*x + b
 
 best = find_fit(Data, model, solution_dict=True)
 best
 </script></div>
-<p>Just to check that, let's plot the data and the curve.</p>
-<div class="sage-compute"><script type="text/x-sage">curve = model.subs(best)
+<p id="p-467">Just to check that, let's plot the data and the curve.</p>
+<div class="sagecell-sage"><script type="text/x-sage">curve = model.subs(best)
 plot(curve, (x,-1,6)) + points(Data, color='red', size=20)
 </script></div>
-<p>
+<p id="p-468">
       That is not so terrible. Keep in mind that, from a linear algebra perspective,
       we just found the projection of \(y = (2,3,1,1,.5) \in \mathbb{R}^5\) on
       the column space of the matrix
-      <article class="displaymath" id="me-127">\[
+      \begin{equation*}
         A = \begin{pmatrix} 1 &amp; 1 \\ -1 &amp; 1\\ 4 &amp; 1 \\ 2 &amp; 1 \\
         1 &amp; 1 \end{pmatrix},
-      \]</article>
+      \end{equation*}
       which is a \(2\)-dimensional plane in that \(5\)-dimensional space.
       If I could, I would draw that picture, but five dimensions in challenging.
-    </p></section><section class="subsection" id="subsection-107"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-108"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><p>
+</h1></header><p id="p-469">
       The best thing you can do to understand this is work some examples. Do
       Strang 1 - 11 from section 4.3. We will present these:
     </p>
-<article class="example-like" id="task-131"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">131</span><span class="title"></span>
+<article class="example-like" id="task-125"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">125</span><span class="title"></span>
 </h5>
         Exercise 1 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-132"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">132</span><span class="title"></span>
+      </article><article class="example-like" id="task-126"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">126</span><span class="title"></span>
 </h5>
         Exercise 5 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-133"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">133</span><span class="title"></span>
+      </article><article class="example-like" id="task-127"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">127</span><span class="title"></span>
 </h5>
         Exercise 6 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-134"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">134</span><span class="title"></span>
+      </article><article class="example-like" id="task-128"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">128</span><span class="title"></span>
 </h5>
         Exercise 7 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-135"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">135</span><span class="title"></span>
+      </article><article class="example-like" id="task-129"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">129</span><span class="title"></span>
 </h5>
         Exercise 8 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-136"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">136</span><span class="title"></span>
+      </article><article class="example-like" id="task-130"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">130</span><span class="title"></span>
 </h5>
         Exercise 9 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-137"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">137</span><span class="title"></span>
+      </article><article class="example-like" id="task-131"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">131</span><span class="title"></span>
 </h5>
         Exercise 10 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-138"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">138</span><span class="title"></span>
+      </article><article class="example-like" id="task-132"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">132</span><span class="title"></span>
 </h5>
         Exercise 11 from section 4.3 of Strang.
       </article></section></section></div></main>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>The Four Subspaces</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,72 +134,71 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="four-subspaces"><header><h1 class="heading" alt="Section 3.7 The Four Subspaces" title="Section 3.7 The Four Subspaces">
-<span class="type">Section</span><span class="codenumber">3.7</span><span class="title">The Four Subspaces</span>
-</h1></header><section class="subsection" id="subsection-85"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="four-subspaces"><header title="Section 3.7 The Four Subspaces"><h1 class="heading hide-type" alt="Section 3.7 The Four Subspaces">
+<span class="type">Section</span><span class="codenumber">3.7</span><span class="title">The Four Subspaces</span><a href="four-subspaces.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-86"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 3 section 6 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-86"><header><h1 class="heading hide-type">
+<li id="li-303">Read chapter 3 section 6 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-304">Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-87"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p>Before class, a student should be able to:</p>
+</h1></header><p id="p-403">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li>Identify the four subspaces associated to a matrix by giving a basis
+<li id="li-305">Identify the four subspaces associated to a matrix by giving a basis
         of each.
       </li>
-<li>Determine the dimension of each of the four subspaces associated to a
+<li id="li-306">Determine the dimension of each of the four subspaces associated to a
         matrix.
       </li>
 </ul>
-<p>Some time after class, a student should be able to:</p>
+<p id="p-404">Some time after class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li>Describe each of the four subspaces associated to a matrix by
-        giving minimal sets of equations which “cut them out.”
-      </li>
-<li>State and use the Fundamental Theorem of Linear Algebra (FTLA)
+<li id="li-307">Describe each of the four subspaces associated to a matrix by
+        giving minimal sets of equations which “cut them out.”</li>
+<li id="li-308">State and use the Fundamental Theorem of Linear Algebra (FTLA)
         to reason about matrices.
       </li>
-<li>Use the RREF of a matrix to explain why the FTLA is true.</li>
-</ul></section><section class="subsection" id="subsection-87"><header><h1 class="heading hide-type">
+<li id="li-309">Use the RREF of a matrix to explain why the FTLA is true.</li>
+</ul></section><section class="subsection" id="subsection-88"><header title="Subsection  Discussion: The Four Subspaces"><h1 class="heading hide-type" alt="Subsection  Discussion: The Four Subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Four Subspaces</span>
-</h1></header><p>
+</h1></header><p id="p-405">
       This section summarizes a big tool for understanding the behavior of a
       matrix as a function.
       Recall that if \(A\) is an \(m\times n\) matrix, then we can
       think of it as defining a function
-      <article class="displaymath" id="me-119">\[
+      \begin{equation*}
         \begin{array}{rcl}
         T_A: \mathbb{R}^n &amp; \rightarrow &amp; \mathbb{R}^m \\
         v\phantom{R} &amp; \mapsto &amp; Av
         \end{array}
-      \]</article>
+      \end{equation*}
       which takes as inputs vectors from \(\mathbb{R}^n\) and has as
       outputs vectors in \(\mathbb{R}^m\). We have also seen that
       properties of matrix multiplication translate into properties that
       make into a <em class="terminology">linear transformation</em>.
     </p>
-<p>
+<p id="p-406">
       We now have four fundamental subspaces associated to the matrix \(A\).
     </p>
 <ul style="list-style-type: disc;">
-<li>The column space, \(\mathrm{col}(A)\), spanned by all of the
+<li id="li-310">The column space, \(\mathrm{col}(A)\), spanned by all of the
         columns of \(A\). This is a subspace of \(\mathbb{R}^m\).
       </li>
-<li>The row space, \(\mathrm{row}(A)\), spanned by all of the rows
+<li id="li-311">The row space, \(\mathrm{row}(A)\), spanned by all of the rows
         of \(A\). This is a subspace of \(\mathbb{R}^n\). This also
         happens to be the column space of \(A^T\).
       </li>
-<li>The nullspace (or kernel), \(\mathrm{null}(A)\), consisting of
+<li id="li-312">The nullspace (or kernel), \(\mathrm{null}(A)\), consisting of
         all those vectors \(x\) for which \(Ax=0\). This is a subspace
         of \(\mathbb{R}^n\).
       </li>
-<li>The left nullspace, which is just the nullspace of \(A^T\). This
+<li id="li-313">The left nullspace, which is just the nullspace of \(A^T\). This
         is a subspace of \(\mathbb{R}^m\).
       </li>
 </ul>
-<p>
+<p id="p-407">
       And we have a big result:
     </p>
 <article class="theorem-like" id="theorem-7"><h5 class="heading">
@@ -204,19 +207,19 @@ $(function () {
         If \(A\) is an \(m\times n\) matrix with rank
         \(\mathrm{rank}(A) = r\), then
         <ul style="list-style-type: disc;">
-<li>\(\dim(\mathrm{col}(A)) = \dim(\mathrm{row}(A)) = r\),</li>
-<li>\(\dim(\mathrm{null}(A)) = n-r\), and</li>
-<li>\(\dim(\mathrm{null}(A^T))= m-r\).</li>
-</ul></article><p>
+<li id="li-314">\(\dim(\mathrm{col}(A)) = \dim(\mathrm{row}(A)) = r\),</li>
+<li id="li-315">\(\dim(\mathrm{null}(A)) = n-r\), and</li>
+<li id="li-316">\(\dim(\mathrm{null}(A^T))= m-r\).</li>
+</ul></article><p id="p-408">
       (<!--Style me with CSS--><em>Study Hint: Write that out in English, with no notation.
       It will help you remember it.</em>)
     </p>
-<p>
+<p id="p-409">
       We will have more to say about these spaces when we reconsider the uses
       of the dot product in chapter 4.
-    </p></section><section class="subsection" id="subsection-88"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-89"><header title="Subsection  Sage and the Four Subspaces"><h1 class="heading hide-type" alt="Subsection  Sage and the Four Subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Four Subspaces</span>
-</h1></header><p>
+</h1></header><p id="p-410">
       We have already seen enough Sage commands to work with the four subspaces:
       <tt class="code-inline" style="color: red; font-size: 120%">.row_space()</tt>, <tt class="code-inline" style="color: red; font-size: 120%">.column_space()</tt>, <tt class="code-inline" style="color: red; font-size: 120%">.left_kernel()</tt>, and
       <tt class="code-inline" style="color: red; font-size: 120%">.right_kernel()</tt> all work.
@@ -224,90 +227,90 @@ $(function () {
       space are just the nullspace and column space of the transpose. Let us
       take a look at some of the options.
     </p>
-<div class="sage-compute"><script type="text/x-sage">A = matrix(AA, 2,5, [3,4,5,-1,-1, 1,1,2,-1,1])
+<div class="sagecell-sage"><script type="text/x-sage">A = matrix(AA, 2,5, [3,4,5,-1,-1, 1,1,2,-1,1])
 A
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A.column_space()
+<div class="sagecell-sage"><script type="text/x-sage">A.column_space()
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A.right_kernel()
+<div class="sagecell-sage"><script type="text/x-sage">A.right_kernel()
 </script></div>
-<p>
+<p id="p-411">
       We have computed column spaces and nullspaces before. What about our
       new friends?
     </p>
-<div class="sage-compute"><script type="text/x-sage">A.row_space()
+<div class="sagecell-sage"><script type="text/x-sage">A.row_space()
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A.transpose().column_space()
+<div class="sagecell-sage"><script type="text/x-sage">A.transpose().column_space()
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A.transpose().column_space() == A.row_space()
+<div class="sagecell-sage"><script type="text/x-sage">A.transpose().column_space() == A.row_space()
 </script></div>
-<p>
+<p id="p-412">
       Since Sage prefers rows under the hood, the left nullspace is easy to find.
     </p>
-<div class="sage-compute"><script type="text/x-sage">A.left_kernel()
+<div class="sagecell-sage"><script type="text/x-sage">A.left_kernel()
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A.transpose().right_kernel()
+<div class="sagecell-sage"><script type="text/x-sage">A.transpose().right_kernel()
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A.left_kernel() == A.transpose().right_kernel()
+<div class="sagecell-sage"><script type="text/x-sage">A.left_kernel() == A.transpose().right_kernel()
 </script></div>
-<p>
+<p id="p-413">
       And there you have it. Sage can construct all four fundamental subspaces,
       and each comes with a basis computed by Sage. (Using the row algorithm!)
       Note that the FTLA works in this case.
-    </p></section><section class="subsection" id="subsection-89"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-90"><header title="Subsection  Questions for Section 3.6"><h1 class="heading hide-type" alt="Subsection  Questions for Section 3.6">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Questions for Section 3.6</span>
-</h1></header><article class="example-like" id="task-115"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">115</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-109"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">109</span><span class="title"></span>
 </h5>
         Find the four subspaces, including a basis of each, for the matrix
-        <article class="displaymath" id="me-120">\[
+        \begin{equation*}
           A = \begin{pmatrix}
           7 &amp; -1 &amp; 3 \\
           -2 &amp; 4 &amp; -5 \\
           1 &amp; 11 &amp; -12
           \end{pmatrix}.
-        \]</article></article><article class="example-like" id="task-116"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">116</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-110"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">110</span><span class="title"></span>
 </h5>
         Find the four subspaces, including a basis of each, for the matrix
-        <article class="displaymath" id="me-121">\[
+        \begin{equation*}
           B = \begin{pmatrix}
           1 &amp; 3 &amp; -2 &amp; 0 &amp; 2 &amp; 0 \\
           2 &amp; 6 &amp; -5 &amp; -2 &amp; 4 &amp; -3 \\
           0 &amp; 0 &amp; 5 &amp; 10 &amp; 0 &amp; 15 \\
           2 &amp; 6 &amp; 0 &amp; 8 &amp; 4 &amp; 18
           \end{pmatrix}.
-        \]</article></article><article class="example-like" id="task-117"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">117</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-111"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">111</span><span class="title"></span>
 </h5>(Strang 3.6.12)
-        <p>
+        <p id="p-414">
           Find an example of a matrix which has \((1,0,1)\) and \((1,2,0)\)
           as a basis for its row space and its column space.
         </p>
-<p>
+<p id="p-415">
           Why can't this be a basis for the row space and the nullspace?
-        </p></article><article class="example-like" id="task-118"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">118</span><span class="title"></span>
+        </p></article><article class="example-like" id="task-112"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">112</span><span class="title"></span>
 </h5>(Strang 3.6.14)
         Without computing \(A\), find bases for its four fundamental subspaces:
-        <article class="displaymath" id="me-122">\[
+        \begin{equation*}
           A = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\
           6 &amp; 1 &amp; 0 \\ 9 &amp; 8 &amp; 1 \end{pmatrix}
           \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\
           0 &amp; 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 1 &amp; 2 \end{pmatrix}.
-        \]</article></article><article class="example-like" id="task-119"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">119</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-113"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">113</span><span class="title"></span>
 </h5>(Strang 3.6.16)
         Explain why the vector \(v = (1, 0, -1)\) cannot be a row of \(A\)
         and also in the nullspace of \(A\).
-      </article><article class="example-like" id="task-120"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">120</span><span class="title"></span>
+      </article><article class="example-like" id="task-114"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">114</span><span class="title"></span>
 </h5>(Strang 3.6.24)
-        <p>
+        <p id="p-416">
           The equation \(A^Ty = d\) is solvable exactly when \(d\) lies in
           one of the four subspaces associated to \(A\). Which is it?
         </p>
-<p>
+<p id="p-417">
           Which subspace can you use to determine if the solution to that
           equation is unique? How do you use that subspace?
         </p></article></section></section></div></main>

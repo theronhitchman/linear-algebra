@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:31-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>Singular Value Decomposition</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,33 +134,32 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html" class="active">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-svd"><header><h1 class="heading" alt="Section 6.5 Singular Value Decomposition" title="Section 6.5 Singular Value Decomposition">
-<span class="type">Section</span><span class="codenumber">6.5</span><span class="title">Singular Value Decomposition</span>
-</h1></header><section class="subsection" id="subsection-140"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="section-svd"><header title="Section 6.5 Singular Value Decomposition"><h1 class="heading hide-type" alt="Section 6.5 Singular Value Decomposition">
+<span class="type">Section</span><span class="codenumber">6.5</span><span class="title">Singular Value Decomposition</span><a href="section-svd.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-141"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 6 section 7 of <!--Style me with CSS--><em>Strang</em>
+<li id="li-435">Read chapter 6 section 7 of <!--Style me with CSS--><em>Strang</em>
 </li>
-<li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-141"><header><h1 class="heading hide-type">
+<li id="li-436">Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-142"><header title="Subsection  Discussion: The Singular Value Decomposition"><h1 class="heading hide-type" alt="Subsection  Discussion: The Singular Value Decomposition">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Singular Value Decomposition</span>
-</h1></header><p>
+</h1></header><p id="p-546">
       The <em class="terminology">Singular Value Decomposition</em> is an adaptation of the ideas
       behind eigenvectors and eigenvalues for non-square matrices. If our matrix
       \(A\) is \(n \times m\), the idea is to
       choose
     </p>
 <ul style="list-style-type: disc;">
-<li>An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), </li>
-<li>and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)</li>
+<li id="li-437">An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), </li>
+<li id="li-438">and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)</li>
 </ul>
-<p>
-      so that <article class="displaymath" id="me-150">\[Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}\]</article>
+<p id="p-547">
+      so that \begin{equation*}Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}\end{equation*}
       where \(r = rank(A)\). If we pile up all of those equations, we get a
       statement like this one:
-    </p>
-<article class="displaymath" id="me-151">\[
+    </p>\begin{equation*}
       A \begin{pmatrix} | &amp; | &amp; \dots &amp; | \\
                       v_1 &amp; v_2 &amp; \dots &amp; v_r \\
                         | &amp; | &amp; \dots &amp; |
@@ -170,12 +173,11 @@ $(function () {
                         u_1 &amp; u_2 &amp; \dots &amp; u_r \\
                           | &amp; | &amp; \dots &amp; |
                           \end{pmatrix}
-    \]</article><p>
+    \end{equation*}<p id="p-548">
       Eventually, this will lead us to a matrix decomposition of the form
-    </p>
-<article class="displaymath" id="me-152">\[ A = U \Sigma V^T .\]</article><section class="subsubsection" id="subsubsection-51"><header><h1 class="heading hide-type">
+    </p>\begin{equation*} A = U \Sigma V^T .\end{equation*}<section class="subsubsection" id="subsubsection-51"><header title="Subsubsection  How to do it"><h1 class="heading hide-type" alt="Subsubsection  How to do it">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">How to do it</span>
-</h1></header><p>
+</h1></header><p id="p-549">
         So, suppose that \(A\) is an \(m \times n\) matrix. The key fact we
         need is that \(A^TA\) is a symmetric \(n \times n\) matrix. Later,
         when discussing properties, it is important that
@@ -183,53 +185,47 @@ $(function () {
         \(A(A^TA) = (AA^T)A\).
       </p>
 <ol style="list-style-type: decimal;">
-<li>
-          <p>
+<li id="li-439">
+<p id="p-550">
             Step One: Compute a spectral decomposition of \(A^TA\).
             Since \(A^TA\) is a square symmetric matrix, we can find an orthonormal
             basis \(v_1, v_2, \ldots, v_n\) for \(\mathbb{R}^n\) which consists
             of eigenvectors for \(A^TA\). If we bundle these together as the columns
             of a matrix \(V\), we can make
             the spectral decomposition
-            <article class="displaymath" id="me-153">\[
+            \begin{equation*}
               A^TA = V D V^T,
-            \]</article>
+            \end{equation*}
             where \(D\) is a diagonal matrix having the eigenvalues
             \(\lambda_1, \lambda_2, \ldots, \lambda_n\) for entries.
             NOTE: We will organize things so that the eigenvalues get smaller as
             we go further in the list.
           </p>
-          <p>
+<p id="p-551">
             Now, some of the eigenvaules might be zero, but none will be negative.
             We will have exactly \(r = \mathrm{rank}(A)\) non-zero eigenvalues, and the
             other \(n-r\) will be equal to zero. (Those come from the directions
             in the null space!) Don't sweat it. Everything is going to be fine.
           </p>
-        </li>
-<li>
-          <p>
+</li>
+<li id="li-440"><p id="p-552">
             Step Two: For each \(0 \leq i \leq r\), set
-            <article class="displaymath" id="me-154">\[\sigma_i = \sqrt{\lambda_i} .\]</article>
+            \begin{equation*}\sigma_i = \sqrt{\lambda_i} .\end{equation*}
             These are the “Singular Values” named in the singular value decomposition.
-          </p>
-        </li>
-<li>
-          <p>
+          </p></li>
+<li id="li-441"><p id="p-553">
             Step Three: for each \(0 \leq i \leq r\), set
-            <article class="displaymath" id="me-155">\[
+            \begin{equation*}
               u_i = \dfrac{1}{\sigma_i} Av_i.
-            \]</article>
+            \end{equation*}
             By the way things are set up, we are sure \(\sigma_i\) is not zero!
             The vectors we just made are a basis for the column space of \(A\).
-          </p>
-        </li>
-<li>
-          <p>
+          </p></li>
+<li id="li-442"><p id="p-554">
             Step Four: If \(m &gt; r \), Choose an orthonormal basis \(u_{r+1}, \ldots, u_m\)
             for the null space of \(A^T\).
-          </p>
-        </li>
-<li>
+          </p></li>
+<li id="li-443">
           Step Five: Bundle together the \(v_i\)'s as columns of an
           \(n \times n\) matrix \(V\), and the \(u_i\)'s as the columns
           of an \(m \times m\) matrix \(U\). Both of these are orthogonal matrices.
@@ -237,9 +233,9 @@ $(function () {
           \(m \times n\) matrix which is otherwise filled with zeros. Call that
           new matrix \(\Sigma\).
         </li>
-</ol></section><p>Strang has a good run-down of the neat properties this set up has.</p></section><section class="subsection" id="subsection-142"><header><h1 class="heading hide-type">
+</ol></section><p id="p-555">Strang has a good run-down of the neat properties this set up has.</p></section><section class="subsection" id="subsection-143"><header title="Subsection  Sage and the SVD"><h1 class="heading hide-type" alt="Subsection  Sage and the SVD">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the SVD</span>
-</h1></header><p>
+</h1></header><p id="p-556">
       Sage has a built in command for the singular value decomposition of a matrix.
       If you have a matrix <tt class="code-inline" style="color: red; font-size: 120%">A</tt>, the command is <tt class="code-inline" style="color: red; font-size: 120%">A.SVD()</tt>. But there is a
       little trick to using it! At present, Sage only has this function implemented
@@ -247,41 +243,41 @@ $(function () {
       way around this is to either define your matrix with entries in the ring <tt class="code-inline" style="color: red; font-size: 120%">RDF</tt>,
       or use the <tt class="code-inline" style="color: red; font-size: 120%">.change_ring(RDF)</tt> method on you matrix before you use the SVD.
     </p>
-<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 2,2, [2,1,1,1])
+<div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 2,2, [2,1,1,1])
 A
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A.change_ring(RDF).SVD()
-</script></div></section><section class="subsection" id="subsection-143"><header><h1 class="heading hide-type">
+<div class="sagecell-sage"><script type="text/x-sage">A.change_ring(RDF).SVD()
+</script></div></section><section class="subsection" id="subsection-144"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-178"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">178</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-172"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">172</span><span class="title"></span>
 </h5>Complete exercise 6.7.1 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-173"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">173</span><span class="title"></span>
+</h5>Complete exercise 6.7.2 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-174"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">174</span><span class="title"></span>
+</h5>Complete exercise 6.7.3 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-175"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">175</span><span class="title"></span>
+</h5>Complete exercise 6.7.4 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-176"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">176</span><span class="title"></span>
+</h5>Complete exercise 6.7.5 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-177"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">177</span><span class="title"></span>
+</h5>Complete exercise 6.7.6 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-178"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">178</span><span class="title"></span>
+</h5>Complete exercise 6.7.9 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-179"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">179</span><span class="title"></span>
-</h5>Complete exercise 6.7.2 from <!--Style me with CSS--><em>Strang</em>.
+</h5>Complete exercise 6.7.10 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-180"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">180</span><span class="title"></span>
-</h5>Complete exercise 6.7.3 from <!--Style me with CSS--><em>Strang</em>.
+</h5>Complete exercise 6.7.11 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-181"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">181</span><span class="title"></span>
-</h5>Complete exercise 6.7.4 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-182"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">182</span><span class="title"></span>
-</h5>Complete exercise 6.7.5 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-183"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">183</span><span class="title"></span>
-</h5>Complete exercise 6.7.6 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-184"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">184</span><span class="title"></span>
-</h5>Complete exercise 6.7.9 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-185"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">185</span><span class="title"></span>
-</h5>Complete exercise 6.7.10 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-186"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">186</span><span class="title"></span>
-</h5>Complete exercise 6.7.11 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-187"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">187</span><span class="title"></span>
 </h5>Complete exercise 6.7.12 from <!--Style me with CSS--><em>Strang</em>.
       </article></section></section></div></main>
 </div>

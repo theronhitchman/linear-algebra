@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:40-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>The Dot Product</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -62,12 +66,12 @@ $(function () {
 <nav id="primary-navbar"><div class="container">
 <div class="navbar-top-buttons">
 <button class="sidebar-left-toggle-button button active">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
-<a class="previous-button toolbar-item button" href="vectors.html">Previous</a><a class="up-button button toolbar-item" href="chapter-basic-objects.html">Up</a><a class="next-button button toolbar-item" href="matrices.html">Next</a>
+<a class="previous-button toolbar-item button" href="start-sage.html">Previous</a><a class="up-button button toolbar-item" href="chapter-basic-objects.html">Up</a><a class="next-button button toolbar-item" href="matrices.html">Next</a>
 </div>
 <button class="sidebar-right-toggle-button button active">Annotations</button>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="vectors.html">Previous</a><a class="up-button button toolbar-item" href="chapter-basic-objects.html">Up</a><a class="next-button button toolbar-item" href="matrices.html">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="start-sage.html">Previous</a><a class="up-button button toolbar-item" href="chapter-basic-objects.html">Up</a><a class="next-button button toolbar-item" href="matrices.html">Next</a>
 </div>
 </div></nav></header><div class="page">
 <aside id="sidebar-left" class="sidebar"><div class="sidebar-content">
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link active"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html" class="active">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,192 +134,192 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="dot-product"><header><h1 class="heading" alt="Section 1.2 The Dot Product" title="Section 1.2 The Dot Product">
-<span class="type">Section</span><span class="codenumber">1.2</span><span class="title">The Dot Product</span>
-</h1></header><section class="subsection" id="subsection-5"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="dot-product"><header title="Section 1.3 The Dot Product"><h1 class="heading hide-type" alt="Section 1.3 The Dot Product">
+<span class="type">Section</span><span class="codenumber">1.3</span><span class="title">The Dot Product</span><a href="dot-product.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-8"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read section 1.2 of <!--Style me with CSS--><em>Strang</em>
+<li id="li-28">Read section 1.2 of <!--Style me with CSS--><em>Strang</em>
 </li>
-<li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-6"><header><h1 class="heading hide-type">
+<li id="li-29">Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-9"><header title="Subsection  Learning Objectives"><h1 class="heading hide-type" alt="Subsection  Learning Objectives">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Objectives</span>
-</h1></header><p>
+</h1></header><p id="p-47">
       Before class, a student should be able to
       <ul style="list-style-type: disc;">
-<li>Compute the dot product of two given vectors.</li>
-<li>Compute the length of a given vector.</li>
-<li>Normalize a given vector.</li>
-<li>Recognize that \(u \cdot v =0\) is the same as "\(u\) and \(
+<li id="li-30">Compute the dot product of two given vectors.</li>
+<li id="li-31">Compute the length of a given vector.</li>
+<li id="li-32">Normalize a given vector.</li>
+<li id="li-33">Recognize that \(u \cdot v =0\) is the same as "\(u\) and \(
             v\) are orthogonal."</li>
-<li>
+<li id="li-34">
           Compute the angle between two given vectors using the cosine formula.
         </li>
 </ul>
       At some point, a student should be able to
       <ul style="list-style-type: disc;">
-<li>
+<li id="li-35">
           Interpret the statements \(u\cdot v &lt; 0 \) and \(u \cdot v &gt; 0\)
           geometrically.
         </li>
-<li>Pass back and forth between linear equations and equations involving
+<li id="li-36">Pass back and forth between linear equations and equations involving
           dot products.
         </li>
-<li>Make pictures of level sets of the dot product operation.</li>
+<li id="li-37">Make pictures of level sets of the dot product operation.</li>
 </ul>
-    </p></section><section class="subsection" id="subsection-7"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-10"><header title="Subsection  Discussion"><h1 class="heading hide-type" alt="Subsection  Discussion">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
-</h1></header><p>
+</h1></header><p id="p-48">
       The dot product is a wonderful tool for encoding the geometry of Euclidean
       space, but it can be a bit mysterious at first. As Strang shows,
       it somehow holds all of the information you need to measure lengths and
       angles.
     </p>
-<p>
+<p id="p-49">
       What does this weird thing have to do with linear algebra? A dot product
       with a "variable vector" is a way of writing a linear equation. For example,
-      <article class="displaymath" id="md-2">\begin{gather*}
+      \begin{gather*}
 \begin{pmatrix} 7 \\ 3 \\ -2 \end{pmatrix} \cdot \begin{pmatrix}
         x \\ y \\ z \end{pmatrix} = 7x+3y-2z.
-\end{gather*}</article>
+\end{gather*}
       Sometimes this will allow us to connect linear algebra to geometry, and use
       geometric thinking to answer algebraic questions.
-    </p></section><section class="subsection" id="subsection-8"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-11"><header title="Subsection  Sage and the dot product"><h1 class="heading hide-type" alt="Subsection  Sage and the dot product">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the dot product</span>
-</h1></header><section class="subsubsection" id="subsubsection-2"><header><h1 class="heading hide-type">
+</h1></header><section class="subsubsection" id="subsubsection-2"><header title="Subsubsection  Basic Commands"><h1 class="heading hide-type" alt="Subsubsection  Basic Commands">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Basic Commands</span>
-</h1></header><p>
+</h1></header><p id="p-50">
       Sage has a built-in dot product command <tt class="code-inline" style="color: red; font-size: 120%">u.dot_product(v)</tt>. This
       will return the dot product of the vectors \(u\) and \(v\).
     </p>
-<div class="sage-compute"><script type="text/x-sage">u = vector([1,1,1]); v = vector([-1,0,1])
+<div class="sagecell-sage"><script type="text/x-sage">u = vector([1,1,1]); v = vector([-1,0,1])
 u.dot_product(v)
 </script></div>
-<p>
+<p id="p-51">
       It also has a built-in command for computing lengths. Here sage uses the
       synonym "norm": <tt class="code-inline" style="color: red; font-size: 120%">u.norm()</tt>. Of course, you can also call this like
       a function instead of like a method: <tt class="code-inline" style="color: red; font-size: 120%">norm(u)</tt>.
     </p>
-<div class="sage-compute"><script type="text/x-sage">u.norm(), v.norm()
+<div class="sagecell-sage"><script type="text/x-sage">u.norm(), v.norm()
 </script></div>
-<p>
+<p id="p-52">
       There is no built-in command for angles. You just have to compute them
       using the cosine formula, like below. (I will break up the computation,
       but it is easy to do it all with one line.)
     </p>
-<div class="sage-compute"><script type="text/x-sage">num = u.dot_product(v)
+<div class="sagecell-sage"><script type="text/x-sage">num = u.dot_product(v)
 den = u.norm() * v.norm()
 angle = arccos(num / den)
 angle
 </script></div>
-<p>
+<p id="p-53">
       Of course, Sage's <tt class="code-inline" style="color: red; font-size: 120%">arccos</tt> command returns a result in <!--Style me with CSS--><em>radians</em>.
       To switch to degrees, you must convert.
     </p>
-<div class="sage-compute"><script type="text/x-sage">angle*180/pi
+<div class="sagecell-sage"><script type="text/x-sage">angle*180/pi
 </script></div>
-<p>Often, it is helpful to normalize a vector. You can do this with the
+<p id="p-54">Often, it is helpful to normalize a vector. You can do this with the
       <tt class="code-inline" style="color: red; font-size: 120%">normalized</tt> method like this:
     </p>
-<div class="sage-compute"><script type="text/x-sage">u.normalized()
-</script></div></section><section class="subsubsection" id="subsubsection-3"><header><h1 class="heading hide-type">
+<div class="sagecell-sage"><script type="text/x-sage">u.normalized()
+</script></div></section><section class="subsubsection" id="subsubsection-3"><header title="Subsubsection  Sage Interacts"><h1 class="heading hide-type" alt="Subsubsection  Sage Interacts">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage Interacts</span>
-</h1></header><p>Interacts would go here...</p></section></section><section class="subsection" id="subsection-9"><header><h1 class="heading hide-type">
+</h1></header><p id="p-55">Interacts would go here...</p></section></section><section class="subsection" id="subsection-12"><header title="Subsection  Exercises about the Dot Product"><h1 class="heading hide-type" alt="Subsection  Exercises about the Dot Product">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises about the Dot Product</span>
-</h1></header><article class="example-like" id="task-13"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-7"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">7</span><span class="title"></span>
 </h5>
-<p>What shape is the set of solutions \(\left(\begin{smallmatrix} x \\ y
-        \end{smallmatrix}\right)\) to the equation<article class="displaymath" id="me-18">\[
+<p id="p-56">What shape is the set of solutions \(\left(\begin{smallmatrix} x \\ y
+        \end{smallmatrix}\right)\) to the equation\begin{equation*}
             \begin{pmatrix} 3 \\ 7\end{pmatrix} \cdot \begin{pmatrix} x \\ y
             \end{pmatrix} = 5?
-        \]</article>
+        \end{equation*}
         </p>
-<p>That is, if we look at all possible vectors \(\left(\begin{smallmatrix}
+<p id="p-57">That is, if we look at all possible vectors \(\left(\begin{smallmatrix}
           x \\ y \end{smallmatrix}\right)\) which make the equation true, what shape
           does this make in the plane?</p>
-<p>What happens if we change the vector \(\left(\begin{smallmatrix} 3
+<p id="p-58">What happens if we change the vector \(\left(\begin{smallmatrix} 3
           \\ 7 \end{smallmatrix}\right)\) to some other vector? What happens
           if we change the number \(5\) to some other number?
         </p>
-<p>What happens if instead of \(2\)-vectors, we use \(3\)-vectors?
-        </p></article><article class="example-like" id="task-14"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">14</span><span class="title"></span>
+<p id="p-59">What happens if instead of \(2\)-vectors, we use \(3\)-vectors?
+        </p></article><article class="example-like" id="task-8"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">8</span><span class="title"></span>
 </h5>Find an example of two \(2\)-vectors \(v\) and \(w\)
       so that \(\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot v
       =0\) and \(\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot
       w = 0\), or explain why such an example is not possible.
-      </article><article class="example-like" id="task-15"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">15</span><span class="title"></span>
+      </article><article class="example-like" id="task-9"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">9</span><span class="title"></span>
 </h5>Let \(v = \left(\begin{smallmatrix}3\\-1
         \end{smallmatrix}\right)\). Find an example of a pair of vectors
         \(u\) and \(w\) such that \(v \cdot u &lt; 0\) and
         \(v \cdot w &lt; 0\) and \(w \cdot u = 0\), or explain why no such
         pair of vectors can exist.
-      </article><article class="example-like" id="task-16"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">16</span><span class="title"></span>
+      </article><article class="example-like" id="task-10"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">10</span><span class="title"></span>
 </h5>Find an example of three \(2\)-vectors \(u\), \(v\),
         and \(w\) so that \( u \cdot v &lt; 0\) and \(u\cdot w &lt; 0 \)
         and \(v \cdot w &lt; 0\), or explain why no such example exists.
-      </article><article class="example-like" id="task-17"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">17</span><span class="title"></span>
+      </article><article class="example-like" id="task-11"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">11</span><span class="title"></span>
 </h5>
-        Find an example of a number \(c\) so that <article class="displaymath" id="me-19">\[
+        Find an example of a number \(c\) so that \begin{equation*}
         \begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
           \end{pmatrix} = c
-        \]</article> has the vector \(\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)\)
+        \end{equation*} has the vector \(\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)\)
         as a solution, or explain why no such number exists.
-      </article><article class="example-like" id="task-18"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">18</span><span class="title"></span>
+      </article><article class="example-like" id="task-12"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">12</span><span class="title"></span>
 </h5>
         Let \(v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)\) and
         \(w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)\). Find
-        an example of a number \(c\) so that <article class="displaymath" id="md-3">\begin{gather*}
+        an example of a number \(c\) so that \begin{gather*}
 v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
         \quad w \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c,
-\end{gather*}</article>
+\end{gather*}
         or explain why this is not possible.
-      </article><article class="example-like" id="task-19"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">19</span><span class="title"></span>
+      </article><article class="example-like" id="task-13"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
 </h5>
         Let \(P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)\).
-        Find an example of numbers \(c\) and \(d\) so that <article class="displaymath" id="md-4">\begin{gather*}
+        Find an example of numbers \(c\) and \(d\) so that \begin{gather*}
 \begin{pmatrix} 2\\-1\end{pmatrix}\cdot P = c \quad\text{ and }
         \quad \begin{pmatrix} 1\\-1\end{pmatrix}\cdot P = d,
-\end{gather*}</article>
+\end{gather*}
         or explain why no such example is possible.
-      </article><p>Now we move to three dimensions!</p>
-<article class="example-like" id="task-20"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">20</span><span class="title"></span>
+      </article><p id="p-60">Now we move to three dimensions!</p>
+<article class="example-like" id="task-14"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">14</span><span class="title"></span>
 </h5>
         Let \(V = \left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right)\).
         Find a unit vector of the form \(X = \left(\begin{smallmatrix}x\\y\\0
         \end{smallmatrix}\right)\) so that \(V\cdot X = \sqrt{2}\), or explain
         why no such vector exists.
-      </article><article class="example-like" id="task-21"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">21</span><span class="title"></span>
+      </article><article class="example-like" id="task-15"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">15</span><span class="title"></span>
 </h5>
         Find an example of numbers \(c\), \(d\), and \(e\) so that there
         is no solution vector \(X = \left(\begin{smallmatrix}x\\y\\z
         \end{smallmatrix}\right)\) which simultaneously satisfies the three
-        equations <article class="displaymath" id="md-5">\begin{gather*}
+        equations \begin{gather*}
 \begin{pmatrix} 1\\1\\1\end{pmatrix}\cdot X = c, \qquad
           \begin{pmatrix} 2\\2\\2\end{pmatrix}\cdot X = d, \qquad
           \begin{pmatrix} 0\\0\\1\end{pmatrix}\cdot X = e,
-\end{gather*}</article>
+\end{gather*}
           or explain why no such numbers exist.
-      </article><article class="example-like" id="task-22"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">22</span><span class="title"></span>
+      </article><article class="example-like" id="task-16"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">16</span><span class="title"></span>
 </h5>
         Find an example of numbers \(c\), \(d\), and \(e\) so that there
         is no solution vector \(X = \left(\begin{smallmatrix}x\\y\\z
         \end{smallmatrix}\right)\) which simultaneously satisfies the three
-        equations <article class="displaymath" id="md-6">\begin{gather*}
+        equations \begin{gather*}
 \begin{pmatrix} 1\\1\\1\end{pmatrix}\cdot X = c, \qquad
           \begin{pmatrix} 0\\1\\1\end{pmatrix}\cdot X = d, \qquad
           \begin{pmatrix} 0\\0\\1\end{pmatrix}\cdot X = e,
-\end{gather*}</article>
+\end{gather*}
           or explain why no such numbers exist.
       </article></section></section></div></main>
 </div>

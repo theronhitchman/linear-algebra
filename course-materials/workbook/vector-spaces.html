@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>Subspaces of \(\mathbb{R}^n\)</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,28 +134,28 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="vector-spaces"><header><h1 class="heading" alt="Section 3.1 Subspaces of \(\mathbb{R}^n\)" title="Section 3.1 Subspaces of \(\mathbb{R}^n\)">
-<span class="type">Section</span><span class="codenumber">3.1</span><span class="title">Subspaces of \(\mathbb{R}^n\)</span>
-</h1></header><section class="subsection" id="subsection-58"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="vector-spaces"><header title="Section 3.1 Subspaces of \(\mathbb{R}^n\)"><h1 class="heading hide-type" alt="Section 3.1 Subspaces of \(\mathbb{R}^n\)">
+<span class="type">Section</span><span class="codenumber">3.1</span><span class="title">Subspaces of \(\mathbb{R}^n\)</span><a href="vector-spaces.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-59"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read Chapter 3 section 1 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-59"><header><h1 class="heading hide-type">
+<li id="li-202">Read Chapter 3 section 1 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-203">Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-60"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p>Before class, a student should be able to:</p>
+</h1></header><p id="p-303">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li>Identify the column space of a matrix.</li>
-<li>Decide if a set in \(\mathbb{R}^n\) is a subspace or not.</li>
+<li id="li-204">Identify the column space of a matrix.</li>
+<li id="li-205">Decide if a set in \(\mathbb{R}^n\) is a subspace or not.</li>
 </ul>
-<p>Some time after class, a student should be able to:</p>
-<ul style="list-style-type: disc;"><li>
+<p id="p-304">Some time after class, a student should be able to:</p>
+<ul style="list-style-type: disc;"><li id="li-206">
         Use the notion of column space to decide if a given linear system has a
         solution or not.
-      </li></ul></section><section class="subsection" id="subsection-60"><header><h1 class="heading hide-type">
+      </li></ul></section><section class="subsection" id="subsection-61"><header title="Subsection  Discussion: Vector Spaces and Subspaces"><h1 class="heading hide-type" alt="Subsection  Discussion: Vector Spaces and Subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Vector Spaces and Subspaces</span>
-</h1></header><p>
+</h1></header><p id="p-305">
       The key concepts in this section are those of a <em class="terminology">vector space</em>
       and of a <em class="terminology">subspace</em>. The basic idea is that a vector space is
       a kind of place where the basic operations involved in a linear
@@ -160,40 +164,40 @@ $(function () {
       (addition and scalar multiplication) and we can form linear combinations
       with them that make sense.
     </p>
-<p>
+<p id="p-306">
       The biggest thing is that we possibly enlarge the kinds of things we
       call “vectors.” To a professional mathematician, a vector is
       anything that is an element of some vector space under consideration.
       My favorites are things like this:
     </p>
 <ul style="list-style-type: disc;">
-<li>
+<li id="li-207">
         The set \(M_{2,2}\) of \(2\times 2\) matrices is a vector space.
         But now the things we call vectors are actually matrices.
       </li>
-<li>
+<li id="li-208">
         The set \(\mathcal{C}(\mathbb{R})\) of continuous functions with
         domain and range both equal to the set of real numbers is a vector
         space. But now the things we call vectors are actually functions.
       </li>
-<li>
+<li id="li-209">
         The set \(\ell(\mathbb{R})\) of sequences
         \((x_1, x_2, x_3, x_4, \ldots)\) of real numbers is a vector space.
         But now the things we call vectors are actually whole infinite sequences.
       </li>
 </ul>
-<p>
+<p id="p-307">
       In more advanced mathematics, vector spaces are extremely important. They
       show up everywhere. But for us, we will mostly stick to the family of vector
       spaces \(\mathbb{R}^n\). It will be much more important for us to understand
       subspaces.
     </p>
-<p>
+<p id="p-308">
       The idea of a subspace is some subset, some part, of a vector space which
       is a vector space in its own right. The prototype is the \(xy\)-plane
       inside of \(\mathbb{R}^3\).
     </p>
-<p>
+<p id="p-309">
       For now, the most important subspaces we see will be derived from
       individual matrices. Our first example is the column space of a matrix
       \(A\). If \(A\) is an \(m\times n\) matrix, then the column
@@ -202,92 +206,92 @@ $(function () {
       columns of \(A\). This is our first exposure to the idea of a
       <em class="terminology">span</em>. The column space of \(A\) is the subspace of
       \(\mathbb{R}\) spanned by the columns of \(A\).
-    </p></section><section class="subsection" id="subsection-61"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-62"><header title="Subsection  Sage and subspaces"><h1 class="heading hide-type" alt="Subsection  Sage and subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and subspaces</span>
-</h1></header><p>Sage allows you to construct different kinds of vector spaces. The most
+</h1></header><p id="p-310">Sage allows you to construct different kinds of vector spaces. The most
       important is the standard vector space \(\mathbb{R}^n\).
     </p>
-<div class="sage-compute"><script type="text/x-sage">V = VectorSpace(QQ, 3)
+<div class="sagecell-sage"><script type="text/x-sage">V = VectorSpace(QQ, 3)
 V
 </script></div>
-<p>
+<p id="p-311">
       This is like the <tt class="code-inline" style="color: red; font-size: 120%">MatrixSpace</tt> construction we have seen before.
       <tt class="code-inline" style="color: red; font-size: 120%">V</tt> is now the collection of all vectors of size \(3\) with
       rational numbers as entries.
     </p>
-<p>
+<p id="p-312">
       More important for us is the fact that Sage knows how to find the subspaces
       associated to matrices.
     </p>
-<div class="sage-compute"><script type="text/x-sage">A = matrix(QQ, 2,3, [4,5,3,0,1,1])
+<div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 2,3, [4,5,3,0,1,1])
 A
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">A.column_space()
+<div class="sagecell-sage"><script type="text/x-sage">A.column_space()
 </script></div>
-<p>
+<p id="p-313">
       Note that Sage gives information in terms of a basis. We will talk about
       this concept soon.
     </p>
-<div class="sage-compute"><script type="text/x-sage">B = matrix(QQ, 3,3 , [1,2,3,4,5,6,7,8,9])
+<div class="sagecell-sage"><script type="text/x-sage">B = matrix(QQ, 3,3 , [1,2,3,4,5,6,7,8,9])
 B
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">B.column_space()
+<div class="sagecell-sage"><script type="text/x-sage">B.column_space()
 </script></div>
-<p>
+<p id="p-314">
       This last bit here is interesting.
       Our original matrix has size \(2\times 3\), so the columns are \(3\)-vectors.
       But this basis is displayed as a matrix where the columns are size \(2\).
       What is going on?
     </p>
-<p>
+<p id="p-315">
       Sage prefers to display vectors as rows! This is a big interal preference.
       We just have to get over it. Well, we have to <!--Style me with CSS--><em>remember it</em> and get over it.
       To access the basis vectors and display them as columns,
       we will use the following:
     </p>
-<div class="sage-compute"><script type="text/x-sage">B.column_space().basis()[0].column() # first basis vector
+<div class="sagecell-sage"><script type="text/x-sage">B.column_space().basis()[0].column() # first basis vector
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">B.column_space().basis()[1].column() # second basis vector
-</script></div></section><section class="subsection" id="subsection-62"><header><h1 class="heading hide-type">
+<div class="sagecell-sage"><script type="text/x-sage">B.column_space().basis()[1].column() # second basis vector
+</script></div></section><section class="subsection" id="subsection-63"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-82"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">82</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-76"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">76</span><span class="title"></span>
 </h5>
         Find an example of a vector which is not in the column space of the
-        matrix <article class="displaymath" id="me-96">\[
+        matrix \begin{equation*}
         A = \begin{pmatrix} 2 &amp; 1  \\ 1 &amp; 1 \end{pmatrix},
-        \]</article> or explain why that is not possible.
-      </article><article class="example-like" id="task-83"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">83</span><span class="title"></span>
+        \end{equation*} or explain why that is not possible.
+      </article><article class="example-like" id="task-77"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">77</span><span class="title"></span>
 </h5>
         Find an example of a vector which is not in the column space of the
-        matrix <article class="displaymath" id="me-97">\[
+        matrix \begin{equation*}
         B = \begin{pmatrix} 3 &amp; 2 \\ 6 &amp; 4 \end{pmatrix},
-        \]</article> or explain why it is not possible.
-      </article><article class="example-like" id="task-84"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">84</span><span class="title"></span>
+        \end{equation*} or explain why it is not possible.
+      </article><article class="example-like" id="task-78"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">78</span><span class="title"></span>
 </h5>
         Let \(\mathcal{P}\) be the set of polynomials of degree 3 or less.
         Explain why \(\mathcal{P}\) is a vector space, or explain why it is not.
-      </article><article class="example-like" id="task-85"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">85</span><span class="title"></span>
+      </article><article class="example-like" id="task-79"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">79</span><span class="title"></span>
 </h5>
         Consider the vector space \(\mathbb{R}^2\). Explain why the following
         are not subspaces:
         <ul style="list-style-type: disc;">
-<li>The unit circle.</li>
-<li>The line \(x+y = 4\).</li>
-<li>The union of lines \(2x+3y = 0\) and \(x-y=0\).</li>
-<li>The first quadrant where \(x\geq 0\) and \(y\geq 0\).</li>
-</ul></article><article class="example-like" id="task-86"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">86</span><span class="title"></span>
+<li id="li-210">The unit circle.</li>
+<li id="li-211">The line \(x+y = 4\).</li>
+<li id="li-212">The union of lines \(2x+3y = 0\) and \(x-y=0\).</li>
+<li id="li-213">The first quadrant where \(x\geq 0\) and \(y\geq 0\).</li>
+</ul></article><article class="example-like" id="task-80"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">80</span><span class="title"></span>
 </h5>
         Let \(W\) be the set of functions \(f\) in
         \(\mathcal{C}(\mathbb{R})\) which satisfy the differential equation
         \(f''(x) = 0\). Decide if \(W\) is a subspace of
         \(\mathcal{C}(\mathbb{R})\), and explain your thinking.
-      </article><article class="example-like" id="task-87"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">87</span><span class="title"></span>
+      </article><article class="example-like" id="task-81"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">81</span><span class="title"></span>
 </h5>
         Design a \(2\times 3\) matrix whose column space does not contain the
         vector \(\begin{pmatrix} 4 \\ 4 \end{pmatrix}\), or explain why this is

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2015-11-03T17:12:41-06:00    *-->
+<!--*    on 2016-08-22T22:10:30-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -12,16 +12,23 @@
 <title>The Nullspace</title>
 <meta name="Keywords" content="Authored in MathBook XML">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<script type="text/x-mathjax-config">
+<script type="text/javascript" src="https://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/x-mathjax-config">
+// contrib directory for accessibility menu, moot after v2.6+?
+MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [['\\(','\\)']]
+        inlineMath: [['\\(','\\)']],
     },
     TeX: {
-        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js"],
+        // [Contrib]accessibility menu moot after v2.6+?
+        extensions: ["AMSmath.js", "AMSsymbols.js", "extpfeil.js", "autobold.js", "https://aimath.org/mathbook/mathjaxknowl.js", "[Contrib]/a11y/accessibility-menu.js", ],
         equationNumbers: { autoNumber: "none",
                            useLabelIds: true,
+                           // JS comment, XML CDATA protect XHTML quality of file
+                           // if removed in XSL, use entities
+                           //<![CDATA[
                            formatID: function (n) {return String(n).replace(/[:'"<>&]/g,"")},
+                           //]]>
                          },
         TagSide: "right",
         TagIndent: ".8em",
@@ -30,29 +37,26 @@ MathJax.Hub.Config({
         scale: 88,
     },
 });
-    </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="http://sagecell.sagemath.org/static/jquery.min.js"></script><script type="text/javascript" src="http://sagecell.sagemath.org/embedded_sagecell.js"></script><script>
-$(function () {
-    // Make *any* div with class 'sage-compute' an executable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-compute',
+    </script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script><script type="text/javascript" src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
                            linked: true,
-                           evalButtonText: 'Evaluate'});
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate Sage Code'});
 });
-$(function () {
-    // Make *any* div with class 'sage-display' a visible, uneditable Sage cell
-    sagecell.makeSagecell({inputLocation: 'div.sage-display',
-                           editor: 'codemirror-readonly',
-                           hide: ['evalButton', 'editorToggle', 'language']});
-});
-    </script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><link href="http://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://aimath.org/knowl.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="http://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="http://aimath.org/mathbook/js/Mathbook.js"></script><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic%7CSource+Code+Pro:400" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
-<link href="http://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
+</script><link href="https://aimath.org/knowlstyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://aimath.org/knowl.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.sticky.js"></script><script src="https://aimath.org/mathbook/js/lib/jquery.espy.min.js"></script><script src="https://aimath.org/mathbook/js/Mathbook.js"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/stylesheets/mathbook-3.css" rel="stylesheet" type="text/css">
+<link href="https://aimath.org/mathbook/mathbook-add-on.css" rel="stylesheet" type="text/css">
 </head>
 <body class="mathbook-book has-toc has-sidebar-left">
-<div style="display:none;">\(
-    
-    \newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
-  \)</div>
+<div style="display:none;">\(\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
+\newcommand{\lt}{ &lt; }
+\newcommand{\gt}{ &gt; }
+\newcommand{\amp}{ &amp; }
+\)</div>
 <header id="masthead"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
 <h1 class="heading"><span class="title">Math 2500: Linear Algebra</span></h1>
@@ -79,9 +83,9 @@ $(function () {
 <h2 class="link"><a href="chapter-basic-objects.html"><span class="codenumber">1</span><span class="title">Vectors, the Dot Product, and Matrices</span></a></h2>
 <ul>
 <li><a href="vectors.html">Vectors</a></li>
+<li><a href="start-sage.html">Getting Started with SageMath</a></li>
 <li><a href="dot-product.html">The Dot Product</a></li>
 <li><a href="matrices.html">Matrices</a></li>
-<li><a href="start-sage.html">Getting Started with Sage</a></li>
 <li><a href="basic-objects-going-further.html">Going Further with the Basic Objects</a></li>
 </ul>
 <h2 class="link"><a href="chapter-2.html"><span class="codenumber">2</span><span class="title">Linear Equations</span></a></h2>
@@ -130,142 +134,142 @@ $(function () {
 <li><a href="section-gf-eigendata.html">Going Further with Eigendata</a></li>
 <li><a href="section-svd.html">Singular Value Decomposition</a></li>
 <li><a href="section-gf-svd.html">Going Further with the SVD</a></li>
-</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="http://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="http://www.mathjax.org"><img title="Powered by MathJax" src="http://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
-</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="nullspace"><header><h1 class="heading" alt="Section 3.2 The Nullspace" title="Section 3.2 The Nullspace">
-<span class="type">Section</span><span class="codenumber">3.2</span><span class="title">The Nullspace</span>
-</h1></header><section class="subsection" id="subsection-63"><header><h1 class="heading hide-type">
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="https://docs.google.com/forms/d/1ru8ipyTKm2QsWRYILXilnle9dC7rr6j8a22hLdvCGKU/viewform?usp=send_form">Leave Feedback</a><a class="mathbook-link" href="https://mathbook.pugetsound.edu">Authored in MathBook XML</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://cdn.mathjax.org/mathjax/badge/badge.gif" border="0" alt="Powered by MathJax"></a></nav></div>
+</div></aside><main class="main"><div id="content" class="mathbook-content"><section class="section" id="nullspace"><header title="Section 3.2 The Nullspace"><h1 class="heading hide-type" alt="Section 3.2 The Nullspace">
+<span class="type">Section</span><span class="codenumber">3.2</span><span class="title">The Nullspace</span><a href="nullspace.html" class="permalink">¶ permalink</a>
+</h1></header><section class="subsection" id="subsection-64"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li>Read chapter 3 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li>Read the following and complete the exercises below.</li>
-</ul></section><section class="subsection" id="subsection-64"><header><h1 class="heading hide-type">
+<li id="li-214">Read chapter 3 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-215">Read the following and complete the exercises below.</li>
+</ul></section><section class="subsection" id="subsection-65"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p>Before coming to class, a student should be able to:</p>
+</h1></header><p id="p-316">Before coming to class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li>Find the special solutions associated to a matrix.</li>
-<li>Compute the <em class="terminology">reduced row echelon form</em> of a matrix.</li>
-<li>Identify the free variables and the pivot variables associated to
+<li id="li-216">Find the special solutions associated to a matrix.</li>
+<li id="li-217">Compute the <em class="terminology">reduced row echelon form</em> of a matrix.</li>
+<li id="li-218">Identify the free variables and the pivot variables associated to
         a matrix.
       </li>
-<li>
+<li id="li-219">
         Describe the nullspace of a matrix with the “simplest” set of
         equations possible.
       </li>
 </ul>
-<p>Some time after class, a student should be able to:</p>
+<p id="p-317">Some time after class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li>Describe the complete solution to a homogeneous system of equations
+<li id="li-220">Describe the complete solution to a homogeneous system of equations
         \(Ax = 0\).
       </li>
-<li>Give an argument for why the nullspace is a vector subspace.</li>
-</ul></section><section class="subsection" id="subsection-65"><header><h1 class="heading hide-type">
+<li id="li-221">Give an argument for why the nullspace is a vector subspace.</li>
+</ul></section><section class="subsection" id="subsection-66"><header title="Subsection  Discussion: The Nullspace, RREF, and Special Solutions"><h1 class="heading hide-type" alt="Subsection  Discussion: The Nullspace, RREF, and Special Solutions">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Nullspace, RREF, and Special Solutions</span>
-</h1></header><p>
+</h1></header><p id="p-318">
       Strang aims right at the heart of things in this section, and does not
       waste any space. Let me highlight a few things:
     </p>
-<p>
+<p id="p-319">
       Let \(A\) be an \(m\times n\) matrix. We do not require that \(A\) is a square
       matrix, that is, it may not be the case that \(m=n\). What we are most
       interested in is solving the equation \(Ax = 0\). Note that if \(A\) is not
       square, then the vectors \(x\) and \(0\) have different sizes.
     </p>
-<p>
+<p id="p-320">
       By the way, an equation like \(Ax=0\) where the right hand side is zero
       is called a <em class="terminology">homogeneous equation</em>.
     </p>
 <ul style="list-style-type: disc;">
-<li>The nullspace of \(A\) is the set of vectors \(x\) such that \(Ax=0\). It
+<li id="li-222">The nullspace of \(A\) is the set of vectors \(x\) such that \(Ax=0\). It
         is a theorem that this is a vector subspace of \(\mathbb{R}^n\). It is a
         common to use the synonym <em class="terminology">the kernel of \(A\)</em> in place of the
         terminology <em class="terminology">the nullspace of \(A\).</em>
-      </li>
-<li>The key to everything is to not mind that your matrix isn't square.
+</li>
+<li id="li-223">The key to everything is to not mind that your matrix isn't square.
         Just do Gauss-Jordan elimination anyway. The end result is called the
         <em class="terminology">reduced row echelon form</em> of the matrix, or RREF for short.
       </li>
-<li>Note that there is no discussion of using an augmented matrix in this
+<li id="li-224">Note that there is no discussion of using an augmented matrix in this
         section, even though we are solving systems of equations \(Ax=0\). This
         is because the vector on the right hand side is zero and will stay
         zero. There is nothing interesting to track!
       </li>
-<li>The RREF is good for several things. One that is often overlooked is
+<li id="li-225">The RREF is good for several things. One that is often overlooked is
         that one can use it to rewrite the system of equations in a “simplest
         form.” I mean that the equations left over in the RREF are somehow
         the easiest equations to use to cut out the solution as an intersection
         of hyperplanes.
       </li>
-<li>In the RREF, all of the structure can be inferred from the splitting
+<li id="li-226">In the RREF, all of the structure can be inferred from the splitting
         of the columns into two types: the pivot columns and the free columns.
         Since each column is associated to a variable in our system of linear
         equations (the columns hold coefficients!), it is also common to refer
         to pivot variables and free variables.
       </li>
-<li>The number of free columns basically determines the “size” of the
+<li id="li-227">The number of free columns basically determines the “size” of the
         nullspace. This is an entry point to the concept of the
         <em class="terminology">dimension</em> of a vector space. We shall see this in more detail
         later.
       </li>
-<li>Strang points out an easy way to find some individual vectors in the
+<li id="li-228">Strang points out an easy way to find some individual vectors in the
         null space: he calls these the <em class="terminology">special solutions</em>. This is
         because they are solutions to the equation \(Ax=0\).
       </li>
-</ul></section><section class="subsection" id="subsection-66"><header><h1 class="heading hide-type">
+</ul></section><section class="subsection" id="subsection-67"><header title="Subsection  Sage and the Nullspace"><h1 class="heading hide-type" alt="Subsection  Sage and the Nullspace">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Nullspace</span>
-</h1></header><p>
+</h1></header><p id="p-321">
       The main idea in this section is to get solutions to homogeneous
       systems \(Ax=0\) by using the reduced row echelon form. This will
       compute the nullspace of the matrix \(A\). Sage has some useful built
       in commands for this. Let us explore an example.
     </p>
-<div class="sage-compute"><script type="text/x-sage">entries = [1,2,3,4,5,6,7,8,9,10,11,12]
+<div class="sagecell-sage"><script type="text/x-sage">entries = [1,2,3,4,5,6,7,8,9,10,11,12]
 A = matrix(QQ, 3,4, entries); A
 </script></div>
-<p>
+<p id="p-322">
       The most direct way is to ask Sage for the nullspace. But Sage doesn't
       call it that. It uses the synonym <em class="terminology">kernel</em>. Also, because we
       do matrix vector multiplication with vectors on the right, we ahve to
       tell Sage to do it that way.
     </p>
-<div class="sage-compute"><script type="text/x-sage">A.right_kernel()
+<div class="sagecell-sage"><script type="text/x-sage">A.right_kernel()
 </script></div>
-<p>
+<p id="p-323">
       Notice that Sage returns the nullspace by specifying a basis. This is
       a complete set of special solutions! How can we be sure?
     </p>
-<p>
+<p id="p-324">
       Let's check that those vectors are actually in the nullspace. This command
       should return two zero vectors in \(\mathbb{R}^3\).
     </p>
-<div class="sage-compute"><script type="text/x-sage">sage1 = vector([1,0,-3,2])
+<div class="sagecell-sage"><script type="text/x-sage">sage1 = vector([1,0,-3,2])
 sage2 = vector([0,1,-2,1])
 A*sage1, A*sage2
 </script></div>
-<p>
+<p id="p-325">
       Remember that the method to find the reduced row
       echelon form is .rref().
     </p>
-<div class="sage-compute"><script type="text/x-sage">A.rref()
+<div class="sagecell-sage"><script type="text/x-sage">A.rref()
 </script></div>
-<p>
+<p id="p-326">
       What this means is that the null space is described by the two equations
-      <article class="displaymath" id="me-98">\[
+      \begin{equation*}
         \left\{
         \begin{array}{rrrrrrrrr}
         v &amp; &amp; &amp; - &amp; y &amp; - &amp; 2 z &amp; = &amp; 0 \\
           &amp; &amp; x &amp; + &amp; 2y &amp; + &amp; 3 z &amp; = &amp; 0
         \end{array}\right.
-      \]</article>
+      \end{equation*}
       That is, the nullspace is the intersection of these two hyperplanes in
       \(\mathbb{R}^4\).
     </p>
-<div class="sage-compute"><script type="text/x-sage"># Let's see what Sage's solve command tells us:
+<div class="sagecell-sage"><script type="text/x-sage"># Let's see what Sage's solve command tells us:
 v,x,y,z = var('v x y z')
 expr1 = v - y - 2*z == 0
 expr2 = x + 2*y + 3*z == 0
 solve([expr1, expr2], [v,x,y,z])
 </script></div>
-<p>
+<p id="p-327">
       Aha! Sage is trying to tell us that the pivot variables \(v\)
       and \(x\) should be
       written in terms of the free variables \(y\) and \(z\).
@@ -275,91 +279,91 @@ solve([expr1, expr2], [v,x,y,z])
       One special solution will be to choose \(y = 1\) and \(z=0\).
       Then we solve to get \(v = 1\) and \(x = -2\).
     </p>
-<div class="sage-compute"><script type="text/x-sage">special1 = vector([1,-2,1,0])
+<div class="sagecell-sage"><script type="text/x-sage">special1 = vector([1,-2,1,0])
 
 # let's check
 A*special1
 </script></div>
-<p>
+<p id="p-328">
       Similarly, we can choose \(y=0\) and
       \(z=1\) to get a second special solution. This leads to
       \(v=2\) and \(x = -3\).
     </p>
-<div class="sage-compute"><script type="text/x-sage">special2 = vector([2,-3,0,1])
+<div class="sagecell-sage"><script type="text/x-sage">special2 = vector([2,-3,0,1])
 
 #let's check
 A*special2
 </script></div>
-<p>
+<p id="p-329">
       These two vectors form a <em class="terminology">basis</em> for the nullspace. Every
       vector in the nullspace can be written as a linear combination of
       these two vectors.
     </p>
-<p>
+<p id="p-330">
       What is weird is that Sage always wants its basis to look
       like \(1\)'s and \(0\)'s at the beginning, and our process makes
       them look like that at the end!
     </p>
-<p>
+<p id="p-331">
       How can we be sure everything lines up?  Well, it is possible to
       express the two vectors that Sage gives us as a linear combination
       of the ones we just found, and vice versa. So we are getting <!--Style me with CSS--><em>two</em>
       descriptions of the same space.
     </p>
-<div class="sage-compute"><script type="text/x-sage">sage1 == -3* special1 + 2* special2
+<div class="sagecell-sage"><script type="text/x-sage">sage1 == -3* special1 + 2* special2
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">sage2 == -2* special1 + special2
+<div class="sagecell-sage"><script type="text/x-sage">sage2 == -2* special1 + special2
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">special1 ==  sage1 - 2* sage2
+<div class="sagecell-sage"><script type="text/x-sage">special1 ==  sage1 - 2* sage2
 </script></div>
-<div class="sage-compute"><script type="text/x-sage">special2 == 2* sage1 - 3* sage2
+<div class="sagecell-sage"><script type="text/x-sage">special2 == 2* sage1 - 3* sage2
 </script></div>
-<p>
+<p id="p-332">
       Can you see the matrix and its inverse hiding behind that? I found those
       relationships using row operations and a matrix inverse.
     </p>
-<p>
+<p id="p-333">
       Anyway, what has happened is that Sage has performed our calculations above,
       and then taken the extra steps of putting the matrix of basis vectors into
       reduced row echelon form, too.
-    </p></section><section class="subsection" id="subsection-67"><header><h1 class="heading hide-type">
+    </p></section><section class="subsection" id="subsection-68"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><p>
+</h1></header><p id="p-334">
       For the first three exercises, your job is to find both
       <ul style="list-style-type: disc;">
-<li>The minimal set of equations which cuts out the nullspace of the
+<li id="li-229">The minimal set of equations which cuts out the nullspace of the
           given matrix as an intersection of hyperplanes; and
         </li>
-<li>the size of the nullspace, expressed through the number
+<li id="li-230">the size of the nullspace, expressed through the number
           “independent directions” it contains.
         </li>
 </ul>
       As always, it will be crucial to explain how you know you are correct.
     </p>
-<article class="example-like" id="task-88"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">88</span><span class="title"></span>
+<article class="example-like" id="task-82"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">82</span><span class="title"></span>
 </h5>
         Consider the matrix
-        <article class="displaymath" id="me-99">\[
+        \begin{equation*}
           A = \begin{pmatrix}
           1 &amp; 2 &amp; 3 \\
           4 &amp; 8 &amp; 5 \\
           -1 &amp; -2 &amp; 0
           \end{pmatrix}
-        \]</article></article><article class="example-like" id="task-89"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">89</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-83"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">83</span><span class="title"></span>
 </h5>
       Consider the matrix
-      <article class="displaymath" id="me-100">\[
+      \begin{equation*}
         A = \begin{pmatrix}
         2 &amp; 1 &amp; 3 &amp; 7 \\
         1 &amp; 1 &amp; 1 &amp; -3
         \end{pmatrix}
-      \]</article></article><article class="example-like" id="task-90"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">90</span><span class="title"></span>
+      \end{equation*}</article><article class="example-like" id="task-84"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">84</span><span class="title"></span>
 </h5>
         Consider the matrix
-        <article class="displaymath" id="me-101">\[
+        \begin{equation*}
           A = \begin{pmatrix}
           2 &amp; 3 &amp; 5 &amp; 6 \\
           1 &amp; 1 &amp; 2 &amp; 3 \\
@@ -367,42 +371,42 @@ A*special2
           -1 &amp; -1 &amp; -2 &amp; -3 \\
           1 &amp; 1 &amp; 2 &amp; 3
           \end{pmatrix}
-        \]</article></article><p>
+        \end{equation*}</article><p id="p-335">
       For the next three exercises, your job is to find a complete set of
       special solutions to the homogeneous equation \(Ax=0\).
       By a “complete set,” we mean “enough special solutions so that
       any vector in the nullspace of \(A\) can be expressed as a linear
       combination of your vectors.”
     </p>
-<p>
+<p id="p-336">
       As always, it will be crucial to explain how you know you are correct.
     </p>
-<article class="example-like" id="task-91"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">91</span><span class="title"></span>
+<article class="example-like" id="task-85"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">85</span><span class="title"></span>
 </h5>
         Consider the matrix
-        <article class="displaymath" id="me-102">\[
+        \begin{equation*}
           A = \begin{pmatrix}
           6 &amp; 7 \\
           7 &amp; 8 \\
           1 &amp; 0 \\
           4 &amp; 5
           \end{pmatrix}
-        \]</article></article><article class="example-like" id="task-92"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">92</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-86"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">86</span><span class="title"></span>
 </h5>
         Consider the matrix
-        <article class="displaymath" id="me-103">\[
+        \begin{equation*}
           A = \begin{pmatrix}
           23 &amp; 17 &amp; 9 &amp; 2 \\
           1 &amp; -2 &amp; 4 &amp; 1 \\
           22 &amp; 19 &amp; 5 &amp; 1
           \end{pmatrix}
-        \]</article></article><article class="example-like" id="task-93"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">93</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-87"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">87</span><span class="title"></span>
 </h5>
         Consider the matrix
-        <article class="displaymath" id="me-104">\[
+        \begin{equation*}
           A = \begin{pmatrix}
           -3 &amp; -6 &amp; -9 &amp; -12 \\
           1 &amp; 2 &amp; 3 &amp; 4 \\
@@ -411,7 +415,7 @@ A*special2
           -1 &amp; -1 &amp; -1 &amp; -1 \\
           0 &amp; 0 &amp; 1 &amp; 0
           \end{pmatrix}
-        \]</article></article></section></section></div></main>
+        \end{equation*}</article></section></section></div></main>
 </div>
 </body>
 </html>
