@@ -8,7 +8,7 @@
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="start-sage">
-  <title>Getting Started with Sage</title>
+  <title>Getting Started with SageMath</title>
 
   <subsection>
     <title>The Assignment</title>
@@ -19,19 +19,26 @@
       <ul>
         <li><p>Be sure that you have login access to computers in student labs across
           campus. Before class, drop by a campus lab and make sure your credentials
-          work properly and you can sign in to a machine. For our tutorial session
+          work properly and you can sign in to a machine. For our lab session
           we will use one of the labs on the first floor of Wright Hall, so one
           of those would make a good choice.</p>
         </li>
-        <li><p>Go to the course web site and follow the links to the Sage Intro
-          workshop.</p>
+        <li>
+          <p>
+            Make an account SageMathCloud with your UNI Gmail account and sign in.
+            This may be easier if you follow the invitation email you will receive
+            from your instructor. If you have trouble with this step, email your
+            instructor for help before 5pm the day before this is due.
+          </p>
         </li>
-        <li><p>Complete the first two steps of the workshop set up process:
-          <ol>
-            <li>Start: where you make an account at SageMathCloud.</li>
-            <li>Get: where you create your first "project" and populate it with
-              files for a tutorial.</li>
-          </ol></p>
+        <li>
+          <p>
+            Find the project labelled Linear Algebra Fall 2016, and in it the
+            folder marked "introductory workshop." Read through the <c>.sagews</c>
+            file in this folder. Try out the exercises in it. Adjust some commands,
+            play, and get familiar. If you have questions, make a list to bring to
+            our lab meeting.
+          </p>
         </li>
       </ul>
     </subsection>
@@ -41,7 +48,14 @@
 
       <p>At the end of this assignment, a student should have an account at
         SageMathCloud and should be able to log into the service without trouble.
-        The student will also have a first project with some files.</p>
+        The student will also have a first project with some files. The student
+        will have at least tried some basic SageMath commands.
+      </p>
+      <p>
+        The student should also be familiar with basic course policies as
+        outlined on the syllabus, and will have generated a list of questions
+        to ask the instructor about those points which are unclear.
+      </p>
     </subsection>
 
 </section>
