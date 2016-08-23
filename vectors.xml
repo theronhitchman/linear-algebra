@@ -4,7 +4,7 @@
 <!--                                                          -->
 <!--    Math 2500: Linear Algebra                             -->
 <!--                                                          -->
-<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- Copyright (C) 2014-6  Theron J. Hitchman                 -->
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="vectors">
@@ -15,6 +15,12 @@
     <ul>
       <li>Read section 1.1 of <em>Strang</em> (pages 1-7).</li>
       <li>Read the following and complete the exercises below.</li>
+      <li>
+        Find the series of YouTube videos by user <em>3Blue1Brown</em> titled
+        <em>The Essence of Linear Algebra</em> and start watching. You only need
+        to watch one or two for now, but eventually you will want to watch them
+        all. Each runs between five and fifteen minutes.
+      </li>
     </ul>
   </subsection>
 
@@ -89,22 +95,22 @@
     </subsection>
 
     <subsection>
-        <title>Sage Instructions</title>
+        <title>SageMath Instructions</title>
 
         <paragraph>
             <title>Basic Constructions</title>
-            <p>A vector in Sage is constructed by applying the <c>vector</c> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
+            <p>A vector in SageMath is constructed by applying the <c>vector</c> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
             <sage>
                 <input>u = vector([1,1,2])</input>
             </sage>
-            <p>Notice that nothing was displayed. Sage just put the vector u into memory. We can ask for it by calling it.</p>
+            <p>Notice that nothing was displayed. SageMath just put the vector u into memory. We can ask for it by calling it.</p>
             <sage>
                 <input>u</input>
                 <output>(1, 1, 2)</output>
             </sage>
-            <p>Sage defaults to displaying vectors horizontally, which is different from how we normally write them by hand.
+            <p>SageMath defaults to displaying vectors horizontally, which is different from how we normally write them by hand.
               This is okay. You will get used to it quickly.</p>
-            <p>Sage knows how to add, multiply by scalars, and form linear combinations, and the notation for it is just as easy as you would expect.</p>
+            <p>SageMath knows how to add, multiply by scalars, and form linear combinations, and the notation for it is just as easy as you would expect.</p>
             <sage>
                 <input>
                 v = vector([-1,-1,2])
@@ -120,7 +126,7 @@
                 <input>3*u + 4*v</input>
                 <output>(-1, -1, 14)</output>
             </sage>
-            <p>If you ask Sage to plot a vector, you get this kind of picture:</p>
+            <p>If you ask SageMath to plot a vector, you get this kind of picture:</p>
             <sage>
               <input>plot(v)</input>
             </sage>
@@ -140,14 +146,14 @@
                      figsize=5, aspect_ratio=1)
               </input>
             </sage>
-            <p>Note that Sage cut off some of this plot! Also, I used some options
+            <p>Note that SageMath cut off some of this plot! Also, I used some options
               just to show them off. The <c>arrow</c> command works in three dimensions,
               too.
             </p>
         </paragraph>
         <paragraph>
           <title>Interactive Demonstrations</title>
-          <p>This is a Sage "interact." You can use this to explore the idea of
+          <p>This is a SageMath "interact." You can use this to explore the idea of
             linear combinations of <m>2</m>-vectors.</p>
           <sage>
             <input>
@@ -164,43 +170,67 @@
                   two_dim.show(axes=True)
                 </input>
               </sage>
-              <p>This is a different Sage interact. You can use this one to
-                explore linear combinations of <m>2</m>-vectors.
-              </p>
-              <sage>
-                <input>
-                  @interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
-                  def two_dim_plot(a=input_box(1,width=10), b=input_box(2,width=10),c=input_box(2,width=10), d=input_box(1,width=10),
-                                   l=input_box(1,width=10), m=input_box(1,width=10), e=input_box(2,width=10),f=input_box(2,width=10)):
-                      two_dim = arrow([0,0], [a,b], color ='red') + arrow([0,0],[c,d],color='blue')
-                      two_dim+= arrow([0,0], [l*a,l*b], color='red') + arrow([m*c,m*d],[l*a+m*c,l*b+m*d],color='red')
-                      two_dim+= arrow([0,0], [m*c,m*d], color='blue') + arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
-                      two_dim+= point([e,f],size=20,color='black',zorder=2)+ arrow([l*a,l*b],[l*a+m*c,l*b+m*d],color='blue')
-                      two_dim+= text('v = (a,b)', [a-.1,b+.1], color='red') + text('w=(c,d)', [c+.1,d-.1],color='purple')
-                      two_dim+= text('l*v + m*w', [l*a+m*c+.1, l*b+m*d+.1],color='purple') + text('P=(e,f)', [e+.1,f+.1],color='black')
-                      two_dim+= arrow([0,0],[l*a+m*c,l*b+m*d],color='purple', arrowsize=1, width=1)
-                      two_dim.show(axes=True)
-                  </input>
-                </sage>
             </paragraph>
     </subsection>
 
+    <subsection>
+      <title>Exercises</title>
+      <p>When solving an equation built as a linear combination of vectors with
+        unknown coefficients, a pair of numbers <m>a, b</m> is called a
+        <term>solution</term> to the equation if they make the equation true.
+      </p>
 
         <task>
             <statement>
-                <p>Find an example of numbers <m>\lambda</m> and <m>\mu</m> so that <me>\lambda \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \mu \begin{pmatrix} 2 \\ -1 \end{pmatrix}</me> or describe why no such example can exist.</p>
+                <p>
+                  <ol>
+                    <li>
+                      Find an example of numbers <m>\lambda</m> and <m>\mu</m>
+                      so that <me>\lambda \begin{pmatrix} 1 \\ 2 \end{pmatrix} =
+                      \mu \begin{pmatrix} 2 \\ -1 \end{pmatrix}</me> or describe
+                      why no such example can exist.
+                    </li>
+                    <li>
+                      Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2
+                        \end{smallmatrix} \right)</m> so that <me> \begin{pmatrix} 2
+                        \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+                        = \begin{pmatrix} 10 \\ -3 \end{pmatrix}</me> or describe why
+                        no such example can exist.
+                    </li>
+                    <li>
+                      Give examples of numbers <m>a</m> and <m>b</m> such that
+                      <me> a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix}
+                        1 \\ 1 \end{pmatrix} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}</me>
+                        or explain why no such numbers exist.
+                    </li>
+                  </ol>
+                </p>
             </statement>
         </task>
 
+
         <task>
             <statement>
-                <p>Find a vector <m>b = \left( \begin{smallmatrix} b_1 \\ b_2
-                  \end{smallmatrix} \right)</m> so that <me> \begin{pmatrix} 2
-                  \\ 7 \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
-                  = \begin{pmatrix} 10 \\ -3 \end{pmatrix}</me> or describe why
-                  no such example can exist.</p>
+                <p>
+                  <ol>
+                    <li>Give an example of a vector <m>X = \left( \begin{smallmatrix} x
+                      \\ y \end{smallmatrix} \right)</m> so that the equation
+                      <me>a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b X = \begin{pmatrix}7
+                        \\ 5 \end{pmatrix} </me> has no solution <m>(a,b)</m>,
+                        or explain why no such example exists.
+                    </li>
+                    <li>
+                      Give an example of a number <m>\lambda</m> so that
+                      <me>\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + 3
+                        \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix}
+                        49 \\ -7 \\ 20 \end{pmatrix}</me> or explain why no such
+                        number exists.
+                    </li>
+                  </ol>
+                </p>
             </statement>
         </task>
+
 
 
         <task>
@@ -214,71 +244,59 @@
             </statement>
         </task>
 
-
         <task>
             <statement>
-                <p>Give examples of numbers <m>a</m> and <m>b</m> such that <me> a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 7 \\ 5 \end{pmatrix}</me> or explain why no such numbers exist.</p>
-            </statement>
-        </task>
-
-        <p>In the situations like the last exercise, the pair of numbers <m>a, b</m> is called a <term>solution</term> to the equation.</p>
-
-        <task>
-            <statement>
-                <p>Give an example of a vector <m>X = \left( \begin{smallmatrix} x \\ y \end{smallmatrix} \right)</m> so that the equation <me>a \begin{pmatrix} 2 \\ 1 \end{pmatrix} + b X = \begin{pmatrix}7 \\ 5 \end{pmatrix} </me> has no solution <m>(a,b)</m>, or explain why no such example exists.</p>
-            </statement>
-        </task>
-
-
-        <task>
-            <statement>
-                <p>Give an example of a number <m>\lambda</m> so that <me>\lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + 3 \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}</me> or explain why no such number exists.</p>
-            </statement>
-        </task>
-
-
-        <task>
-            <statement>
-                <p>Give an example of numbers <m>\lambda</m> and <m>\mu</m> which are a solution to the equation <me> \lambda \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + \mu \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 49 \\ -7 \\ 20 \end{pmatrix}</me> or explain why no such solution exists.</p>
+                <p>
+                  <ol>
+                    <li>
+                      Give an example of numbers <m>\lambda</m> and <m>\mu</m>
+                      which are a solution to the equation <me> \lambda
+                      \begin{pmatrix} 7 \\ -1 \\ 2 \end{pmatrix} + \mu
+                      \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix}
+                      49 \\ -7 \\ 20 \end{pmatrix}</me> or explain why no such
+                      solution exists.
+                    </li>
+                    <li>
+                      Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\
+                      z \end{pmatrix}</m> so that the equation <me>a \begin{pmatrix}
+                      1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                      \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me>
+                      has no solution <m>(a,b)</m>, or explain why no such vector
+                      exists.
+                    </li>
+                  </ol>
+                </p>
             </statement>
         </task>
 
 
         <task>
             <statement>
-                <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\
-                  z \end{pmatrix}</m> so that the equation <me>a \begin{pmatrix}
-                  1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
-                  \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me>
-                  has no solution <m>(a,b)</m>, or explain why no such vector
-                  exists.</p>
+                <p>
+                  <ol>
+                    <li>
+                      Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\ z
+                      \end{pmatrix}</m> so that the equation <me> a \begin{pmatrix}
+                      1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
+                      \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me>
+                      has exactly one solution <m>(a,b)</m>, or explain why no such
+                      vector exists.
+                    </li>
+                    <li>
+                      Give an example of a vector <m>X =
+                      \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the
+                      equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b
+                      \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1
+                      \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}
+                      </me> has no solutions <m>(a,b,c)</m>, or explain why no such vector
+                      exists.
+                    </li>
+                  </ol>
+                </p>
             </statement>
         </task>
 
 
-        <task>
-            <statement>
-                <p>Give an example of a vector <m>w = \begin{pmatrix} x \\ y \\ z
-                  \end{pmatrix}</m> so that the equation <me> a \begin{pmatrix}
-                  1 \\ 1 \\ 0 \end{pmatrix} + b \begin{pmatrix} 0 \\ 0 \\ 1
-                  \end{pmatrix} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}</me>
-                  has exactly one solution <m>(a,b)</m>, or explain why no such
-                  vector exists.</p>
-            </statement>
-        </task>
-
-
-        <task>
-            <statement>
-                <p>Give an example of a vector <m>X =
-                  \begin{pmatrix} x \\ y \\ z\end{pmatrix}</m> such that the
-                  equation <me> a \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + b
-                  \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix} + c \begin{pmatrix} 1
-                  \\ 1 \\ 1\end{pmatrix} = \begin{pmatrix}x \\ y \\ z \end{pmatrix}
-                </me> has no solutions <m>(a,b,c)</m>, or explain why no such vector
-                  exists.</p>
-            </statement>
-        </task>
 
         <task>
             <statement>
