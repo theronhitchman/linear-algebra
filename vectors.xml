@@ -68,27 +68,50 @@
     <subsubsection>
         <title>Operations on Vectors</title>
 
-            <p>There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>
+            <p>
+              There are two operations on vectors which are of utmost importance
+              for linear algebra. (In fact, if your problem has these operations
+              in it, there is a chance you are doing linear algebra already.)
+            </p>
 
 
             <paragraphs >
                 <title>Scalar Multiplication</title>
 
-                <p>Given a number <m>\lambda \in \mathbb{R}</m> and a vector <m>v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)</m>, we form the new vector <me>\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).</me></p>
+                <p>
+                  Given a number <m>\lambda \in \mathbb{R}</m> and a vector
+                  <m>v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)</m>,
+                  we form the new vector <me>\lambda v = \left(\begin{smallmatrix}
+                  \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).</me>
+                </p>
 
             </paragraphs >
 
             <paragraphs >
                 <title>Addition</title>
 
-                <p>Given a vector <m>v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)</m> and a vector <m>w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)</m> of the same size, we form their <term>sum</term> <me> v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) </me></p>
+                <p>
+                  Given a vector <m>v = \left(\begin{smallmatrix} a \\ b \\ c
+                  \end{smallmatrix}\right)</m> and a vector <m>w = \left(
+                  \begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)</m>
+                  of the same size, we form their <term>sum</term> <me> v+w =
+                  \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}
+                  \right). </me>
+                </p>
 
-            </paragraphs >
+                <p>
+                  These operations have <q>obvious</q> generalizations to
+                  vectors of different sizes. Because things go entry-by-entry,
+                  these are often called <term>coordinate-wise</term> operations.
+                </p>
 
-            <paragraphs >
-                <p>These operations have <q>obvious</q> generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <term>coordinate-wise</term> operations.</p>
-
-                <p>Combining these two operations gives us the notion of a \emph{linear combination}. If <m>\lambda</m> and <m>\mu</m> are numbers and <m>v</m> and <m>w</m> are vectors of a common size, then the vector <me>\lambda v + \mu w </me> is a linear combination of <m>v</m> and <m>w</m>.</p>
+                <p>
+                  Combining these two operations gives us the notion of a
+                  <em>linear combination</em>. If <m>\lambda</m> and <m>\mu</m>
+                  are numbers and <m>v</m> and <m>w</m> are vectors of a common
+                  size, then the vector <me>\lambda v + \mu w </me> is a linear
+                  combination of <m>v</m> and <m>w</m>.
+                </p>
             </paragraphs >
         </subsubsection>
 
@@ -142,8 +165,7 @@
             <sage>
               <input>
                 plot(arrow([1,1],[2,3], color='red',
-                           arrowsize=2, width=2),
-                     figsize=5, aspect_ratio=1)
+                           arrowsize=2, width=2))
               </input>
             </sage>
             <p>Note that SageMath cut off some of this plot! Also, I used some options
