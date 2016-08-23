@@ -102,7 +102,7 @@
         How exactly does one define this matrix--vector multiplication?
       </p>
 
-      <paragraph>
+      <paragraphs>
         <title>Linear Combination of Columns Approach</title>
         <p>
           The first way to perform the matrix-vector multiplication is to think
@@ -116,8 +116,8 @@
             \begin{pmatrix} 102 \\ 416 \end{pmatrix}
           </me>
         </p>
-      </paragraph>
-      <paragraph>
+      </paragraphs>
+      <paragraphs>
         <title>Dot Products with the Rows Approach</title>
         <p>
           The second way is to think of the matrix as a bundle of vectors lying
@@ -136,7 +136,7 @@
             \begin{pmatrix} 102 \\ 416 \end{pmatrix} .
           </me>
         </p>
-      </paragraph>
+      </paragraphs>
 
       <p>
       Two important remarks:
