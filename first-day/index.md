@@ -12,7 +12,7 @@ title: First Day Activity
 Write the following on the board:
 
 Consider
-\\[ (\star) \left\{\begin{array}{ccccc} 3x & + & 2y & = & 4 \\\\ 2x & - & y & = & 1 \end{array}\right. \\]
+\\[ (\star) \left\{\begin{array}{ccccc} 3x & + & 2y & = & 4 \\\\ 2x & - & y & = & 1 \end{array}\right. . \\]
 
 Questions:
 
@@ -42,7 +42,7 @@ the transformational picture.
 
 ### Phase Four: Extend (time permitting)
 
-Erase the lower right \\(2\\) and replace it with an \\(A\\). Add this question to
+Erase the lower left \\(2\\) and replace it with an \\(A\\). Add this question to
 the board:
 
 4. Can we choose a value of \\(A\\) so that the system \\(\star\\) as NO solutions?
