@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-22T22:10:30-05:00    *-->
+<!--*    on 2016-08-23T15:02:36-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -184,14 +184,40 @@ MathJax.Hub.Config({
         </p>
 <section class="subsubsection" id="subsubsection-1"><header title="Subsubsection  Operations on Vectors"><h1 class="heading hide-type" alt="Subsubsection  Operations on Vectors">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Operations on Vectors</span>
-</h1></header><p id="p-19">There are two operations on vectors which are of utmost importance for linear algebra. (In fact, if your problem has these operations in it, there is a chance you are doing linear algebra already.)</p>
+</h1></header><p id="p-19">
+              There are two operations on vectors which are of utmost importance
+              for linear algebra. (In fact, if your problem has these operations
+              in it, there is a chance you are doing linear algebra already.)
+            </p>
 <article class="paragraphs" id="paragraphs-1"><h5 class="heading"><span class="title">Scalar Multiplication</span></h5>
-<p id="p-20">Given a number \(\lambda \in \mathbb{R}\) and a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\), we form the new vector \begin{equation*}\lambda v = \left(\begin{smallmatrix} \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\end{equation*}</p></article><article class="paragraphs" id="paragraphs-2"><h5 class="heading"><span class="title">Addition</span></h5>
-<p id="p-21">Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\) and a vector \(w = \left(\begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\) of the same size, we form their <em class="terminology">sum</em> \begin{equation*} v+w = \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}\right) \end{equation*}</p></article><article class="paragraphs" id="paragraphs-3"><h5 class="heading"><span class="title"></span></h5>
-<p id="p-22">These operations have “obvious” generalizations to vectors of different sizes. Because things go entry-by-entry, these are often called <em class="terminology">coordinate-wise</em> operations.</p>
-<p id="p-23">Combining these two operations gives us the notion of a \emph{linear combination}. If \(\lambda\) and \(\mu\) are numbers and \(v\) and \(w\) are vectors of a common size, then the vector \begin{equation*}\lambda v + \mu w \end{equation*} is a linear combination of \(v\) and \(w\).</p></article></section></section><section class="subsection" id="subsection-4"><header title="Subsection  SageMath Instructions"><h1 class="heading hide-type" alt="Subsection  SageMath Instructions">
+<p id="p-20">
+                  Given a number \(\lambda \in \mathbb{R}\) and a vector
+                  \(v = \left(\begin{smallmatrix} a \\ b \\ c \end{smallmatrix}\right)\),
+                  we form the new vector \begin{equation*}\lambda v = \left(\begin{smallmatrix}
+                  \lambda a \\ \lambda b \\ \lambda c \end{smallmatrix}\right).\end{equation*}
+                </p></article><article class="paragraphs" id="paragraphs-2"><h5 class="heading"><span class="title">Addition</span></h5>
+<p id="p-21">
+                  Given a vector \(v = \left(\begin{smallmatrix} a \\ b \\ c
+                  \end{smallmatrix}\right)\) and a vector \(w = \left(
+                  \begin{smallmatrix} d \\ e \\ f \end{smallmatrix}\right)\)
+                  of the same size, we form their <em class="terminology">sum</em> \begin{equation*} v+w =
+                  \left(\begin{smallmatrix} a+d \\ b+e \\ c+f \end{smallmatrix}
+                  \right). \end{equation*}
+                </p>
+<p id="p-22">
+                  These operations have “obvious” generalizations to
+                  vectors of different sizes. Because things go entry-by-entry,
+                  these are often called <em class="terminology">coordinate-wise</em> operations.
+                </p>
+<p id="p-23">
+                  Combining these two operations gives us the notion of a
+                  <!--Style me with CSS--><em>linear combination</em>. If \(\lambda\) and \(\mu\)
+                  are numbers and \(v\) and \(w\) are vectors of a common
+                  size, then the vector \begin{equation*}\lambda v + \mu w \end{equation*} is a linear
+                  combination of \(v\) and \(w\).
+                </p></article></section></section><section class="subsection" id="subsection-4"><header title="Subsection  SageMath Instructions"><h1 class="heading hide-type" alt="Subsection  SageMath Instructions">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath Instructions</span>
-</h1></header><article class="paragraphs" id="paragraphs-4"><h5 class="heading"><span class="title">Basic Constructions</span></h5>
+</h1></header><article class="paragraphs" id="paragraphs-3"><h5 class="heading"><span class="title">Basic Constructions</span></h5>
 <p id="p-24">A vector in SageMath is constructed by applying the <tt class="code-inline" style="color: red; font-size: 120%">vector</tt> command to a list. Lists are entered in square brackets with entries separated by commas, so the typical way to create a vector looks like this:</p>
 <div class="sagecell-sage"><script type="text/x-sage">u = vector([1,1,2])
 </script></div>
@@ -218,13 +244,12 @@ plot(a)
 <p id="p-30">If you find that you want a vector to have its tail someplace
               that is not the origin, use the <tt class="code-inline" style="color: red; font-size: 120%">arrow</tt> command.</p>
 <div class="sagecell-sage"><script type="text/x-sage">plot(arrow([1,1],[2,3], color='red',
-           arrowsize=2, width=2),
-     figsize=5, aspect_ratio=1)
+           arrowsize=2, width=2))
 </script></div>
 <p id="p-31">Note that SageMath cut off some of this plot! Also, I used some options
               just to show them off. The <tt class="code-inline" style="color: red; font-size: 120%">arrow</tt> command works in three dimensions,
               too.
-            </p></article><article class="paragraphs" id="paragraphs-5"><h5 class="heading"><span class="title">Interactive Demonstrations</span></h5>
+            </p></article><article class="paragraphs" id="paragraphs-4"><h5 class="heading"><span class="title">Interactive Demonstrations</span></h5>
 <p id="p-32">This is a SageMath "interact." You can use this to explore the idea of
             linear combinations of \(2\)-vectors.</p>
 <div class="sagecell-sage"><script type="text/x-sage">@interact(layout= {'top':[['a','c','e'],['b','d','f'],['l','m']]})
