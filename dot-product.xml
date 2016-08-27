@@ -14,6 +14,10 @@
     <title>The Assignment</title>
     <ul>
       <li>Read section 1.2 of <em>Strang</em></li>
+      <li>
+        Watch another video or two from <em>3Blue1Brown</em>'s YouTube
+        series <em>The Essence of Linear Algebra</em>.
+      </li>
       <li>Read the following and complete the exercises below.</li>
     </ul>
   </subsection>
@@ -69,11 +73,11 @@
 
 
   <subsection>
-    <title>Sage and the dot product</title>
+    <title>SageMath and the dot product</title>
     <subsubsection>
       <title>Basic Commands</title>
     <p>
-      Sage has a built-in dot product command <c>u.dot_product(v)</c>. This
+      SageMath has a built-in dot product command <c>u.dot_product(v)</c>. This
       will return the dot product of the vectors <m>u</m> and <m>v</m>.
     </p>
     <sage>
@@ -84,7 +88,7 @@
       <output>0</output>
     </sage>
     <p>
-      It also has a built-in command for computing lengths. Here sage uses the
+      It also has a built-in command for computing lengths. Here SageMath uses the
       synonym "norm": <c>u.norm()</c>. Of course, you can also call this like
       a function instead of like a method: <c>norm(u)</c>.
     </p>
@@ -113,7 +117,7 @@
       </output>
     </sage>
     <p>
-      Of course, Sage's <c>arccos</c> command returns a result in <em>radians</em>.
+      Of course, SageMath's <c>arccos</c> command returns a result in <em>radians</em>.
       To switch to degrees, you must convert.
     </p>
     <sage>
@@ -137,11 +141,12 @@
     </sage>
   </subsubsection>
 
+<!--
   <subsubsection>
     <title>Sage Interacts</title>
     <p>Interacts would go here...</p>
   </subsubsection>
-
+-->
 
 
 
@@ -164,65 +169,71 @@
           \\ 7 \end{smallmatrix}\right)</m> to some other vector? What happens
           if we change the number <m>5</m> to some other number?
         </p>
-        <p>What happens if instead of <m>2</m>-vectors, we use <m>3</m>-vectors?
+        <!--<p>What happens if instead of <m>2</m>-vectors, we use <m>3</m>-vectors?
+      </p>-->
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          <ol>
+            <li>
+              Find an example of two <m>2</m>-vectors <m>v</m> and <m>w</m>
+              so that <m>\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot v
+              =0</m> and <m>\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot
+              w = 0</m>, or explain why such an example is not possible.
+            </li>
+            <li>
+              Let <m>v = \left(\begin{smallmatrix}3\\-1
+              \end{smallmatrix}\right)</m>. Find an example of a pair of vectors
+              <m>u</m> and <m>w</m> such that <m>v \cdot u &lt; 0</m> and
+              <m>v \cdot w &lt; 0</m> and <m>w \cdot u = 0</m>, or explain why no such
+              pair of vectors can exist.
+            </li>
+            <li>
+              Find an example of three <m>2</m>-vectors <m>u</m>, <m>v</m>,
+              and <m>w</m> so that <m> u \cdot v &lt; 0</m> and <m>u\cdot w &lt; 0 </m>
+              and <m>v \cdot w &lt; 0</m>, or explain why no such example exists.
+            </li>
+          </ol>
         </p>
       </statement>
     </task>
 
     <task>
-      <statement>Find an example of two <m>2</m>-vectors <m>v</m> and <m>w</m>
-      so that <m>\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot v
-      =0</m> and <m>\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot
-      w = 0</m>, or explain why such an example is not possible.
-      </statement>
-    </task>
-
-    <task>
-      <statement>Let <m>v = \left(\begin{smallmatrix}3\\-1
-        \end{smallmatrix}\right)</m>. Find an example of a pair of vectors
-        <m>u</m> and <m>w</m> such that <m>v \cdot u &lt; 0</m> and
-        <m>v \cdot w &lt; 0</m> and <m>w \cdot u = 0</m>, or explain why no such
-        pair of vectors can exist.
-      </statement>
-    </task>
-
-    <task>
-      <statement>Find an example of three <m>2</m>-vectors <m>u</m>, <m>v</m>,
-        and <m>w</m> so that <m> u \cdot v &lt; 0</m> and <m>u\cdot w &lt; 0 </m>
-        and <m>v \cdot w &lt; 0</m>, or explain why no such example exists.
-      </statement>
-    </task>
-
-    <task>
       <statement>
-        Find an example of a number <m>c</m> so that <me>
-        \begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
-          \end{pmatrix} = c
-        </me> has the vector <m>\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)</m>
-        as a solution, or explain why no such number exists.
+        <p>
+          <ol>
+            <li>
+              Find an example of a number <m>c</m> so that
+              <me>
+                \begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y
+                \end{pmatrix} = c
+              </me>
+              has the vector <m>\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)</m>
+              as a solution, or explain why no such number exists.
+            </li>
+            <li>
+              Let <m>v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)</m> and
+              <m>w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)</m>. Find
+              an example of a number <m>c</m> so that <md>
+              <mrow>v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
+              \quad w \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c,</mrow></md>
+              or explain why this is not possible.
+            </li>
+            <li>
+              Let <m>P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)</m>.
+              Find an example of numbers <m>c</m> and <m>d</m> so that <md>
+              <mrow>\begin{pmatrix} 2\\-1\end{pmatrix}\cdot P = c \quad\text{ and }
+              \quad \begin{pmatrix} 1\\-1\end{pmatrix}\cdot P = d,</mrow></md>
+              or explain why no such example is possible.
+            </li>
+          </ol>
+        </p>
       </statement>
     </task>
 
-    <task>
-      <statement>
-        Let <m>v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)</m> and
-        <m>w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)</m>. Find
-        an example of a number <m>c</m> so that <md>
-        <mrow>v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and }
-        \quad w \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c,</mrow></md>
-        or explain why this is not possible.
-      </statement>
-    </task>
-
-    <task>
-      <statement>
-        Let <m>P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)</m>.
-        Find an example of numbers <m>c</m> and <m>d</m> so that <md>
-        <mrow>\begin{pmatrix} 2\\-1\end{pmatrix}\cdot P = c \quad\text{ and }
-        \quad \begin{pmatrix} 1\\-1\end{pmatrix}\cdot P = d,</mrow></md>
-        or explain why no such example is possible.
-      </statement>
-    </task>
 
 <p>Now we move to three dimensions!</p>
 
