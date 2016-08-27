@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-23T15:02:36-05:00    *-->
+<!--*    on 2016-08-27T16:42:25-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,19 +140,19 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-47"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-157">Read section 2.6 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-158">Read the following and complete the exercises below.</li>
+<li id="li-164">Read section 2.6 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-165">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-48"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-237">
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-159">
+<li id="li-166">
         Use Gaussian Elimination to find the \(LU\) and \(LDU\)
         decompositions of a matrix.
       </li>
-<li id="li-160">
+<li id="li-167">
         Describe when the process of Gaussian Elimination will fail to
         produce an \(LU\) decomposition.
       </li>
@@ -161,11 +161,11 @@ MathJax.Hub.Config({
       Sometime after class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-161">
+<li id="li-168">
         Solve a system of equations by using the \(LU\) decomposition and
         two triangular systems.
       </li>
-<li id="li-162">
+<li id="li-169">
         Explain the connection between matrix elimination and the \(LU\)
         or \(LDU\) factorization of a matrix.
       </li>
@@ -187,12 +187,12 @@ MathJax.Hub.Config({
       There are three key observations that make this work:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-163">
+<li id="li-170">
         Each of the matrices \(E_{ij}\) that affects a row operation of the
         form <!--Style me with CSS--><em>add a multiple of row \(i\) to row \(j\)</em> is an invertible
         matrix, with an easy to find inverse.
       </li>
-<li id="li-164">
+<li id="li-171">
         If we make a sequence of row operations in the forward pass using
         matrices \(E_k\), then we are essentially computing a big product
         \begin{equation*}
@@ -206,21 +206,21 @@ MathJax.Hub.Config({
         Note that the inverses have to be done <!--Style me with CSS--><em>in reverse order</em> for things
         to cancel out properly.
       </li>
-<li id="li-165">
+<li id="li-172">
         Finally, the product \(L = E_1^{-1} \dots E_k^{-1}\) is really easy to
         compute, because its entries are simply the negatives of the multipliers
         we used to do the operations in the forward pass.
       </li>
 </ul>
-<section class="subsubsection" id="subsubsection-24"><header title="Subsubsection  A Nice Computational Result"><h1 class="heading hide-type" alt="Subsubsection  A Nice Computational Result">
+<section class="subsubsection" id="subsubsection-23"><header title="Subsubsection  A Nice Computational Result"><h1 class="heading hide-type" alt="Subsubsection  A Nice Computational Result">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">A Nice Computational Result</span>
 </h1></header><p id="p-241">
         One important output of this comes into play when we want to compute
         solutions to equations like \(Ax = b\). Since we can write \(A = LU\),
         then our equation can be split into two (big) steps:
         <ol style="list-style-type: decimal;">
-<li id="li-166"> First find the solution to the equation \(Ly = b\).</li>
-<li id="li-167"> Then find the solution to the equation \(Ux = y\).</li>
+<li id="li-173"> First find the solution to the equation \(Ly = b\).</li>
+<li id="li-174"> Then find the solution to the equation \(Ux = y\).</li>
 </ol>
       </p>
 <p id="p-242">
@@ -279,11 +279,11 @@ One = M(1); One
       “add \(-4\) times row 2 to row 3” should be “Add \(4\) times
       row 2 to row 3”. That is the way you undo the operation!
     </p>
-<section class="subsubsection" id="subsubsection-25"><header title="Subsubsection  Study Break: Try it yourself"><h1 class="heading hide-type" alt="Subsubsection  Study Break: Try it yourself">
+<section class="subsubsection" id="subsubsection-24"><header title="Subsubsection  Study Break: Try it yourself"><h1 class="heading hide-type" alt="Subsubsection  Study Break: Try it yourself">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Study Break: Try it yourself</span>
 </h1></header><p id="p-250">
         Make your own \(3\times 3\) matrix and check the whole procedure.
-      </p></section><section class="subsubsection" id="subsubsection-26"><header title="Subsubsection  Sage Commands to short-cut the process"><h1 class="heading hide-type" alt="Subsubsection  Sage Commands to short-cut the process">
+      </p></section><section class="subsubsection" id="subsubsection-25"><header title="Subsubsection  Sage Commands to short-cut the process"><h1 class="heading hide-type" alt="Subsubsection  Sage Commands to short-cut the process">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage Commands to short-cut the process</span>
 </h1></header><p id="p-251">
         Here is the basic command for getting Sage to compute the \(LU\)
@@ -336,9 +336,9 @@ One = M(1); One
         And we can have Sage check if they are really equal.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">L*U == A
-</script></div></section><section class="subsubsection" id="subsubsection-27"><header title="Subsubsection  What about the \(LDU\) decomposition?"><h1 class="heading hide-type" alt="Subsubsection  What about the \(LDU\) decomposition?">
+</script></div></section><section class="subsubsection" id="subsubsection-26"><header title="Subsubsection  What about the \(LDU\) decomposition?"><h1 class="heading hide-type" alt="Subsubsection  What about the \(LDU\) decomposition?">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">What about the \(LDU\) decomposition?</span>
-</h1></header><p id="p-258">For now, Sage has no built-in \(LDU\) decomposition.</p></section><section class="subsubsection" id="subsubsection-28"><header title="Subsubsection  An insurmountable obstacle"><h1 class="heading hide-type" alt="Subsubsection  An insurmountable obstacle">
+</h1></header><p id="p-258">For now, Sage has no built-in \(LDU\) decomposition.</p></section><section class="subsubsection" id="subsubsection-27"><header title="Subsubsection  An insurmountable obstacle"><h1 class="heading hide-type" alt="Subsubsection  An insurmountable obstacle">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">An insurmountable obstacle</span>
 </h1></header><p id="p-259">
         Some matrices <!--Style me with CSS--><em>require</em> permutations of rows. In these cases, we
@@ -360,8 +360,8 @@ One = M(1); One
     Keep this in mind. The computations are simple, but tedious.
     Perhaps you want to use an appropriate tool.
   </p>
-<article class="example-like" id="task-63"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">63</span><span class="title"></span>
+<article class="example-like" id="task-59"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">59</span><span class="title"></span>
 </h5>
 <p id="p-262">
         Consider the following system of 3 linear equations in 3 unknowns.
@@ -381,8 +381,8 @@ One = M(1); One
         decomposition \(A = LU\) for the coefficient matrix \(A\) for this
         system of equations. (Be sure to multiply the matrices \(L\) and \(U\)
         to check your work.)
-      </p></article><article class="example-like" id="task-64"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">64</span><span class="title"></span>
+      </p></article><article class="example-like" id="task-60"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">60</span><span class="title"></span>
 </h5>
 <p id="p-264">
         Solve the two systems \(Ly = b\) and \(Ux=y\) obtained in the last
@@ -392,8 +392,8 @@ One = M(1); One
         Solve the system \(Ax=b\) directly using Gauss-Jordan
         elimination (hint: use Sage) and make sure that the results
         are the same.
-      </p></article><article class="example-like" id="task-65"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">65</span><span class="title"></span>
+      </p></article><article class="example-like" id="task-61"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">61</span><span class="title"></span>
 </h5>
       Consider the matrix \(A\) below. Find the matrix \(E\) which
       transforms \(A\) into an upper triangular matrix \(EA = U\).
@@ -406,8 +406,8 @@ One = M(1); One
         0 &amp; 4 &amp; 2 \\
         6 &amp; 3 &amp; 5
         \end{pmatrix}
-      \end{equation*}</article><article class="example-like" id="task-66"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">66</span><span class="title"></span>
+      \end{equation*}</article><article class="example-like" id="task-62"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">62</span><span class="title"></span>
 </h5>
       The matrix below is <em class="terminology">symmetric</em>, because if you flip it across
       its main diagonal you get the same thing. Find the \(LDU\) triple
@@ -418,8 +418,8 @@ One = M(1); One
         2 &amp; 4 \\
         4 &amp; 11
         \end{pmatrix}
-      \end{equation*}</article><article class="example-like" id="task-67"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">67</span><span class="title"></span>
+      \end{equation*}</article><article class="example-like" id="task-63"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">63</span><span class="title"></span>
 </h5>
       The matrix below is <em class="terminology">symmetric</em>, because if you flip it
       across its main diagonal you get the same thing. Find the \(LDU\)
@@ -431,8 +431,8 @@ One = M(1); One
         4 &amp; 12 &amp; 4 \\
         0 &amp; 4 &amp; 0
         \end{pmatrix}
-      \end{equation*}</article><article class="example-like" id="task-68"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">68</span><span class="title"></span>
+      \end{equation*}</article><article class="example-like" id="task-64"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">64</span><span class="title"></span>
 </h5>
       The matrix below is <em class="terminology">symmetric</em>, because if you flip it
       across its main diagonal you get the same thing. Find the \(LU\)
@@ -448,8 +448,8 @@ One = M(1); One
       \end{equation*}
       What conditions on the variables \(a\), \(b\), \(c\),
       and \(d\) will guarantee that this matrix has four pivots?
-    </article><article class="example-like" id="task-69"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">69</span><span class="title"></span>
+    </article><article class="example-like" id="task-65"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">65</span><span class="title"></span>
 </h5>
       Find an example of a \(3\times 3\) matrix \(A\) which has all of
       its entries non-zero, so that the \(LU\) decomposition has

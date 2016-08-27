@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-23T15:02:36-05:00    *-->
+<!--*    on 2016-08-27T16:42:25-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,41 +140,41 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-42"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-134">Read section 2.5 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-135">Read the following and complete the exercises below.</li>
+<li id="li-141">Read section 2.5 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-142">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-43"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-209">
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-136">State the definition of <em class="terminology">invertible</em> matrix.</li>
-<li id="li-137">Solve an equation \(Ax = b\) using the inverse of \(A\)
+<li id="li-143">State the definition of <em class="terminology">invertible</em> matrix.</li>
+<li id="li-144">Solve an equation \(Ax = b\) using the inverse of \(A\)
         if it exists.
       </li>
-<li id="li-138">State how inverses and multiplication interact.</li>
-<li id="li-139">Use Gauss-Jordan elimination to compute the inverse of a matrix.</li>
-<li id="li-140">State a test for invertibility of square matrices using pivots.</li>
+<li id="li-145">State how inverses and multiplication interact.</li>
+<li id="li-146">Use Gauss-Jordan elimination to compute the inverse of a matrix.</li>
+<li id="li-147">State a test for invertibility of square matrices using pivots.</li>
 </ul>
 <p id="p-210">
       Some time after class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-141">Describe the connection between Gauss-Jordan elimination and solving
+<li id="li-148">Describe the connection between Gauss-Jordan elimination and solving
         \(n\) different systems of equations.
       </li>
-<li id="li-142">Describe the connection between Gauss-Jordan elimination, computing
+<li id="li-149">Describe the connection between Gauss-Jordan elimination, computing
         matrix inverses, and the process of elimination by matrix multiplication.
       </li>
-<li id="li-143">State the definition of the determinant of a square matrix.</li>
-<li id="li-144">State the connection between the determinant of a square matrix and
+<li id="li-150">State the definition of the determinant of a square matrix.</li>
+<li id="li-151">State the connection between the determinant of a square matrix and
         invertibility.</li>
-<li id="li-145">State the distinction between a matrix being <em class="terminology">invertible</em>
+<li id="li-152">State the distinction between a matrix being <em class="terminology">invertible</em>
         and a matrix being <em class="terminology">singular</em>.
       </li>
 </ul></section><section class="subsection" id="subsection-44"><header title="Subsection  Discussion"><h1 class="heading hide-type" alt="Subsection  Discussion">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
-</h1></header><section class="subsubsection" id="subsubsection-20"><header title="Subsubsection  Matrix Inverses"><h1 class="heading hide-type" alt="Subsubsection  Matrix Inverses">
+</h1></header><section class="subsubsection" id="subsubsection-19"><header title="Subsubsection  Matrix Inverses"><h1 class="heading hide-type" alt="Subsubsection  Matrix Inverses">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix Inverses</span>
 </h1></header><p id="p-211">
         The main point of this section is to start focusing on the first big
@@ -185,7 +185,7 @@ MathJax.Hub.Config({
         Of course, like all things we have been studying, this will have several
         different faces, all of which are equivalent. The one front and center
         right now is this: When does an \(n \times n\) square matrix have an inverse?
-      </p></section><section class="subsubsection" id="subsubsection-21"><header title="Subsubsection  Finding an Inverse: Gauss-Jordan Elimination"><h1 class="heading hide-type" alt="Subsubsection  Finding an Inverse: Gauss-Jordan Elimination">
+      </p></section><section class="subsubsection" id="subsubsection-20"><header title="Subsubsection  Finding an Inverse: Gauss-Jordan Elimination"><h1 class="heading hide-type" alt="Subsubsection  Finding an Inverse: Gauss-Jordan Elimination">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Finding an Inverse: Gauss-Jordan Elimination</span>
 </h1></header><p id="p-213">
         There is an effective method for finding the inverse, and it is
@@ -203,24 +203,24 @@ MathJax.Hub.Config({
         <!--Style me with CSS--><em>Gauss-Jordan Elimination</em>
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-146">
+<li id="li-153">
 <!--Style me with CSS--><em>Augment:</em> Tack on a copy of the identity matrix of the same
           size to the right hand side of your matrix. It should now look like
           \((A \mid I)\).
         </li>
-<li id="li-147">
+<li id="li-154">
 <!--Style me with CSS--><em>Forward Pass:</em> This is a nested procedure:
           <ul style="list-style-type: circle;">
-<li id="li-148">
+<li id="li-155">
 <!--Style me with CSS--><em>preparation:</em> If necessary, use a row swap to make a
               non-zero entry in the upper left entry.
             </li>
-<li id="li-149">
+<li id="li-156">
 <!--Style me with CSS--><em>make zeros:</em> The upper left entry is our first pivot. Use
               the operation of adding a multiple of the first row to the other
               rows to kill the entries below this first pivot.
             </li>
-<li id="li-150">
+<li id="li-157">
 <!--Style me with CSS--><em>step down:</em> Step down to the second row and repeat the
               above, but ignoring rows and columns above and to the left. Repeat
               as necessary till you run out of rows.
@@ -230,14 +230,14 @@ MathJax.Hub.Config({
           perform a row switch to suffle it to the bottom. When the forward
           pass is complete, you should have an upper triangular matrix.
         </li>
-<li id="li-151">
+<li id="li-158">
 <!--Style me with CSS--><em>Backward Pass:</em> This is also nested, like the forward pass,
           except that instead of working down and to the right, you begin at
           the lower right with the last pivot and work up and to the left.
           When complete, the matrix should have at most one non-zero entry in
           each row. This entry will be a pivot.
         </li>
-<li id="li-152">
+<li id="li-159">
 <!--Style me with CSS--><em>Rescale:</em> rescale rows to make the pivots into \(1\)'s.
         </li>
 </ul>
@@ -251,7 +251,7 @@ MathJax.Hub.Config({
 <p id="p-217">
         What you have computed in the left hand block with the Gauss-Jordan
         elimination is the <!--Style me with CSS--><em>reduced row-echelon form</em> of your original matrix.
-      </p></section><section class="subsubsection" id="subsubsection-22"><header title="Subsubsection  The Big Theorem: invertibility, singularity, and the determinant"><h1 class="heading hide-type" alt="Subsubsection  The Big Theorem: invertibility, singularity, and the determinant">
+      </p></section><section class="subsubsection" id="subsubsection-21"><header title="Subsubsection  The Big Theorem: invertibility, singularity, and the determinant"><h1 class="heading hide-type" alt="Subsubsection  The Big Theorem: invertibility, singularity, and the determinant">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Big Theorem: invertibility, singularity, and the determinant</span>
 </h1></header><p id="p-218">
         What is the key?
@@ -271,7 +271,7 @@ MathJax.Hub.Config({
         Note that we said a square matrix was <!--Style me with CSS--><em>singular</em> when it did not
         have enough pivots. So what the above says is that a matrix is invertible
         if and only if it is non-singular.
-      </p></section><section class="subsubsection" id="subsubsection-23"><header title="Subsubsection  A simple test"><h1 class="heading hide-type" alt="Subsubsection  A simple test">
+      </p></section><section class="subsubsection" id="subsubsection-22"><header title="Subsubsection  A simple test"><h1 class="heading hide-type" alt="Subsubsection  A simple test">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">A simple test</span>
 </h1></header><p id="p-221">
         We can use the above to make a simple numerical test of when a matrix is
@@ -379,8 +379,8 @@ D.rref()
       Keep this in mind. The computations are simple, but tedious.
       Perhaps you want to use an appropriate tool.
     </p>
-<article class="example-like" id="task-56"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">56</span><span class="title"></span>
+<article class="example-like" id="task-52"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">52</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(A\) below.
         \begin{equation*}
@@ -388,8 +388,8 @@ D.rref()
         \end{equation*}
         Be sure to clearly write down the operations you use and the matrices
         which perform the operations by left multiplication.
-      </article><article class="example-like" id="task-57"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">57</span><span class="title"></span>
+      </article><article class="example-like" id="task-53"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">53</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(X\) below.
         \begin{equation*}
@@ -397,8 +397,8 @@ D.rref()
         \end{equation*}
         Be sure to clearly write down the operations you use and the matrices
         which perform the operations by left multiplication.
-      </article><article class="example-like" id="task-58"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">58</span><span class="title"></span>
+      </article><article class="example-like" id="task-54"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">54</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(B\) below.
         \begin{equation*}
@@ -407,8 +407,8 @@ D.rref()
         \end{equation*}
         Be sure to clearly write down the operations you use and the matrices
         which perform the operations by left multiplication.
-      </article><article class="example-like" id="task-59"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">59</span><span class="title"></span>
+      </article><article class="example-like" id="task-55"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">55</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(B\) below.
         \begin{equation*}
@@ -421,8 +421,8 @@ D.rref()
         \end{equation*}
         Be sure to clearly write down the operations you use and the matrices
         which perform the operations by left multiplication.
-      </article><article class="example-like" id="task-60"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">60</span><span class="title"></span>
+      </article><article class="example-like" id="task-56"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">56</span><span class="title"></span>
 </h5>
         Use Gauss-Jordan elimination to find the inverse of the matrix \(D\) below.
         \begin{equation*}
@@ -431,21 +431,21 @@ D.rref()
         2 &amp; 2 &amp; 1 &amp; -5 &amp; 1 \\ 0 &amp; 0 &amp; 3 &amp; 1 &amp; -3 \\
         -2 &amp; 3 &amp; 4 &amp; 1 &amp; 1
         \end{pmatrix}
-        \end{equation*}</article><article class="example-like" id="task-61"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">61</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-57"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">57</span><span class="title"></span>
 </h5>
         Suppose that for the matrix \(D\) in the last exercise we imagine solving the matrix
         equation \(Dx = b\) for some vector \(b\) of the appropriate size. What might one mean
         by the row picture in this case? What might the column picture mean?
-      </article><article class="example-like" id="task-62"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">62</span><span class="title"></span>
+      </article><article class="example-like" id="task-58"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">58</span><span class="title"></span>
 </h5>
         Design a \(6 \times 6\) matrix which has the following properties:
         <ul style="list-style-type: disc;">
-<li id="li-153"> no entry equal to zero</li>
-<li id="li-154"> the reduced row echelon form should have exactly 5 pivots</li>
-<li id="li-155"> the 5 pivots should be different numbers</li>
-<li id="li-156"> no pair of rows should be scalar multiples of one another</li>
+<li id="li-160"> no entry equal to zero</li>
+<li id="li-161"> the reduced row echelon form should have exactly 5 pivots</li>
+<li id="li-162"> the 5 pivots should be different numbers</li>
+<li id="li-163"> no pair of rows should be scalar multiples of one another</li>
 </ul>
         Is your matrix invertible? How do you know? Does Sage say it is invertible?
       </article></section></section></div></main>

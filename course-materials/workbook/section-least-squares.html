@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-23T15:02:36-05:00    *-->
+<!--*    on 2016-08-27T16:42:26-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,16 +140,16 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-105"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-354">Read section 4.3 of Strang.</li>
-<li id="li-355">Read the discussion below.</li>
-<li id="li-356">Complete exercises 1-11 from section 4.3 in Strang.</li>
-<li id="li-357">Prepare the items in the exercises for presentation.</li>
+<li id="li-361">Read section 4.3 of Strang.</li>
+<li id="li-362">Read the discussion below.</li>
+<li id="li-363">Complete exercises 1-11 from section 4.3 in Strang.</li>
+<li id="li-364">Prepare the items in the exercises for presentation.</li>
 </ul></section><section class="subsection" id="subsection-106"><header title="Subsection  Discussion: Least Squares Approximation"><h1 class="heading hide-type" alt="Subsection  Discussion: Least Squares Approximation">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Least Squares Approximation</span>
 </h1></header><p id="p-455">
       (It is probably best to read this after you read the section in Strang.)
     </p>
-<section class="subsubsection" id="subsubsection-44"><header title="Subsubsection  Some Perspective"><h1 class="heading hide-type" alt="Subsubsection  Some Perspective">
+<section class="subsubsection" id="subsubsection-43"><header title="Subsubsection  Some Perspective"><h1 class="heading hide-type" alt="Subsubsection  Some Perspective">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Some Perspective</span>
 </h1></header><p id="p-456">
         Scientific problems often come down to something as simple as this: make
@@ -176,8 +176,8 @@ MathJax.Hub.Config({
         quadratic, exponential, etc.) that passes through those points.
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-358">Each data point leads us to an equation \(f(a_i) = y_i\).</li>
-<li id="li-359">
+<li id="li-365">Each data point leads us to an equation \(f(a_i) = y_i\).</li>
+<li id="li-366">
           The modelling function $f$ has some parameters in it, and we want to
           find the best value of those parameters so that the curve “fits”
           the data well. These parameters are the unknowns in our equations.
@@ -187,7 +187,7 @@ MathJax.Hub.Config({
         This is generally a challenging problem. The method of least squares is
         a technique for solving it when the resulting equations make a linear
         system.
-      </p></section><section class="subsubsection" id="subsubsection-45"><header title="Subsubsection  Some History"><h1 class="heading hide-type" alt="Subsubsection  Some History">
+      </p></section><section class="subsubsection" id="subsubsection-44"><header title="Subsubsection  Some History"><h1 class="heading hide-type" alt="Subsubsection  Some History">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Some History</span>
 </h1></header><p id="p-461">
         Gauss discovered the technique described in this section in the late
@@ -208,7 +208,7 @@ MathJax.Hub.Config({
         But plugging all the data into the correct model shape (a conic!) leads
         to a rather large system of linear equations where the unknowns are the
         coefficients we seek.
-      </p></section><section class="subsubsection" id="subsubsection-46"><header title="Subsubsection  So, what is really happening here?"><h1 class="heading hide-type" alt="Subsubsection  So, what is really happening here?">
+      </p></section><section class="subsubsection" id="subsubsection-45"><header title="Subsubsection  So, what is really happening here?"><h1 class="heading hide-type" alt="Subsubsection  So, what is really happening here?">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">So, what is really happening here?</span>
 </h1></header><p id="p-464">
         In the end, we get a system of the form \(Ax = y\). Here \(A\) is
@@ -258,36 +258,36 @@ plot(curve, (x,-1,6)) + points(Data, color='red', size=20)
       The best thing you can do to understand this is work some examples. Do
       Strang 1 - 11 from section 4.3. We will present these:
     </p>
-<article class="example-like" id="task-125"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">125</span><span class="title"></span>
+<article class="example-like" id="task-121"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">121</span><span class="title"></span>
 </h5>
         Exercise 1 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-122"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">122</span><span class="title"></span>
+</h5>
+        Exercise 5 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-123"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">123</span><span class="title"></span>
+</h5>
+        Exercise 6 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-124"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">124</span><span class="title"></span>
+</h5>
+        Exercise 7 from section 4.3 of Strang.
+      </article><article class="example-like" id="task-125"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">125</span><span class="title"></span>
+</h5>
+        Exercise 8 from section 4.3 of Strang.
       </article><article class="example-like" id="task-126"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">126</span><span class="title"></span>
 </h5>
-        Exercise 5 from section 4.3 of Strang.
+        Exercise 9 from section 4.3 of Strang.
       </article><article class="example-like" id="task-127"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">127</span><span class="title"></span>
 </h5>
-        Exercise 6 from section 4.3 of Strang.
+        Exercise 10 from section 4.3 of Strang.
       </article><article class="example-like" id="task-128"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">128</span><span class="title"></span>
-</h5>
-        Exercise 7 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-129"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">129</span><span class="title"></span>
-</h5>
-        Exercise 8 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-130"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">130</span><span class="title"></span>
-</h5>
-        Exercise 9 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-131"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">131</span><span class="title"></span>
-</h5>
-        Exercise 10 from section 4.3 of Strang.
-      </article><article class="example-like" id="task-132"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">132</span><span class="title"></span>
 </h5>
         Exercise 11 from section 4.3 of Strang.
       </article></section></section></div></main>

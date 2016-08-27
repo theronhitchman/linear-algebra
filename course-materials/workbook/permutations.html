@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-23T15:02:36-05:00    *-->
+<!--*    on 2016-08-27T16:42:26-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,27 +140,27 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-52"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-168">Read section 2.7 of <!--Style me with CSS--><em>Strang</em>
+<li id="li-175">Read section 2.7 of <!--Style me with CSS--><em>Strang</em>
 </li>
-<li id="li-169">Read the following and complete the exercises below.</li>
+<li id="li-176">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-53"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-266">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-170">
+<li id="li-177">
         Compute the transpose of a matrix.
       </li>
-<li id="li-171">
+<li id="li-178">
         Correctly perform calculations where the transpose interacts with the
         operations of matrix sum, matrix product, and matrix inverse.
       </li>
-<li id="li-172">
+<li id="li-179">
         Compute inner and outer products using the transpose.
       </li>
-<li id="li-173">
+<li id="li-180">
         Decide if a matrix is symmetric or not.
       </li>
-<li id="li-174">
+<li id="li-181">
         Recognize permutation matrices, and design permutation matrices which
         correspond to given row swaps.
       </li>
@@ -169,14 +169,14 @@ MathJax.Hub.Config({
       Some time after class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-175">
+<li id="li-182">
         Find the \(LDL^T\) decomposition for symmetric matrices.
       </li>
-<li id="li-176">
+<li id="li-183">
         Explain how the necessity of permuting rows during Gaussian elimination
         leads to the decomposition \(PA = LU\).
       </li>
-<li id="li-177">
+<li id="li-184">
         Explain why \(P^T = P^{-1}\) for permutation matrices.
       </li>
 </ul></section><section class="subsection" id="subsection-54"><header title="Subsection  Discussion: Transposes, Symmetric Matrices, and Permutations"><h1 class="heading hide-type" alt="Subsection  Discussion: Transposes, Symmetric Matrices, and Permutations">
@@ -209,7 +209,7 @@ MathJax.Hub.Config({
       lengths and angles, so basically all of the <!--Style me with CSS--><em>metric</em> information in
       Euclidean geometry is there.
     </p>
-<section class="subsubsection" id="subsubsection-29"><header title="Subsubsection  Algebraic results about the transpose"><h1 class="heading hide-type" alt="Subsubsection  Algebraic results about the transpose">
+<section class="subsubsection" id="subsubsection-28"><header title="Subsubsection  Algebraic results about the transpose"><h1 class="heading hide-type" alt="Subsubsection  Algebraic results about the transpose">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Algebraic results about the transpose</span>
 </h1></header><p id="p-271">
         There are some key results about the way the transpose interacts with
@@ -217,20 +217,20 @@ MathJax.Hub.Config({
         computation:
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-178">
+<li id="li-185">
           If \(A\) and \(B\) are matrices of the same shape, then
           \((A+B)^T = A^T + B^T\).
         </li>
-<li id="li-179">
+<li id="li-186">
           If \(A\) and \(B\) are of sizes so that \(AB\) is defined,
           then \((AB)^T = B^T A^T\).
         </li>
-<li id="li-180">
+<li id="li-187">
           If \(A\) is an invertible matrix, with inverse \(A^{-1}\),
           then \(A^T\) is also invertible and it has inverse
           \(\left(A^T\right)^{-1} = \left(A^{-1}\right)^T \).
         </li>
-</ul></section><section class="subsubsection" id="subsubsection-30"><header title="Subsubsection  Symmetric Matrices"><h1 class="heading hide-type" alt="Subsubsection  Symmetric Matrices">
+</ul></section><section class="subsubsection" id="subsubsection-29"><header title="Subsubsection  Symmetric Matrices"><h1 class="heading hide-type" alt="Subsubsection  Symmetric Matrices">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Symmetric Matrices</span>
 </h1></header><p id="p-272">
         A matrix \(A\) is called <!--Style me with CSS--><em>symmetric</em> when \(A^T = A\). These
@@ -245,7 +245,7 @@ MathJax.Hub.Config({
         There are several ways to get symmetric matrices. For example, if
         \(A\) is any matrix, the new matrix \(B = A^T A\) will be symmetric.
         (Check this.) Also, the matrix \(S = A^T + A\) will be symmetric.
-      </p></section><section class="subsubsection" id="subsubsection-31"><header title="Subsubsection  Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination"><h1 class="heading hide-type" alt="Subsubsection  Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination">
+      </p></section><section class="subsubsection" id="subsubsection-30"><header title="Subsubsection  Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination"><h1 class="heading hide-type" alt="Subsubsection  Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Permutation Matrices and Pivoting strategies in Gauss-Jordan Elimination</span>
 </h1></header><p id="p-274">
         It is sometimes the case that Gauss-Jordan elimination requires a row
@@ -279,7 +279,7 @@ MathJax.Hub.Config({
       There is a lot going on in this little section. At first glance, it is a
       bit intimidating. But we have seen most of the ideas before.
     </p>
-<section class="subsubsection" id="subsubsection-32"><header title="Subsubsection  The Transpose"><h1 class="heading hide-type" alt="Subsubsection  The Transpose">
+<section class="subsubsection" id="subsubsection-31"><header title="Subsubsection  The Transpose"><h1 class="heading hide-type" alt="Subsubsection  The Transpose">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Transpose</span>
 </h1></header><p id="p-278">
         The transpose of a matrix is what you get by switching the roles of rows
@@ -323,13 +323,13 @@ V
 </script></div>
 <p id="p-284">
         That is the dot product, but stuffed into a \(1\times 1\) matrix!
-      </p></section><section class="subsubsection" id="subsubsection-33"><header title="Subsubsection  Other Properties"><h1 class="heading hide-type" alt="Subsubsection  Other Properties">
+      </p></section><section class="subsubsection" id="subsubsection-32"><header title="Subsubsection  Other Properties"><h1 class="heading hide-type" alt="Subsubsection  Other Properties">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Other Properties</span>
 </h1></header><p id="p-285">
         The transpose has other useful properties. Strang lists the big ones,
         including how the transpose interacts with matrix multiplication and
         matrix inverses.
-      </p></section><section class="subsubsection" id="subsubsection-34"><header title="Subsubsection  Symmetry"><h1 class="heading hide-type" alt="Subsubsection  Symmetry">
+      </p></section><section class="subsubsection" id="subsubsection-33"><header title="Subsubsection  Symmetry"><h1 class="heading hide-type" alt="Subsubsection  Symmetry">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Symmetry</span>
 </h1></header><p id="p-286">
         A matrix is called <em class="terminology">symmetric</em> when it is equal to its
@@ -365,7 +365,7 @@ Uprime
 <div class="sagecell-sage"><script type="text/x-sage">B == L*D*Uprime
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">L.transpose() # this is the neat part
-</script></div></section><section class="subsubsection" id="subsubsection-35"><header title="Subsubsection  Permutations and Pivots"><h1 class="heading hide-type" alt="Subsubsection  Permutations and Pivots">
+</script></div></section><section class="subsubsection" id="subsubsection-34"><header title="Subsubsection  Permutations and Pivots"><h1 class="heading hide-type" alt="Subsubsection  Permutations and Pivots">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Permutations and Pivots</span>
 </h1></header><p id="p-288">
         We have seen that elimination sometimes requires us to perform a row
@@ -383,14 +383,14 @@ Uprime
 <p id="p-290">
         Here is the important stuff to remember:
         <ol style="list-style-type: decimal;">
-<li id="li-181">A row swap is performed by a permutation matrix. A permutation matrix
+<li id="li-188">A row swap is performed by a permutation matrix. A permutation matrix
             is a matrix with exactly one \(1\) in each column and in each row.
             These matrices have the important property that their transposes and
             their inverses are equal. That is, if \(P\) is a permutation matrix,
             then \(P^T\) is equal to \(P^{-1}\). (Not every matrix with
             this extra property is a permutation matrix. Be careful.)
           </li>
-<li id="li-182">
+<li id="li-189">
             It is possible to figure out what all of the row swaps should be, and
             then rearrange all of the amtrices in an LU decomposition routine.
             If you do it correctly, you get:
@@ -433,64 +433,64 @@ print x # fancy python tricks for readable display
       Keep this in mind. The computations are simple, but tedious.
       Perhaps you want to use an appropriate tool.
     </p>
-<article class="example-like" id="task-70"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">70</span><span class="title"></span>
+<article class="example-like" id="task-66"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">66</span><span class="title"></span>
 </h5>
         Find an example of a matrix \(A\) such that \(A^T A = 0\),
         but \(A \neq 0\).
-      </article><article class="example-like" id="task-71"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">71</span><span class="title"></span>
+      </article><article class="example-like" id="task-67"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">67</span><span class="title"></span>
 </h5>
         These are true or false questions. If the statement is true, explain why
         you know it is true. If the statement is false, give an example that
         shows it is false.
         <ol style="list-style-type: decimal;">
-<li id="li-183">
+<li id="li-190">
             The block matrix \(\left( \begin{smallmatrix} A &amp; 0 \\
             0 &amp; A \end{smallmatrix}\right)\) is automatically symmetric.
           </li>
-<li id="li-184">
+<li id="li-191">
             If \(A\) and \(B\) are symmetric, then their product \(AB\)
             is symmetric.
           </li>
-<li id="li-185">
+<li id="li-192">
             If \(A\) is not symmetric, then \(A^{-1}\) is not symmetric.
           </li>
-</ol></article><article class="example-like" id="task-72"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">72</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-68"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">68</span><span class="title"></span>
 </h5>
         If \(P_1\) and \(P_2\) are permuation matrices, then so is
         \(P_1P_2\). Give examples with \(P_1P_2 \neq P_2P_1\) and
         \(P_3P_4 = P_4P_3\).
-      </article><article class="example-like" id="task-73"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">73</span><span class="title"></span>
+      </article><article class="example-like" id="task-69"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">69</span><span class="title"></span>
 </h5>
         Explain the following phenomena in terms of row operations.
         <ol style="list-style-type: decimal;">
-<li id="li-186">
+<li id="li-193">
             For any permutation matrix \(P\), it is the case that
             \(P^T P = I\).
           </li>
-<li id="li-187">
+<li id="li-194">
             All row exchange matrices are symmetric: \(P^T = P\).
             (other permutation matrices may or may not be symmetric.)
           </li>
-<li id="li-188">
+<li id="li-195">
             If \(P\) is a row exchange matrix, then \(P^2 = I\).
           </li>
-</ol></article><article class="example-like" id="task-74"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">74</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-70"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">70</span><span class="title"></span>
 </h5>
         For each of the following, find an example of a \(2\times 2\)
         symmetric matrix with the given property:
         <ol style="list-style-type: decimal;">
-<li id="li-189">\(A\) is not invertible.</li>
-<li id="li-190">\(A\) is invertible but cannot be factored into \(LU\).</li>
-<li id="li-191">\(A\) can be factored into \(LDL^T\), but not into
+<li id="li-196">\(A\) is not invertible.</li>
+<li id="li-197">\(A\) is invertible but cannot be factored into \(LU\).</li>
+<li id="li-198">\(A\) can be factored into \(LDL^T\), but not into
             \(LL^T\) because \(D\) has negative entries.
           </li>
-</ol></article><article class="example-like" id="task-75"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">75</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-71"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">71</span><span class="title"></span>
 </h5>
 <p id="p-294">
           This is a new factorization of \(A\) into <!--Style me with CSS--><em>triangular

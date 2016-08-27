@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-23T15:02:37-05:00    *-->
+<!--*    on 2016-08-27T16:42:26-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,9 +140,9 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-141"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-435">Read chapter 6 section 7 of <!--Style me with CSS--><em>Strang</em>
+<li id="li-442">Read chapter 6 section 7 of <!--Style me with CSS--><em>Strang</em>
 </li>
-<li id="li-436">Read the following and complete the exercises below.</li>
+<li id="li-443">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-142"><header title="Subsection  Discussion: The Singular Value Decomposition"><h1 class="heading hide-type" alt="Subsection  Discussion: The Singular Value Decomposition">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Singular Value Decomposition</span>
 </h1></header><p id="p-546">
@@ -152,8 +152,8 @@ MathJax.Hub.Config({
       choose
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-437">An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), </li>
-<li id="li-438">and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)</li>
+<li id="li-444">An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), </li>
+<li id="li-445">and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)</li>
 </ul>
 <p id="p-547">
       so that \begin{equation*}Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}\end{equation*}
@@ -175,7 +175,7 @@ MathJax.Hub.Config({
                           \end{pmatrix}
     \end{equation*}<p id="p-548">
       Eventually, this will lead us to a matrix decomposition of the form
-    </p>\begin{equation*} A = U \Sigma V^T .\end{equation*}<section class="subsubsection" id="subsubsection-51"><header title="Subsubsection  How to do it"><h1 class="heading hide-type" alt="Subsubsection  How to do it">
+    </p>\begin{equation*} A = U \Sigma V^T .\end{equation*}<section class="subsubsection" id="subsubsection-50"><header title="Subsubsection  How to do it"><h1 class="heading hide-type" alt="Subsubsection  How to do it">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">How to do it</span>
 </h1></header><p id="p-549">
         So, suppose that \(A\) is an \(m \times n\) matrix. The key fact we
@@ -185,7 +185,7 @@ MathJax.Hub.Config({
         \(A(A^TA) = (AA^T)A\).
       </p>
 <ol style="list-style-type: decimal;">
-<li id="li-439">
+<li id="li-446">
 <p id="p-550">
             Step One: Compute a spectral decomposition of \(A^TA\).
             Since \(A^TA\) is a square symmetric matrix, we can find an orthonormal
@@ -208,12 +208,12 @@ MathJax.Hub.Config({
             in the null space!) Don't sweat it. Everything is going to be fine.
           </p>
 </li>
-<li id="li-440"><p id="p-552">
+<li id="li-447"><p id="p-552">
             Step Two: For each \(0 \leq i \leq r\), set
             \begin{equation*}\sigma_i = \sqrt{\lambda_i} .\end{equation*}
             These are the “Singular Values” named in the singular value decomposition.
           </p></li>
-<li id="li-441"><p id="p-553">
+<li id="li-448"><p id="p-553">
             Step Three: for each \(0 \leq i \leq r\), set
             \begin{equation*}
               u_i = \dfrac{1}{\sigma_i} Av_i.
@@ -221,11 +221,11 @@ MathJax.Hub.Config({
             By the way things are set up, we are sure \(\sigma_i\) is not zero!
             The vectors we just made are a basis for the column space of \(A\).
           </p></li>
-<li id="li-442"><p id="p-554">
+<li id="li-449"><p id="p-554">
             Step Four: If \(m &gt; r \), Choose an orthonormal basis \(u_{r+1}, \ldots, u_m\)
             for the null space of \(A^T\).
           </p></li>
-<li id="li-443">
+<li id="li-450">
           Step Five: Bundle together the \(v_i\)'s as columns of an
           \(n \times n\) matrix \(V\), and the \(u_i\)'s as the columns
           of an \(m \times m\) matrix \(U\). Both of these are orthogonal matrices.
@@ -249,35 +249,35 @@ A
 <div class="sagecell-sage"><script type="text/x-sage">A.change_ring(RDF).SVD()
 </script></div></section><section class="subsection" id="subsection-144"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-172"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">172</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-168"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">168</span><span class="title"></span>
 </h5>Complete exercise 6.7.1 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-169"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">169</span><span class="title"></span>
+</h5>Complete exercise 6.7.2 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-170"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">170</span><span class="title"></span>
+</h5>Complete exercise 6.7.3 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-171"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">171</span><span class="title"></span>
+</h5>Complete exercise 6.7.4 from <!--Style me with CSS--><em>Strang</em>.
+      </article><article class="example-like" id="task-172"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">172</span><span class="title"></span>
+</h5>Complete exercise 6.7.5 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-173"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">173</span><span class="title"></span>
-</h5>Complete exercise 6.7.2 from <!--Style me with CSS--><em>Strang</em>.
+</h5>Complete exercise 6.7.6 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-174"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">174</span><span class="title"></span>
-</h5>Complete exercise 6.7.3 from <!--Style me with CSS--><em>Strang</em>.
+</h5>Complete exercise 6.7.9 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-175"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">175</span><span class="title"></span>
-</h5>Complete exercise 6.7.4 from <!--Style me with CSS--><em>Strang</em>.
+</h5>Complete exercise 6.7.10 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-176"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">176</span><span class="title"></span>
-</h5>Complete exercise 6.7.5 from <!--Style me with CSS--><em>Strang</em>.
+</h5>Complete exercise 6.7.11 from <!--Style me with CSS--><em>Strang</em>.
       </article><article class="example-like" id="task-177"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">177</span><span class="title"></span>
-</h5>Complete exercise 6.7.6 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-178"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">178</span><span class="title"></span>
-</h5>Complete exercise 6.7.9 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-179"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">179</span><span class="title"></span>
-</h5>Complete exercise 6.7.10 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-180"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">180</span><span class="title"></span>
-</h5>Complete exercise 6.7.11 from <!--Style me with CSS--><em>Strang</em>.
-      </article><article class="example-like" id="task-181"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">181</span><span class="title"></span>
 </h5>Complete exercise 6.7.12 from <!--Style me with CSS--><em>Strang</em>.
       </article></section></section></div></main>
 </div>

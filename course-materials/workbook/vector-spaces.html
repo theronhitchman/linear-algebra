@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-23T15:02:36-05:00    *-->
+<!--*    on 2016-08-27T16:42:26-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,17 +140,17 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-59"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-202">Read Chapter 3 section 1 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-203">Read the following and complete the exercises below.</li>
+<li id="li-209">Read Chapter 3 section 1 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-210">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-60"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-303">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-204">Identify the column space of a matrix.</li>
-<li id="li-205">Decide if a set in \(\mathbb{R}^n\) is a subspace or not.</li>
+<li id="li-211">Identify the column space of a matrix.</li>
+<li id="li-212">Decide if a set in \(\mathbb{R}^n\) is a subspace or not.</li>
 </ul>
 <p id="p-304">Some time after class, a student should be able to:</p>
-<ul style="list-style-type: disc;"><li id="li-206">
+<ul style="list-style-type: disc;"><li id="li-213">
         Use the notion of column space to decide if a given linear system has a
         solution or not.
       </li></ul></section><section class="subsection" id="subsection-61"><header title="Subsection  Discussion: Vector Spaces and Subspaces"><h1 class="heading hide-type" alt="Subsection  Discussion: Vector Spaces and Subspaces">
@@ -171,16 +171,16 @@ MathJax.Hub.Config({
       My favorites are things like this:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-207">
+<li id="li-214">
         The set \(M_{2,2}\) of \(2\times 2\) matrices is a vector space.
         But now the things we call vectors are actually matrices.
       </li>
-<li id="li-208">
+<li id="li-215">
         The set \(\mathcal{C}(\mathbb{R})\) of continuous functions with
         domain and range both equal to the set of real numbers is a vector
         space. But now the things we call vectors are actually functions.
       </li>
-<li id="li-209">
+<li id="li-216">
         The set \(\ell(\mathbb{R})\) of sequences
         \((x_1, x_2, x_3, x_4, \ldots)\) of real numbers is a vector space.
         But now the things we call vectors are actually whole infinite sequences.
@@ -254,44 +254,44 @@ B
 <div class="sagecell-sage"><script type="text/x-sage">B.column_space().basis()[1].column() # second basis vector
 </script></div></section><section class="subsection" id="subsection-63"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-76"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">76</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-72"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">72</span><span class="title"></span>
 </h5>
         Find an example of a vector which is not in the column space of the
         matrix \begin{equation*}
         A = \begin{pmatrix} 2 &amp; 1  \\ 1 &amp; 1 \end{pmatrix},
         \end{equation*} or explain why that is not possible.
-      </article><article class="example-like" id="task-77"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">77</span><span class="title"></span>
+      </article><article class="example-like" id="task-73"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">73</span><span class="title"></span>
 </h5>
         Find an example of a vector which is not in the column space of the
         matrix \begin{equation*}
         B = \begin{pmatrix} 3 &amp; 2 \\ 6 &amp; 4 \end{pmatrix},
         \end{equation*} or explain why it is not possible.
-      </article><article class="example-like" id="task-78"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">78</span><span class="title"></span>
+      </article><article class="example-like" id="task-74"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">74</span><span class="title"></span>
 </h5>
         Let \(\mathcal{P}\) be the set of polynomials of degree 3 or less.
         Explain why \(\mathcal{P}\) is a vector space, or explain why it is not.
-      </article><article class="example-like" id="task-79"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">79</span><span class="title"></span>
+      </article><article class="example-like" id="task-75"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">75</span><span class="title"></span>
 </h5>
         Consider the vector space \(\mathbb{R}^2\). Explain why the following
         are not subspaces:
         <ul style="list-style-type: disc;">
-<li id="li-210">The unit circle.</li>
-<li id="li-211">The line \(x+y = 4\).</li>
-<li id="li-212">The union of lines \(2x+3y = 0\) and \(x-y=0\).</li>
-<li id="li-213">The first quadrant where \(x\geq 0\) and \(y\geq 0\).</li>
-</ul></article><article class="example-like" id="task-80"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">80</span><span class="title"></span>
+<li id="li-217">The unit circle.</li>
+<li id="li-218">The line \(x+y = 4\).</li>
+<li id="li-219">The union of lines \(2x+3y = 0\) and \(x-y=0\).</li>
+<li id="li-220">The first quadrant where \(x\geq 0\) and \(y\geq 0\).</li>
+</ul></article><article class="example-like" id="task-76"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">76</span><span class="title"></span>
 </h5>
         Let \(W\) be the set of functions \(f\) in
         \(\mathcal{C}(\mathbb{R})\) which satisfy the differential equation
         \(f''(x) = 0\). Decide if \(W\) is a subspace of
         \(\mathcal{C}(\mathbb{R})\), and explain your thinking.
-      </article><article class="example-like" id="task-81"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">81</span><span class="title"></span>
+      </article><article class="example-like" id="task-77"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">77</span><span class="title"></span>
 </h5>
         Design a \(2\times 3\) matrix whose column space does not contain the
         vector \(\begin{pmatrix} 4 \\ 4 \end{pmatrix}\), or explain why this is
