@@ -368,7 +368,7 @@
       <p>And if you get the sizes wrong, it will return an error.</p>
       <sage>
         <input>
-          A; v1
+          A, v1
         </input>
         <output>
           [ 1  2  3]
