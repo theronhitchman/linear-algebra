@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:26-05:00    *-->
+<!--*    on 2016-08-27T20:42:23-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,63 +140,63 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-81"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-281">Read <!--Style me with CSS--><em>Strang</em> chapter 3 section 5.</li>
-<li id="li-282">Read the following and complete the exercises below.</li>
+<li id="li-302">Read <!--Style me with CSS--><em>Strang</em> chapter 3 section 5.</li>
+<li id="li-303">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-82"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-377">Before class, a student should be able to:</p>
+</h1></header><p id="p-367">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-283">Use the row space algorithm to decide if a set of vectors is
+<li id="li-304">Use the row space algorithm to decide if a set of vectors is
         linearly independent or linearly dependent.</li>
-<li id="li-284">Use the column space algorithm to decide if a set of vectors is
+<li id="li-305">Use the column space algorithm to decide if a set of vectors is
         linearly independent or linearly dependent</li>
-<li id="li-285">Compute the dimension of a subspace.</li>
+<li id="li-306">Compute the dimension of a subspace.</li>
 </ul>
-<p id="p-378">Sometime after class, a student should be able to:</p>
-<ul style="list-style-type: disc;"><li id="li-286">Explain the connection between a set of vectors being
+<p id="p-368">Sometime after class, a student should be able to:</p>
+<ul style="list-style-type: disc;"><li id="li-307">Explain the connection between a set of vectors being
       linearly independent, a spanning set, and a basis.</li></ul></section><section class="subsection" id="subsection-83"><header title="Subsection  Discussion: Linear Independence, Spanning, Basis, and Dimension"><h1 class="heading hide-type" alt="Subsection  Discussion: Linear Independence, Spanning, Basis, and Dimension">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Linear Independence, Spanning, Basis, and Dimension</span>
-</h1></header><p id="p-379">
+</h1></header><p id="p-369">
       The purpose of this lesson is to introduce specific terms for several
       concepts we have been dancing around. This is a spot that sometimes gives
       students difficulty because they are unused to the way mathematicians
       talk. So, here is a big warning:
     </p>
 <blockquote>
-<p id="p-380">
+<p id="p-370">
         “When I use a word,” Humpty Dumpty said in rather a scornful tone,
         “it means just what I choose it to mean -- neither more nor less.”
       </p>
-<p id="p-381">
+<p id="p-371">
       --<!--Style me with CSS--><em>Through the Looking Glass</em>, Lewis Carroll</p>
 </blockquote>
-<p id="p-382">
+<p id="p-372">
       That is the essence of it. We have several new words, and they will
       mean <!--Style me with CSS--><em>exactly</em> what we declare them to mean, no more, no less.
     </p>
-<p id="p-383">
+<p id="p-373">
       What are the new terms?
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-287">
+<li id="li-308">
         A set \(\{v_1, v_2, \ldots, v_k\}\) of vectors is <em class="terminology">linearly
         independent</em>, or <em class="terminology">linearly dependent</em>.
       </li>
-<li id="li-288">
+<li id="li-309">
         A set of vectors <em class="terminology">spans</em> a vector space or a subspace.
       </li>
-<li id="li-289">
+<li id="li-310">
         A set of vectors is a <em class="terminology">basis</em> or not.
       </li>
-<li id="li-290">
+<li id="li-311">
         The <em class="terminology">dimension</em> of a vector space, or of a vector subspace.
       </li>
 </ul>
-<p id="p-384">
+<p id="p-374">
       You should take away from this reading what those four terms are, how
       to check them, and some examples and non-examples.
     </p>
-<p id="p-385">
+<p id="p-375">
       A bit of notation: If we have a set \(\{ v_1, v_2, \dots, v_k\}\) of
       vectors in some vector space, then we denote the subspace which they
       span by \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\). (This has to
@@ -204,54 +204,54 @@ MathJax.Hub.Config({
     </p>
 <section class="subsubsection" id="subsubsection-38"><header title="Subsubsection  Other Vector Spaces"><h1 class="heading hide-type" alt="Subsubsection  Other Vector Spaces">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Other Vector Spaces</span>
-</h1></header><p id="p-386">
+</h1></header><p id="p-376">
         Once you understand these terms as they apply to the Euclidean
         spaces \(\mathbb{R}^n\) and their subspaces (especially those
         associated to matrices), you should pause to admire your achievement.
       </p>
-<p id="p-387">
+<p id="p-377">
         But next, realize that those terms apply generally to all sorts of
         vector spaces! Can you make examples and non-examples in some of
         these other situtations?
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-291">
+<li id="li-312">
           The set \(\mathcal{P}_3\) of polynomials in \(x\) of degree
           no more than 3?
         </li>
-<li id="li-292">
+<li id="li-313">
           The set \(M_{m,n}\) of \(m\times n\) matrices.
         </li>
-<li id="li-293">
+<li id="li-314">
           The set \(\mathcal{C}(\mathbb{R})\) of continuous functions.
         </li>
-<li id="li-294">
+<li id="li-315">
           The set of all functions which are solutions to the differential
           equation \(y'' = y\).
         </li>
 </ul></section><section class="subsubsection" id="subsubsection-39"><header title="Subsubsection  Two Methods of Sorting out Linear Independence"><h1 class="heading hide-type" alt="Subsubsection  Two Methods of Sorting out Linear Independence">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Two Methods of Sorting out Linear Independence</span>
-</h1></header><p id="p-388">
+</h1></header><p id="p-378">
         We have enough information to collect two ways to answer the question:
         “Is this set linearly independent?”
         Well, at least when working with vectors in some Euclidean space
         \(\mathbb{R}^n\).
       </p>
         
-        <p id="p-389">
+        <p id="p-379">
           Given a set of vectors \(\{v_1, v_2, \ldots, v_k\}\) from
           \(\mathbb{R}^n\):
         </p>
         <ul style="list-style-type: disc;">
-<li id="li-295">Form the \(n\times k\) matrix
+<li id="li-316">Form the \(n\times k\) matrix
             \(A = \left( \begin{smallmatrix} v_1 &amp; v_2 &amp; \dots &amp;
             v_k\end{smallmatrix}\right)\).
           </li>
-<li id="li-296">Put \(A\) into reduced row echelon form
+<li id="li-317">Put \(A\) into reduced row echelon form
             \(R = \mathrm{rref}(A)\). (Really, you only need to go to
             echelon form, here.)
           </li>
-<li id="li-297">Read out pivot columns and free columns of \(R\).
+<li id="li-318">Read out pivot columns and free columns of \(R\).
             Those columns of \(A\) which are free columns are linear
             combinations of previous columns to the left! So, if any column
             of \(R\) (and \(A\)) is a free columns, the set of vectors
@@ -260,46 +260,46 @@ MathJax.Hub.Config({
             independent.
           </li>
 </ul>
-        <p id="p-390">
+        <p id="p-380">
           This method is particularly good for identifying which subset of
           our original set of vectors would form a basis of the vector
           subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\).
         </p>
       
         
-        <p id="p-391">(We will see the reason for the name soon.)
+        <p id="p-381">(We will see the reason for the name soon.)
           Given a set of vectors \(\{v_1, v_2, \ldots, v_k\}\) from
           \(\mathbb{R}^n\):
         </p>
         <ul style="list-style-type: disc;">
-<li id="li-298">Form the \(k\times n\) matrix
+<li id="li-319">Form the \(k\times n\) matrix
           \(A = \left( \begin{smallmatrix} v_1^T \\ v_2^T \\ \vdots
             \\ v_k^T \end{smallmatrix}\right)\).
           </li>
-<li id="li-299">Put \(A\) into reduced row echelon form
+<li id="li-320">Put \(A\) into reduced row echelon form
             \(R = \mathrm{rref}(A)\).
           </li>
-<li id="li-300">The rows of \(R\) will contain a basis for the vector
+<li id="li-321">The rows of \(R\) will contain a basis for the vector
             subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\) (written as
             rows instead of columns, of course).
             If \(R\) has any zero rows, the original set was linearly
             dependent, otherwise it was linearly independent.
           </li>
 </ul>
-        <p id="p-392">
+        <p id="p-382">
           This method is good at picking out a simple basis of the vector
           subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\), but the
           resulting vectors \emph{probably won't come from your original set}.
         </p>
       </section></section><section class="subsection" id="subsection-84"><header title="Subsection  Sage and Bases"><h1 class="heading hide-type" alt="Subsection  Sage and Bases">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Bases</span>
-</h1></header><p id="p-393">
+</h1></header><p id="p-383">
       Sage has several commands which are useful for dealing with the concpets
       of this section.
     </p>
 <section class="subsubsection" id="subsubsection-40"><header title="Subsubsection  Commands for span, dimension, and basis"><h1 class="heading hide-type" alt="Subsubsection  Commands for span, dimension, and basis">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Commands for span, dimension, and basis</span>
-</h1></header><p id="p-394">
+</h1></header><p id="p-384">
         This first command will
         construct a vector subspace of \(3\)-space which is spanned by the two
         vectors we pass in as arguments.
@@ -310,11 +310,11 @@ v2 = vector([1,1,3])
 V = span([v1,v2], QQ)
 V
 </script></div>
-<p id="p-395">
+<p id="p-385">
         Note that Sage already gives us some information:
         <ul style="list-style-type: disc;">
-<li id="li-301">dimension</li>
-<li id="li-302">a basis</li>
+<li id="li-322">dimension</li>
+<li id="li-323">a basis</li>
 </ul>
         Sage has chosen its preferred basis, as usual.
       </p>
@@ -323,7 +323,7 @@ V
 <div class="sagecell-sage"><script type="text/x-sage">V.basis()
 </script></div></section><section class="subsubsection" id="subsubsection-41"><header title="Subsubsection  The Algorithms for Checking Linear Independence"><h1 class="heading hide-type" alt="Subsubsection  The Algorithms for Checking Linear Independence">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Algorithms for Checking Linear Independence</span>
-</h1></header><p id="p-396">
+</h1></header><p id="p-386">
         Sage does not have built-in commands with names for checking linear independence
         or linear dependence. Instead, you have to just use the algorithms.
       </p>
@@ -334,13 +334,13 @@ row_matrix
         <div class="sagecell-sage"><script type="text/x-sage">R = row_matrix.rref()
 R
 </script></div>
-        <p id="p-397">
+        <p id="p-387">
           (Where have we seen that before?) From this, it is clear that \(\left\{
           v_1, v_2 \right\}\) is linearly dependent because both rows have pivots.
         </p>
       
         
-        <p id="p-398">
+        <p id="p-388">
           We work much the same way here.
         </p>
         <div class="sagecell-sage"><script type="text/x-sage">col_matrix = matrix(2,3, [v1,v2]).transpose()
@@ -348,7 +348,7 @@ col_matrix
 </script></div>
         <div class="sagecell-sage"><script type="text/x-sage">col_matrix.rref()
 </script></div>
-        <p id="p-399">
+        <p id="p-389">
           This tells us that our first two columns are pivot columns, so we
           should
           keep those as part of our basis for
@@ -356,7 +356,7 @@ col_matrix
         </p>
       </section><section class="subsubsection" id="subsubsection-42"><header title="Subsubsection  Spaces Associated to a Matrix"><h1 class="heading hide-type" alt="Subsubsection  Spaces Associated to a Matrix">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Spaces Associated to a Matrix</span>
-</h1></header><p id="p-400">
+</h1></header><p id="p-390">
         Sage knows about the column space and row space associated to a
         matrix. For this next example, we will work over the ring <tt class="code-inline" style="color: red; font-size: 120%">AA</tt>
         of “algebraic numbers”, so we can include \(\sqrt{2}\).
@@ -376,7 +376,7 @@ A = matrix(AA, 3,4, entries); A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.row_space().dimension()
 </script></div>
-<p id="p-401">
+<p id="p-391">
         Or we could do this in other ways.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">span(A.columns()).dimension()
@@ -386,7 +386,7 @@ A = matrix(AA, 3,4, entries); A
 <div class="sagecell-sage"><script type="text/x-sage">A.right_kernel().dimension()
 </script></div></section></section><section class="subsection" id="subsection-85"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><p id="p-402">
+</h1></header><p id="p-392">
       Note: We may not present all of these in class.
     </p>
 <article class="example-like" id="task-98"><h5 class="heading">
@@ -430,11 +430,11 @@ A = matrix(AA, 3,4, entries); A
         Suppose that the columns of a \(5 \times 5 \) matrix \(A\) are a
         basis for \(\mathbb{R}^5\).
         <ol style="list-style-type: decimal;">
-<li id="li-303">
+<li id="li-324">
             Explain why the equation \(Ax = 0\) has only the solution
             \(x=0\).
           </li>
-<li id="li-304">
+<li id="li-325">
             What fact about the column vectors guarantees that for any \(b\)
             in \(\mathbb{R}^5\) the equation \(Ax =b\) is solvable?
           </li>
@@ -449,11 +449,11 @@ A = matrix(AA, 3,4, entries); A
         Determine if the following statements are true or false. If true, give
         an explanation for why it is true. If false, give a counterexample.
         <ol style="list-style-type: decimal;">
-<li id="li-305">
+<li id="li-326">
             Every basis for \(S\) can be extended to a basis for
             \(\mathbb{R}^6\) by adding one more vector.
           </li>
-<li id="li-306">
+<li id="li-327">
             Every basis for \(\mathbb{R}^6\) can be reduced to a basis for
             \(S\) by removing one vector.
           </li>
@@ -463,13 +463,13 @@ A = matrix(AA, 3,4, entries); A
         Find a basis (and the dimension) for each of these subspaces of the vector
         space of \(3\times 3\) matrices:
         <ol style="list-style-type: decimal;">
-<li id="li-307">
+<li id="li-328">
             All diagonal matrices.
           </li>
-<li id="li-308">
+<li id="li-329">
             All symmetric matrices. (\(A^T = A\))
           </li>
-<li id="li-309">
+<li id="li-330">
             All skew-symmetric matrices. (\(A^T = -A\))
           </li>
 </ol></article><article class="example-like" id="task-104"><h5 class="heading">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:25-05:00    *-->
+<!--*    on 2016-08-27T20:42:23-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,65 +140,65 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-37"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-127">Read section 2.4 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-128">Read the following and complete the exercises below.</li>
+<li id="li-148">Read section 2.4 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-149">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-38"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-180">
+</h1></header><p id="p-170">
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-129">Add and subtract matrices of the same size.</li>
-<li id="li-130">Multiply matrices of appropriate sizes by one method.</li>
-<li id="li-131">Compute powers \(A^p\) of a given square matrix \(A\).</li>
-<li id="li-132">Use the distributive law for matrix multiplication and matrix addition correctly.</li>
+<li id="li-150">Add and subtract matrices of the same size.</li>
+<li id="li-151">Multiply matrices of appropriate sizes by one method.</li>
+<li id="li-152">Compute powers \(A^p\) of a given square matrix \(A\).</li>
+<li id="li-153">Use the distributive law for matrix multiplication and matrix addition correctly.</li>
 </ul>
-<p id="p-181">
+<p id="p-171">
       Sometime after our meeting, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-133">Multiply block matrices.</li>
-<li id="li-134">Multiply matrices by <!--Style me with CSS--><em>three</em> methods.</li>
-<li id="li-135">Give examples to show how matrix multiplication is not like
+<li id="li-154">Multiply block matrices.</li>
+<li id="li-155">Multiply matrices by <!--Style me with CSS--><em>three</em> methods.</li>
+<li id="li-156">Give examples to show how matrix multiplication is not like
         ordinary multiplication of real numbers: including the trouble
         with commutativity, and the difficulty with inverses.
       </li>
 </ul></section><section class="subsection" id="subsection-39"><header title="Subsection  Discussion on Matrix Algebra"><h1 class="heading hide-type" alt="Subsection  Discussion on Matrix Algebra">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion on Matrix Algebra</span>
-</h1></header><p id="p-182">
+</h1></header><p id="p-172">
       At the simplest level, this section is just about how to deal with the
       basic operations on matrices. We can add them and we can multiply them.
       We have already encountered matrix multiplication, and addition is even
       more natural.
     </p>
-<p id="p-183">
+<p id="p-173">
       But a subtle and important thing is happening here. Matrices are taking
       on a life of their own. They are becoming first class objects, whose
       properties are interesting and possibly useful.
     </p>
-<p id="p-184">
+<p id="p-174">
       This is an instance of the beginnings of <!--Style me with CSS--><em>Modern Algebra</em>, which
       is the study of the algebraic structures of abstracted objects. In this
       case, we study whole collections of matrices of a common shape, and we
       try to treat them like generalized numbers. Then the natural questions
       are how much like “regular numbers” are these matrices?
     </p>
-<p id="p-185">
+<p id="p-175">
       Addition is about as well-behaved as you can expect, but multiplication
       is a bit trickier. Suddenly, two properties of multiplication for numbers
       don't quite work for matrices:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-136">multiplication does not necessarily commute: It need not be the case
+<li id="li-157">multiplication does not necessarily commute: It need not be the case
         that \(AB\) is the same as \(BA\).
       </li>
-<li id="li-137">we may not always have inverses: just because there is a
+<li id="li-158">we may not always have inverses: just because there is a
         matrix \(A\) which is not the zero matrix, it may not be the case
         that we can make sense of \(A^{-1}\) and get \(AA^{-1} = I\).
       </li>
 </ul></section><section class="subsection" id="subsection-40"><header title="Subsection  Sage and Matrix Algebra"><h1 class="heading hide-type" alt="Subsection  Sage and Matrix Algebra">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Algebra</span>
-</h1></header><p id="p-186">
+</h1></header><p id="p-176">
       Sage is aware of the basic matrix operations, and it won't let you get
       away with nonsense. Matrix multiplication and matrix addition are only
       defined if the dimensions of the matrices line up properly.
@@ -209,7 +209,7 @@ C = matrix(QQ, 3,3, [2,1,2,1,2,1,2,1,2]) # a 3 by 3 square matrix
 D = matrix(QQ, 2,3, [1,1,1,1,1,1]) # another 2 by 3 matrix
 E = matrix(QQ, 3,2, [3,4,2,5,6,1]) # a 3 by 2 matrix
 </script></div>
-<p id="p-187">
+<p id="p-177">
       Let's see which of these Sage doesn't like. Can you predict, before
       evaluating the cells below, which of these will return an error?
     </p>
@@ -229,78 +229,78 @@ E = matrix(QQ, 3,2, [3,4,2,5,6,1]) # a 3 by 2 matrix
 </script></div>
 <section class="subsubsection" id="subsubsection-16"><header title="Subsubsection  Sage and Matrix Addition"><h1 class="heading hide-type" alt="Subsubsection  Sage and Matrix Addition">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Addition</span>
-</h1></header><p id="p-188">Matrix addition works a lot like addition of integers, as long as you fix
+</h1></header><p id="p-178">Matrix addition works a lot like addition of integers, as long as you fix
         a size first.</p>
 <ul style="list-style-type: disc;">
-<li id="li-138">There is a zero element.</li>
-<li id="li-139">There are additive inverses (i.e. <!--Style me with CSS--><em>negatives</em>).</li>
-<li id="li-140">The operation is commutative.</li>
+<li id="li-159">There is a zero element.</li>
+<li id="li-160">There are additive inverses (i.e. <!--Style me with CSS--><em>negatives</em>).</li>
+<li id="li-161">The operation is commutative.</li>
 </ul>
 <div class="sagecell-sage"><script type="text/x-sage">#This constructs the zero matrix
 Z = zero_matrix(2,3); Z
 </script></div>
-<p id="p-189">Let us add <tt class="code-inline" style="color: red; font-size: 120%">A</tt> and <tt class="code-inline" style="color: red; font-size: 120%">Z</tt>:</p>
+<p id="p-179">Let us add <tt class="code-inline" style="color: red; font-size: 120%">A</tt> and <tt class="code-inline" style="color: red; font-size: 120%">Z</tt>:</p>
 <div class="sagecell-sage"><script type="text/x-sage">A + Z
 </script></div>
-<p id="p-190">We can check that adding <tt class="code-inline" style="color: red; font-size: 120%">Z</tt> doesn't change anything.</p>
+<p id="p-180">We can check that adding <tt class="code-inline" style="color: red; font-size: 120%">Z</tt> doesn't change anything.</p>
 <div class="sagecell-sage"><script type="text/x-sage">A + Z == A
 </script></div>
-<p id="p-191">And we can do the natural thing to get an additive inverse.</p>
+<p id="p-181">And we can do the natural thing to get an additive inverse.</p>
 <div class="sagecell-sage"><script type="text/x-sage">L = -A; L
 </script></div>
-<p id="p-192">Finally, this last thing should return zero.</p>
+<p id="p-182">Finally, this last thing should return zero.</p>
 <div class="sagecell-sage"><script type="text/x-sage">A + L
 </script></div></section><section class="subsubsection" id="subsubsection-17"><header title="Subsubsection  Sage and Matrix Multiplication"><h1 class="heading hide-type" alt="Subsubsection  Sage and Matrix Multiplication">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Multiplication</span>
-</h1></header><p id="p-193">
+</h1></header><p id="p-183">
         Sage already has the structure of matrix multiplication built-in, and
         it can help with investigating the ways that matrix multiplicaiton
         is different from regular multiplication of numbers.
       </p>
-<p id="p-194">
+<p id="p-184">
         We have seen above
         that Sage will not let us multiply matrices whose sizes do not match
         correctly.  Of course, one way around that trouble is to stick to square
         matrices. But even there we can have trouble with the fact that matrix
         multiplication might not commute. It is rarely the case that \(XY = YX\).
       </p>
-<p id="p-195">
+<p id="p-185">
         For those of you who will eventually study Modern Algebra, the collection
         of all \(n\)-square matrices is an example of a non-commutative ring
         with unit.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A*E, E*A
 </script></div>
-<p id="p-196">Sage knows about the ring structure. We can check for an inverse.</p>
+<p id="p-186">Sage knows about the ring structure. We can check for an inverse.</p>
 <div class="sagecell-sage"><script type="text/x-sage">B.is_invertible()
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">C.is_invertible()
 </script></div>
-<p id="p-197">And we can ask for the inverse in a couple of ways.</p>
+<p id="p-187">And we can ask for the inverse in a couple of ways.</p>
 <div class="sagecell-sage"><script type="text/x-sage">B.inverse()
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">B^(-1)
 </script></div>
-<p id="p-198">One can even construct the whole ring of all \(n\times n\) matrices
+<p id="p-188">One can even construct the whole ring of all \(n\times n\) matrices
       and play around inside it.</p>
 <div class="sagecell-sage"><script type="text/x-sage">M = MatrixSpace(QQ, 2,2); M
 </script></div>
-<p id="p-199">It is then not too hard to construct the identity element, which is
+<p id="p-189">It is then not too hard to construct the identity element, which is
         the regular identity matrix of the correct size.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">M(1)
 </script></div>
-<p id="p-200">Also, the zero matrix of the correct size is easy to make.</p>
+<p id="p-190">Also, the zero matrix of the correct size is easy to make.</p>
 <div class="sagecell-sage"><script type="text/x-sage">M(0)
 </script></div>
-<p id="p-201">
+<p id="p-191">
         In fact, this allows you to short cut the construction of any matrix in
         <tt class="code-inline" style="color: red; font-size: 120%">M</tt>. This can be really useful if you are going to work with a lot
         of matrices of the same shape.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">H = M([2,1,1,1]); H
 </script></div>
-<p id="p-202">You can even use this to make complicated expressions out of matrix operations.
+<p id="p-192">You can even use this to make complicated expressions out of matrix operations.
         As long as everything makes sense, Sage will do all the work.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">H^2 + H
@@ -312,10 +312,10 @@ Z = zero_matrix(2,3); Z
 H^2 - 3*H + M(1)
 </script></div></section><section class="subsubsection" id="subsubsection-18"><header title="Subsubsection  Sage and Block Matrices"><h1 class="heading hide-type" alt="Subsubsection  Sage and Block Matrices">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage and Block Matrices</span>
-</h1></header><p id="p-203">Sage has a built-in method for constructing matrices out of blocks, too.
+</h1></header><p id="p-193">Sage has a built-in method for constructing matrices out of blocks, too.
         It is easiest to see an example.
       </p>
-<p id="p-204">
+<p id="p-194">
         To make this work, you have to tell Sage when you have a vector if you
         want it to be either a row or a column vector in the appropriate places.
       </p>
@@ -358,7 +358,7 @@ Blockey
       </article><article class="example-like" id="task-49"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">49</span><span class="title"></span>
 </h5>
-<p id="p-205">
+<p id="p-195">
           Consider the matrix
           \begin{equation*}
             A = \begin{pmatrix} 2 &amp; 1 &amp; 0 \\ -2 &amp; 0 &amp; 1 \\ 8 &amp; 5 &amp; 3 \end{pmatrix}.
@@ -367,13 +367,13 @@ Blockey
           \((2,1)\) and \((3,1)\) positions of \(E_{21}A\)
           and \(E_{31}A\)?
         </p>
-<p id="p-206">
+<p id="p-196">
           Find a single matrix \(E\) which produces both zeros at once.
           Multiply \(EA\) to verify your result.
         </p></article><article class="example-like" id="task-50"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">50</span><span class="title"></span>
 </h5>
-<p id="p-207">
+<p id="p-197">
           Let's take a different view of the last computation.
           Block multiplication says that column 1 is eliminated by
           a step that looks like this one:
@@ -385,7 +385,7 @@ Blockey
           Here \(I\) is the \(2\times 2\) identity matrix, \(D\) is a
           \(2\times 2\) matrix, etc.
         </p>
-<p id="p-208">
+<p id="p-198">
           So, in the last exercise, what are \(a\), \(b\), \(c\)
           and \(D\) and what
           is \(D-cb/a\)? Be sure to describe what shape each matrix has: the

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:25-05:00    *-->
+<!--*    on 2016-08-27T20:42:23-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,69 +140,69 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-20"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-77">
+<li id="li-98">
         Read section 2.1 of <!--Style me with CSS--><em>Strang</em> (pages 31-40).
       </li>
-<li id="li-78">
+<li id="li-99">
         Read the following and complete the exercises below
       </li>
 </ul></section><section class="subsection" id="subsection-21"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-109">
+</h1></header><p id="p-99">
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-79">Translate back and forth between the three algebraic representations:
+<li id="li-100">Translate back and forth between the three algebraic representations:
         <ul style="list-style-type: circle;">
-<li id="li-80">
+<li id="li-101">
             A system of linear equations.
           </li>
-<li id="li-81">
+<li id="li-102">
             An equation involving a linear combination of vectors.
           </li>
-<li id="li-82">
+<li id="li-103">
             A matrix equation.
           </li>
 </ul>
 </li>
-<li id="li-83">
+<li id="li-104">
         Can write down the \(n \times n\)<em class="terminology">identity matrix</em>.
       </li>
 </ul>
-<p id="p-110">
+<p id="p-100">
       Sometime in the near future, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-84">Given a system, interpret and plot the “row picture”.</li>
-<li id="li-85">Given a system, interpret and plot the “column picture”.</li>
-<li id="li-86">Use a matrix as a model of a <em class="terminology">transformation</em>, including stating
+<li id="li-105">Given a system, interpret and plot the “row picture”.</li>
+<li id="li-106">Given a system, interpret and plot the “column picture”.</li>
+<li id="li-107">Use a matrix as a model of a <em class="terminology">transformation</em>, including stating
         the <em class="terminology">domain</em> and the <em class="terminology">range</em>.</li>
 </ul></section><section class="subsection" id="subsection-22"><header title="Subsection  Discussion"><h1 class="heading hide-type" alt="Subsection  Discussion">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
-</h1></header><p id="p-111">
+</h1></header><p id="p-101">
       Now we have a little experience with vectors and related things, it is
       time to be aware of what we have done so we can use it as a foundation for
       future work. So far, we have talked about two geometric interpretations
       for a system of linear equations, the <em class="terminology">row picture</em> and the
       <em class="terminology">column picture</em>.
     </p>
-<p id="p-112">
+<p id="p-102">
       Does the following picture make sense to you?
     </p>
-<figure class="figure-like" id="figure-1"><img width="95%" src="images/ThreePics.png" alt=""><figcaption><span class="heading">Figure</span><span class="codenumber">2.1.1</span>The three geometric models of linear algebra</figcaption></figure><p id="p-113">
+<figure class="figure-like" id="figure-1"><img width="95%" src="images/ThreePics.png" alt=""><figcaption><span class="heading">Figure</span><span class="codenumber">2.1</span>The three geometric models of linear algebra</figcaption></figure><p id="p-103">
       A deep understanding of linear algebra will involve a level of comfort with
       each of these three views of the subject in the diagram, and also the ability
       to pass back and forth between them.
     </p>
 <section class="subsubsection" id="subsubsection-9"><header title="Subsubsection  The Transformational View"><h1 class="heading hide-type" alt="Subsubsection  The Transformational View">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Transformational View</span>
-</h1></header><p id="p-114">
+</h1></header><p id="p-104">
         We have seen that matrices can be made to "act upon" vectors by a kind of
         multiplication. In particular, if \(A\) is an \(m\times n\) matrix,
         then \(A\) can be multiplied (on the left) with a column vector of size
         \(n\), and the result is a column vector of size \(m\).
       </p>
-<p id="p-115">
+<p id="p-105">
         This makes \(A\) into a kind of <em class="terminology">function</em>. (We will use
         the synonyms <em class="terminology">mapping</em> or <em class="terminology">transformation</em>, too.)
         For every vector \(v\) of size \(n\), the matrix \(A\) allows
@@ -216,12 +216,12 @@ v &amp; \xmapsto[]{\phantom{T_A}} Av.
         of linear algebra from this viewpoint, too.
       </p></section></section><section class="subsection" id="subsection-23"><header title="Subsection  Sage and Plotting for Linear Algebra"><h1 class="heading hide-type" alt="Subsection  Sage and Plotting for Linear Algebra">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Plotting for Linear Algebra</span>
-</h1></header><p id="p-116">There are a few new Sage commands that might be useful here. We have
+</h1></header><p id="p-106">There are a few new Sage commands that might be useful here. We have
       already seen how to take linear equations and turn them into vectors
       and then turn the vector equation into a matrix equation. But Sage can
       help us move in the other direction, too.
     </p>
-<p id="p-117">
+<p id="p-107">
       The keys are commands to pull out the rows and columns from a given matrix.
       Let's start with a simple situation where the matrix equation is
       \begin{equation*}
@@ -237,7 +237,7 @@ X = vector([x,y]); X
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">b = vector([3,4]); b
 </script></div>
-<p id="p-118">
+<p id="p-108">
       To get Sage to pull out the columns, we can use the <tt class="code-inline" style="color: red; font-size: 120%">.columns()</tt>
       method. If we want just one column, we can use the <tt class="code-inline" style="color: red; font-size: 120%">.column()</tt> method,
       but then we have to remember to specify which column we want.
@@ -246,12 +246,12 @@ X = vector([x,y]); X
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.column(1)
 </script></div>
-<p id="p-119">
+<p id="p-109">
       <!--Style me with CSS--><em>Big important note:</em> Sage always numbers lists starting with zero.
       so the first element of every list is the \(0\) entry, and the second
       element is the \(1\) entry.
     </p>
-<p id="p-120">
+<p id="p-110">
       Now it is possible to make Sage do things like this:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">column_plot = plot(A.column(0), color='red')
@@ -259,10 +259,10 @@ column_plot+= plot(A.column(1), color='blue')
 column_plot+= plot(b, color='purple')
 show(column_plot, figsize=5, aspect_ratio=1)
 </script></div>
-<p id="p-121">
+<p id="p-111">
       This is an example of the a column picture.
     </p>
-<p id="p-122">
+<p id="p-112">
       One can also pull out the rows with corresponding row methods. And if you
       recall the way that matrix multiplication works if you think of rows, you
       can make a row picture.
@@ -275,7 +275,7 @@ expr2 = A.row(1).dot_product(X) == b[1]
 print expr1
 print expr2
 </script></div>
-<p id="p-123">
+<p id="p-113">
       And now the picture:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">row_plot = implicit_plot(expr1, [x,-5,5], [y,-1,9], color='blue')
@@ -303,10 +303,10 @@ show(row_plot, axes=True)
           \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3
           \end{pmatrix}.
         \end{equation*}<ol style="list-style-type: decimal;">
-<li id="li-87">
+<li id="li-108">
             Draw a diagram representing the row picture of this matrix equation.
           </li>
-<li id="li-88">
+<li id="li-109">
             Draw a diagram representing the column picture of this matrix equation.
           </li>
 </ol></article><article class="example-like" id="task-24"><h5 class="heading">
@@ -335,16 +335,16 @@ show(row_plot, axes=True)
         In each of the below, find an example of a matrix \(B\) which has the
         described effect.
         <ol style="list-style-type: decimal;">
-<li id="li-89">\(
+<li id="li-110">\(
               B\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix}y \\ x \end{pmatrix}
             \)</li>
-<li id="li-90">
+<li id="li-111">
             Rotates vectors through \(45^{\circ}\) counter-clockwise.
           </li>
-<li id="li-91">
+<li id="li-112">
             Reflects vectors across the \(y\)axis.
           </li>
-<li id="li-92">\(
+<li id="li-113">\(
               B\begin{pmatrix} x \\ y \end{pmatrix} =
               \begin{pmatrix} x+y \\ y \end{pmatrix}.
             \)</li>

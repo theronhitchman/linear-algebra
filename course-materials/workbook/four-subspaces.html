@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:26-05:00    *-->
+<!--*    on 2016-08-27T20:42:23-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,30 +140,30 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-86"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-310">Read chapter 3 section 6 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-311">Read the following and complete the exercises below.</li>
+<li id="li-331">Read chapter 3 section 6 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-332">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-87"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-403">Before class, a student should be able to:</p>
+</h1></header><p id="p-393">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-312">Identify the four subspaces associated to a matrix by giving a basis
+<li id="li-333">Identify the four subspaces associated to a matrix by giving a basis
         of each.
       </li>
-<li id="li-313">Determine the dimension of each of the four subspaces associated to a
+<li id="li-334">Determine the dimension of each of the four subspaces associated to a
         matrix.
       </li>
 </ul>
-<p id="p-404">Some time after class, a student should be able to:</p>
+<p id="p-394">Some time after class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-314">Describe each of the four subspaces associated to a matrix by
+<li id="li-335">Describe each of the four subspaces associated to a matrix by
         giving minimal sets of equations which “cut them out.”</li>
-<li id="li-315">State and use the Fundamental Theorem of Linear Algebra (FTLA)
+<li id="li-336">State and use the Fundamental Theorem of Linear Algebra (FTLA)
         to reason about matrices.
       </li>
-<li id="li-316">Use the RREF of a matrix to explain why the FTLA is true.</li>
+<li id="li-337">Use the RREF of a matrix to explain why the FTLA is true.</li>
 </ul></section><section class="subsection" id="subsection-88"><header title="Subsection  Discussion: The Four Subspaces"><h1 class="heading hide-type" alt="Subsection  Discussion: The Four Subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Four Subspaces</span>
-</h1></header><p id="p-405">
+</h1></header><p id="p-395">
       This section summarizes a big tool for understanding the behavior of a
       matrix as a function.
       Recall that if \(A\) is an \(m\times n\) matrix, then we can
@@ -179,47 +179,47 @@ MathJax.Hub.Config({
       properties of matrix multiplication translate into properties that
       make into a <em class="terminology">linear transformation</em>.
     </p>
-<p id="p-406">
+<p id="p-396">
       We now have four fundamental subspaces associated to the matrix \(A\).
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-317">The column space, \(\mathrm{col}(A)\), spanned by all of the
+<li id="li-338">The column space, \(\mathrm{col}(A)\), spanned by all of the
         columns of \(A\). This is a subspace of \(\mathbb{R}^m\).
       </li>
-<li id="li-318">The row space, \(\mathrm{row}(A)\), spanned by all of the rows
+<li id="li-339">The row space, \(\mathrm{row}(A)\), spanned by all of the rows
         of \(A\). This is a subspace of \(\mathbb{R}^n\). This also
         happens to be the column space of \(A^T\).
       </li>
-<li id="li-319">The nullspace (or kernel), \(\mathrm{null}(A)\), consisting of
+<li id="li-340">The nullspace (or kernel), \(\mathrm{null}(A)\), consisting of
         all those vectors \(x\) for which \(Ax=0\). This is a subspace
         of \(\mathbb{R}^n\).
       </li>
-<li id="li-320">The left nullspace, which is just the nullspace of \(A^T\). This
+<li id="li-341">The left nullspace, which is just the nullspace of \(A^T\). This
         is a subspace of \(\mathbb{R}^m\).
       </li>
 </ul>
-<p id="p-407">
+<p id="p-397">
       And we have a big result:
     </p>
 <article class="theorem-like" id="theorem-7"><h5 class="heading">
-<span class="type">Theorem</span><span class="codenumber">3.7.1</span>
+<span class="type">Theorem</span><span class="codenumber">3.5</span>
 </h5>
         If \(A\) is an \(m\times n\) matrix with rank
         \(\mathrm{rank}(A) = r\), then
         <ul style="list-style-type: disc;">
-<li id="li-321">\(\dim(\mathrm{col}(A)) = \dim(\mathrm{row}(A)) = r\),</li>
-<li id="li-322">\(\dim(\mathrm{null}(A)) = n-r\), and</li>
-<li id="li-323">\(\dim(\mathrm{null}(A^T))= m-r\).</li>
-</ul></article><p id="p-408">
+<li id="li-342">\(\dim(\mathrm{col}(A)) = \dim(\mathrm{row}(A)) = r\),</li>
+<li id="li-343">\(\dim(\mathrm{null}(A)) = n-r\), and</li>
+<li id="li-344">\(\dim(\mathrm{null}(A^T))= m-r\).</li>
+</ul></article><p id="p-398">
       (<!--Style me with CSS--><em>Study Hint: Write that out in English, with no notation.
       It will help you remember it.</em>)
     </p>
-<p id="p-409">
+<p id="p-399">
       We will have more to say about these spaces when we reconsider the uses
       of the dot product in chapter 4.
     </p></section><section class="subsection" id="subsection-89"><header title="Subsection  Sage and the Four Subspaces"><h1 class="heading hide-type" alt="Subsection  Sage and the Four Subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Four Subspaces</span>
-</h1></header><p id="p-410">
+</h1></header><p id="p-400">
       We have already seen enough Sage commands to work with the four subspaces:
       <tt class="code-inline" style="color: red; font-size: 120%">.row_space()</tt>, <tt class="code-inline" style="color: red; font-size: 120%">.column_space()</tt>, <tt class="code-inline" style="color: red; font-size: 120%">.left_kernel()</tt>, and
       <tt class="code-inline" style="color: red; font-size: 120%">.right_kernel()</tt> all work.
@@ -234,7 +234,7 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.right_kernel()
 </script></div>
-<p id="p-411">
+<p id="p-401">
       We have computed column spaces and nullspaces before. What about our
       new friends?
     </p>
@@ -244,7 +244,7 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.transpose().column_space() == A.row_space()
 </script></div>
-<p id="p-412">
+<p id="p-402">
       Since Sage prefers rows under the hood, the left nullspace is easy to find.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.left_kernel()
@@ -253,7 +253,7 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.left_kernel() == A.transpose().right_kernel()
 </script></div>
-<p id="p-413">
+<p id="p-403">
       And there you have it. Sage can construct all four fundamental subspaces,
       and each comes with a basis computed by Sage. (Using the row algorithm!)
       Note that the FTLA works in this case.
@@ -283,11 +283,11 @@ A
         \end{equation*}</article><article class="example-like" id="task-107"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">107</span><span class="title"></span>
 </h5>(Strang 3.6.12)
-        <p id="p-414">
+        <p id="p-404">
           Find an example of a matrix which has \((1,0,1)\) and \((1,2,0)\)
           as a basis for its row space and its column space.
         </p>
-<p id="p-415">
+<p id="p-405">
           Why can't this be a basis for the row space and the nullspace?
         </p></article><article class="example-like" id="task-108"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">108</span><span class="title"></span>
@@ -306,11 +306,11 @@ A
       </article><article class="example-like" id="task-110"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">110</span><span class="title"></span>
 </h5>(Strang 3.6.24)
-        <p id="p-416">
+        <p id="p-406">
           The equation \(A^Ty = d\) is solvable exactly when \(d\) lies in
           one of the four subspaces associated to \(A\). Which is it?
         </p>
-<p id="p-417">
+<p id="p-407">
           Which subspace can you use to determine if the solution to that
           equation is unique? How do you use that subspace?
         </p></article></section></section></div></main>

@@ -1,13 +1,16 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:27-05:00    *-->
+<!--*    on 2016-08-27T20:42:24-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        First, note that this is a good thing because both of the systems
-        \(Ly = b\) and \(Ux = y\) are triangular. They can be solved by back
-        substitution. In \(Ly = b\) you work from the top down, and in \(Ux=y\)
-        you work from the bottom up.
+        Hold on, the output is three matrices. Not two, but three. One is upper
+        triangular, one is lower triangular, but the first one is a
+        <em class="terminology">permutation matrix</em>. (It switches rows 1 and 3.) What is
+        going on? If you perform a search in the Sage documentation, you find
+        <a class="external-url" href="http://www.sagemath.org/doc/reference/matrices/sage/matrix/matrix2.html" target="_blank">this page</a>.
+        There is a description of the command, and the first bit is something about
+        a “pivoting strategy” and row swaps. But we don't want row swaps.
       </p><span class="incontext"><a href="lu-decomposition.html#p-242">in-context</a></span>

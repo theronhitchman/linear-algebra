@@ -1,12 +1,24 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:27-05:00    *-->
+<!--*    on 2016-08-27T20:42:24-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        Sometimes you do not want to change the matrix <tt class="code-inline" style="color: red; font-size: 120%">A</tt>. If instead, you
-        want to leave <tt class="code-inline" style="color: red; font-size: 120%">A</tt> alone, you can use these methods, which return
-        a new object and do not change <tt class="code-inline" style="color: red; font-size: 120%">A</tt>.
-      </p><span class="incontext"><a href="elimination.html#p-135">in-context</a></span>
+        Each of these viewpoints has its advantages when talking about the
+        geometry of linear algebra. But one way that things steadily improve as
+        you move down the page is in the amount of notational baggage.
+        From each version to the next, we lose repetitive bits of symbol that
+        one can just remember from context.
+        Often, this is taken one step further! We now throw away the unknowns,
+        the equal signs and some of the parentheses surrounding the matrices and
+        vectors, and just write an \emph{augmented} matrix.
+        \begin{equation*}
+          \augmatrix{ccc}{
+          0 &amp;3 &amp;2 &amp;8\\ 1 &amp;-1 &amp;1 &amp;-1\\ 3 &amp;2 &amp;3 &amp;1
+          }
+        \end{equation*}
+        This is the minimum fuss way to keep track of all the information you
+        need to solve the original system.
+      </p><span class="incontext"><a href="matrix-elimination.html#p-135">in-context</a></span>

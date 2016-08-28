@@ -1,20 +1,16 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:27-05:00    *-->
+<!--*    on 2016-08-27T20:42:24-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        Consider the following system of 3 linear equations in 3 unknowns.
-        \begin{equation*}\left\{
-        \begin{array}{rrrrrrr}
-        x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 5 \\
-        x &amp; + &amp; 2y &amp; + &amp; 3z &amp; = &amp; 7 \\
-        x &amp; + &amp; 3y &amp; + &amp; 6z &amp; = &amp; 11
-        \end{array}\right.
+        A matrix \(A\) is called <!--Style me with CSS--><em>symmetric</em> when \(A^T = A\). These
+        pop up in lots of interesting places in linear algebra. A neat result
+        is that a symmetric matrix has a symmetric looking \(LDU\) decomposition:
+        \begin{equation*}
+        \text{if } A^T=A\text{, then } A = LDL^T .
         \end{equation*}
-        Perform the forward pass of elimination to find an equivalent upper
-        triangular system. Write down this upper triangular system. What three
-        row operations do you need to perform to make this work?
-      </p><span class="incontext"><a href="lu-decomposition.html#p-262">in-context</a></span>
+        That is, in the LDU decomposition, \(U = L^T\).
+      </p><span class="incontext"><a href="permutations.html#p-262">in-context</a></span>

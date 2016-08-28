@@ -1,12 +1,22 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:28-05:00    *-->
+<!--*    on 2016-08-27T20:42:25-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-      As you see, Sage returns a pair of matrices. One of them is diagonal, so that
-      is probably \(\Lambda\). We'll use tuple unpacking to assign the matrices to
-      sensible names.
-    </p><span class="incontext"><a href="section-diagonalization.html#p-526">in-context</a></span>
+      Now, how does one understand the Spectral Theorem? It basically guarantees
+      that we can always find (a) enough eigenvalues (as real numbers), and (b) for each eigenvalue,
+      enough eigenvectors. The hardest parts of the proof come from part (b) where
+      you have to produce enough eigenvectors. But in practice, if you have an
+      example of a symmetric matrix, you can find the decomposition mentioned in
+      the theorem pretty easily. First, find the eigenvalues. Then for each
+      eigenvalue \(\lambda\), find an orthonormal basis for the
+      <em class="terminology">eigenspace</em>
+      \begin{equation*}E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).\end{equation*}
+      That second bit can be done in two steps, first find a basis for \(E_{\lambda}\)
+      (special solutions!) and then apply the Gram-Schmidt algorithm to find an
+      orthonormal basis for \(E_{\lambda}\). Collecting all of these bases
+      together will make a basis for \(\mathbb{R}^n\).
+    </p><span class="incontext"><a href="section-spectral-theorem.html#p-526">in-context</a></span>

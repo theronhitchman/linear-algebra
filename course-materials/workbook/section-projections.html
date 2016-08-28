@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:26-05:00    *-->
+<!--*    on 2016-08-27T20:42:23-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,27 +140,27 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-98"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-348">Read Chapter 4 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-349">Read the following and complete the exercises below.</li>
+<li id="li-369">Read Chapter 4 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-370">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-99"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-434">Before class, a student should be able to:</p>
+</h1></header><p id="p-424">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-350">Compute the projection of a vector onto a line.</li>
-<li id="li-351">Find the projection matrix which computes the projections of vectors onto a given line.</li>
-<li id="li-352">Draw the schematic picture of a projection: the line, the vector, the projected vector, and the difference.</li>
+<li id="li-371">Compute the projection of a vector onto a line.</li>
+<li id="li-372">Find the projection matrix which computes the projections of vectors onto a given line.</li>
+<li id="li-373">Draw the schematic picture of a projection: the line, the vector, the projected vector, and the difference.</li>
 </ul>
-<p id="p-435">Sometime after class, a student should be able to:</p>
+<p id="p-425">Sometime after class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-353">Compute the projection of a vector onto a subspace.</li>
-<li id="li-354">Find the projection matrix which computes the projections of vectors onto a given subspace.</li>
-<li id="li-355">
+<li id="li-374">Compute the projection of a vector onto a subspace.</li>
+<li id="li-375">Find the projection matrix which computes the projections of vectors onto a given subspace.</li>
+<li id="li-376">
             Explain the process for finding the equations which determine the projection matrix, and say
             why the transpose makes an appearance.
         </li>
 </ul></section><section class="subsection" id="subsection-100"><header title="Subsection  Discussion: Orthogonal Projections"><h1 class="heading hide-type" alt="Subsection  Discussion: Orthogonal Projections">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Orthogonal Projections</span>
-</h1></header><p id="p-436">
+</h1></header><p id="p-426">
         One good use of the geometry in \(\mathbb{R}^n\) is the concept of
         orthogonal projection. The basic idea is to mimic the behavior of
         shadows under sunlight. Our everyday experience leads us to thinking
@@ -168,18 +168,18 @@ MathJax.Hub.Config({
         a plane), but if you imagine holding out a pencil you can summon up the
         visual of projection onto a line, too.
       </p>
-<p id="p-437">
+<p id="p-427">
         The key concept is to use the basic condition of orthogonality
         (\(u \cdot v = 0\)) to figure things out.
       </p>
-<p id="p-438">
+<p id="p-428">
         Note that everything in this section is done by projecting onto
         <!--Style me with CSS--><em>subspaces</em>! This is a bit of a restriction. In practice, this
         restriction can be removed by translating your whole problem to have a
         new origin.
       </p></section><section class="subsection" id="subsection-101"><header title="Subsection  Sage and Orthogonal Projection"><h1 class="heading hide-type" alt="Subsection  Sage and Orthogonal Projection">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Orthogonal Projection</span>
-</h1></header><p id="p-439">
+</h1></header><p id="p-429">
         Sage has no built-in commands for orthogonal projections. But let us recall
         those parts of Sage that will be useful right now:
       </p>
@@ -190,19 +190,19 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.inverse()
 </script></div>
-<p id="p-440">
+<p id="p-430">
         Sorry, that matrix isn't even square, so it can't be invertible. But
         this will be:
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">(A.transpose()*A).inverse()
 </script></div>
-<p id="p-441">
+<p id="p-431">
         Finally, this makes sense:
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">P = A * (A.transpose()*A).inverse() * A.transpose()
 P
 </script></div>
-<p id="p-442">
+<p id="p-432">
         This process should have some basic properties. Let's check them.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">B = A.transpose()*A
@@ -210,57 +210,57 @@ print B.is_invertible()
 print B.is_symmetric()
 print B.parent()
 </script></div>
-<p id="p-443">
+<p id="p-433">
         So \(A^TA\) is square, symmetric, and invertible.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">print P.transpose() == P
 print P.is_symmetric()
 print P*P == P
 </script></div>
-<p id="p-444">Also as expected.</p></section><section class="subsection" id="subsection-102"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
+<p id="p-434">Also as expected.</p></section><section class="subsection" id="subsection-102"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
 </h1></header><article class="example-like" id="task-117"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">117</span><span class="title"></span>
 </h5>
-<p id="p-445">
+<p id="p-435">
             Find the projection matrix which computes projections of vectors in
             \(\mathbb{R}^2\) onto the line \(3x+2y=0\).
             (Since it goes through zero, it is a subspace.)
           </p>
-<p id="p-446">
+<p id="p-436">
             Find the orthogonal projection of the vector
             \(\left( 17,3 \right)\) onto this line.
           </p></article><article class="example-like" id="task-118"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">118</span><span class="title"></span>
 </h5>
-<p id="p-447">
+<p id="p-437">
             Find the projection matrix which computes projections of vectors in
             \(\mathbb{R}^3\) onto the line which is the intersection of the
             planes \(x-2y+3z = 0\) and \(y+2z=0\). (Again, that is a subspace.)
           </p>
-<p id="p-448">
+<p id="p-438">
             Find the orthogonal projection of the vector \(\left(1,1,1\right)\)
             onto this line.
           </p></article><article class="example-like" id="task-119"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">119</span><span class="title"></span>
 </h5>
-<p id="p-449">
+<p id="p-439">
             Find the projection matrix which computes projections of vectors in
             \(\mathbb{R}^3\) onto the plane \(-2x + y +3z = 0\).
           </p>
-<p id="p-450">
+<p id="p-440">
             Find the orthogonal projection of the vector \(\left( 9,7,-5\right)\)
             onto this plane.
           </p></article><article class="example-like" id="task-120"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">120</span><span class="title"></span>
 </h5>
-<p id="p-451">
+<p id="p-441">
             Find the projection matrix which computes projections of vectors in
             \(\mathbb{R}^4\) onto the plane which is the intersectoin of
             \(5x+y +w=0\) and \(z+y+z+w=0\). (This subspace is the 2
             dimensional plane where these two 3-dimensional hyperplanes meet.)
           </p>
-<p id="p-452">
+<p id="p-442">
             Find the orthogonal projection of the vector
             \(\left(-3,1,-3,1\right)\) on this plane.
           </p></article></section></section></div></main>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:25-05:00    *-->
+<!--*    on 2016-08-27T20:42:23-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -141,32 +141,37 @@ MathJax.Hub.Config({
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
 <li id="li-45">Read <!--Style me with CSS--><em>Strang</em> section 1.3 (pages 22-27).</li>
-<li id="li-46">Read the following and complete the exercises below.</li>
+<li id="li-46">
+        Watch another entry from the YouTube video series
+        <!--Style me with CSS--><em>Essence of Linear Algebra</em>
+        by <!--Style me with CSS--><em>3Blue1Brown</em>
+</li>
+<li id="li-47">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-14"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-61">Before class starts, a student should be able to:
       <ul style="list-style-type: disc;">
-<li id="li-47">multiply a matrix times a vector
+<li id="li-48">multiply a matrix times a vector
           <ul style="list-style-type: circle;">
-<li id="li-48">as a linear combination of columns</li>
-<li id="li-49">as a set of dot products, row times column</li>
+<li id="li-49">as a linear combination of columns</li>
+<li id="li-50">as a set of dot products, row times column</li>
 </ul>
 </li>
-<li id="li-50">translate back and forth between our three representations
+<li id="li-51">translate back and forth between our three representations
           <ul style="list-style-type: circle;">
-<li id="li-51">a system of linear equations,</li>
-<li id="li-52">a linear combination of vectors equation, and</li>
-<li id="li-53">a matrix equation \(Ax=b\).</li>
+<li id="li-52">a system of linear equations,</li>
+<li id="li-53">a linear combination of vectors equation, and</li>
+<li id="li-54">a matrix equation \(Ax=b\).</li>
 </ul>
 </li>
-<li id="li-54">Correctly identify the rows and columns of a matrix</li>
-<li id="li-55">describe what is meant by a lower triangular matrix</li>
+<li id="li-55">Correctly identify the rows and columns of a matrix</li>
+<li id="li-56">describe what is meant by a lower triangular matrix</li>
 </ul>
     At some point, as student should be comfortable with these concepts, which
     get a very brief informal introduction in this section:
     <ul style="list-style-type: disc;">
-<li id="li-56">linear dependence and linear independence</li>
-<li id="li-57">the inverse of a matrix</li>
+<li id="li-57">linear dependence and linear independence</li>
+<li id="li-58">the inverse of a matrix</li>
 </ul>
   </p></section><section class="subsection" id="subsection-15"><header title="Subsection  Discussion"><h1 class="heading hide-type" alt="Subsection  Discussion">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
@@ -248,10 +253,10 @@ MathJax.Hub.Config({
         </p></article><p id="p-69">
       Two important remarks:
       <ul style="list-style-type: disc;">
-<li id="li-58">
+<li id="li-59">
           Note that these operations only make sense if the sizes match up properly.
         </li>
-<li id="li-59">
+<li id="li-60">
           Note that the two versions of the operation give you the same results.
         </li>
 </ul>
@@ -301,12 +306,12 @@ MathJax.Hub.Config({
         zero. But that is so easy to do we call it <em class="terminology">trivial</em>. What the
         definition is asking is that we find a <!--Style me with CSS--><em>nontrival linear
         combination of the vectors to make zero</em>.
-      </p></section></section><section class="subsection" id="subsection-16"><header title="Subsection  Sage and Matrices"><h1 class="heading hide-type" alt="Subsection  Sage and Matrices">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Matrices</span>
+      </p></section></section><section class="subsection" id="subsection-16"><header title="Subsection  SageMath and Matrices"><h1 class="heading hide-type" alt="Subsection  SageMath and Matrices">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and Matrices</span>
 </h1></header><p id="p-75">
-      Sage has many useful commands for working with linear algebra, and
+      SageMath has many useful commands for working with linear algebra, and
       given the central role played by matrices in this subject, there are
-      lots of things Sage can do with matrices. We'll focus here on just basic
+      lots of things SageMath can do with matrices. We'll focus here on just basic
       construction and matrix--vector multiplication.
     </p>
 <section class="subsubsection" id="subsubsection-6"><header title="Subsubsection  The matrix construction command"><h1 class="heading hide-type" alt="Subsubsection  The matrix construction command">
@@ -335,15 +340,15 @@ C # the best matrix
         The notation <tt class="code-inline" style="color: red; font-size: 120%">ZZ</tt> means "integers." There are other sets of numbers
         here:
         <ul style="list-style-type: disc;">
-<li id="li-60">
-<tt class="code-inline" style="color: red; font-size: 120%">QQ</tt> the rational numbers (with exact arithmetic)</li>
 <li id="li-61">
-<tt class="code-inline" style="color: red; font-size: 120%">RR</tt> the real numbers (with computer precision arithmetic)</li>
+<tt class="code-inline" style="color: red; font-size: 120%">QQ</tt> the rational numbers (with exact arithmetic),</li>
 <li id="li-62">
-<tt class="code-inline" style="color: red; font-size: 120%">CC</tt> the complex numbers</li>
+<tt class="code-inline" style="color: red; font-size: 120%">RR</tt> the real numbers (with computer precision arithmetic),</li>
 <li id="li-63">
+<tt class="code-inline" style="color: red; font-size: 120%">CC</tt> the complex numbers,</li>
+<li id="li-64">
 <tt class="code-inline" style="color: red; font-size: 120%">AA</tt> the set of all algebraic numbers, that is, all of the
-            numbers that are roots of some polynomial with integer coefficients
+            numbers that are roots of some polynomial with integer coefficients.
           </li>
 </ul>
         You can find out what kind of entries a matrix thinks it has by calling the
@@ -366,7 +371,7 @@ D.parent()
 E = matrix([ v1, v2]); E
 </script></div>
 <p id="p-81">
-        Sage prefers rows. I wish it were the other way, but I am sure there is
+        SageMath prefers rows. I wish it were the other way, but I am sure there is
         a good reason it prefers rows. If you want to make a matrix whose columns
         are the vectors <tt class="code-inline" style="color: red; font-size: 120%">v1</tt> and <tt class="code-inline" style="color: red; font-size: 120%">v2</tt>, you can use the
         <tt class="code-inline" style="color: red; font-size: 120%">transpose</tt> method. We'll talk more about the operation of transpose
@@ -376,18 +381,18 @@ E = matrix([ v1, v2]); E
 </script></div></section><section class="subsubsection" id="subsubsection-8"><header title="Subsubsection  Matrix action on vectors"><h1 class="heading hide-type" alt="Subsubsection  Matrix action on vectors">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix action on vectors</span>
 </h1></header><p id="p-82">
-        Of course, Sage knows how to perform the action of a matrix on a vector.
+        Of course, SageMath knows how to perform the action of a matrix on a vector.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">C; v1
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">C*v1
 </script></div>
 <p id="p-83">And if you get the sizes wrong, it will return an error.</p>
-<div class="sagecell-sage"><script type="text/x-sage">A; v1
+<div class="sagecell-sage"><script type="text/x-sage">A, v1
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A*v1
 </script></div>
-<p id="p-84">If you really need it, Sage can tell you about inverses.</p>
+<p id="p-84">If you really need it, SageMath can tell you about inverses.</p>
 <div class="sagecell-sage"><script type="text/x-sage">A.is_invertible()
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">C.is_invertible()
@@ -399,141 +404,175 @@ E = matrix([ v1, v2]); E
 <span class="type">Task</span><span class="codenumber">13</span><span class="title"></span>
 </h5>
 <p id="p-85">
-          Make an example of a matrix \(\left(\begin{smallmatrix} 1 &amp;
-          \bullet \\ -1 &amp; \bullet \end{smallmatrix}\right)\) so that the
-          equation\begin{equation*}
-          \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
-          \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
-          \end{pmatrix}
-          \end{equation*}
-          has exactly one solution, or explain why this is not possible.
-        </p>
-<p id="p-86">
-          Interpret this as a statement about \(2\)-vectors and draw the
-          picture which corresponds.
+          <ol style="list-style-type: decimal;">
+<li id="li-65">
+              Make an example of a matrix \(\left(\begin{smallmatrix} 1 &amp;
+              \bullet \\ -1 &amp; \bullet \end{smallmatrix}\right)\) so that the
+              equation\begin{equation*}
+              \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
+              \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
+              \end{pmatrix}
+              \end{equation*}
+              has exactly one solution, or explain why this is not possible.
+            </li>
+<li id="li-66">
+              Interpret this as a statement about \(2\)-vectors and draw the
+              picture which corresponds.
+            </li>
+</ol>
         </p></article><article class="example-like" id="task-14"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">14</span><span class="title"></span>
 </h5>
-<p id="p-87">
-          Make an example of a matrix \(\left(\begin{smallmatrix} 4 &amp;
-          8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp;
-          \bullet \end{smallmatrix}\right)\) so that the equation\begin{equation*}
-            \begin{pmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp; \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
-          \end{equation*}
-          has exactly one solution, or explain why this is not possible.
-        </p>
-<p id="p-88">
-          Interpret this as a statment about \(3\)-vectors and draw the
-          picture which corresponds.
+<p id="p-86">
+          <ol style="list-style-type: decimal;">
+<li id="li-67">
+              Make an example of a matrix \(\left(\begin{smallmatrix} 4 &amp;
+              8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp;
+              \bullet \end{smallmatrix}\right)\) so that the equation\begin{equation*}
+                \begin{pmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp; \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
+              \end{equation*}
+              has exactly one solution, or explain why this is not possible.
+            </li>
+<li id="li-68">
+              Interpret this as a statment about \(3\)-vectors and draw the
+              picture which corresponds.
+            </li>
+</ol>
         </p></article><article class="example-like" id="task-15"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">15</span><span class="title"></span>
 </h5>
-<p id="p-89">
-          Make an example of a matrix \(\left( \begin{smallmatrix} 2 &amp; -1 \\
-          \bullet &amp; \bullet \end{smallmatrix}\right)\) so that the equation\begin{equation*}
-            \begin{pmatrix} 2 &amp; -1 \\ \bullet &amp; \bullet \end{pmatrix}
-            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3
-            \end{pmatrix}
-          \end{equation*}
-          has exactly one solution, or explain why this is not possible.
-        </p>
-<p id="p-90">
-          Interpret this as a statement about a pair of lines in the plane and
-          draw the picture which corresponds.
+<p id="p-87">
+          <ol style="list-style-type: decimal;">
+<li id="li-69">
+              Make an example of a matrix \(\left( \begin{smallmatrix} 2 &amp; -1 \\
+              \bullet &amp; \bullet \end{smallmatrix}\right)\) so that the equation\begin{equation*}
+                \begin{pmatrix} 2 &amp; -1 \\ \bullet &amp; \bullet \end{pmatrix}
+                \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3
+                \end{pmatrix}
+              \end{equation*}
+              has exactly one solution, or explain why this is not possible.
+            </li>
+<li id="li-70">
+              Interpret this as a statement about a pair of lines in the plane and
+              draw the picture which corresponds.
+            </li>
+</ol>
         </p></article><article class="example-like" id="task-16"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">16</span><span class="title"></span>
 </h5>
-<p id="p-91">
-          Make an example of a matrix \(\left( \begin{smallmatrix} 1 &amp; 0
-          &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet &amp; \bullet &amp; \bullet
-          \end{smallmatrix}\right)\) so that the equation\begin{equation*}
-            \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet
-            &amp; \bullet &amp; \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z
-            \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
-          \end{equation*}
-          has no solutions, or explain why this is not possible.
-        </p>
-<p id="p-92">
-          Interpret this as a statement about a planes in space and
-          draw the picture which corresponds.
+<p id="p-88">
+          <ol style="list-style-type: decimal;">
+<li id="li-71">
+              Make an example of a matrix \(\left( \begin{smallmatrix} 1 &amp; 0
+              &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet &amp; \bullet &amp; \bullet
+              \end{smallmatrix}\right)\) so that the equation\begin{equation*}
+                \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet
+                &amp; \bullet &amp; \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z
+                \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+              \end{equation*}
+              has no solutions, or explain why this is not possible.
+            </li>
+<li id="li-72">
+              Interpret this as a statement about a planes in space and
+              draw the picture which corresponds.
+            </li>
+</ol>
         </p></article><article class="example-like" id="task-17"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">17</span><span class="title"></span>
 </h5>
-<p id="p-93">
-          Find a triple of numbers \(x\), \(y\), and \(z\) so that the
-          linear combination\begin{equation*}
-            x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} +
-            y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} +
-            z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
-          \end{equation*}
-          yields the zero vector, or explain why this is not possible.
-        </p>
-<p id="p-94">
-          Rewrite the above as an equation which involves a matrix.
-        </p>
-<p id="p-95">
-          Plot the three vectors and describe the geometry of the situation.
+<p id="p-89">
+          <ol style="list-style-type: decimal;">
+<li id="li-73">
+              Find a triple of numbers \(x\), \(y\), and \(z\) so that the
+              linear combination\begin{equation*}
+                x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} +
+                y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} +
+                z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
+              \end{equation*}
+              yields the zero vector, or explain why this is not possible.
+            </li>
+<li id="li-74">
+              Rewrite the above as an equation which involves a matrix.
+            </li>
+<li id="li-75">
+              Plot the three vectors (use SageMath!) and describe the geometry of the situation.
+            </li>
+</ol>
         </p></article><article class="example-like" id="task-18"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">18</span><span class="title"></span>
 </h5>
-<p id="p-96">
-          The vectors\begin{equation*}
-            r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
-            r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
-            r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
-          \end{equation*}
-          are linearly dependent because they lie in a common plane (through
-          the origin). Find a normal vector to this plane.
-        </p>
-<p id="p-97">
-          Since the vectors are linearly dependent, there must be (infinitely)
-          many choices of scalars \(x\), \(y\), and \(z\) so that
-          \(x r_1 + y r_2 + z r_3 = 0\). Find two sets of such numbers.
+<p id="p-90">
+          <ol style="list-style-type: decimal;">
+<li id="li-76">
+              The vectors\begin{equation*}
+                r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
+                r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
+                r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
+              \end{equation*}
+              are linearly dependent because they lie in a common plane (through
+              the origin). Find a normal vector to this plane.
+            </li>
+<li id="li-77">
+              Since the vectors are linearly dependent, there must be (infinitely)
+              many choices of scalars \(x\), \(y\), and \(z\) so that
+              \(x r_1 + y r_2 + z r_3 = 0\). Find two different sets of such numbers.
+            </li>
+</ol>
         </p></article><article class="example-like" id="task-19"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">19</span><span class="title"></span>
 </h5>
-<p id="p-98">
-          Consider the equation\begin{equation*}
-            \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
-            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2
-            \end{pmatrix}.
-          \end{equation*}
-          We are interested in being able to solve this for \(x\) and \(y\)
-          for any given choice of the numbers \(b_1\) and \(b_2\).
-          Figure out a way to do this by writing \(x\) and \(y\) in terms
-          of \(b_1\) and \(b_2\).
-        </p>
-<p id="p-99">
-          Rewrite your solution in the form\begin{equation*}
-            \begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix}
-            \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet
-            \\ \bullet \end{pmatrix}.
-          \end{equation*}
-        </p>
-<p id="p-100">
-          How is this related to the inverse of the matrix
-          \(A = \left( \begin{smallmatrix} 2 &amp; 1 \\ 1 &amp; 1
-          \end{smallmatrix} \right)\)?
+<p id="p-91">
+          This task is a good challenge, and we just might have time to talk about it
+          in class. In any case, we will come back to it for our review day.
+          <ol style="list-style-type: decimal;">
+<li id="li-78">
+              Consider the equation\begin{equation*}
+                \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
+                \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2
+                \end{pmatrix}.
+              \end{equation*}
+              We are interested in being able to solve this for \(x\) and \(y\)
+              for any given choice of the numbers \(b_1\) and \(b_2\).
+              Figure out a way to do this by writing \(x\) and \(y\) in terms
+              of \(b_1\) and \(b_2\).
+            </li>
+<li id="li-79">
+              Rewrite your solution in the form\begin{equation*}
+                \begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix}
+                \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet
+                \\ \bullet \end{pmatrix}.
+              \end{equation*}</li>
+<li id="li-80">
+              How is this related to the inverse of the matrix
+              \(A = \left( \begin{smallmatrix} 2 &amp; 1 \\ 1 &amp; 1
+              \end{smallmatrix} \right)\)?
+            </li>
+</ol>
         </p></article><article class="example-like" id="task-20"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">20</span><span class="title"></span>
 </h5>
-<p id="p-101">
-          Find an example of a number \(c\) and a vector \(\left(
-          \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)\)
-          so that the equation\begin{equation*}
-            \begin{pmatrix} 3 &amp; 51 \\ c &amp; 17 \end{pmatrix}
-            \begin{pmatrix} x \\ y \end{pmatrix} =
-            \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
-          \end{equation*}
-          does not have a solution, or explain why no such example exists.
-        </p>
-<p id="p-102">
-          Explain your solution in terms of
-          <ul style="list-style-type: disc;">
-<li id="li-64">lines in the plane,</li>
-<li id="li-65">\(2\)-vectors and linear combinations, and</li>
-<li id="li-66">invertibility of a matrix.</li>
+<p id="p-92">Here's an extra challenge that we won't have time to get to in our
+          first meeting for sure, but I hope to return to later:
+          <ol style="list-style-type: decimal;">
+<li id="li-81">
+              Find an example of a number \(c\) and a vector \(\left(
+              \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)\)
+              so that the equation\begin{equation*}
+                \begin{pmatrix} 3 &amp; 51 \\ c &amp; 17 \end{pmatrix}
+                \begin{pmatrix} x \\ y \end{pmatrix} =
+                \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+              \end{equation*}
+              does not have a solution, or explain why no such example exists.
+            </li>
+<li id="li-82">
+              Explain your solution in terms of
+              <ul style="list-style-type: disc;">
+<li id="li-83">lines in the plane,</li>
+<li id="li-84">\(2\)-vectors and linear combinations, and</li>
+<li id="li-85">invertibility of a matrix.</li>
 </ul>
+</li>
+</ol>
         </p></article></section></section></div></main>
 </div>
 </body>

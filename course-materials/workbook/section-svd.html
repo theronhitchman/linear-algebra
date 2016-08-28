@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:26-05:00    *-->
+<!--*    on 2016-08-27T20:42:24-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,22 +140,22 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-141"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-442">Read chapter 6 section 7 of <!--Style me with CSS--><em>Strang</em>
+<li id="li-463">Read chapter 6 section 7 of <!--Style me with CSS--><em>Strang</em>
 </li>
-<li id="li-443">Read the following and complete the exercises below.</li>
+<li id="li-464">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-142"><header title="Subsection  Discussion: The Singular Value Decomposition"><h1 class="heading hide-type" alt="Subsection  Discussion: The Singular Value Decomposition">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Singular Value Decomposition</span>
-</h1></header><p id="p-546">
+</h1></header><p id="p-536">
       The <em class="terminology">Singular Value Decomposition</em> is an adaptation of the ideas
       behind eigenvectors and eigenvalues for non-square matrices. If our matrix
       \(A\) is \(n \times m\), the idea is to
       choose
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-444">An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), </li>
-<li id="li-445">and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)</li>
+<li id="li-465">An orthonormal basis \(\{ v_1, \ldots, v_n\}\) for \(\mathbb{R}^n\), </li>
+<li id="li-466">and an orthonormal basis \(\{ u_1, \ldots, u_n \}\) for \(\mathbb{R}^m\)</li>
 </ul>
-<p id="p-547">
+<p id="p-537">
       so that \begin{equation*}Av_i = \sigma_i u_i, \qquad \text{for $1 \leq i \leq r$}\end{equation*}
       where \(r = rank(A)\). If we pile up all of those equations, we get a
       statement like this one:
@@ -173,11 +173,11 @@ MathJax.Hub.Config({
                         u_1 &amp; u_2 &amp; \dots &amp; u_r \\
                           | &amp; | &amp; \dots &amp; |
                           \end{pmatrix}
-    \end{equation*}<p id="p-548">
+    \end{equation*}<p id="p-538">
       Eventually, this will lead us to a matrix decomposition of the form
     </p>\begin{equation*} A = U \Sigma V^T .\end{equation*}<section class="subsubsection" id="subsubsection-50"><header title="Subsubsection  How to do it"><h1 class="heading hide-type" alt="Subsubsection  How to do it">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">How to do it</span>
-</h1></header><p id="p-549">
+</h1></header><p id="p-539">
         So, suppose that \(A\) is an \(m \times n\) matrix. The key fact we
         need is that \(A^TA\) is a symmetric \(n \times n\) matrix. Later,
         when discussing properties, it is important that
@@ -185,8 +185,8 @@ MathJax.Hub.Config({
         \(A(A^TA) = (AA^T)A\).
       </p>
 <ol style="list-style-type: decimal;">
-<li id="li-446">
-<p id="p-550">
+<li id="li-467">
+<p id="p-540">
             Step One: Compute a spectral decomposition of \(A^TA\).
             Since \(A^TA\) is a square symmetric matrix, we can find an orthonormal
             basis \(v_1, v_2, \ldots, v_n\) for \(\mathbb{R}^n\) which consists
@@ -201,19 +201,19 @@ MathJax.Hub.Config({
             NOTE: We will organize things so that the eigenvalues get smaller as
             we go further in the list.
           </p>
-<p id="p-551">
+<p id="p-541">
             Now, some of the eigenvaules might be zero, but none will be negative.
             We will have exactly \(r = \mathrm{rank}(A)\) non-zero eigenvalues, and the
             other \(n-r\) will be equal to zero. (Those come from the directions
             in the null space!) Don't sweat it. Everything is going to be fine.
           </p>
 </li>
-<li id="li-447"><p id="p-552">
+<li id="li-468"><p id="p-542">
             Step Two: For each \(0 \leq i \leq r\), set
             \begin{equation*}\sigma_i = \sqrt{\lambda_i} .\end{equation*}
             These are the “Singular Values” named in the singular value decomposition.
           </p></li>
-<li id="li-448"><p id="p-553">
+<li id="li-469"><p id="p-543">
             Step Three: for each \(0 \leq i \leq r\), set
             \begin{equation*}
               u_i = \dfrac{1}{\sigma_i} Av_i.
@@ -221,11 +221,11 @@ MathJax.Hub.Config({
             By the way things are set up, we are sure \(\sigma_i\) is not zero!
             The vectors we just made are a basis for the column space of \(A\).
           </p></li>
-<li id="li-449"><p id="p-554">
+<li id="li-470"><p id="p-544">
             Step Four: If \(m &gt; r \), Choose an orthonormal basis \(u_{r+1}, \ldots, u_m\)
             for the null space of \(A^T\).
           </p></li>
-<li id="li-450">
+<li id="li-471">
           Step Five: Bundle together the \(v_i\)'s as columns of an
           \(n \times n\) matrix \(V\), and the \(u_i\)'s as the columns
           of an \(m \times m\) matrix \(U\). Both of these are orthogonal matrices.
@@ -233,9 +233,9 @@ MathJax.Hub.Config({
           \(m \times n\) matrix which is otherwise filled with zeros. Call that
           new matrix \(\Sigma\).
         </li>
-</ol></section><p id="p-555">Strang has a good run-down of the neat properties this set up has.</p></section><section class="subsection" id="subsection-143"><header title="Subsection  Sage and the SVD"><h1 class="heading hide-type" alt="Subsection  Sage and the SVD">
+</ol></section><p id="p-545">Strang has a good run-down of the neat properties this set up has.</p></section><section class="subsection" id="subsection-143"><header title="Subsection  Sage and the SVD"><h1 class="heading hide-type" alt="Subsection  Sage and the SVD">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the SVD</span>
-</h1></header><p id="p-556">
+</h1></header><p id="p-546">
       Sage has a built in command for the singular value decomposition of a matrix.
       If you have a matrix <tt class="code-inline" style="color: red; font-size: 120%">A</tt>, the command is <tt class="code-inline" style="color: red; font-size: 120%">A.SVD()</tt>. But there is a
       little trick to using it! At present, Sage only has this function implemented

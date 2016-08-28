@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:25-05:00    *-->
+<!--*    on 2016-08-27T20:42:23-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,34 +140,34 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-25"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-93">Read section 2.2 of Strang (pages 45-51).</li>
-<li id="li-94">Read the following and complete the exercises below.</li>
+<li id="li-114">Read section 2.2 of Strang (pages 45-51).</li>
+<li id="li-115">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-26"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-124">
+</h1></header><p id="p-114">
       Before class, a student should be able to do the following things.
     </p>
-<ul style="list-style-type: disc;"><li id="li-95">Clearly state and use the following vocabulary words: pivot, multiplier,
+<ul style="list-style-type: disc;"><li id="li-116">Clearly state and use the following vocabulary words: pivot, multiplier,
         triangular matrix, back substitution, singular, non-singular
       </li></ul>
-<p id="p-125">
+<p id="p-115">
       Sometime after class, a student should be able to the following things.
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-96">Perform elimination to put a system of linear equations into triangular form.</li>
-<li id="li-97">Solve small systems by hand.</li>
-<li id="li-98">Explain the two failure modes for elimination, and describe which leads to
+<li id="li-117">Perform elimination to put a system of linear equations into triangular form.</li>
+<li id="li-118">Solve small systems by hand.</li>
+<li id="li-119">Explain the two failure modes for elimination, and describe which leads to
         no solutions, and which leads to infinitely many solutions.</li>
-<li id="li-99">Solve larger systems with the help of a computer algebra package (Sage).</li>
+<li id="li-120">Solve larger systems with the help of a computer algebra package (Sage).</li>
 </ul></section><section class="subsection" id="subsection-27"><header title="Subsection  Discussion: Elimination for Solving Systems of Linear Equations"><h1 class="heading hide-type" alt="Subsection  Discussion: Elimination for Solving Systems of Linear Equations">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Elimination for Solving Systems of Linear Equations</span>
-</h1></header><p id="p-126">
+</h1></header><p id="p-116">
         Now we begin the process of learning how to solve a system of linear
         equations systematically through a process called <em class="terminology">elimination</em>.
       </p>
 <section class="subsubsection" id="subsubsection-10"><header title="Subsubsection  Some terminology"><h1 class="heading hide-type" alt="Subsubsection  Some terminology">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Some terminology</span>
-</h1></header><p id="p-127">A typical system looks something like this:
+</h1></header><p id="p-117">A typical system looks something like this:
           \begin{equation*}
             \left\{ \begin{array}{rrrrrrrr}
                   3 x_1 &amp; +&amp;  2 x_2 &amp; - &amp; \pi x_3 &amp; = &amp; 0 \\
@@ -181,19 +181,19 @@ MathJax.Hub.Config({
           which makes all of the equations true simultaneously, we call that
           vector a <em class="terminology">solution</em>.
         </p>
-<p id="p-128">
+<p id="p-118">
           Keep in mind that the process involves eliminating instances of the
           variable below <em class="terminology">pivots</em>. Strang describes the process
           pretty well, and gives good examples. What Strang describes in this
           section is sometimes called <em class="terminology">the forward pass</em> elimination.
         </p>
-<p id="p-129">
+<p id="p-119">
           Watch out for situations which are <em class="terminology">singular</em> in that they
           have fewer pivots than unknowns. A system is called
           <em class="terminology">non-singular</em> if it has as many pivots as unknowns.
         </p></section><section class="subsubsection" id="subsubsection-11"><header title="Subsubsection  Keeping track of things"><h1 class="heading hide-type" alt="Subsubsection  Keeping track of things">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Keeping track of things</span>
-</h1></header><p id="p-130">
+</h1></header><p id="p-120">
           Playing with all of the equations is nice, but all that really
           matters is the collection of coefficients, and the numbers on the
           right hand sides of the equal signs. Experienced solvers get tired
@@ -210,26 +210,26 @@ MathJax.Hub.Config({
           matrix, without losing any of the essential information.
         </p></section></section><section class="subsection" id="subsection-28"><header title="Subsection  Sage and Row Operations"><h1 class="heading hide-type" alt="Subsection  Sage and Row Operations">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Row Operations</span>
-</h1></header><p id="p-131">
+</h1></header><p id="p-121">
         The process of elimination for systems of equations involves performing
         operations on the equations. When translated to matrix form, it involves
         operations on the rows of the coefficient matrix. The corresponding
         matrix methods come in two types.
       </p>
-<p id="p-132">
+<p id="p-122">
         The first type of method modifies the matrix “in place”, which means
         that it <!--Style me with CSS--><em>Changes the input matrix</em>.
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-100">
+<li id="li-121">
 <tt class="code-inline" style="color: red; font-size: 120%">A.rescale_row(r, num)</tt> multiplies row <tt class="code-inline" style="color: red; font-size: 120%">r</tt> by the factor of <tt class="code-inline" style="color: red; font-size: 120%">num</tt>.</li>
-<li id="li-101">
+<li id="li-122">
 <tt class="code-inline" style="color: red; font-size: 120%">A.swap_rows(r1, r2)</tt> switches the places of rows <tt class="code-inline" style="color: red; font-size: 120%">r1</tt> and <tt class="code-inline" style="color: red; font-size: 120%">r2</tt>.</li>
-<li id="li-102">
+<li id="li-123">
 <tt class="code-inline" style="color: red; font-size: 120%">A.add_multiple_of_row(target, useful, num)</tt>. This adds <tt class="code-inline" style="color: red; font-size: 120%">num</tt>
           times row <tt class="code-inline" style="color: red; font-size: 120%">useful</tt> to row <tt class="code-inline" style="color: red; font-size: 120%">target</tt>.</li>
 </ul>
-<p id="p-133">
+<p id="p-123">
         Throughout, please remember that Sage uses \(0\)-based indexing! So
         the rows are labeled <tt class="code-inline" style="color: red; font-size: 120%">0, 1, 2, ...</tt>
       </p>
@@ -247,21 +247,21 @@ A # this should add 4 times row 2 to row 2
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.rescale_row(2,-1/17); A
 </script></div>
-<p id="p-134">
+<p id="p-124">
         This just did the whole process of <em class="terminology">forward pass elimination</em>.
         (Well, we did a bit more than Strang would. He wouldn't rescale the rows.)
       </p>
-<p id="p-135">
+<p id="p-125">
         Sometimes you do not want to change the matrix <tt class="code-inline" style="color: red; font-size: 120%">A</tt>. If instead, you
         want to leave <tt class="code-inline" style="color: red; font-size: 120%">A</tt> alone, you can use these methods, which return
         a new object and do not change <tt class="code-inline" style="color: red; font-size: 120%">A</tt>.
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-103"><tt class="code-inline" style="color: red; font-size: 120%">A.with_rescaled_row(r, num)</tt></li>
-<li id="li-104"><tt class="code-inline" style="color: red; font-size: 120%">A.with_swapped_rows(r1, r2)</tt></li>
-<li id="li-105"><tt class="code-inline" style="color: red; font-size: 120%">A.with_added_multiple_of_row(t, u, num)</tt></li>
+<li id="li-124"><tt class="code-inline" style="color: red; font-size: 120%">A.with_rescaled_row(r, num)</tt></li>
+<li id="li-125"><tt class="code-inline" style="color: red; font-size: 120%">A.with_swapped_rows(r1, r2)</tt></li>
+<li id="li-126"><tt class="code-inline" style="color: red; font-size: 120%">A.with_added_multiple_of_row(t, u, num)</tt></li>
 </ul>
-<p id="p-136">
+<p id="p-126">
         Let's do the same operations as above, but without changing <tt class="code-inline" style="color: red; font-size: 120%">A</tt>.
         This will mean making a bunch of new matrices. In fact, let's also change
         the name of our matrix to <tt class="code-inline" style="color: red; font-size: 120%">B</tt>
@@ -280,7 +280,7 @@ B4 # this should add 4 times row 2 to row 2
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">B5 = B4.with_rescaled_row(2,-1/17); B5
 </script></div>
-<p id="p-137">
+<p id="p-127">
         This second option has some advantages. At any point, you can revise your
         work, because the original matrix is still in memory, and so are all of
         the intermediate steps. Let's display all six of the matrices at once to
@@ -308,13 +308,13 @@ B4 # this should add 4 times row 2 to row 2
         </article><article class="example-like" id="task-29"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">29</span><span class="title"></span>
 </h5>
-<p id="p-138">
+<p id="p-128">
             <!--Style me with CSS--><em>(Sage Exercise)</em>:
             Because the last system can be transformed in two operations, there
             are three equivalent systems generated through the process
             (the original, the intermediate, and the final).
           </p>
-<p id="p-139">
+<p id="p-129">
             Make row picture plots for each of the three systems. [Hint: Sage]
             How do the operations transform the pictures?
           </p></article><article class="example-like" id="task-30"><h5 class="heading">

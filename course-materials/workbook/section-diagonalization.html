@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T16:42:26-05:00    *-->
+<!--*    on 2016-08-27T20:42:24-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,35 +140,35 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-131"><header title="Subsection  The assignment"><h1 class="heading hide-type" alt="Subsection  The assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-427"> Read section 6.2 of Strang (pages 298-307).</li>
-<li id="li-428"> Read the following.</li>
-<li id="li-429"> Prepare the items below for presentation.</li>
+<li id="li-448"> Read section 6.2 of Strang (pages 298-307).</li>
+<li id="li-449"> Read the following.</li>
+<li id="li-450"> Prepare the items below for presentation.</li>
 </ul></section><section class="subsection" id="subsection-132"><header title="Subsection  Diagonalizing Matrices"><h1 class="heading hide-type" alt="Subsection  Diagonalizing Matrices">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Diagonalizing Matrices</span>
-</h1></header><p id="p-519">
+</h1></header><p id="p-509">
       The big result here is this:
     </p>
 <article class="theorem-like" id="theorem-10"><h5 class="heading">
-<span class="type">Theorem</span><span class="codenumber">6.2.1</span>
+<span class="type">Theorem</span><span class="codenumber">6.1</span>
 </h5>
         Let \(A\) be an \(n\times n\) square matrix. Then the following
         two conditions are equivalent:
         <ul style="list-style-type: disc;">
-<li id="li-430">
+<li id="li-451">
             There is a basis \(\beta= \{ v_1, v_2, \ldots, v_n \}\) for
             \(\mathbb{R}^n\) consisting of eigenvectors for \(A\).
           </li>
-<li id="li-431">
+<li id="li-452">
             It is possible to find an invertible matrix \(S\) so that
             \(A = S \Lambda S^{-1}\), where \(\Lambda\) is a diagonal
             matrix whose entries are the eigenvalues of \(A\).
           </li>
-</ul></article><p id="p-520">
+</ul></article><p id="p-510">
       The connection between the two conditions is that the matrix \(S\) has
       as its columns the eigenvectors of \(A\). (In fact, that is really the
       heart of the proof of this theorem. The rest is just details.)
     </p>
-<p id="p-521">
+<p id="p-511">
       If a matrix satisfies these two conditions, then we say it is
       <em class="terminology">diagonalizable</em>. We should note right away that not all
       matrices are diagonalizable. We have already seen examples of matrices
@@ -177,7 +177,7 @@ MathJax.Hub.Config({
       \(A = \left( \begin{smallmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{smallmatrix}\right)\).
       In this case, it becomes impossible to find a basis consisting of eigenvectors.
     </p>
-<p id="p-522">
+<p id="p-512">
       In a way, this allows us to see something interesting: maybe a matrix
       really wants to be a diagonal matrix, but we are looking at the
       transformation \(A\) using “the wrong basis.” By wrong, here I
@@ -185,14 +185,14 @@ MathJax.Hub.Config({
       one makes our lives easier.
     </p></section><section class="subsection" id="subsection-133"><header title="Subsection  Sage and Diagonalization"><h1 class="heading hide-type" alt="Subsection  Sage and Diagonalization">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Diagonalization</span>
-</h1></header><p id="p-523">
+</h1></header><p id="p-513">
       Sage has built-in commands about diagonalization. We shall try a few out here.
       We need a matrix to play with, so we take this one:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A = matrix(AA, 3,3, [1,2,3,4,5,6,7,8,-1])
 A.rank()
 </script></div>
-<p id="p-524">
+<p id="p-514">
       We chose to define this matrix over AA because we need to find
       roots of polynomials when looking for eigenvalues. AA is the
       set of <em class="terminology">algebraic numbers</em>, which just means the collection of
@@ -200,13 +200,13 @@ A.rank()
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.is_diagonalizable()
 </script></div>
-<p id="p-525">
+<p id="p-515">
       Sage has a command for finding the eigenvector decomposition
       \(A = S\Lambda S^{-1}\).
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.eigenmatrix_right()
 </script></div>
-<p id="p-526">
+<p id="p-516">
       As you see, Sage returns a pair of matrices. One of them is diagonal, so that
       is probably \(\Lambda\). We'll use tuple unpacking to assign the matrices to
       sensible names.
@@ -217,13 +217,13 @@ A.rank()
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">S
 </script></div>
-<p id="p-527">
+<p id="p-517">
       Note that \(S\) has the eigenvectors of \(A\) as its columns, and the
       corresponding eigenvalues are lined up as the diagonal entries of \(\Lambda\).
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.eigenvectors_right()
 </script></div>
-<p id="p-528">Anyway, now we can check that everything lines up correctly:</p>
+<p id="p-518">Anyway, now we can check that everything lines up correctly:</p>
 <div class="sagecell-sage"><script type="text/x-sage">S * Lambda * S.inverse()
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">S * Lambda * S.inverse() == A
@@ -232,7 +232,7 @@ A.rank()
 </h1></header><article class="example-like" id="task-154"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">154</span><span class="title"></span>
 </h5>
-<p id="p-529">
+<p id="p-519">
           Let \(e_1, e_2, e_3\) be the standard basis of \(\mathbb{R}^3\):
           \begin{equation*}
             e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
@@ -248,12 +248,12 @@ A.rank()
           How do you know that the set \(\{ Se_1, Se_2, Se_3 \}\) is a basis
           for \(\mathbb{R}^3\)?
         </p>
-<p id="p-530">
+<p id="p-520">
           What is the connection between \(Se_1\), \(Se_2\), \(Se_3\),
           \(S^{-1}v_1\), \(S^{-1}v_2\), \(S^{-1}v_3\) and the original
           vectors \(e_1, e_2, e_3, v_1, v_2, v_3\)?
         </p>
-<p id="p-531">
+<p id="p-521">
           Finally, how do we use this to understand the way that the decomposition
           \(A = S\Lambda S^{-1}\) works?
         </p></article><article class="example-like" id="task-155"><h5 class="heading">
