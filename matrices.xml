@@ -15,6 +15,11 @@
 
     <ul>
       <li>Read <em>Strang</em> section 1.3 (pages 22-27).</li>
+      <li>
+        Watch another entry from the YouTube video series
+        <em>Essence of Linear Algebra</em>
+        by <em>3Blue1Brown</em>
+      </li>
       <li>Read the following and complete the exercises below.</li>
     </ul>
 
@@ -210,12 +215,12 @@
   </subsection>
 
   <subsection>
-    <title>Sage and Matrices</title>
+    <title>SageMath and Matrices</title>
 
     <p>
-      Sage has many useful commands for working with linear algebra, and
+      SageMath has many useful commands for working with linear algebra, and
       given the central role played by matrices in this subject, there are
-      lots of things Sage can do with matrices. We'll focus here on just basic
+      lots of things SageMath can do with matrices. We'll focus here on just basic
       construction and matrix--vector multiplication.
     </p>
 
@@ -267,11 +272,11 @@
         The notation <c>ZZ</c> means "integers." There are other sets of numbers
         here:
         <ul>
-          <li><c>QQ</c> the rational numbers (with exact arithmetic)</li>
-          <li><c>RR</c> the real numbers (with computer precision arithmetic)</li>
-          <li><c>CC</c> the complex numbers</li>
+          <li><c>QQ</c> the rational numbers (with exact arithmetic),</li>
+          <li><c>RR</c> the real numbers (with computer precision arithmetic),</li>
+          <li><c>CC</c> the complex numbers,</li>
           <li><c>AA</c> the set of all algebraic numbers, that is, all of the
-            numbers that are roots of some polynomial with integer coefficients
+            numbers that are roots of some polynomial with integer coefficients.
           </li>
         </ul>
         You can find out what kind of entries a matrix thinks it has by calling the
@@ -319,7 +324,7 @@
         </output>
       </sage>
       <p>
-        Sage prefers rows. I wish it were the other way, but I am sure there is
+        SageMath prefers rows. I wish it were the other way, but I am sure there is
         a good reason it prefers rows. If you want to make a matrix whose columns
         are the vectors <c>v1</c> and <c>v2</c>, you can use the
         <c>transpose</c> method. We'll talk more about the operation of transpose
@@ -340,7 +345,7 @@
       <title>Matrix action on vectors</title>
 
       <p>
-        Of course, Sage knows how to perform the action of a matrix on a vector.
+        Of course, SageMath knows how to perform the action of a matrix on a vector.
       </p>
       <sage>
         <input>
@@ -381,7 +386,7 @@
           TypeError: unsupported operand parent(s) for '*': 'Full MatrixSpace of 2 by 3 dense matrices over Integer Ring' and 'Ambient free module of rank 2 over the principal ideal domain Integer Ring'
         </output>
       </sage>
-      <p>If you really need it, Sage can tell you about inverses.</p>
+      <p>If you really need it, SageMath can tell you about inverses.</p>
       <sage>
         <input>
           A.is_invertible()
@@ -416,35 +421,22 @@
     <task>
       <statement>
         <p>
-          Make an example of a matrix <m>\left(\begin{smallmatrix} 1 &amp;
-          \bullet \\ -1 &amp; \bullet \end{smallmatrix}\right)</m> so that the
-          equation<me>
-          \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
-          \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
-          \end{pmatrix}
-          </me>
-          has exactly one solution, or explain why this is not possible.
-        </p>
-        <p>
-          Interpret this as a statement about <m>2</m>-vectors and draw the
-          picture which corresponds.
-        </p>
-      </statement>
-    </task>
-
-    <task>
-      <statement>
-        <p>
-          Make an example of a matrix <m>\left(\begin{smallmatrix} 4 &amp;
-          8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp;
-          \bullet \end{smallmatrix}\right)</m> so that the equation<me>
-            \begin{pmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp; \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
-          </me>
-          has exactly one solution, or explain why this is not possible.
-        </p>
-        <p>
-          Interpret this as a statment about <m>3</m>-vectors and draw the
-          picture which corresponds.
+          <ol>
+            <li>
+              Make an example of a matrix <m>\left(\begin{smallmatrix} 1 &amp;
+              \bullet \\ -1 &amp; \bullet \end{smallmatrix}\right)</m> so that the
+              equation<me>
+              \begin{pmatrix} 1 &amp; \bullet \\ -1 &amp; \bullet \end{pmatrix}
+              \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ -1
+              \end{pmatrix}
+              </me>
+              has exactly one solution, or explain why this is not possible.
+            </li>
+            <li>
+              Interpret this as a statement about <m>2</m>-vectors and draw the
+              picture which corresponds.
+            </li>
+          </ol>
         </p>
       </statement>
     </task>
@@ -452,36 +444,20 @@
     <task>
       <statement>
         <p>
-          Make an example of a matrix <m>\left( \begin{smallmatrix} 2 &amp; -1 \\
-          \bullet &amp; \bullet \end{smallmatrix}\right)</m> so that the equation<me>
-            \begin{pmatrix} 2 &amp; -1 \\ \bullet &amp; \bullet \end{pmatrix}
-            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3
-            \end{pmatrix}
-          </me>
-          has exactly one solution, or explain why this is not possible.
-        </p>
-        <p>
-          Interpret this as a statement about a pair of lines in the plane and
-          draw the picture which corresponds.
-        </p>
-      </statement>
-    </task>
-
-    <task>
-      <statement>
-        <p>
-          Make an example of a matrix <m>\left( \begin{smallmatrix} 1 &amp; 0
-          &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet &amp; \bullet &amp; \bullet
-          \end{smallmatrix}\right)</m> so that the equation<me>
-            \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet
-            &amp; \bullet &amp; \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z
-            \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
-          </me>
-          has no solutions, or explain why this is not possible.
-        </p>
-        <p>
-          Interpret this as a statement about a planes in space and
-          draw the picture which corresponds.
+          <ol>
+            <li>
+              Make an example of a matrix <m>\left(\begin{smallmatrix} 4 &amp;
+              8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp;
+              \bullet \end{smallmatrix}\right)</m> so that the equation<me>
+                \begin{pmatrix} 4 &amp; 8 &amp; \bullet \\ 3 &amp; 6 &amp; \bullet \\ 1 &amp; 2 &amp; \bullet \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ 6 \\ 2 \end{pmatrix}
+              </me>
+              has exactly one solution, or explain why this is not possible.
+            </li>
+            <li>
+              Interpret this as a statment about <m>3</m>-vectors and draw the
+              picture which corresponds.
+            </li>
+          </ol>
         </p>
       </statement>
     </task>
@@ -489,38 +465,21 @@
     <task>
       <statement>
         <p>
-          Find a triple of numbers <m>x</m>, <m>y</m>, and <m>z</m> so that the
-          linear combination<me>
-            x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} +
-            y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} +
-            z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
-          </me>
-          yields the zero vector, or explain why this is not possible.
-        </p>
-        <p>
-          Rewrite the above as an equation which involves a matrix.
-        </p>
-        <p>
-          Plot the three vectors and describe the geometry of the situation.
-        </p>
-      </statement>
-    </task>
-
-    <task>
-      <statement>
-        <p>
-          The vectors<me>
-            r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
-            r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
-            r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
-          </me>
-          are linearly dependent because they lie in a common plane (through
-          the origin). Find a normal vector to this plane.
-        </p>
-        <p>
-          Since the vectors are linearly dependent, there must be (infinitely)
-          many choices of scalars <m>x</m>, <m>y</m>, and <m>z</m> so that
-          <m>x r_1 + y r_2 + z r_3 = 0</m>. Find two sets of such numbers.
+          <ol>
+            <li>
+              Make an example of a matrix <m>\left( \begin{smallmatrix} 2 &amp; -1 \\
+              \bullet &amp; \bullet \end{smallmatrix}\right)</m> so that the equation<me>
+                \begin{pmatrix} 2 &amp; -1 \\ \bullet &amp; \bullet \end{pmatrix}
+                \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 7 \\ 3
+                \end{pmatrix}
+              </me>
+              has exactly one solution, or explain why this is not possible.
+            </li>
+            <li>
+              Interpret this as a statement about a pair of lines in the plane and
+              draw the picture which corresponds.
+            </li>
+          </ol>
         </p>
       </statement>
     </task>
@@ -528,27 +487,22 @@
     <task>
       <statement>
         <p>
-          Consider the equation<me>
-            \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
-            \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2
-            \end{pmatrix}.
-          </me>
-          We are interested in being able to solve this for <m>x</m> and <m>y</m>
-          for any given choice of the numbers <m>b_1</m> and <m>b_2</m>.
-          Figure out a way to do this by writing <m>x</m> and <m>y</m> in terms
-          of <m>b_1</m> and <m>b_2</m>.
-        </p>
-        <p>
-          Rewrite your solution in the form<me>
-            \begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix}
-            \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet
-            \\ \bullet \end{pmatrix}.
-          </me>
-        </p>
-        <p>
-          How is this related to the inverse of the matrix
-          <m>A = \left( \begin{smallmatrix} 2 &amp; 1 \\ 1 &amp; 1
-          \end{smallmatrix} \right)</m>?
+          <ol>
+            <li>
+              Make an example of a matrix <m>\left( \begin{smallmatrix} 1 &amp; 0
+              &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet &amp; \bullet &amp; \bullet
+              \end{smallmatrix}\right)</m> so that the equation<me>
+                \begin{pmatrix} 1 &amp; 0 &amp; 1\\ 1 &amp; 1 &amp; 3 \\ \bullet
+                &amp; \bullet &amp; \bullet \end{pmatrix}\begin{pmatrix} x \\ y \\ z
+                \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+              </me>
+              has no solutions, or explain why this is not possible.
+            </li>
+            <li>
+              Interpret this as a statement about a planes in space and
+              draw the picture which corresponds.
+            </li>
+          </ol>
         </p>
       </statement>
     </task>
@@ -556,22 +510,108 @@
     <task>
       <statement>
         <p>
-          Find an example of a number <m>c</m> and a vector <m>\left(
-          \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)</m>
-          so that the equation<me>
-            \begin{pmatrix} 3 &amp; 51 \\ c &amp; 17 \end{pmatrix}
-            \begin{pmatrix} x \\ y \end{pmatrix} =
-            \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
-          </me>
-          does not have a solution, or explain why no such example exists.
+          <ol>
+            <li>
+              Find a triple of numbers <m>x</m>, <m>y</m>, and <m>z</m> so that the
+              linear combination<me>
+                x \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} +
+                y \begin{pmatrix} 4 \\ 5\\ 6 \end{pmatrix} +
+                z \begin{pmatrix} 7 \\ 8 \\ 9 \end{pmatrix}
+              </me>
+              yields the zero vector, or explain why this is not possible.
+            </li>
+            <li>
+              Rewrite the above as an equation which involves a matrix.
+            </li>
+            <li>
+              Plot the three vectors (use SageMath!) and describe the geometry of the situation.
+            </li>
+          </ol>
         </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
         <p>
-          Explain your solution in terms of
-          <ul>
-            <li>lines in the plane,</li>
-            <li><m>2</m>-vectors and linear combinations, and</li>
-            <li>invertibility of a matrix.</li>
-          </ul>
+          <ol>
+            <li>
+              The vectors<me>
+                r_1 = \begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix}, \qquad
+                r_2 = \begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}, \quad \text{ and } \quad
+                r_3 = \begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix}
+              </me>
+              are linearly dependent because they lie in a common plane (through
+              the origin). Find a normal vector to this plane.
+            </li>
+            <li>
+              Since the vectors are linearly dependent, there must be (infinitely)
+              many choices of scalars <m>x</m>, <m>y</m>, and <m>z</m> so that
+              <m>x r_1 + y r_2 + z r_3 = 0</m>. Find two different sets of such numbers.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          This task is a good challenge, and we just might have time to talk about it
+          in class. In any case, we will come back to it for our review day.
+          <ol>
+            <li>
+              Consider the equation<me>
+                \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
+                \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} b_1 \\ b_2
+                \end{pmatrix}.
+              </me>
+              We are interested in being able to solve this for <m>x</m> and <m>y</m>
+              for any given choice of the numbers <m>b_1</m> and <m>b_2</m>.
+              Figure out a way to do this by writing <m>x</m> and <m>y</m> in terms
+              of <m>b_1</m> and <m>b_2</m>.
+            </li>
+            <li>
+              Rewrite your solution in the form<me>
+                \begin{pmatrix} x \\ y \end{pmatrix} = b_1 \begin{pmatrix}
+                \bullet \\ \bullet\end{pmatrix} + b_2 \begin{pmatrix}  \bullet
+                \\ \bullet \end{pmatrix}.
+              </me>
+            </li>
+            <li>
+              How is this related to the inverse of the matrix
+              <m>A = \left( \begin{smallmatrix} 2 &amp; 1 \\ 1 &amp; 1
+              \end{smallmatrix} \right)</m>?
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>Here's an extra challenge that we won't have time to get to in our
+          first meeting for sure, but I hope to return to later:
+          <ol>
+            <li>
+              Find an example of a number <m>c</m> and a vector <m>\left(
+              \begin{smallmatrix} b_1 \\ b_2 \end{smallmatrix}\right)</m>
+              so that the equation<me>
+                \begin{pmatrix} 3 &amp; 51 \\ c &amp; 17 \end{pmatrix}
+                \begin{pmatrix} x \\ y \end{pmatrix} =
+                \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+              </me>
+              does not have a solution, or explain why no such example exists.
+            </li>
+            <li>
+              Explain your solution in terms of
+              <ul>
+                <li>lines in the plane,</li>
+                <li><m>2</m>-vectors and linear combinations, and</li>
+                <li>invertibility of a matrix.</li>
+              </ul>
+            </li>
+          </ol>
         </p>
       </statement>
     </task>
