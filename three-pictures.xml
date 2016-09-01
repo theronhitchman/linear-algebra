@@ -20,9 +20,9 @@
       <li>
         Watch another video of <em>Essence of Linear Algebra</em> by YouTube user
         <em>3Blue1Brown</em>. I suggest
-        <a href="https://www.youtube.com/watch?v=kYB8IZa5AuE&index=4&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">
-          Chapter 3<a>, if you haven't watched it, yet. Maybe rewatch it if you have already seen it.
-        </a>
+        <a href="https://www.youtube.com/watch?v=kYB8IZa5AuE">Chapter 3</a>, if
+        you haven't watched it, yet. Maybe rewatch it if you have already seen it.
+      </li>
       <li>
         Read the following and complete the exercises below
       </li>
@@ -105,7 +105,7 @@
         us to compute a new vector <m>T_A(v) = Av</m> of size <m>m</m>. This is
         the basic example of what professionals call a <term>linear
         transformation</term>.<md>
-        <mrow>\mathbb{R}^m &amp; \xrightarrow[]{T_A} \mathbb{R}^n</mrow>
+        <mrow>\mathbb{R}^n &amp; \xrightarrow[]{T_A} \mathbb{R}^m</mrow>
         <mrow>v &amp; \xmapsto[]{\phantom{T_A}} Av.</mrow></md>
         One of our long term goals is to learn to think about the geometry
         of linear algebra from this viewpoint, too.
@@ -129,8 +129,8 @@
       Let's start with a simple situation where the matrix equation is
       <me>
         \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
-        \begin{pmatrix} x &amp; y \end{pmatrix} =
-        \begin{pmatrix} 3 &amp; 4 \end{pmatrix}.
+        \begin{pmatrix} x \\ y \end{pmatrix} =
+        \begin{pmatrix} 3 \\ 4 \end{pmatrix}.
       </me>
     </p>
     <sage>
@@ -198,10 +198,11 @@
       This is an example of the a column picture.
     </p>
     <p>
-      One can also pull out the rows with corresponding <c>.row()</c> methods.
-      And if you
+      One can also pull out the rows with corresponding <c>.rows()</c> and
+      <c>.row()</c> methods. And if you
       recall the way that matrix multiplication works if you think of rows, you
-      can make a row picture.
+      can make a row picture. Note that now the "variable vector" <c>X</c> we made
+      above helps us out here.
     </p>
     <sage>
       <input>
@@ -299,11 +300,20 @@
 
     <task>
       <statement>
-        Find an example of a vector <m>b</m> so that the equation<me>
+        Consider the matrix equation <me>
           \begin{pmatrix} -1 &amp; 2 \\ 5 &amp; -9 \end{pmatrix} v = b
-        </me>
-        has no solution <m>v</m>, or explain why it is impossible to find
-        such an example.
+        .</me>
+        <ol>
+          <li>
+            What shape of vectors must <m>v</m> and <m>b</m> be so that this
+            equation makes any sense?
+          </li>
+          <li>
+            Find an example of a vector <m>b</m> of the correct size so that the
+            equation has no solution <m>v</m>, or explain why it is impossible to find
+            such an example.
+          </li>
+        </ol>
       </statement>
     </task>
 
