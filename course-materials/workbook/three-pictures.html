@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:23-05:00    *-->
+<!--*    on 2016-09-01T10:20:07-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -144,6 +144,12 @@ MathJax.Hub.Config({
         Read section 2.1 of <!--Style me with CSS--><em>Strang</em> (pages 31-40).
       </li>
 <li id="li-99">
+        Watch another video of <!--Style me with CSS--><em>Essence of Linear Algebra</em> by YouTube user
+        <!--Style me with CSS--><em>3Blue1Brown</em>. I suggest
+        Chapter 3, if
+        you haven't watched it, yet. Maybe rewatch it if you have already seen it.
+      </li>
+<li id="li-100">
         Read the following and complete the exercises below
       </li>
 </ul></section><section class="subsection" id="subsection-21"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
@@ -152,30 +158,30 @@ MathJax.Hub.Config({
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-100">Translate back and forth between the three algebraic representations:
+<li id="li-101">Translate back and forth between the three algebraic representations:
         <ul style="list-style-type: circle;">
-<li id="li-101">
+<li id="li-102">
             A system of linear equations.
           </li>
-<li id="li-102">
+<li id="li-103">
             An equation involving a linear combination of vectors.
           </li>
-<li id="li-103">
+<li id="li-104">
             A matrix equation.
           </li>
 </ul>
 </li>
-<li id="li-104">
-        Can write down the \(n \times n\)<em class="terminology">identity matrix</em>.
+<li id="li-105">
+        Write down the \(n \times n\)<em class="terminology">identity matrix</em>.
       </li>
 </ul>
 <p id="p-100">
       Sometime in the near future, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-105">Given a system, interpret and plot the “row picture”.</li>
-<li id="li-106">Given a system, interpret and plot the “column picture”.</li>
-<li id="li-107">Use a matrix as a model of a <em class="terminology">transformation</em>, including stating
+<li id="li-106">Given a system, interpret and plot the “row picture”.</li>
+<li id="li-107">Given a system, interpret and plot the “column picture”.</li>
+<li id="li-108">Use a matrix as a model of a <em class="terminology">transformation</em>, including stating
         the <em class="terminology">domain</em> and the <em class="terminology">range</em>.</li>
 </ul></section><section class="subsection" id="subsection-22"><header title="Subsection  Discussion"><h1 class="heading hide-type" alt="Subsection  Discussion">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion</span>
@@ -207,18 +213,18 @@ MathJax.Hub.Config({
         the synonyms <em class="terminology">mapping</em> or <em class="terminology">transformation</em>, too.)
         For every vector \(v\) of size \(n\), the matrix \(A\) allows
         us to compute a new vector \(T_A(v) = Av\) of size \(m\). This is
-        the basic example of what we will eventually call a <em class="terminology">linear
+        the basic example of what professionals call a <em class="terminology">linear
         transformation</em>.\begin{align*}
-\mathbb{R}^m &amp; \xrightarrow[]{T_A} \mathbb{R}^n\\
+\mathbb{R}^n &amp; \xrightarrow[]{T_A} \mathbb{R}^m\\
 v &amp; \xmapsto[]{\phantom{T_A}} Av.
 \end{align*}
-        One of our long term goals is to find a way to think about the geometry
+        One of our long term goals is to learn to think about the geometry
         of linear algebra from this viewpoint, too.
-      </p></section></section><section class="subsection" id="subsection-23"><header title="Subsection  Sage and Plotting for Linear Algebra"><h1 class="heading hide-type" alt="Subsection  Sage and Plotting for Linear Algebra">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Plotting for Linear Algebra</span>
-</h1></header><p id="p-106">There are a few new Sage commands that might be useful here. We have
+      </p></section></section><section class="subsection" id="subsection-23"><header title="Subsection  SageMath and Plotting for Linear Algebra"><h1 class="heading hide-type" alt="Subsection  SageMath and Plotting for Linear Algebra">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and Plotting for Linear Algebra</span>
+</h1></header><p id="p-106">There are a few new SageMath commands that might be useful here. We have
       already seen how to take linear equations and turn them into vectors
-      and then turn the vector equation into a matrix equation. But Sage can
+      and then turn the vector equation into a matrix equation. But SageMath can
       help us move in the other direction, too.
     </p>
 <p id="p-107">
@@ -226,8 +232,8 @@ v &amp; \xmapsto[]{\phantom{T_A}} Av.
       Let's start with a simple situation where the matrix equation is
       \begin{equation*}
         \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}
-        \begin{pmatrix} x &amp; y \end{pmatrix} =
-        \begin{pmatrix} 3 &amp; 4 \end{pmatrix}.
+        \begin{pmatrix} x \\ y \end{pmatrix} =
+        \begin{pmatrix} 3 \\ 4 \end{pmatrix}.
       \end{equation*}
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 2,2, [2,1,1,1]); A
@@ -238,7 +244,7 @@ X = vector([x,y]); X
 <div class="sagecell-sage"><script type="text/x-sage">b = vector([3,4]); b
 </script></div>
 <p id="p-108">
-      To get Sage to pull out the columns, we can use the <tt class="code-inline" style="color: red; font-size: 120%">.columns()</tt>
+      To get SageMath to pull out the columns, we can use the <tt class="code-inline" style="color: red; font-size: 120%">.columns()</tt>
       method. If we want just one column, we can use the <tt class="code-inline" style="color: red; font-size: 120%">.column()</tt> method,
       but then we have to remember to specify which column we want.
     </p>
@@ -247,12 +253,12 @@ X = vector([x,y]); X
 <div class="sagecell-sage"><script type="text/x-sage">A.column(1)
 </script></div>
 <p id="p-109">
-      <!--Style me with CSS--><em>Big important note:</em> Sage always numbers lists starting with zero.
+      <!--Style me with CSS--><em>Big important note:</em> SageMath always numbers lists starting with zero.
       so the first element of every list is the \(0\) entry, and the second
       element is the \(1\) entry.
     </p>
 <p id="p-110">
-      Now it is possible to make Sage do things like this:
+      Now it is possible to make SageMath do things like this:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">column_plot = plot(A.column(0), color='red')
 column_plot+= plot(A.column(1), color='blue')
@@ -263,9 +269,11 @@ show(column_plot, figsize=5, aspect_ratio=1)
       This is an example of the a column picture.
     </p>
 <p id="p-112">
-      One can also pull out the rows with corresponding row methods. And if you
+      One can also pull out the rows with corresponding <tt class="code-inline" style="color: red; font-size: 120%">.rows()</tt> and
+      <tt class="code-inline" style="color: red; font-size: 120%">.row()</tt> methods. And if you
       recall the way that matrix multiplication works if you think of rows, you
-      can make a row picture.
+      can make a row picture. Note that now the "variable vector" <tt class="code-inline" style="color: red; font-size: 120%">X</tt> we made
+      above helps us out here.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.rows()
 </script></div>
@@ -286,65 +294,78 @@ show(row_plot, axes=True)
 </h1></header><article class="example-like" id="task-21"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">21</span><span class="title"></span>
 </h5>
-        Make an example of a system of linear equations which some students might
-        find challenging to change into an equation involving a linear combination.
-        Explain what the challenge is and how you can think clearly to overcome it.
-      </article><article class="example-like" id="task-22"><h5 class="heading">
+<p id="p-114">
+          <ol style="list-style-type: decimal;">
+<li id="li-109">
+              Make an example of a system of linear equations which some students might
+              find challenging to change into an equation involving a linear combination.
+              Explain what the challenge is and how you can think clearly to overcome it.
+            </li>
+<li id="li-110">
+              Make an example of a linear combination equation which some students might
+              find challenging to change into a system of linear equations. Explain
+              what the challenge is and how you can think clearly to overcome it.
+            </li>
+</ol>
+        </p></article><article class="example-like" id="task-22"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">22</span><span class="title"></span>
-</h5>
-        Make an example of a linear combination equation which some students might
-        find challenging to change into a system of linear equations. Explain
-        what the challenge is and how you can think clearly to overcome it.
-      </article><article class="example-like" id="task-23"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">23</span><span class="title"></span>
 </h5>
         Consider the matrix equation\begin{equation*}
         \begin{pmatrix}1 &amp; 2 &amp; 4 \\ 2 &amp; 0 &amp; 1 \end{pmatrix}
           \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -1 \\ 3
           \end{pmatrix}.
         \end{equation*}<ol style="list-style-type: decimal;">
-<li id="li-108">
+<li id="li-111">
             Draw a diagram representing the row picture of this matrix equation.
           </li>
-<li id="li-109">
+<li id="li-112">
             Draw a diagram representing the column picture of this matrix equation.
           </li>
-</ol></article><article class="example-like" id="task-24"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">24</span><span class="title"></span>
+</ol>
+        If you find the sketching to be a challenge, feel free to use SageMath to do it.
+      </article><article class="example-like" id="task-23"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">23</span><span class="title"></span>
 </h5>
         Make an example of a system of linear equations so that the
-        corresponding column picture is about linear combinations of four 2-vecs
+        corresponding column picture is about linear combinations of four 2-vectors
         becoming the zero vector.
-      </article><article class="example-like" id="task-25"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">25</span><span class="title"></span>
+      </article><article class="example-like" id="task-24"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">24</span><span class="title"></span>
 </h5>
         Find a linear combination equation so that the corresponding system of
         linear equations corresponds to finding the intersection of three lines
         in the plane.
-      </article><article class="example-like" id="task-26"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">26</span><span class="title"></span>
+      </article><article class="example-like" id="task-25"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">25</span><span class="title"></span>
 </h5>
-        Find an example of a vector \(b\) so that the equation\begin{equation*}
+        Consider the matrix equation \begin{equation*}
           \begin{pmatrix} -1 &amp; 2 \\ 5 &amp; -9 \end{pmatrix} v = b
-        \end{equation*}
-        has no solution \(v\), or explain why it is impossible to find
-        such an example.
-      </article><article class="example-like" id="task-27"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">27</span><span class="title"></span>
+        .\end{equation*}<ol style="list-style-type: decimal;">
+<li id="li-113">
+            What shape of vectors must \(v\) and \(b\) be so that this
+            equation makes any sense?
+          </li>
+<li id="li-114">
+            Find an example of a vector \(b\) of the correct size so that the
+            equation has no solution \(v\), or explain why it is impossible to find
+            such an example.
+          </li>
+</ol></article><article class="example-like" id="task-26"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">26</span><span class="title"></span>
 </h5>
         In each of the below, find an example of a matrix \(B\) which has the
         described effect.
         <ol style="list-style-type: decimal;">
-<li id="li-110">\(
+<li id="li-115">\(
               B\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix}y \\ x \end{pmatrix}
             \)</li>
-<li id="li-111">
+<li id="li-116">
             Rotates vectors through \(45^{\circ}\) counter-clockwise.
           </li>
-<li id="li-112">
-            Reflects vectors across the \(y\)axis.
+<li id="li-117">
+            Reflects vectors across the \(y\)-axis.
           </li>
-<li id="li-113">\(
+<li id="li-118">\(
               B\begin{pmatrix} x \\ y \end{pmatrix} =
               \begin{pmatrix} x+y \\ y \end{pmatrix}.
             \)</li>

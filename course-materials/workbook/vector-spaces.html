@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:23-05:00    *-->
+<!--*    on 2016-09-01T10:20:07-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,22 +140,22 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-59"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-230">Read Chapter 3 section 1 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-231">Read the following and complete the exercises below.</li>
+<li id="li-235">Read Chapter 3 section 1 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-236">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-60"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-293">Before class, a student should be able to:</p>
+</h1></header><p id="p-294">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-232">Identify the column space of a matrix.</li>
-<li id="li-233">Decide if a set in \(\mathbb{R}^n\) is a subspace or not.</li>
+<li id="li-237">Identify the column space of a matrix.</li>
+<li id="li-238">Decide if a set in \(\mathbb{R}^n\) is a subspace or not.</li>
 </ul>
-<p id="p-294">Some time after class, a student should be able to:</p>
-<ul style="list-style-type: disc;"><li id="li-234">
+<p id="p-295">Some time after class, a student should be able to:</p>
+<ul style="list-style-type: disc;"><li id="li-239">
         Use the notion of column space to decide if a given linear system has a
         solution or not.
       </li></ul></section><section class="subsection" id="subsection-61"><header title="Subsection  Discussion: Vector Spaces and Subspaces"><h1 class="heading hide-type" alt="Subsection  Discussion: Vector Spaces and Subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Vector Spaces and Subspaces</span>
-</h1></header><p id="p-295">
+</h1></header><p id="p-296">
       The key concepts in this section are those of a <em class="terminology">vector space</em>
       and of a <em class="terminology">subspace</em>. The basic idea is that a vector space is
       a kind of place where the basic operations involved in a linear
@@ -164,40 +164,40 @@ MathJax.Hub.Config({
       (addition and scalar multiplication) and we can form linear combinations
       with them that make sense.
     </p>
-<p id="p-296">
+<p id="p-297">
       The biggest thing is that we possibly enlarge the kinds of things we
       call “vectors.” To a professional mathematician, a vector is
       anything that is an element of some vector space under consideration.
       My favorites are things like this:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-235">
+<li id="li-240">
         The set \(M_{2,2}\) of \(2\times 2\) matrices is a vector space.
         But now the things we call vectors are actually matrices.
       </li>
-<li id="li-236">
+<li id="li-241">
         The set \(\mathcal{C}(\mathbb{R})\) of continuous functions with
         domain and range both equal to the set of real numbers is a vector
         space. But now the things we call vectors are actually functions.
       </li>
-<li id="li-237">
+<li id="li-242">
         The set \(\ell(\mathbb{R})\) of sequences
         \((x_1, x_2, x_3, x_4, \ldots)\) of real numbers is a vector space.
         But now the things we call vectors are actually whole infinite sequences.
       </li>
 </ul>
-<p id="p-297">
+<p id="p-298">
       In more advanced mathematics, vector spaces are extremely important. They
       show up everywhere. But for us, we will mostly stick to the family of vector
       spaces \(\mathbb{R}^n\). It will be much more important for us to understand
       subspaces.
     </p>
-<p id="p-298">
+<p id="p-299">
       The idea of a subspace is some subset, some part, of a vector space which
       is a vector space in its own right. The prototype is the \(xy\)-plane
       inside of \(\mathbb{R}^3\).
     </p>
-<p id="p-299">
+<p id="p-300">
       For now, the most important subspaces we see will be derived from
       individual matrices. Our first example is the column space of a matrix
       \(A\). If \(A\) is an \(m\times n\) matrix, then the column
@@ -208,18 +208,18 @@ MathJax.Hub.Config({
       \(\mathbb{R}\) spanned by the columns of \(A\).
     </p></section><section class="subsection" id="subsection-62"><header title="Subsection  Sage and subspaces"><h1 class="heading hide-type" alt="Subsection  Sage and subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and subspaces</span>
-</h1></header><p id="p-300">Sage allows you to construct different kinds of vector spaces. The most
+</h1></header><p id="p-301">Sage allows you to construct different kinds of vector spaces. The most
       important is the standard vector space \(\mathbb{R}^n\).
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">V = VectorSpace(QQ, 3)
 V
 </script></div>
-<p id="p-301">
+<p id="p-302">
       This is like the <tt class="code-inline" style="color: red; font-size: 120%">MatrixSpace</tt> construction we have seen before.
       <tt class="code-inline" style="color: red; font-size: 120%">V</tt> is now the collection of all vectors of size \(3\) with
       rational numbers as entries.
     </p>
-<p id="p-302">
+<p id="p-303">
       More important for us is the fact that Sage knows how to find the subspaces
       associated to matrices.
     </p>
@@ -228,7 +228,7 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.column_space()
 </script></div>
-<p id="p-303">
+<p id="p-304">
       Note that Sage gives information in terms of a basis. We will talk about
       this concept soon.
     </p>
@@ -237,13 +237,13 @@ B
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">B.column_space()
 </script></div>
-<p id="p-304">
+<p id="p-305">
       This last bit here is interesting.
       Our original matrix has size \(2\times 3\), so the columns are \(3\)-vectors.
       But this basis is displayed as a matrix where the columns are size \(2\).
       What is going on?
     </p>
-<p id="p-305">
+<p id="p-306">
       Sage prefers to display vectors as rows! This is a big interal preference.
       We just have to get over it. Well, we have to <!--Style me with CSS--><em>remember it</em> and get over it.
       To access the basis vectors and display them as columns,
@@ -254,44 +254,44 @@ B
 <div class="sagecell-sage"><script type="text/x-sage">B.column_space().basis()[1].column() # second basis vector
 </script></div></section><section class="subsection" id="subsection-63"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-72"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">72</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-71"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">71</span><span class="title"></span>
 </h5>
         Find an example of a vector which is not in the column space of the
         matrix \begin{equation*}
         A = \begin{pmatrix} 2 &amp; 1  \\ 1 &amp; 1 \end{pmatrix},
         \end{equation*} or explain why that is not possible.
-      </article><article class="example-like" id="task-73"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">73</span><span class="title"></span>
+      </article><article class="example-like" id="task-72"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">72</span><span class="title"></span>
 </h5>
         Find an example of a vector which is not in the column space of the
         matrix \begin{equation*}
         B = \begin{pmatrix} 3 &amp; 2 \\ 6 &amp; 4 \end{pmatrix},
         \end{equation*} or explain why it is not possible.
-      </article><article class="example-like" id="task-74"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">74</span><span class="title"></span>
+      </article><article class="example-like" id="task-73"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">73</span><span class="title"></span>
 </h5>
         Let \(\mathcal{P}\) be the set of polynomials of degree 3 or less.
         Explain why \(\mathcal{P}\) is a vector space, or explain why it is not.
-      </article><article class="example-like" id="task-75"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">75</span><span class="title"></span>
+      </article><article class="example-like" id="task-74"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">74</span><span class="title"></span>
 </h5>
         Consider the vector space \(\mathbb{R}^2\). Explain why the following
         are not subspaces:
         <ul style="list-style-type: disc;">
-<li id="li-238">The unit circle.</li>
-<li id="li-239">The line \(x+y = 4\).</li>
-<li id="li-240">The union of lines \(2x+3y = 0\) and \(x-y=0\).</li>
-<li id="li-241">The first quadrant where \(x\geq 0\) and \(y\geq 0\).</li>
-</ul></article><article class="example-like" id="task-76"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">76</span><span class="title"></span>
+<li id="li-243">The unit circle.</li>
+<li id="li-244">The line \(x+y = 4\).</li>
+<li id="li-245">The union of lines \(2x+3y = 0\) and \(x-y=0\).</li>
+<li id="li-246">The first quadrant where \(x\geq 0\) and \(y\geq 0\).</li>
+</ul></article><article class="example-like" id="task-75"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">75</span><span class="title"></span>
 </h5>
         Let \(W\) be the set of functions \(f\) in
         \(\mathcal{C}(\mathbb{R})\) which satisfy the differential equation
         \(f''(x) = 0\). Decide if \(W\) is a subspace of
         \(\mathcal{C}(\mathbb{R})\), and explain your thinking.
-      </article><article class="example-like" id="task-77"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">77</span><span class="title"></span>
+      </article><article class="example-like" id="task-76"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">76</span><span class="title"></span>
 </h5>
         Design a \(2\times 3\) matrix whose column space does not contain the
         vector \(\begin{pmatrix} 4 \\ 4 \end{pmatrix}\), or explain why this is

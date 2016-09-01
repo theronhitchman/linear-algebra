@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:23-05:00    *-->
+<!--*    on 2016-09-01T10:20:07-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,37 +140,37 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-69"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-259">Read chapter 3 section 3 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-260">Read the following and do the exercises below.</li>
+<li id="li-264">Read chapter 3 section 3 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-265">Read the following and do the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-70"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-327">Before class, a student should be able to:</p>
+</h1></header><p id="p-328">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-261">State a definition of the rank of a matrix.</li>
-<li id="li-262">Compute the rank of a matrix.</li>
-<li id="li-263">Describe the relation between the rank and the size of the column
+<li id="li-266">State a definition of the rank of a matrix.</li>
+<li id="li-267">Compute the rank of a matrix.</li>
+<li id="li-268">Describe the relation between the rank and the size of the column
         space.
       </li>
-<li id="li-264">Construct the nullspace matrix associated to a matrix.</li>
+<li id="li-269">Construct the nullspace matrix associated to a matrix.</li>
 </ul>
-<p id="p-328">Some time after class, a student should be able to:</p>
-<ul style="list-style-type: disc;"><li id="li-265">Use the RREF and special solutions associated to a matrix to describe
+<p id="p-329">Some time after class, a student should be able to:</p>
+<ul style="list-style-type: disc;"><li id="li-270">Use the RREF and special solutions associated to a matrix to describe
         how free columns are linear combinations of earlier pivot columns.
       </li></ul></section><section class="subsection" id="subsection-71"><header title="Subsection  Discussion: The Rank of a Matrix"><h1 class="heading hide-type" alt="Subsection  Discussion: The Rank of a Matrix">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Rank of a Matrix</span>
-</h1></header><p id="p-329">
+</h1></header><p id="p-330">
       The new concept for this section is the <em class="terminology">rank</em> of a matrix.
       There are <!--Style me with CSS--><em>three</em> definitions of rank given in the first two
       pages of this section. It is important to know them and see that they
       are equivalent.
     </p>
-<p id="p-330">
+<p id="p-331">
       Another important part of what happens here is the realization that
       putting the matrix into reduced row echelon form, which uses <!--Style me with CSS--><em>row</em>
       operations, actually tells us something about the <!--Style me with CSS--><em>columns</em> of the
       matrix. This is kind of amazing.
     </p>
-<p id="p-331">
+<p id="p-332">
       Take a matrix \(A\) and put it into reduced row echelon form
       \(R = \mathrm{rref}(A)\). Then \(A\) and \(R\) have the same shape.
       In particular, they have the same number of columns. But in \(R\)
@@ -188,7 +188,7 @@ MathJax.Hub.Config({
         combinations of the columns to their left.
         The free columns of \(A\) are those which can be expressed as linear
         combinations of the columns to their left.
-      </article><p id="p-332">
+      </article><p id="p-333">
       How exactly can we see this? Strang uses the construction of a
       <em class="terminology">nullspace matrix</em>. The special solutions we learned about
       in the last section can be bundled together as the columns of a matrix
@@ -196,13 +196,13 @@ MathJax.Hub.Config({
       properties:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-266">\(AN = 0\); and</li>
-<li id="li-267"> Each column of \(N\) (i.e. each special solution) holds the
+<li id="li-271">\(AN = 0\); and</li>
+<li id="li-272"> Each column of \(N\) (i.e. each special solution) holds the
           coefficients needed to write down a interesting linear combination
           equation on the columns of \(A\).
         </li>
 </ul>
-<p id="p-333">
+<p id="p-334">
         Finally, please use some caution when reading through the area
         with blue boxes and equations (4) and (5) on page 147. Note that
         Strang introduces a big simplifying assumption that makes his work
@@ -210,7 +210,7 @@ MathJax.Hub.Config({
         equations won't always look so good for an arbitrary matrix.
       </p></section><section class="subsection" id="subsection-72"><header title="Subsection  Sage and the Rank"><h1 class="heading hide-type" alt="Subsection  Sage and the Rank">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Rank</span>
-</h1></header><p id="p-334">
+</h1></header><p id="p-335">
       Sage has a built-in command for the rank of a matrix. It is called
       <tt class="code-inline" style="color: red; font-size: 120%">.rank()</tt>, of course.
     </p>
@@ -219,24 +219,24 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.rank()
 </script></div>
-<p id="p-335">
+<p id="p-336">
       Sage knows how to do the underlying computations, too. Let's have Sage
       compute the reduced row echelon form of <tt class="code-inline" style="color: red; font-size: 120%">A</tt>:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.rref()
 </script></div>
-<p id="p-336">
+<p id="p-337">
       Nice! Note that this fits the “special case” form that Strang uses on
       page 147. Let's see what else it can do.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.right_kernel()
 </script></div>
-<p id="p-337">
+<p id="p-338">
       We can make Sage give us just the matrix in that last response.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.right_kernel().basis_matrix()
 </script></div>
-<p id="p-338">
+<p id="p-339">
       That is <!--Style me with CSS--><em>almost</em> Strang's version of a nullspace matrix in this case.
       Part of what we need to do is make the rows into columns. The transpose command is
       the way to do that:
@@ -244,63 +244,63 @@ A
 <div class="sagecell-sage"><script type="text/x-sage">N = A.right_kernel().basis_matrix().transpose()
 N
 </script></div>
-<p id="p-339">
+<p id="p-340">
       That is <!--Style me with CSS--><em>NOT</em> exactly Strang's nullspace matrix. But it is very close.
       In fact, it still has this crucial property:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A*N
 </script></div>
-<p id="p-340">
+<p id="p-341">
       What has happened here is that Sage constructs a <!--Style me with CSS--><em>different</em> version
       of the nullspace matrix than Strang does. Strang's version is easier to
       find by hand and tends to have \(1\)'s and \(0\)'s and the end.
       The Sage version comes from a routine that strongly prefers to
       start with \(1\)'s and \(0\)'s.
     </p>
-<p id="p-341">
+<p id="p-342">
       The two version of nullspace matrix are related, of course. Let's see how:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">E = N.matrix_from_rows([2,3]); E
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">F = N*E.inverse(); F
 </script></div>
-<p id="p-342">
+<p id="p-343">
       <!--Style me with CSS--><em>That</em> is Strang's nullspace matrix.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A*F
 </script></div>
-<p id="p-343">
+<p id="p-344">
       Where does this relationship come from? I have a hint: <!--Style me with CSS--><em>Column Operations</em>.
       How can we use the structure of matrix multiplication to see why left multiplication
       by <tt class="code-inline" style="color: red; font-size: 120%">E.inverse()</tt> performs some column operations?
     </p>
-<p id="p-344">
+<p id="p-345">
       Here is another thing to think about: where does that <tt class="code-inline" style="color: red; font-size: 120%">E</tt> come from?
       Compare <tt class="code-inline" style="color: red; font-size: 120%">A</tt> and <tt class="code-inline" style="color: red; font-size: 120%">N</tt>. Notice anything? Remember that Strang wants
       the nullspace matrix to have \(1\)'s and \(0\)'s in the free columns.
     </p></section><section class="subsection" id="subsection-73"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-84"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">84</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-83"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">83</span><span class="title"></span>
 </h5>
         Give an example of a \(5 \times 3\) matrix which has
         <ul style="list-style-type: disc;">
-<li id="li-268">rank equal to 3, and</li>
-<li id="li-269">all non-zero entries,</li>
+<li id="li-273">rank equal to 3, and</li>
+<li id="li-274">all non-zero entries,</li>
+</ul>
+        or explain why no such example is possible.
+      </article><article class="example-like" id="task-84"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">84</span><span class="title"></span>
+</h5>
+        Give an example of a \(3 \times 3\) matrix which has
+        <ul style="list-style-type: disc;">
+<li id="li-275">rank equal to 2,</li>
+<li id="li-276">a nullspace of \(\{0\}\), and</li>
+<li id="li-277">all non-zero entries,</li>
 </ul>
         or explain why no such example is possible.
       </article><article class="example-like" id="task-85"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">85</span><span class="title"></span>
-</h5>
-        Give an example of a \(3 \times 3\) matrix which has
-        <ul style="list-style-type: disc;">
-<li id="li-270">rank equal to 2,</li>
-<li id="li-271">a nullspace of \(\{0\}\), and</li>
-<li id="li-272">all non-zero entries,</li>
-</ul>
-        or explain why no such example is possible.
-      </article><article class="example-like" id="task-86"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">86</span><span class="title"></span>
 </h5>
         Consider the matrix \begin{equation*}
         A = \left( \begin{smallmatrix} 2 &amp; 1 &amp; 5 \\ 1 &amp; 1
@@ -308,8 +308,8 @@ N
         Find the reduced row echelon form \(R = \mathrm{rref}(A)\)
         of \(A\). Track the row operations you use, and use them to
         find an invertible matrix \(E\) so that \(EA = R\).
-      </article><article class="example-like" id="task-87"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">87</span><span class="title"></span>
+      </article><article class="example-like" id="task-86"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">86</span><span class="title"></span>
 </h5>
         Contine with the matrix of the last exercise. Find the null space matrix of
         \(A\). Use the information contained in the nullspace matrix to
@@ -325,8 +325,8 @@ N
           b \begin{pmatrix} 1 \\ 1 \end{pmatrix} +
           c \begin{pmatrix} 5 \\ 7 \end{pmatrix} =
           \begin{pmatrix}0\\ 0 \end{pmatrix}.
-        \end{equation*}</article><article class="example-like" id="task-88"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">88</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-87"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">87</span><span class="title"></span>
 </h5>
         Consider the matrix \(N\) given below. Make an example of two
         different matrices \(A\) and \(B\) which have different shapes
@@ -340,8 +340,8 @@ N
          2 &amp; 6 &amp;  1 \\
          0 &amp; 0 &amp;  1
         \end{pmatrix}
-        \end{equation*}</article><article class="example-like" id="task-89"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">89</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-88"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">88</span><span class="title"></span>
 </h5>
         Consider the matrix \(T = \left(\begin{smallmatrix} 2 &amp;
         1 \\ 1 &amp; 1 \end{smallmatrix}\right)\). What is the nullspace

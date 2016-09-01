@@ -1,20 +1,62 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:24-05:00    *-->
+<!--*    on 2016-09-01T10:20:08-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        Ha Ha! It all checks out. Those are the four vectors from our second
-        system. This means that we can even use a simple subsitution to rewrite
-        things. (It is not obvious at the moment why this is helpful. Hang on a
-        bit.)
+        Then the new system looks like this:
         \begin{equation*}
-          x* E\begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
-          y* E\begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
-          z* E\begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
-          E\begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+          \left\{ \begin{array}{rrrrrrr}
+          &amp;  &amp;3y &amp;+ &amp;2z &amp;= &amp;8 \\
+          x &amp;- &amp; y &amp;+ &amp; z &amp;= &amp;-1 \\
+          &amp;  &amp;5y &amp;  &amp;   &amp;= &amp;4
+          \end{array}\right.
         \end{equation*}
-        Boy, it sure would be nice if we had a compact way to write that down...
+        Let's translate that into the linear combination format:
+        \begin{equation*}
+          x \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} +
+          y \begin{pmatrix} 3 \\ -1 \\ 5 \end{pmatrix} +
+          z \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix} .
+        \end{equation*}
+        What has happened to each of the vectors? Well, in each case, we have
+        added \(-3\) times the second component to the third component.
+        We have seen that one way to change vectors into other vectors is by
+        (left-)multiplying them by matrices. Could we be so lucky that the
+        operation “add \(-3\) times the second component to the third
+        component” is representable by a matrix operation? YES. It is not
+        hard to check that the matrix we need is
+        \begin{equation*}
+          E = \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3 &amp;1 \end{pmatrix} .
+        \end{equation*}
+        In fact, let's check it now for each of the four vectors we have in our system:
+        \begin{equation*}
+          E \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix}
+          = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+        \end{equation*}
+        and
+        \begin{equation*}
+          E \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3
+          &amp;1 \end{pmatrix} \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} =
+          \begin{pmatrix} 3 \\ -1 \\ 5 \end{pmatrix}
+        \end{equation*}
+        and
+        \begin{equation*}
+          E \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 2 \\ 1 \\ 3
+          \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}
+        \end{equation*}
+        and
+        \begin{equation*}
+          E \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+          = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
+        \end{equation*}
       </p><span class="incontext"><a href="matrix-elimination.html#p-138">in-context</a></span>

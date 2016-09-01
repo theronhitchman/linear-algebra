@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:24-05:00    *-->
+<!--*    on 2016-09-01T10:20:08-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,12 +140,12 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-131"><header title="Subsection  The assignment"><h1 class="heading hide-type" alt="Subsection  The assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-448"> Read section 6.2 of Strang (pages 298-307).</li>
-<li id="li-449"> Read the following.</li>
-<li id="li-450"> Prepare the items below for presentation.</li>
+<li id="li-453"> Read section 6.2 of Strang (pages 298-307).</li>
+<li id="li-454"> Read the following.</li>
+<li id="li-455"> Prepare the items below for presentation.</li>
 </ul></section><section class="subsection" id="subsection-132"><header title="Subsection  Diagonalizing Matrices"><h1 class="heading hide-type" alt="Subsection  Diagonalizing Matrices">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Diagonalizing Matrices</span>
-</h1></header><p id="p-509">
+</h1></header><p id="p-510">
       The big result here is this:
     </p>
 <article class="theorem-like" id="theorem-10"><h5 class="heading">
@@ -154,21 +154,21 @@ MathJax.Hub.Config({
         Let \(A\) be an \(n\times n\) square matrix. Then the following
         two conditions are equivalent:
         <ul style="list-style-type: disc;">
-<li id="li-451">
+<li id="li-456">
             There is a basis \(\beta= \{ v_1, v_2, \ldots, v_n \}\) for
             \(\mathbb{R}^n\) consisting of eigenvectors for \(A\).
           </li>
-<li id="li-452">
+<li id="li-457">
             It is possible to find an invertible matrix \(S\) so that
             \(A = S \Lambda S^{-1}\), where \(\Lambda\) is a diagonal
             matrix whose entries are the eigenvalues of \(A\).
           </li>
-</ul></article><p id="p-510">
+</ul></article><p id="p-511">
       The connection between the two conditions is that the matrix \(S\) has
       as its columns the eigenvectors of \(A\). (In fact, that is really the
       heart of the proof of this theorem. The rest is just details.)
     </p>
-<p id="p-511">
+<p id="p-512">
       If a matrix satisfies these two conditions, then we say it is
       <em class="terminology">diagonalizable</em>. We should note right away that not all
       matrices are diagonalizable. We have already seen examples of matrices
@@ -177,7 +177,7 @@ MathJax.Hub.Config({
       \(A = \left( \begin{smallmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{smallmatrix}\right)\).
       In this case, it becomes impossible to find a basis consisting of eigenvectors.
     </p>
-<p id="p-512">
+<p id="p-513">
       In a way, this allows us to see something interesting: maybe a matrix
       really wants to be a diagonal matrix, but we are looking at the
       transformation \(A\) using “the wrong basis.” By wrong, here I
@@ -185,14 +185,14 @@ MathJax.Hub.Config({
       one makes our lives easier.
     </p></section><section class="subsection" id="subsection-133"><header title="Subsection  Sage and Diagonalization"><h1 class="heading hide-type" alt="Subsection  Sage and Diagonalization">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Diagonalization</span>
-</h1></header><p id="p-513">
+</h1></header><p id="p-514">
       Sage has built-in commands about diagonalization. We shall try a few out here.
       We need a matrix to play with, so we take this one:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A = matrix(AA, 3,3, [1,2,3,4,5,6,7,8,-1])
 A.rank()
 </script></div>
-<p id="p-514">
+<p id="p-515">
       We chose to define this matrix over AA because we need to find
       roots of polynomials when looking for eigenvalues. AA is the
       set of <em class="terminology">algebraic numbers</em>, which just means the collection of
@@ -200,13 +200,13 @@ A.rank()
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.is_diagonalizable()
 </script></div>
-<p id="p-515">
+<p id="p-516">
       Sage has a command for finding the eigenvector decomposition
       \(A = S\Lambda S^{-1}\).
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.eigenmatrix_right()
 </script></div>
-<p id="p-516">
+<p id="p-517">
       As you see, Sage returns a pair of matrices. One of them is diagonal, so that
       is probably \(\Lambda\). We'll use tuple unpacking to assign the matrices to
       sensible names.
@@ -217,22 +217,22 @@ A.rank()
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">S
 </script></div>
-<p id="p-517">
+<p id="p-518">
       Note that \(S\) has the eigenvectors of \(A\) as its columns, and the
       corresponding eigenvalues are lined up as the diagonal entries of \(\Lambda\).
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.eigenvectors_right()
 </script></div>
-<p id="p-518">Anyway, now we can check that everything lines up correctly:</p>
+<p id="p-519">Anyway, now we can check that everything lines up correctly:</p>
 <div class="sagecell-sage"><script type="text/x-sage">S * Lambda * S.inverse()
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">S * Lambda * S.inverse() == A
 </script></div></section><section class="subsection" id="subsection-134"><header title="Subsection  Questions for Section 6.2"><h1 class="heading hide-type" alt="Subsection  Questions for Section 6.2">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Questions for Section 6.2</span>
-</h1></header><article class="example-like" id="task-154"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">154</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-153"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">153</span><span class="title"></span>
 </h5>
-<p id="p-519">
+<p id="p-520">
           Let \(e_1, e_2, e_3\) be the standard basis of \(\mathbb{R}^3\):
           \begin{equation*}
             e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
@@ -248,32 +248,32 @@ A.rank()
           How do you know that the set \(\{ Se_1, Se_2, Se_3 \}\) is a basis
           for \(\mathbb{R}^3\)?
         </p>
-<p id="p-520">
+<p id="p-521">
           What is the connection between \(Se_1\), \(Se_2\), \(Se_3\),
           \(S^{-1}v_1\), \(S^{-1}v_2\), \(S^{-1}v_3\) and the original
           vectors \(e_1, e_2, e_3, v_1, v_2, v_3\)?
         </p>
-<p id="p-521">
+<p id="p-522">
           Finally, how do we use this to understand the way that the decomposition
           \(A = S\Lambda S^{-1}\) works?
-        </p></article><article class="example-like" id="task-155"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">155</span><span class="title"></span>
+        </p></article><article class="example-like" id="task-154"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">154</span><span class="title"></span>
 </h5>
         Exercise 1 from section 6.2 of Strang.
+      </article><article class="example-like" id="task-155"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">155</span><span class="title"></span>
+</h5>
+        Exercise 2 from section 6.2 of Strang.
       </article><article class="example-like" id="task-156"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">156</span><span class="title"></span>
 </h5>
-        Exercise 2 from section 6.2 of Strang.
+        Exercise 3 from section 6.2 of Strang.
       </article><article class="example-like" id="task-157"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">157</span><span class="title"></span>
 </h5>
-        Exercise 3 from section 6.2 of Strang.
+        Exercise 13 from section 6.2 of Strang.
       </article><article class="example-like" id="task-158"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">158</span><span class="title"></span>
-</h5>
-        Exercise 13 from section 6.2 of Strang.
-      </article><article class="example-like" id="task-159"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">159</span><span class="title"></span>
 </h5>
         Exercise 19 from section 6.2 of Strang.
       </article></section></section></div></main>

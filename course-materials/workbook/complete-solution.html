@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:23-05:00    *-->
+<!--*    on 2016-09-01T10:20:07-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,32 +140,32 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-74"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-273">Read chapter 3 section 4 of Strang.</li>
-<li id="li-274">Read the following and complete the tasks below.</li>
+<li id="li-278">Read chapter 3 section 4 of Strang.</li>
+<li id="li-279">Read the following and complete the tasks below.</li>
 </ul></section><section class="subsection" id="subsection-75"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-345">
+</h1></header><p id="p-346">
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-275">
+<li id="li-280">
         Identify a particular solution to a matrix-vector equation \(Ax=b\).
         (Provided there is one.)
       </li>
-<li id="li-276">
+<li id="li-281">
         Find the complete solution to a matrix-vector equation \(Ax=b\)
         as a parametrized object. (Provided there is one.)
       </li>
 </ul>
-<p id="p-346">
+<p id="p-347">
       After class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-277">
+<li id="li-282">
         Describe the complete solution to a matrix-vector equation \(Ax=b\)
         as an implicit object, cut out by equations.
       </li>
-<li id="li-278">
+<li id="li-283">
         Describe the possibilities for the number of solutions to a matrix-vector
         equation \(Ax=b\) in terms of the shape of the matrix.
       </li>
@@ -177,12 +177,12 @@ MathJax.Hub.Config({
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">
       Discussion: The Complete Solution to a System of Equations
     </span>
-</h1></header><p id="p-347">
+</h1></header><p id="p-348">
       This is the big day! We finally learn how to write out the general
       solution to a system of linear equations. We have spent so much time
       understanding things related to this, that it should go pretty quickly.
     </p>
-<p id="p-348">
+<p id="p-349">
       The tiny little facts underneath the analysis for this section are
       these: For a matrix \(A\), vectors \(v\) and \(w\) and a scalar
       \(\lambda\), all chosen so that the equations make any sense,
@@ -193,7 +193,7 @@ MathJax.Hub.Config({
         \end{array}
       \end{equation*}
     </p>
-<p id="p-349">
+<p id="p-350">
       The first is a kind of <em class="terminology">distributive property</em>, and the second
       is a kind of <em class="terminology">commutative property</em>. When taken together, these
       things say that the operation of “left-multiply by the matrix \(A\)”
@@ -202,7 +202,7 @@ MathJax.Hub.Config({
       called <em class="terminology">linearity</em>. That is, left-multiplication by \(A\) is a
       <em class="terminology">linear operation</em> or a <em class="terminology">linear transformation</em>.
     </p>
-<p id="p-350">
+<p id="p-351">
       The linearity property makes it possible to check the following two results.
     </p>
 <article class="theorem-like" id="theorem-4"><h5 class="heading">
@@ -220,7 +220,7 @@ MathJax.Hub.Config({
         If \(x_p\) is some particular solution to \(Ax=b\) and
         \(x_n\) is some solution to \(Ax=0\), then \(x_p + x_n\) is
         another solution to \(Ax=b\).
-      </article><p id="p-351">
+      </article><p id="p-352">
       And if we put these two theorems together, we find this result which
       sounds fancier, but has exactly the same content.
     </p>
@@ -232,26 +232,26 @@ MathJax.Hub.Config({
           \left\{ x_p + x_n \mid x_n \in \mathrm{null}(A) \right\},
         \end{equation*}
         where \(x_p\) is any one particular solution to \(Ax=b\).
-      </article><p id="p-352">
+      </article><p id="p-353">
       This leads us to Strang's very sensible advice about finding the
       complete solution:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-279">
+<li id="li-284">
         Form the augmented matrix \(\left( A \mid b \right)\) and use
         Gauss-Jordan elimination to put it in reduced row echelon form
         \(\left( R \mid d \right)\).
       </li>
-<li id="li-280">
+<li id="li-285">
         Use the information from the RREF to find a particular solution
         \(x_p\) by solving for the pivot variables from the vector
         \(d\) and setting the free variables to zero.
       </li>
-<li id="li-281">
+<li id="li-286">
         Use the special solutions \(s_1, s_2, \dots, s_k\)
         (if any exist!) to describe the nullspace \(\mathrm{null}(A)\).
       </li>
-<li id="li-282">
+<li id="li-287">
         Write down the resulting general solution:
         \begin{equation*}
           x = x_p + a_1 s_1 + a_2 s_2 + \dots + a_k s_k,
@@ -259,7 +259,7 @@ MathJax.Hub.Config({
         \end{equation*}</li>
 </ul></section><section class="subsection" id="subsection-77"><header title="Subsection  Sage and Solving General Systems"><h1 class="heading hide-type" alt="Subsection  Sage and Solving General Systems">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Solving General Systems</span>
-</h1></header><p id="p-353">
+</h1></header><p id="p-354">
       Sage has many built-in methods for solving systems of linear equations.
       We will investigate three common ones with a single example considered
       several times.
@@ -271,30 +271,30 @@ print b
 </script></div>
 <section class="subsubsection" id="subsubsection-35"><header title="Subsubsection  Method One: RREF and the Nullspace"><h1 class="heading hide-type" alt="Subsubsection  Method One: RREF and the Nullspace">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method One: RREF and the Nullspace</span>
-</h1></header><p id="p-354">
+</h1></header><p id="p-355">
         First we find a particular solution.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">X = A.augment(b, subdivide=True).rref()
 X  # this subdivide thing is pretty handy!
 </script></div>
-<p id="p-355">
+<p id="p-356">
         This clearly has three pivots, and all belong in the original matrix.
         So there will be a solution. We pull out the particular solution.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">xp = vector([-4, 3, 0, 2])
 xp
 </script></div>
-<p id="p-356">
+<p id="p-357">
         Since we typed that in by hand, we should check our work.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A*xp == b
 </script></div>
-<p id="p-357">
+<p id="p-358">
         Now we need to find the nullspace and the special solutions.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.right_kernel()
 </script></div>
-<p id="p-358">
+<p id="p-359">
         The basis has only one row, so there is only one special solution.
         This matches our expectation. Our system is \(3\times 4\) and has
         rank \(3\). So there is only one free column, and hence only one
@@ -303,7 +303,7 @@ xp
 <div class="sagecell-sage"><script type="text/x-sage">s1 = vector([-2, 0, 1, 0])
 A*s1 == 0
 </script></div>
-<p id="p-359">
+<p id="p-360">
         Now we can check the “general solution”.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">t = var('t')
@@ -313,38 +313,38 @@ gensol
 <div class="sagecell-sage"><script type="text/x-sage">A*gensol == b
 </script></div></section><section class="subsubsection" id="subsubsection-36"><header title="Subsubsection  Method Two: A Sage built-in"><h1 class="heading hide-type" alt="Subsubsection  Method Two: A Sage built-in">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method Two: A Sage built-in</span>
-</h1></header><p id="p-360">
+</h1></header><p id="p-361">
         Sage has a built-in method that looks like “Matrix division”. Here
         we “left divide” by the matrix. This is odd notation, and is just
         something Sage allows.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A\b
 </script></div>
-<p id="p-361">
+<p id="p-362">
         It is weird, but this works even if <tt class="code-inline" style="color: red; font-size: 120%">A</tt> is not invertible, like now.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.inverse()*b
 </script></div>
-<p id="p-362">
+<p id="p-363">
         The downside to this particular method is that in only gives you one
         particular solution. It does not produce the complete solution. You have
         to do that bit for yourself, maybe like the above.
       </p></section><section class="subsubsection" id="subsubsection-37"><header title="Subsubsection  Method Three: Another Sage Built-in"><h1 class="heading hide-type" alt="Subsubsection  Method Three: Another Sage Built-in">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method Three: Another Sage Built-in</span>
-</h1></header><p id="p-363">
+</h1></header><p id="p-364">
         Finally, Sage will also try to solve the system if you apply the
         <tt class="code-inline" style="color: red; font-size: 120%">.solve_right()</tt> method to <tt class="code-inline" style="color: red; font-size: 120%">A</tt>. You have to supply the vector
         <tt class="code-inline" style="color: red; font-size: 120%">b</tt> as an argument to the command.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.solve_right(b)
 </script></div>
-<p id="p-364">
+<p id="p-365">
         Again, this only pulls out a single particular solution. It is up to you
         to figure out the rest.
       </p></section></section><section class="subsection" id="subsection-78"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-90"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">90</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-89"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">89</span><span class="title"></span>
 </h5>(Strang ex 3.4.4)
         Find the complete solution (also called the general solution) to
         \begin{equation*}
@@ -353,92 +353,92 @@ gensol
           0 &amp; 0 &amp; 2 &amp; 4 \end{pmatrix}
           \begin{pmatrix} x \\ y \\ z \\ t \end{pmatrix} =
           \begin{pmatrix} 1 \\ 3 \\ 1 \end{pmatrix}.
-        \end{equation*}</article><article class="example-like" id="task-91"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">91</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-90"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">90</span><span class="title"></span>
 </h5>(Strang ex 3.4.6)
         What conditions on \(b_1\), \(b_2\), \(b_3\) and \(b_4\) make
         each of these systems solvable? Find a solution in those cases.
         <ol style="list-style-type: decimal;">
-<li id="li-283">\begin{equation*}
+<li id="li-288">\begin{equation*}
               \begin{pmatrix} 1 &amp; 2 \\ 2 &amp; 4 \\ 2 &amp; 5 \\ 3 &amp; 9 \end{pmatrix}
               \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} =
               \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}.
             \end{equation*}</li>
-<li id="li-284">\begin{equation*}
+<li id="li-289">\begin{equation*}
               \begin{pmatrix} 1 &amp; 2 &amp; 3\\ 2 &amp; 4 &amp; 6\\
               2 &amp; 5 &amp; 7\\ 3 &amp; 9 &amp; 12\end{pmatrix}
               \begin{pmatrix} x_1 \\ x_2 \\ x_3\end{pmatrix} =
               \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}.
             \end{equation*}</li>
-</ol></article><article class="example-like" id="task-92"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">92</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-91"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">91</span><span class="title"></span>
 </h5>(Strang ex 3.4.11)
         It is impossible for a \(1 \times 3\) system of equations to have
         \(x_p = (2,4,0)\) and \(x_n = \text{ any multiple of } (1,1,1)\).
         Explain why.
-      </article><article class="example-like" id="task-93"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">93</span><span class="title"></span>
+      </article><article class="example-like" id="task-92"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">92</span><span class="title"></span>
 </h5>(Strang ex 3.4.13)
         Each of the statments below is false. Find a \(2\times 2\) counterexample
         to each one.
         <ol style="list-style-type: decimal;">
-<li id="li-285">
+<li id="li-290">
             The complete solution is any linear combination of \(x_p\) and
             \(X_n\).
           </li>
-<li id="li-286">
+<li id="li-291">
             A system \(Ax=b\) has at most one particular solution.
           </li>
-<li id="li-287">
+<li id="li-292">
             The solution \(x_p\) with all free variables zero is the shortest
             solution, in that it has the minimum norm \(||x_p||\).
           </li>
-<li id="li-288">
+<li id="li-293">
             If \(A\) is an invertible matrix, there is no solution \(x_n\)
             in the nullspace.
           </li>
-</ol></article><article class="example-like" id="task-94"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">94</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-93"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">93</span><span class="title"></span>
 </h5>(Strang ex 3.4.21)
         Find the complete solution in the form \(x_p + x_n\) to these full
         rank systems.
         <ol style="list-style-type: decimal;">
-<li id="li-289">\begin{equation*} x+y+z = 4\end{equation*}</li>
-<li id="li-290">\begin{equation*}
+<li id="li-294">\begin{equation*} x+y+z = 4\end{equation*}</li>
+<li id="li-295">\begin{equation*}
               \begin{array}{ccccccc}
               x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 4 \\
               x &amp; - &amp; y &amp; + &amp; z &amp; = &amp; 4
               \end{array}
             \end{equation*}</li>
-</ol></article><article class="example-like" id="task-95"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">95</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-94"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">94</span><span class="title"></span>
 </h5>(Strang ex 3.4.24)
         Give examples of matrices \(A\) for which the number of solutions
         to \(Ax = b\) is
         <ol style="list-style-type: decimal;">
-<li id="li-291">\(0\) or \(1\), depending on \(b\);</li>
-<li id="li-292">\(\infty\), regardless of \(b\);</li>
-<li id="li-293">\(0\) or \(\infty\), depending on \(b\);</li>
-<li id="li-294">\(1\), regardless of \(b\).</li>
-</ol></article><article class="example-like" id="task-96"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">96</span><span class="title"></span>
+<li id="li-296">\(0\) or \(1\), depending on \(b\);</li>
+<li id="li-297">\(\infty\), regardless of \(b\);</li>
+<li id="li-298">\(0\) or \(\infty\), depending on \(b\);</li>
+<li id="li-299">\(1\), regardless of \(b\).</li>
+</ol></article><article class="example-like" id="task-95"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">95</span><span class="title"></span>
 </h5>(Strang ex 3.4.31)
         Find examples of matrices with the given property, or explain why it is
         impossible:
         <ol style="list-style-type: decimal;">
-<li id="li-295">
+<li id="li-300">
             The only solution of \(Ax = \left(\begin{smallmatrix}
             1 \\ 2 \\ 3 \end{smallmatrix}\right)\) is \(x = \left(\begin{smallmatrix}
             0 \\ 1 \end{smallmatrix}\right)\).
           </li>
-<li id="li-296">
+<li id="li-301">
             The only solution of \(Bx = \left(\begin{smallmatrix}
             0 \\ 1 \end{smallmatrix}\right)\) is
             \(x = \left(\begin{smallmatrix}
             1 \\ 2 \\ 3 \end{smallmatrix}\right)\).
           </li>
-</ol></article><article class="example-like" id="task-97"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">97</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-96"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">96</span><span class="title"></span>
 </h5>(Strang ex 3.4.33)
         The complete solution to the equation \(Ax = \left(\begin{smallmatrix}
         1 \\ 3\end{smallmatrix}\right)\) is \(x = \left(\begin{smallmatrix}

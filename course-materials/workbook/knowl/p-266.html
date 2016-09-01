@@ -1,19 +1,15 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:24-05:00    *-->
+<!--*    on 2016-09-01T10:20:08-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        Gauss-Jordan elimination is easy enough to understand, now. It is time
-        to let go of performing all those arithmetic operations by hand. So,
-        permutation matrices become important for a different reason! Even if
-        Gauss-Jordan elimination can be done without a row swap, it may be
-        numerically better for a computer to swap out for a larger number as a
-        pivot, so a row swap is used anyway. This partial pivoting strategy is
-        encapsulated in most computer algebra algorithms in some way, and is
-        part of the computation involved in computing a PLU decomposition.
-        Strang has a decent discussion of the choices, below we will
-        discuss how Sage handles this.
+        A permutation matrix is square matrix having a single \(1\) in each column
+        and in each row. A helpful property of permutation matrices is that they
+        are invertible, and their inverses are the same as their transposes:
+        \begin{equation*}
+        P^{-1} = P^T .
+        \end{equation*}
       </p><span class="incontext"><a href="permutations.html#p-266">in-context</a></span>

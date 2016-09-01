@@ -1,22 +1,17 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:25-05:00    *-->
+<!--*    on 2016-09-01T10:20:09-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-      Now, how does one understand the Spectral Theorem? It basically guarantees
-      that we can always find (a) enough eigenvalues (as real numbers), and (b) for each eigenvalue,
-      enough eigenvectors. The hardest parts of the proof come from part (b) where
-      you have to produce enough eigenvectors. But in practice, if you have an
-      example of a symmetric matrix, you can find the decomposition mentioned in
-      the theorem pretty easily. First, find the eigenvalues. Then for each
-      eigenvalue \(\lambda\), find an orthonormal basis for the
-      <em class="terminology">eigenspace</em>
-      \begin{equation*}E_{\lambda} = \mathrm{null}(A-\lambda\cdot I).\end{equation*}
-      That second bit can be done in two steps, first find a basis for \(E_{\lambda}\)
-      (special solutions!) and then apply the Gram-Schmidt algorithm to find an
-      orthonormal basis for \(E_{\lambda}\). Collecting all of these bases
-      together will make a basis for \(\mathbb{R}^n\).
+      Another way to count up the number of times a number counts as an eigenvalue
+      is to use the number of eigenvectors corresponding to that number. But we
+      only want to count up truly independent directions, so we should use the
+      dimension of the subspace of eigenvectors. This is the <em class="terminology">geometric
+      multiplicity</em> of an eigenvalue. It is a fact that the geometric
+      multiplicity is not greater than the algebraic multiplicity. But the two can
+      be different. For example, consider this matrix:
+      \begin{equation*}G = \begin{pmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{pmatrix}.\end{equation*}
     </p><span class="incontext"><a href="section-spectral-theorem.html#p-526">in-context</a></span>

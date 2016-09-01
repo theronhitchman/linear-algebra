@@ -1,14 +1,21 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:24-05:00    *-->
+<!--*    on 2016-09-01T10:20:08-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-      Since the dot product contains all of the geometry of Euclidean space in
-      it, the transpose becomes an important operation. I know that sounds weird,
-      but the dot product contains all of the information we need to measure
-      lengths and angles, so basically all of the <!--Style me with CSS--><em>metric</em> information in
-      Euclidean geometry is there.
+      For now, the transpose will feel like some random thing, but its primary
+      importance comes from its connection with the dot product. If we think of
+      column vectors \(u\) and \(v\) of size \(n\) as if they are \(n \times 1\)
+      matrices, then the dot product \(u \cdot v\) can be computed with a nice
+      combination of matrix multiplication and the transpose:
+      \begin{equation*}
+      u \cdot v = u^T v .
+      \end{equation*}
+      On the right, this is matrix multiplication! That makes sense because
+      \(u^T\) is \(1 \times n\) and \(v\) is \(n \times 1\). This
+      means that the result
+      is a \(1\times 1\) matrix, i.e. a number.
     </p><span class="incontext"><a href="permutations.html#p-260">in-context</a></span>

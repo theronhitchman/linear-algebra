@@ -1,15 +1,15 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:25-05:00    *-->
+<!--*    on 2016-09-01T10:20:09-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-      The command <tt class="code-inline" style="color: red; font-size: 120%">.jordan_form(transformation=True)</tt> will return a pair
-      consisting of
-      a diagonal matrix with the eigenvalues as entries and an invertible matrix
-      consisting of a basis of eigenvectors. These eigenvectors will NOT be an
-      orthonormal basis. You will have to use Gram-Schmidt to fix this to a
-      proper basis promised by the theorem.
+      The first command you might find useful is <tt class="code-inline" style="color: red; font-size: 120%">.change_ring()</tt>. This is
+      helpful for those times when you define a matrix over some convenient ring
+      like <tt class="code-inline" style="color: red; font-size: 120%">QQ</tt>, but then want to work with eigevalues and eigenvectors and
+      so need a bigger ring that you can take roots in. Using this command doesn't
+      change the matrix, so much as tell Sage to think of it as having entries
+      from a different set of numbers.
     </p><span class="incontext"><a href="section-spectral-theorem.html#p-529">in-context</a></span>

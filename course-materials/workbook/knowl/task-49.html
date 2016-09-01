@@ -1,6 +1,6 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-08-27T20:42:24-05:00    *-->
+<!--*    on 2016-09-01T10:20:08-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -9,15 +9,20 @@
 <span class="type">Task</span><span class="codenumber">49</span>
 </h5>
 <p>
-          Consider the matrix
+          Let's take a different view of the last computation.
+          Block multiplication says that column 1 is eliminated by
+          a step that looks like this one:
           \begin{equation*}
-            A = \begin{pmatrix} 2 &amp; 1 &amp; 0 \\ -2 &amp; 0 &amp; 1 \\ 8 &amp; 5 &amp; 3 \end{pmatrix}.
+            EA = \begin{pmatrix} 1 &amp; 0 \\ -c/a &amp; I \end{pmatrix}
+            \begin{pmatrix} a &amp; b \\ c &amp; D \end{pmatrix} =
+            \begin{pmatrix} a &amp; b \\ 0 &amp; D - cb/a \end{pmatrix}.
           \end{equation*}
-          Which elimination matrices \(E_{21}\) and \(E_{31}\) produce zeros in the
-          \((2,1)\) and \((3,1)\) positions of \(E_{21}A\)
-          and \(E_{31}A\)?
+          Here \(I\) is the \(2\times 2\) identity matrix, \(D\) is a
+          \(2\times 2\) matrix, etc.
         </p>
 <p>
-          Find a single matrix \(E\) which produces both zeros at once.
-          Multiply \(EA\) to verify your result.
+          So, in the last exercise, what are \(a\), \(b\), \(c\)
+          and \(D\) and what
+          is \(D-cb/a\)? Be sure to describe what shape each matrix has: the
+          number of rows and columns.
         </p></article><span class="incontext"><a href="matrix-algebra.html#task-49">in-context</a></span>
