@@ -18,6 +18,12 @@
         Read section 2.1 of <em>Strang</em> (pages 31-40).
       </li>
       <li>
+        Watch another video of <em>Essence of Linear Algebra</em> by YouTube user
+        <em>3Blue1Brown</em>. I suggest
+        <a href="https://www.youtube.com/watch?v=kYB8IZa5AuE&index=4&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">
+          Chapter 3<a>, if you haven't watched it, yet. Maybe rewatch it if you have already seen it.
+        </a>
+      <li>
         Read the following and complete the exercises below
       </li>
     </ul>
@@ -45,7 +51,7 @@
         </ul>
       </li>
       <li>
-        Can write down the <m>n \times n</m> <term>identity matrix</term>.
+        Write down the <m>n \times n</m> <term>identity matrix</term>.
       </li>
     </ul>
     <p>
@@ -97,11 +103,11 @@
         the synonyms <term>mapping</term> or <term>transformation</term>, too.)
         For every vector <m>v</m> of size <m>n</m>, the matrix <m>A</m> allows
         us to compute a new vector <m>T_A(v) = Av</m> of size <m>m</m>. This is
-        the basic example of what we will eventually call a <term>linear
+        the basic example of what professionals call a <term>linear
         transformation</term>.<md>
         <mrow>\mathbb{R}^m &amp; \xrightarrow[]{T_A} \mathbb{R}^n</mrow>
         <mrow>v &amp; \xmapsto[]{\phantom{T_A}} Av.</mrow></md>
-        One of our long term goals is to find a way to think about the geometry
+        One of our long term goals is to learn to think about the geometry
         of linear algebra from this viewpoint, too.
       </p>
 
@@ -111,11 +117,11 @@
   </subsection>
 
   <subsection>
-    <title>Sage and Plotting for Linear Algebra</title>
+    <title>SageMath and Plotting for Linear Algebra</title>
 
-    <p>There are a few new Sage commands that might be useful here. We have
+    <p>There are a few new SageMath commands that might be useful here. We have
       already seen how to take linear equations and turn them into vectors
-      and then turn the vector equation into a matrix equation. But Sage can
+      and then turn the vector equation into a matrix equation. But SageMath can
       help us move in the other direction, too.
     </p>
     <p>
@@ -152,7 +158,7 @@
       </output>
     </sage>
     <p>
-      To get Sage to pull out the columns, we can use the <c>.columns()</c>
+      To get SageMath to pull out the columns, we can use the <c>.columns()</c>
       method. If we want just one column, we can use the <c>.column()</c> method,
       but then we have to remember to specify which column we want.
     </p>
@@ -173,12 +179,12 @@
       </output>
     </sage>
     <p>
-      <em>Big important note:</em> Sage always numbers lists starting with zero.
+      <em>Big important note:</em> SageMath always numbers lists starting with zero.
       so the first element of every list is the <m>0</m> entry, and the second
       element is the <m>1</m> entry.
     </p>
     <p>
-      Now it is possible to make Sage do things like this:
+      Now it is possible to make SageMath do things like this:
     </p>
     <sage>
       <input>
@@ -192,7 +198,8 @@
       This is an example of the a column picture.
     </p>
     <p>
-      One can also pull out the rows with corresponding row methods. And if you
+      One can also pull out the rows with corresponding <c>.row()</c> methods.
+      And if you
       recall the way that matrix multiplication works if you think of rows, you
       can make a row picture.
     </p>
@@ -236,17 +243,20 @@
 
     <task>
       <statement>
-        Make an example of a system of linear equations which some students might
-        find challenging to change into an equation involving a linear combination.
-        Explain what the challenge is and how you can think clearly to overcome it.
-      </statement>
-    </task>
-
-    <task>
-      <statement>
-        Make an example of a linear combination equation which some students might
-        find challenging to change into a system of linear equations. Explain
-        what the challenge is and how you can think clearly to overcome it.
+        <p>
+          <ol>
+            <li>
+              Make an example of a system of linear equations which some students might
+              find challenging to change into an equation involving a linear combination.
+              Explain what the challenge is and how you can think clearly to overcome it.
+            </li>
+            <li>
+              Make an example of a linear combination equation which some students might
+              find challenging to change into a system of linear equations. Explain
+              what the challenge is and how you can think clearly to overcome it.
+            </li>
+          </ol>
+        </p>
       </statement>
     </task>
 
@@ -265,6 +275,7 @@
             Draw a diagram representing the column picture of this matrix equation.
           </li>
         </ol>
+        If you find the sketching to be a challenge, feel free to use SageMath to do it.
       </statement>
     </task>
 
@@ -273,7 +284,7 @@
     <task>
       <statement>
         Make an example of a system of linear equations so that the
-        corresponding column picture is about linear combinations of four 2-vecs
+        corresponding column picture is about linear combinations of four 2-vectors
         becoming the zero vector.
       </statement>
     </task>
@@ -310,7 +321,7 @@
             Rotates vectors through <m>45^{\circ}</m> counter-clockwise.
           </li>
           <li>
-            Reflects vectors across the <m>y</m>axis.
+            Reflects vectors across the <m>y</m>-axis.
           </li>
           <li>
             <m>
