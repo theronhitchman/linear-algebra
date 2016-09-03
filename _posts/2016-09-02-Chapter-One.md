@@ -31,3 +31,9 @@ first version of _Vector Algebra_ and _Dot Product_ assessments. You can find a
 reasonable description of what I will be looking for
 [in the syllabus]({{site.baseurl}}/syllabus/), at the bottom in the section titled
 _Standards for Linear Algebra Content Learning_. These are both "core" assessments.
+
+### Also, Check this out
+
+Inspired by the videos you have been watching, here is an interactive visualizer.
+
+[https://shadanan.github.io/MatVis/][]
