@@ -4,7 +4,7 @@
 <!--                                                          -->
 <!--    Math 2500: Linear Algebra                             -->
 <!--                                                          -->
-<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- Copyright (C) 2014-2016  Theron J. Hitchman              -->
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="matrix-elimination">
@@ -14,6 +14,10 @@
     <title>The Assignment</title>
       <ul>
         <li>Read section 2.3 of <em>Strang</em>.</li>
+        <li>
+          Watch a video from the YouTube series <em>Essence of Linear Algebra</em>
+          by user <em>3Blue1Brown</em>.
+        </li>
         <li>Read the discussion below and work out the exercises.</li>
       </ul>
 
@@ -63,7 +67,7 @@
 <!-- Discussion section -->
 
   <subsection>
-    <title>Discussion: Elimnation and Using Matrices as <q>Transformations</q></title>
+    <title>Discussion: Elimination and Using Matrices as <q>Transformations</q></title>
 
     <p>
       Let us focus (for now) on square systems of equations, where the number of
@@ -188,12 +192,12 @@
         things. (It is not obvious at the moment why this is helpful. Hang on a
         bit.)
         <me>
-          x* E\begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
-          y* E\begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
-          z* E\begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+          x\cdot E\begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
+          y\cdot E\begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
+          z\cdot E\begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
           E\begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
         </me>
-        Boy, it sure would be nice if we had a compact way to write that down...
+        Still, it sure would be nice if we had a compact way to write that down.
       </p>
     </subsubsection>
 
@@ -291,10 +295,10 @@
 <!-- Sage section -->
 
   <subsection>
-    <title>Sage and Matrix Multiplication</title>
+    <title>SageMath and Matrix Multiplication</title>
 
     <p>
-      Sage has built-in matrix multiplication. You do the obvious thing and it
+      SageMath has built-in matrix multiplication. You do the obvious thing and it
       works.
     </p>
     <sage>
@@ -382,12 +386,14 @@
     </p>
     <sage>
       <input>
-        D = matrix(QQ,3,4, [0,3,2,8,1,-1,1,-1,3,2,3,1]); D
+        b = vector([8,-1,4])
+        D = matrix(QQ,3,3, [0,3,2,1,-1,1,3,2,3]).augment(b,subdivide=True)
+        D
       </input>
       <output>
-        [ 0  3  2  8]
-        [ 1 -1  1 -1]
-        [ 3  2  3  1]
+        [ 0  3  2 |  8]
+        [ 1 -1  1 | -1]
+        [ 3  2  3 |  1]
       </output>
     </sage>
     <sage>
@@ -478,9 +484,20 @@
       \end{array}
       \right.
       </me>
-      Write this system in the other three forms: (1) an equation involving a
-      linear combination of vectors; (2) an equation involving a <m>2\times 2</m>
-      matrix; (3) an augmented matrix.
+      <ol>
+        <li>
+          Write this system in the other three forms: (1) an equation involving a
+          linear combination of vectors; (2) an equation involving a <m>2\times 2</m>
+          matrix; (3) an augmented matrix.
+        </li>
+        <li>
+          Perform an elimination step on the system from the last exercise
+          to put the sytem in triangular form. You should get two pivots.
+        </li>
+        <li>
+          Write the new system in each of our four forms.
+        </li>
+      </ol>
     </p>
   </statement>
 </task>
@@ -490,20 +507,7 @@
 <task>
   <statement>
     <p>
-      Perform an elimination step on the system from the last exercise to put the sytem in triangular form. You should get two pivots.
-    </p>
-    <p>
-      Write the new system in each of our four forms.
-    </p>
-  </statement>
-</task>
-
-
-
-<task>
-  <statement>
-    <p>
-      Still working with the same system of equations, use Sage to make two column picture plots:
+      Still working with the same system of equations, use SageMath to make two column picture plots:
     </p>
     <ul>
       <li> One showing the three relevant column vectors from the original system.</li>
@@ -521,7 +525,7 @@
 <task>
   <statement>
     <p>
-      One more time, stay with the same system of equations. Use Sage to make
+      One more time, stay with the same system of equations. Use SageMath to make
       two row picture plots:
     </p>
     <ul>
@@ -530,7 +534,7 @@
     <li> One showing the two relevant lines from the system after the elimination step.</li>
     </ul>
     <p>
-      You may find it helpful to look through the Sage examples in previous sections
+      You may find it helpful to look through the SageMath examples in previous sections
       of this workbook.
     </p>
   </statement>
@@ -562,7 +566,7 @@
 <task>
   <statement>
     <p>
-      Still working with the system of equations from the last task, use Sage
+      Still working with the system of equations from the last task, use SageMath
       to make two column picture plots:
     </p>
     <ul>

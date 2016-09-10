@@ -4,7 +4,7 @@
 <!--                                                          -->
 <!--    Math 2500: Linear Algebra                             -->
 <!--                                                          -->
-<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- Copyright (C) 2014-2016  Theron J. Hitchman              -->
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="matrix-algebra">
@@ -14,6 +14,10 @@
     <title>The Assignment</title>
     <ul>
       <li>Read section 2.4 of <em>Strang</em>.</li>
+      <li>
+        Watch a video or two from the YouTube series <em>Essence of Linear Algebra</em>
+        by user <em>3Blue1Brown</em>.
+      </li>
       <li>Read the following and complete the exercises below.</li>
     </ul>
 
@@ -81,9 +85,9 @@
   </subsection>
 
   <subsection>
-    <title>Sage and Matrix Algebra</title>
+    <title>SageMath and Matrix Algebra</title>
     <p>
-      Sage is aware of the basic matrix operations, and it won't let you get
+      SageMath is aware of the basic matrix operations, and it won't let you get
       away with nonsense. Matrix multiplication and matrix addition are only
       defined if the dimensions of the matrices line up properly.
     </p>
@@ -97,7 +101,7 @@
       </input>
     </sage>
     <p>
-      Let's see which of these Sage doesn't like. Can you predict, before
+      Let's see which of these SageMath doesn't like. Can you predict, before
       evaluating the cells below, which of these will return an error?
     </p>
     <sage>
@@ -131,7 +135,7 @@
     </sage>
 
     <subsubsection>
-      <title>Sage and Matrix Addition</title>
+      <title>SageMath and Matrix Addition</title>
       <p>Matrix addition works a lot like addition of integers, as long as you fix
         a size first.</p>
       <ul>
@@ -181,9 +185,9 @@
     </subsubsection>
 
     <subsubsection>
-      <title>Sage and Matrix Multiplication</title>
+      <title>SageMath and Matrix Multiplication</title>
       <p>
-        Sage already has the structure of matrix multiplication built-in, and
+        SageMath already has the structure of matrix multiplication built-in, and
         it can help with investigating the ways that matrix multiplicaiton
         is different from regular multiplication of numbers.
       </p>
@@ -263,7 +267,7 @@
         </output>
       </sage>
       <p>
-        In fact, this allows you to short cut the construction of any matrix in
+        In fact, this allows you to short-cut the construction of any matrix in
         <c>M</c>. This can be really useful if you are going to work with a lot
         of matrices of the same shape.
       </p>
@@ -277,7 +281,7 @@
         </output>
       </sage>
       <p>You can even use this to make complicated expressions out of matrix operations.
-        As long as everything makes sense, Sage will do all the work.
+        As long as everything makes sense, SageMath will do all the work.
       </p>
       <sage>
         <input>
@@ -308,6 +312,7 @@
       </sage>
     </subsubsection>
 
+<!--
     <subsubsection>
       <title>Sage and Block Matrices</title>
 
@@ -338,13 +343,15 @@
     </subsubsection>
   </subsection>
 
+-->
+
   <subsection>
     <title>Exercises</title>
     <task>
       <statement>
         Make an example of a <m>2\times 3</m> matrix and a <m>3\times 3</m>
-        matrix, and use this to demonstrate the three different ways to multiply
-        matrices.
+        matrix, and use this to demonstrate the three most important ways to multiply
+        matrices: organized by rows, or by columns, or by using dot products.
       </statement>
     </task>
 
@@ -392,7 +399,7 @@
         </p>
       </statement>
     </task>
-
+<!--
     <task>
       <statement>
         <p>
@@ -415,7 +422,7 @@
         </p>
       </statement>
     </task>
-
+-->
     <task>
       <statement>
         Suppose that we have already solved the equation <m>Ax=b</m> for the

@@ -4,7 +4,7 @@
 <!--                                                          -->
 <!--    Math 2500: Linear Algebra                             -->
 <!--                                                          -->
-<!-- Copyright (C) 2014  Theron J. Hitchman                   -->
+<!-- Copyright (C) 2014-2016  Theron J. Hitchman              -->
 <!-- See the file COPYING for copying conditions.             -->
 
 <section xml:id="elimination">
@@ -14,6 +14,10 @@
     <title>The Assignment</title>
     <ul>
       <li>Read section 2.2 of Strang (pages 45-51).</li>
+      <li>
+        Watch a video or two from the YouTube series <em>Essence of Linear Algebra</em>
+        by user <em>3Blue1Brown</em>.
+      </li>
       <li>Read the following and complete the exercises below.</li>
     </ul>
 
@@ -100,7 +104,7 @@
     </subsection>
 
     <subsection>
-      <title>Sage and Row Operations</title>
+      <title>SageMath and Row Operations</title>
 
       <p>
         The process of elimination for systems of equations involves performing
@@ -119,7 +123,7 @@
           times row <c>useful</c> to row <c>target</c>.</li>
       </ul>
       <p>
-        Throughout, please remember that Sage uses <m>0</m>-based indexing! So
+        Throughout, please remember that SageMath uses <m>0</m>-based indexing! So
         the rows are labeled <c>0, 1, 2, ...</c>
       </p>
 
@@ -208,7 +212,7 @@
       <p>
         Let's do the same operations as above, but without changing <c>A</c>.
         This will mean making a bunch of new matrices. In fact, let's also change
-        the name of our matrix to <c>B</c>
+        the name of our matrix to <c>B</c>.
       </p>
 
       <sage>
@@ -342,10 +346,11 @@
         </statement>
       </task>
 
+<!--
       <task>
         <statement>
           <p>
-            <em>(Sage Exercise)</em>:
+            <em>(SageMath Exercise)</em>:
             Because the last system can be transformed in two operations, there
             are three equivalent systems generated through the process
             (the original, the intermediate, and the final).
@@ -356,14 +361,13 @@
           </p>
         </statement>
       </task>
-
+-->
 
       <task>
         <statement>
           Suppose that a system of three equations in three unknowns has two
-          solutions <m>(a,b,c)</m> and <m>(A,B,C)</m>. Explain why the system must have
-          other solutions than these two. Describe clearly two other solutions
-          in terms of <m>a,b,c,A,B,C</m>.
+          solutions <m>(1,0,-1)</m> and <m>(2,1,2)</m>. Explain why the system must have
+          other solutions than these two. Describe clearly two other solutions.
         </statement>
       </task>
 
@@ -379,18 +383,6 @@
           </me>
         </statement>
       </task>
-
-
-
-      <task>
-        <statement>
-          How many ways can two lines in the plane meet? Make examples to
-          represent as many <em>qualitatively different</em> situations as you can.
-        </statement>
-      </task>
-
-
-
 
       <task>
         <statement>
@@ -446,9 +438,17 @@
 
       <task>
         <statement>
-          How many ways can three planes in three dimensional space meet? Make
-          examples to represent as many <em>qualitatively different</em>
-          situations as you can.
+          <ol>
+            <li>
+              How many ways can three planes in three dimensional space meet? Make
+              examples to represent as many <em>qualitatively different</em>
+              situations as you can.
+            </li>
+            <li>
+              How many ways can two lines in the plane meet? Make examples to
+              represent as many <em>qualitatively different</em> situations as you can.
+            </li>
+          </ol>
         </statement>
       </task>
 
