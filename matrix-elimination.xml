@@ -114,7 +114,7 @@
         one can just remember from context.
         Often, this is taken one step further! We now throw away the unknowns,
         the equal signs and some of the parentheses surrounding the matrices and
-        vectors, and just write an \emph{augmented} matrix.
+        vectors, and just write an <term>augmented</term> matrix.
         <me>
           \augmatrix{ccc}{
           0 &amp;3 &amp;2 &amp;8\\ 1 &amp;-1 &amp;1 &amp;-1\\ 3 &amp;2 &amp;3 &amp;1
@@ -386,7 +386,7 @@
     </p>
     <sage>
       <input>
-        b = vector([8,-1,4])
+        b = vector([8,-1,1])
         D = matrix(QQ,3,3, [0,3,2,1,-1,1,3,2,3]).augment(b,subdivide=True)
         D
       </input>

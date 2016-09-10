@@ -336,14 +336,15 @@
         <output>
           [ 0 -1| 0 -1| 2]
           [ 1  0| 1  0| 3]
-          [-----+-----+--]
+          [- - - - -+- - - - -+- -]
           [ 2  3| 2  3| 1]
         </output>
       </sage>
     </subsubsection>
+-->
   </subsection>
 
--->
+
 
   <subsection>
     <title>Exercises</title>
