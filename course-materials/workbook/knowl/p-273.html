@@ -1,10 +1,32 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:08-05:00    *-->
+<!--*    on 2016-09-10T17:10:18-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        Now we do the same with <tt class="code-inline" style="color: red; font-size: 120%">v</tt>
+        Here is the important stuff to remember:
+        <ol style="list-style-type: decimal;">
+<li id="li-222">A row swap is performed by a permutation matrix. A permutation matrix
+            is a matrix with exactly one \(1\) in each column and in each row.
+            These matrices have the important property that their transposes and
+            their inverses are equal. That is, if \(P\) is a permutation matrix,
+            then \(P^T\) is equal to \(P^{-1}\). (Not every matrix with
+            this extra property is a permutation matrix. Be careful.)
+          </li>
+<li id="li-223">
+            It is possible to figure out what all of the row swaps should be, and
+            then rearrange all of the amtrices in an LU decomposition routine.
+            If you do it correctly, you get:
+            \begin{equation*}
+              P'A = LU
+            \end{equation*}
+            or
+            \begin{equation*}
+              A = PLU
+            \end{equation*}
+            where \(P'\) and \(P\) are permutation matrices.
+          </li>
+</ol>
       </p><span class="incontext"><a href="permutations.html#p-273">in-context</a></span>

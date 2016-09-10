@@ -1,17 +1,32 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:08-05:00    *-->
+<!--*    on 2016-09-10T17:10:17-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <article class="example-like"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">34</span>
-</h5>\begin{equation*}
-            \left\{
-            \begin{array}{ccccccc}
-            x &amp; + &amp; y &amp; + &amp; z &amp; = &amp; 1 \\
-            2x &amp; + &amp; y &amp; + &amp; 2z &amp; = &amp; 0 \\
-            \bullet x &amp; + &amp; \bullet y &amp; + &amp;\bullet z &amp;  = &amp; \bullet
-            \end{array}\right.
-          \end{equation*}</article><span class="incontext"><a href="elimination.html#task-34">in-context</a></span>
+</h5>
+<p>
+      In the main example above
+      \begin{equation*}
+      \left\{ \begin{array}{rrrrrrr}
+         &amp;  &amp;3y &amp;+ &amp;2z &amp;= &amp;8 \\
+       x &amp;- &amp; y &amp;+ &amp; z &amp;= &amp;-1 \\
+      3x &amp;+ &amp;2y &amp;+ &amp;3z &amp;= &amp;1
+      \end{array}
+      \right.
+      \end{equation*}
+      we would rather have our first pivot in the upper left corner (i.e. the
+      first row should have a non-zero coefficient for \(x\)). This can be
+      achieved by swapping the positions of rows (i) and (ii).
+    </p>
+<p>
+      Find a matrix \(P_{12}\) so that multiplying by \(P_{12}\) on the left
+      performs the corresponding row switching operation on the augmented matrix
+      \begin{equation*}
+      \augmatrix{ccc}{
+      0 &amp;3 &amp;2 &amp;8 \\ 1 &amp;-1 &amp;1 &amp;-1 \\ 3 &amp;2 &amp;3 &amp;1}
+      \end{equation*}
+    </p></article><span class="incontext"><a href="matrix-elimination.html#task-34">in-context</a></span>

@@ -1,10 +1,31 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:08-05:00    *-->
+<!--*    on 2016-09-10T17:10:17-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <article class="list"><h5 class="heading">
 <span class="type">Item</span> <span class="codenumber"></span>
-</h5> the 5 pivots should be different numbers</article><span class="incontext"><a href="inverse.html#li-188">in-context</a></span>
+</h5>
+<!--Style me with CSS--><em>Forward Pass:</em> This is a nested procedure:
+          <ul style="list-style-type: circle;">
+<li id="li-189">
+<!--Style me with CSS--><em>preparation:</em> If necessary, use a row swap to make a
+              non-zero entry in the upper left entry.
+            </li>
+<li id="li-190">
+<!--Style me with CSS--><em>make zeros:</em> The upper left entry is our first pivot. Use
+              the operation of adding a multiple of the first row to the other
+              rows to kill the entries below this first pivot.
+            </li>
+<li id="li-191">
+<!--Style me with CSS--><em>step down:</em> Step down to the second row and repeat the
+              above, but ignoring rows and columns above and to the left. Repeat
+              as necessary till you run out of rows.
+            </li>
+</ul>
+          If at any point in the process you get a row consisting of only zeros,
+          perform a row switch to suffle it to the bottom. When the forward
+          pass is complete, you should have an upper triangular matrix.
+        </article><span class="incontext"><a href="inverse.html#li-188">in-context</a></span>

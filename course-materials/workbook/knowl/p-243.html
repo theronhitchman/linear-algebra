@@ -1,16 +1,13 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:08-05:00    *-->
+<!--*    on 2016-09-10T17:10:18-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        Hold on, the output is three matrices. Not two, but three. One is upper
-        triangular, one is lower triangular, but the first one is a
-        <em class="terminology">permutation matrix</em>. (It switches rows 1 and 3.) What is
-        going on? If you perform a search in the Sage documentation, you find
-        <a class="external-url" href="http://www.sagemath.org/doc/reference/matrices/sage/matrix/matrix2.html" target="_blank">this page</a>.
-        There is a description of the command, and the first bit is something about
-        a “pivoting strategy” and row swaps. But we don't want row swaps.
+        This has a row-swap permutation matrix, and <!--Style me with CSS--><em>it must</em>. Since the
+        (1,1) entry of <tt class="code-inline" style="color: red; font-size: 120%">B</tt> is zero, but numbers below that are not zero,
+        we cannot use zero as a pivot. We'll sort out how to handle this in the next
+        section.
       </p><span class="incontext"><a href="lu-decomposition.html#p-243">in-context</a></span>

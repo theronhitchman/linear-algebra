@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:07-05:00    *-->
+<!--*    on 2016-09-10T17:10:16-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,56 +140,60 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-30"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-132">Read section 2.3 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-133">Read the discussion below and work out the exercises.</li>
+<li id="li-135">Read section 2.3 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-136">
+          Watch a video from the YouTube series <!--Style me with CSS--><em>Essence of Linear Algebra</em>
+          by user <!--Style me with CSS--><em>3Blue1Brown</em>.
+        </li>
+<li id="li-137">Read the discussion below and work out the exercises.</li>
 </ul></section><section class="subsection" id="subsection-31"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-131">
+</h1></header><p id="p-129">
         Before class, a student should be able to:
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-134">
+<li id="li-138">
           Translate a system of linear equations into the form of an augmented matrix
           and back.
         </li>
-<li id="li-135">
+<li id="li-139">
           Perform the forward pass elimination process to an augmented matrix.
         </li>
-<li id="li-136">
+<li id="li-140">
           Multiply a pair of square matrices having the same size.
         </li>
-<li id="li-137">
+<li id="li-141">
           Identify the matrix which performs the operation “add a multiple of row
           i to row j.”</li>
-<li id="li-138">Identify the matrix which performs the operation “swap the places of
+<li id="li-142">Identify the matrix which performs the operation “swap the places of
           row i and row j.”</li>
 </ul>
-<p id="p-132">
+<p id="p-130">
         Some time after class, a student should be able to:
       </p>
-<ul style="list-style-type: disc;"><li id="li-139">
+<ul style="list-style-type: disc;"><li id="li-143">
           Use the steps from a forward pass elimination step to write a correct
           equation of the form
           \begin{equation*}
             E_{\bullet}E_{\bullet}\cdots E_{\bullet} (A\ |\ b) = (U\ |\ b')
           \end{equation*}
           where \(U\) is an upper triangular matrix.
-        </li></ul></section><section class="subsection" id="subsection-32"><header title="Subsection  Discussion: Elimnation and Using Matrices as “Transformations”"><h1 class="heading hide-type" alt="Subsection  Discussion: Elimnation and Using Matrices as “Transformations”">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Elimnation and Using Matrices as “Transformations”</span>
-</h1></header><p id="p-133">
+        </li></ul></section><section class="subsection" id="subsection-32"><header title="Subsection  Discussion: Elimination and Using Matrices as “Transformations”"><h1 class="heading hide-type" alt="Subsection  Discussion: Elimination and Using Matrices as “Transformations”">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Elimination and Using Matrices as “Transformations”</span>
+</h1></header><p id="p-131">
       Let us focus (for now) on square systems of equations, where the number of
       unknowns is equal to the number of equations.
     </p>
 <section class="subsubsection" id="subsubsection-12"><header title="Subsubsection  The Four Ways to Write a System"><h1 class="heading hide-type" alt="Subsubsection  The Four Ways to Write a System">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Four Ways to Write a System</span>
-</h1></header><p id="p-134">
+</h1></header><p id="p-132">
         Recall that there are three equivalent ways to write the typical linear
         algebra problem: (1) a system of linear equations to be solved
         simultaneously, (2) an equation expressing some linear combination of
         vectors with unknown coefficients as equal to another vector, and (3) a
         matrix equation.
       </p>
-<p id="p-135">
+<p id="p-133">
         Here is an example: This system of linear equations
         \begin{equation*}
           \left\{ \begin{array}{rrrrrrr}
@@ -212,7 +216,7 @@ MathJax.Hub.Config({
           \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix} .
         \end{equation*}
       </p>
-<p id="p-136">
+<p id="p-134">
         Each of these viewpoints has its advantages when talking about the
         geometry of linear algebra. But one way that things steadily improve as
         you move down the page is in the amount of notational baggage.
@@ -220,7 +224,7 @@ MathJax.Hub.Config({
         one can just remember from context.
         Often, this is taken one step further! We now throw away the unknowns,
         the equal signs and some of the parentheses surrounding the matrices and
-        vectors, and just write an \emph{augmented} matrix.
+        vectors, and just write an <em class="terminology">augmented</em> matrix.
         \begin{equation*}
           \augmatrix{ccc}{
           0 &amp;3 &amp;2 &amp;8\\ 1 &amp;-1 &amp;1 &amp;-1\\ 3 &amp;2 &amp;3 &amp;1
@@ -230,12 +234,12 @@ MathJax.Hub.Config({
         need to solve the original system.
       </p></section><section class="subsubsection" id="subsubsection-13"><header title="Subsubsection  Representing Elimination with Matrices"><h1 class="heading hide-type" alt="Subsubsection  Representing Elimination with Matrices">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Representing Elimination with Matrices</span>
-</h1></header><p id="p-137">
+</h1></header><p id="p-135">
         The process of elimination starts by performing operations on the
         system of equations. In the example above, one simplification we can
         make is to add \(-3\) times equation (ii) to equation (iii).
       </p>
-<p id="p-138">
+<p id="p-136">
         Then the new system looks like this:
         \begin{equation*}
           \left\{ \begin{array}{rrrrrrr}
@@ -290,28 +294,28 @@ MathJax.Hub.Config({
           = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
         \end{equation*}
       </p>
-<p id="p-139">
+<p id="p-137">
         Ha Ha! It all checks out. Those are the four vectors from our second
         system. This means that we can even use a simple subsitution to rewrite
         things. (It is not obvious at the moment why this is helpful. Hang on a
         bit.)
         \begin{equation*}
-          x* E\begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
-          y* E\begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
-          z* E\begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+          x\cdot E\begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} +
+          y\cdot E\begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} +
+          z\cdot E\begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
           E\begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
         \end{equation*}
-        Boy, it sure would be nice if we had a compact way to write that down...
+        Still, it sure would be nice if we had a compact way to write that down.
       </p></section><section class="subsubsection" id="subsubsection-14"><header title="Subsubsection  Matrix Multiplication"><h1 class="heading hide-type" alt="Subsubsection  Matrix Multiplication">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrix Multiplication</span>
-</h1></header><p id="p-140">
+</h1></header><p id="p-138">
         We make a compact way to write down that last equation by defining an
         operation of multiplying two matrices.
         If \(E\) and \(A\) are two matrices, we define their
         <em class="terminology">matrix product</em>
         to be a new matrix as follows:
       </p>
-<p id="p-141">
+<p id="p-139">
         First, write \(A\) as a collection of columns \(v_i\)
         \begin{equation*}
           A = \begin{pmatrix} v_1 &amp;v_2 &amp;v_3 \end{pmatrix}
@@ -322,7 +326,7 @@ MathJax.Hub.Config({
           EA = \begin{pmatrix} Ev_1 &amp;Ev_2 &amp;Ev_3 \end{pmatrix}
         \end{equation*}
       </p>
-<p id="p-142">
+<p id="p-140">
         By way of example, we have already considered the matrices
         \begin{equation*}
           E = \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3 &amp;1 \end{pmatrix} \quad \text{ and } \quad
@@ -334,7 +338,7 @@ MathJax.Hub.Config({
           \begin{pmatrix} 0 &amp;3 &amp;2 \\ 1 &amp;-1 &amp;1 \\ 0 &amp;5 &amp;0 \end{pmatrix}
         \end{equation*}
       </p>
-<p id="p-143">
+<p id="p-141">
         Finally, let's see how this influences our last two forms of the equations.
         The matrix form of our system was \(Ax = v\) where \(A\) is as above, and the
         vectors are \(v = \left(\begin{smallmatrix} 8 \\ -1 \\ 1
@@ -355,7 +359,7 @@ MathJax.Hub.Config({
           \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
         \end{equation*}
       </p>
-<p id="p-144">
+<p id="p-142">
         The same thing works for the augmented matrix. The augmented matrix form
         is really just writing down
         \begin{equation*}
@@ -372,22 +376,22 @@ MathJax.Hub.Config({
         \end{equation*}
       </p></section><section class="subsubsection" id="subsubsection-15"><header title="Subsubsection  Matrices as Transformations"><h1 class="heading hide-type" alt="Subsubsection  Matrices as Transformations">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Matrices as Transformations</span>
-</h1></header><p id="p-145">
+</h1></header><p id="p-143">
         Take a moment and reflect on the key transition in what happens above.
         The most important thing that made it all work was that a matrix (the
         elimination matrix \(E\)) was used to perform some sort of operation on
         vectors.
       </p>
-<p id="p-146">
+<p id="p-144">
         This is a key property of matrices. The matrix \(E\) defines a kind of
         function. For every vector \(w\) with three components, we can compute
         exactly one new vector \(Ew\), still with three components. This means that
         \(E\) defines a function from the set of \(3\)-vectors to the set of
         \(3\)-vectors.
-      </p></section></section><section class="subsection" id="subsection-33"><header title="Subsection  Sage and Matrix Multiplication"><h1 class="heading hide-type" alt="Subsection  Sage and Matrix Multiplication">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Matrix Multiplication</span>
-</h1></header><p id="p-147">
-      Sage has built-in matrix multiplication. You do the obvious thing and it
+      </p></section></section><section class="subsection" id="subsection-33"><header title="Subsection  SageMath and Matrix Multiplication"><h1 class="heading hide-type" alt="Subsection  SageMath and Matrix Multiplication">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and Matrix Multiplication</span>
+</h1></header><p id="p-145">
+      SageMath has built-in matrix multiplication. You do the obvious thing and it
       works.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 2,2, [[2,1],[1,1]])
@@ -396,11 +400,11 @@ A, B
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A*B
 </script></div>
-<p id="p-148">
+<p id="p-146">
       You can check that it works with the way we defined matrix multiplication
       as a linear combination of vectors, too.
     </p>
-<p id="p-149">
+<p id="p-147">
       First, we define the column vectors by pulling out the entries from <tt class="code-inline" style="color: red; font-size: 120%">B</tt>
       and arranging them. To be sure, we ask Sage to display them as columns.
     </p>
@@ -410,23 +414,25 @@ b1.column(), b2.column()
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A*b1.column(), A*b2.column()
 </script></div>
-<p id="p-150">
+<p id="p-148">
       Now we can pile these rows into a matrix and then use the transpose to
       put them in columns.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">C = matrix([A*b1, A*b2]).transpose()
 C
 </script></div>
-<p id="p-151">
+<p id="p-149">
       And we can double check everything by asking Sage if these things are equal.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">C == A*B
 </script></div>
-<p id="p-152">
+<p id="p-150">
       This kind of test can be useful for checking our work! The discussion above
       has this multiplication:
     </p>
-<div class="sagecell-sage"><script type="text/x-sage">D = matrix(QQ,3,4, [0,3,2,8,1,-1,1,-1,3,2,3,1]); D
+<div class="sagecell-sage"><script type="text/x-sage">b = vector([8,-1,1])
+D = matrix(QQ,3,3, [0,3,2,1,-1,1,3,2,3]).augment(b,subdivide=True)
+D
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">E = matrix.identity(3)
 E[2,1] = -3
@@ -434,14 +440,14 @@ E
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">E*D
 </script></div>
-<p id="p-153">
+<p id="p-151">
       Ta-Da!!!
     </p></section><section class="subsection" id="subsection-34"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-36"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">36</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-34"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">34</span><span class="title"></span>
 </h5>
-<p id="p-154">
+<p id="p-152">
       In the main example above
       \begin{equation*}
       \left\{ \begin{array}{rrrrrrr}
@@ -455,17 +461,17 @@ E
       first row should have a non-zero coefficient for \(x\)). This can be
       achieved by swapping the positions of rows (i) and (ii).
     </p>
-<p id="p-155">
+<p id="p-153">
       Find a matrix \(P_{12}\) so that multiplying by \(P_{12}\) on the left
       performs the corresponding row switching operation on the augmented matrix
       \begin{equation*}
       \augmatrix{ccc}{
       0 &amp;3 &amp;2 &amp;8 \\ 1 &amp;-1 &amp;1 &amp;-1 \\ 3 &amp;2 &amp;3 &amp;1}
       \end{equation*}
-    </p></article><article class="example-like" id="task-37"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">37</span><span class="title"></span>
+    </p></article><article class="example-like" id="task-35"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">35</span><span class="title"></span>
 </h5>
-<p id="p-156">
+<p id="p-154">
       Consider the system
       \begin{equation*}
       \left\{ \begin{array}{rrrrr}
@@ -474,48 +480,51 @@ E
       \end{array}
       \right.
       \end{equation*}
-      Write this system in the other three forms: (1) an equation involving a
-      linear combination of vectors; (2) an equation involving a \(2\times 2\)
-      matrix; (3) an augmented matrix.
-    </p></article><article class="example-like" id="task-38"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">38</span><span class="title"></span>
+      <ol style="list-style-type: decimal;">
+<li id="li-144">
+          Write this system in the other three forms: (1) an equation involving a
+          linear combination of vectors; (2) an equation involving a \(2\times 2\)
+          matrix; (3) an augmented matrix.
+        </li>
+<li id="li-145">
+          Perform an elimination step on the system from the last exercise
+          to put the sytem in triangular form. You should get two pivots.
+        </li>
+<li id="li-146">
+          Write the new system in each of our four forms.
+        </li>
+</ol>
+    </p></article><article class="example-like" id="task-36"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">36</span><span class="title"></span>
 </h5>
-<p id="p-157">
-      Perform an elimination step on the system from the last exercise to put the sytem in triangular form. You should get two pivots.
-    </p>
-<p id="p-158">
-      Write the new system in each of our four forms.
-    </p></article><article class="example-like" id="task-39"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">39</span><span class="title"></span>
-</h5>
-<p id="p-159">
-      Still working with the same system of equations, use Sage to make two column picture plots:
+<p id="p-155">
+      Still working with the same system of equations, use SageMath to make two column picture plots:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-140"> One showing the three relevant column vectors from the original system.</li>
-<li id="li-141"> One showing the three relevant column vectors from the system after the elimination step.</li>
+<li id="li-147"> One showing the three relevant column vectors from the original system.</li>
+<li id="li-148"> One showing the three relevant column vectors from the system after the elimination step.</li>
 </ul>
-<p id="p-160">
+<p id="p-156">
       You may find it helpful to look through the Sage examples in previous sections
       of this workbook.
-    </p></article><article class="example-like" id="task-40"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">40</span><span class="title"></span>
+    </p></article><article class="example-like" id="task-37"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">37</span><span class="title"></span>
 </h5>
-<p id="p-161">
-      One more time, stay with the same system of equations. Use Sage to make
+<p id="p-157">
+      One more time, stay with the same system of equations. Use SageMath to make
       two row picture plots:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-142"> One showing the two relevant lines in the original system.</li>
-<li id="li-143"> One showing the two relevant lines from the system after the elimination step.</li>
+<li id="li-149"> One showing the two relevant lines in the original system.</li>
+<li id="li-150"> One showing the two relevant lines from the system after the elimination step.</li>
 </ul>
-<p id="p-162">
-      You may find it helpful to look through the Sage examples in previous sections
+<p id="p-158">
+      You may find it helpful to look through the SageMath examples in previous sections
       of this workbook.
-    </p></article><article class="example-like" id="task-41"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">41</span><span class="title"></span>
+    </p></article><article class="example-like" id="task-38"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">38</span><span class="title"></span>
 </h5>
-<p id="p-163">
+<p id="p-159">
       Consider this system of three equations in three unknowns:
       \begin{equation*}
       \left\{
@@ -527,35 +536,35 @@ E
       \end{equation*}
       Perform the elimination steps to transform this system into a triangular one.
     </p>
-<p id="p-164">
+<p id="p-160">
       Write down the corresponding matrices you use to perform each of these
       steps on the augmented matrix version of this system.
-    </p></article><article class="example-like" id="task-42"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">42</span><span class="title"></span>
+    </p></article><article class="example-like" id="task-39"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">39</span><span class="title"></span>
 </h5>
-<p id="p-165">
-      Still working with the system of equations from the last task, use Sage
+<p id="p-161">
+      Still working with the system of equations from the last task, use SageMath
       to make two column picture plots:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-144"> One showing the four relevant column vectors from the original system.</li>
-<li id="li-145"> One showing the four relevant column vectors from the system after the elimination step.</li>
+<li id="li-151"> One showing the four relevant column vectors from the original system.</li>
+<li id="li-152"> One showing the four relevant column vectors from the system after the elimination step.</li>
 </ul>
-<p id="p-166">
+<p id="p-162">
       You may find it helpful to look through the Sage examples in previous sections
       of this workbook.
-    </p></article><article class="example-like" id="task-43"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">43</span><span class="title"></span>
+    </p></article><article class="example-like" id="task-40"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">40</span><span class="title"></span>
 </h5>
-<p id="p-167">
+<p id="p-163">
       One more time, stay with the system of equations from previous two tasks.
       Use Sage to make two row picture plots:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-146"> One showing the two relevant lines in the original system.</li>
-<li id="li-147"> One showing the two relevant lines from the system after the elimination step.</li>
+<li id="li-153"> One showing the two relevant lines in the original system.</li>
+<li id="li-154"> One showing the two relevant lines from the system after the elimination step.</li>
 </ul>
-<p id="p-168">
+<p id="p-164">
       You may find it helpful to look through the Sage examples in previous sections
       of this workbook.
     </p></article></section></section></div></main>

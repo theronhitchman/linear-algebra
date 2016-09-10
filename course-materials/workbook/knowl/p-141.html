@@ -1,18 +1,28 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:08-05:00    *-->
+<!--*    on 2016-09-10T17:10:17-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        First, write \(A\) as a collection of columns \(v_i\)
+        Finally, let's see how this influences our last two forms of the equations.
+        The matrix form of our system was \(Ax = v\) where \(A\) is as above, and the
+        vectors are \(v = \left(\begin{smallmatrix} 8 \\ -1 \\ 1
+        \end{smallmatrix}\right)\) and
+        \(x = \left( \begin{smallmatrix} x \\ y \\ z \end{smallmatrix}\right)\).
+        The neat part is that our new definition of matrix multiplication means
+        that our elimination step transformed the equation
         \begin{equation*}
-          A = \begin{pmatrix} v_1 &amp;v_2 &amp;v_3 \end{pmatrix}
+          Ax = v \quad \text{ or }\quad
+          \begin{pmatrix} 0 &amp;3 &amp;2 \\ 1 &amp;-1 &amp;1 \\ 3 &amp;2 &amp;3
+          \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
         \end{equation*}
-        and then we declare that \(EA\) is the matrix made up of the columns
-        \(Ev_i\) in the corresponding order.
+        into the newer equation
         \begin{equation*}
-          EA = \begin{pmatrix} Ev_1 &amp;Ev_2 &amp;Ev_3 \end{pmatrix}
+          (EA) x = Ev \quad \text{ or } \quad \begin{pmatrix} 0 &amp;3 &amp;2
+          \\ 1 &amp;-1 &amp;1 \\ 0 &amp;5 &amp;0 \end{pmatrix} \begin{pmatrix} x
+          \\ y \\ z \end{pmatrix} = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
         \end{equation*}
       </p><span class="incontext"><a href="matrix-elimination.html#p-141">in-context</a></span>

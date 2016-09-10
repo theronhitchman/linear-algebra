@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:07-05:00    *-->
+<!--*    on 2016-09-10T17:10:17-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,35 +140,35 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-93"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-357">Read section 4.1 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-358">Read the following and complete the exercises below.</li>
+<li id="li-365">Read section 4.1 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-366">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-94"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
-</h1></header><p id="p-414">
+</h1></header><p id="p-406">
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-359">
+<li id="li-367">
         Find the four subspaces associated to a matrix and verify that they
         are orthogonal subspaces.
       </li>
-<li id="li-360">
+<li id="li-368">
         Draw the “Big Picture” associated to a matrix as a schematic drawing,
         with the four subspaces properly located and their dimensions identified.
       </li>
 </ul>
-<p id="p-415">
+<p id="p-407">
       Some time after class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-361">Find the orthogonal complement to a subspace.</li>
-<li id="li-362">
+<li id="li-369">Find the orthogonal complement to a subspace.</li>
+<li id="li-370">
         Reason about the structure of a matrix as a transformation using information
         about its four subspaces.
       </li>
 </ul></section><section class="subsection" id="subsection-95"><header title="Subsection  Discussion: Orthogonality for subspaces"><h1 class="heading hide-type" alt="Subsection  Discussion: Orthogonality for subspaces">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Orthogonality for subspaces</span>
-</h1></header><p id="p-416">
+</h1></header><p id="p-408">
       Previously, we had the notion of orthogonality for two vectors in
       Euclidean space. In this section, the concept gets extended to subspaces.
     </p>
@@ -179,7 +179,7 @@ MathJax.Hub.Config({
         \(\mathbb{R}^n\) and \(\mathbb{R}^m\) are <em class="terminology">orthogonal</em>
         when for each vector \(v \in V\) and each vector \(w \in W\) we
         have \(v \cdot w =0\).
-      </article><p id="p-417">
+      </article><p id="p-409">
       Two orthogonal subspaces always have as intersection the trivial subspace
       \(\{ 0\}\). The reason for this is that if some vector \(x\) lay in
       both \(V\) and \(W\), then we must have that \(x \cdot x =0\).
@@ -187,7 +187,7 @@ MathJax.Hub.Config({
       \(W\).) But the properties of the dot product then mean that \(x\)
       is the zero vector.
     </p>
-<p id="p-418">
+<p id="p-410">
       There is a further concept:
     </p>
 <article class="definition-like" id="definition-2"><h5 class="heading">
@@ -197,7 +197,7 @@ MathJax.Hub.Config({
         <em class="terminology">orthogonal complement</em> of \(V\) is the set
         \begin{equation*}
           V^{\perp} = \{ w \in \mathbb{R}^n \mid w \cdot v = 0 \text{ for all } v \in V \}.
-        \end{equation*}</article><p id="p-419">
+        \end{equation*}</article><p id="p-411">
       The basic idea is that two spaces are orthogonal complements if they are
       orthogonal, and together they contain enough vectors to span the entire
       space. The definition looks like it is a one-directional thing: for a
@@ -206,7 +206,7 @@ MathJax.Hub.Config({
       complement to \(V\), then \(V\) is the orthogonal complement to
       \(W\).
     </p>
-<p id="p-420">
+<p id="p-412">
       Recall the four fundamental subspaces associated to an \(m\times n\)
       matrix \(A\).
       
@@ -230,7 +230,7 @@ MathJax.Hub.Config({
         
       
     </p>
-<p id="p-421">
+<p id="p-413">
       And we have another big result, which is a sharpening of the Fundamental
       Theorem of Linear Algebra from the end of Chapter Three.
     </p>
@@ -239,17 +239,17 @@ MathJax.Hub.Config({
 </h5>
         If \(A\) is an \(m\times n\) matrix, then
         <ul style="list-style-type: disc;">
-<li id="li-367">
+<li id="li-375">
             The nullspace of \(A\) and the row space of \(A\) are
             orthogonal complements of one another.
           </li>
-<li id="li-368">
+<li id="li-376">
             The column space of \(A\) and the left nullspace of \(A\)
             are orthogonal complements of one another.
           </li>
 </ul></article></section><section class="subsection" id="subsection-96"><header title="Subsection  Sage and the Orthogonal Complement"><h1 class="heading hide-type" alt="Subsection  Sage and the Orthogonal Complement">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Orthogonal Complement</span>
-</h1></header><p id="p-422">
+</h1></header><p id="p-414">
       It is not hard to find the four subspaces associated to a matrix with Sage's
       built-in commands. But Sage also has a general purpose <tt class="code-inline" style="color: red; font-size: 120%">.complement()</tt>
       method available for vector subspaces which can be used.
@@ -263,7 +263,7 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.row_space()
 </script></div>
-<p id="p-423">
+<p id="p-415">
       Those are the easy ones to find. The left nullspace is just a touch trickier.
       What is the deal? It is just the nullspace of the matrix \(A^T\), of course.
       But by the Fundamental Theorem of Linear Algebra, the left nullspace is the
@@ -275,67 +275,67 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.left_kernel()
 </script></div>
-<p id="p-424">
+<p id="p-416">
       That is good news! It looks like the three ways we have of computing the
       left nullspace agree. As a check for understanding, you should be able to
       ask Sage if the rowspace of \(A\) is the orthogonal complement to the
       nullspace of \(A\).
     </p></section><section class="subsection" id="subsection-97"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-110"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">110</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-106"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">106</span><span class="title"></span>
 </h5>(Strang ex. 4.1.2)
         Draw the “Big Picture” for a \(3\times 2\) matrix of rank \(2\).
         Which subspace has to be the zero subspace?
-      </article><article class="example-like" id="task-111"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">111</span><span class="title"></span>
+      </article><article class="example-like" id="task-107"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">107</span><span class="title"></span>
 </h5>(Strang ex. 4.1.3)
         For each of the following, give an example of a matrix with the required
         properties, or explain why that is impossible.
         <ol style="list-style-type: decimal;">
-<li id="li-369">
+<li id="li-377">
             The column space contains \(\begin{pmatrix} 1 \\ 2 \\ -3\end{pmatrix}\)
             and \(\begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}\), and the nullspace
             contains \(\begin{pmatrix} 1\\1\\1 \end{pmatrix}\).
           </li>
-<li id="li-370">
+<li id="li-378">
             the row space contains \(\begin{pmatrix} 1 \\ 2 \\ -3\end{pmatrix}\)
             and \(\begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}\), and the nullspace
             contains \(\begin{pmatrix} 1\\1\\1 \end{pmatrix}\).
           </li>
-<li id="li-371">\(Ax = \begin{pmatrix}1 \\ 1\\ 1\end{pmatrix}\) has a solution, and
+<li id="li-379">\(Ax = \begin{pmatrix}1 \\ 1\\ 1\end{pmatrix}\) has a solution, and
             \(A^T\begin{pmatrix}1 \\ 0 \\ 0 \end{pmatrix} =
               \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\).
           </li>
-<li id="li-372">
+<li id="li-380">
             Every row is orthogonal to every column, but \(A\) is not the zero matrix.
           </li>
-<li id="li-373">
+<li id="li-381">
             The columns add up to a column of zeros, and the rows add up to a row of \(1\)'s.
           </li>
-</ol></article><article class="example-like" id="task-112"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">112</span><span class="title"></span>
+</ol></article><article class="example-like" id="task-108"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">108</span><span class="title"></span>
 </h5>(Strang ex 4.1.4)
         If \(AB = 0\), how do the columns of \(B\) relate to the subspaces
         of \(A\)? How do the rows of \(A\) relate to the subspaces of \(B\)?
         Why can't we make an example of this where \(A\) and \(B\) are both
         \(3 \times 3\) matrices of rank \(2\)?
-      </article><article class="example-like" id="task-113"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">113</span><span class="title"></span>
+      </article><article class="example-like" id="task-109"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">109</span><span class="title"></span>
 </h5>(Strang ex 4.1.9)
         Use the four subspace of \(A\) to explain why this is always true:
         \begin{equation*}\text{If } A^T Ax = 0, \text{then } Ax = 0.\end{equation*}
         (This fact will be useful later! It will help us see that \(A^TA\) and
         \(A\) have the same nullspace.)
-      </article><article class="example-like" id="task-114"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">114</span><span class="title"></span>
+      </article><article class="example-like" id="task-110"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">110</span><span class="title"></span>
 </h5>(Strang ex 4.1.12)
         Find the pieces \(x_r\) and \(x_n\) and draw the “Big Picture”
         carefully when:
         \begin{equation*} A = \begin{pmatrix} 1 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}
           \qquad \text{and } x = \begin{pmatrix} 2 \\ 0 \end{pmatrix}.
-        \end{equation*}</article><article class="example-like" id="task-115"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">115</span><span class="title"></span>
+        \end{equation*}</article><article class="example-like" id="task-111"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">111</span><span class="title"></span>
 </h5>(Strang ex. 4.1.22)
         Let \(P\) be the hyperplane of vectors in \(\mathbb{R}^4\) which
         satisfy the equation

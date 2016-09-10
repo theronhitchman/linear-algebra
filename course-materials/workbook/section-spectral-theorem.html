@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:08-05:00    *-->
+<!--*    on 2016-09-10T17:10:17-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,12 +140,12 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-135"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-458">Read chapter 6 section 4 of <!--Style me with CSS--><em>Strang</em>
+<li id="li-466">Read chapter 6 section 4 of <!--Style me with CSS--><em>Strang</em>
 </li>
-<li id="li-459">Read the following and complete the exercises below.</li>
+<li id="li-467">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-136"><header title="Subsection  Discussion: The Spectral Theorem for Symmetric Matrices"><h1 class="heading hide-type" alt="Subsection  Discussion: The Spectral Theorem for Symmetric Matrices">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Spectral Theorem for Symmetric Matrices</span>
-</h1></header><p id="p-523">
+</h1></header><p id="p-515">
       We are now in a position to discuss a major result about the structure of
       symmetric (square) matrices: The Spectral Theorem.
     </p>
@@ -162,21 +162,21 @@ MathJax.Hub.Config({
         where \(Q\) is an orthogonal matrix having the vectors \(q_i\) as
         its columns, and \(\Lambda\) is a diagonal matrix with the eigenvalues
         of \(A\) as its entries.
-      </article><p id="p-524">
+      </article><p id="p-516">
       I think Strang's argument for the truth of this theorem is too terse, and hence
       confusing for a first time reader. The main points of the argument are these:
     </p>
 <ol style="list-style-type: decimal;">
-<li id="li-460">
+<li id="li-468">
         If \(X\) is a symmetric matrix, then all of its eigenvalues are real
         numbers.
       </li>
-<li id="li-461">
+<li id="li-469">
         If \(X\) is a symmetric matrix and \(v\) and \(w\) are eigenvectors
         of \(X\) which correspond to <!--Style me with CSS--><em>different</em> eigenvalues, then
         \(v\) and \(w\) are orthogonal vectors.
       </li>
-<li id="li-462">
+<li id="li-470">
         If \(X\) is a symmetric matrix and \(\lambda\) is an eigenvalue of
         \(X\), then subspace of \(\lambda\)-eigenvectors for \(X\) has
         dimension equal to the multiplicity of \(\lambda\) as a root of
@@ -185,7 +185,7 @@ MathJax.Hub.Config({
         equal to the <em class="terminology">algebraic multiplicity</em> of \(\lambda\).)
       </li>
 </ol>
-<p id="p-525">
+<p id="p-517">
       Let's clear up that bit about the different types of multiplicity. We can
       identify eigenvalues by finding them as roots of the characteristic polynomial
       \(p_A(t) = \mathrm{det}(A-t\cdot I)\) of \(A\). Of course, an particular
@@ -195,7 +195,7 @@ MathJax.Hub.Config({
       <em class="terminology">algebraic multiplicity</em> of an eigenvalue, since it comes out of
       the consideration of the algebra.
     </p>
-<p id="p-526">
+<p id="p-518">
       Another way to count up the number of times a number counts as an eigenvalue
       is to use the number of eigenvectors corresponding to that number. But we
       only want to count up truly independent directions, so we should use the
@@ -205,7 +205,7 @@ MathJax.Hub.Config({
       be different. For example, consider this matrix:
       \begin{equation*}G = \begin{pmatrix} 5 &amp; 1 \\ 0 &amp; 5 \end{pmatrix}.\end{equation*}
     </p>
-<p id="p-527">
+<p id="p-519">
       Now, how does one understand the Spectral Theorem? It basically guarantees
       that we can always find (a) enough eigenvalues (as real numbers), and (b) for each eigenvalue,
       enough eigenvectors. The hardest parts of the proof come from part (b) where
@@ -221,12 +221,12 @@ MathJax.Hub.Config({
       together will make a basis for \(\mathbb{R}^n\).
     </p></section><section class="subsection" id="subsection-137"><header title="Subsection  Sage and the Spectral Theorem"><h1 class="heading hide-type" alt="Subsection  Sage and the Spectral Theorem">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Spectral Theorem</span>
-</h1></header><p id="p-528">
+</h1></header><p id="p-520">
       Sage does not have any built-in commands that deal with the spectral
       decomposition of a symmetric square matrix. But here are a few commands
       that you might find useful as you hack your solution together by hand:
     </p>
-<p id="p-529">
+<p id="p-521">
       The first command you might find useful is <tt class="code-inline" style="color: red; font-size: 120%">.change_ring()</tt>. This is
       helpful for those times when you define a matrix over some convenient ring
       like <tt class="code-inline" style="color: red; font-size: 120%">QQ</tt>, but then want to work with eigevalues and eigenvectors and
@@ -237,7 +237,7 @@ MathJax.Hub.Config({
 <div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 2,2, [1,2,3,4])
 A.change_ring(AA)
 </script></div>
-<p id="p-530">
+<p id="p-522">
       The command <tt class="code-inline" style="color: red; font-size: 120%">.jordan_form(transformation=True)</tt> will return a pair
       consisting of
       a diagonal matrix with the eigenvalues as entries and an invertible matrix
@@ -245,12 +245,12 @@ A.change_ring(AA)
       orthonormal basis. You will have to use Gram-Schmidt to fix this to a
       proper basis promised by the theorem.
     </p>
-<p id="p-531">
+<p id="p-523">
       Note: the <em class="terminology">Jordan Form</em> is a generalization of the diagonalization
       process that works for matrices which might not be symmetric. We'll use it
       here to short-cut some of the work.
     </p>
-<p id="p-532">
+<p id="p-524">
       Let's do an example. First, we will make a symmetric matrix. Then we will
       find the eigenvalues and eigenvectors
     </p>
@@ -263,7 +263,7 @@ D
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">S
 </script></div>
-<p id="p-533">
+<p id="p-525">
       In this case, we have three different \(1\)-dimensional eigenspaces, so
       things are not too hard! If we apply Gram-Schmidt, we will just normalize
       those vectors.
@@ -271,40 +271,40 @@ D
 <div class="sagecell-sage"><script type="text/x-sage">Q, R = S.QR()
 Q * D * Q.transpose()
 </script></div>
-<p id="p-534">
+<p id="p-526">
       That is about as close as we can get to displaying the original <tt class="code-inline" style="color: red; font-size: 120%">X</tt>.
     </p></section><section class="subsection" id="subsection-138"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Exercises</span>
-</h1></header><article class="example-like" id="task-159"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">159</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-155"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">155</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 3.
+      </article><article class="example-like" id="task-156"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">156</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 4.
+      </article><article class="example-like" id="task-157"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">157</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 5.
+      </article><article class="example-like" id="task-158"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">158</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 6.
+      </article><article class="example-like" id="task-159"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">159</span><span class="title"></span>
+</h5>
+        From Strang section 6.4, do exercise 8.
       </article><article class="example-like" id="task-160"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">160</span><span class="title"></span>
 </h5>
-        From Strang section 6.4, do exercise 4.
+        From Strang section 6.4, do exercise 11.
       </article><article class="example-like" id="task-161"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">161</span><span class="title"></span>
 </h5>
-        From Strang section 6.4, do exercise 5.
+        From Strang section 6.4, do exercise 12.
       </article><article class="example-like" id="task-162"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">162</span><span class="title"></span>
-</h5>
-        From Strang section 6.4, do exercise 6.
-      </article><article class="example-like" id="task-163"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">163</span><span class="title"></span>
-</h5>
-        From Strang section 6.4, do exercise 8.
-      </article><article class="example-like" id="task-164"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">164</span><span class="title"></span>
-</h5>
-        From Strang section 6.4, do exercise 11.
-      </article><article class="example-like" id="task-165"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">165</span><span class="title"></span>
-</h5>
-        From Strang section 6.4, do exercise 12.
-      </article><article class="example-like" id="task-166"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">166</span><span class="title"></span>
 </h5>
         From Strang section 6.4, do exercise 24.
       </article></section></section></div></main>

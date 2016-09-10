@@ -1,24 +1,62 @@
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:08-05:00    *-->
+<!--*    on 2016-09-10T17:10:17-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
 <!--**************************************-->
 <p><h5 class="heading"><span class="type">Paragraph</span></h5>
-        Each of these viewpoints has its advantages when talking about the
-        geometry of linear algebra. But one way that things steadily improve as
-        you move down the page is in the amount of notational baggage.
-        From each version to the next, we lose repetitive bits of symbol that
-        one can just remember from context.
-        Often, this is taken one step further! We now throw away the unknowns,
-        the equal signs and some of the parentheses surrounding the matrices and
-        vectors, and just write an \emph{augmented} matrix.
+        Then the new system looks like this:
         \begin{equation*}
-          \augmatrix{ccc}{
-          0 &amp;3 &amp;2 &amp;8\\ 1 &amp;-1 &amp;1 &amp;-1\\ 3 &amp;2 &amp;3 &amp;1
-          }
+          \left\{ \begin{array}{rrrrrrr}
+          &amp;  &amp;3y &amp;+ &amp;2z &amp;= &amp;8 \\
+          x &amp;- &amp; y &amp;+ &amp; z &amp;= &amp;-1 \\
+          &amp;  &amp;5y &amp;  &amp;   &amp;= &amp;4
+          \end{array}\right.
         \end{equation*}
-        This is the minimum fuss way to keep track of all the information you
-        need to solve the original system.
+        Let's translate that into the linear combination format:
+        \begin{equation*}
+          x \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} +
+          y \begin{pmatrix} 3 \\ -1 \\ 5 \end{pmatrix} +
+          z \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix} =
+          \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix} .
+        \end{equation*}
+        What has happened to each of the vectors? Well, in each case, we have
+        added \(-3\) times the second component to the third component.
+        We have seen that one way to change vectors into other vectors is by
+        (left-)multiplying them by matrices. Could we be so lucky that the
+        operation “add \(-3\) times the second component to the third
+        component” is representable by a matrix operation? YES. It is not
+        hard to check that the matrix we need is
+        \begin{equation*}
+          E = \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3 &amp;1 \end{pmatrix} .
+        \end{equation*}
+        In fact, let's check it now for each of the four vectors we have in our system:
+        \begin{equation*}
+          E \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 3 \end{pmatrix}
+          = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+        \end{equation*}
+        and
+        \begin{equation*}
+          E \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\ 0 &amp;-3
+          &amp;1 \end{pmatrix} \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix} =
+          \begin{pmatrix} 3 \\ -1 \\ 5 \end{pmatrix}
+        \end{equation*}
+        and
+        \begin{equation*}
+          E \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 2 \\ 1 \\ 3
+          \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}
+        \end{equation*}
+        and
+        \begin{equation*}
+          E \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix} =
+          \begin{pmatrix} 1 &amp;0 &amp;0 \\ 0 &amp;1 &amp;0 \\
+          0 &amp;-3 &amp;1 \end{pmatrix} \begin{pmatrix} 8 \\ -1 \\ 1 \end{pmatrix}
+          = \begin{pmatrix} 8 \\ -1 \\ 4 \end{pmatrix}.
+        \end{equation*}
       </p><span class="incontext"><a href="matrix-elimination.html#p-136">in-context</a></span>

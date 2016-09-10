@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-01T10:20:08-05:00    *-->
+<!--*    on 2016-09-10T17:10:17-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,11 +140,11 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-127"><header title="Subsection  The assignment"><h1 class="heading hide-type" alt="Subsection  The assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-451">Read section 6.1 of Strang (pages 283-292).</li>
-<li id="li-452">Read the following and complete the exercises below.</li>
+<li id="li-459">Read section 6.1 of Strang (pages 283-292).</li>
+<li id="li-460">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-128"><header title="Subsection  Discussion: Eigenvalues and Eigenvectors"><h1 class="heading hide-type" alt="Subsection  Discussion: Eigenvalues and Eigenvectors">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Eigenvalues and Eigenvectors</span>
-</h1></header><p id="p-495">
+</h1></header><p id="p-487">
       We have discussed the “transformational view” of the geometry of a
       system of \(m\) linear equations \(Ax = b\) in \(n\) unknowns
       \(x\), where we view the \(m \times n\) matrix \(A\) as defining
@@ -153,14 +153,14 @@ MathJax.Hub.Config({
       \(\mathbb{R}^n\). So we can think of \(A\) as making a function from
       one space to itself.
     </p>
-<p id="p-496">
+<p id="p-488">
       This means it might be interesting to think about how \(A\) moves a
       vector about inside of \(\mathbb{R}^n\). Usually, the vector \(v\)
       will get turned into a vector \(Av\) which has a different length and
       points in a completely different direction. But sometimes, sometimes,
       \(v\) and \(Av\) will point in the same direction. This is an eigenvector.
     </p>
-<p id="p-497">
+<p id="p-489">
       A number \(\lambda\) is called an <em class="terminology">eigenvalue</em> of the matrix
       \(A\) when the matrix \(A-\lambda I\) is singular. A vector \(v\)
       is called an <em class="terminology">eigenvector</em> of \(A\) corresponding to \(\lambda\)
@@ -168,7 +168,7 @@ MathJax.Hub.Config({
       We exclude \(0\) from being an eigenvector because it is boring. The
       zero vector lies in every subspace, including the nullspace of any matrix.
     </p>
-<p id="p-498">
+<p id="p-490">
       As Strang discusses, the eigenvalues are found as roots of the
       <em class="terminology">characteristic polynomial</em> \(\det(A-\lambda \cdot I) = 0\).
       That's right, we only need to find the roots of a polynomial! Sounds great,
@@ -177,13 +177,13 @@ MathJax.Hub.Config({
       general formula to find the roots of a polynomial of degree 5 or more.
     </p></section><section class="subsection" id="subsection-129"><header title="Subsection  Sage and Eigenvectors"><h1 class="heading hide-type" alt="Subsection  Sage and Eigenvectors">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Eigenvectors</span>
-</h1></header><p id="p-499">
+</h1></header><p id="p-491">
       Since eigenvalues and eigenvectors are found using standard techniques, we
       can use Sage to compute them without any new techniques.
     </p>
-<section class="subsubsection" id="subsubsection-47"><header title="Subsubsection  Using Nullspaces and root finding commands"><h1 class="heading hide-type" alt="Subsubsection  Using Nullspaces and root finding commands">
+<section class="subsubsection" id="subsubsection-46"><header title="Subsubsection  Using Nullspaces and root finding commands"><h1 class="heading hide-type" alt="Subsubsection  Using Nullspaces and root finding commands">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Using Nullspaces and root finding commands</span>
-</h1></header><p id="p-500">
+</h1></header><p id="p-492">
         Let's use basic sage commands we have seen before to compute eigenvalues
         and eigenvectors. We start by finding the characteristic polynomial of
         the mundane example matrix \(X\) below.
@@ -195,13 +195,13 @@ X
 poly = (X - t*identity_matrix(3)).determinant()
 poly
 </script></div>
-<p id="p-501">
+<p id="p-493">
         Now we need the roots of that polynomial. Sage has a simple built-in for
         that, which returns a list of pairs: (root, multiplicity).
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">poly.roots()
 </script></div>
-<p id="p-502">
+<p id="p-494">
         In this case each of the three roots has (algebraic) multiplicity equal
         to one. For now, we will look at just the first one. Let's pull it out of
         this list, give it a more convenient name, and use it to find a corresponding
@@ -211,15 +211,15 @@ poly
 V = (X - lam * identity_matrix(3)).right_kernel()
 V
 </script></div>
-<p id="p-503">
+<p id="p-495">
         So, that looks like a mess. We can get Sage to display the basis vector
         more nicely. This is our eigenvector.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">show(V.basis()[0])
 </script></div>
-<p id="p-504">Well, that probably needs a simplification or two. But there it is!</p></section><section class="subsubsection" id="subsubsection-48"><header title="Subsubsection  Built-in Sage Commands"><h1 class="heading hide-type" alt="Subsubsection  Built-in Sage Commands">
+<p id="p-496">Well, that probably needs a simplification or two. But there it is!</p></section><section class="subsubsection" id="subsubsection-47"><header title="Subsubsection  Built-in Sage Commands"><h1 class="heading hide-type" alt="Subsubsection  Built-in Sage Commands">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Built-in Sage Commands</span>
-</h1></header><p id="p-505">
+</h1></header><p id="p-497">
         Sage has useful built-in commands that get at the same computations. But
         for them to work, your matrix must be defined over a set of numbers that
         is big enough to take roots of polynomials. We will use <tt class="code-inline" style="color: red; font-size: 120%">AA</tt>, which
@@ -232,25 +232,25 @@ A
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A.eigenvalues()
 </script></div>
-<p id="p-506">The eigenvectors can be computed with this command, which again returns
+<p id="p-498">The eigenvectors can be computed with this command, which again returns
         pairs: (eigenvalue, eigenvector).
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.eigenvectors_right()
 </script></div>
-<p id="p-507">
+<p id="p-499">
         Or you can ask for the <em class="terminology">eigenspaces</em> which return pairs:
         (eigenvalue, subspace consisting of all eigenvectors which correspond).
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.eigenspaces_right()
-</script></div></section><section class="subsubsection" id="subsubsection-49"><header title="Subsubsection  One more example..."><h1 class="heading hide-type" alt="Subsubsection  One more example...">
+</script></div></section><section class="subsubsection" id="subsubsection-48"><header title="Subsubsection  One more example..."><h1 class="heading hide-type" alt="Subsubsection  One more example...">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">One more example...</span>
 </h1></header><div class="sagecell-sage"><script type="text/x-sage">B = matrix(AA, 2,2, [5,1,0,5])
 B
 </script></div>
-<p id="p-508">This matrix has only one eigenvalue, but it has algebraic multiplicity 2.</p>
+<p id="p-500">This matrix has only one eigenvalue, but it has algebraic multiplicity 2.</p>
 <div class="sagecell-sage"><script type="text/x-sage">B.eigenvalues()
 </script></div>
-<p id="p-509">But 5 has <em class="terminology">geometric multiplicity</em> only equal to one, because the corresponding
+<p id="p-501">But 5 has <em class="terminology">geometric multiplicity</em> only equal to one, because the corresponding
         eigenspace has dimension one.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">B.eigenvectors_right()
@@ -258,23 +258,23 @@ B
 <div class="sagecell-sage"><script type="text/x-sage">B.eigenspaces_right()
 </script></div></section></section><section class="subsection" id="subsection-130"><header title="Subsection  Questions for Section 6.1"><h1 class="heading hide-type" alt="Subsection  Questions for Section 6.1">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Questions for Section 6.1</span>
-</h1></header><article class="example-like" id="task-147"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">147</span><span class="title"></span>
+</h1></header><article class="example-like" id="task-143"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">143</span><span class="title"></span>
 </h5>Exercise 5 from section 6.1 of Strang.
+      </article><article class="example-like" id="task-144"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">144</span><span class="title"></span>
+</h5>Exercise 6 from section 6.1 of Strang.
+      </article><article class="example-like" id="task-145"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">145</span><span class="title"></span>
+</h5>Exercise 7 from section 6.1 of Strang.
+      </article><article class="example-like" id="task-146"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">146</span><span class="title"></span>
+</h5>Exercise 12 from section 6.1 of Strang.
+      </article><article class="example-like" id="task-147"><h5 class="heading">
+<span class="type">Task</span><span class="codenumber">147</span><span class="title"></span>
+</h5>Exercise 14 from section 6.1 of Strang.
       </article><article class="example-like" id="task-148"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">148</span><span class="title"></span>
-</h5>Exercise 6 from section 6.1 of Strang.
-      </article><article class="example-like" id="task-149"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">149</span><span class="title"></span>
-</h5>Exercise 7 from section 6.1 of Strang.
-      </article><article class="example-like" id="task-150"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">150</span><span class="title"></span>
-</h5>Exercise 12 from section 6.1 of Strang.
-      </article><article class="example-like" id="task-151"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">151</span><span class="title"></span>
-</h5>Exercise 14 from section 6.1 of Strang.
-      </article><article class="example-like" id="task-152"><h5 class="heading">
-<span class="type">Task</span><span class="codenumber">152</span><span class="title"></span>
 </h5>Exercise 19 from section 6.1 of Strang.
       </article></section></section></div></main>
 </div>
