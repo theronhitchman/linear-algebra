@@ -156,13 +156,13 @@
         encapsulated in most computer algebra algorithms in some way, and is
         part of the computation involved in computing a PLU decomposition.
         Strang has a decent discussion of the choices, below we will
-        discuss how Sage handles this.
+        discuss how SageMath handles this.
       </p>
     </subsubsection>
   </subsection>
 
   <subsection>
-    <title>Sage and Transposes, Symmetry, Permutations, and Pivots</title>
+    <title>SageMath and Transposes, Symmetry, Permutations, and Pivots</title>
 
     <p>
       There is a lot going on in this little section. At first glance, it is a
@@ -172,7 +172,7 @@
       <title>The Transpose</title>
       <p>
         The transpose of a matrix is what you get by switching the roles of rows
-        and columns. Sage has a simple method for this.
+        and columns. SageMath has a simple method for this.
       </p>
       <sage>
         <input>
@@ -223,7 +223,7 @@
         <output>Full MatrixSpace of 3 by 1 dense matrices over Integer Ring</output>
       </sage>
       <p>
-        See! Sage thinks of <c>U</c> as a matrix with 3 rows and 1 column.
+        See! SageMath thinks of <c>U</c> as a matrix with 3 rows and 1 column.
       </p>
       <p>
         Now we do the same with <c>v</c>
@@ -266,7 +266,7 @@
       <title>Symmetry</title>
       <p>
         A matrix is called <term>symmetric</term> when it is equal to its
-        transpose. Sage has some built-in commands for this.
+        transpose. SageMath has some built-in commands for this.
       </p>
       <sage>
         <input>
@@ -401,13 +401,13 @@
         </ol>
       </p>
       <p>
-        Note: Strang prefers to write things as <m>P'A = LU</m>, but Sage writes
+        Note: Strang prefers to write things as <m>P'A = LU</m>, but SageMath writes
         <m>A = PLU</m>. Fortunately, there is a simple relationship here. Strang's
-        <m>P'</m> is the transpose (and hence the inverse!) of Sage's <m>P</m>.
+        <m>P'</m> is the transpose (and hence the inverse!) of SageMath's <m>P</m>.
       </p>
       <p>
         If you haven't figured it out by now, I think that row reduction by hand
-        is really for chumps. Sage (or whatever computational tool you use) makes
+        is really for chumps. SageMath (or whatever computational tool you use) makes
         it waaaaaaaaay easier.
       </p>
       <sage>

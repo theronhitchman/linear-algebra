@@ -15,6 +15,9 @@
 
     <ul>
       <li>Read section 2.6 of <em>Strang</em>.</li>
+      <li>
+        Watch a video from the YouTube series <em>Essence of Linear Algebra</em>
+        by user <em>3Blue1Brown</em>.
       <li>Read the following and complete the exercises below.</li>
     </ul>
 
@@ -62,7 +65,7 @@
     </p>
     <theorem>
       <statement>
-        Any square matrix <m>A</m> can be written as a product <m>A = LU</m>
+        (Almost) any square matrix <m>A</m> can be written as a product <m>A = LU</m>
         where <m>L</m>
         is a lower triangular matrix and <m>U</m> is an upper triangular matrix.
         Moreover, the matrix <m>L</m> will have <m>1</m>'s down its diagonal.
@@ -138,7 +141,7 @@
   </subsection>
 
   <subsection>
-    <title>Sage and The <m>LU</m> Decomposition</title>
+    <title>SageMath and The <m>LU</m> Decomposition</title>
     <p>
       A neat feature of linear algebra is that simple facts about solving equations
       have several different incarnations. This section contains the first big
@@ -151,7 +154,7 @@
       be read out directly, without any extra computation.
     </p>
     <p>
-      First, let us recall how Sage can help us check bits of
+      First, let us recall how SageMath can help us check bits of
       the three key observations above.
     </p>
     <sage>
@@ -210,9 +213,9 @@
     </subsubsection>
 
     <subsubsection>
-      <title>Sage Commands to short-cut the process</title>
+      <title>SageMath Commands to short-cut the process</title>
       <p>
-        Here is the basic command for getting Sage to compute the <m>LU</m>
+        Here is the basic command for getting SageMath to compute the <m>LU</m>
         decomposition directly.
       </p>
       <sage>
@@ -237,7 +240,7 @@
         Hold on, the output is three matrices. Not two, but three. One is upper
         triangular, one is lower triangular, but the first one is a
         <term>permutation matrix</term>. (It switches rows 1 and 3.) What is
-        going on? If you perform a search in the Sage documentation, you find
+        going on? If you perform a search in the SageMath documentation, you find
         <url href="http://www.sagemath.org/doc/reference/matrices/sage/matrix/matrix2.html">this page</url>.
         There is a description of the command, and the first bit is something about
         a <q>pivoting strategy</q> and row swaps. But we don't want row swaps.
@@ -249,7 +252,7 @@
         will match the one Strang describes.
       </p>
       <p>(If you are using SMC, you can access the help using many other ways.
-        But a Google search for <c>Sage math "topic"</c> will hit the documentation
+        But a Google search for <c>SageMath "topic"</c> will hit the documentation
         pretty reliably.)
       </p>
 
@@ -303,7 +306,7 @@
         </output>
       </sage>
       <p>
-        And we can have Sage check if they are really equal.
+        And we can have SageMath check if they are really equal.
       </p>
       <sage>
         <input>L*U == A</input>
@@ -312,7 +315,7 @@
     </subsubsection>
     <subsubsection>
       <title>What about the <m>LDU</m> decomposition?</title>
-      <p>For now, Sage has no built-in <m>LDU</m> decomposition.</p>
+      <p>For now, SageMath has no built-in <m>LDU</m> decomposition.</p>
     </subsubsection>
 
     <subsubsection>
@@ -388,7 +391,7 @@
       </p>
       <p>
         Solve the system <m>Ax=b</m> directly using Gauss-Jordan
-        elimination (hint: use Sage) and make sure that the results
+        elimination (hint: use SageMath) and make sure that the results
         are the same.
       </p>
     </statement>

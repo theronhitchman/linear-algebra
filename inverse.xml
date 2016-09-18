@@ -14,6 +14,10 @@
     <title>The Assignment</title>
     <ul>
       <li>Read section 2.5 of <em>Strang</em>.</li>
+      <li>
+        Watch a video from the YouTube series <em>Essence of Linear Algebra</em>
+        by user <em>3Blue1Brown</em>.
+      </li>
       <li>Read the following and complete the exercises below.</li>
     </ul>
   </subsection>
@@ -48,7 +52,7 @@
       <li>State the distinction between a matrix being <term>invertible</term>
         and a matrix being <term>singular</term>.
       </li>
-    </ul>    
+    </ul>
 
 
 
@@ -178,9 +182,9 @@
   </subsection>
 
   <subsection>
-    <title>Sage and Gauss-Jordan Elimination</title>
+    <title>SageMath and Gauss-Jordan Elimination</title>
     <p>
-      We have already seen that Sage has commands for constructing matrices and
+      We have already seen that SageMath has commands for constructing matrices and
       performing row operations. Those are the operations used to perform
       Gauss-Jordan Elimination. But there are several interesting and useful
       commands in this neighborhood we have not yet discussed.
@@ -206,7 +210,7 @@
       </output>
     </sage>
     <p>
-      And we can get Sage to just compute the inverse for us.
+      And we can get SageMath to just compute the inverse for us.
     </p>
     <sage>
       <input>
@@ -241,7 +245,7 @@
       </output>
     </sage>
     <p>
-      We can also ask Sage to compute determinants with the <c>.determinant()</c>
+      We can also ask SageMath to compute determinants with the <c>.determinant()</c>
       method.
     </p>
     <sage>
@@ -253,7 +257,7 @@
       </output>
     </sage>
     <p>
-      Sage is also capable of computing the reduced row echelon form
+      SageMath is also capable of computing the reduced row echelon form
       (the <q>rref</q>) of a matrix with the appropriately named <c>.rref()</c>
       method.
     </p>
@@ -335,7 +339,7 @@
       </output>
     </sage>
     <p>
-      That was good. But we only need the right-hand submatrix. We can get Sage
+      That was good. But we only need the right-hand submatrix. We can get SageMath
       to report just that!
     </p>
     <sage>
