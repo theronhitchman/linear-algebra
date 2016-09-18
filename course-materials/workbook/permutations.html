@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-10T17:10:16-05:00    *-->
+<!--*    on 2016-09-18T15:57:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,27 +140,27 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-52"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-209">Read section 2.7 of <!--Style me with CSS--><em>Strang</em>
+<li id="li-211">Read section 2.7 of <!--Style me with CSS--><em>Strang</em>
 </li>
-<li id="li-210">Read the following and complete the exercises below.</li>
+<li id="li-212">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-53"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-249">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-211">
+<li id="li-213">
         Compute the transpose of a matrix.
       </li>
-<li id="li-212">
+<li id="li-214">
         Correctly perform calculations where the transpose interacts with the
         operations of matrix sum, matrix product, and matrix inverse.
       </li>
-<li id="li-213">
+<li id="li-215">
         Compute inner and outer products using the transpose.
       </li>
-<li id="li-214">
+<li id="li-216">
         Decide if a matrix is symmetric or not.
       </li>
-<li id="li-215">
+<li id="li-217">
         Recognize permutation matrices, and design permutation matrices which
         correspond to given row swaps.
       </li>
@@ -169,14 +169,14 @@ MathJax.Hub.Config({
       Some time after class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-216">
+<li id="li-218">
         Find the \(LDL^T\) decomposition for symmetric matrices.
       </li>
-<li id="li-217">
+<li id="li-219">
         Explain how the necessity of permuting rows during Gaussian elimination
         leads to the decomposition \(PA = LU\).
       </li>
-<li id="li-218">
+<li id="li-220">
         Explain why \(P^T = P^{-1}\) for permutation matrices.
       </li>
 </ul></section><section class="subsection" id="subsection-54"><header title="Subsection  Discussion: Transposes, Symmetric Matrices, and Permutations"><h1 class="heading hide-type" alt="Subsection  Discussion: Transposes, Symmetric Matrices, and Permutations">
@@ -217,15 +217,15 @@ MathJax.Hub.Config({
         computation:
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-219">
+<li id="li-221">
           If \(A\) and \(B\) are matrices of the same shape, then
           \((A+B)^T = A^T + B^T\).
         </li>
-<li id="li-220">
+<li id="li-222">
           If \(A\) and \(B\) are of sizes so that \(AB\) is defined,
           then \((AB)^T = B^T A^T\).
         </li>
-<li id="li-221">
+<li id="li-223">
           If \(A\) is an invertible matrix, with inverse \(A^{-1}\),
           then \(A^T\) is also invertible and it has inverse
           \(\left(A^T\right)^{-1} = \left(A^{-1}\right)^T \).
@@ -272,9 +272,9 @@ MathJax.Hub.Config({
         encapsulated in most computer algebra algorithms in some way, and is
         part of the computation involved in computing a PLU decomposition.
         Strang has a decent discussion of the choices, below we will
-        discuss how Sage handles this.
-      </p></section></section><section class="subsection" id="subsection-55"><header title="Subsection  Sage and Transposes, Symmetry, Permutations, and Pivots"><h1 class="heading hide-type" alt="Subsection  Sage and Transposes, Symmetry, Permutations, and Pivots">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Transposes, Symmetry, Permutations, and Pivots</span>
+        discuss how SageMath handles this.
+      </p></section></section><section class="subsection" id="subsection-55"><header title="Subsection  SageMath and Transposes, Symmetry, Permutations, and Pivots"><h1 class="heading hide-type" alt="Subsection  SageMath and Transposes, Symmetry, Permutations, and Pivots">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and Transposes, Symmetry, Permutations, and Pivots</span>
 </h1></header><p id="p-260">
       There is a lot going on in this little section. At first glance, it is a
       bit intimidating. But we have seen most of the ideas before.
@@ -283,7 +283,7 @@ MathJax.Hub.Config({
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Transpose</span>
 </h1></header><p id="p-261">
         The transpose of a matrix is what you get by switching the roles of rows
-        and columns. Sage has a simple method for this.
+        and columns. SageMath has a simple method for this.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">M = MatrixSpace(QQ, 3,3)
 A = M([1,2,3,4,5,6,7,8,9]); A
@@ -306,7 +306,7 @@ u.dot_product(v)
 <div class="sagecell-sage"><script type="text/x-sage">U.parent()
 </script></div>
 <p id="p-264">
-        See! Sage thinks of <tt class="code-inline" style="color: red; font-size: 120%">U</tt> as a matrix with 3 rows and 1 column.
+        See! SageMath thinks of <tt class="code-inline" style="color: red; font-size: 120%">U</tt> as a matrix with 3 rows and 1 column.
       </p>
 <p id="p-265">
         Now we do the same with <tt class="code-inline" style="color: red; font-size: 120%">v</tt>
@@ -333,7 +333,7 @@ V
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Symmetry</span>
 </h1></header><p id="p-269">
         A matrix is called <em class="terminology">symmetric</em> when it is equal to its
-        transpose. Sage has some built-in commands for this.
+        transpose. SageMath has some built-in commands for this.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">B = M([2,1,0,1,1,0,0,0,1])
 B
@@ -383,14 +383,14 @@ Uprime
 <p id="p-273">
         Here is the important stuff to remember:
         <ol style="list-style-type: decimal;">
-<li id="li-222">A row swap is performed by a permutation matrix. A permutation matrix
+<li id="li-224">A row swap is performed by a permutation matrix. A permutation matrix
             is a matrix with exactly one \(1\) in each column and in each row.
             These matrices have the important property that their transposes and
             their inverses are equal. That is, if \(P\) is a permutation matrix,
             then \(P^T\) is equal to \(P^{-1}\). (Not every matrix with
             this extra property is a permutation matrix. Be careful.)
           </li>
-<li id="li-223">
+<li id="li-225">
             It is possible to figure out what all of the row swaps should be, and
             then rearrange all of the amtrices in an LU decomposition routine.
             If you do it correctly, you get:
@@ -406,13 +406,13 @@ Uprime
 </ol>
       </p>
 <p id="p-274">
-        Note: Strang prefers to write things as \(P'A = LU\), but Sage writes
+        Note: Strang prefers to write things as \(P'A = LU\), but SageMath writes
         \(A = PLU\). Fortunately, there is a simple relationship here. Strang's
-        \(P'\) is the transpose (and hence the inverse!) of Sage's \(P\).
+        \(P'\) is the transpose (and hence the inverse!) of SageMath's \(P\).
       </p>
 <p id="p-275">
         If you haven't figured it out by now, I think that row reduction by hand
-        is really for chumps. Sage (or whatever computational tool you use) makes
+        is really for chumps. SageMath (or whatever computational tool you use) makes
         it waaaaaaaaay easier.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage"># using 'partial pivoting' where we get "big pivots"
@@ -445,15 +445,15 @@ print x # fancy python tricks for readable display
         you know it is true. If the statement is false, give an example that
         shows it is false.
         <ol style="list-style-type: decimal;">
-<li id="li-224">
+<li id="li-226">
             The block matrix \(\left( \begin{smallmatrix} A &amp; 0 \\
             0 &amp; A \end{smallmatrix}\right)\) is automatically symmetric.
           </li>
-<li id="li-225">
+<li id="li-227">
             If \(A\) and \(B\) are symmetric, then their product \(AB\)
             is symmetric.
           </li>
-<li id="li-226">
+<li id="li-228">
             If \(A\) is not symmetric, then \(A^{-1}\) is not symmetric.
           </li>
 </ol></article><article class="example-like" id="task-63"><h5 class="heading">
@@ -467,15 +467,15 @@ print x # fancy python tricks for readable display
 </h5>
         Explain the following phenomena in terms of row operations.
         <ol style="list-style-type: decimal;">
-<li id="li-227">
+<li id="li-229">
             For any permutation matrix \(P\), it is the case that
             \(P^T P = I\).
           </li>
-<li id="li-228">
+<li id="li-230">
             All row exchange matrices are symmetric: \(P^T = P\).
             (other permutation matrices may or may not be symmetric.)
           </li>
-<li id="li-229">
+<li id="li-231">
             If \(P\) is a row exchange matrix, then \(P^2 = I\).
           </li>
 </ol></article><article class="example-like" id="task-65"><h5 class="heading">
@@ -484,9 +484,9 @@ print x # fancy python tricks for readable display
         For each of the following, find an example of a \(2\times 2\)
         symmetric matrix with the given property:
         <ol style="list-style-type: decimal;">
-<li id="li-230">\(A\) is not invertible.</li>
-<li id="li-231">\(A\) is invertible but cannot be factored into \(LU\).</li>
-<li id="li-232">\(A\) can be factored into \(LDL^T\), but not into
+<li id="li-232">\(A\) is not invertible.</li>
+<li id="li-233">\(A\) is invertible but cannot be factored into \(LU\).</li>
+<li id="li-234">\(A\) can be factored into \(LDL^T\), but not into
             \(LL^T\) because \(D\) has negative entries.
           </li>
 </ol></article><article class="example-like" id="task-66"><h5 class="heading">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-10T17:10:16-05:00    *-->
+<!--*    on 2016-09-18T15:57:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,20 +140,20 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-81"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-315">Read <!--Style me with CSS--><em>Strang</em> chapter 3 section 5.</li>
-<li id="li-316">Read the following and complete the exercises below.</li>
+<li id="li-317">Read <!--Style me with CSS--><em>Strang</em> chapter 3 section 5.</li>
+<li id="li-318">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-82"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-360">Before class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-317">Use the row space algorithm to decide if a set of vectors is
+<li id="li-319">Use the row space algorithm to decide if a set of vectors is
         linearly independent or linearly dependent.</li>
-<li id="li-318">Use the column space algorithm to decide if a set of vectors is
+<li id="li-320">Use the column space algorithm to decide if a set of vectors is
         linearly independent or linearly dependent</li>
-<li id="li-319">Compute the dimension of a subspace.</li>
+<li id="li-321">Compute the dimension of a subspace.</li>
 </ul>
 <p id="p-361">Sometime after class, a student should be able to:</p>
-<ul style="list-style-type: disc;"><li id="li-320">Explain the connection between a set of vectors being
+<ul style="list-style-type: disc;"><li id="li-322">Explain the connection between a set of vectors being
       linearly independent, a spanning set, and a basis.</li></ul></section><section class="subsection" id="subsection-83"><header title="Subsection  Discussion: Linear Independence, Spanning, Basis, and Dimension"><h1 class="heading hide-type" alt="Subsection  Discussion: Linear Independence, Spanning, Basis, and Dimension">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: Linear Independence, Spanning, Basis, and Dimension</span>
 </h1></header><p id="p-362">
@@ -178,17 +178,17 @@ MathJax.Hub.Config({
       What are the new terms?
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-321">
+<li id="li-323">
         A set \(\{v_1, v_2, \ldots, v_k\}\) of vectors is <em class="terminology">linearly
         independent</em>, or <em class="terminology">linearly dependent</em>.
       </li>
-<li id="li-322">
+<li id="li-324">
         A set of vectors <em class="terminology">spans</em> a vector space or a subspace.
       </li>
-<li id="li-323">
+<li id="li-325">
         A set of vectors is a <em class="terminology">basis</em> or not.
       </li>
-<li id="li-324">
+<li id="li-326">
         The <em class="terminology">dimension</em> of a vector space, or of a vector subspace.
       </li>
 </ul>
@@ -215,17 +215,17 @@ MathJax.Hub.Config({
         these other situtations?
       </p>
 <ul style="list-style-type: disc;">
-<li id="li-325">
+<li id="li-327">
           The set \(\mathcal{P}_3\) of polynomials in \(x\) of degree
           no more than 3?
         </li>
-<li id="li-326">
+<li id="li-328">
           The set \(M_{m,n}\) of \(m\times n\) matrices.
         </li>
-<li id="li-327">
+<li id="li-329">
           The set \(\mathcal{C}(\mathbb{R})\) of continuous functions.
         </li>
-<li id="li-328">
+<li id="li-330">
           The set of all functions which are solutions to the differential
           equation \(y'' = y\).
         </li>
@@ -243,15 +243,15 @@ MathJax.Hub.Config({
           \(\mathbb{R}^n\):
         </p>
         <ul style="list-style-type: disc;">
-<li id="li-329">Form the \(n\times k\) matrix
+<li id="li-331">Form the \(n\times k\) matrix
             \(A = \left( \begin{smallmatrix} v_1 &amp; v_2 &amp; \dots &amp;
             v_k\end{smallmatrix}\right)\).
           </li>
-<li id="li-330">Put \(A\) into reduced row echelon form
+<li id="li-332">Put \(A\) into reduced row echelon form
             \(R = \mathrm{rref}(A)\). (Really, you only need to go to
             echelon form, here.)
           </li>
-<li id="li-331">Read out pivot columns and free columns of \(R\).
+<li id="li-333">Read out pivot columns and free columns of \(R\).
             Those columns of \(A\) which are free columns are linear
             combinations of previous columns to the left! So, if any column
             of \(R\) (and \(A\)) is a free columns, the set of vectors
@@ -272,14 +272,14 @@ MathJax.Hub.Config({
           \(\mathbb{R}^n\):
         </p>
         <ul style="list-style-type: disc;">
-<li id="li-332">Form the \(k\times n\) matrix
+<li id="li-334">Form the \(k\times n\) matrix
           \(A = \left( \begin{smallmatrix} v_1^T \\ v_2^T \\ \vdots
             \\ v_k^T \end{smallmatrix}\right)\).
           </li>
-<li id="li-333">Put \(A\) into reduced row echelon form
+<li id="li-335">Put \(A\) into reduced row echelon form
             \(R = \mathrm{rref}(A)\).
           </li>
-<li id="li-334">The rows of \(R\) will contain a basis for the vector
+<li id="li-336">The rows of \(R\) will contain a basis for the vector
             subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\) (written as
             rows instead of columns, of course).
             If \(R\) has any zero rows, the original set was linearly
@@ -313,8 +313,8 @@ V
 <p id="p-378">
         Note that Sage already gives us some information:
         <ul style="list-style-type: disc;">
-<li id="li-335">dimension</li>
-<li id="li-336">a basis</li>
+<li id="li-337">dimension</li>
+<li id="li-338">a basis</li>
 </ul>
         Sage has chosen its preferred basis, as usual.
       </p>
@@ -430,11 +430,11 @@ A = matrix(AA, 3,4, entries); A
         Suppose that the columns of a \(5 \times 5 \) matrix \(A\) are a
         basis for \(\mathbb{R}^5\).
         <ol style="list-style-type: decimal;">
-<li id="li-337">
+<li id="li-339">
             Explain why the equation \(Ax = 0\) has only the solution
             \(x=0\).
           </li>
-<li id="li-338">
+<li id="li-340">
             What fact about the column vectors guarantees that for any \(b\)
             in \(\mathbb{R}^5\) the equation \(Ax =b\) is solvable?
           </li>
@@ -449,11 +449,11 @@ A = matrix(AA, 3,4, entries); A
         Determine if the following statements are true or false. If true, give
         an explanation for why it is true. If false, give a counterexample.
         <ol style="list-style-type: decimal;">
-<li id="li-339">
+<li id="li-341">
             Every basis for \(S\) can be extended to a basis for
             \(\mathbb{R}^6\) by adding one more vector.
           </li>
-<li id="li-340">
+<li id="li-342">
             Every basis for \(\mathbb{R}^6\) can be reduced to a basis for
             \(S\) by removing one vector.
           </li>
@@ -463,13 +463,13 @@ A = matrix(AA, 3,4, entries); A
         Find a basis (and the dimension) for each of these subspaces of the vector
         space of \(3\times 3\) matrices:
         <ol style="list-style-type: decimal;">
-<li id="li-341">
+<li id="li-343">
             All diagonal matrices.
           </li>
-<li id="li-342">
+<li id="li-344">
             All symmetric matrices. (\(A^T = A\))
           </li>
-<li id="li-343">
+<li id="li-345">
             All skew-symmetric matrices. (\(A^T = -A\))
           </li>
 </ol></article><article class="example-like" id="task-99"><h5 class="heading">

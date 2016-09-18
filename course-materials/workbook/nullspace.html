@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-10T17:10:16-05:00    *-->
+<!--*    on 2016-09-18T15:57:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,28 +140,28 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-64"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-255">Read chapter 3 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-256">Read the following and complete the exercises below.</li>
+<li id="li-257">Read chapter 3 section 2 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-258">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-65"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-299">Before coming to class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-257">Find the special solutions associated to a matrix.</li>
-<li id="li-258">Compute the <em class="terminology">reduced row echelon form</em> of a matrix.</li>
-<li id="li-259">Identify the free variables and the pivot variables associated to
+<li id="li-259">Find the special solutions associated to a matrix.</li>
+<li id="li-260">Compute the <em class="terminology">reduced row echelon form</em> of a matrix.</li>
+<li id="li-261">Identify the free variables and the pivot variables associated to
         a matrix.
       </li>
-<li id="li-260">
+<li id="li-262">
         Describe the nullspace of a matrix with the “simplest” set of
         equations possible.
       </li>
 </ul>
 <p id="p-300">Some time after class, a student should be able to:</p>
 <ul style="list-style-type: disc;">
-<li id="li-261">Describe the complete solution to a homogeneous system of equations
+<li id="li-263">Describe the complete solution to a homogeneous system of equations
         \(Ax = 0\).
       </li>
-<li id="li-262">Give an argument for why the nullspace is a vector subspace.</li>
+<li id="li-264">Give an argument for why the nullspace is a vector subspace.</li>
 </ul></section><section class="subsection" id="subsection-66"><header title="Subsection  Discussion: The Nullspace, RREF, and Special Solutions"><h1 class="heading hide-type" alt="Subsection  Discussion: The Nullspace, RREF, and Special Solutions">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Discussion: The Nullspace, RREF, and Special Solutions</span>
 </h1></header><p id="p-301">
@@ -179,38 +179,38 @@ MathJax.Hub.Config({
       is called a <em class="terminology">homogeneous equation</em>.
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-263">The nullspace of \(A\) is the set of vectors \(x\) such that \(Ax=0\). It
+<li id="li-265">The nullspace of \(A\) is the set of vectors \(x\) such that \(Ax=0\). It
         is a theorem that this is a vector subspace of \(\mathbb{R}^n\). It is a
         common to use the synonym <em class="terminology">the kernel of \(A\)</em> in place of the
         terminology <em class="terminology">the nullspace of \(A\).</em>
 </li>
-<li id="li-264">The key to everything is to not mind that your matrix isn't square.
+<li id="li-266">The key to everything is to not mind that your matrix isn't square.
         Just do Gauss-Jordan elimination anyway. The end result is called the
         <em class="terminology">reduced row echelon form</em> of the matrix, or RREF for short.
       </li>
-<li id="li-265">Note that there is no discussion of using an augmented matrix in this
+<li id="li-267">Note that there is no discussion of using an augmented matrix in this
         section, even though we are solving systems of equations \(Ax=0\). This
         is because the vector on the right hand side is zero and will stay
         zero. There is nothing interesting to track!
       </li>
-<li id="li-266">The RREF is good for several things. One that is often overlooked is
+<li id="li-268">The RREF is good for several things. One that is often overlooked is
         that one can use it to rewrite the system of equations in a “simplest
         form.” I mean that the equations left over in the RREF are somehow
         the easiest equations to use to cut out the solution as an intersection
         of hyperplanes.
       </li>
-<li id="li-267">In the RREF, all of the structure can be inferred from the splitting
+<li id="li-269">In the RREF, all of the structure can be inferred from the splitting
         of the columns into two types: the pivot columns and the free columns.
         Since each column is associated to a variable in our system of linear
         equations (the columns hold coefficients!), it is also common to refer
         to pivot variables and free variables.
       </li>
-<li id="li-268">The number of free columns basically determines the “size” of the
+<li id="li-270">The number of free columns basically determines the “size” of the
         nullspace. This is an entry point to the concept of the
         <em class="terminology">dimension</em> of a vector space. We shall see this in more detail
         later.
       </li>
-<li id="li-269">Strang points out an easy way to find some individual vectors in the
+<li id="li-271">Strang points out an easy way to find some individual vectors in the
         null space: he calls these the <em class="terminology">special solutions</em>. This is
         because they are solutions to the equation \(Ax=0\).
       </li>
@@ -331,10 +331,10 @@ A*special2
 </h1></header><p id="p-317">
       For the first three exercises, your job is to find both
       <ul style="list-style-type: disc;">
-<li id="li-270">The minimal set of equations which cuts out the nullspace of the
+<li id="li-272">The minimal set of equations which cuts out the nullspace of the
           given matrix as an intersection of hyperplanes; and
         </li>
-<li id="li-271">the size of the nullspace, expressed through the number
+<li id="li-273">the size of the nullspace, expressed through the number
           “independent directions” it contains.
         </li>
 </ul>

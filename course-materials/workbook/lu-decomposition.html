@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-10T17:10:16-05:00    *-->
+<!--*    on 2016-09-18T15:57:51-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -140,19 +140,23 @@ MathJax.Hub.Config({
 </h1></header><section class="subsection" id="subsection-47"><header title="Subsection  The Assignment"><h1 class="heading hide-type" alt="Subsection  The Assignment">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">The Assignment</span>
 </h1></header><ul style="list-style-type: disc;">
-<li id="li-198">Read section 2.6 of <!--Style me with CSS--><em>Strang</em>.</li>
-<li id="li-199">Read the following and complete the exercises below.</li>
+<li id="li-199">Read section 2.6 of <!--Style me with CSS--><em>Strang</em>.</li>
+<li id="li-200">
+        Watch a video from the YouTube series <!--Style me with CSS--><em>Essence of Linear Algebra</em>
+        by user <!--Style me with CSS--><em>3Blue1Brown</em>.
+      </li>
+<li id="li-201">Read the following and complete the exercises below.</li>
 </ul></section><section class="subsection" id="subsection-48"><header title="Subsection  Learning Goals"><h1 class="heading hide-type" alt="Subsection  Learning Goals">
 <span class="type">Subsection</span><span class="codenumber"></span><span class="title">Learning Goals</span>
 </h1></header><p id="p-220">
       Before class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-200">
+<li id="li-202">
         Use Gaussian Elimination to find the \(LU\) and \(LDU\)
         decompositions of a matrix.
       </li>
-<li id="li-201">
+<li id="li-203">
         Describe when the process of Gaussian Elimination will fail to
         produce an \(LU\) decomposition.
       </li>
@@ -161,11 +165,11 @@ MathJax.Hub.Config({
       Sometime after class, a student should be able to:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-202">
+<li id="li-204">
         Solve a system of equations by using the \(LU\) decomposition and
         two triangular systems.
       </li>
-<li id="li-203">
+<li id="li-205">
         Explain the connection between matrix elimination and the \(LU\)
         or \(LDU\) factorization of a matrix.
       </li>
@@ -179,7 +183,7 @@ MathJax.Hub.Config({
 <article class="theorem-like" id="theorem-2"><h5 class="heading">
 <span class="type">Theorem</span><span class="codenumber">2.3</span>
 </h5>
-        Any square matrix \(A\) can be written as a product \(A = LU\)
+        (Almost) any square matrix \(A\) can be written as a product \(A = LU\)
         where \(L\)
         is a lower triangular matrix and \(U\) is an upper triangular matrix.
         Moreover, the matrix \(L\) will have \(1\)'s down its diagonal.
@@ -187,12 +191,12 @@ MathJax.Hub.Config({
       There are three key observations that make this work:
     </p>
 <ul style="list-style-type: disc;">
-<li id="li-204">
+<li id="li-206">
         Each of the matrices \(E_{ij}\) that affects a row operation of the
         form <!--Style me with CSS--><em>add a multiple of row \(i\) to row \(j\)</em> is an invertible
         matrix, with an easy to find inverse.
       </li>
-<li id="li-205">
+<li id="li-207">
         If we make a sequence of row operations in the forward pass using
         matrices \(E_k\), then we are essentially computing a big product
         \begin{equation*}
@@ -206,7 +210,7 @@ MathJax.Hub.Config({
         Note that the inverses have to be done <!--Style me with CSS--><em>in reverse order</em> for things
         to cancel out properly.
       </li>
-<li id="li-206">
+<li id="li-208">
         Finally, the product \(L = E_1^{-1} \dots E_k^{-1}\) is really easy to
         compute, because its entries are simply the negatives of the multipliers
         we used to do the operations in the forward pass.
@@ -219,8 +223,8 @@ MathJax.Hub.Config({
         solutions to equations like \(Ax = b\). Since we can write \(A = LU\),
         then our equation can be split into two (big) steps:
         <ol style="list-style-type: decimal;">
-<li id="li-207"> First find the solution to the equation \(Ly = b\).</li>
-<li id="li-208"> Then find the solution to the equation \(Ux = y\).</li>
+<li id="li-209"> First find the solution to the equation \(Ly = b\).</li>
+<li id="li-210"> Then find the solution to the equation \(Ux = y\).</li>
 </ol>
       </p>
 <p id="p-225">
@@ -242,8 +246,8 @@ MathJax.Hub.Config({
         of \(b_i\), and you want to solve all of the equations \(Ax = b_i\),
         it becomes a lot faster to factor the matrix \(A= LU\) once and do
         two back substitutions for each value of \(b_i\).
-      </p></section></section><section class="subsection" id="subsection-50"><header title="Subsection  Sage and The \(LU\) Decomposition"><h1 class="heading hide-type" alt="Subsection  Sage and The \(LU\) Decomposition">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and The \(LU\) Decomposition</span>
+      </p></section></section><section class="subsection" id="subsection-50"><header title="Subsection  SageMath and The \(LU\) Decomposition"><h1 class="heading hide-type" alt="Subsection  SageMath and The \(LU\) Decomposition">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and The \(LU\) Decomposition</span>
 </h1></header><p id="p-228">
       A neat feature of linear algebra is that simple facts about solving equations
       have several different incarnations. This section contains the first big
@@ -256,7 +260,7 @@ MathJax.Hub.Config({
       be read out directly, without any extra computation.
     </p>
 <p id="p-230">
-      First, let us recall how Sage can help us check bits of
+      First, let us recall how SageMath can help us check bits of
       the three key observations above.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">M = MatrixSpace(QQ,3,3)
@@ -283,10 +287,10 @@ One = M(1); One
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Study Break: Try it yourself</span>
 </h1></header><p id="p-233">
         Make your own \(3\times 3\) matrix and check the whole procedure.
-      </p></section><section class="subsubsection" id="subsubsection-24"><header title="Subsubsection  Sage Commands to short-cut the process"><h1 class="heading hide-type" alt="Subsubsection  Sage Commands to short-cut the process">
-<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Sage Commands to short-cut the process</span>
+      </p></section><section class="subsubsection" id="subsubsection-24"><header title="Subsubsection  SageMath Commands to short-cut the process"><h1 class="heading hide-type" alt="Subsubsection  SageMath Commands to short-cut the process">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">SageMath Commands to short-cut the process</span>
 </h1></header><p id="p-234">
-        Here is the basic command for getting Sage to compute the \(LU\)
+        Here is the basic command for getting SageMath to compute the \(LU\)
         decomposition directly.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A = M([2,3,1,-1,3,5,6,5,4]); A
@@ -297,7 +301,7 @@ One = M(1); One
         Hold on, the output is three matrices. Not two, but three. One is upper
         triangular, one is lower triangular, but the first one is a
         <em class="terminology">permutation matrix</em>. (It switches rows 1 and 3.) What is
-        going on? If you perform a search in the Sage documentation, you find
+        going on? If you perform a search in the SageMath documentation, you find
         <a class="external-url" href="http://www.sagemath.org/doc/reference/matrices/sage/matrix/matrix2.html" target="_blank">this page</a>.
         There is a description of the command, and the first bit is something about
         a “pivoting strategy” and row swaps. But we don't want row swaps.
@@ -309,7 +313,7 @@ One = M(1); One
         will match the one Strang describes.
       </p>
 <p id="p-237">(If you are using SMC, you can access the help using many other ways.
-        But a Google search for <tt class="code-inline" style="color: red; font-size: 120%">Sage math "topic"</tt> will hit the documentation
+        But a Google search for <tt class="code-inline" style="color: red; font-size: 120%">SageMath "topic"</tt> will hit the documentation
         pretty reliably.)
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.LU(pivot='nonzero')
@@ -333,12 +337,12 @@ One = M(1); One
 <div class="sagecell-sage"><script type="text/x-sage">L*U # this should multiply to A
 </script></div>
 <p id="p-240">
-        And we can have Sage check if they are really equal.
+        And we can have SageMath check if they are really equal.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">L*U == A
 </script></div></section><section class="subsubsection" id="subsubsection-25"><header title="Subsubsection  What about the \(LDU\) decomposition?"><h1 class="heading hide-type" alt="Subsubsection  What about the \(LDU\) decomposition?">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">What about the \(LDU\) decomposition?</span>
-</h1></header><p id="p-241">For now, Sage has no built-in \(LDU\) decomposition.</p></section><section class="subsubsection" id="subsubsection-26"><header title="Subsubsection  An insurmountable obstacle"><h1 class="heading hide-type" alt="Subsubsection  An insurmountable obstacle">
+</h1></header><p id="p-241">For now, SageMath has no built-in \(LDU\) decomposition.</p></section><section class="subsubsection" id="subsubsection-26"><header title="Subsubsection  An insurmountable obstacle"><h1 class="heading hide-type" alt="Subsubsection  An insurmountable obstacle">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">An insurmountable obstacle</span>
 </h1></header><p id="p-242">
         Some matrices <!--Style me with CSS--><em>require</em> permutations of rows. In these cases, we
@@ -390,7 +394,7 @@ One = M(1); One
       </p>
 <p id="p-248">
         Solve the system \(Ax=b\) directly using Gauss-Jordan
-        elimination (hint: use Sage) and make sure that the results
+        elimination (hint: use SageMath) and make sure that the results
         are the same.
       </p></article><article class="example-like" id="task-56"><h5 class="heading">
 <span class="type">Task</span><span class="codenumber">56</span><span class="title"></span>
