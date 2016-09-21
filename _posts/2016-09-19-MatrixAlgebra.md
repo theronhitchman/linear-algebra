@@ -49,6 +49,6 @@ We didn't get to \#46.
 
 ### For Wednesday
 
-Please prepare the material in [this section of the workbook.]][wkbk]
+Please prepare the material in [this section of the workbook.][wkbk]
 
 [wkbk]: http://theronhitchman.github.io/linear-algebra/course-materials/workbook/inverse.html
