@@ -99,10 +99,10 @@
   </subsection>
 
   <subsection>
-    <title>Sage and the Rank</title>
+    <title>SageMath and the Rank</title>
 
     <p>
-      Sage has a built-in command for the rank of a matrix. It is called
+      SageMath has a built-in command for the rank of a matrix. It is called
       <c>.rank()</c>, of course.
     </p>
     <sage>
@@ -121,7 +121,7 @@
       <output>2</output>
     </sage>
     <p>
-      Sage knows how to do the underlying computations, too. Let's have Sage
+      SageMath knows how to do the underlying computations, too. Let's have Sage
       compute the reduced row echelon form of <c>A</c>:
     </p>
     <sage>
@@ -146,7 +146,7 @@
       </output>
     </sage>
     <p>
-      We can make Sage give us just the matrix in that last response.
+      We can make SageMath give us just the matrix in that last response.
     </p>
     <sage>
       <input>A.right_kernel().basis_matrix()</input>
@@ -185,10 +185,10 @@
       </ouput>
     </sage>
     <p>
-      What has happened here is that Sage constructs a <em>different</em> version
+      What has happened here is that SageMath constructs a <em>different</em> version
       of the nullspace matrix than Strang does. Strang's version is easier to
       find by hand and tends to have <m>1</m>'s and <m>0</m>'s and the end.
-      The Sage version comes from a routine that strongly prefers to
+      The SageMath version comes from a routine that strongly prefers to
       start with <m>1</m>'s and <m>0</m>'s.
     </p>
     <p>
@@ -267,8 +267,8 @@
     <task>
       <statement>
         Consider the matrix <me>
-        A = \left( \begin{smallmatrix} 2 &amp; 1 &amp; 5 \\ 1 &amp; 1
-        &amp; 7 \end{smallmatrix}\right).</me>
+        A =  \begin{pmatrix} 2 &amp; 1 &amp; 5 \\ 1 &amp; 1
+        &amp; 7 \end{pmatrix}.</me>
         Find the reduced row echelon form <m>R = \mathrm{rref}(A)</m>
         of <m>A</m>. Track the row operations you use, and use them to
         find an invertible matrix <m>E</m> so that <m>EA = R</m>.

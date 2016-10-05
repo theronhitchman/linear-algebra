@@ -102,9 +102,9 @@
     </p>
   </subsection>
   <subsection>
-    <title>Sage and the Four Subspaces</title>
+    <title>SageMath and the Four Subspaces</title>
     <p>
-      We have already seen enough Sage commands to work with the four subspaces:
+      We have already seen enough SageMath commands to work with the four subspaces:
       <c>.row_space()</c>, <c>.column_space()</c>, <c>.left_kernel()</c>, and
       <c>.right_kernel()</c> all work.
       Alternatively, we need only remember that the left nullspace and the row
@@ -167,7 +167,7 @@
       <output>True</output>
     </sage>
     <p>
-      Since Sage prefers rows under the hood, the left nullspace is easy to find.
+      Since SageMath prefers rows under the hood, the left nullspace is easy to find.
     </p>
     <sage>
       <input>A.left_kernel()</input>
@@ -190,7 +190,7 @@
       <output>True</output>
     </sage>
     <p>
-      And there you have it. Sage can construct all four fundamental subspaces,
+      And there you have it. SageMath can construct all four fundamental subspaces,
       and each comes with a basis computed by Sage. (Using the row algorithm!)
       Note that the FTLA works in this case.
     </p>

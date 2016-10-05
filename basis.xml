@@ -182,9 +182,9 @@
   </subsection>
 
   <subsection>
-    <title>Sage and Bases</title>
+    <title>SageMath and Bases</title>
     <p>
-      Sage has several commands which are useful for dealing with the concpets
+      SageMath has several commands which are useful for dealing with the concpets
       of this section.
     </p>
     <subsubsection>
@@ -210,12 +210,12 @@
         </output>
       </sage>
       <p>
-        Note that Sage already gives us some information:
+        Note that SageMath already gives us some information:
         <ul>
           <li>dimension</li>
           <li>a basis</li>
         </ul>
-        Sage has chosen its preferred basis, as usual.
+        SageMath has chosen its preferred basis, as usual.
       </p>
       <sage>
         <input>V.dimension()</input>
@@ -234,7 +234,7 @@
     <subsubsection>
       <title>The Algorithms for Checking Linear Independence</title>
       <p>
-        Sage does not have built-in commands with names for checking linear independence
+        SageMath does not have built-in commands with names for checking linear independence
         or linear dependence. Instead, you have to just use the algorithms.
       </p>
       <subsubsubsection>
@@ -301,7 +301,7 @@
     <subsubsection>
       <title>Spaces Associated to a Matrix</title>
       <p>
-        Sage knows about the column space and row space associated to a
+        SageMath knows about the column space and row space associated to a
         matrix. For this next example, we will work over the ring <c>AA</c>
         of <q>algebraic numbers</q>, so we can include <m>\sqrt{2}</m>.
       </p>

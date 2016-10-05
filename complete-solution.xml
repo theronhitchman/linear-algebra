@@ -143,10 +143,10 @@
   </subsection>
 
   <subsection>
-    <title>Sage and Solving General Systems</title>
+    <title>SageMath and Solving General Systems</title>
 
     <p>
-      Sage has many built-in methods for solving systems of linear equations.
+      SageMath has many built-in methods for solving systems of linear equations.
       We will investigate three common ones with a single example considered
       several times.
     </p>
@@ -249,11 +249,11 @@
       </sage>
     </subsubsection>
     <subsubsection>
-      <title>Method Two: A Sage built-in</title>
+      <title>Method Two: A SageMath built-in</title>
       <p>
-        Sage has a built-in method that looks like <q>Matrix division</q>. Here
+        SageMath has a built-in method that looks like <q>Matrix division</q>. Here
         we <q>left divide</q> by the matrix. This is odd notation, and is just
-        something Sage allows.
+        something SageMath allows.
       </p>
       <sage>
         <input>A\b</input>
@@ -279,9 +279,9 @@
     </subsubsection>
 
     <subsubsection>
-      <title>Method Three: Another Sage Built-in</title>
+      <title>Method Three: Another SageMath Built-in</title>
       <p>
-        Finally, Sage will also try to solve the system if you apply the
+        Finally, SageMath will also try to solve the system if you apply the
         <c>.solve_right()</c> method to <c>A</c>. You have to supply the vector
         <c>b</c> as an argument to the command.
       </p>
