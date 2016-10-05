@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-18T15:57:51-05:00    *-->
+<!--*    on 2016-10-04T22:24:36-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -214,27 +214,27 @@ MathJax.Hub.Config({
         null space: he calls these the <em class="terminology">special solutions</em>. This is
         because they are solutions to the equation \(Ax=0\).
       </li>
-</ul></section><section class="subsection" id="subsection-67"><header title="Subsection  Sage and the Nullspace"><h1 class="heading hide-type" alt="Subsection  Sage and the Nullspace">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Nullspace</span>
+</ul></section><section class="subsection" id="subsection-67"><header title="Subsection  SageMath and the Nullspace"><h1 class="heading hide-type" alt="Subsection  SageMath and the Nullspace">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and the Nullspace</span>
 </h1></header><p id="p-304">
       The main idea in this section is to get solutions to homogeneous
       systems \(Ax=0\) by using the reduced row echelon form. This will
-      compute the nullspace of the matrix \(A\). Sage has some useful built
+      compute the nullspace of the matrix \(A\). SageMath has some useful built
       in commands for this. Let us explore an example.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">entries = [1,2,3,4,5,6,7,8,9,10,11,12]
 A = matrix(QQ, 3,4, entries); A
 </script></div>
 <p id="p-305">
-      The most direct way is to ask Sage for the nullspace. But Sage doesn't
+      The most direct way is to ask SageMath for the nullspace. But SageMath doesn't
       call it that. It uses the synonym <em class="terminology">kernel</em>. Also, because we
-      do matrix vector multiplication with vectors on the right, we ahve to
-      tell Sage to do it that way.
+      do matrix vector multiplication with vectors on the right, we have to
+      tell SageMath to do it that way.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.right_kernel()
 </script></div>
 <p id="p-306">
-      Notice that Sage returns the nullspace by specifying a basis. This is
+      Notice that SageMath returns the nullspace by specifying a basis. This is
       a complete set of special solutions! How can we be sure?
     </p>
 <p id="p-307">
@@ -270,7 +270,7 @@ expr2 = x + 2*y + 3*z == 0
 solve([expr1, expr2], [v,x,y,z])
 </script></div>
 <p id="p-310">
-      Aha! Sage is trying to tell us that the pivot variables \(v\)
+      Aha! SageMath is trying to tell us that the pivot variables \(v\)
       and \(x\) should be
       written in terms of the free variables \(y\) and \(z\).
       Strang's "easy way out" is to choose the free variables to be
@@ -300,13 +300,13 @@ A*special2
       these two vectors.
     </p>
 <p id="p-313">
-      What is weird is that Sage always wants its basis to look
+      What is weird is that SageMath always wants its basis to look
       like \(1\)'s and \(0\)'s at the beginning, and our process makes
       them look like that at the end!
     </p>
 <p id="p-314">
       How can we be sure everything lines up?  Well, it is possible to
-      express the two vectors that Sage gives us as a linear combination
+      express the two vectors that SageMath gives us as a linear combination
       of the ones we just found, and vice versa. So we are getting <!--Style me with CSS--><em>two</em>
       descriptions of the same space.
     </p>
@@ -323,7 +323,7 @@ A*special2
       relationships using row operations and a matrix inverse.
     </p>
 <p id="p-316">
-      Anyway, what has happened is that Sage has performed our calculations above,
+      Anyway, what has happened is that SageMath has performed our calculations above,
       and then taken the extra steps of putting the matrix of basis vectors into
       reduced row echelon form, too.
     </p></section><section class="subsection" id="subsection-68"><header title="Subsection  Exercises"><h1 class="heading hide-type" alt="Subsection  Exercises">

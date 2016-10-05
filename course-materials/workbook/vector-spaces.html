@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-18T15:57:51-05:00    *-->
+<!--*    on 2016-10-04T22:24:36-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -206,9 +206,9 @@ MathJax.Hub.Config({
       columns of \(A\). This is our first exposure to the idea of a
       <em class="terminology">span</em>. The column space of \(A\) is the subspace of
       \(\mathbb{R}\) spanned by the columns of \(A\).
-    </p></section><section class="subsection" id="subsection-62"><header title="Subsection  Sage and subspaces"><h1 class="heading hide-type" alt="Subsection  Sage and subspaces">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and subspaces</span>
-</h1></header><p id="p-293">Sage allows you to construct different kinds of vector spaces. The most
+    </p></section><section class="subsection" id="subsection-62"><header title="Subsection  SageMath and subspaces"><h1 class="heading hide-type" alt="Subsection  SageMath and subspaces">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and subspaces</span>
+</h1></header><p id="p-293">SageMath allows you to construct different kinds of vector spaces. The most
       important is the standard vector space \(\mathbb{R}^n\).
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">V = VectorSpace(QQ, 3)
@@ -220,7 +220,7 @@ V
       rational numbers as entries.
     </p>
 <p id="p-295">
-      More important for us is the fact that Sage knows how to find the subspaces
+      More important for us is the fact that SageMath knows how to find the subspaces
       associated to matrices.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 2,3, [4,5,3,0,1,1])
@@ -229,7 +229,7 @@ A
 <div class="sagecell-sage"><script type="text/x-sage">A.column_space()
 </script></div>
 <p id="p-296">
-      Note that Sage gives information in terms of a basis. We will talk about
+      Note that SageMath gives information in terms of a basis. We will talk about
       this concept soon.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">B = matrix(QQ, 3,3 , [1,2,3,4,5,6,7,8,9])
@@ -244,7 +244,7 @@ B
       What is going on?
     </p>
 <p id="p-298">
-      Sage prefers to display vectors as rows! This is a big interal preference.
+      SageMath prefers to display vectors as rows! This is a big interal preference.
       We just have to get over it. Well, we have to <!--Style me with CSS--><em>remember it</em> and get over it.
       To access the basis vectors and display them as columns,
       we will use the following:

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-18T15:57:51-05:00    *-->
+<!--*    on 2016-10-04T22:24:36-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -257,10 +257,10 @@ MathJax.Hub.Config({
           x = x_p + a_1 s_1 + a_2 s_2 + \dots + a_k s_k,
           \quad \text{for any scalars } a_i \in \mathbb{R}.
         \end{equation*}</li>
-</ul></section><section class="subsection" id="subsection-77"><header title="Subsection  Sage and Solving General Systems"><h1 class="heading hide-type" alt="Subsection  Sage and Solving General Systems">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Solving General Systems</span>
+</ul></section><section class="subsection" id="subsection-77"><header title="Subsection  SageMath and Solving General Systems"><h1 class="heading hide-type" alt="Subsection  SageMath and Solving General Systems">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and Solving General Systems</span>
 </h1></header><p id="p-346">
-      Sage has many built-in methods for solving systems of linear equations.
+      SageMath has many built-in methods for solving systems of linear equations.
       We will investigate three common ones with a single example considered
       several times.
     </p>
@@ -311,12 +311,12 @@ gensol = xp + t * s1
 gensol
 </script></div>
 <div class="sagecell-sage"><script type="text/x-sage">A*gensol == b
-</script></div></section><section class="subsubsection" id="subsubsection-35"><header title="Subsubsection  Method Two: A Sage built-in"><h1 class="heading hide-type" alt="Subsubsection  Method Two: A Sage built-in">
-<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method Two: A Sage built-in</span>
+</script></div></section><section class="subsubsection" id="subsubsection-35"><header title="Subsubsection  Method Two: A SageMath built-in"><h1 class="heading hide-type" alt="Subsubsection  Method Two: A SageMath built-in">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method Two: A SageMath built-in</span>
 </h1></header><p id="p-353">
-        Sage has a built-in method that looks like “Matrix division”. Here
+        SageMath has a built-in method that looks like “Matrix division”. Here
         we “left divide” by the matrix. This is odd notation, and is just
-        something Sage allows.
+        something SageMath allows.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">A\b
 </script></div>
@@ -329,10 +329,10 @@ gensol
         The downside to this particular method is that in only gives you one
         particular solution. It does not produce the complete solution. You have
         to do that bit for yourself, maybe like the above.
-      </p></section><section class="subsubsection" id="subsubsection-36"><header title="Subsubsection  Method Three: Another Sage Built-in"><h1 class="heading hide-type" alt="Subsubsection  Method Three: Another Sage Built-in">
-<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method Three: Another Sage Built-in</span>
+      </p></section><section class="subsubsection" id="subsubsection-36"><header title="Subsubsection  Method Three: Another SageMath Built-in"><h1 class="heading hide-type" alt="Subsubsection  Method Three: Another SageMath Built-in">
+<span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Method Three: Another SageMath Built-in</span>
 </h1></header><p id="p-356">
-        Finally, Sage will also try to solve the system if you apply the
+        Finally, SageMath will also try to solve the system if you apply the
         <tt class="code-inline" style="color: red; font-size: 120%">.solve_right()</tt> method to <tt class="code-inline" style="color: red; font-size: 120%">A</tt>. You have to supply the vector
         <tt class="code-inline" style="color: red; font-size: 120%">b</tt> as an argument to the command.
       </p>

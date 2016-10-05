@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-18T15:57:51-05:00    *-->
+<!--*    on 2016-10-04T22:24:37-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -217,10 +217,10 @@ MathJax.Hub.Config({
 <p id="p-392">
       We will have more to say about these spaces when we reconsider the uses
       of the dot product in chapter 4.
-    </p></section><section class="subsection" id="subsection-89"><header title="Subsection  Sage and the Four Subspaces"><h1 class="heading hide-type" alt="Subsection  Sage and the Four Subspaces">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Four Subspaces</span>
+    </p></section><section class="subsection" id="subsection-89"><header title="Subsection  SageMath and the Four Subspaces"><h1 class="heading hide-type" alt="Subsection  SageMath and the Four Subspaces">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and the Four Subspaces</span>
 </h1></header><p id="p-393">
-      We have already seen enough Sage commands to work with the four subspaces:
+      We have already seen enough SageMath commands to work with the four subspaces:
       <tt class="code-inline" style="color: red; font-size: 120%">.row_space()</tt>, <tt class="code-inline" style="color: red; font-size: 120%">.column_space()</tt>, <tt class="code-inline" style="color: red; font-size: 120%">.left_kernel()</tt>, and
       <tt class="code-inline" style="color: red; font-size: 120%">.right_kernel()</tt> all work.
       Alternatively, we need only remember that the left nullspace and the row
@@ -245,7 +245,7 @@ A
 <div class="sagecell-sage"><script type="text/x-sage">A.transpose().column_space() == A.row_space()
 </script></div>
 <p id="p-395">
-      Since Sage prefers rows under the hood, the left nullspace is easy to find.
+      Since SageMath prefers rows under the hood, the left nullspace is easy to find.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.left_kernel()
 </script></div>
@@ -254,7 +254,7 @@ A
 <div class="sagecell-sage"><script type="text/x-sage">A.left_kernel() == A.transpose().right_kernel()
 </script></div>
 <p id="p-396">
-      And there you have it. Sage can construct all four fundamental subspaces,
+      And there you have it. SageMath can construct all four fundamental subspaces,
       and each comes with a basis computed by Sage. (Using the row algorithm!)
       Note that the FTLA works in this case.
     </p></section><section class="subsection" id="subsection-90"><header title="Subsection  Questions for Section 3.6"><h1 class="heading hide-type" alt="Subsection  Questions for Section 3.6">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-18T15:57:51-05:00    *-->
+<!--*    on 2016-10-04T22:24:37-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -291,10 +291,10 @@ MathJax.Hub.Config({
           subspace \(\mathrm{span}(\{v_1, v_2, \ldots, v_k\})\), but the
           resulting vectors \emph{probably won't come from your original set}.
         </p>
-      </section></section><section class="subsection" id="subsection-84"><header title="Subsection  Sage and Bases"><h1 class="heading hide-type" alt="Subsection  Sage and Bases">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and Bases</span>
+      </section></section><section class="subsection" id="subsection-84"><header title="Subsection  SageMath and Bases"><h1 class="heading hide-type" alt="Subsection  SageMath and Bases">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and Bases</span>
 </h1></header><p id="p-376">
-      Sage has several commands which are useful for dealing with the concpets
+      SageMath has several commands which are useful for dealing with the concpets
       of this section.
     </p>
 <section class="subsubsection" id="subsubsection-39"><header title="Subsubsection  Commands for span, dimension, and basis"><h1 class="heading hide-type" alt="Subsubsection  Commands for span, dimension, and basis">
@@ -311,12 +311,12 @@ V = span([v1,v2], QQ)
 V
 </script></div>
 <p id="p-378">
-        Note that Sage already gives us some information:
+        Note that SageMath already gives us some information:
         <ul style="list-style-type: disc;">
 <li id="li-337">dimension</li>
 <li id="li-338">a basis</li>
 </ul>
-        Sage has chosen its preferred basis, as usual.
+        SageMath has chosen its preferred basis, as usual.
       </p>
 <div class="sagecell-sage"><script type="text/x-sage">V.dimension()
 </script></div>
@@ -324,7 +324,7 @@ V
 </script></div></section><section class="subsubsection" id="subsubsection-40"><header title="Subsubsection  The Algorithms for Checking Linear Independence"><h1 class="heading hide-type" alt="Subsubsection  The Algorithms for Checking Linear Independence">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">The Algorithms for Checking Linear Independence</span>
 </h1></header><p id="p-379">
-        Sage does not have built-in commands with names for checking linear independence
+        SageMath does not have built-in commands with names for checking linear independence
         or linear dependence. Instead, you have to just use the algorithms.
       </p>
         
@@ -357,7 +357,7 @@ col_matrix
       </section><section class="subsubsection" id="subsubsection-41"><header title="Subsubsection  Spaces Associated to a Matrix"><h1 class="heading hide-type" alt="Subsubsection  Spaces Associated to a Matrix">
 <span class="type">Subsubsection</span><span class="codenumber"></span><span class="title">Spaces Associated to a Matrix</span>
 </h1></header><p id="p-383">
-        Sage knows about the column space and row space associated to a
+        SageMath knows about the column space and row space associated to a
         matrix. For this next example, we will work over the ring <tt class="code-inline" style="color: red; font-size: 120%">AA</tt>
         of “algebraic numbers”, so we can include \(\sqrt{2}\).
       </p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--**************************************-->
 <!--* Generated from MathBook XML source *-->
-<!--*    on 2016-09-18T15:57:51-05:00    *-->
+<!--*    on 2016-10-04T22:24:36-05:00    *-->
 <!--*                                    *-->
 <!--*   http://mathbook.pugetsound.edu   *-->
 <!--*                                    *-->
@@ -208,10 +208,10 @@ MathJax.Hub.Config({
         Strang introduces a big simplifying assumption that makes his work
         easier. The general principles will hold, but those nice, neat
         equations won't always look so good for an arbitrary matrix.
-      </p></section><section class="subsection" id="subsection-72"><header title="Subsection  Sage and the Rank"><h1 class="heading hide-type" alt="Subsection  Sage and the Rank">
-<span class="type">Subsection</span><span class="codenumber"></span><span class="title">Sage and the Rank</span>
+      </p></section><section class="subsection" id="subsection-72"><header title="Subsection  SageMath and the Rank"><h1 class="heading hide-type" alt="Subsection  SageMath and the Rank">
+<span class="type">Subsection</span><span class="codenumber"></span><span class="title">SageMath and the Rank</span>
 </h1></header><p id="p-327">
-      Sage has a built-in command for the rank of a matrix. It is called
+      SageMath has a built-in command for the rank of a matrix. It is called
       <tt class="code-inline" style="color: red; font-size: 120%">.rank()</tt>, of course.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A = matrix(QQ, 3,4, [1,2,3,4,5,6,7,8,9,10,11,12])
@@ -220,7 +220,7 @@ A
 <div class="sagecell-sage"><script type="text/x-sage">A.rank()
 </script></div>
 <p id="p-328">
-      Sage knows how to do the underlying computations, too. Let's have Sage
+      SageMath knows how to do the underlying computations, too. Let's have Sage
       compute the reduced row echelon form of <tt class="code-inline" style="color: red; font-size: 120%">A</tt>:
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.rref()
@@ -232,7 +232,7 @@ A
 <div class="sagecell-sage"><script type="text/x-sage">A.right_kernel()
 </script></div>
 <p id="p-330">
-      We can make Sage give us just the matrix in that last response.
+      We can make SageMath give us just the matrix in that last response.
     </p>
 <div class="sagecell-sage"><script type="text/x-sage">A.right_kernel().basis_matrix()
 </script></div>
@@ -251,10 +251,10 @@ N
 <div class="sagecell-sage"><script type="text/x-sage">A*N
 </script></div>
 <p id="p-333">
-      What has happened here is that Sage constructs a <!--Style me with CSS--><em>different</em> version
+      What has happened here is that SageMath constructs a <!--Style me with CSS--><em>different</em> version
       of the nullspace matrix than Strang does. Strang's version is easier to
       find by hand and tends to have \(1\)'s and \(0\)'s and the end.
-      The Sage version comes from a routine that strongly prefers to
+      The SageMath version comes from a routine that strongly prefers to
       start with \(1\)'s and \(0\)'s.
     </p>
 <p id="p-334">
@@ -303,8 +303,8 @@ N
 <span class="type">Task</span><span class="codenumber">81</span><span class="title"></span>
 </h5>
         Consider the matrix \begin{equation*}
-        A = \left( \begin{smallmatrix} 2 &amp; 1 &amp; 5 \\ 1 &amp; 1
-        &amp; 7 \end{smallmatrix}\right).\end{equation*}
+        A =  \begin{pmatrix} 2 &amp; 1 &amp; 5 \\ 1 &amp; 1
+        &amp; 7 \end{pmatrix}.\end{equation*}
         Find the reduced row echelon form \(R = \mathrm{rref}(A)\)
         of \(A\). Track the row operations you use, and use them to
         find an invertible matrix \(E\) so that \(EA = R\).
