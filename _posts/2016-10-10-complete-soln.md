@@ -8,9 +8,9 @@ linear equation in an algorithmic way. In case you want a quick reminder, it goe
 like this:
 
 1. write the system in matrix form: \\(Ax = b \\)
-2. write down the augmented matrix \\( (A|d) \\)
+2. write down the augmented matrix \\( (A\mid b) \\)
 3. use Gauss-Jordan elimination to put the augmented matrix in reduced
-row echelon form: \\( (R|d) \\)
+row echelon form: \\( (R\mid d) \\)
 4. Note the pivots and the free variables.
 5. translate back to a system of equations.
 6. set all of the free variables to zero, and solve for the particular solution.
