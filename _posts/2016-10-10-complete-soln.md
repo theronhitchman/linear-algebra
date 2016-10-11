@@ -21,6 +21,8 @@ combination of the special solutions"
 You all seemed fairly challenged by the tasks for today. Fortunately, Wednesday is a
 catching-up day, so we can take some time to get this correct.
 
+Presentations: \#85 Hitchman; \#86 Morgan; \#90 Oswald.
+
 ### For Wednesday
 
 We will have our first chapter 3 catching-up day. The tasks which we still need
