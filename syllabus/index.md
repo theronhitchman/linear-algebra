@@ -4,7 +4,7 @@ title: Syllabus for Math 2500
 ---
 
 *Linear Algebra*<br />
-*Spring 2500, Fall 2016*
+*Spring 2500, Spring 2017*
 
 
 ## Course Description:
@@ -33,7 +33,7 @@ how it can make relevant visualizations.
 - Office: 		    327 Wright Hall
 - Office Hours: 	This semester I am using the service YouCanBookMe.com as
   an experiment.
-  I expect to be generally available MWF 3-5pm, and TTh 2:30-5pm.
+  I expect to be generally available M-F 3-4:30pm.
   To schedule an appointment, use the service at [https://theronhitchman.youcanbook.me/]().
   If you take a chance and just drop by I might be free, or I might have a meeting.
   If these hours won't work for some reason, send me an email.
@@ -251,9 +251,9 @@ constraints of the semester.
 
 If I could get away with it, I would not assign grades at all, and just focus on
 giving you feedback on your abilities. But the registrar will ask me for grades
-at the end of the term, so I need a way to come up with them. Also, some students
-seem to need or want the motivation of grading to keep up with coursework. So I
-made up this funny system.
+at the end of the term, so I need a way to come up with them. Also, some
+students seem to need or want the motivation of grading to keep up with
+coursework. So I made up this funny system.
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -265,94 +265,84 @@ made up this funny system.
 <table class="tg">
   <tr>
     <th class="tg-amwm">Grade</th>
-    <th class="tg-amwm">Content<br>Assessments</th>
+    <th class="tg-amwm">Core Content<br>Assessments</th>
+    <th class="tg-amwm">Next Content<br>Assessments<br></th>
     <th class="tg-amwm">Technology<br>Assignments</th>
-    <th class="tg-amwm">Participation</th>
   </tr>
   <tr>
     <td class="tg-baqh">A</td>
-    <td class="tg-baqh">Complete all 10 <br>of the Foundational <br>assessments<br>AND<br>Complete 4 of the 5<br>Advanced Assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND<br>Complete 3<br>SMC assignments</td>
-    <td class="tg-baqh">Give 6 or more<br>presentations<br>AND<br>Complete 16<br>Daily<br>Assignments</td>
+    <td class="tg-baqh">Complete all 7</td>
+    <td class="tg-baqh">Complete <br>5 out of 7 </td>
+    <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography <br>lab assignments</td>
   </tr>
   <tr>
     <td class="tg-baqh">A-</td>
-    <td class="tg-baqh">Complete all 10 <br>of the Foundational <br>assessments<br>AND<br>Complete 3 of the 5<br>Advanced Assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND<br>Complete 3 <br>SMC assignments</td>
-    <td class="tg-baqh">Give 6 or more<br>presentations<br>AND<br>Complete 16<br>Daily<br>Assignments</td>
+    <td class="tg-baqh">Complete all 7</td>
+    <td class="tg-baqh">Complete<br>4 out of 7<br></td>
+    <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography <br>lab assignments</td>
   </tr>
   <tr>
     <td class="tg-baqh">B+</td>
-    <td class="tg-baqh">Complete all 10<br>of the Foundational<br>assessments<br>AND<br>Complete 1 of the<br>Advanced Assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND <br>Complete 2<br>SMC assignments</td>
-    <td class="tg-baqh">Give 4 or more<br>presentations<br>AND<br>Complete 12<br>Daily<br>Assignments</td>
+    <td class="tg-baqh">Complete all 7</td>
+    <td class="tg-baqh">Complete<br>3 out of 7</td>
+    <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography <br>lab assignments</td>
   </tr>
   <tr>
     <td class="tg-baqh">B</td>
-    <td class="tg-baqh">Complete all 6 of<br>the CORE content<br>assessments<br>AND<br>Complete the <br>Eigendata <br>assessment<br>AND<br>2 of the 3 <br>Remaining<br>Foundational<br>assessments<br>AND<br>Complete 1 of the<br>5 Advanced<br>assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND<br>Complete 2<br>SMC assignments</td>
-    <td class="tg-baqh">Give 4 or more<br>presentations<br>AND<br>Complete 12<br>Daily <br>Assignments</td>
+    <td class="tg-baqh">Complete all 7</td>
+    <td class="tg-baqh">Complete<br>2 out of 7</td>
+    <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography<br>lab assignments</td>
   </tr>
   <tr>
     <td class="tg-baqh">B-</td>
-    <td class="tg-baqh">Complete all 6 of<br>the CORE content<br>assessments<br>AND<br>Complete the <br>Eigendata <br>assessment<br>AND<br>Complete<br>1 of the 3 <br>Remaining<br>Foundational<br>assessments<br>AND<br>Complete 1 of the<br>5 Advanced<br>assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment<br>AND<br>Complete 2<br>SMC assignments</td>
-    <td class="tg-baqh">Give 4 or more<br>presentations<br>AND<br>Complete 12<br>Daily <br>Assignments</td>
+    <td class="tg-baqh">Complete all 7</td>
+    <td class="tg-baqh">Complete<br>1 out of 7</td>
+    <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography<br>lab assignments</td>
   </tr>
   <tr>
     <td class="tg-baqh">C+</td>
-    <td class="tg-baqh">Complete all 6 of<br>the CORE content<br>assessments<br>AND<br>Complete the <br>Eigendata<br>assessment</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview<br>Assessment<br>AND<br>Complete 1<br>SMC assignment<br></td>
-    <td class="tg-baqh">Give 2 or more<br>presentations<br>AND<br>Complete 8 <br>Daily <br>Assignments</td>
+    <td class="tg-baqh">Complete all 7</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment</td>
   </tr>
   <tr>
     <td class="tg-baqh">C</td>
-    <td class="tg-baqh">Complete all 6 of <br>the CORE content<br>assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview<br>Assessment<br>AND<br>Complete 1<br>SMC assignment</td>
-    <td class="tg-baqh">Give 2 or more<br>presentations<br>AND<br>Complete 8 <br>Daily <br>Assignments</td>
+    <td class="tg-baqh">Complete 6 out of 7 <br>CORE content<br>assessments</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment</td>
   </tr>
   <tr>
     <td class="tg-baqh">C-</td>
-    <td class="tg-baqh">Complete 5 of the <br>CORE content<br>assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview<br>Assessment<br>AND<br>Complete 1<br>SMC assignment</td>
-    <td class="tg-baqh">Give 2 or more<br>presentations<br>AND<br>Complete 8 <br>Daily <br>Assignments</td>
+    <td class="tg-baqh">Complete 5 out of 7<br>CORE content <br>assessments</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment</td>
   </tr>
   <tr>
     <td class="tg-baqh">D+</td>
-    <td class="tg-baqh">Complete 4 of the <br>CORE content<br>assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment</td>
+    <td class="tg-baqh">Complete 4 out of 7 <br>CORE content<br>assessments</td>
     <td class="tg-baqh"></td>
+    <td class="tg-baqh"><br></td>
   </tr>
   <tr>
     <td class="tg-baqh">D</td>
-    <td class="tg-baqh">Complete 3 of the <br>CORE content<br>assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment</td>
+    <td class="tg-baqh">Complete 3 out of 7<br>CORE content<br>assessments</td>
+    <td class="tg-baqh"></td>
     <td class="tg-baqh"></td>
   </tr>
   <tr>
     <td class="tg-baqh">D-</td>
-    <td class="tg-baqh">Complete 2 of the <br>CORE content<br>assessments</td>
-    <td class="tg-baqh">Complete the<br>Basic Tech<br>Interview <br>Assessment</td>
+    <td class="tg-baqh">Complete 2 out of 7<br>CORE content<br>assessments</td>
+    <td class="tg-baqh"></td>
     <td class="tg-baqh"></td>
   </tr>
   <tr>
     <td class="tg-baqh">F</td>
-    <td class="tg-baqh" colspan="3">Fail to meet the requirements for D-</td>
+    <td class="tg-baqh">Fail to meet the <br>requirements for D-</td>
+    <td class="tg-baqh"></td>
+    <td class="tg-baqh"></td>
   </tr>
 </table>
 
-The content assessments are split into these groups:
-
-- CORE content: Vector Algebra, Dot Product, Matrix Algebra, Gauss-Jordan elimination,
-Solving Systems, and the Determinant.
-
-- Remaining Foundational content: Eigendata, Implicit and Explicit descriptions,
-Approximate Solutions, The Four Subspaces.
-
-- Advanced content: Geometry of Linear Equations, Orthonormal Bases and Gram-Schmidt,
-Three Viewpoints, Matrices as Transformations, and the Singular Value Decomposition.
-
-More on these follows below.
 
 Now, let's discuss the different types of assignments.
 
@@ -383,6 +373,7 @@ group will be assigned one of the day's tasks to prepare for presentation. We wi
 then rotate through presenting our solutions to the tasks and having class discussion
 on each.
 
+<!--
 During class I will distribute a set of felt-tip markers. You may mark up your
 paper as much as you wish to correct errors, incomplete understanding, or for
 any other reason. **All of these annotations will be made with a felt-tip pen.**
@@ -393,6 +384,7 @@ believe you made a good faith effort to attempt each problem and wrote up your
 progress in a reasonable manner. (I don't expect you will always get every task
 complete and correct. But I do want you to make a good faith effort to get every
 task complete and correct.) There will be about 25 of these assignments.
+-->
 
 #### Class Presentations
 
@@ -405,8 +397,8 @@ with the following standards in mind:
  - clear oral presentation
 
 The class conversation which follows your presentation will provide you with
-feedback on the quality of your work. Mistakes happen, of course, so don't worry
-that these will be handled too strictly.
+feedback on the quality of your work. Mistakes happen, of course. The point is
+to make mistakes early and often so you can rethink things and learn.
 
 
 ### SageMath Assignments
@@ -465,7 +457,8 @@ in class.
 
 Each paper is marked _as a whole_ with Pass or Not Yet. Generally speaking, to
 earn a mark of Pass, a student must demonstrate understanding and fluency with
-_all_ of the standards bundled together on that assessment.
+_all_ of the standards bundled together on that assessment. I will mark each
+assessment out of 10 points. A score of 8/10 or better is required to pass.
 
 It is not uncommon for students to earn a "not yet" on a first attempt!
 This is how learning works, the feedback from a faltering attempt is the important
@@ -477,6 +470,12 @@ to get through all of these. It is difficult (for you and for me) to complete ma
 standards in the last two weeks of the term. I advise you to get to work right away
 on a content standard that you have not mastered, so they don't pile up.
 
+#### Reassessment Policy
+
+**Each student is allowed to do at most one reassessment on any given day.**
+Since we will discuss a lot of material, it will be important to keep up with
+things. It will be impossible to go from F to A (or even a B) in the last week.
+
 ----
 
 ### Standards for Linear Algebra Content Learning
@@ -487,8 +486,9 @@ of equations. Eventually, the questions become more internal to linear algebra, 
 address things that come up in our study of systems, but are definitely at a "second
 level."
 
-#### Foundational Goals
-
+I have labelled seven of these as "CORE" competencies. Those are the standards
+required to earn grades up to C+. The other standards help you move to deeper
+understanding, and grades of B- or better.
 
 ##### Question One: What are the basic objects of linear algebra?
 
@@ -509,7 +509,21 @@ level."
     > interpret sign of dot product in terms of angle between the vectors,
     > compute length of a vector, normalize a vector
 
-##### Question Two: How can we solve a square system of linear equations?
+ * The Geometry of Hyperplanes (Chapter 1)
+
+    > connect the geometry of the dot product to the linear equation representing a hyperplane,
+    > understand the effect of changes to the form of a linear equation on the location of
+    > a hyperplane, understand the hyperplane as a level set of the dot product,
+    > sketch a line or plane in \\(\mathbb{R}^2\\) or \\(\mathbb{R}^3\\).
+
+  * The Three Viewpoints (chapters 1 and 2)
+
+    > The row picture, the column picture, and the transformational picture. pass back and forth
+    > cleanly pass between the representations, and describe what a solution means in each case.
+
+##### Question Two: How can we efficiently solve systems of linear equations? How can we tell if there is a solution? What shape will the solution set have?
+When will the solution be unique? Is there a computationally effective way to
+find the solution set?
 
  * Gauss-Jordan Elimination (Chapter 2, CORE)
 
@@ -518,12 +532,6 @@ level."
     > an LU decomposition and discuss workaround, compute determinant of a square matrix,
     > compute the inverse of a square matrix
 
-
-##### Question: How can we solve a general system of linear equations?
-How can we tell if there is a solution? What shape will the solution set have?
-When will the solution be unique? Is there a computationally effective way to
-find the solution set?
-
  * Solving Systems of Equations (Chapter 3, CORE)
 
     > Solve a general (rectangular) system of linear equations using the reduced row-echelon form,
@@ -531,83 +539,51 @@ find the solution set?
     > system of linear equations. Compute the rank of a matrix. Use pivots
     > and free variables to reason about the solution set to a system of equations
 
+
+  * Implicit and Explicit Descriptions of Subspaces (Chapter 3)
+
+     > determine when a set of vectors is linearly dependent or linearly independent,
+     > determine the span of a set of vectors. determine if a collection of vectors
+     > is a basis for a subspace
+     > Find a basis for a subspace described using equations,
+     > find equations to describe a subspace described using a basis
+     > use the row space algorithm and the column space algorithm to find a basis
+
+
+  * Approximate Solutions and Least Squares (Chapter 4)
+
+     > Find the "best" available approximate solution to an unsolvable system
+     > of equations, draw pictures explaining how orthogonal projection is relevant,
+     > use approximate solutions to fit curves to data
+
+##### Question: How do we understand matrices as transformations? In what ways can we describe the behavior of matrices, their structure, and their geometry?
+
  * The Four Subspaces (Chapter 3)
 
     > Compute the null space, column space, row space, and left null space of a
     > matrix. describe these subspaces by giving bases
 
-##### Question: What are the good ways to understand subspaces?
-
- * Implicit and Explicit Descriptions (Chapter 3)
-
-    > determine when a set of vectors is linearly dependent or linearly independent,
-    > determine the span of a set of vectors. determine if a collection of vectors
-    > is a basis for a subspace
-    > Find a basis for a subspace described using equations,
-    > find equations to describe a subspace described using a basis
-    > use the row space algorithm and the column space algorithm to find a basis
-
-
-##### Question: Can we find approximate solutions to systems that do not have an actual solution?
-
- * Approximate Solutions and Least Squares (Chapter 4)
-
-    > Find the "best" available approximate solution to an unsolvable system
-    > of equations, draw pictures explaining how orthogonal projection is relevant,
-    > use approximate solutions to fit curves to data
-
-##### Question: Is there a good way to test if a square matrix is invertible?
-
- * Determinants and the Invertible Matrix Theorem (Chapter 5, CORE)
-
-    > Use properties of determinants, compute determinants in a variety of ways,
-    > Use the invertible matrix theorem
-
-##### Question: How can we understand the geometry of square matrices as transformations?
-
- * Eigenvalues, Eigenvectors, and the Spectral Theorem (Chapter 6)
-
-    > Compute eigenvalues and eigenvalues, diagonalize matrices when possible (and
-    > recognize limitations), know and use spectral theorem
-
-----
-
-----
-
-#### Advanced Goals
-
-##### Question: Are there any good geometric interpretations of a system of linear equations?
-
- * The Geometry of Hyperplanes (Chapter 1)
-
- > connect the geometry of the dot product to the linear equation representing a hyperplane,
- > understand the effect of changes to the form of a linear equation on the location of
- > a hyperplane, understand the hyperplane as a level set of the dot product,
- > sketch a line or plane in \\(\mathbb{R}^2\\) or \\(\mathbb{R}^3\\).
-
-
- * The Three Viewpoints (Chapters 1 and 2)
-
-    > The row picture, the column picture, and the transformational picture. pass back and forth
-    > cleanly pass between the representations, and describe what a solution means in each case.
-
-##### Question: How do we understand matrices as transformations?
-
- * Four Subspaces and Matrices as Functions (Chapters 3 and 4)
+ * Matrices as Functions (Chapters 3 and 4)
 
     > Use the four subspaces to describe the action of a matrix as a transformation (function)
     > Draw reasonably accurate schematic of the transformational picture using information
     > about the four subspaces, make conclusions about the nature of a matrix using
     > the four subspaces
 
-##### Question: Is there a way to choose a geometrically good basis for a subspace?
-
  * Orthonormal Bases and the QR Decomposition (Chapter 4)
 
     > Use Gram-Schmidt to compute an orthonormal basis for a subspace, decide if a
     > matrix is orthogonal or not, compute the QR decomposition of a matrix
 
-##### Question: Is there a good geometric way to understand the behavior of a general matrix as a function?
+ * Determinants and the Invertible Matrix Theorem (Chapter 5, CORE)
+
+    > Use properties of determinants, compute determinants in a variety of ways,
+    > Use the invertible matrix theorem
+
+ * Eigenvalues, Eigenvectors, and the Spectral Theorem (Chapter 6, CORE)
+
+    > Compute eigenvalues and eigenvalues, diagonalize matrices when possible (and
+    > recognize limitations), know and use spectral theorem
 
  * Singular Value Decomposition (Chapter 6)
 
