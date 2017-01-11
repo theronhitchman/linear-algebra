@@ -11,7 +11,7 @@ linear combinations of vectors. Usually we were trying to understand something
 where the unknowns you seek show up as _coefficients_, like the \\(\lambda\\)
 and \\(\mu\\) in this example:
 
-\\[ \lambda \begin{pmatrix} 3 \\ 1 \end{pmatrix} + \mu \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ -1 \\end{pmatrix} \\]
+\\[ \lambda \begin{pmatrix} 3 \\\\ 1 \end{pmatrix} + \mu \begin{pmatrix} 1 \\\\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\\\ -1 \\end{pmatrix} \\]
 
 We managed to discuss the first five of our tasks, so we'll have to pick up
 number six another time. Our presenters included: Truniger, Bertacini, Cochran,
