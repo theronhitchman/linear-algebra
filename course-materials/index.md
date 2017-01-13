@@ -81,6 +81,14 @@ These books are written for courses pitched in different ways than ours, so it
 may not be obvious how to use them. But it can often help to have a different
 viewpoint to read, so I want to make you aware of these.
 
+### Books on SageMath
+
+There are two reasonable references for the basics of SageMath (which are not the documentation):
+
+  * The book [Sage for Undergraduates](http://www.gregorybard.com/Sage.html) by Greg Bard, which is free from his webpage.
+  * The book [Peering into Mathematics using Sage-colored glasses](http://www.math.usm.edu/dont_panic/) by John Terry, which is free from that site.
+
+
 <!--
 ### The Sprinter's Guide
 
