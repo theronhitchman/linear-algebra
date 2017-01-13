@@ -81,6 +81,14 @@ These books are written for courses pitched in different ways than ours, so it
 may not be obvious how to use them. But it can often help to have a different
 viewpoint to read, so I want to make you aware of these.
 
+### The SageMath Linear Algebra QuickRef
+
+Rob Beezer has written a [short and compact handout][quickref] with the most 
+useful linear algebra commands on it. You might want a copy to tuck in your
+book.
+
+[quickref]: https://wiki.sagemath.org/quickref?action=AttachFile&do=get&target=quickref-linalg.pdf
+
 ### Books on SageMath
 
 There are two reasonable references for the basics of SageMath (which are not the documentation):
