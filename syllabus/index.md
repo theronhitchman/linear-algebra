@@ -268,72 +268,84 @@ coursework. So I made up this funny system.
     <th class="tg-amwm">Core Content<br>Assessments</th>
     <th class="tg-amwm">Next Content<br>Assessments<br></th>
     <th class="tg-amwm">Technology<br>Assignments</th>
+    <th class="tg-amwm">Survey<br>Assignments</th>
   </tr>
   <tr>
     <td class="tg-baqh">A</td>
     <td class="tg-baqh">Complete all 7</td>
     <td class="tg-baqh">Complete <br>5 out of 7 </td>
     <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography <br>lab assignments</td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">A-</td>
     <td class="tg-baqh">Complete all 7</td>
     <td class="tg-baqh">Complete<br>4 out of 7<br></td>
     <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography <br>lab assignments</td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">B+</td>
     <td class="tg-baqh">Complete all 7</td>
     <td class="tg-baqh">Complete<br>3 out of 7</td>
     <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography <br>lab assignments</td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">B</td>
     <td class="tg-baqh">Complete all 7</td>
     <td class="tg-baqh">Complete<br>2 out of 7</td>
     <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography<br>lab assignments</td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">B-</td>
     <td class="tg-baqh">Complete all 7</td>
     <td class="tg-baqh">Complete<br>1 out of 7</td>
     <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment<br>AND<br>Complete the SMC radiography<br>lab assignments</td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">C+</td>
     <td class="tg-baqh">Complete all 7</td>
     <td class="tg-baqh"></td>
     <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment</td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">C</td>
     <td class="tg-baqh">Complete 6 out of 7 <br>CORE content<br>assessments</td>
     <td class="tg-baqh"></td>
     <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment</td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">C-</td>
     <td class="tg-baqh">Complete 5 out of 7<br>CORE content <br>assessments</td>
     <td class="tg-baqh"></td>
     <td class="tg-baqh">Complete the Basic Tech<br>Interview Assessment</td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">D+</td>
     <td class="tg-baqh">Complete 4 out of 7 <br>CORE content<br>assessments</td>
     <td class="tg-baqh"></td>
     <td class="tg-baqh"><br></td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">D</td>
     <td class="tg-baqh">Complete 3 out of 7<br>CORE content<br>assessments</td>
     <td class="tg-baqh"></td>
     <td class="tg-baqh"></td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">D-</td>
     <td class="tg-baqh">Complete 2 out of 7<br>CORE content<br>assessments</td>
     <td class="tg-baqh"></td>
     <td class="tg-baqh"></td>
+    <td class="tg-baqh">Complete both surveys</td>
   </tr>
   <tr>
     <td class="tg-baqh">F</td>
@@ -399,6 +411,14 @@ with the following standards in mind:
 The class conversation which follows your presentation will provide you with
 feedback on the quality of your work. Mistakes happen, of course. The point is
 to make mistakes early and often so you can rethink things and learn.
+
+### The Knowledge Surveys
+
+I am doing a study about the the way I organize this class, so I have a short
+survey assignment that I want each of you to do at the beginning of the
+semester and then again at the end of the term. These assignments are very easy
+to complete. To earn credit for these, you simply need to complete them and
+return them. I will archive them for analysis during the summer.
 
 
 ### SageMath Assignments
