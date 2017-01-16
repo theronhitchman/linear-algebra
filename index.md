@@ -55,7 +55,7 @@ title:  UNI Math 2500 <br class="visible-xs" /><i>Linear Algebra</i>
     <p>
       This course will keep closely to a pre-planned time line. You can see
       what to expect for each of our class meetings here, including assessment
-      dates and new material dates.
+      dates.
     </p>
     <div>
       <p><br /></p>
