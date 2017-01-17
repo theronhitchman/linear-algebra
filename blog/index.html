@@ -9,7 +9,7 @@ title: Daily Class Notes
 		<h3 class="title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
 		<p class="meta">Date: {{ post.date }}</p>
 		<div class="entry">
-			{{ post.content | truncatewords: 25}}
+			{{ post.excerpt }}
 		</div>
 	</div>
 {% endfor %}
