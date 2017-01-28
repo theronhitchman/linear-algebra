@@ -17,12 +17,12 @@ We had these presentations: \#21 Warner, \#22 Wilmesherr &amp; Bundt,
 Then I did a little mini-lecture about the three viewpoints centered around
 the example
 <div>
-\\[
-\begin{array}{lllll}
-3x & + & y & = & 2 \\\\
+\[
+\begin{array}{rrrrr}
+3x & + & y & = & 2 \\
 51x & + & 17y & = & 4
 \end{array}
-\\]
+\]
 </div>
 
 ### For Monday
