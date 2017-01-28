@@ -23,8 +23,8 @@ the example
 3x & + & y & = & 2 \\
 51x & + & 17y & = & 4
 \end{array}
-\]
 \right.
+\]
 </div>
 
 ### For Monday
