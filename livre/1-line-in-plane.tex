@@ -46,7 +46,7 @@ We call the line $OX$ the \emph{$x$-axis} and the line containing $Y$ the \emph{
 
 \begin{figure}[h!]
 \centering
-\begin{tikzpicture}[scale=1.5]
+\begin{tikzpicture}[scale=1.25]
 \draw[->] (-1,4/3) -- (1,-4/3);
 \draw[->] (-3/2,-9/8) -- (3/2,9/8);
 \draw[fill] (9/20,-3/5) circle [radius=0.03];
@@ -73,6 +73,7 @@ So, the more typical picture looks more like this one.
 \draw[fill] (1,0) circle [radius=0.03] node[below] {$1$};
 \draw[fill] (0,1) circle [radius=0.03] node[left] {$1$};
 \end{tikzpicture}
+\caption{The Standard Cartesian Coordinate System}
 \end{figure}
 
 
@@ -128,7 +129,7 @@ We can write the coordinates of these points as $P = (a,b)$ and $Q = (c,d)$.
 \draw[->] (-.5,0) -- (2,0) node[below] {\small $x$};
 \draw[->] (0,-.5) -- (0,2) node[left] {\small $y$};
 \draw[->,thick] (1/2,3/2) node[above] {$P$} -- (3/2,2/5) node[right] {$Q$};
-\node [above right] at (1,19/20) {$V$, a vector};
+\node [above right] at (1,18/20) {$V$, a vector};
 \draw[dotted,->] (1/2,3/2) -- (1/2,0) node[below] {$a$};
 \draw[dotted,->] (1/2,3/2) -- (0,3/2) node[left] {$b$};
 \draw[dotted,->] (3/2,2/5) -- (3/2,0) node[below] {$c$};
@@ -137,16 +138,19 @@ We can write the coordinates of these points as $P = (a,b)$ and $Q = (c,d)$.
 \draw[decorate,decoration={brace,mirror,amplitude=10pt},xshift=0pt,yshift=-8pt] (1/2,0) -- (3/2,0) node[midway,yshift=-.5cm] {$c-a$};
 \end{tikzpicture}
 \caption{Coordinates for a physicist's vector $V$.}
+\label{fig:phys-vec-coords}
 \end{figure}
 
 
-Then the coordinates of $V$ are taken to be the $(c-a, d-b)$, which we interpret how much $V$ acts in the directions parallel to the $x$-axis and the $y$-axis, respectively.
+Then the coordinates of $V$ are taken to be the numbers $c-a$ and  $d-b$, which we interpret how much $V$ acts in the directions parallel to the $x$-axis and the $y$-axis, respectively. 
+Note that in Figure \ref{fig:phys-vec-coords}, the $y$-coordinate is negative, since $b>d$.
 
-%Notes: (1) subtraction???? $Q-P$?  (2) ambiguity over location...
-
-Note that these coordinates have a hint of algebraic manipulation in them. 
+These coordinates have a hint of algebraic manipulation in them. 
 Those subtractions line up almost like we could write $V =(c-a,d-b) = (c,d)-(a,b) = Q-P$. 
-But that would mean that we are subtracting points and creating a vector, which is weird.
+But $V$ is a vector, and if we write it like $(c-a,d-b)$, it looks like the notation for a point. 
+We should not do that because it could get confusing.
+Furthermore, that ``equation'' would mean that we are subtracting points and creating a vector, which is also weird.
+Still, there is something there.
 We will return to this idea soon.
 
 For now, let's focus on a bit of ambiguity in the physicist's idea of a vector. 
@@ -164,18 +168,18 @@ That curtails some of the (admittedly useful) freedom in the physics notion, but
 \draw[->] (-.5,0) -- (2,0) node[below] {\small $x$};
 \draw[->] (0,-1.5) -- (0,2) node[left] {\small $y$};
 \draw[->,thick] (1/2,3/2) node[above] {$P$} -- (3/2,2/5) node[right] {$Q$};
-\node [text width=2cm,align=right,above right] at (1,19/20) {A physicist's vector $V$};
+\node [text width=2cm,align=right,above right] at (1,18/20) {A physicist's vector $V$};
 \draw[dotted,->] (1/2,3/2) -- (1/2,0) node[below] {$a$};
 \draw[dotted,->] (1/2,3/2) -- (0,3/2) node[left] {$b$};
 \draw[dotted,->] (3/2,2/5) -- (3/2,0) node[below] {$c$};
 \draw[dotted,->] (3/2,2/5) -- (0,2/5) node[left] {$d$};
 \draw[->,thick] (0,0) -- (1,-11/10);
-\node [text width=3.5cm,align=right,below] at (7/5,-9/8) {The mathematician's \\$V = (c-a,d-b)$};
+\node [text width=3.75cm,align=right,below] at (7/5,-9/8) {The mathematician's $V$,\\ ending at $(c-a,d-b)$};
 \end{tikzpicture}
 \caption{The physicist's vector vs. the mathematician's vector.}
 \end{figure}
 
-But it pays to keep in mind that the physicists conception of the vector $V = (c-a,d-b)$ could be one of many different arrows, while the mathematician's vector $V$ is the arrow from the point $O = (0,0)$ to the point $(c-a, d-b)$.
+But it pays to keep in mind that the physicists conception of the vector $V$ with coordinates $c-a$ and $d-b$ could be one of many different arrows, while the mathematician's vector $V$ is the arrow from the point $O = (0,0)$ to the point $(c-a, d-b)$.
 
 Now we have circled back around to a muddle. If a mathematician's vector is always based at $O$, we only need to specify where the head of the vector is\dots which is just a point. So, how is a vector supposed to be different from a point, again? 
 
@@ -198,11 +202,151 @@ The collection of all such $2$-vectors is called \emph{the plane}, and written w
 
 The notation $\R^2$ is often read ``arr-two,'' and many people use that language interchangeably with ``the plane.''
 
+\section*{Vector Algebra}
+
+Let's return to that glimpse of subtraction we saw in Figure \ref{fig:phys-vec-coords}.
+We saw there that for points $P = (a,b)$ and $Q = (c,d)$, the vector $V$ from $P$ to $Q$ has coordinates $c-a$ and $d-b$. 
+This looks almost like we subtracted the points to get $Q-P = V$. 
+Can we use that? 
+The weird part is that it mixes up points and vectors. 
+So, we will just change viewpoints, and instead think of $P$ and $Q$ as (mathematician's) vectors:
+\[
+P = \begin{pmatrix} a \\ b \end{pmatrix}, \quad Q = \begin{pmatrix} c \\ d \end{pmatrix}
+\]
+If we put these together on the plane with the physicist's vector $V$ from $P$ to $Q$ and the mathematician's $V$ we see a wonderful triangle, and an extra vector.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.4]
+\draw[->] (-.5,0) -- (2,0) node[below] {\small $x$};
+\draw[->] (0,-1.25) -- (0,2) node[left] {\small $y$};
+\draw[->,thick] (1/2,3/2) -- (3/2,2/5);
+\node [text width=2cm,align=right,above right] at (1,18/20) {physicist's $V$};
+\draw[->,thick] (0,0) -- (1,-11/10);
+\node [text width=3.5cm,align=right] at (4/3,-3/4) {mathematician's $V= Q-P$};
+\draw[->,thick] (0,0) -- (1/2,3/2);
+\node[right] at (1/4,3/4) {$P$};
+\draw[->,thick] (0,0) -- (3/2,2/5);
+\node[above] at (3/4,1/5) {$Q$};
+\end{tikzpicture}
+\caption{Subtraction of vectors}
+\label{fig:subtract-vec}
+\end{figure}
+So we see a way to talk about subtracting vectors: Given two vectors $P$ and $Q$ as above, their
+\emph{difference} is the vector
+\[
+V = Q-P = \begin{pmatrix} c \\ d \end{pmatrix} - \begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} c-a \\ d-b \end{pmatrix}.
+\]
+Geometrically, we draw the arrow from $P$ to $Q$ and then translate it down so that its tail is at the origin $O=(0,0)$. Of course, the order of $P$ and $Q$ in this operation matters. If we switch them, we get an arrow pointing in the opposite direction.
+
+If we can subtract vectors, surely we can add vectors. How would that work? Algebraically, if $V=Q-P$, then we expect $Q = V+P$ by rearranging. 
+That would mean
+\[
+Q = \begin{pmatrix} c \\ d \end{pmatrix} = V + P = \begin{pmatrix} c-a \\ d-b \end{pmatrix} + \begin{pmatrix} a \\ b \end{pmatrix},
+\]
+which all fits. It looks like addition should be defined coordinate-by-coordinate.
+
+\begin{definition}[Addition of Vectors]
+Let $P = \left(\begin{smallmatrix} a\\ b\end{smallmatrix}\right)$ and $Q= \left(\begin{smallmatrix} c\\ d\end{smallmatrix}\right)$ be two vectors in $\R^2$. Their sum is the vector
+\[
+P+Q = \begin{pmatrix} a+c \\ b+d\end{pmatrix}.
+\]
+\end{definition}
+
+\begin{theorem}
+Addition of vectors satisfies the same rules as addition of real numbers:
+\begin{compactitem}
+\item when adding more than two vectors, it doesn't matter which operations you do first:
+$(P+Q)+R = P + (Q+R)$;
+\item one can add in either order $P+Q = Q+P$;
+\item the origin $O$ is a ``zero'' since $P+O = O+P = P$;
+\item for each vector $P$, there is an opposite vector $-P$ so that $P + (-P) = O$.
+\end{compactitem}
+\end{theorem}
+
+Remember that you are supposed to read actively. 
+You can draw all of these pictures and try out all of these things with specific examples that you invent.
+You should check these by making examples and working out the details.
+Can you also draw the pictures which go with your examples?
+
+But what about subtracting geometrically? In Figure \ref{fig:subtract-vec}, I have a strong desire to complete the figure by joining the loose end of $V$ to the rest of the figure. If we draw the arrow from the head of $V$ to the head of $Q$, we get this:
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.2]
+\draw[->] (-.5,0) -- (2,0) node[below] {\small $x$};
+\draw[->] (0,-1.25) -- (0,1.75) node[left] {\small $y$};
+\draw[->,thick] (1/2,3/2) -- (3/2,2/5);
+\node [text width=2cm,align=right,above right] at (1,18/20) {physicist's $V$};
+\draw[->,thick] (0,0) -- (1,-11/10);
+\node [below left] at (1/2,-19/40) {$V$};
+\draw[->,thick] (0,0) -- (1/2,3/2);
+\node[right] at (1/4,3/4) {$P$};
+\draw[->,thick] (0,0) -- (3/2,2/5);
+\node[above] at (3/4,1/5) {$Q$};
+\draw[->,dashed,thick] (1,-19/20) -- (3/2,2/5);
+\node[right] at (5/4,-13/20) {??};
+\end{tikzpicture}
+\caption{Subtraction of vectors}
+\label{fig:add-vec}
+\end{figure}
+
+What should the label on the dashed vector in Figure \ref{fig:add-vec} be? Just as the physicist's $V$ and the 
+mathematician's $V$ are parallel, this new vector is parallel to the mathematician's vector $P$. 
+So the dashed vector must be a physicist's version of $P$. Then we see $Q= V+P$.
+
+Now we know how to add geometrically: to add two vectors $A$ and $B$, translate $B$ until its tail is on the head of $A$, then draw a new vector $A+B$ as the vector from the tail of $A$ to the head of this translated $B$. It just repurposes the structure of Figure \ref{fig:add-vec}.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.2]
+\draw[->] (-.5,0) -- (2,0) node[below] {\small $x$};
+\draw[->] (0,-1.25) -- (0,1.75) node[left] {\small $y$};
+\draw[-,dashed] (1/2,3/2) -- (3/2,2/5);
+\node [text width=2cm,align=right,above right] at (1,18/20) {physicist's $A$};
+\draw[->,thick] (0,0) -- (1,-11/10);
+\node [below left] at (1/2,-19/40) {$A$};
+\draw[->,thick] (0,0) -- (1/2,3/2);
+\node[right] at (1/4,3/4) {$B$};
+\draw[->,thick] (0,0) -- (3/2,2/5);
+%\node[above] at (3/4,1/5) {$A+B$};
+\draw[-,dashed] (1,-19/20) -- (3/2,2/5) node[right] {$A+B$};
+\node[right] at (5/4,-13/20) {physicist's $B$};
+\end{tikzpicture}
+\caption{Geometric Addition of Vectors}
+\label{fig:geom-add-vec}
+\end{figure}
+
+This is sometimes called the \emph{parallelogram rule} for addition of vectors.
+
+There is another useful operation on vectors called \emph{scalar multiplication}. 
+This corresponds to stretching (or shrinking) a vector, without changing its direction.
+The terminology comes from physics (again) where a \emph{scalar} quantity is just a number, and not a vector.
+So ``scalar multiplication'' means to multiply a vector by a scalar.
+
+
+\begin{definition}[Scalar Multiplication for vectors]
+Let $P = \left( \begin{smallmatrix} a \\ b \end{smallmatrix}\right)$ be a vector in $\R^2$, and let $\lambda$ be a real number. Then the scalar multiple $\lambda P$ is defined to be
+\[
+\lambda P = \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix}
+\]
+\end{definition}
+
+If you have never seen the symbol $\lambda$ before, it is an old Greek letter pronounced ``lamb-duh.'' It is traditional to use it in linear algebra in lots of places. Welcome to the $\lambda$-club.
+
+Again, this operation has some important similarities to the familiar multiplication of numbers, but because it combines a scalar (a number) with a vector (not a number, exactly) to produce another vector (again, not a number) things are a little different.
+
+\begin{theorem}
+Suppose that $P$ and $Q$ are vectors, and $\lambda$ and $\mu$ are numbers. Scalar multiplication has the following properties:
+\begin{compactitem}
+\item Scalar multiplication distributes over addition: $\lambda(P+Q) = \lambda P + \lambda Q$;
+\item Scalar multiplication and regular multiplication can be done in either order: $\lambda(\mu P) = (\lambda\mu) P$;
+\item if $\lambda = 0$, then $\lambda P = 0 P = O$ is the zero vector $O$.
+\end{compactitem}
+
+\end{theorem}
 
 \section*{Lines as Parametric Objects}
 
 \begin{compactitem}
-\item vector algebra in R2
 \item lines in R2 as parametric objects: through the origin, and not
 \item sketching lines in R2
 \end{compactitem}
