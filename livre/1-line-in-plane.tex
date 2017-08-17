@@ -4,21 +4,104 @@
 \chapter{The Equation of a Line in the Plane}
 
 
-\textbf{Outline}
+Let's recall the idea of \emph{the plane} from classical geometry: the plane is like a flat sheet of drawing paper, which extends indefinitely in all directions without bound. 
+It is the playground for lots of serious considerations from high school: points, lines, circles, triangles, rectangles, and various other doodles live in it. 
+I say \emph{in} it rather than \emph{on} it, because all of those objects really have their existence inside the plane. 
+If we were to say ``on the plane'' then one might think of them as sitting on top of the paper, where a light breeze might move them about. 
+No, those things live inside the plane just as sure as you and I live inside the universe.
+
+And while all of that is evocative and romantic, it doesn't make doing mathematics any easier. 
+Our aim in this first chapter is to do some concrete mathematics: we want to figure out how to describe a single line in the plane very carefully. 
+To do this, we will use tools that Ren\'{e} Descartes taught us: coordinates. 
+Better yet, we will use an update of the idea and introduce \emph{vectors}. 
+Our work has to rely on something, so at some points we will make use of geometry facts you learned in high school. 
+But for all of the points and vectors, angles and dot products, we will go straight to the heart of a single important question:
+
+\begin{quotation}
+\textbf{\large How can we clearly describe a single line in the plane with an equation?}
+\end{quotation}
+
+\clearpage
+
+\section*{Points, Vectors, and Vectors}
+
+
+You have likely seen the idea of \emph{Cartesian coordinates} on the plane before. To be clear, let's set things down carefully. In the plane, we choose a pair of perpendicular lines which meet at a point $O$. This special point is called the \emph{origin}. Then, we choose a point $X$ on one of the lines and draw the circle centered at $O$ which passes through $X$. Note that this circle meets our two lines in two points each, four points total, one of which is the point $X$. Then, from $X$, we rotate around the circle by a quarter turn counterclockwise until we hit one of the points on the other line. This new point we will call $Y$. Are you drawing with me? Here is my picture so far.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=2]
+\draw (-1,4/3) -- (1,-4/3);
+\draw (-3/2,-9/8) -- (3/2,9/8);
+\draw (0,0) circle [radius=3/4];
+\draw[->] (-50:1) arc (-50:35:1);
+\node [right] at (1.1,0) {rotate counterclockwise};
+\node [left] at (0,0) {$O$};
+\node [below] at (9/20,-3/5) {$X$};
+\node [above] at (3/5,9/20) {$Y$};
+\end{tikzpicture}
+\end{figure}
+
+We call the line $OX$ the \emph{$x$-axis} and the line containing $Y$ the \emph{$y$-axis}. Here comes the amazing part: we declare the circle we used to be of \emph{unit size}, and make the lines $OX$ and $OY$ into number lines! The important part is that the point $O$ should represent $0$ on both number lines, and the points $X$ and $Y$ should each represent $1$ on their lines. So, instead of marking things with $O$, $X$, and $Y$, we put down a mark where $X$ and $Y$ are and label them with $1$'s, and add little arrows marked with $x$ and $y$ near the positive ``ends'' of the lines $OX$ and $OY$ in our diagram.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=2]
+\draw[->] (-1,4/3) -- (1,-4/3);
+\draw[->] (-3/2,-9/8) -- (3/2,9/8);
+\draw[fill] (9/20,-3/5) circle [radius=0.03];
+\draw[fill] (3/5,9/20) circle [radius=0.03];
+\node [below] at (9/20,-3/5) {$1$};
+\node [above] at (3/5,9/20) {$1$};
+\node [right] at (1,-4/3) {\small $x$};
+\node [left] at (3/2,9/8) {\small $y$};
+\end{tikzpicture}
+\end{figure}
+
+Note that above I have done something a bit silly and let the picture just fall on the paper in an unusual way. I really mean unusual as ``not usual.'' The usual way arranges the lines on the paper to match our expected horizontal ($x$) and vertical ($y$) directions. This isn't actually required, but it is what everyone always does. So the picture looks more like this one.
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.25]
+\draw[->] (-2,0) -- (2,0) node[below] {\small $x$};
+\draw[->] (0,-2) -- (0,2) node[left] {\small $y$};
+\draw[fill] (1,0) circle [radius=0.03] node[below] {$1$};
+\draw[fill] (0,1) circle [radius=0.03] node[right] {$1$};
+\end{tikzpicture}
+\end{figure}
+
+\section*{Lines as Parametric Objects}
+
+\begin{compactitem}
+\item vector algebra in R2
+\item lines in R2 as parametric objects: through the origin, and not
+\item sketching lines in R2
+\end{compactitem}
+
+\section*{Lengths and Angles in the plane}
+\begin{compactitem}
+\item lengths, angles, and the dot product in R2
+\item normal vector to a line in R2
+\item duality
+\end{compactitem}
+
+
 \begin{compactitem}
 \item points vs physics vectors vs math vectors
 \item the idea of R2
 \item sketching points and vectors in the plane
-\item vector algebra in R2
-\item lines in R2 as parametric objects: through the origin, and not
-\item sketching lines in R2
-\item lengths, angles, and the dot product in R2
-\item normal vector to a line in R2
+\end{compactitem}
+
+
+\section*{Lines and Equations}
+\begin{compactitem}
 \item equation of a line, three methods: elimination, from two pts via similar triangles, from geometry of dot product
 \item families of parallel lines
 \item sketching a line from an equation
-\item the big theorem with duality
 \end{compactitem}
+
+\section*{Conclusion: The Big Theorem}
 
 
 \end{document}
