@@ -80,7 +80,7 @@ So, the more typical picture looks more like this one.
 Now suppose we have some point in the plane, let's call it $P$. 
 We can describe the location of $P$ relative to our two lines in a simple way. First, we draw a line through $P$ which is parallel to the $y$-axis and perpendicular to the $x$-axis.
 The foot of this perpendicular hits the $x$-axis at some point $A$.
-But this point $P'$ is part of the number line $OX$, so it has an associated real number, which we will call $a$.
+But this point $A$ is part of the number line $OX$, so it has an associated real number, which we will call $a$.
 So the point $A$ is instead marked with the label $a$ from this number line.
 
 Similarly, we draw a line through $P$ parallel to the $x$-axis and perpendicular to the $y$-axis.
@@ -134,8 +134,8 @@ We can write the coordinates of these points as $P = (a,b)$ and $Q = (c,d)$.
 \draw[dotted,->] (1/2,3/2) -- (0,3/2) node[left] {$b$};
 \draw[dotted,->] (3/2,2/5) -- (3/2,0) node[below] {$c$};
 \draw[dotted,->] (3/2,2/5) -- (0,2/5) node[left] {$d$};
-\draw[decorate,decoration={brace,amplitude=10pt},xshift=-8pt,yshift=0pt] (0,2/5) -- (0,3/2) node[midway,xshift=-.9cm] {$d-b$};
-\draw[decorate,decoration={brace,mirror,amplitude=10pt},xshift=0pt,yshift=-8pt] (1/2,0) -- (3/2,0) node[midway,yshift=-.5cm] {$c-a$};
+\draw[decorate,decoration={brace,amplitude=5pt},xshift=-8pt,yshift=0pt] (0,2/5) -- (0,3/2) node[midway,xshift=-.9cm] {$d-b$};
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=0pt,yshift=-8pt] (1/2,0) -- (3/2,0) node[midway,yshift=-.5cm] {$c-a$};
 \end{tikzpicture}
 \caption{Coordinates for a physicist's vector $V$.}
 \label{fig:phys-vec-coords}
@@ -318,7 +318,6 @@ Now we know how to add geometrically: to add two vectors $A$ and $B$, translate 
 This is sometimes called the \emph{parallelogram rule} for addition of vectors.
 
 There is another useful operation on vectors called \emph{scalar multiplication}. 
-This corresponds to stretching (or shrinking) a vector, without changing its direction.
 The terminology comes from physics (again) where a \emph{scalar} quantity is just a number, and not a vector.
 So ``scalar multiplication'' means to multiply a vector by a scalar.
 
@@ -330,39 +329,181 @@ Let $P = \left( \begin{smallmatrix} a \\ b \end{smallmatrix}\right)$ be a vector
 \]
 \end{definition}
 
-If you have never seen the symbol $\lambda$ before, it is an old Greek letter pronounced ``lamb-duh.'' It is traditional to use it in linear algebra in lots of places. Welcome to the $\lambda$-club.
+If you have never seen the symbol $\lambda$ before, it is an old Greek letter pronounced ``lamb-duh.'' It is traditional to use it in linear algebra in lots of places. Welcome to the $\lambda$-club. Oh, there are others, too, like $\mu$, which is pronounced ``mew.''
 
 Again, this operation has some important similarities to the familiar multiplication of numbers, but because it combines a scalar (a number) with a vector (not a number, exactly) to produce another vector (again, not a number) things are a little different.
 
 \begin{theorem}
 Suppose that $P$ and $Q$ are vectors, and $\lambda$ and $\mu$ are numbers. Scalar multiplication has the following properties:
 \begin{compactitem}
-\item Scalar multiplication distributes over addition: $\lambda(P+Q) = \lambda P + \lambda Q$;
+\item Scalar multiplication distributes over vector addition:\\ $\lambda(P+Q) = \lambda P + \lambda Q$;
+\item Scalar multiplication distributes over scalar addition:\\ $(\lambda + \mu)P = \lambda P + \mu P$;
 \item Scalar multiplication and regular multiplication can be done in either order: $\lambda(\mu P) = (\lambda\mu) P$;
 \item if $\lambda = 0$, then $\lambda P = 0 P = O$ is the zero vector $O$.
+\item if $n$ is a counting number, then $nP$ is the same thing as adding together $n$ copies of $P$. In particular, $1P = P$.
 \end{compactitem}
-
 \end{theorem}
+
+This Theorem, like the last one, just says that a bunch of natural things you expect to happen really do happen. When you study \textbf{Modern Algebra}, making lists of these kinds of properties will be really useful. So far, we have collected up the properties that describe a \emph{vector space}.
+
+
+What is the geometry of scalar multiplication? 
+It corresponds to stretching (or shrinking) a vector, without changing its direction.
+Let $lambda$ be a non-zero number. Since 
+\[
+\lambda P = \lambda \begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} \lambda a \\ \lambda b\end{pmatrix},
+\]
+we see that the ratio of the two coordinates of a vector doesn't change under scalar multiplication. This means that $P$ and $\lambda P$ point in the same direction.
+One can see this be considering similar triangles with sides parallel to the $x$-axis, the $y$-axis, and $P$.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.25]
+\draw[->] (-.5,0) -- (4,0) node[below] {\small $x$};
+\draw[->] (0,-.5) -- (0,2.5) node[right] {\small $y$};
+\node[below left] at (0,0) {$O$};
+\draw[->,thick] (0,0) -- (3,2) node[above right] {$\lambda P$};
+\draw[->,ultra thick] (0,0) -- (1.5,1) node[above left] {$P$};
+\draw[dashed] (1.5,1) -- (1.5,0);
+\draw[dashed] (3,2) -- (3,0);
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=4pt,yshift=0pt] (3,0) -- (3,2) node[midway,xshift=.35cm] {$\lambda b$};
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=4pt,yshift=0pt] (1.5,0) -- (1.5,1) node[midway,xshift=.3cm] {$b$};
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=0pt,yshift=-2pt] (0,0) -- (1.5,0) node[midway,yshift=-.3cm] {$a$};
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=0pt,yshift=-12pt] (0,0) -- (3,0) node[midway,yshift=-.3cm] {$\lambda a$};
+\end{tikzpicture}
+\caption{Similar triangles and scalar multiplication, $\lambda >1$}
+\label{fig:sim-tri}
+\end{figure}
+
+The triangles $OXP$ and $O(\lambda X)(\lambda P)$ are similar: their corresponding horizontal and vertical sides are parallel, and those pairs of sides have a common ratio. 
+We learn that $P$ and $\lambda P$ lie in the same line.
+
+Now we are getting somewhere! We want to understand lines in the plane, and we have just discovered how scalar multiplication relates to lines which pass through the origin, $O$.
+
+By the way, this picture helps explain the terminology. The vector $\lambda P$ is a rescaled version of $P$. A \emph{scalar} is a thing which \emph{scales} vectors.
 
 \section*{Lines as Parametric Objects}
 
-\begin{compactitem}
-\item lines in R2 as parametric objects: through the origin, and not
-\item sketching lines in R2
-\end{compactitem}
+We see that for a non-zero vector $P$, and a non-zero number $\lambda$, the vectors $P$ and $\lambda P$ lie on the same line through the origin, $O$. But this doesn't depend on which number $\lambda$ we choose. So if we vary $\lambda$, we will get lots of different points on that line.
+The picture looks something like this one:
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+\draw[->] (-4,0) -- (3,0) node[below] {\small $x$};
+\draw[->] (0,-2) -- (0,2) node[left] {\small $y$};
+\draw[thick] (-4,-1) -- (3,3/4);
+\draw[->,ultra thick] (0,0) -- (-2,-1/2) node[above] {$P$};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},xshift=0pt,yshift=-3pt] (-4,-1) -- (-2,-1/2) node[midway,xshift=0cm,yshift=-.35cm] {$\lambda > 1$};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},xshift=0pt,yshift=-3pt] (-2,-1/2) -- (0,0) node[midway,xshift=0cm,yshift=-.35cm] {$0< \lambda <1$};
+\draw[decorate,decoration={brace,amplitude=5pt},xshift=0pt,yshift=3pt] (0,0) -- (3,3/4) node[midway,xshift=-.3cm,yshift=.3cm] {$\lambda <0$};
+\end{tikzpicture}
+\caption{The points on a line: $\lambda P$ for different $\lambda$}
+\label{fig:line-scalar}
+\end{figure}
+
+This leads us to what is called a \emph{parametric description} of the line.
+We think of some variable, say $t$, as a parameter.
+(I chose $t$ here so that we think of it as ``time.'')
+As we change the value of $t$, the vectors $tP$ trace out the line which goes through the origin and the point which is the head of the vector $P$.
+
+\begin{theorem}[parametric lines through the origin] \label{thm:param-line-origin}
+Suppose that $P=(a,b)$ is some point in the plane. The the line which passes through the origin $O$ and the point $P$ consists of the heads of all the vectors 
+\[
+t \begin{pmatrix} a \\ b \end{pmatrix},
+\]
+where $t$ varies over all real numbers. That is, this line is the set of the heads of all scalar multiples of the vector corresponding to $P$.
+\end{theorem}
+
+This, is fantastic. We can use simple vector algebra to describe any line through the origin. 
+What about lines that are not through the origin? 
+Suppose we just have two random points $P$ and $Q$, neither of which is the origin, and we want to describe the line $\ell$ through $P$ and $Q$?
+
+Again, let's think of the points on this line $\ell$ as the heads of mathematics-style vectors. 
+If we put in the vectors $p$ and $q$ which correspond to the points $P$ and $Q$, we get a good picture like this one.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1]
+\draw[->] (-4,0) -- (4,0) node[below] {\small $x$};
+\draw[->] (0,-1.5) -- (0,3.5) node[left] {\small $y$};
+\draw[fill] (-2,2) circle [radius=.05]; 
+\node[above] at (-2,2) {$P$};
+\draw[fill] (3,.5) circle [radius=.05];
+\node[above] at (3,.5) {$Q$};
+\draw[ultra thick] (-4,2.6) -- (4,.2);
+\node[above] at (1.2,1.2) {$\ell$};
+\draw[->,thick] (0,0) -- (-1.95,1.95) node[midway,yshift=-6pt] {$p$};
+\draw[->,thick] (0,0) -- (2.94,.49) node[midway,yshift=5pt] {$q$};
+\end{tikzpicture}
+\caption{Working toward a parametric line, part 1}
+\label{fig:param-line1}
+\end{figure}
+
+Each point in Figure \ref{fig:param-line1} is the head of a vector from the origin to that point. 
+In particular, the point $P$ is the head of the vector $p$. 
+So if we add $-p$ to every single one of these, we will move the whole line $\ell$ in the direction and with the same distance as $-p$.
+That will make a new line, $\ell'$, and the point which comes from $P$ will land on the origin.
+
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1]
+\draw[->] (-4,0) -- (6,0) node[below] {\small $x$};
+\draw[->] (0,-1.5) -- (0,3.5) node[left] {\small $y$};
+\draw[fill] (-2,2) circle [radius=.05]; 
+\node[above] at (-2,2) {$P$};
+\draw[fill] (3,.5) circle [radius=.05];
+\node[above] at (3,.5) {$Q$};
+\draw[ultra thick] (-4,2.6) -- (6,-.4);
+\node[above] at (1.2,1.2) {$\ell$};
+\draw[->,thick] (0,0) -- (-1.95,1.95) node[midway,yshift=-10pt] {$p$};
+\draw[->,thick] (0,0) -- (2.94,.49) node[midway,yshift=5pt] {$q$};
+\draw[ultra thick] (-4,1.2) -- (6,-1.8);
+\node at (-2.9,.5) {$\ell'$};
+\draw[->,thick] (3,.5) -- (5,-1.5) node[midway,xshift=10pt] {$-p$};
+\draw[decorate,decoration={brace,amplitude=5pt,mirror},xshift=0pt,yshift=-5pt] (0,0) -- (5,-1.5) node[midway,yshift=-.41cm] {$v = q-p$};
+\end{tikzpicture}
+\caption{Working toward a parametric line, part 2}
+\label{fig:param-line2}
+\end{figure}
+
+Since $q$ is one of the vectors with its head on the original line, the vector $q-p$ will have its head on the new line, too.
+But $q-p$ has its tail at the origin! 
+So, our new line passes through the origin and the head of the vector $q-p$, and we are in a situation to apply Theorem \ref{thm:param-line-origin}.
+
+
+By Theorem \ref{thm:param-line-origin}, the line $\ell'$ is described as all of the points which are heads of vectors of the form
+$t (q-p)$, where $t$ is a parameter which is allowed to vary over all real numbers.
+But we get from $\ell'$ back to $\ell$ by simply adding the vector $p$ back in. 
+So, our original line $\ell$, which goes through the heads of vectors $p$ and $q$, is described as the set heads of the vectors 
+\[
+p + t (q-p),
+\] 
+where $t$ is a parameter which is allowed to vary over all real numbers.
+Now, let's sum up what we have learned.
+
+\begin{theorem}[parametric line]\label{thm:param-line}
+Let $P = (a,b)$ and $Q = (c,d)$ be two points in the plane. The line which passes through these two points can be described as the heads of all vectors of the form
+\[
+\begin{pmatrix} a \\ b \end{pmatrix} + t \begin{pmatrix} c-a \\ d-b\end{pmatrix},
+\]
+where $t$ is a parameter which is allowed to vary over all real numbers.
+\end{theorem}
+
+Note that this theorem actually includes the previous one as a special case. 
+If one of our points happens to be the origin, we simply use $P=O$, which corresponds to the zero vector, and this description collapses back into the one we found earlier.
+In either case, the vector $v= q-p$ is called a \emph{direction vector} for the line.
+
+
+As a bit of a palate cleanser, let's answer this: Suppose you are given a line described as in the last theorem. How would you sketch it in the plane? The simplest method is to choose two different values of $t$, use them to generate to points on the line, plot those points, and trace the line through them. Which values of $t$ should you choose? It is often convenient to use $t=0$ and $t=1$.
+
+
 
 \section*{Lengths and Angles in the plane}
 \begin{compactitem}
 \item lengths, angles, and the dot product in R2
 \item normal vector to a line in R2
 \item duality
-\end{compactitem}
-
-
-\begin{compactitem}
-\item points vs physics vectors vs math vectors
-\item the idea of R2
-\item sketching points and vectors in the plane
 \end{compactitem}
 
 
