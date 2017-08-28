@@ -135,22 +135,22 @@ Copyright \copyright\ \the\year\ \thanklessauthor
 %\listoffigures
 %\listoftables
 
-% r.7 dedication
-\cleardoublepage
-~\vfill
-\begin{doublespace}
-\noindent\fontsize{18}{22}\selectfont\itshape
-\nohyphenation
-This is the dedication page. You should know that dedication is an important part of 
-being successful in mathematics. Imagination plays a role, but mostly mathematicians are people who like the work just enough to fail to give up when things become challenging. 
-
-Mathematics challenges everyone at one point or another. Being confused and stuck is 
-a mathematician's natural state. The professionals just got used to it. 
-
-So, stick with dedication, persistence, and perseverance. Those you can build. Don't give up. Talk about math with whoever will join in. All the cool ideas are buried under hard work.
-\end{doublespace}
-\vfill
-\vfill
+%% r.7 dedication
+%\cleardoublepage
+%~\vfill
+%\begin{doublespace}
+%\noindent\fontsize{18}{22}\selectfont\itshape
+%\nohyphenation
+%This is the dedication page. You should know that dedication is an important part of 
+%being successful in mathematics. Imagination plays a role, but mostly mathematicians are people who like the work just enough to fail to give up when things become challenging. 
+%
+%Mathematics challenges everyone at one point or another. Being confused and stuck is 
+%a mathematician's natural state. The professionals just got used to it. 
+%
+%So, stick with dedication, persistence, and perseverance. Those you can build. Don't give up. Talk about math with whoever will join in. All the cool ideas are buried under hard work.
+%\end{doublespace}
+%\vfill
+%\vfill
 
 
 % r.9 introduction
@@ -191,8 +191,8 @@ Your three points from this task should NOT match any of the three points from t
 Plot those three vectors on a single diagram.
 \end{task}
 
-\begin{definition}\marginnote{Defintion: Linear Combinations}
-If $u_1, u_2, \ldots, u_n$ is a collection of vectors, and $\lambda_1, \lambda_2, \ldots$ is a collection of scalars, then the vector formed below is called a \emph{linear combination} of the $u_i$'s.
+\begin{definition}
+If $u_1, u_2, \ldots, u_n$ is a collection of vectors, and $\lambda_1, \lambda_2, \ldots$ is a collection of scalars, then the vector formed below is called a \emph{linear combination}\marginnote{Defintion: Linear Combinations} of the $u_i$'s.
 \[
 \lambda_1 u_1 + \lambda_2 u_2 + \dots \lambda_n u_n
 \]
@@ -221,8 +221,10 @@ What do you notice? Is anything interesting going on?
 Consider the vector $u = \left(\begin{smallmatrix} -4 \\ 2\end{smallmatrix}\right)$. Find a vector $v$ which has the property that $u+v$ is the zero vector, or explain why this is not possible.
 \end{task}
 
-\begin{definition}\marginnote{Definition: Linear Combination Equations and their Solutions}
-An equation of the form $\lambda_1 u_1 + \dots \lambda_n u_n = w$, where all of the vectors $u_i$ and $w$ are known, but the scalars $\lambda_i$ are unknown, is called a \emph{linear combination of vectors equation}. A \emph{solution} to such an equation is 
+\begin{definition}
+An equation of the form $\lambda_1 u_1 + \dots \lambda_n u_n = w$, where all of the vectors $u_i$ and $w$ are known, but the scalars $\lambda_i$ are unknown, is called a \emph{linear combination of vectors equation}.
+\marginnote{Definition: Linear Combination Equations and their Solutions}
+A \emph{solution} to such an equation is 
 a collection of scalars which make the equation true.
 \end{definition}
 
@@ -259,6 +261,14 @@ How can you use vectors to (quickly) determine if these three points are colline
 \end{challenge}
 
 \section*{Parametric Lines in the Plane}
+
+\begin{task}
+Write down five different points which lie on the line described parametrically as:
+\[
+t \mapsto \begin{pmatrix} -5\\3 \end{pmatrix} + t \begin{pmatrix}1\\-1/2\end{pmatrix}.
+\]
+\end{task}
+
 
 \begin{challenge}
 How many different solutions\marginnote{Recall the definition above.} to the equation
@@ -368,10 +378,8 @@ has at exactly two solutions, or explain why such an example is not possible.
 
 
 
-\begin{task}
-
-
-\end{task}
+%\begin{task}
+%\end{task}
 
 
 
