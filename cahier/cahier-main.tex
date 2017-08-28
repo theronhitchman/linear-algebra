@@ -1,0 +1,388 @@
+\documentclass{tufte-book}
+\usepackage{amsmath,amssymb,amsthm}
+
+\hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
+
+%%
+% Book metadata
+\title{Elements of Linear Algebra, Volume II\\Cahier des Lignes}
+\author[TJH]{Theron J Hitchman}
+\publisher{I made it myself.}
+
+%%
+% If they're installed, use Bergamo and Chantilly from www.fontsite.com.
+% They're clones of Bembo and Gill Sans, respectively.
+\IfFileExists{bergamo.sty}{\usepackage[osf]{bergamo}}{}% Bembo
+\IfFileExists{chantill.sty}{\usepackage{chantill}}{}% Gill Sans
+
+%\usepackage{microtype}
+
+%%
+% For nicely typeset tabular material
+\usepackage{booktabs}
+
+%%
+% For graphics / images
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+%%
+% Prints argument within hanging parentheses (i.e., parentheses that take
+% up no horizontal space).  Useful in tabular environments.
+\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}}
+
+%%
+% Prints an asterisk that takes up no horizontal space.
+% Useful in tabular environments.
+\newcommand{\hangstar}{\makebox[0pt][l]{*}}
+
+%%
+% Prints a trailing space in a smart way.
+\usepackage{xspace}
+
+%%
+% Prints the month name (e.g., January) and the year (e.g., 2008)
+\newcommand{\monthyear}{%
+  \ifcase\month\or January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or
+  December\fi\space\number\year
+}
+
+
+% Prints an epigraph and speaker in sans serif, all-caps type.
+\newcommand{\openepigraph}[2]{%
+  %\sffamily\fontsize{14}{16}\selectfont
+  \begin{fullwidth}
+  \sffamily\large
+  \begin{doublespace}
+  \noindent\allcaps{#1}\\% epigraph
+  \noindent\allcaps{#2}% author
+  \end{doublespace}
+  \end{fullwidth}
+}
+
+% Inserts a blank page
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
+
+\usepackage{units}
+
+% Typesets the font size, leading, and measure in the form of 10/12x26 pc.
+\newcommand{\measure}[3]{#1/#2$\times$\unit[#3]{pc}}
+
+
+%%% LaTeX Math Stuff
+% Theorem-like environments
+\theoremstyle{definition}
+\newtheorem{task}{Task}
+\newtheorem{question}[task]{Question}
+\newtheorem{challenge}[task]{Challenge}
+\newtheorem*{definition}{Definition}
+
+
+% Macros for typesetting the documentation
+% Generates the index
+\usepackage{makeidx}
+\makeindex
+
+\begin{document}
+
+% Front matter
+\frontmatter
+
+% r.1 blank page
+%\blankpage
+
+% v.2 epigraphs
+%\newpage\thispagestyle{empty}
+%
+%\openepigraph{%
+%This is where I put an epigraph.
+%}{speaker%, {\itshape source}
+%}
+
+
+
+% r.3 full title page
+\maketitle
+
+
+% v.4 copyright page
+\newpage
+\begin{fullwidth}
+~\vfill
+\thispagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+Copyright \copyright\ \the\year\ \thanklessauthor
+
+\par\smallcaps{Published by \thanklesspublisher}
+
+\par\smallcaps{sites.uni.edu/theron/la17}
+
+%\par Drop a license statement here.%\index{license}
+
+\par\textit{First printing, \monthyear}
+\end{fullwidth}
+
+% r.5 contents
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+% r.7 dedication
+\cleardoublepage
+~\vfill
+\begin{doublespace}
+\noindent\fontsize{18}{22}\selectfont\itshape
+\nohyphenation
+This is the dedication page. You should know that dedication is an important part of 
+being successful in mathematics. Imagination plays a role, but mostly mathematicians are people who like the work just enough to fail to give up when things become challenging. 
+
+Mathematics challenges everyone at one point or another. Being confused and stuck is 
+a mathematician's natural state. The professionals just got used to it. 
+
+So, stick with dedication, persistence, and perseverance. Those you can build. Don't give up. Talk about math with whoever will join in. All the cool ideas are buried under hard work.
+\end{doublespace}
+\vfill
+\vfill
+
+
+% r.9 introduction
+\cleardoublepage
+\chapter*{Introduction}
+
+This is a \emph{workbook}. 
+It is a collection of tasks that you should do to try to learn linear algebra for yourself.
+
+It is not a \emph{textbook}. We don't have a textbook, as such things are understood today. We have a primer, the first volume of this set: \emph{Livre des Lignes}, which
+should serve as a basic source for reading about the main ideas, and we have this workbook. The books are separate so that you may have them both open at once. I hope this works.
+
+
+It is important to focus on your own understanding when working on these tasks. At every stage possible, you should ask yourself, "Self, how do I know this?" and maybe also, "So, Self, do I know this for sure? Or do I still have doubts?"
+
+If you are feeling at a loss for how to explain your thinking, try relying on simple geometric models and reasoning. It turns out that most of even the fanciest linear algebra is done that way. So, "Self, can you draw the relevant picture? Does that help?"
+
+Good luck. I'll see you in class, and I welcome your visits to office hours to talk about mathematics.
+
+
+%%
+% Start the main matter (normal chapters)
+\mainmatter
+
+\chapter{Vectors and Lines the Plane}
+\label{ch:one}
+
+\section*{Points and Vectors}
+
+\begin{task}
+Write down three distinct points in the plane in proper notation. 
+Plot those three points on a single diagram.
+\end{task}
+
+\begin{task}
+Write down three distinct vectors in the plane in proper notation. 
+Your three points from this task should NOT match any of the three points from the previous task.
+Plot those three vectors on a single diagram.
+\end{task}
+
+\begin{definition}\marginnote{Defintion: Linear Combinations}
+If $u_1, u_2, \ldots, u_n$ is a collection of vectors, and $\lambda_1, \lambda_2, \ldots$ is a collection of scalars, then the vector formed below is called a \emph{linear combination} of the $u_i$'s.
+\[
+\lambda_1 u_1 + \lambda_2 u_2 + \dots \lambda_n u_n
+\]
+\end{definition}
+
+\begin{task}
+Find the sum of your three vectors from the last exercise. Then, choose some order of those three vectors so that they are $u_1$, $u_2$ and $u_3$, and compute the linear combination
+\[
+3u_1 - 2u_2 + (1/2)u_3.
+\] 
+\end{task}
+
+\begin{task}
+Let's consider the vectors $u=\left(\begin{smallmatrix} 2 \\1 \end{smallmatrix}\right)$, 
+$v=\left(\begin{smallmatrix} 1\\ 1 \end{smallmatrix}\right)$, and $w=\left(\begin{smallmatrix} -3\\ 1 \end{smallmatrix}\right)$.
+Compute all of the vectors in this list:
+\[
+\dfrac{u+v}{2}, v-u, v-w, u + \left(\dfrac{v-u}{3}\right), u + \left(\dfrac{3(v-u)}{4}\right)
+\]
+Then make a single diagram which contains $u$, $v$, $w$ and all of those vectors from the list, plotted as accurately as you can.
+
+What do you notice? Is anything interesting going on?
+\end{task}
+
+\begin{task}
+Consider the vector $u = \left(\begin{smallmatrix} -4 \\ 2\end{smallmatrix}\right)$. Find a vector $v$ which has the property that $u+v$ is the zero vector, or explain why this is not possible.
+\end{task}
+
+\begin{definition}\marginnote{Definition: Linear Combination Equations and their Solutions}
+An equation of the form $\lambda_1 u_1 + \dots \lambda_n u_n = w$, where all of the vectors $u_i$ and $w$ are known, but the scalars $\lambda_i$ are unknown, is called a \emph{linear combination of vectors equation}. A \emph{solution} to such an equation is 
+a collection of scalars which make the equation true.
+\end{definition}
+
+\begin{task}
+For now, keep $u = \left(\begin{smallmatrix} -4 \\ 2\end{smallmatrix}\right)$. 
+Let $v = \left(\begin{smallmatrix} 3 \\ 5 \end{smallmatrix}\right)$.
+How many solutions does the linear combination of vectors equation
+$\lambda u = v$
+have?
+
+How many solutions does the linear combination of vectors equation 
+$\lambda u + \mu v = 0$
+have? (Here, treat $0$ as the zero vector.)
+\end{task}
+
+\begin{task}
+We still use the notation $u$ for the vector $u = \left(\begin{smallmatrix} -4 \\ 2\end{smallmatrix}\right)$, but now use $v$ for the vector $v = \left(\begin{smallmatrix} 28 \\ -14\end{smallmatrix}\right)$.
+How many solutions does the linear combination of vectors equation $\lambda u = v$
+have?
+
+How many solutions does the linear combination of vectors equation 
+$\lambda u + \mu v = 0$ have? (Again, treat $0$ as the zero vector.)
+\end{task}
+
+\begin{task}
+Find the midpoint between the points $P = (4,-2)$ and $Q=(3,5)$. Then find the two points which divide the segment $PQ$ into thirds.
+
+How can vectors make this simpler than it first appears?
+\end{task}
+
+\begin{challenge}
+Suppose you are given three points in the plane. Let's call them $P$, $Q$, and $R$.
+How can you use vectors to (quickly) determine if these three points are collinear?
+\end{challenge}
+
+\section*{Parametric Lines in the Plane}
+
+\begin{challenge}
+How many different solutions\marginnote{Recall the definition above.} to the equation
+\[
+x\begin{pmatrix} 3 \\ 7\end{pmatrix} + y \begin{pmatrix} 6 \\ 14 \end{pmatrix}
+= \begin{pmatrix} -3 \\ -7 \end{pmatrix}
+\]
+can you find? How many are they? Can you find a good way to describe all of the solutions? Is there a natural geometric way to describe all of the solutions? Is there an algebraic way to describe all of the solutions?
+\end{challenge}
+
+
+\begin{task}\label{task:line-through-origin}
+Write down a parametric description for the line which passes through the origin $O=(0,0)$ and the 
+point $S = (-5,5)$.
+
+Is this the \emph{only} way to write down such a parametric description for that line?
+\end{task}
+
+
+\begin{task}\label{task:line-through-points}
+Write down a parametric description for the line which passes through the points below.
+\[
+ T = (\pi, 0), \qquad J = (0,-\pi)
+\]
+Now find a different parametric description for that line. (\emph{Hint: Can you find a way to write a parametric description that doesn't use the number $\pi$?})
+\end{task}
+
+\begin{task}
+Compare the lines from the tasks \ref{task:line-through-origin} and \ref{task:line-through-points}. Do you note anything interesting? How do you know your observation is true?
+\end{task}
+
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Y$ so that the equation
+\[
+t\begin{pmatrix}3\\-1\end{pmatrix} = Y
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Z$ so that the equation
+\[
+\begin{pmatrix}1\\2\end{pmatrix} + t\begin{pmatrix}-1\\1 \end{pmatrix} = Z
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Y$ so that the equation
+\[
+\begin{pmatrix}-2/5\\2\end{pmatrix} + tY = \begin{pmatrix}-1\\1 \end{pmatrix} 
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Z$ so that the equation
+\[
+x\begin{pmatrix}-5/3\\1\end{pmatrix} + y\begin{pmatrix}3\\7 \end{pmatrix} = Z
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Z$ so that the equation
+\[
+x\begin{pmatrix}-5/3\\1\end{pmatrix} + y\begin{pmatrix}1\\-3/5 \end{pmatrix} = Z
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+\begin{challenge}
+Find an example of four $2$-vectors $X$, $Y$, $Z$, and $W$ so that the equation
+\[
+aX+bY+cZ = W
+\]
+has at exactly two solutions, or explain why such an example is not possible.
+\end{challenge}
+
+
+
+\begin{task}
+
+
+\end{task}
+
+
+
+
+
+%%
+% The back matter contains appendices, bibliographies, indices, glossaries, etc.
+%\backmatter
+%\bibliography{sample-handout}
+%\bibliographystyle{plainnat}
+%\printindex
+
+\end{document}
+
