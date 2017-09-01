@@ -499,14 +499,171 @@ In either case, the vector $v= q-p$ is called a \emph{direction vector} for the 
 
 As a bit of a palate cleanser, let's answer this: Suppose you are given a line described as in the last theorem. How would you sketch it in the plane? The simplest method is to choose two different values of $t$, use them to generate to points on the line, plot those points, and trace the line through them. Which values of $t$ should you choose? It is often convenient to use $t=0$ and $t=1$.
 
+In fact, a parametric description can (perhaps ``should'') be thought of as describing the motion of a vector or point in the plane. 
+The parameter $t$ should be thought of as \emph{time}.
+As the time changes, the location of the vector (or point) in the plane changes.
+This creates a kind of function, which is sometimes written like so:
+\[
+t \mapsto p + t(q-p)
+\]
+The input time $t$ is some real number, and the corresponding output is the vector $p+t(q-p)$ in $\R^2$. For any fixed $t$, our function gives us the ``location of the moving point at time $t$.'' You can think of running through all of these different pictures, in sequence, as a movie showing the motion of our vector (or point). Then the line is like a time-lapse photograph which traces out the whole motion.
+
+Note that at time $t=0$, we have the location $0 \mapsto p + 0(q-p) = p$, and at time $t=1$, we get the location $1 \mapsto p+1(q-p) = q$. So it makes sense to think of our parametrized line as describing motion ``from $p$ to $q$.'' And the whole time, the direction of motion is exactly $v=q-p$: from $p$ to $q$ in the physicist's sense.
 
 
 \section*{Lengths and Angles in the plane}
+
+What should we mean by the ``length'' of a vector $u$ in $\R^2$? The most natural thing is to use the notion of the length of the line segment from the tail to the head --- the regular length of the arrow involved. This natural thing is just what we want, but because we wish to generalize it later, it will be best to give it an unusual name: the \emph{norm} of a vector. 
+
+How shall we understand it? The key comes from looking upon Figure \ref{fig:sim-tri}
+with new eyes. There we see a vector in $\R^2$ as the hypotenuse of a right triangle 
+having its legs parallel to the two coordinate axes.
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.25]
+\draw[->] (-.5,0) -- (4,0) node[below] {\small $x$};
+\draw[->] (0,-.5) -- (0,2.5) node[right] {\small $y$};
+\node[below left] at (0,0) {$O$};
+\draw[->,thick] (0,0) -- (3,2) node[above] {$u = \begin{pmatrix} a \\ b\end{pmatrix}$};
+\draw[dashed] (3,2) -- (3,0);
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=4pt,yshift=0pt] (3,0) -- (3,2) node[midway,xshift=.35cm] {$b$};
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=0pt,yshift=-12pt] (0,0) -- (3,0) node[midway,yshift=-.3cm] {$a$};
+\draw[decorate,decoration={brace,amplitude=5pt},xshift=-2pt,yshift=2pt] (0,0) -- (3,2) node[midway,xshift=-.4cm,yshift=.4cm] {$\sqrt{a^2+b^2\ }$};
+\end{tikzpicture}
+\caption{The Norm of a vector}
+\label{fig:norm}
+\end{figure}
+
+These two legs then have lengths which are equal to our two coordinates, respectively.
+Now we can compute the length of the arrow by the Pythagorean Theorem. Now that we understand what we want, we can make our definition.
+
+\begin{definition}
+Let $u = \left(\begin{smallmatrix}a \\ b \end{smallmatrix}\right)$ be a vector in $\R^2$.
+The \emph{norm} of $u$ is the number
+\[
+\norm{u} = \sqrt{a^2 + b^2\ }.
+\]
+\end{definition}
+
+It is important to remember that the norm is a number, but never a negative number. Also, the only vector which has norm equal to zero is the zero vector. We shall often have the occasion to use norms of vectors as scalars in forming linear combinations.
+
+As long as we have the concepts of norm and scalar in front of us, let us investigate how those interact. If $\lambda$ is a scalar, then how do the norms a vector $u$ and the rescaled $\lambda u$ compare? Let's write our vector in the form $u=\left(\begin{smallmatrix} a \\ b \end{smallmatrix}\right)$. Then we can do the following straightforward computation:
+\[
+\norm{\lambda u} = \norm{ \lambda \begin{pmatrix} a \\ b \end{pmatrix}} = \norm{ \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix} } = \sqrt{ (\lambda a)^2 + (\lambda b)^2\ } = |\lambda| \norm{u}
+\]
+This conforms to our basic ideas about scalar multiplication. If we rescale a vector, we are really just changing its length by that factor. (And then there is the worry over the sign of the scalar, because lengths must not be negative.)
+
+
+In a terrible linguistic collision, the most useful role for the norm of a vector is in the process of \emph{normalizing} that vector. 
+Beware, mathematics has several words that are overused! 
+Norm, normal, normalize, normalized and other forms of this are a prime example.
+To \emph{normalize} a vector $u$, we multiply it by the scalar $\norm{u}^{-1}$, and thus produce a new vector $u/\norm{u}$ which points in the same direction as $u$, but has norm equal to $1$. This is because we can use our observation just above about how norms interact with scalar multiplication to compute:
+\[
+\norm{\norm{u}^{-1} u} = \norm{u}^{-1}\norm{u}  = 1.
+\]
+That last multiplication is just a multiplication of numbers, after all.
+Note that all of that only makes sense as long as $u$ is not the zero vector.
+Just to make sure all of this stays confusing for learners, mathematicians call a vector with norm equal to $1$ a \emph{unit vector}. 
+
+To sum up: given a non-zero vector $u$, it is possible to normalize it, which means to replace it with the vector $u/\norm{u}$, which is a unit vector.
+
+
+Now that we are talking about proper geometry with length, can we find a way to measure the angle between two vectors? We can, if we use some trigonometry. We will use the following three facts:
+\begin{enumerate}
+\item Each point on the unit circle can be represented as a point of the form $(\cos(\alpha), \sin(\alpha))$ for some angle $\alpha$ between $0$ and $2\pi$, so the corresponding vector can be written as $p = \left(\begin{smallmatrix} \cos(\alpha) \\ \sin(\alpha) \end{smallmatrix}\right)$.
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.25]
+\draw[->] (-1.2,0) -- (1.2,0) node[below right] {\small $x$};
+\draw[->] (0,-1.2) -- (0,1.2) node[left] {\small $y$};
+\draw[thick] (0,0) circle [radius=1];
+\draw[thick,->] (0,0) -- (67:1) node[above right] {$p = \left(\begin{smallmatrix}\cos(\alpha) \\ \sin(\alpha) \end{smallmatrix}\right)$};
+\draw (.2,0) arc [radius=0.2,start angle=0,end angle=67];
+\node[right] at (35:.2) {$\alpha$};
+\end{tikzpicture}
+\caption{Trigonometry for points on the unit circle}
+\label{fig:unit-circle}
+\end{figure}
+
+
+\item The function $\theta \mapsto \cos(\theta)$ associates each angle in the interval
+$[0,\pi]$ to a unique real number in the interval $[-1,1]$, and vice versa. For us, this means that it to measure an angle, we can get away with instead finding the cosine of that angle.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.25]
+\draw[->] (-.1,0) -- (3.25,0) node[below right] {\small $\theta$};
+\draw[->] (0,-1.1) -- (0,1.1) node[left] {\small $y$};
+\draw [thick,domain=0:pi] plot (\x, {cos(\x r)});
+\node[right] at (3*pi/8,1/2) {$y=\cos(\theta)$};
+\end{tikzpicture}
+\caption{Part of the graph of $y=\cos(\theta)$}
+\label{fig:cos-graph}
+\end{figure}
+
+\item There is an identity on trigonometric functions that helps us deal with the the cosine of a difference of angles: If $\alpha$ and $\beta$ are two angles, then
+\[
+\cos(\beta-\alpha) = \cos(\alpha)\cos(\beta) + \sin(\alpha)\sin(\beta)
+\]
+\end{enumerate}
+
+So, let us consider the angle between two vectors, $u$ and $v$, in $\R^2$. 
+First, the angle between these vectors does not depend at all on their lengths. 
+If we change one, or both, of the vectors by rescaling them, that will not change the directions involved, and hence will not change the angle we seek. 
+We can get to a more uniform set up for our task by normalizing $u$ and $v$. 
+Thus we will instead consider the unit vectors $u/\norm{u}$ and $v/\norm{v}$, and look for the angle $\theta$ between them.
+
+Since our vectors are unit vectors, we can represent them with trigonometric functions:
+\[
+\frac{u}{\norm{u}} = \begin{pmatrix} \cos(\alpha)\\ \sin(\alpha) \end{pmatrix}, \qquad
+\frac{v}{\norm{v}} = \begin{pmatrix} \cos(\beta)\\ \sin(\beta) \end{pmatrix}.
+\]
+Let's suppose that the angle $\beta$ that $v$ makes with the $x$-axis is larger than the angle $\alpha$ that $u$ makes with the $x$-axis. Then we want to find the angle $\theta = \beta-\alpha$. 
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3]
+\draw[->] (-.1,0) -- (2,0) node[below right] {\small $x$};
+\draw[->] (0,-.1) -- (0,2) node[left] {\small $y$};
+\draw (1,0) arc [radius=1,start angle=0,end angle=90];
+\draw[thick,->] (0,0) -- (10/13,24/13) node[right] {$v$};
+\draw[ultra thick,->] (0,0) -- (5/13,12/13);
+\node [above right] at (6/13,11/13) {$\frac{v}{\norm{v}}=\left(\begin{smallmatrix} \cos(\beta)\\ \sin(\beta) \end{smallmatrix}\right)$};
+\draw[thick,->] (0,0) -- (37.5/17,20/17) node[below right] {$u$};
+\draw[ultra thick,->] (0,0) -- (15/17,8/17);
+\node [right] at (16/17,6/17) {$\frac{u}{\norm{u}}=\left(\begin{smallmatrix} \cos(\alpha)\\ \sin(\alpha) \end{smallmatrix}\right)$};
+\draw[->] (2/3,0) arc [radius=2/3,start angle=0,end angle=28];
+\node[right] at (14:2/3) {$\alpha$};
+\draw[->] (1/3,0) arc [radius=1/3,start angle=0,end angle=67.38];
+\node[right] at (14:3/8) {$\beta$};
+\draw[->] (28:1/2) arc [radius=1/2,start angle=28,end angle=67.38];
+\node[above right] at (60:1/2) {$\theta = \beta - \alpha$};
+\end{tikzpicture}
+\caption{Finding the angle between two vectors.}
+\label{fig:angle-computation}
+\end{figure}
+
+
+Since cosine is such a nice function on $[0,\pi]$, it will do to first try to find $\cos(\theta)$. But then we can simply apply the angle difference formula for cosine to see
+\[
+\cos(\theta) = \cos(\beta - \alpha) = \cos(\alpha)\cos(\beta) + \sin(\alpha)\sin(\beta).
+\]
+
+This is a great situation. To find $\cos(\theta)$, we can just form a funny combination of the components of the vectors $u/\norm{u}$ and $v/\norm{v}$.
+
+
+
 \begin{compactitem}
 \item lengths, angles, and the dot product in R2
 \item normal vector to a line in R2
 \item duality
 \end{compactitem}
+
+
+
 
 
 \section*{Lines and Equations}
