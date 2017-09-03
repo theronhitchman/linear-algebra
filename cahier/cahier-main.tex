@@ -376,11 +376,110 @@ aX+bY+cZ = W
 has at exactly two solutions, or explain why such an example is not possible.
 \end{challenge}
 
+\section*{The Dot Product: Norms and Angles}
+
+\begin{task}
+Choose three different $2$-vectors which have neither of their components equal to zero. Call these vectors $u$, $v$, and $w$.
+\begin{compactitem}
+\item[a)] Compute the norms of $u$, $v$, and $w$.
+\item[b)] Compute the dot products $u\cdot v$, $v\cdot w$, and $u\cdot w$.
+\item[c)] Find unit vectors $u'$, $v'$, and $w'$ which point in the same directions as $u$, $v$, and $w$, respectively.
+\item[d)] Find the angles between each of the pairs, $u$ and $v$, $u$ and $w$, $v$ and $w$ in radians.
+\end{compactitem}
+\end{task}
 
 
-%\begin{task}
-%\end{task}
+\begin{task}
+What shape is the set of solutions $\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$ to the equation
+\[
+\begin{pmatrix} 3 \\ 7\end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = 5?
+\] 
+That is, if we look at all possible vectors $\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$
+which make the equation true, what shape does this make in the plane? Draw this shape.
 
+What happens if we change the vector $\left(\begin{smallmatrix} 3 \\ 7 \end{smallmatrix}\right)$ to some other vector? What happens if we change the number $5$ to some other number?
+\end{task}
+
+\begin{task}
+Fix some vector $u$. Draw a picture of $u$ in the plane, and then shade the region of the plane which contains vectors $v$ so that $u\cdot v> 0$.
+\end{task}
+
+
+
+\begin{task} This task continues our quest for understanding the sign of a dot product geometrically.
+\begin{compactitem}
+\item[a)] Find an example of two $2$-vectors $v$ and $w$ so that $\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot v =0$ and $\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot w = 0$, or explain why such an example is not possible.
+
+\item[b)] Let $v = \left(\begin{smallmatrix}3\\-1 \end{smallmatrix}\right)$. Find an example of a pair of $2$-vectors $u$ and $w$ such that $v \cdot u < 0$ and $v \cdot w < 0$ and $w \cdot u = 0$, or explain why no such pair of vectors can exist.
+
+\item[c)] Find an example of three $2$-vectors $u$, $v$, and $w$ so that $u \cdot v < 0$ and $u\cdot w < 0$ and $v \cdot w < 0$, or explain why no such example exists.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+\begin{compactitem}
+\item[a)] Find an example of a number $c$ so that the equation
+\[
+\begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = c
+\]
+has the vector $\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)$ as a solution, or explain why no such number exists.
+\item[b)] Let $v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)$ and $w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)$. Find an example of a number $c$ so that 
+\begin{gather*} 
+v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and } \quad w \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c, 
+\end{gather*}
+or explain why this is not possible.
+\item[c)] Let $P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)$. Find an example of numbers $c$ and $d$ so that 
+\begin{gather*} \begin{pmatrix} 2\\-1\end{pmatrix}\cdot P = c \quad\text{ and } \quad \begin{pmatrix} 1\\-1\end{pmatrix}\cdot P = d, 
+\end{gather*} 
+or explain why no such example is possible.
+\end{compactitem}
+\end{task}
+
+\section*{Equations of Lines in the Plane}
+
+\begin{task}
+Write down an equation for the set of vectors which are all orthogonal to $u=\left(\begin{smallmatrix} 3 \\ -2\end{smallmatrix}\right)$.
+\end{task}
+
+\begin{task}\label{task:norm-to-param}
+We begin with a line described parametrically.
+\begin{compactitem}
+\item[a)] Find a normal vector for the line described parametrically by
+\[
+t \mapsto \begin{pmatrix} 6\\ -\pi \end{pmatrix} + t \begin{pmatrix} 34 \\ -19/3\end{pmatrix}.
+\]
+
+\item[b)] Plot this line and the normal vector you found.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+Find an equation for the line in the Task \ref{task:norm-to-param}.
+\end{task}
+
+\begin{task}\label{task:norm-to-eqn}
+We begin with a line described by an equation.
+\begin{compactitem}
+\item[a)] Find a normal vector to the line defined by the equation $-3x + y =7$.
+\item[b)] Plot this line and the normal vector you found.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+Find a parametric description for the line from Task \ref{task:norm-to-eqn}.
+\end{task}
+
+\begin{task}
+Consider the line described by the equation $4x+7y=3$. Find an equation for the line which is parallel to this one, but passes through the point indicated:
+\begin{compactitem}
+\item[a)] The origin $O$.
+\item[b)] The point $P = (0,-10)$.
+\end{compactitem}
+\end{task}
+
+\begin{challenge}
+Consider the line described by the equation $x -2y = -2$. Find a line which is orthogonal to this one, and passes through the point $Q=(9,-1)$. Can you describe your line with an equation? Can you describe your line parametrically?
+\end{challenge}
 
 
 
