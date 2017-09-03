@@ -37,7 +37,7 @@ You have likely seen the idea of \emph{Cartesian coordinates} on the plane befor
 \draw[->] (-50:1) arc (-50:35:1);
 \node [right] at (1.1,0) {rotate counterclockwise};
 \node [left] at (0,0) {$O$};
-\node [below] at (9/20,-3/5) {$X$};
+\node [below] at (9/20,-13/20) {$X$};
 \node [above] at (3/5,9/20) {$Y$};
 \end{tikzpicture}
 \end{figure}
@@ -46,7 +46,7 @@ We call the line $OX$ the \emph{$x$-axis} and the line containing $Y$ the \emph{
 
 \begin{figure}[h!]
 \centering
-\begin{tikzpicture}[scale=1.25]
+\begin{tikzpicture}[scale=1.2]
 \draw[->] (-1,4/3) -- (1,-4/3);
 \draw[->] (-3/2,-9/8) -- (3/2,9/8);
 \draw[fill] (9/20,-3/5) circle [radius=0.03];
@@ -67,7 +67,7 @@ The typical picture looks like Figure \ref{fig:cartesian-coords}.
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[scale=1.25]
+\begin{tikzpicture}[scale=1.2]
 \draw[->] (-2,0) -- (2,0) node[below] {\small $x$};
 \draw[->] (0,-2) -- (0,2) node[left] {\small $y$};
 \draw[fill] (1,0) circle [radius=0.03] node[below] {$1$};
@@ -190,7 +190,7 @@ For now, the simplest way to handle things is like this:
 \begin{itemize}
 \item Ignore the physicist's version of the word vector as much as possible.
 \item A point is a location in the plane, and represented by coordinates in the form of an ordered pair of numbers $(a,b)$.
-\item A vector is an arrow based at the origin, which can be specified by the coordinates of its head. To keep this separate from the idea of a point, we will write it differently, with the numbers stacked vertically like this: $\left(\begin{smallmatrix} a \\ b \end{smallmatrix}\right)$.
+\item A vector is an arrow based at the origin, which can be specified by the coordinates of its head. To keep this separate from the idea of a point, we will write it differently, with the numbers stacked vertically like this: $\smvec{a}{b}$.
 \item Always remember that for each point in the plane, there is a unique mathematician's vector which corresponds, and vice versa.
 \end{itemize}
 With this in mind, we make our first official definition.
@@ -202,7 +202,7 @@ v = \begin{pmatrix} a \\ b \end{pmatrix}.
 The collection of all such $2$-vectors is called \emph{the plane}, and written with this notation: $\R^2$.
 \end{definition}
 
-The notation $\R^2$ is often read ``arr-two,'' and many people use that language interchangeably with ``the plane.''
+The notation $\R^2$ is often read ``arr-two,'' and many people use that language interchangeably with ``the plane.'' Also, most of the time we will just say ``vector,'' rather than ``$2$-vector.'' 
 
 \section*{Vector Algebra}
 
@@ -248,7 +248,7 @@ q = \begin{pmatrix} c \\ d \end{pmatrix} = v+p = \begin{pmatrix} c-a \\ d-b \end
 which all fits. It looks like addition should be defined coordinate-by-coordinate.
 
 \begin{definition}[Addition of Vectors]
-Let $p = \left(\begin{smallmatrix} a\\ b\end{smallmatrix}\right)$ and $q= \left(\begin{smallmatrix} c\\ d\end{smallmatrix}\right)$ be two vectors in $\R^2$. Their sum is the vector
+Let $p = \smvec{a}{b}$ and $q= \smvec{c}{d}$ be two vectors in $\R^2$. Their sum is the vector
 \[
 p+q = \begin{pmatrix} a+c \\ b+d\end{pmatrix}.
 \]
@@ -325,7 +325,7 @@ So ``scalar multiplication'' means to multiply a vector by a scalar.
 
 
 \begin{definition}[Scalar Multiplication for vectors]
-Let $p = \left( \begin{smallmatrix} a \\ b \end{smallmatrix}\right)$ be a vector in $\R^2$, and let $\lambda$ be a real number. Then the scalar multiple $\lambda p$ is defined to be
+Let $p = \smvec{a}{b}$ be a vector in $\R^2$, and let $\lambda$ be a real number. Then the scalar multiple $\lambda p$ is defined to be
 \[
 \lambda p = \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix}
 \]
@@ -528,7 +528,7 @@ having its legs parallel to the two coordinate axes.
 \draw[->,thick] (0,0) -- (3,2) node[above] {$u = \begin{pmatrix} a \\ b\end{pmatrix}$};
 \draw[dashed] (3,2) -- (3,0);
 \draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=4pt,yshift=0pt] (3,0) -- (3,2) node[midway,xshift=.35cm] {$b$};
-\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=0pt,yshift=-12pt] (0,0) -- (3,0) node[midway,yshift=-.3cm] {$a$};
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},xshift=0pt,yshift=-2pt] (0,0) -- (3,0) node[midway,yshift=-.3cm] {$a$};
 \draw[decorate,decoration={brace,amplitude=5pt},xshift=-2pt,yshift=2pt] (0,0) -- (3,2) node[midway,xshift=-.4cm,yshift=.4cm] {$\sqrt{a^2+b^2\ }$};
 \end{tikzpicture}
 \caption{The Norm of a vector}
@@ -536,10 +536,10 @@ having its legs parallel to the two coordinate axes.
 \end{figure}
 
 These two legs then have lengths which are equal to our two coordinates, respectively.
-Now we can compute the length of the arrow by the Pythagorean Theorem. Now that we understand what we want, we can make our definition.
+So we can compute the length of the arrow by the Pythagorean Theorem. Now that we understand what we want, we can make our definition.
 
-\begin{definition}
-Let $u = \left(\begin{smallmatrix}a \\ b \end{smallmatrix}\right)$ be a vector in $\R^2$.
+\begin{definition}[Norm of a vector]
+Let $u = \smvec{a}{b}$ be a vector in $\R^2$.
 The \emph{norm} of $u$ is the number
 \[
 \norm{u} = \sqrt{a^2 + b^2\ }.
@@ -548,7 +548,7 @@ The \emph{norm} of $u$ is the number
 
 It is important to remember that the norm is a number, but never a negative number. Also, the only vector which has norm equal to zero is the zero vector. We shall often have the occasion to use norms of vectors as scalars in forming linear combinations.
 
-As long as we have the concepts of norm and scalar in front of us, let us investigate how those interact. If $\lambda$ is a scalar, then how do the norms a vector $u$ and the rescaled $\lambda u$ compare? Let's write our vector in the form $u=\left(\begin{smallmatrix} a \\ b \end{smallmatrix}\right)$. Then we can do the following straightforward computation:
+As long as we have the concepts of norm and scalar in front of us, let us investigate how those interact. If $\lambda$ is a scalar, then how do the norms a vector $u$ and the rescaled $\lambda u$ compare? Let's write our vector in the form $u=\smvec{a}{b}$. Then we can do the following straightforward computation:
 \[
 \norm{\lambda u} = \norm{ \lambda \begin{pmatrix} a \\ b \end{pmatrix}} = \norm{ \begin{pmatrix} \lambda a \\ \lambda b \end{pmatrix} } = \sqrt{ (\lambda a)^2 + (\lambda b)^2\ } = |\lambda| \norm{u}
 \]
@@ -562,16 +562,17 @@ To \emph{normalize} a vector $u$, we multiply it by the scalar $\norm{u}^{-1}$, 
 \[
 \norm{\norm{u}^{-1} u} = \norm{u}^{-1}\norm{u}  = 1.
 \]
-That last multiplication is just a multiplication of numbers, after all.
-Note that all of that only makes sense as long as $u$ is not the zero vector.
-Just to make sure all of this stays confusing for learners, mathematicians call a vector with norm equal to $1$ a \emph{unit vector}. 
+That last multiplication is just a multiplication of numbers.
+Note that all of that only makes sense as long as $u$ is not the zero vector. If $u$ is the zero vector, its norm is $\norm{u}=0$. Since it makes no sense to divide by zero, it is not possible to normalize the zero vector.
+
+Just to make sure all of this stays confusing for learners, mathematicians call a vector with norm equal to $1$ a \emph{unit vector}.
 
 To sum up: given a non-zero vector $u$, it is possible to normalize it, which means to replace it with the vector $u/\norm{u}$, which is a unit vector.
 
 
 Now that we are talking about proper geometry with length, can we find a way to measure the angle between two vectors? We can, if we use some trigonometry. We will use the following three facts:
 \begin{enumerate}
-\item Each point on the unit circle can be represented as a point of the form $(\cos(\alpha), \sin(\alpha))$ for some angle $\alpha$ between $0$ and $2\pi$, so the corresponding vector can be written as $p = \left(\begin{smallmatrix} \cos(\alpha) \\ \sin(\alpha) \end{smallmatrix}\right)$.
+\item Each point on the unit circle can be represented as a point of the form $(\cos(\alpha), \sin(\alpha))$ for some angle $\alpha$ between $0$ and $2\pi$, so the corresponding vector can be written as $p = \smvec{\cos(\alpha)}{\sin(\alpha)}$.
 
 
 \begin{figure}[h]
@@ -580,7 +581,7 @@ Now that we are talking about proper geometry with length, can we find a way to 
 \draw[->] (-1.2,0) -- (1.2,0) node[below right] {\small $x$};
 \draw[->] (0,-1.2) -- (0,1.2) node[left] {\small $y$};
 \draw[thick] (0,0) circle [radius=1];
-\draw[thick,->] (0,0) -- (67:1) node[above right] {$p = \left(\begin{smallmatrix}\cos(\alpha) \\ \sin(\alpha) \end{smallmatrix}\right)$};
+\draw[thick,->] (0,0) -- (67:1) node[above right] {$p = \smvec{\cos(\alpha)}{\sin(\alpha)}$};
 \draw (.2,0) arc [radius=0.2,start angle=0,end angle=67];
 \node[right] at (35:.2) {$\alpha$};
 \end{tikzpicture}
@@ -595,10 +596,14 @@ $[0,\pi]$ to a unique real number in the interval $[-1,1]$, and vice versa. For 
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=1.25]
-\draw[->] (-.1,0) -- (3.25,0) node[below right] {\small $\theta$};
+\draw[->] (-.1,0) -- (3.3,0) node[below right] {\small $\theta$};
 \draw[->] (0,-1.1) -- (0,1.1) node[left] {\small $y$};
 \draw [thick,domain=0:pi] plot (\x, {cos(\x r)});
 \node[right] at (3*pi/8,1/2) {$y=\cos(\theta)$};
+\draw[-] (pi/2,-.05) -- (pi/2,.05);
+\draw[-] (pi,-.05) -- (pi,.05);
+\node[below left] at (pi/2,0) {\small $\pi/2$};
+\node[below] at (pi,0) {\small $\pi$};
 \end{tikzpicture}
 \caption{Part of the graph of $y=\cos(\theta)$}
 \label{fig:cos-graph}
@@ -606,7 +611,7 @@ $[0,\pi]$ to a unique real number in the interval $[-1,1]$, and vice versa. For 
 
 \item There is an identity on trigonometric functions that helps us deal with the the cosine of a difference of angles: If $\alpha$ and $\beta$ are two angles, then
 \[
-\cos(\beta-\alpha) = \cos(\alpha)\cos(\beta) + \sin(\alpha)\sin(\beta)
+\cos(\beta-\alpha) = \cos(\alpha)\cos(\beta) + \sin(\alpha)\sin(\beta).
 \]
 \end{enumerate}
 
@@ -631,10 +636,10 @@ Let's suppose that the angle $\beta$ that $v$ makes with the $x$-axis is larger 
 \draw (1,0) arc [radius=1,start angle=0,end angle=90];
 \draw[thick,->] (0,0) -- (10/13,24/13) node[right] {$v$};
 \draw[ultra thick,->] (0,0) -- (5/13,12/13);
-\node [above right] at (6/13,11/13) {$\frac{v}{\norm{v}}=\left(\begin{smallmatrix} \cos(\beta)\\ \sin(\beta) \end{smallmatrix}\right)$};
+\node [above right] at (6/13,11/13) {$\frac{v}{\norm{v}}=\smvec{\cos(\beta)}{\sin(\beta)}$};
 \draw[thick,->] (0,0) -- (37.5/17,20/17) node[below right] {$u$};
 \draw[ultra thick,->] (0,0) -- (15/17,8/17);
-\node [right] at (16/17,6/17) {$\frac{u}{\norm{u}}=\left(\begin{smallmatrix} \cos(\alpha)\\ \sin(\alpha) \end{smallmatrix}\right)$};
+\node [right] at (16/17,6/17) {$\frac{u}{\norm{u}}=\smvec{\cos(\alpha)}{\sin(\alpha)}$};
 \draw[->] (2/3,0) arc [radius=2/3,start angle=0,end angle=28];
 \node[right] at (14:2/3) {$\alpha$};
 \draw[->] (1/3,0) arc [radius=1/3,start angle=0,end angle=67.38];
@@ -652,28 +657,210 @@ Since cosine is such a nice function on $[0,\pi]$, it will do to first try to fi
 \cos(\theta) = \cos(\beta - \alpha) = \cos(\alpha)\cos(\beta) + \sin(\alpha)\sin(\beta).
 \]
 
-This is a great situation. To find $\cos(\theta)$, we can just form a funny combination of the components of the vectors $u/\norm{u}$ and $v/\norm{v}$.
+This is a great situation. To find $\cos(\theta)$, we can just form a funny combination of the components of the vectors $u/\norm{u}$ and $v/\norm{v}$. 
 
 
+That funny combination takes the form ``product of first components plus product of second components.'' That is familiar! It looks a bit like what happens when we compute a norm, where we have a ``square of the first component plus the square of the second component.'' Motivated by this happy coincidence, we make up a new object to help us organize the similarities:
+\begin{definition}[Dot Product]
+Let $u = \smvec{u_1}{u_2}$ and $v = \smvec{v_1}{v_2}$ be vectors in $\R^2$. 
+The \emph{dot product} of $u$ and $v$ is the number
+\[
+u\cdot v = u_1v_1 + u_2v_2 .
+\]
+\end{definition}
 
-\begin{compactitem}
-\item lengths, angles, and the dot product in R2
-\item normal vector to a line in R2
-\item duality
-\end{compactitem}
+The dot product is mysterious for new learners. You take this funny combination of the components, and somehow learn all kinds of information about lengths and angles. The dot product has many useful properties, which we gather together now.
+
+\begin{theorem}
+Let $u$, $v$, and $w$ be vectors in $\R^2$ and let $\lambda$ and $\mu$ be scalars. Then
+\begin{itemize}
+\item The angle $\theta$ between $u$ and $v$ is given by 
+\[
+\theta = \arccos\left(\frac{u\cdot v}{\norm{u}\norm{v}}\right);
+\]
+\item The norm of $u$ is $\norm{u} = \sqrt{u\cdot u\ }$;
+\item The dot product is symmetric: $u\cdot v = v \cdot u$;
+\item The dot product distributes over linear combinations 
+\[
+u \cdot (\lambda v + \mu w) = \lambda (u\cdot v) + \mu (u\cdot w)
+\]
+\end{itemize}
+\end{theorem}
+
+As our study progresses, we will not have much use for measuring particular angles, but it will be very important to us to understand situations when two vectors make an angle of $\pi/2$ radians (i.e. $90^{\circ}$, a right angle). It is common to call such vectors \emph{perpendicular}. It is a fact that $\cos(\pi/2) = 0$, so that non-zero vectors $u$ and $v$ make an angle of $\pi/2$ when
+\[
+0 = \cos(\pi/2) = \dfrac{u\cdot v}{\norm{u}\norm{v}}.
+\]
+By clearing out the denominator of this fraction, we see that $u$ and $v$ make an angle of $\pi/2$ exactly when $u\cdot v = 0$.  We will generalize this idea eventually, but it is convenient to start using the proper word now.
+\begin{definition}[Orthogonal vectors]
+We say that a pair of non-zero vectors $u$ and $v$ are \emph{orthogonal} exactly when $u\cdot v=0$.
+\end{definition}
+We have to be a little careful and include the caveat that $u$ and $v$ are nonzero, because of course the dot product of any vector with the zero vector is zero (the number, this time), but it does not feel right to say that the zero vector makes an angle of any type with any other vector.
+
+\section*{Normal Vectors and Equations for Lines}
+
+Our discussion of the basic geometry of vectors feels like a digression. It has led us away from our main goal, which is to describe lines in the plane. But now we have enough information to circle back\footnote{This is a geometry joke. I am sorry. But not really.} and use the dot product and the concept of orthogonality to give a different way of describing lines. As before, we will start with the case of lines through the origin.
+
+Suppose that we are given a vector $u = \smvec{a}{b}$. What vectors are orthogonal to $u$? When we try to just sketch this, we get a line through the origin! It looks a lot like Figure \ref{figure:orthogonal-line}.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.5]
+\draw[->] (-2,0) -- (2,0) node[below right] {\small $x$};
+\draw[->] (0,-2) -- (0,2) node[left] {\small $y$};
+\draw[thick,->] (0,0) -- (1,-2/3) node[right] {$u$};
+\draw[thick,domain=-1.25:1.25] plot (\x, {1.5*\x});
+\draw (1/5,-2/15) -- (5/15,1/15) node[above right] {Our right angle}-- (2/15,1/5);
+\end{tikzpicture}
+\caption{The line of vectors orthogonal to $u$.}
+\label{figure:orthogonal-line}
+\end{figure}
 
 
+Let's try to be more precise. Suppose we were lucky enough to figure out one single vector $v_0$ which is orthogonal to $u$. Then any scalar multiple $tv_0$ of $v_0$ will also be orthogonal to $u$, because
+\[
+(tv_0)\cdot u = t(v_0\cdot u) = t(0) = 0.
+\]
+But the collection of vectors of the form $tv_0$ is the parametric line through the origin. So, the line we seek is the line through the origin with direction $v_0$.
+
+How can we find such a $v_0$? Well, in $\R^2$, we can write $v_0 = \smvec{x}{y}$ and then use the orthogonality condition to see that $x$ and $y$ must satisfy
+\[
+0 = u\cdot v_0= \begin{pmatrix} a \\ b \end{pmatrix}\cdot \begin{pmatrix} x \\ y \end{pmatrix} = ax +by .
+\]
+After a little poking around, one can discover that one solution to the equation $ax+by=0$ is $x=-b, y=a$. So we can choose $v_0 = \smvec{-b}{a}$. Of course, there are 
+other solutions to this equation (a whole line's worth!), but we just need one and this one is convenient. 
+
+If we collect this sequence of observations, we get the following theorem.
+
+\begin{theorem}[Equation for a line through the origin]
+Let $u = \smvec{a}{b}$ be a non-zero vector. Then the set of vectors orthogonal to $u$ is the line with parametric description
+\[
+t \mapsto t\begin{pmatrix} -b \\ a \end{pmatrix}.
+\]
+
+Moreover, we can describe that line by an equation: The line of vectors orthogonal to $u$ consists of the vectors $X = \smvec{x}{y}$ whose coordinates satisfy the equation
+\[
+ax+by = 0.
+\]
+
+On the other hand, for each line $\ell$ through the origin with direction vector $v=\smvec{c}{d}$, the vector $u = \smvec{-d}{c}$ is orthogonal to all of the vectors in the line $\ell$. Furthermore, the line $\ell$ can be represented as the collection of vectors $X=\smvec{x}{y}$ whose coordinates satisfy the equation
+\[
+-dx + cy=0.
+\]
+\end{theorem}
+
+\begin{definition}[Normal Vector to a line]
+A vector which is orthogonal to all of the direction vectors of a line is called a 
+\emph{normal vector} for that line.
+\end{definition}
+
+Note that there is a little looseness here in the descriptions. A line has many direction vectors, and also many normal vectors. But there is only so much leeway: all of the direction vectors are scalar multiples of each other, and all of the normal vectors are scalar multiples of each other.
 
 
+And here we have introduced yet another use for some form of the word ``normal.'' Be aware.
 
-\section*{Lines and Equations}
-\begin{compactitem}
-\item equation of a line, three methods: elimination, from two pts via similar triangles, from geometry of dot product
-\item families of parallel lines
-\item sketching a line from an equation
-\end{compactitem}
 
-\section*{Conclusion: The Big Theorem}
+Now that we can write equations to help us describe lines through the origin, we would like to have a similar understanding for lines which do not pass through the origin. First, take any line $\ell$. Then $\ell$ is parallel to a line $\ell'$ which passes through the origin. Using what we know above, pick out a normal vector $u = \smvec{a}{b}$ to the line $\ell'$. Since $\ell$ and $\ell'$ are parallel, $u$ is a normal vector for both. Then, pick out just one vector $p$ which has its head on the line $\ell$. (So the corresponding point $P$ lies on $\ell$.)
+
+If we let some unknown, generic vector with its head on the line $\ell$ be represented by the variable vector $X = \smvec{x}{y}$, we see that the physicist's $X-p$ lies entirely in the line $\ell$. Hence the mathematician's $X-p$ is a direction vector for $\ell$, and therefore orthogonal to the vector $u$. 
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1]
+\draw[->] (-1,0) -- (3,0) node[below right] {\small $x$};
+\draw[->] (0,-1) -- (0,3) node[left] {\small $x$};
+\draw[thick] (-1,-.5) -- (3,3/2) node[right] {$\ell'$};
+\draw[thick] (-1,.5) -- (3,5/2) node[right] {$\ell$};
+\draw[thick,->] (0,0) -- (1,3/2);
+\node at (.25,.75) {$p$};
+\draw[thick,->] (0,0) -- (2.5,2.25);
+\node at (2.1,1.4) {$X$};
+\draw[ultra thick,->] (1,3/2) -- (2.5,2.25);
+\node at (1.5,2.2) {$X-p$};
+\draw[ultra thick,->] (0,0) -- (1.5,.75);
+\node[below] at (1.6,.6) {$X-p$};
+\end{tikzpicture}
+\caption{Sorting out the equation of a generic line.}
+\label{fig:general-line}
+\end{figure}
+
+
+Using the condition for orthogonality, we can derive an equation that the components $x$ and $y$ must satisfy in the following manner. First,
+\[
+0 = u\cdot (X-p) = u\cdot X - u\cdot p;
+\]
+therefore,
+\[
+u\cdot X = u\cdot p.
+\]
+But $c =u\cdot p$ is just a number. And we have already learned how to re-express $u\cdot X$ as $ax+by$. Rewriting each side of the last displayed equation, we obtain
+\[
+ax +by = c.
+\]
+
+That is the form of an equation for a generic line in the plane. This way of writing the equation of a line in the plane is called the \emph{standard form} of the equation of a line. There are some important features to track in this form:
+\begin{itemize}
+\item The coefficients $a$ and $b$ of the variables are just the components of the normal vector, but this normal vector is chosen just by looking at a line through the origin. There are a great many lines which are all parallel to the same line through the origin, so they will all have the same set of coefficients.
+\item Changing which line in that family of parallel lines will involve changing the point $P$ and the corresponding vector $p$. So even though $a$ and $b$ will not change, the number $c = u\cdot p$ will be different.
+\item In each family of parallel lines, the one with right hand side $c=0$ is the one through the origin.
+\item Changing the coefficents $a$ and $b$ results in a different normal vector, and hence a different family of parallel lines.
+\end{itemize}
+
+\begin{theorem}[Equation of a generic line in the plane]
+Suppose that $\ell$ is a line in the plane. Let $P$ be a point on the line, with corresponding vector $p$, and let $u=\smvec{a}{b}$ be a normal vector for $\ell$. Set $c=u\cdot p$.
+
+Then $\ell$ is the collection of points at the heads of the vectors $X = \smvec{x}{y}$ which satisfy the equation
+\[
+ax+by=c.
+\]
+\end{theorem}
+
+\section*{Working with Lines Described by Equations}
+
+To make a graph of a line described by an equation, it is easiest to choose two points $P$ and $Q$ which lie on the line, and then draw the line passing through them. In most cases, the most convenient points are the \emph{intercepts} where the line meets the coordinate axes. If the line is $ax+by=c$, then we can find the $x$-intercept by setting $y=0$ and solving for $x=c/a$. Hence the point of interest is $P=(c/a,0)$. Similarly, the $y$-intercept can be found by setting $x=0$. The resulting point will be $Q=(0,c/b)$.
+Then it is no trouble to plot these two points and draw a line through them.
+
+Now, suppose we have a line described parametrically. We can find the equation of that line by a process known as ``eliminating the parameter.'' If the parametric form is
+\[
+t \mapsto \begin{pmatrix} p_0 \\ p_1 \end{pmatrix} + t \begin{pmatrix} v_0 \\ v_1 \end{pmatrix}, 
+\]
+we take apart the two coordinates of the vector to form a pair of parametric equations
+\[
+\left\{\begin{array}{rrrrr} x & = & p_0 & + & tv_0 \\ y & = & p_1 & + & tv_1 \end{array}\right.
+\]
+Now, we multiply through the first equation by $-v_1$ and the second equation by $v_0$
+\[
+\left\{\begin{array}{rrrrr} -v_1 x & = & -v_1 p_0 & - & tv_0 v_1 \\ v_0 y & = & v_0  p_1 & + & tv_0 v_1 \end{array}\right. ,
+\]
+and then we add the two equations, thus eliminating the appearance of the parameter $t$, to obtain
+\[
+-v_1 x + v_0 y = -v_1p_0 + v_0p_1.
+\]
+This is the equation of the line.
+
+Finally, suppose we have an equation of the line, and we wish to find a parametric representation for it. There is a simple process for doing so, with a neat little trick in the heart of it.
+
+Let our equation be $ax+by=c$, and assume for simplicity that $a\neq 0$. Then, with a little bit of manipulation, we may rewrite the equation as 
+\[
+x = \frac{c}{a} - y \frac{c}{a}.
+\]
+The trick is to treat the variable $y$ as if it was our parameter. That is, just declare $y=t$. That gives us a pair of equations, which we can write as
+\[
+\left\{ \begin{array}{rrrrl} x & = & \frac{c}{a} & - & t\frac{b}{a} \\ y & = & & & t\end{array}\right. .
+\]
+Now, written this way, it is not too hard to translate this into a vector parametric form for the line.
+\[
+\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} c/a \\ 0 \end{pmatrix} + t \begin{pmatrix} -b/a \\ 1 \end{pmatrix},
+\]
+or
+\[
+t \mapsto \begin{pmatrix} c/a \\ 0 \end{pmatrix} + t \begin{pmatrix} -b/a \\ 1 \end{pmatrix} .
+\]
+If you like, you can rescale that direction vector, and instead write
+\[
+t \mapsto \begin{pmatrix} c/a \\ 0 \end{pmatrix} + t \begin{pmatrix} -b \\ a \end{pmatrix} .
+\]
+Later it will be important to us that the direction vector $\smvec{-b}{a}$ is a solution to the associated equation $ax+by=0$.
+
 
 
 \end{document}
