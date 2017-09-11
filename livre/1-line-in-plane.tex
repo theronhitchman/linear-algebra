@@ -254,12 +254,12 @@ p+q = \begin{pmatrix} a+c \\ b+d\end{pmatrix}.
 \]
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{thm:vect-add}
 Addition of vectors satisfies the same rules as addition of real numbers:
 \begin{compactitem}
 \item when adding more than two vectors, it doesn't matter which operations you do first:
 $(p+q)+r = p + (q+r)$;
-\item one can add in either order $P+Q = Q+P$;
+\item one can add in either order $p+q = q+p$;
 \item the vector $o$ corresponding to the origin $O$ is a ``zero'' since $p+o = o+p = p$;
 \item for each vector $p$, there is an opposite vector $-p$ so that $p + (-p) = o$.
 \end{compactitem}
@@ -335,7 +335,7 @@ If you have never seen the symbol $\lambda$ before, it is an old Greek letter pr
 
 Again, this operation has some important similarities to the familiar multiplication of numbers, but because it combines a scalar (a number) with a vector (not a number, exactly) to produce another vector (again, not a number) things are a little different.
 
-\begin{theorem}
+\begin{theorem}\label{thm:scalar-mult}
 Suppose that $p$ and $q$ are vectors, and $\lambda$ and $\mu$ are numbers. Scalar multiplication has the following properties:
 \begin{compactitem}
 \item Scalar multiplication distributes over vector addition:\\ $\lambda(p+q) = \lambda p + \lambda q$;
@@ -671,7 +671,7 @@ u\cdot v = u_1v_1 + u_2v_2 .
 
 The dot product is mysterious for new learners. You take this funny combination of the components, and somehow learn all kinds of information about lengths and angles. The dot product has many useful properties, which we gather together now.
 
-\begin{theorem}
+\begin{theorem}\label{thm:dot-prod-props}
 Let $u$, $v$, and $w$ be vectors in $\R^2$ and let $\lambda$ and $\mu$ be scalars. Then
 \begin{itemize}
 \item The angle $\theta$ between $u$ and $v$ is given by 
