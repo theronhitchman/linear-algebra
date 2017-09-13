@@ -144,15 +144,15 @@ So, we fix some vector $u = \left(\begin{smallmatrix} a\\ b \\ c\end{smallmatrix
 \]
 Thus the set of vectors in $\R^3$ which are orthogonal to $u$ is exactly the collection of vectors whose coordinates satisfy the linear equation $ax+by+cz=0$.
 
-What is that shape, though? We must try to say something about it. To make our discussion easier, let us give it a name. We will call it $\mathcal{P}$. In standard mathematical notation, we write
+What is that shape, though? We must try to say something about it. To make our discussion easier, let us give it a name. We will call it $\p$. In standard mathematical notation, we write
 \[
-\mathcal{P} = \left\{ v = \begin{pmatrix} x \\ y \\z \end{pmatrix} \middle| \ ax+by+cz=0\right\}.
+\p = \left\{ v = \begin{pmatrix} x \\ y \\z \end{pmatrix} \middle| \ ax+by+cz=0\right\}.
 \]
 This notation is the way that a mathematician writes a ``set,'' a collection of things. The curly braces tell you that you are using \emph{set notation}, the stuff before the 
 vertical bar sets up our notation, and the stuff after the vertical bar tells us what conditions describe our set. So, in this case, you should read that displayed equation as
 
 \begin{quote}
-``$\mathcal{P}$ is the set of all $3$-vectors $v$ with components $x$, $y$, and $z$ such that the equation $ax+by+cz=0$ is true.''
+``$\p$ is the set of all $3$-vectors $v$ with components $x$, $y$, and $z$ such that the equation $ax+by+cz=0$ is true.''
 \end{quote}
 
 Our first observation is that this shape contains all the linear combinations of the vectors it has in it. To see this, suppose that $v_1$ and $v_2$ are two vectors which are orthogonal to $u$, and that $\lambda_1$ and $\lambda_2$ are two scalars, and consider the linear combination
@@ -162,20 +162,20 @@ u \cdot (\lambda_1 v_1 + \lambda_2 v_2) = \lambda_1 u\cdot v_1 + \lambda_2 u\cdo
 \]
 Hence, the linear combination $\lambda_1 v_1 + \lambda_2 v_2$ is also orthogonal to $u$.
 
-As a special case, the collection of scalar multiples of a single vector is a kind of linear combination, $\lambda v$. But the set of multiples of a single vector is a line through the origin in the direction of that vector. This means that our set $\mathcal{P}$ has to contain all of the lines through pairs $O, P$, where $P$ is a point in $\mathcal{P}$.
+As a special case, the collection of scalar multiples of a single vector is a kind of linear combination, $\lambda v$. But the set of multiples of a single vector is a line through the origin in the direction of that vector. This means that our set $\p$ has to contain all of the lines through pairs $O, P$, where $P$ is a point in $\p$.
 
 Let's sum up some of what we know, so we don't lose track.
 
 \begin{theorem}\label{thm:plane-properties}
-Fix a $3$-vector $u$. The set $\mathcal{P}$ of all vectors which are orthogonal to $u$ has the following properties:
+Fix a $3$-vector $u$. The set $\p$ of all vectors which are orthogonal to $u$ has the following properties:
 \begin{compactitem}
-\item If $u = \left(\begin{smallmatrix}a\\b\\c\end{smallmatrix}\right)$, then $\mathcal{P}$ consists of those vectors $v = \left(\begin{smallmatrix}x\\y\\z\end{smallmatrix}\right)$ whose coordinates satisfy the equation $ax+by+cz=0$.
-\item For each vector $p$ in $\mathcal{P}$, the entire line $t \mapsto tp$ lies in $\mathcal{P}$.
-\item If $p$ and $q$ are vectors in $\mathcal{P}$, then any linear combination of $p$ and $q$ also lies in $\mathcal{P}$.
+\item If $u = \left(\begin{smallmatrix}a\\b\\c\end{smallmatrix}\right)$, then $\p$ consists of those vectors $v = \left(\begin{smallmatrix}x\\y\\z\end{smallmatrix}\right)$ whose coordinates satisfy the equation $ax+by+cz=0$.
+\item For each vector $p$ in $\p$, the entire line $t \mapsto tp$ lies in $\p$.
+\item If $p$ and $q$ are vectors in $\p$, then any linear combination of $p$ and $q$ also lies in $\p$.
 \end{compactitem}
 \end{theorem}
 
-This is good, but it does not quite tell us what $\mathcal{P}$ is, yet. Maybe it is time to just find some examples of vectors which satisfy the defining equation. 
+This is good, but it does not quite tell us what $\p$ is, yet. Maybe it is time to just find some examples of vectors which satisfy the defining equation. 
 To make things smoother below, we assume that $a\neq 0$. This is not essential, but it will help a little to avoid dividing by $0$.
 
 We begin by looking for simple forms. Let's just specify that one of the variables is $0$ and see what we get. For example, if we assume $x=0$, the equation collapses to
@@ -187,7 +187,7 @@ This can be satisfied by choosing $y=-c$ and $z=b$. So we get the vector
 v_1 = \begin{pmatrix} 0 \\ -c \\ b \end{pmatrix}.
 \]
 
-Similarly, we can search for a vector which has $y=0$. The defining equation for $\mathcal{P}$ collapses to $ax+cz=0$, which we can solve with $x=-c$ and $z=a$. This gives us the vector
+Similarly, we can search for a vector which has $y=0$. The defining equation for $\p$ collapses to $ax+cz=0$, which we can solve with $x=-c$ and $z=a$. This gives us the vector
 \[
 v_2 = \begin{pmatrix} -c \\ 0 \\ a \end{pmatrix}.
 \]
@@ -197,43 +197,43 @@ Since we have searched for, and found, vectors by starting with $x=0$ and $y=0$,
 v_3 = \begin{pmatrix} -b \\ a \\ 0 \end{pmatrix}.
 \]
 
-Given Theorem \ref{thm:plane-properties}, we know that $\mathcal{P}$ contains at least the collection of all linear combinations of the three vectors $v_1$, $v_2$ and $v_3$. 
+Given Theorem \ref{thm:plane-properties}, we know that $\p$ contains at least the collection of all linear combinations of the three vectors $v_1$, $v_2$ and $v_3$. 
 But note that we do not truly require all three of those vectors! This is because if we pick scalars carefully and form a linear combination of $v_2$ and $v_3$, we obtain
 \[
 bv_2 -cv_3 + = b\begin{pmatrix} -c\\ 0 \\ a \end{pmatrix} - c\begin{pmatrix} -b \\ a\\ 0 \end{pmatrix} = \begin{pmatrix} -bc+bc \\ -ac \\ ab\end{pmatrix} 
 =a\begin{pmatrix} 0\\ -c \\ b  \end{pmatrix} = a v_1.
 \]
-This means that $v_1 = \frac{b}{a} v_2 - \frac{c}{a} v_3$ is already a linear combination of $v_1$ and $v_2$. So we do not need to keep $v_3$. It is redundant in our current description. Maybe, just maybe, we are lucky that any vector in $\mathcal{P}$ is a linear combination of $v_2$ and $v_3$?
+This means that $v_1 = \frac{b}{a} v_2 - \frac{c}{a} v_3$ is already a linear combination of $v_1$ and $v_2$. So we do not need to keep $v_3$. It is redundant in our current description. Maybe, just maybe, we are lucky that any vector in $\p$ is a linear combination of $v_2$ and $v_3$?
 
 
 
 
-Let's try to approach this from a different direction.\footnote{That is a geometry joke. I am sorry. But not really.} We can rewrite the defining equation for $\mathcal{P}$ in 
+Let's try to approach this from a different direction.\footnote{That is a geometry joke. I am sorry. But not really.} We can rewrite the defining equation for $\p$ in 
 the form
 \[
 x = -\frac{b}{a}y -\frac{c}{a}z.
 \]
-This means that if we know the values of $y$ and $z$, then the value of $x$ is completely determined. So, really, we only have two independent choices to make. If we choose $y=s$ and $z=t$ to be two numbers, then we have $x = \frac{-b}{a} s + \frac{-c}{a} t$. Which means that our vector in $\mathcal{P}$ has the form
+This means that if we know the values of $y$ and $z$, then the value of $x$ is completely determined. So, really, we only have two independent choices to make. If we choose $y=s$ and $z=t$ to be two numbers, then we have $x = \frac{-b}{a} s + \frac{-c}{a} t$. Which means that our vector in $\p$ has the form
 \[
 \begin{pmatrix} \frac{-b}{a} s + \frac{-c}{a} t \\ s \\ t \end{pmatrix} 
 = s\begin{pmatrix}  \frac{-b}{a} \\1 \\ 0 \end{pmatrix} 
 + t\begin{pmatrix} \frac{-c}{a} \\ 0 \\ 1 \end{pmatrix} = \frac{s}{a} v_2 + \frac{t}{a} v_3.
 \]
 
-This is the big result we want, though the shape is not, yet, clear. What we have found is that any vector which has coordinates which satisfy the equation for $\mathcal{P}$ must be a linear combination of $v_2$ and $v_3$. 
+This is the big result we want, though the shape is not, yet, clear. What we have found is that any vector which has coordinates which satisfy the equation for $\p$ must be a linear combination of $v_2$ and $v_3$. 
 
-What sort of shape is made up of the linear combinations of two vectors which point in different directions? Well, if we are allowed to move in the direction of one vector, then we generate a line through the origin. Now, from each of the points on this line, we are allowed to move in a different (fixed) direction. That makes a plane! This is the answer we sought: the set $\mathcal{P}$ is a plane through the origin, the one which contains the vectors $v_2$ and $v_3$. 
+What sort of shape is made up of the linear combinations of two vectors which point in different directions? Well, if we are allowed to move in the direction of one vector, then we generate a line through the origin. Now, from each of the points on this line, we are allowed to move in a different (fixed) direction. That makes a plane! This is the answer we sought: the set $\p$ is a plane through the origin, the one which contains the vectors $v_2$ and $v_3$. 
 
-By the way, we call $u$ the \emph{normal vector} to the plane $\mathcal{P}$.
+By the way, we call $u$ the \emph{normal vector} to the plane $\p$.
 
 Again, we should make a summary.
 
 \begin{theorem}\label{thm:origin-plane-descr}
-Fix a vector $u$ in $3$-space. The set $\mathcal{P}$ of all vectors orthogonal to $u$ is a plane through the origin. 
+Fix a vector $u$ in $3$-space. The set $\p$ of all vectors orthogonal to $u$ is a plane through the origin. 
 
 Moreover, if we write $u = \left( \begin{smallmatrix} a\\ b \\ c \end{smallmatrix}\right)$, and assume $a\neq 0$, then
 \begin{compactitem}
-\item We can describe the plane $\mathcal{P}$ as the collection of all points $P = (x,y,z)$ which satisfy the equation
+\item We can describe the plane $\p$ as the collection of all points $P = (x,y,z)$ which satisfy the equation
 \[
 ax + by  +cz = 0.
 \]
@@ -255,24 +255,24 @@ Only this one has \emph{two} inputs, $s$ and $t$. The output for any particular 
 
 So, we set out to see if we could describe a line in $3$-space, but we ended up working on describing planes instead. Let's try to finish that up, and we will return to describing lines in a bit.
 
-In Theorem \ref{thm:origin-plane-descr}, we start with a vector $u$, and then find two ways to understand the plane $\mathcal{P}$ through the origin which consists of vectors orthogonal to $u$. Of the two ways, the equation came first, then the parametric description. And it was the parametric description that helped us realize the object was a plane. 
+In Theorem \ref{thm:origin-plane-descr}, we start with a vector $u$, and then find two ways to understand the plane $\p$ through the origin which consists of vectors orthogonal to $u$. Of the two ways, the equation came first, then the parametric description. And it was the parametric description that helped us realize the object was a plane. 
 Now, let us try to do things in the opposite order. 
 
-Suppose that we have a plane $\mathcal{Q}$ in $3$-space which passes through the origin. How can we determine it completely? First note that to determine a line we need two points, but to determine a plane we need three points. Since we already have the origin singled out, consider two more points $P$ and $Q$. It is important that these three points are distinct, or we will lose the idea of the plane. 
+Suppose that we have a plane $\q$ in $3$-space which passes through the origin. How can we determine it completely? First note that to determine a line we need two points, but to determine a plane we need three points. Since we already have the origin singled out, consider two more points $P$ and $Q$. It is important that these three points are distinct, or we will lose the idea of the plane. 
 
-First, $\mathcal{Q}$ must contain the whole line through $P$ and $Q$. Thus it must contain all of the points on the line with parametric description
+First, $\q$ must contain the whole line through $P$ and $Q$. Thus it must contain all of the points on the line with parametric description
 \[
 t \mapsto p + t(q-p),
 \]
-where $p$ is the vector from $O$ to $P$, and $q$ is the vector from $O$ to $Q$. Now, if we fix a particular $t=t_0$, we get a point $X_0$ which lies in $\mathcal{Q}$. This point $X_0$ is the head of the vector 
+where $p$ is the vector from $O$ to $P$, and $q$ is the vector from $O$ to $Q$. Now, if we fix a particular $t=t_0$, we get a point $X_0$ which lies in $\q$. This point $X_0$ is the head of the vector 
 \[
 x_0 = p + t_0 (q-p) = (1-t_0) p + t_0 q.
 \]
-Since the plane $\mathcal{Q}$ contains $O$ and $X_0$, it must contain the line through them, which is described parametrically by
+Since the plane $\q$ contains $O$ and $X_0$, it must contain the line through them, which is described parametrically by
 \[
 s \mapsto s x_0 = s(1-t_0) p + st_0 q.
 \]
-Notice that this time we use the variable $s$ as parameter, because we have already used $t$ above and we want to distinguish between the two choices. This is very nice, we have described lots of points on $\mathcal{Q}$ as the heads of vectors which are just linear combinations of $p$ and $q$. For varying choices of $s$ and $t$, we get may points on $\mathcal{Q}$.
+Notice that this time we use the variable $s$ as parameter, because we have already used $t$ above and we want to distinguish between the two choices. This is very nice, we have described lots of points on $\q$ as the heads of vectors which are just linear combinations of $p$ and $q$. For varying choices of $s$ and $t$, we get may points on $\q$.
 
 \begin{figure}[ht]
 \centering
@@ -281,7 +281,7 @@ Notice that this time we use the variable $s$ as parameter, because we have alre
 \label{fig:parametric-plane-O}
 \end{figure}
 
-A careful look at this situation shows that we have described almost all of the points on $\mathcal{Q}$. We have missed those on a single line: the line passing through the origin $O$ which is parallel to the line through $P$ and $Q$. That is, our exceptions are the multiples of $q-p$. 
+A careful look at this situation shows that we have described almost all of the points on $\q$. We have missed those on a single line: the line passing through the origin $O$ which is parallel to the line through $P$ and $Q$. That is, our exceptions are the multiples of $q-p$. 
 
 Another way to see this is to look at the two scalars involved in our description, $s(1-t)$ and $st$. There ratio has the form
 \[
@@ -312,7 +312,7 @@ Anyway, we can patch the plane back together, and add this line back in, by simp
 \begin{theorem}
 Let $P$ and $Q$ be two points in $3$-space. If $p$ and $q$ are the vectors with tails at the origin $O$ and heads at $P$ and $Q$, respectively, then the plane through the three points $O$, $P$, and $Q$ is
 \[
-\mathcal{Q} = \left\{ v= s p + t q \middle| \text{$s$ and $t$ are real numbers}\right\}.
+\q = \left\{ v= s p + t q \middle| \text{$s$ and $t$ are real numbers}\right\}.
 \]
 \end{theorem}
 
@@ -322,7 +322,7 @@ First, let us try the method of eliminating parameters. We will take a variable 
 \[
 v = \begin{pmatrix} x \\ y \\z \end{pmatrix}
 \]
-which we assume to lie in our plane $\mathcal{Q}$. Our goal is to find an equation satisfied by $x$, $y$, and $z$. In order to make progress, we will need to have more detailed notation for $p$ and $q$, so we write them out in coordinates as
+which we assume to lie in our plane $\q$. Our goal is to find an equation satisfied by $x$, $y$, and $z$. In order to make progress, we will need to have more detailed notation for $p$ and $q$, so we write them out in coordinates as
 \[
 p = \begin{pmatrix} p_1 \\ p_2 \\ p_3 \end{pmatrix} \quad \text{ and } \quad
 q = \begin{pmatrix} q_1 \\ q_2 \\ q_3 \end{pmatrix} .
@@ -330,7 +330,7 @@ q = \begin{pmatrix} q_1 \\ q_2 \\ q_3 \end{pmatrix} .
 
 
 
-Since $v$ is in $\mathcal{Q}$, we can write
+Since $v$ is in $\q$, we can write
 \[
 \begin{pmatrix} x \\ y \\ z \end{pmatrix} = s \begin{pmatrix} p_1 \\ p_2 \\ p_3 \end{pmatrix} + t \begin{pmatrix} q_1 \\ q_2 \\ q_3 \end{pmatrix}.
 \]
@@ -376,8 +376,8 @@ Note that there is a $p_2$ multiplied through the whole thing, so we should fact
 (p_1 q_3 - p_3 q_1) y +
 (p_2 q_1 - p_1 q_2) z = 0.
 \]
-This is the equation of our plane $\mathcal{Q}$, written in a relatively convenient form.
-We can read off of this expression that a normal vector to $\mathcal{Q}$ is 
+This is the equation of our plane $\q$, written in a relatively convenient form.
+We can read off of this expression that a normal vector to $\q$ is 
 \[
 n = \begin{pmatrix} p_3 q_2 - p_2 q_3 \\
 p_1 q_3 - p_3 q_1 \\ p_2 q_1 - p_1 q_2 \end{pmatrix}.
@@ -385,7 +385,7 @@ p_1 q_3 - p_3 q_1 \\ p_2 q_1 - p_1 q_2 \end{pmatrix}.
 
 
 
-Now let us try the other method. We know that $\mathcal{Q}$ is the collection of linear combinations of $p$ and $q$, and the normal vector to $\mathcal{Q}$ must be orthogonal to every one of those vectors. In particular, the normal vector has to be orthogonal to $p$ and to $q$. We keep the same notation for components of $p$ and $q$ as above, and introduce notation for $n$ as follows:\footnote{We are about to do a computation involving $9$ different variables. This looks intimidating, but it isn't so bad. Just stay calm and do it. Choose a particular example and follow along by doing the steps for yourself.}
+Now let us try the other method. We know that $\q$ is the collection of linear combinations of $p$ and $q$, and the normal vector to $\q$ must be orthogonal to every one of those vectors. In particular, the normal vector has to be orthogonal to $p$ and to $q$. We keep the same notation for components of $p$ and $q$ as above, and introduce notation for $n$ as follows:\footnote{We are about to do a computation involving $9$ different variables. This looks intimidating, but it isn't so bad. Just stay calm and do it. Choose a particular example and follow along by doing the steps for yourself.}
 \[
 n = \begin{pmatrix} n_1 \\ n_2 \\ n_3 \end{pmatrix} .
 \]
@@ -423,40 +423,30 @@ p_1 n_1 &  &  & + & p_1\frac{p_3q_2 - p_2q_3}{p_1q_2-p_2q_1} n_3 & = & 0 \\
 & &\left(q_2-\frac{p_2q_1}{p_1}\right) n_2 & + & \left(q_3-\frac{p_3q_1}{p_1}\right) n_3 & = & 0
 \end{array}\right. .
 \]
-Finally, multiply through the second equation by $p_1$ to clear denominators, and divide through the first equation by $p_1$ to get rid of a common factor. We now have something that does not look overly scary.
+Finally, divide through the second equation by the coefficient of $n_2$, and divide through the first equation by $p_1$ to get rid of a common factor. We now have something that does not look overly scary.
 \[
 \left\{ \begin{array}{rrrrrrr}
 n_1 &  &  & + & \frac{p_3q_2 - p_2q_3}{p_1q_2-p_2q_1} n_3 & = & 0 \\
-& &(p_1q_2-p_2q_1) n_2 & + & (p_1q_3-p_3q_1) n_3 & = & 0 
+& & n_2 & + & \frac{p_1q_3-p_3q_1}{p_1q_2-p_2q_1} n_3 & = & 0 
 \end{array}\right. .
 \]
 
 
 
-Something wonderful has happened. Note that in each equation, only two of the variables $n_i$ appear. In fact, if we just choose $n_3$, then the equations tell us exactly what $n_1$ and $n_2$ should be. And if we rescale $n_3$, then the same scaling happens to the resulting $n_1$ and $n_2$. 
+Something wonderful has happened. Note that in each equation, only two of the variables $n_i$ appear. In fact, if we just choose $n_3$, then the equations tell us exactly what $n_1$ and $n_2$ should be. We can just write
+\[
+n = \begin{pmatrix}  \frac{p_2q_3 - p_3q_2}{p_1q_2-p_2q_1} n_3\\ \frac{p_3q_1-p_1q_3}{p_1q_2-p_2q_1} n_3\\ n_3 \end{pmatrix} = n_3 \begin{pmatrix}  \frac{p_2q_3 - p_3q_2}{p_1q_2-p_2q_1} \\ \frac{p_3q_1-p_1q_3}{p_1q_2-p_2q_1} \\ 1 \end{pmatrix}
+\]
+
 
 This is a good sign. Recall that a plane has many normal vectors. If we find one, we could always just rescale it to get another one. Since our work shows us this property, we should be happy. 
 
-But for now, we just want to find any one single normal vector. So we have to make a choice. And it would be good to make a choice that helps simplify all of the messy fractions we have derived. We choose $n_3 = p_1q_2 - p_2q_1$ so that we can easily clear the denominator in the first equation. 
-
-If we substitute this into our system, we see
-\[
-\left\{ \begin{array}{rrrrrrr}
-n_1 &  &  & + & p_3q_2 - p_2q_3 & = & 0 \\
-& &(p_1q_2-p_2q_1) n_2 & + & (p_1q_3-p_3q_1)(p_1q_2-p_2q_1)  & = & 0 
-\end{array}\right. .
-\]
-
-Now it is routine to read off the other variables we are seeking.
-\[
-n_1 = p_2q_3 - p_3q_2 \quad \text{and} \quad n_2 = p_3q_1-p_1q_3.
-\]
-So, we have finally found that our normal vector is
+But for now, we just want to find any one single normal vector, so we have to make a choice. And it would be good to make a choice that helps simplify all of the messy fractions we have derived. We choose $n_3 = p_1q_2 - p_2q_1$ so that we can easily clear the denominator common to the first two coordinates. We substitute this expression in, and we have finally found that our preferred normal vector\footnote{Some texts call this particular choice of $n$ the \emph{cross product} of $p$ and $q$.} is
 \[
 n = \begin{pmatrix} p_2 q_3 - p_3 q_2 \\
-p_3 q_1 - p_1 q_3 \\ p_1 q_2 - p_2 q_1 \end{pmatrix},
+p_3 q_1 - p_1 q_3 \\ p_1 q_2 - p_2 q_1 \end{pmatrix}.
 \]
-and the equation for the plane must be
+We deduce that the equation for the plane must be
 \[
 0 = \begin{pmatrix}x \\ y \\ z \end{pmatrix} \cdot \begin{pmatrix} p_2 q_3 - p_3 q_2 \\
 p_3 q_1 - p_1 q_3 \\ p_1 q_2 - p_2 q_1 \end{pmatrix},
@@ -473,34 +463,235 @@ We should compare our two versions of the work. Looking carefully, we see that t
 
 After all of that intense computation, it feels like a little bit of a miracle. But the miracle is just that we did things carefully and got through without arithmetic errors.
 
-\begin{theorem}
-
-
-
-
-sum up with a theorem.
+\begin{theorem}\label{thm:plane-2-points}
+Let $\q$ be a plane in $\R^3$ which passes through the origin $O$ and two points $P = (p_1,p_2,p_3)$ and $Q=(q_1,q_2,q_3)$. Then any normal vector to $\q$ is a scalar multiple of the vector
+\[
+n = \begin{pmatrix} p_2 q_3 - p_3 q_2 \\
+p_3 q_1 - p_1 q_3 \\ p_1 q_2 - p_2 q_1 \end{pmatrix},
+\]
+and the plane may be described as the set of points which satisfy the equation
+\[
+(p_2 q_3 - p_3 q_2) x +
+(p_3 q_1 - p_1 q_3) y +
+(p_1 q_2 - p_2 q_1) z = 0,
+\]
+or parametrically as the image of 
+\[
+(s,t) \mapsto s \begin{pmatrix} p_1 \\ p_2 \\ p_3 \end{pmatrix} + t \begin{pmatrix} q_1 \\ q_2 \\ q_3 \end{pmatrix}.
+\]
 \end{theorem}
-
-\clearpage
-
 
 \section*{General Planes in $\R^3$}
 
-use a translation to handle two descriptions of a plane NOT through the origin.
+So far, all of our hard work has led us to a deep understanding of planes in $\R^3$, but only those that pass through the origin $O$. But most of the planes in $\R^3$ do not contain the origin. We must figure out how to handle those, too.
 
-define planes as parallel when they don't intersect
+In the case of lines in the plane, we used a simple method: Given a line not through the origin, find a parallel line through the origin. Describe that line by whatever method you want, and then translate back to get the description you want. We shall use this same method here. 
 
-talk about families of parallel planes sharing a normal vector (up to scalar), 
+\begin{definition}
+Let $\p$ and $\q$ be planes in $\R^3$. We say that $\p$ and $\q$ are \emph{parallel} if they have no points in common.
+\end{definition}
 
-sum up processes of parametric to equation and back: eliminate s,t; rearrange and introduce s, t.
+So, we begin with three points which define a plane $\p$ in $\R^3$. Call them $P$, $Q$, and $R$. As usual, we write $p$, $q$, and $r$ for the mathematician's vectors which have their heads at these three points, respectively. Now the physicist's vectors $p-r$ and $q-r$ lie entirely in in $\p$. The corresponding mathematician's vectors lie in a plane $\q$ which is parallel to $\p$. Also, the new plane $\q$ contains the origin. In fact, these two planes differ exactly by a parallel translation by the vector $r$: for each vector $v$ with its head in $\p$, the corresponding vector $v-r$ lies entirely in $\q$.
+
+Now, since the plane $\q$ passes through the origin, we can give it one of our two types of descriptions, each of which will help us build the corresponding description for the plane $\p$. Let us take them in turn, starting with the
+parametric description. 
+
+
+The plane $\q$ is the collection of vectors formed by linear combinations of $p-r$ and $q-r$.
+\[
+s (p-r) + t (q-r).
+\] 
+Since $v-r$ lies in $\q$, we see that
+\[
+v-r = s(p-r) + t (q-r),
+\]
+or 
+\[
+v = r + s(p-r) + t (q-r).
+\]
+Since each of the vectors $p$, $q$, and $r$ are known to us, it is straightforward to compute this explicitly. We get the parametric description
+\[
+(s,t) \mapsto r + s(p-r) + t (q-r)
+\]
+
+
+
+Next, let us consider the equation of $\p$.
+The plane $\q$ is the set of points $w=(x,y,z)$ which are orthogonal to the normal vector $n$ which is as described in Theorem \ref{thm:plane-2-points}.
+But $v-r$ is an element of $\q$, so we see that our equation for $\p$ is just
+\[
+n \cdot (v-r) = 0, \quad \text{or} \quad n\cdot v = n \cdot r.
+\]
+The trick is that first you must compute $n$ from $p-r$ and $q-r$. If $n$ has components $a$, $b$, and $c$, we get an equation of the form 
+\[
+ax+by+cz = d.
+\]
+Since the planes $\p$ and $\q$ are parallel, they share the same normal vector. This is apparent in the structure of their equations: the coefficients of the variables represent the normal vector, and they are the same. But the number on the right-hand side, $d$, depends on exactly which plane you consider in the family of parallel planes with normal vector $n$.
+
+If we put together all of this work with the things we learned above, we obtain this result.
+
+\begin{theorem}
+Let $\p$ be the plane in $\R^3$ which contains the points $R = (r_1, r_2, r_3)$, $P=(p_1,p_2,p_3)$, and $Q=(q_1,q_2,q_3)$. Let $p$, $q$, and $r$ be the vectors with their heads at these points, respectively. Then we have the following:
+\begin{itemize}
+\item $\p$ is parallel to a plane $\q$ which passes through the origin. These two planes have a common normal vector
+\[
+n = \begin{pmatrix} a \\ b \\ c \end{pmatrix} := 
+\begin{pmatrix} (p_2-r_2)( q_3-r_3) - (p_3 -r_3)(q_2-r_2) \\
+(p_3-r_3)(q_1-r_1) - (p_1-r_1)( q_3-r_3) \\ (p_1-r_1)(q_2-r_2) - (p_2-r_2) (q_1-r_1) \end{pmatrix}
+\]
+
+\item $\p$ has the parametric description
+\[
+(s,t) \mapsto r + s (p-r) + t(q-r).
+\]
+
+\item $\p$ has the equation
+\[
+ax + by +cz = ar_1 + br_2 + cr_3,
+\]
+where $a, b, c$ are the components of $n$ as above.
+\end{itemize}
+\end{theorem}
+
+It is worth noting that the actual techniques of our earlier work carry over just fine, too. We can pass back and forth between a parametric description of a plane and an equation for that plane.
+
+Suppose you have the equation $ax+by+cz = d$. To find a parametric description of the plane, do the following.
+\begin{enumerate}
+\item Choose a nonzero coefficient. For simplicity, assume it is $a\neq 0$. Then solve 
+for the corresponding variable:
+\[
+x  = \frac{d}{a} - \frac{b}{a} y - \frac{c}{a} z.
+\]
+
+\item Choose parameter names, and introduce dummy equations for them. Say $y=s$ and $z=t$.
+
+\item Substitute the new parameters in the equation, and set up a system of all of the equations you have:
+\[
+\left\{ \begin{array}{rrrrrrr}
+x  &=& \frac{d}{a} &-& \frac{b}{a} s &-& \frac{c}{a} t \\
+y  &=&             & &             s & &  \\
+y  &=&             & &               & & t 
+\end{array}\right. .
+\]
+
+\item Rewrite the system as a vector equation.
+\[
+\begin{pmatrix} x \\ y \\ z \end{pmatrix} = 
+\begin{pmatrix} \frac{d}{a} \\ 0 \\ 0 \end{pmatrix} + 
+s\begin{pmatrix} -\frac{b}{a} \\ 1 \\ 0 \end{pmatrix} +
+t\begin{pmatrix} -\frac{c}{a} \\ 0 \\ 1 \end{pmatrix} .
+\]
+\end{enumerate}
+
+In the other direction, suppose that you have a parametric description and want to change it into an equation. The key is to unbundle the parametric description into a system of equations, and then steadily eliminate the variables.
+
+If the system of equations is
+\[
+\left\{ \begin{array}{rrrrrrr}
+x  &=& a &+& b s &+& c t \\
+y  &=& d &+& e s &+& f t \\
+z  &=& g &+& h s &+& i t 
+\end{array}\right. ,
+\]
+Then we can use the first and second equation to eliminate $s$, and then the second and third equations to also eliminate $s$, to get two equations involving only $x,y,z,$ and $t$, like so:\footnote{I ran out of symbols, so here are some new friends. The letters $\alpha, \beta, \gamma, \delta$ come from an old form of Greek, and are called alpha, beta, gamma, and delta.}
+\[
+\left\{ \begin{array}{rrrrr}
+ex-by &=& \alpha &+& \beta t \\
+gy-ez &=& \gamma &+& \delta t
+\end{array}\right. ,
+\]
+Now we can similarly use these two equations to eliminate $t$ and obtain an equation of the form
+\[
+Ax+By+Cz = D.
+\]
 
 
 \section*{Lines in $\R^3$ as Solutions to Systems of Equations}
 
-LINES in R3 as intersection of two planes: parametric descriptions, then equational ones
-parametric to equations and back
+We had a major goal to describe lines in $\R^3$, but got distracted by the nature of planes in $3$-space.
+
+So, how can we find something like an equation for a line in $\R^3$? We have learned that a single equation relating three variables $x$, $y$, and $z$ ends up describing a plane. This means that a single equation can't work!
+
+The key idea is that a line what you get when you intersect two planes. So, to describe a line, we need two equations, not one.
+
+Suppose we are given a line described parametrically. $t \mapsto p + tv$.
+How can we find two equations which will together describe the line? Well, our line has a direction vector $v$. Choose two vectors $n_{\p}$ and $n_{\q}$ which are orthogonal to $v$ and are not scalar multiples of each other. There are lots and lots of pairs of vectors like this, just pick. It seems like a staggering amount of freedom, but we might as well enjoy it.
+
+Now we consider the plane $\p$ with equation
+\[
+n_{\p} \cdot  \begin{pmatrix} x \\ y \\ z \end{pmatrix}  = n_{\p}\cdot p ,
+\]
+and the plane $\q$ with equation
+\[
+n_{\q} \cdot  \begin{pmatrix} x \\ y \\ z \end{pmatrix}  = n_{\q}\cdot p .
+\]
+Since the normal vectors $n_{\p}$ and $n_{\q}$ are not scalar multiples of each other, these planes are not parallel. That means these planes intersect along a line. The important thing is that the line of intersection is exactly our line. To see this, we just check that the vectors $p+t v$ satisfy the two equations. It is straightforward to check this directly:
+\[
+n_{\p} \cdot (p + tv) = n_{\p} \cdot p + t n_{\p}\cdot v = n_{\p}\cdot p + 0 = n_{\p}\cdot p,
+\]
+so the vectors $p+tv$ have heads in $\p$, and 
+\[
+n_{\q} \cdot (p + tv) = n_{\q} \cdot p + t n_{\q}\cdot v = n_{\q}\cdot p + 0 = n_{\q}\cdot p,
+\]
+so the vectors $p+tv$ also have heads in $\q$.
+
+\begin{theorem}
+A line in $\R^3$ can be described as the common solution set for a system of equations representing two planes
+\[
+\left\{\begin{array}{rrrrrrr}
+a_{11} x &+& a_{12}y &+& a_{13} z &=& b_1 \\
+a_{21} x &+& a_{22}y &+& a_{23} z &=& b_2 \\
+\end{array}\right.
+\]
+Where the two normal vectors
+\[
+n_1 = \begin{pmatrix} a_{11} \\ a_{12} \\ a_{13} \end{pmatrix}, \quad \text{and} \quad
+n_2 = \begin{pmatrix} a_{21} \\ a_{22} \\ a_{23} \end{pmatrix}
+\]
+are both orthogonal to the direction vector $v$ of the line, but are not scalar multiples of each other.
+
+There are many such pairs of planes which have the line as their intersection.
+\end{theorem}
 
 
+This shows us how we might go from a parametric description to a system of equations. How might we work in the other direction? Suppose we are given a pair of planes described by equations, and we wish to find a parametric description for the line which is their common solution set.
 
+Now the process is exactly that like we used to find a normal vector to a plane through the origin. Just as in the few pages running up to Theorem \ref{thm:plane-2-points}, we have a pair of equations and we want a common solution. The idea is to replace the very general set of equations 
+\[
+\left\{\begin{array}{rrrrrrr}
+a_{11} x &+& a_{12}y &+& a_{13} z &=& b_1 \\
+a_{21} x &+& a_{22}y &+& a_{23} z &=& b_2 \\
+\end{array}\right.
+\]
+with a nicer, equivalent set of equations that looks like this
+\[
+\left\{\begin{array}{rrrrrrr}
+x &&  &+& \alpha z &=& d_1 \\
+ && y &+& \beta z &=& d_2 \\
+\end{array}\right. ,
+\]
+which we can rewrite in vector form as the parametric description
+\[
+\begin{pmatrix} x \\ y \\ z \end{pmatrix} = 
+\begin{pmatrix} d_1 \\ d_2 \\ 0 \end{pmatrix} + 
+t \begin{pmatrix} -\alpha \\ -\beta \\ 1 \end{pmatrix} .
+\]
+
+This process is routine to do once learned, but it doesn't always work. There are two kinds of trouble that could happen. 
+
+The first is that some pairs of equations represent planes that actually don't intersect. The planes are parallel, and at some point we find an equation that doesn't actually make any sense, like $0=1$.
+
+The second problem is that some pairs of equations are really the same plane written twice. In this case, the solution set is all of (both of) the planes, not a line. Then the process ends up turning one equation into something trivially true, usually $0=0$, and the rest collapses back on our technique for writing the parametric description for the plane.
+
+Both of these situations require that the normal vectors to the planes are scalar multiples of each other, so with a little bit of care, you can learn to look for that before getting started on the time-consuming arithmetic.
+
+\begin{theorem}
+There are three cases possible for the shape of the set of simultaneous solutions to a system of 2 equations in three unknowns.
+\begin{description}
+\item[Generic Case:] The two equations represent a pair of planes which are not parallel. The solution set is a line in $\R^3$.
+\item[Degenerate Case 1:] The two equations are different representations for the same plane. The solution set is that plane.
+\item[Degenerate Case 2:] The two equations represent planes which are distinct, but parallel. There are no solutions because the planes do not intersect.
+\end{description}
+\end{theorem}
 
 \end{document}
