@@ -811,6 +811,135 @@ t\mapsto t \begin{pmatrix} -2\\-3\\-2\end{pmatrix}
 and passes through the point $T = (1,1,1)$.
 \end{challenge}
 
+\chapter{Interlude: Thinking about Systems of Equations}
+
+\begin{definition}
+Let $m$ and $n$ be counting numbers. A \emph{system of $m$ linear equations in $n$ unknowns} has the form
+\[
+\left\{\begin{array}{rrrrrrrrr}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots & & \vdots & & & & \vdots & = & \vdots \\
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_m \\
+
+\end{array}\right. ,
+\]
+where the unknowns are the variables $x_1, \ldots, x_n$ we are meant to find, and
+all of the other letters $a_{ij}$ and $b_j$ are scalars that we are supposed to know already. The numbers $a_{ij}$ are commonly called \emph{coefficients}.
+
+A \emph{solution} of this system is a single set of values for the $x_i$'s which makes 
+all $m$ of the equations true at the same time.
+\end{definition}
+
+We have encountered many different systems of linear equations already, though they 
+have not always been written in the standardized form above. For example, we have seen
+that to describe a line in $\mathbb{R}^3$, we need to use a system of $m=2$ equations in 
+$n=3$ variables.
+
+The goal of this set of tasks is to figure out what might count as a system of linear
+equations that ``we shouldn't find difficult.'' For now, we will work with the special case where $m=n=3$.
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Make it scary.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you don't know how to solve, and you are pretty sure no one else in class can solve inside of five minutes.
+\end{task}
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Make it so clear that you can't fail to find the solution.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you know how to solve, and you are pretty sure anyone else in class can solve almost instantly, just by looking at it.
+\end{task}
+
+\clearpage
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Just a little bit of a trick.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you know a solution for, but is mildly disguised so that you do not think your classmates can find your solution just by looking. To make sure it is only mildly disguised, aim for something that is simple to check: If you give away the answer, your classmates should say, "Of Course!"
+\end{task}
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Maybe two tricks, or one applied twice.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you a solution for, but is just a bit more disguised. This one might take two or three steps of work to ``see'' the solution.
+\end{task}
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Design something to slow people down significantly.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you know how to solve, but is pretty well disguised and you are pretty sure no one else will solve it inside of 2 minutes.
+\end{task}
+
+\begin{task}
+Think about the work you have done?\marginnote{Reflection Time!} What makes a system of linear equations straightforward? What things did you do to hide the answer?
+\end{task}
+
+
+\chapter{Three Viewpoints \& Five Questions}
+
+\section{Systems of Equations vs. Linear Combination Equations}
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item A line in $\mathbb{R}^2$ defined parametrically; and
+\item a different line in $\mathbb{R}^2$ defined implicitly as the set of solutions to an equation.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these two lines. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item A line in $\mathbb{R}^3$ defined parametrically; and
+\item a plane in $\mathbb{R}^3$ defined implicitly as the set of solutions to an equation.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these two lines. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item A plane in $\mathbb{R}^3$ defined parametrically; and
+\item a different plane in $\mathbb{R}^3$ defined implicitly as the set of solutions to an equation.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these two planes. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item three different planes in $\mathbb{R}^3$, each defined implicitly as the solution set of a linear equation.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these three planes. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item three different planes in $\mathbb{R}^3$, each defined parametrically.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these three planes. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+
 
 
 %%
