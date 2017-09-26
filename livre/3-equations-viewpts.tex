@@ -1,0 +1,306 @@
+\documentclass[00-livre-main.tex]{subfiles}
+\begin{document}
+
+\chapter{Three Viewpoints \& Five Questions}
+
+We have been motivated by questions that come up naturally when studying the basic geometry of vectors, lines, and planes in $\R^2$ and $\R^3$. In particular, we have found ways to describe the lines in $\R^2$ and $\R^3$ in two ways: \emph{parametrically} as the images of functions; and \emph{implicitly} as the solutions sets of equations. 
+
+We have also encountered questions that ask us to find intersections of lines and planes, which means we want to find points which simultaneously solve several different equations. In any particular case, you can usually find answers using ad hoc methods, as long as you are dealing with a smallish number of variables and a smallish number of equations. Our next goal is to find a systematic way of handling such questions. 
+
+To do so, we will engage in a particularly mathematical way of working: we will solve these problems by taking them to be special cases of problems which look harder. It is those harder problems we will solve in one go. Somehow the wider perspective helps us see what is important and get to the bottom of things.
+
+This chapter will introduce the core questions of linear algebra, which we will spend the next few chapters answering. But first we will introduce our most important conceptual tools.
+
+\begin{quote}
+\textbf{What are the three geometric viewpoints for understanding linear algebra?}
+\end{quote}
+
+%\clearpage
+
+\section{Systems of Equations -- Progress through Generalization}
+
+Let us consider an example problem.
+
+\begin{quote}
+\textit{Given two lines in the plane $\R^3$, find their intersection, if it exists.}
+\end{quote}
+
+\noindent\textbf{Approach \#1: parametric lines}
+
+Assume that the lines are given parametrically, as 
+\[
+t \mapsto \smvec{a}{b} + t \smvec{c}{d}
+\]
+and 
+\[
+s \mapsto \smvec{e}{f} + s \smvec{g}{h}.
+\]
+Note that we must choose different letters for the two parameters in this task, because the lines are independent objects. We seek a point $(x,y)$ which lies on both of these lines. 
+
+If such a point exists, then the fact that the point lies on the first line means there is some value of $t$ so that $x = a + ct$ and $y=b+dt$. Similarly, the fact that the point lies on the second line means that there is some value of $s$ so that $x=e+gs$ and $y=f+hs$. Taking all of those, bundling them together, and rearranging them, we get this collection of equations:
+\[
+\left\{ \begin{array}{cccccccccccc}
+x & &   & - & ct &   &    & = & a\\ 
+  & & y & - & dt &   &    & = & b\\
+x & &   &   &    & - & gs & = & e\\ 
+  & & y &   &    & - & hs & = & f
+\end{array}\right. .
+\]
+You might be wondering why we would bother to rewrite things in this way, but it will help us see the unity of our endeavors going forward.
+
+A more serious objection to this approach is that it is \emph{wasteful}. To solve the problem, we only need to find $t$, or just $s$, or just $x$ and $y$. Our current collection of equations asks us to find all of those. Perhaps we can be more efficient.
+
+
+\noindent\textbf{Approach \#2: parametric lines, again}
+
+Rather than take apart the vectors into $x$ and $y$ components, we leave things as vectors. We still observe that the point we want is on both lines, so it must be the 
+head of a vector which can be written in two ways, one for each line. Thus we must have some pair of numbers $s$ and $t$ so that
+\[
+\smvec{a}{b} + t\smvec{c}{d} = \smvec{e}{f} + s\smvec{g}{h}.
+\]
+Again, we'll do a little bit of re-organizing, and write this in the form below:
+\[
+ t\smvec{c}{d} + s\smvec{-g}{-h} = \smvec{e-a}{f-b}
+\]
+That is much better. If we like we can unbundle these $2$-vectors to write:
+\[
+\left\{ \begin{array}{ccccc}
+ct & - & gs & = & e-a \\
+dt & - & hs & = & f-b
+\end{array}\right. .
+\]
+
+Notice that this set of equations is what you get from the last approach if you eliminate the variables $x$ and $y$. Still, this formulation asks us to find the two numbers $s$ and $t$, when just one of them will do to solve the original problem. 
+
+\noindent\textbf{Approach \#3: lines given by equations}
+
+Suppose that each line is described by an equation, so that the points $(x,y)$ on the first line are those that satisfy the equation $ax+by=c$, and the points on the second line are those that satisfy the equation $dx+ey = f$. Then we need to find $x$ and $y$ which satisfy both equations:
+\[
+\left\{ \begin{array}{ccccc}
+ax & + & by & = & c \\
+ex & - & dy & = & f
+\end{array}\right. .
+\]
+And this feels like the perfect fit. We need to find the numbers $x$ and $y$, no more, no less, to solve this problem.
+
+Of course, all three of these have the same information in them, but the set-up and arrangement makes a difference.
+
+What the three set-ups have in common is that they all involve looking for a set of numbers which together are a solution for several different equations all at the same time, and the equations are of a rather simple type. 
+
+That is the key insight for our reformulation and generalization. We will try to solve many equations all at the same time, but we will restrict our attention to equations which are simple in form.
+
+
+\begin{definition}
+Let $m$ and $n$ be counting numbers. A \emph{system of $m$ linear equations in $n$ unknowns} has the form
+\[
+\left\{\begin{array}{rrrrrrrrr}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots & & \vdots & & & & \vdots & = & \vdots \\
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_m 
+\end{array}\right. ,
+\]
+where the unknowns are the variables $x_1, \ldots, x_n$ we are meant to find, and
+all of the other letters $a_{ij}$ and $b_j$ are scalars that we are supposed to know already. The numbers $a_{ij}$ are commonly called \emph{coefficients}.
+
+A \emph{solution} of this system is a single set of values for the $x_i$'s which makes 
+all $m$ of the equations true at the same time.
+\end{definition}
+
+
+Each of the three approaches we outlined above involved setting up a system of linear equations. The first had $m=4$ equations in $n=4$ unknowns, and the second and third each had $m=2$ equations in $n=2$ unknowns.
+
+If we think carefully about how we handled the second approach of the three, we see that we should be able to reframe a system of linear equations as an equation involving vectors. But this time the vectors are ``bigger'' than what we have used so far.
+
+\begin{definition}
+Let $m$ be a counting number. We define an $m$-vector to be a vertical stack of $m$ real numbers, like so:
+\[
+u = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_m \end{pmatrix} .
+\]
+The individual entries $u_i$ of $u$ are called its \emph{components}.
+The collection of all $n$-vectors is called \emph{$m$-space}, and denoted $\mathbb{R}^m$.
+
+We may form \emph{linear combinations} of $m$-vectors by doing scalar multiplication and addition in a component-by-component fashion.
+
+Similarly, the notions of dot product, norm, and angle extend in the expected way to $m$-vectors.
+\end{definition}
+
+
+
+\begin{definition}
+A \emph{linear combination of $m$-vectors equation with $n$ terms} is an equation of the form
+\[
+x_1 u_1 + x_2 u_2 + \dots + x_n u_n = v,
+\]
+where all of the $m$-vectors $u_i$ and $v$ are known, but the scalars $x_i$ are unknowns we seek.
+
+A \emph{solution} to such an equation is a collection of scalars $x_i$ which make the equation true.
+\end{definition}
+
+
+\begin{theorem}
+A system of $m$ linear equations in $n$ unknowns can be re-written as an equivalent linear combination of $m$-vectors equation with $n$ terms which has the same solution set, and vice versa.
+\end{theorem}
+
+\begin{proof}
+We start with a generic system of linear equations
+\[
+\left\{\begin{array}{rrrrrrrrr}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots & & \vdots & & & & \vdots & = & \vdots \\
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_m 
+\end{array}\right. ,
+\]
+and then use each equation as if it were a coordinate position
+\[
+x_1 \begin{pmatrix} a_{11}\\ \vdots \\ a_{m1} \end{pmatrix} + 
+x_2 \begin{pmatrix} a_{12}\\ \vdots \\ a_{m2} \end{pmatrix} +
+\dots +
+x_n \begin{pmatrix} a_{1n}\\ \vdots \\ a_{mn} \end{pmatrix} = 
+\begin{pmatrix} b_1\\ \vdots \\ b_m \end{pmatrix} .
+\]
+There are now $n$ different $m$-vectors on the left-hand side, and we have the form of a linear combination of $m$-vectors equation with $n$ terms.
+
+Also, this process is reversible. We just redistribute the variables $x_i$ in the
+scalar multiplication, and then remove the parentheses. 
+\end{proof}
+
+
+\section{A First Geometric Viewpoint: Hyperplanes}
+
+We have already seen that the set of solutions to a single linear equation $ax+by=c$ in $\R^2$ is the points which lie on a line. Similarly, the set of solutions of a single linear equation $ax+by+cz=d$ in $\R^3$ is the collection of points which lie on a plane. 
+
+Later, we will make a technical definition of the word \emph{dimension} for our concept, but for now we think of dimension as a na\"ive concept of counting the number of independent directions of allowed motion. So, in the plane, with two dimensions, we get a one dimensional thing as solution to a linear equation. In $3$-space, with three dimensions, we get a two dimensional thing as solution to a linear equation.
+
+What should happen in $\R^n$, for $n>3$? Well, we will work by analogy. We expect some sort of ``plane-like'' object as the solution to a single linear equation.
+
+\begin{definition}
+The set of points in $\R^n$ which is described as the solution set to a single linear equation,
+\[
+\mathcal{H} = \left\{ (x_1,\ldots, x_n) \middle| a_1x_1 + a_2 x_2 + \dots + a_n x_n = b \right\} ,
+\]
+is called a \emph{hyperplane in $\R^n$}.
+\end{definition}
+
+Now, given a system of $m$ linear equations in $n$ unknowns, we think of each individual equation as defining a hyperplane in $\R^n$. If a point is going to satisfy all of the $m$ equations at the same time, then it must lie on all of the hyperplanes simultaneously. That is, the point must lie in the common intersection of all $m$ hyperplanes.
+
+\begin{quote}
+\textbf{The Row Picture:} We interpret solving a system of $m$ linear equations in $n$ unknowns as finding the common intersection of $m$ different hyperplanes in $\R^n$.
+\end{quote}
+
+\section{Second Geometric Viewpoint: Spans}
+
+If we write our constraints instead in the form of a linear combination of $m$-vectors with $n$ terms, 
+\[
+x_1 \begin{pmatrix} a_{11}\\ \vdots \\ a_{m1} \end{pmatrix} + 
+x_2 \begin{pmatrix} a_{12}\\ \vdots \\ a_{m2} \end{pmatrix} +
+\dots +
+x_n \begin{pmatrix} a_{1n}\\ \vdots \\ a_{mn} \end{pmatrix} = 
+\begin{pmatrix} b_1\\ \vdots \\ b_m \end{pmatrix},
+\]
+then the question comes out differently. Our fundamental objects here are $m$-vectors, that is, elements of $\R^m$. The goal is to figure out if, and how, we may write the vector
+on the right-hand side of the equation as a linear combination of the vectors
+\[
+u_1 = \begin{pmatrix} a_{11}\\ \vdots \\ a_{m1} \end{pmatrix}, \quad
+u_2 = \begin{pmatrix} a_{12}\\ \vdots \\ a_{m2} \end{pmatrix}, \quad
+\dots 
+u_n = \begin{pmatrix} a_{1n}\\ \vdots \\ a_{mn} \end{pmatrix}.
+\]
+
+\begin{definition}
+Let $\{u_1, \ldots, u_n\}$ be a set of vectors in $\R^m$. The \emph{span} of this set is the collection
+\[
+\Span{u_1, \ldots, u_n} = \left\{ a_1 u_1 + \dots a_n u_n \ \middle| \ \text{$a_1, \ldots, a_n$ are scalars}\right\}
+\]
+of all the possible linear combinations of these vectors.
+\end{definition}
+
+This new language has us recast the task of solving the linear combination equation this way. 
+
+\begin{quote}
+\textbf{The Column Picture:} We interpret solving a linear combination of $m$-vectors with $n$ terms as asking if a given $m$-vector does or does not lie in the span of a collection of $n$ other $m$ vectors, and a solution is a set of coefficients which makes the given linear combination hit the prescribed vector.
+\end{quote}
+
+Sometimes it can be useful to imagine a linear combination as a type of linkage which has extendible and contractible arms, but for which the angles are frozen. We are allowed to change the lengths of the arms, but not their relative directions. That analogy is imperfect, though, as it is hard to imagine the cases where the lengths of the arms become zero or even negative.
+
+
+\section{Matrices, a New Kind of Function}
+
+Comparing the written version of a system of linear equations with the written version of a linear combination equation, it appears that things get simpler as we go from the system to the vector equation. This is a bit of an illusion, of course, as all of the same information is there. Rather, we have bundled together each of the columns of coefficients into vectors, which abstracts the problem a bit. That is, it packages up several pieces of information (a whole column of independent coefficients) and into one new kind of object which we treat as a single unit (an $m$-vector).
+
+The result is that our $m$ equations in $n$-unknowns now looks like a \emph{single} equation in $n$ unknowns. We have used abstraction to compartmentalize things and make a conceptual simplification. This has so successfully reduced things, we should think about doing it again. What is left to abstract? Well, we combined across the columns, so it is only left to combine across the rows. So we introduce a concept that allows us to bundle together a row's worth of $m$-vectors.
+
+\begin{definition}
+A \emph{matrix with $m$ rows and $n$ columns}, or an \emph{$m\times n$ matrix} for short, is a rectangular array of numbers $a_{ij}$ enclosed in a large set of parentheses. \[
+A = \begin{pmatrix}
+a_{11} & a_{12} & \dots & a_{1n}\\
+a_{21} & a_{22} & \dots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \dots & a_{mn}\\
+\end{pmatrix} .
+\]
+Each individual number $a_{ij}$ is called an \emph{entry} of the matrix. The numbers $i$ and $j$ are called \emph{indices}. The first, $i$, is allowed to take a value between $1$ and $m$ and indicates which row the entry sits in. The second, $j$, is allowed to take a value between $1$ and $n$ and indicates which column the entry sits in. So the $ij$-entry is the number which sits at the intersection of row $i$ and column $j$.
+
+
+Note that an $m\times n$ matrix must have $mn$ entries. The whole matrix must be full! We are not allowed to leave any positions empty.
+
+Sometimes, if things are otherwise clear, a matrix is written with just a generic entry label like so:
+\[
+A = \begin{pmatrix} a_{ij} \end{pmatrix}
+\]
+\end{definition}
+
+It is often useful to think of an $m\times n$ matrix as if it is a collection of $n$ different column vectors, each of which is an $m$-vector. Similarly, it is sometimes useful to think of such a matrix as a collection of $m$ different \emph{row vectors}, written left-to-right, each of which is an $n$-vector.
+
+This perspective with rows dominates the way matrices are read aloud. The convention is to specify the size of the matrix, and then read across the rows, top row first, bottom row last. For example the matrix
+\[
+A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+\]
+is read aloud as ``the two-by-two matrix $a$, $b$, $c$, $d$.''
+
+\section{The Five Motivational Questions}
+
+Now we have three different viewpoints on what our equations might represent.\\
+
+\begin{tabular}{l||l}
+algebraic formulation & interpretation of solution\\
+\hline
+system of $m$ linear  & the common intersection of\\
+equations in $n$ unknowns &  $m$  hyperplanes in $\R^n$ \\
+\hline
+linear combination of & the coefficients realizing a\\
+$m$-vectors with $n$ terms & vector in $\R^m$ as part of a \\
+& span of $n$ other vectors \\ 
+\hline
+matrix-vector equation & the input vectors from $\R^n$\\
+with an $m\times n$ matrix &  which are mapped to a given\\
+&  output vector in $\R^m$\\
+\end{tabular}\\
+
+These three viewpoints are useful in different ways. Certain tasks are easier to 
+figure out with a particular model, in a way that often depends on the 
+information you have at hand. So you will want to practice using all three of them, 
+and passing from any one of these to the others, so that you are capable of 
+working efficiently.
+
+Whichever geometric model you use, there is still the overarching problem: solve the 
+equation. But there are several facets to solving an equation! We will split the
+problem into these five parts, which will take us some time to study.
+
+
+\begin{enumerate}
+	\item Is there an effective algorithm for finding solutions?
+	\item Does a given equation have a solution? Can you tell in advance, without computing the answer?
+	\item Suppose that a given equation has a solution, how many solutions does it have?
+	\item Suppose that a given equation has a solution, what shape is the set of solutions? Can it be reasonably understood and described.
+	\item If an equation has no solution, is there an approximate solution?	
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}
