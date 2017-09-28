@@ -1,0 +1,326 @@
+\documentclass[cahier-main.tex]{subfiles}
+\begin{document}
+
+\chapter{Vectors, Lines, and Planes in Space}
+\label{ch:two}
+
+\section*{Points, Vectors, and the Dot Product}
+
+\begin{task}
+Write down four $3$-vectors of your choosing, where none has any coordinate equal to $0$. Call these vectors $u_1$, $u_2$, $u_3$, and $u_4$. Now choose any four non-zero scalars you like, call them $\lambda_1$, $\lambda_2$, $\lambda_3$ and $\lambda_4$. Compute the linear combination
+\[
+\lambda_1 u_1 + \lambda_2 u_2 + \lambda_3 u_3 + \lambda_4 u_4. 
+\]
+\end{task}
+
+\begin{task}
+Consider the points $P = (1,1,1)$ and $Q = (-2,7,4)$ in $\mathbb{R}^3$.
+Find the coordinates of the point $R$ which lies on the line through $P$ and $Q$, one quarter of the way from $P$ to $Q$.
+\end{task}
+
+\begin{task}
+Write down two $3$-vectors which have no coordinates equal to zero. Call them $u$ and $v$. Find the following things:
+\begin{compactitem}
+\item The dot product $u\cdot v$;
+\item The norms of $u$ and $v$;
+\item unit vectors which point in the same directions as $u$ and $v$, respectively; and
+\item the angle between $u$ and $v$.
+\end{compactitem}
+\end{task}
+
+The next three tasks all involve linear combination equations. You may find it useful to review what that phrase means, and also what it means to find a solution to such an equation.
+
+
+\begin{task}
+This task concerns linear combination equations of the form $\lambda u = v$ for $3$-vectors $u$ and $v$ and a scalar $\lambda$.
+\begin{compactitem}
+\item Can you make an example of this equation which has no solutions? If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has exactly one solution?  If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has exactly two solutions?  If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has infinitely many solutions? If so, make one. If not, explain why it is impossible.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+This task concerns linear combination equations of the form $\lambda u +\mu v=w$ for $3$-vectors $u$, $v$, and $w$ and scalars $\lambda$, and $\mu$.
+\begin{compactitem}
+\item Can you make an example of this equation which has no solutions? If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has exactly one solution? If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has exactly two solutions?  If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has infinitely many solutions? If so, make one. If not, explain why it is impossible.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+This task concerns linear combination equations of the form $x u_1 + y u_2 + z u_3 = b$ for $3$-vectors $u_1$, $u_2$, $u_3$ and $b$ and scalars $x$, $y$, and $z$.
+\begin{compactitem}
+\item Can you make an example of this equation which has no solutions? If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has exactly one solution? If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has exactly two solutions?  If so, make one. If not, explain why it is impossible.
+\item Can you make an example of this equation which has infinitely many solutions? If so, make one. If not, explain why it is impossible.
+\end{compactitem}
+\end{task}
+
+\begin{challenge}
+Suppose that we are given a line in the plane described parametrically as 
+$t \mapsto t\left(\begin{smallmatrix} -2 \\ 5\end{smallmatrix}\right)$,
+and a point $P = (7,4)$. Find the coordinates of the point $Q$ which (1) lies on the line and (2) which is, of all the points on the line, \emph{closest} to $P$.
+\end{challenge}
+
+\begin{definition}
+Let $n$ be a counting number. We define an $n$-vector to be a vertical stack of $n$ real numbers, like so:
+\[
+u = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{pmatrix} .
+\]
+The individual entries $u_i$ of $u$ are called its \emph{components}.
+The collection of all $n$-vectors is called \emph{$n$-space}, and denoted $\mathbb{R}^n$.
+
+We may form \emph{linear combinations} of $n$-vectors by doing scalar multiplication and addition in a component-by-component fashion.
+
+Similarly, the notions of dot product, norm, and angle extend in the expected way to $n$-vectors.
+\end{definition}
+
+\begin{task}
+Create an example of five different $6$-vectors, call them $v_1, v_2, \ldots v_5$. Make sure that at most one component of each vector is equal to zero. Then choose five different non-zero scalars $x_1, x_2, \ldots x_5$. Compute the linear combination
+\[
+x_1 v_1 + x_2 v_2 + x_3 v_3 + x_4 v_4 + x_5 v_5.
+\]
+\end{task}
+
+\begin{task}
+Using the vectors $v_1$ and $v_2$ from your work in the last task, compute the following:
+\begin{compactitem}
+\item The dot product of $v_1$ and $v_2$;
+\item The norms of $v_1$ and $v_2$;
+\item Unit vectors which point in the same directions as $v_1$ and $v_2$, respectively; and
+\item The angle between $v_1$ and $v_2$.
+\end{compactitem}
+\end{task}
+
+
+\begin{task} This task has three parts:
+\begin{compactitem}
+\item[a)] Create an example of a linear combination equation for vectors $u, v, w$ in $\mathbb{R}^3$ of the form $x u + y v = w$ which has no solution.
+\item[b)] Unbundle your vectors to rewrite your linear combination equation as an equivalent system of three linear equations on the variables $x$ and $y$.
+\item[c)] How should we interpret this system of linear equations? What kind of thing does each equation describe?
+\end{compactitem}
+\end{task}
+
+
+\begin{task}
+Repeat the last task, but instead, work with vectors $u, v, w$ in $\mathbb{R}^4$.
+\end{task}
+
+
+\begin{task}
+Consider the line in the plane given parametrically by 
+\[
+t \mapsto \begin{pmatrix} -2 \\ 4 \end{pmatrix} + t \begin{pmatrix} 1 \\ -1\end{pmatrix}.
+\]
+Find the coordinates of the point lying on this line which is closest to the point $P = (1,5)$.
+\end{task}
+
+
+\begin{task}
+Consider the line in the plane which is the set of solutions the equation $4x-7y=-15$. Find the point on that line which is closest to the point $Q=(-5,0)$.
+\end{task}
+
+\begin{task}
+Make an example of a linear combination equation 
+\[
+xv_1 + y v_2 + z v_3 = b
+\]
+for $4$-vectors $v_1, v_2, v_3, b$ which has no solution, or say why such an example is not possible.
+\end{task}
+
+\section*{Lines and Planes in $\mathbb{R}^3$}
+
+
+\begin{task}
+Find a parametric description for the line in $\mathbb{R}^3$ which passes through the points $T = (1,1,1)$ and $J=(12,3,-9)$.
+\end{task}
+
+
+\begin{challenge}
+Find a parametric description for the line in $\mathbb{R}^3$ which passes through the point $S = (-5,-12,-17)$ and meets the $y$-axis in a right angle.
+\end{challenge}
+
+\begin{task}
+Consider the plane which is the solution set to the equation
+$4x-3y+5z=17$. Find three distinct points on this plane.
+\end{task}
+
+
+\begin{task}
+Find a parametric description of the plane which passes through the origin and the points $T = (1,1,1)$ and $J = (12,3,-9)$.
+\end{task}
+
+
+\begin{task}
+Find an equation whose solution set is the plane which passes through the points $T = (1,1,1)$, $J = (12,3,-9)$, and $H = (2,3,2)$.
+\end{task}
+
+
+\begin{challenge}
+Consider the line in $\mathbb{R}^3$ given by the parametric description
+\[
+t \mapsto \begin{pmatrix} -6\\-2\\1 \end{pmatrix} + t \begin{pmatrix} 3\\-1/2\\1\end{pmatrix}.
+\]
+Find the point on this line which is closest to $T = (1,1,1)$.
+\end{challenge}
+
+
+\begin{challenge}
+Consider the plane in $\mathbb{R}^3$ which has the parametric description
+\[
+(s,t) \mapsto s\begin{pmatrix} 1\\1\\1\end{pmatrix} + t \begin{pmatrix} 2\\3\\2\end{pmatrix}. 
+\]
+Find the point on this plane which is closest to $J = (12,3,-9)$.
+\end{challenge}
+
+
+\begin{task}
+For each of the linear combination equations below, rewrite the equation as an equivalent system of linear equations.
+\begin{compactitem}
+\item[a)] 
+\[
+x \begin{pmatrix} -7\\ 3\end{pmatrix} + y \begin{pmatrix} 4\\ 1\end{pmatrix} = \begin{pmatrix} 5\\-3 \end{pmatrix}
+\]
+
+\item[b)]
+\[
+x \begin{pmatrix} 2\\ 0\\ 7\end{pmatrix} + y \begin{pmatrix} 12/5\\ 1/3\\ -5\end{pmatrix} = \begin{pmatrix} -8\\-3 \\ 0\end{pmatrix}
+\]
+
+\item[c)]
+\[
+x \begin{pmatrix} 2\\ 0\\ 7\end{pmatrix} + y \begin{pmatrix} 12/5\\ 1/3\\ -5\end{pmatrix} + z \begin{pmatrix} 0 \\ 9 \\ 0\end{pmatrix} = \begin{pmatrix} -8\\-3 \\ 0\end{pmatrix}
+\]
+
+\item[d)]
+\[x \begin{pmatrix} 0\\ 7\end{pmatrix} + y \begin{pmatrix} 12/5\\ -5\end{pmatrix} + z \begin{pmatrix} 9 \\ 0\end{pmatrix}= \begin{pmatrix} -3 \\ 0\end{pmatrix}
+\]
+
+\end{compactitem}
+\end{task}
+
+
+\begin{task}
+For each of the four systems of linear equations in the last task, consider the types of things which should be solutions to that system. Fill in the blanks in the descriptive sentence below:
+\begin{quotation}
+This system describes the intersection of \underline{\hspace{1in}} objects in $\mathbb{R}^{\underline{\hspace{.1in}}}$. Each object is a \underline{\hspace{1in}}.
+\end{quotation}
+\end{task}
+
+
+\begin{task}
+Consider the line in $\mathbb{R}^3$ given by the parametric description
+\[
+t \mapsto \begin{pmatrix} -6\\-2\\1 \end{pmatrix} + t \begin{pmatrix} 3\\-1/2\\1\end{pmatrix}.
+\]
+Write a set of equations which have this line as their solution set.
+
+\emph{Challenge:} Then, write a different set of equations which have this line as their solution set.
+\end{task}
+
+
+\begin{task}
+Consider the set of solutions in $\mathbb{R}^3$ of the equation below. Write a parametric description for the plane it describes.
+\[
+4x-3y+ \frac{1}{5}z = 0
+\]
+\end{task}
+
+
+\begin{task}
+Consider the set of solutions in $\mathbb{R}^3$ of the system of equations below. Write a parametric description of the line it describes.
+\[
+\left\{\begin{array}{rrrrrrr}
+x & - & 3y & + & z & = & 1 \\
+x & + & 6y & + & 2z & = & 3
+\end{array}\right.
+\]
+\end{task}
+
+\begin{task}
+Make an example of a system of two equations in three unknowns whose solution set is a plane rather than a line, or say why such an example is impossible.
+\end{task}
+
+\begin{challenge}
+Consider the set of solutions in $\mathbb{R}^3$ of the system of equations below. 
+\[
+\left\{\begin{array}{rrrrrrr}
+x & - & 3y & + & z & = & 1 \\
+x & + & 6y & + & 2z & = & 3
+\end{array}\right.
+\]
+Write a different system of equations which (1) has the same solution set, and (2) has the form
+\[
+\left\{\begin{array}{rrrrrrr}
+x &  &  & + & bz & = & d \\
+ &  & y & + & cz & = & e
+\end{array}\right.
+\]
+for some numbers $b,c,d,e$.
+\end{challenge}
+
+\begin{challenge}
+Consider the set of solutions in $\mathbb{R}^3$ of the system of equations below. 
+\[
+\left\{\begin{array}{rrrrrrr}
+x & + & 3y & + & z & = & 1 \\
+2x & + & 7y & + & 2z & = & 3
+\end{array}\right.
+\]
+Write a different system of equations which (1) has the same solution set, and (2) has the form
+\[
+\left\{\begin{array}{rrrrrrr}
+x &  &  & + & bz & = & d \\
+ &  & y & + & cz & = & e
+\end{array}\right.
+\]
+for some numbers $b,c,d,e$.
+\end{challenge}
+
+\begin{challenge}
+Consider the plane which is the solution set to the equation $5x-6y-2z=0$. Find the point on this plane which is closest to the point $T = (1,1,1)$.
+\end{challenge}
+
+\begin{challenge}
+Consider the line which is the solution set to the system of equations
+\[
+\left\{\begin{array}{rrrrrrr}
+x & - & 3y & + & z & = & 1 \\
+x & + & 6y & + & 2z & = & 3
+\end{array}\right.
+\]
+Find the point on this line which is closest to the point $T = (1,1,1)$.
+\end{challenge}
+
+\begin{challenge}
+Find a parametric description for the line which is orthogonal to the plane $x-3y+z=0$ and passes through the point $J = (12,3,-9)$.
+\end{challenge}
+
+\begin{challenge}
+Find an equation for the plane which is orthogonal to the line 
+\[
+t\mapsto t \begin{pmatrix} -2\\-3\\-2\end{pmatrix}
+\]
+and passes through the point $T = (1,1,1)$.
+\end{challenge}
+
+\begin{challenge}
+Find an equation whose solution set is the plane which is (1) parallel to the plane described by $x-3y+z=0$, and (2) passes through the point $J = (12,3,-9)$.
+\end{challenge}
+
+\begin{challenge}
+Find a set of equations whose solution set is the line which is parallel to the line 
+\[
+t\mapsto t \begin{pmatrix} -2\\-3\\-2\end{pmatrix}
+\]
+and passes through the point $T = (1,1,1)$.
+\end{challenge}
+
+
+
+\end{document}

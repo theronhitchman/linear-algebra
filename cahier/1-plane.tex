@@ -1,0 +1,319 @@
+\documentclass[cahier-main.tex]{subfiles}
+\begin{document}
+
+\chapter{Vectors and Lines the Plane}
+\label{ch:one}
+
+\section*{Points and Vectors}
+
+\begin{task}
+Write down three distinct points in the plane in proper notation. 
+Plot those three points on a single diagram.
+\end{task}
+
+\begin{task}
+Write down three distinct vectors in the plane in proper notation. 
+Your three points from this task should NOT match any of the three points from the previous task.
+Plot those three vectors on a single diagram.
+\end{task}
+
+\begin{definition}
+If $u_1, u_2, \ldots, u_n$ is a collection of vectors, and $\lambda_1, \lambda_2, \ldots$ is a collection of scalars, then the vector formed below is called a \emph{linear combination}\marginnote{Defintion: Linear Combinations} of the $u_i$'s.
+\[
+\lambda_1 u_1 + \lambda_2 u_2 + \dots \lambda_n u_n
+\]
+\end{definition}
+
+\begin{task}
+Find the sum of your three vectors from the last exercise. Then, choose some order of those three vectors so that they are $u_1$, $u_2$ and $u_3$, and compute the linear combination
+\[
+3u_1 - 2u_2 + (1/2)u_3.
+\] 
+\end{task}
+
+\begin{task}
+Let's consider the vectors $u=\left(\begin{smallmatrix} 2 \\1 \end{smallmatrix}\right)$, 
+$v=\left(\begin{smallmatrix} 1\\ 1 \end{smallmatrix}\right)$, and $w=\left(\begin{smallmatrix} -3\\ 1 \end{smallmatrix}\right)$.
+Compute all of the vectors in this list:
+\[
+\dfrac{u+v}{2}, v-u, v-w, u + \left(\dfrac{v-u}{3}\right), u + \left(\dfrac{3(v-u)}{4}\right)
+\]
+Then make a single diagram which contains $u$, $v$, $w$ and all of those vectors from the list, plotted as accurately as you can.
+
+What do you notice? Is anything interesting going on?
+\end{task}
+
+\begin{task}
+Consider the vector $u = \left(\begin{smallmatrix} -4 \\ 2\end{smallmatrix}\right)$. Find a vector $v$ which has the property that $u+v$ is the zero vector, or explain why this is not possible.
+\end{task}
+
+\begin{definition}
+An equation of the form $\lambda_1 u_1 + \dots \lambda_n u_n = w$, where all of the vectors $u_i$ and $w$ are known, but the scalars $\lambda_i$ are unknown, is called a \emph{linear combination of vectors equation}.
+\marginnote{Definition: Linear Combination Equations and their Solutions}
+A \emph{solution} to such an equation is 
+a collection of scalars which make the equation true.
+\end{definition}
+
+\begin{task}
+For now, keep $u = \left(\begin{smallmatrix} -4 \\ 2\end{smallmatrix}\right)$. 
+Let $v = \left(\begin{smallmatrix} 3 \\ 5 \end{smallmatrix}\right)$.
+How many solutions does the linear combination of vectors equation
+$\lambda u = v$
+have?
+
+How many solutions does the linear combination of vectors equation 
+$\lambda u + \mu v = 0$
+have? (Here, treat $0$ as the zero vector.)
+\end{task}
+
+\begin{task}
+We still use the notation $u$ for the vector $u = \left(\begin{smallmatrix} -4 \\ 2\end{smallmatrix}\right)$, but now use $v$ for the vector $v = \left(\begin{smallmatrix} 28 \\ -14\end{smallmatrix}\right)$.
+How many solutions does the linear combination of vectors equation $\lambda u = v$
+have?
+
+How many solutions does the linear combination of vectors equation 
+$\lambda u + \mu v = 0$ have? (Again, treat $0$ as the zero vector.)
+\end{task}
+
+\begin{task}
+Find the midpoint between the points $P = (4,-2)$ and $Q=(3,5)$. Then find the two points which divide the segment $PQ$ into thirds.
+
+How can vectors make this simpler than it first appears?
+\end{task}
+
+\begin{challenge}
+Suppose you are given three points in the plane. Let's call them $P$, $Q$, and $R$.
+How can you use vectors to (quickly) determine if these three points are collinear?
+\end{challenge}
+
+\section*{Parametric Lines in the Plane}
+
+\begin{task}
+Write down five different points which lie on the line described parametrically as:
+\[
+t \mapsto \begin{pmatrix} -5\\3 \end{pmatrix} + t \begin{pmatrix}1\\-1/2\end{pmatrix}.
+\]
+\end{task}
+
+
+\begin{challenge}
+How many different solutions\marginnote{Recall the definition above.} to the equation
+\[
+x\begin{pmatrix} 3 \\ 7\end{pmatrix} + y \begin{pmatrix} 6 \\ 14 \end{pmatrix}
+= \begin{pmatrix} -3 \\ -7 \end{pmatrix}
+\]
+can you find? How many are they? Can you find a good way to describe all of the solutions? Is there a natural geometric way to describe all of the solutions? Is there an algebraic way to describe all of the solutions?
+\end{challenge}
+
+
+\begin{task}\label{task:line-through-origin}
+Write down a parametric description for the line which passes through the origin $O=(0,0)$ and the 
+point $S = (-5,5)$.
+
+Is this the \emph{only} way to write down such a parametric description for that line?
+\end{task}
+
+
+\begin{task}\label{task:line-through-points}
+Write down a parametric description for the line which passes through the points below.
+\[
+ T = (\pi, 0), \qquad J = (0,-\pi)
+\]
+Now find a different parametric description for that line. (\emph{Hint: Can you find a way to write a parametric description that doesn't use the number $\pi$?})
+\end{task}
+
+\begin{task}
+Compare the lines from the tasks \ref{task:line-through-origin} and \ref{task:line-through-points}. Do you note anything interesting? How do you know your observation is true?
+\end{task}
+
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Y$ so that the equation
+\[
+t\begin{pmatrix}3\\-1\end{pmatrix} = Y
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Z$ so that the equation
+\[
+\begin{pmatrix}1\\2\end{pmatrix} + t\begin{pmatrix}-1\\1 \end{pmatrix} = Z
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Y$ so that the equation
+\[
+\begin{pmatrix}-2/5\\2\end{pmatrix} + tY = \begin{pmatrix}-1\\1 \end{pmatrix} 
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Z$ so that the equation
+\[
+x\begin{pmatrix}-5/3\\1\end{pmatrix} + y\begin{pmatrix}3\\7 \end{pmatrix} = Z
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+For each of the conditions below, either find an example of a $2$-vector $Z$ so that the equation
+\[
+x\begin{pmatrix}-5/3\\1\end{pmatrix} + y\begin{pmatrix}1\\-3/5 \end{pmatrix} = Z
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{task}
+
+\begin{challenge}
+Find an example of four $2$-vectors $X$, $Y$, $Z$, and $W$ so that the equation
+\[
+aX+bY+cZ = W
+\]
+has at exactly two solutions, or explain why such an example is not possible.
+\end{challenge}
+
+\section*{The Dot Product: Norms and Angles}
+
+\begin{task}
+Choose three different $2$-vectors which have neither of their components equal to zero. Call these vectors $u$, $v$, and $w$.
+\begin{compactitem}
+\item[a)] Compute the norms of $u$, $v$, and $w$.
+\item[b)] Compute the dot products $u\cdot v$, $v\cdot w$, and $u\cdot w$.
+\item[c)] Find unit vectors $u'$, $v'$, and $w'$ which point in the same directions as $u$, $v$, and $w$, respectively.
+\item[d)] Find the angles between each of the pairs, $u$ and $v$, $u$ and $w$, $v$ and $w$ in radians.
+\end{compactitem}
+\end{task}
+
+
+
+\begin{task}
+Fix some vector $u$. Draw a picture of $u$ in the plane, and then shade the region of the plane which contains vectors $v$ so that $u\cdot v> 0$.
+\end{task}
+
+
+
+\begin{task} This task continues our quest for understanding the sign of a dot product geometrically.
+\begin{compactitem}
+\item[a)] Find an example of two $2$-vectors $v$ and $w$ so that $\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot v =0$ and $\left(\begin{smallmatrix}1 \\ 2 \end{smallmatrix}\right)\cdot w = 0$, or explain why such an example is not possible.
+
+\item[b)] Let $v = \left(\begin{smallmatrix}3\\-1 \end{smallmatrix}\right)$. Find an example of a pair of $2$-vectors $u$ and $w$ such that $v \cdot u < 0$ and $v \cdot w < 0$ and $w \cdot u = 0$, or explain why no such pair of vectors can exist.
+
+\item[c)] Find an example of three $2$-vectors $u$, $v$, and $w$ so that $u \cdot v < 0$ and $u\cdot w < 0$ and $v \cdot w < 0$, or explain why no such example exists.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+What shape is the set of solutions $\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$ to the equation
+\[
+\begin{pmatrix} 3 \\ 7\end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = 5?
+\] 
+That is, if we look at all possible vectors $\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$
+which make the equation true, what shape does this make in the plane? Draw this shape.
+
+What happens if we change the vector $\left(\begin{smallmatrix} 3 \\ 7 \end{smallmatrix}\right)$ to some other vector? What happens if we change the number $5$ to some other number?
+\end{task}
+
+
+\begin{task}
+\begin{compactitem}
+\item[a)] Find an example of a number $c$ so that the equation
+\[
+\begin{pmatrix} 1 \\ -1 \end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = c
+\]
+has the vector $\left(\begin{smallmatrix}4 \\ 7 \end{smallmatrix}\right)$ as a solution, or explain why no such number exists.
+\item[b)] Let $v = \left(\begin{smallmatrix}2\\1\end{smallmatrix}\right)$ and $w=\left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)$. Find an example of a number $c$ so that 
+\begin{gather*} 
+v \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c \quad\text{ and } \quad w \cdot \begin{pmatrix}1\\-1\end{pmatrix} = c, 
+\end{gather*}
+or explain why this is not possible.
+\item[c)] Let $P = \left(\begin{smallmatrix}-3\\4\end{smallmatrix}\right)$. Find an example of numbers $c$ and $d$ so that 
+\begin{gather*} \begin{pmatrix} 2\\-1\end{pmatrix}\cdot P = c \quad\text{ and } \quad \begin{pmatrix} 1\\-1\end{pmatrix}\cdot P = d, 
+\end{gather*} 
+or explain why no such example is possible.
+\end{compactitem}
+\end{task}
+
+\section*{Equations of Lines in the Plane}
+
+\begin{task}
+Write down an equation for the set of vectors which are all orthogonal to $u=\left(\begin{smallmatrix} 3 \\ -2\end{smallmatrix}\right)$.
+\end{task}
+
+\begin{task}\label{task:norm-to-param}
+We begin with a line described parametrically by
+\[
+t \mapsto \begin{pmatrix} 6\\ -\pi \end{pmatrix} + t \begin{pmatrix} 34 \\ -19/3\end{pmatrix}.
+\]
+\begin{compactitem}
+\item[a)] Find a normal vector for this line.
+\item[b)] Plot the line and the normal vector you found.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+Find an equation for the line in the Task \ref{task:norm-to-param}.
+\end{task}
+
+\clearpage
+
+\begin{task}\label{task:norm-to-eqn}
+We begin with a line described by the equation
+\[
+-3x + y =7.
+\]
+\begin{compactitem}
+\item[a)] Find a normal vector to the line
+\item[b)] Plot this line and the normal vector you found.
+\end{compactitem}
+\end{task}
+
+\begin{task}
+Find a parametric description for the line from Task \ref{task:norm-to-eqn}.
+\end{task}
+
+\begin{task}
+Consider the line described by the equation $4x+7y=3$. Find an equation for the line which is parallel to this one, but passes through the point indicated:
+\begin{compactitem}
+\item[a)] The origin $O$.
+\item[b)] The point $P = (0,-10)$.
+\end{compactitem}
+\end{task}
+
+\begin{challenge}
+Consider the line described by the equation $x -2y = -2$. Find a line which is orthogonal to this one, and passes through the point $Q=(9,-1)$. Can you describe your line with an equation? Can you describe your line parametrically?
+\end{challenge}
+
+
+
+
+\end{document}

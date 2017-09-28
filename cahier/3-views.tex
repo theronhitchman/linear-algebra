@@ -1,0 +1,320 @@
+\documentclass[cahier-main.tex]{subfiles}
+\begin{document}
+
+
+\chapter{Interlude: Thinking about Systems of Equations}
+
+\begin{definition}
+Let $m$ and $n$ be counting numbers. A \emph{system of $m$ linear equations in $n$ unknowns} has the form
+\[
+\left\{\begin{array}{rrrrrrrrr}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots & & \vdots & & & & \vdots & = & \vdots \\
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_m \\
+
+\end{array}\right. ,
+\]
+where the unknowns are the variables $x_1, \ldots, x_n$ we are meant to find, and
+all of the other letters $a_{ij}$ and $b_j$ are scalars that we are supposed to know already. The numbers $a_{ij}$ are commonly called \emph{coefficients}.
+
+A \emph{solution} of this system is a single set of values for the $x_i$'s which makes 
+all $m$ of the equations true at the same time.
+\end{definition}
+
+We have encountered many different systems of linear equations already, though they 
+have not always been written in the standardized form above. For example, we have seen
+that to describe a line in $\mathbb{R}^3$, we need to use a system of $m=2$ equations in 
+$n=3$ variables.
+
+The goal of this set of tasks is to figure out what might count as a system of linear
+equations that ``we shouldn't find difficult.'' For now, we will work with the special case where $m=n=3$.
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Make it scary.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you don't know how to solve, and you are pretty sure no one else in class can solve inside of five minutes.
+\end{task}
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Make it so clear that you can't fail to find the solution.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you know how to solve, and you are pretty sure anyone else in class can solve almost instantly, just by looking at it.
+\end{task}
+
+\clearpage
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Just a little bit of a trick.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you know a solution for, but is mildly disguised so that you do not think your classmates can find your solution just by looking. To make sure it is only mildly disguised, aim for something that is simple to check: If you give away the answer, your classmates should say, "Of Course!"
+\end{task}
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Maybe two tricks, or one applied twice.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you a solution for, but is just a bit more disguised. This one might take two or three steps of work to ``see'' the solution.
+\end{task}
+
+\begin{task}
+By choosing particular values of the $a_{ij}$'s and the $b_j$'s,\marginnote{Design something to slow people down significantly.}
+write down an example system of $3$ linear equations in $3$ unknowns, $x_1$, $x_2$, and $x_3$, which you know how to solve, but is pretty well disguised and you are pretty sure no one else will solve it inside of 2 minutes.
+\end{task}
+
+\begin{task}
+Think about the work you have done?\marginnote{Reflection Time!} What makes a system of linear equations straightforward? What things did you do to hide the answer?
+\end{task}
+
+
+\chapter{Three Viewpoints \& Five Questions}
+
+\section{Systems of Equations vs. Linear Combination Equations}
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item A line in $\mathbb{R}^2$ defined parametrically; and
+\item a different line in $\mathbb{R}^2$ defined implicitly as the set of solutions to an equation.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these two lines. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item A line in $\mathbb{R}^3$ defined parametrically; and
+\item a plane in $\mathbb{R}^3$ defined implicitly as the set of solutions to an equation.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these two lines. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item A plane in $\mathbb{R}^3$ defined parametrically; and
+\item a different plane in $\mathbb{R}^3$ defined implicitly as the set of solutions to an equation.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these two planes. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item three different planes in $\mathbb{R}^3$, each defined implicitly as the solution set of a linear equation.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these three planes. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+\begin{task}
+Make an example of the following sort:
+\begin{compactitem}
+\item three different planes in $\mathbb{R}^3$, each defined parametrically.
+\end{compactitem}
+\begin{enumerate}
+\item[a)] Write down a system of linear equations whose solution helps you determine the points of intersection of these three planes. How many equations are there? How many unknowns?
+
+\item[b)] Rewrite the system of equations from the previous task as a linear combination of vectors equation. What kind of vectors are there? How many terms does your equation have?
+\end{enumerate}
+\end{task}
+
+\begin{task}
+Consider the system of linear equations below.
+\[
+\left\{\begin{array}{rrrrrrrrr}
+2x_1 & + & 1x_2 & - & \frac{1}{2}x_3 & + & x_4 & = & 2 \\
+-x_1 & + & 1x_2 & - & 5x_3 & + & 10x_4 & = & 12 \\
+15x_1 & + & 2x_2 & + & 4x_3 & - & x_4 & = & 17 \\
+-2x_1 & + & 3x_2 & - & \frac{1}{2}x_3 & + & 3x_4 & = & 27 \\
+3x_1 & + & 5x_2 & + & x_3 & - & 5x_4 & = & -42 \\
+\frac{3}{11}x_1 & + & 8x_2 & - & \frac{1}{2}x_3 & + & 3x_4 & = & 0 \\
+9x_1 & + & 13x_2 & + & \frac{6}{5}x_3 & + & x_4 & = & 11 
+\end{array}\right .
+\]
+\begin{itemize}
+\item[a)] Write a sentence which describes the row picture for this system of equations.
+
+\item[b)] Translate this system of equations into a linear combination of vectors equation. 
+\item[c)] Write a sentence which describes the column picture of this linear combination of vectors equation.
+\item[d)] Translate this system into a matrix-vector equation.
+\item[e)] Write a sentence which describes the transformational picture of this matrix-vector equation.
+\end{itemize}
+\end{task}
+
+\begin{task}
+Consider the linear combination of vectors equations below.
+\[
+x_1 \begin{pmatrix} 1 \\5 \end{pmatrix} + x_2 \begin{pmatrix} 1\\5 \end{pmatrix} +
+x_3 \begin{pmatrix} -3\\0 \end{pmatrix} + x_4 \begin{pmatrix} 1\\ 4/5 \end{pmatrix} +
+x_5 \begin{pmatrix} 6\\2 \end{pmatrix} + x_6 \begin{pmatrix} 9\\-9 \end{pmatrix} +
+x_7 \begin{pmatrix} \pi \\ 4 \end{pmatrix} + x_8 \begin{pmatrix} 1\\1 \end{pmatrix} +
+x_8 \begin{pmatrix} 0\\5 \end{pmatrix} = \begin{pmatrix} 4\\6 \end{pmatrix} 
+\]
+\begin{itemize}
+\item[a)] Write a sentence which describes the column picture for this system of equations.
+
+\item[b)] Translate this linear combination of vectors equation into a system of equations. 
+\item[c)] Write a sentence which describes the row picture of this system of equations.
+\item[d)] Translate this system into a matrix-vector equation.
+\item[e)] Write a sentence which describes the transformational picture of this matrix-vector equation.\end{itemize}
+\end{task}
+
+\begin{task}
+Consider the linear combination of vectors equations below.
+\[
+\begin{pmatrix} 2 & 3 \\ 45 & -2 \\ 1 & 6 \\ -5 & 0 \\ 7 & 3\end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+= \begin{pmatrix}4 \\ 0 \\ 3 \\ -4 \\ \pi \end{pmatrix} 
+\]
+\begin{itemize}
+\item[a)] Write a sentence which describes the transformational picture for this matrix-vector equation.
+
+\item[b)] Translate this matrix-vector equation into a system of linear equations. 
+\item[c)] Write a sentence which describes the row picture of this system of equations.
+\item[d)] Translate this matrix-vector equation into a linear combination of vectors equation.
+\item[e)] Write a sentence which describes the column picture of this linear combination of vectors equation.\end{itemize}
+\end{task}
+
+\begin{task}
+Consider the matrix 
+\[
+A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}
+\]
+Choose four vectors of the appropriate shape to play the role of $x$, and compute $Ax$ for each. What shape must those four vectors have? What shape must the resulting vectors $Ax$ be?
+\end{task}
+
+\begin{task}
+Consider the matrix 
+\[
+B = \begin{pmatrix} 0 & 1 & 4 \\ 1 & 1 & 3\end{pmatrix}
+\]
+Choose four vectors of the appropriate shape to play the role of $x$, and compute $Bx$ for each. What shape must those four vectors have? What shape must the resulting vectors $Bx$ be?
+\end{task}
+
+\begin{task}
+Consider the matrix 
+\[
+C = \begin{pmatrix} 2 & -1 & 0\\ -1 & 2 & -1 \\ 0 & -1 & 2 \end{pmatrix}
+\]
+Choose four vectors of the appropriate shape to play the role of $x$, and compute $Cx$ for each. What shape must those four vectors have? What shape must the resulting vectors $Cx$ be?
+\end{task}
+
+\begin{task}
+Consider the matrix 
+\[
+D = \begin{pmatrix} 1/2 & -1/2 \\ 1/2 & 1/2 \\ 1 & 1 \end{pmatrix}
+\]
+Choose four vectors of the appropriate shape to play the role of $x$, and compute $Dx$ for each. What shape must those four vectors have? What shape must the resulting vectors $Dx$ be?
+\end{task}
+
+\begin{task}
+Consider a $3\times 3$ matrix $A$ which is constructed by declaring the $3$-vectors $u_1, u_2, u_3$ as its columns.
+\[
+A = \begin{pmatrix} | & | & | \\ u_1 & u_2 & u_3 \\ | & | & | \end{pmatrix}
+\]
+What are these vectors?
+\[
+A\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad A\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad A\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}. 
+\]
+\end{task}
+
+\begin{task}
+Suppose that $A$ is a $3\times 3$ matrix. Somehow, we know the following facts:
+\[
+A\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix},
+ \quad A\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 4 \\ 7 \end{pmatrix}. 
+\]
+Find the vector
+\[
+A \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}.
+\]
+
+\end{task}
+
+\begin{task}
+Consider the matrix $B$ and the vector $c$ given below:
+\[
+B = \begin{pmatrix} 2 & 1 & 7 \\ 3 & 1 & 0 \end{pmatrix}, \quad c = \begin{pmatrix} 1 \\ -1 \end{pmatrix} .
+\]
+We wish to solve the equation $Bx=c$. Make a row picture for this situation. Then make a column picture for this situation.
+\end{task}
+
+\begin{definition} Let $A$ be an $m\times n$ matrix. The \emph{transpose} of $A$ is 
+the\marginnote{Definition of Transpose} $n\times m$ matrix obtained by switching the roles of rows and columns of $A$. So the matrix $A = (a_{ij})$ becomes the matrix $A^T = (a_{ji})$.
+
+The usual notation is $A^T$, which is read as ``$A$ transpose,'' or ``the transpose of $A$''
+\end{definition}
+
+
+\begin{task}
+Compute the transpose of the following matrices:
+\[
+A_1 = \begin{pmatrix} 4\\ 5 \\ 6\\ 7 \\ 8 \end{pmatrix}, \quad 
+A_2 = \begin{pmatrix} 2 & 1 & 3 & 1 \end{pmatrix}, \quad 
+A_3 = \begin{pmatrix} 5 & 6 \\ 1 & -1\end{pmatrix}, \quad 
+A_4 = \begin{pmatrix} 4 & 5 & 12 & 0 & 0 \\ -2 & -1 & 5 & 1 & 0 \\
+45 & -\pi & 1/2 & 1 & 5\end{pmatrix}.
+\]
+\end{task}
+
+\begin{definition} A square matrix which is equal to its transpose is called \emph{symmetric}.
+\end{definition}
+
+\begin{task}
+Make three different examples of symmetric $2\times 2$ matrices.
+\end{task}
+
+\begin{task}
+It is often useful to think of an $n$-vector as a matrix with $n$ rows and $1$ column, that is, as an $n\times 1$ matrix. Using this perspective, compute $u^T v$ for the vectors $u$ and $v$ below.
+\[
+u = \begin{pmatrix} -3 \\ 2 \\ 4 \end{pmatrix}, \quad v = \begin{pmatrix} -3 \\ 2 \\ 1 \end{pmatrix}
+\]
+What familiar operation does this mimic?
+\end{task}
+
+\begin{task}
+If we write an $m\times n$ matrix $B$ as a bundle of columns
+\[
+B = \begin{pmatrix} | & | & & | \\ b_1 & b_2 & \dots & b_n \\ | & | & & | \end{pmatrix},
+\]
+how can we understand $B^T$ in terms of those $b_i$'s?
+\end{task}
+
+\begin{task}
+Think about the work you have done in the last few tasks. How can we reinterpret the coordinates of the matrix-vector product $Ax$ in a way that uses the transpose? How does this connect to a familiar operation?
+\end{task}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
