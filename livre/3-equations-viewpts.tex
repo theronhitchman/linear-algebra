@@ -17,7 +17,7 @@ This chapter will introduce the core questions of linear algebra, which we will 
 
 %\clearpage
 
-\section{Systems of Equations -- Progress through Generalization}
+\section*{Systems of Equations -- Progress through Generalization}
 
 Let us consider an example problem.
 
@@ -78,7 +78,7 @@ Suppose that each line is described by an equation, so that the points $(x,y)$ o
 \[
 \left\{ \begin{array}{ccccc}
 ax & + & by & = & c \\
-ex & - & dy & = & f
+dx & + & ey & = & f
 \end{array}\right. .
 \]
 And this feels like the perfect fit. We need to find the numbers $x$ and $y$, no more, no less, to solve this problem.
@@ -167,7 +167,7 @@ scalar multiplication, and then remove the parentheses.
 \end{proof}
 
 
-\section{A First Geometric Viewpoint: Hyperplanes}
+\section*{A First Geometric Viewpoint: Hyperplanes}
 
 We have already seen that the set of solutions to a single linear equation $ax+by=c$ in $\R^2$ is the points which lie on a line. Similarly, the set of solutions of a single linear equation $ax+by+cz=d$ in $\R^3$ is the collection of points which lie on a plane. 
 
@@ -189,7 +189,7 @@ Now, given a system of $m$ linear equations in $n$ unknowns, we think of each in
 \textbf{The Row Picture:} We interpret solving a system of $m$ linear equations in $n$ unknowns as finding the common intersection of $m$ different hyperplanes in $\R^n$.
 \end{quote}
 
-\section{Second Geometric Viewpoint: Spans}
+\section*{Second Geometric Viewpoint: Spans}
 
 If we write our constraints instead in the form of a linear combination of $m$-vectors with $n$ terms, 
 \[
@@ -225,7 +225,7 @@ This new language has us recast the task of solving the linear combination equat
 Sometimes it can be useful to imagine a linear combination as a type of linkage which has extendible and contractible arms, but for which the angles are frozen. We are allowed to change the lengths of the arms, but not their relative directions. That analogy is imperfect, though, as it is hard to imagine the cases where the lengths of the arms become zero or even negative.
 
 
-\section{Matrices, a New Kind of Function}
+\section*{Matrices, a New Kind of Function}
 
 Comparing the written version of a system of linear equations with the written version of a linear combination equation, it appears that things get simpler as we go from the system to the vector equation. This is a bit of an illusion, of course, as all of the same information is there. Rather, we have bundled together each of the columns of coefficients into vectors, which abstracts the problem a bit. That is, it packages up several pieces of information (a whole column of independent coefficients) and into one new kind of object which we treat as a single unit (an $m$-vector).
 
@@ -259,7 +259,74 @@ A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
 \]
 is read aloud as ``the two-by-two matrix $a$, $b$, $c$, $d$.''
 
-\section{The Five Motivational Questions}
+Now, to reorganize our linear combination equation, we will bundle the different columns
+into a matrix. But that leaves out the unknowns? Where should they go? Our approach is to define a new kind of multiplication. 
+
+\begin{definition}
+Let $A$ be an $m\times n$ matrix, and let $x$ be an $n$-vector. Then, if the $n$ different columns of $A$ are written as $m$-vectors $u_1, \ldots, u_n$, we define
+the \emph{matrix-vector product} of $A$ and $x$ to be the $m$-vector
+\[
+\begin{aligned}
+Ax & = \begin{pmatrix} | & | &  & | \\ u_1 & u_2 & \dots & u_n \\ | & | &  & | 
+\end{pmatrix} \begin{pmatrix} x_1\\ x_2 \\ \vdots \\ x_n \end{pmatrix}  \\
+& = x_1 \begin{pmatrix} |  \\ u_1 \\ | \end{pmatrix} + x_2 \begin{pmatrix} |  \\ u_2 \\ | \end{pmatrix} + \dots + x_n \begin{pmatrix} |  \\ u_n \\ | \end{pmatrix}.
+\end{aligned}
+\]
+\end{definition}
+
+With this definition in place, we can rewrite our system of $m$ linear equations in $n$ unknowns, or equivalently, our linear combination of $m$-vectors equation with $n$ terms, as a \emph{matrix-vector equation}:
+\[
+Ax = b
+\]
+In this new version of the problem, we have the matrix $A$ and the $m$-vector $b$, and we wish to find the $n$-vector $x$.
+
+This new set-up is open to the criticism that we have just made up a bunch of new words in order to pack everything into much smaller notation. And that is exactly correct! Mathematicians love to do things like this. The true test is if the new words and notation help us think in a new and creative way about the problems we wish to solve. This particular instance has been effective, so we give up the objection.
+
+How should we think of these matrix objects? Here are some perfectly acceptable ways to think about it:
+\begin{itemize}
+\item A matrix is just a convenient shorthand for a rectangular array of numbers.
+\item A matrix, like a vector, is a generalized sort of number that we can study for its own sake.
+\item A matrix is a sort of machine that operates on vectors. It somehow takes an $n$-vector as an input, and remixes things to produce an $m$-vector as output.
+\end{itemize}
+All of these are valid, and we will use them all. The first one is the most obvious and it is that one we will use to actually solve systems of linear equations. The second one is a mathematician's dream problem: make up something new and see what it is like! We shall come back to this later. For now, let us focus on the third approach.
+
+Given an $m\times n$ matrix, we can pair it with any $n$ vector, and produce an $m$ vector. This is a kind of \emph{function}. (We shall also use the words \emph{transformation} or \emph{mapping}, here.) This is like the ordinary kind of function from a calculus class, in that it is some sort of way to taking some inputs and turning them into outputs which is unambiguously repeatable. But the functions in calculus all have inputs \emph{which are a single number} and outputs \emph{which are a single number}. In our new situation, the matrix takes an input from $\R^n$ and gives an output in $\R^m$. Mathematicians like to write this kind of information down like this:
+\[
+A : \R^n \rightarrow \R^m
+\]
+We are supposed to read this as ``$A$ is a transformation of $n$-vectors into $m$-vectors.''
+
+In calculus, a very useful tool for studying functions is the \emph{graph} of that function. Given a function $f:\R \rightarrow R$, you imagine the input numbers as living on a horizontal line, and the output numbers as living on a vertical line, and then plot all of the points $(x, f(x))$ to make the graph.  This will not work in our situation. At least not if we want to make an actual picture. The trouble is that our set of inputs is $n$-dimensional, where $n>1$, and our set of outputs is $m$-dimensional where $m>1$. So, if we want to think about $\R^n$ horizontally and $\R^m$ vertically\dots We run out of room on a piece of paper.
+
+So we will not use graphs very often. Instead, we will make \emph{transformational pictures} like Figure \ref{fig:trans-pic-1}.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.5]
+\draw[-] (-5,0) -- (-3,0);
+\draw[-] (-4,-1) node[right] {$\R^n$} -- (-4,1);
+\draw[-] (-1,0) --(1,0);
+\draw[-] (0,-1) node[right] {$\R^m$} -- (0,1);
+\draw[<-,thick] (-1.25,.25) arc (45:135:1);
+\node  at (-2,0) {$A$};
+\end{tikzpicture}
+\caption{Matrix $A$ as a transformation}
+\label{fig:trans-pic-1}
+\end{figure}
+
+In Figure \ref{fig:trans-pic-1}, the set of possible inputs, called the \emph{domain}, for our transformation is the $\R^n$ on the left, and the set of possible outputs, called the \emph{target}, is the $\R^m$ on the right. The arrow labeled $A$ is there to remind us that $A$ is a kind of function which picks somehow maps things from the domain into things in the target.
+
+
+
+\begin{quote}
+\textbf{The Transformation Picture:} We interpret solving an $m\times n$ matrix equation $Ax=b$ as finding the input $n$-vector $x$ which will get mapped by $A$ onto the given output $m$-vector $b$. The solution is the vector $x$ which we must find.
+\end{quote}
+
+
+
+
+
+
+\section*{The Five Motivational Questions}
 
 Now we have three different viewpoints on what our equations might represent.\\
 
@@ -270,8 +337,8 @@ system of $m$ linear  & the common intersection of\\
 equations in $n$ unknowns &  $m$  hyperplanes in $\R^n$ \\
 \hline
 linear combination of & the coefficients realizing a\\
-$m$-vectors with $n$ terms & vector in $\R^m$ as part of a \\
-& span of $n$ other vectors \\ 
+$m$-vectors with $n$ terms & vector in $\R^m$ as belonging \\
+& to a span of $n$ other vectors \\ 
 \hline
 matrix-vector equation & the input vectors from $\R^n$\\
 with an $m\times n$ matrix &  which are mapped to a given\\
@@ -279,7 +346,7 @@ with an $m\times n$ matrix &  which are mapped to a given\\
 \end{tabular}\\
 
 These three viewpoints are useful in different ways. Certain tasks are easier to 
-figure out with a particular model, in a way that often depends on the 
+think about with a particular model, in a way that often depends on the 
 information you have at hand. So you will want to practice using all three of them, 
 and passing from any one of these to the others, so that you are capable of 
 working efficiently.
@@ -293,7 +360,7 @@ problem into these five parts, which will take us some time to study.
 	\item Is there an effective algorithm for finding solutions?
 	\item Does a given equation have a solution? Can you tell in advance, without computing the answer?
 	\item Suppose that a given equation has a solution, how many solutions does it have?
-	\item Suppose that a given equation has a solution, what shape is the set of solutions? Can it be reasonably understood and described.
+	\item Suppose that a given equation has a solution, what shape is the set of solutions? Can it be reasonably understood and described?
 	\item If an equation has no solution, is there an approximate solution?	
 \end{enumerate}
 
