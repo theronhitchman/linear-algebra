@@ -1,0 +1,123 @@
+\documentclass[cahier-main.tex]{subfiles}
+\begin{document}
+
+
+\chapter{Subspaces}
+
+\section*{The Idea of a Subspace}
+
+\begin{task} Use the definition of the word \emph{subspace} to decide if each subset is a subspace of $\mathbb{R}^2$:
+\begin{compactenum}
+\item[a.] The set consisting of only the zero vector $\mathcal{Z} = \{\left(\begin{smallmatrix} 0 \\ 0 \end{smallmatrix}\right)\}$.
+\item[b.] The set consisting of the vectors whose heads lie on the circle of radius of radius $7$ about the origin.
+\item[c.] The set consisting of those vectors which have their heads on either the $x$-axis or the $y$-axis.
+\end{compactenum}
+\end{task}
+
+\begin{task} Use the definition of the word \emph{subspace} to decide if each subset is a subspace of $\mathbb{R}^3$:
+\begin{compactenum}
+\item[a.] The set of all vectors which are linear combinations of the vectors $e_1, e_2, e_3$:
+\[
+e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad e_1 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad e_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}.
+\]
+\item[b.] The set of solutions of the equation $2x + 3y = 6$.
+\item[c.] The set of vectors which are solutions of the equation $x^2+y^2-z^2 = 0$.
+\end{compactenum}
+\end{task}
+
+\begin{task}
+Experiment with some possibilities. What kinds of shapes can the subspaces of $\mathbb{R}^2$ be?
+\end{task}
+
+\begin{task}
+Experiment with some possibilities. What kinds of shapes can the subspaces of $\mathbb{R}^3$ be?
+\end{task}
+
+\begin{task}
+Run through the argument for Theorem 37 in the particular example of 
+\[
+\mathrm{Span}\left\{\begin{pmatrix} 3 \\ 4 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} \right\}.
+\]
+Do you recognize this subspace? Is there an easier way to describe it?
+\end{task}
+
+\begin{task}
+Show that the set of solutions to the system of equations below is not a subspace of $\mathbb{R}^3$, by showing that it actually fails \emph{both} conditions in the definition.
+\[
+\left\{ \begin{array}{rrrrrrr}
+x_1 &+& 2x_2 &+& 3x_3 &=& 4 \\
+x_1 &-& 2x_2 &+& 3x_3 &=& 0
+\end{array}\right.
+\]
+How could we repair this task? Find a way to make a small change to the system of equations so that the set of solutions is a subspace. How are the two solution sets related? 
+\end{task}
+
+\section{Spans vs. Homogeneous Systems}
+
+In the next three tasks, you are given a subspace described as the solution set of a homogeneous system of linear equations. Find a way to describe that same subspace as a span.
+
+\begin{task} The subspace $\mathcal{S}_1$ is the set of solutions in $\mathbb{R}^2$ to the system of equations
+\[
+\left\{\begin{array}{rrrrr}
+2x & + & y & = & 5 \\
+x & + & y & = & 7
+\end{array}\right. .
+\]
+\end{task}
+
+\begin{task} The subspace $\mathcal{S}_2$ is the set of solutions in $\mathbb{R}^3$ to the system of equations
+\[
+\left\{\begin{array}{rrrrrrr}
+x & + & 2y & + & 3z & = & 0 \\
+4x & + & 5y & + & 6z & = & 0 \\
+7x & + & 8y & + & 9z & = & 0 \\
+\end{array}\right. .
+\]
+\end{task}
+
+\begin{task} The subspace $\mathcal{S}_3$ is the set of solutions in $\mathbb{R}^4$ to the system of equations
+\[
+\left\{\begin{array}{rrrrrrrrr}
+x_1 & + & x_2 & + & x_3 & + & x_4 & = & 0 \\
+    &   & x_2 & - & x_3 & - & 2x_4 & = & 0 \\
+    &   & x_2 & + & 3x_3 &  &  & = & 0
+\end{array}\right. .
+\]
+\end{task}
+
+
+In the next three tasks, you are given a subspace described as a span. Find a homogeneous system of linear equations whose solution set is the given subspace.
+
+\begin{task} The subspace $\mathcal{S}_4$ is the span of the $2$-vectors below.
+\[
+u_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \quad u_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix} 
+\]
+For what value of $n$ is $\mathcal{S}_4$ a subspace of $\mathbb{R}^n$?
+\end{task}
+
+\begin{task} The subspace $\mathcal{S}_5$ is the span of the $3$-vectors below.
+\[
+w_1 = \begin{pmatrix} 2 \\ 1 \\ 1\end{pmatrix}, \quad w_2 =\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} 
+\]
+For what value of $n$ is $\mathcal{S}_5$ a subspace of $\mathbb{R}^n$?
+\end{task}
+
+\begin{task} The subspace $\mathcal{S}_6$ is the span of the $4$-vectors below.
+\[
+v_1 = \begin{pmatrix} 1 \\ 0 \\ 2 \\ 1 \end{pmatrix}, \quad v_2 = \begin{pmatrix} 1 \\ -1\\ 1 \\ 1 \end{pmatrix} , \quad v_3 = \begin{pmatrix} 1 \\ 2 \\ 4 \\ 1 \end{pmatrix}
+\]
+For what value of $n$ is $\mathcal{S}_6$ a subspace of $\mathbb{R}^n$?
+\end{task}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

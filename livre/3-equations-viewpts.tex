@@ -296,15 +296,17 @@ A : \R^n \rightarrow \R^m
 \]
 We are supposed to read this as ``$A$ is a transformation of $n$-vectors into $m$-vectors.''
 
-In calculus, a very useful tool for studying functions is the \emph{graph} of that function. Given a function $f:\R \rightarrow R$, you imagine the input numbers as living on a horizontal line, and the output numbers as living on a vertical line, and then plot all of the points $(x, f(x))$ to make the graph.  This will not work in our situation. At least not if we want to make an actual picture. The trouble is that our set of inputs is $n$-dimensional, where $n>1$, and our set of outputs is $m$-dimensional where $m>1$. So, if we want to think about $\R^n$ horizontally and $\R^m$ vertically\dots We run out of room on a piece of paper.
+In calculus, a very useful tool for studying functions is the \emph{graph} of that function. Given a function $f:\R \rightarrow \R$, you imagine the input numbers as living on a horizontal line, and the output numbers as living on a vertical line, and then plot all of the points $(x, f(x))$ to make the graph.  This will not work in our situation. At least not if we want to make an actual picture. The trouble is that our set of inputs is $n$-dimensional, where $n>1$, and our set of outputs is $m$-dimensional where $m>1$. So, if we want to think about $\R^n$ horizontally and $\R^m$ vertically\dots We run out of room on a piece of paper.
 
 So we will not use graphs very often. Instead, we will make \emph{transformational pictures} like Figure \ref{fig:trans-pic-1}.
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=1.5]
 \draw[-] (-5,0) -- (-3,0);
+\draw[->] (-4,0) -- (-4.5,.75) node[left] {$x$?};
 \draw[-] (-4,-1) node[right] {$\R^n$} -- (-4,1);
-\draw[-] (-1,0) --(1,0);
+\draw[-] (-1,0) -- (1,0);
+\draw[->] (0,0) -- (.75,.5) node[right] {$b$};
 \draw[-] (0,-1) node[right] {$\R^m$} -- (0,1);
 \draw[<-,thick] (-1.25,.25) arc (45:135:1);
 \node  at (-2,0) {$A$};

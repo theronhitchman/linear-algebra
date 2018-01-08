@@ -1,0 +1,307 @@
+\documentclass[cahier-main.tex]{subfiles}
+\begin{document}
+
+
+\chapter{Systems of Equations}
+
+For the next seven tasks, find the solution of the system of linear equations using the forward pass of Gaussian Elimination and back-solving. For each, identify $m$ and $n$, write down the triangular form of the system, and write down the solution in vector form. Keep track of which row operations you use, and the order in which you use them. Then, make a plot of the system of hyperplanes involved and use it to verify your solution. (The Computer might be helpful.)
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrr}
+7x & + & 3y & = & 0 \\
+  &  &  4y & = & 2
+\end{array}\right.
+\]
+\end{task}
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrr}
+& & 2y & = & 1\\
+6x & - & 3y & = & 5
+\end{array}\right.
+\]
+\end{task}
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrr}
+2x & + & y & = & 7 \\
+x & + & y & = & 5 
+\end{array}\right.
+\]
+\end{task}
+
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrrrr}
+-x & - & y & + & 3z & = & 8 \\
+   &  & 2y & - &  z & = & 3 \\
+   &  & 5y & + & 3z & = & 0 
+\end{array}\right.
+\]
+\end{task}
+
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrrrr}
+ x & + & y & + & 3z & = & 8 \\
+2x & - & y & - &  z & = & 3 \\
+   &  & 5y & + & 3z & = & 0 
+\end{array}\right.
+\]
+\end{task}
+
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrrrr}
+   &  & 5y & + & 3z & = & 0 \\
+3x & + & y & + & 3z & = & 5 \\
+2x & + & y & + & 2z & = & 7 
+\end{array}\right.
+\]
+\end{task}
+
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrrrr}
+ x & + & 2y & + &  3z & = & 4 \\
+4x & + & 5y & + &  6z & = & 10 \\
+7x & + & 8y & + & 10z & = & 17
+\end{array}\right.
+\]
+\end{task}
+
+For the next four tasks, find the solution of the system of linear equations using the forward pass of Gaussian Elimination and back-solving. For each, identify $m$ and $n$, and write down the solution in vector form. Keep track of which row operations you use, and the order in which you use them. Describe in a sentence what the row picture should be for each situation.
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrrrrrr}
+3x_1 & + & 10x_2 & = & 2/5 \\
+5x_1 & + & 17x_2 & = & -3 
+     \end{array}\right.
+\]
+\end{task}
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrrrrrr}
+x_1 & + &            x_2 & - & x_3 & = & -1 \\
+2x_1 & + & \frac{1}{2}x_2 & + & x_3 & = & 3 \\
+-2x_1 & - &            x_2 & + &\frac{3}{4} x_3 & = & 2
+\end{array}\right.
+\]
+\end{task}
+
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrrrrrr}
+     &   & 3x_2 & + & 4x_3 & - &  x_4 & = & 1 \\
+     &   &  x_2 & + & 6x_3 & + &  x_4 & = & 1 \\
+2x_1 &   &      & + & 3x_3 & - &  x_4 & = & 1 \\
+5x_1 & - &  x_2 & + &  x_3 & + & 3x_4 & = & 1
+\end{array}\right.
+\]
+\end{task}
+
+\begin{task}
+\[
+\left\{\begin{array}{rrrrrrrrrrr}
+3x_1 & + & 17x_2 & - &  x_3 & + & 3x_4 & + &  x_5 & = & 1 \\
+ x_1 & + &  6x_2 & - & 2x_3 & + &  x_4 & + &  x_5 & = & 0 \\
+2x_1 & + &  2x_2 & + &  x_3 & - & 5x_4 & + &  x_5 & = & 1 \\ 
+     &   &       &   & 3x_3 & + &  x_4 & - & 3x_5 & = & 1 \\
+-2x_1& + &  3x_2 & + & 4x_3 & + &  x_4 & + &  x_5 & = & 0
+\end{array}\right.
+\]
+\end{task}
+
+\subsection{Challenging Systems}
+
+\begin{task}
+Find all of the solutions to this system, if you can. If this is impossible, say why.
+\[
+\left\{
+\begin{array}{rrrrr}
+14x & + & 7y & = & 21 \\
+ 6x & + & 3y & = & 9
+\end{array}\right.
+\]
+\end{task}
+
+\begin{task}
+Find all of the solutions to this system, if you can. If this is impossible, say why.
+\[
+\left\{
+\begin{array}{rrrrrrr}
+14x & + & 7y & - & z & = & 21 \\
+ 6x & + & 4y & + & z & = & 9
+\end{array}\right.
+\]
+\end{task}
+
+\begin{task}
+Find all of the solutions to this system, if you can. If this is impossible, say why.
+\[
+\left\{
+\begin{array}{rrrrr}
+14x & + & 7y & = & 21 \\
+ 6x & + & 3y & = & 15 \\
+  x & + & 4y & = & 0
+\end{array}\right.
+\]
+
+\end{task}
+
+\begin{task}
+Find all of the solutions to this system, if you can. If this is impossible, say why.
+\[
+\left\{
+\begin{array}{rrrrrrr}
+2x_1 & + &  x_2 & - & 3x_3 & = & 0 \\
+4x_1 & + & 2x_2 & + &  x_3 & = & 0 \\
+6x_1 & + & 3x_2 & + &  x_3 & = & 0
+\end{array}
+\right.
+\]
+\end{task}
+
+\begin{task}
+What choices of the numbers $b_i$ will make this equation inconsistent? What choices of these numbers will allow us to find a solution?
+\[
+\left\{
+\begin{array}{rrrrr}
+x & + & 2y & = & b_1 \\
+2x & + & 4y & = & b_2 \\
+2x & + & 5y & = & b_3 \\
+3x & + & 9y & = & b_4 
+\end{array}\right.
+\]
+\end{task}
+
+\begin{challenge}
+Choose the coefficients $a_{ij}$ for a system of equations of this form
+\[
+\left\{
+\begin{array}{rrrrrrr}
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 = b_1 \\
+a_{21}x_1 + a_{22}x_2 + a_{23}x_3 = b_2 \\
+a_{31}x_1 + a_{32}x_2 + a_{33}x_3 = b_3 
+\end{array}
+\right. .
+\]
+Your coefficients should have the properties that 
+\begin{compactenum}
+\item for some choice of $b_i$'s the resulting system of equations has no solutions, and
+\item for some (other) choice of $b_i$'s the resulting system has at least two solutions.
+\end{compactenum}
+Write down the different choices of $b_i$'s that you use, and the solutions that correspond to the second case.
+\end{challenge}
+
+\section{Row Operations and Equivalence of Systems}
+
+\begin{definition} Given a system of $m$ linear equations in $n$ unknowns, the \emph{solution set} for the system is the collection of all points $P$ in $\mathbb{R}^n$ whose coordinates $P =(x_1, \ldots, x_n)$ satisfy all of the equations simultaneously.
+
+
+Fix a counting number $n$.
+We say that two systems of linear equations in $n$ variables are \emph{equivalent} if
+they have the same solution set.
+\end{definition}
+
+\begin{task}
+Suppose that $\lambda$ is a non-zero number. Show that 
+the system
+\[
+ax + by +cz = d
+\]
+is equivalent to the system
+\[
+\lambda ax + \lambda by  + \lambda cz = \lambda d .
+\]
+You will want to do two things: first show that any solution of the first system is a solution of the second system; then show that any solution of the second system is a solution of the first.
+\end{task}
+
+\begin{task}
+Show that the system
+\[
+\left\{
+\begin{array}{rrrrrrr}
+ax &+& by &+& cz &=& d \\
+\alpha x &+& \beta y &+& \gamma z &=& \delta
+\end{array}
+\right.
+\]
+is equivalent to the system
+\[
+\left\{
+\begin{array}{rrrrrrr}
+\alpha x &+& \beta y &+& \gamma z &=& \delta \\
+ax &+& by &+& cz &=& d 
+\end{array}
+\right.
+\]
+You will want to do two things: first show that any solution of the first system is a solution of the second system; then show that any solution of the second system is a solution of the first.
+\end{task}
+
+
+\begin{task}
+Show that the system
+\[
+\left\{
+\begin{array}{rrrrrrr}
+ax &+& by &+& cz &=& d \\
+\alpha x &+& \beta y &+& \gamma z &=& \delta
+\end{array}
+\right.
+\]
+is equivalent to the system
+\[
+\left\{
+\begin{array}{rrrrrrr}
+ax &+& by &+& cz &=& d \\
+(a+\alpha) x &+& (b+\beta) y &+& (c+\gamma) z &=& d+\delta
+\end{array}
+\right.
+\]
+You will want to do two things: first show that any solution of the first system is a solution of the second system; then show that any solution of the second system is a solution of the first.
+\end{task}
+
+
+\begin{task}
+Suppose that $\lambda$ is a non-zero number. Show that the system
+\[
+\left\{
+\begin{array}{rrrrrrr}
+ax &+& by &+& cz &=& d \\
+\alpha x &+& \beta y &+& \gamma z &=& \delta
+\end{array}
+\right.
+\]
+is equivalent to the system
+\[
+\left\{
+\begin{array}{rrrrrrr}
+ax &+& by &+& cz &=& d \\
+(\lambda a+\alpha) x &+& (\lambda b+\beta) y &+& (\lambda c+\gamma) z &=& d+\delta
+\end{array}
+\right.
+\]
+You will want to do two things: first show that any solution of the first system is a solution of the second system; then show that any solution of the second system is a solution of the first.
+\end{task}
+
+\begin{task}
+Think about the tasks above. Discuss why applying each of our three types of row operations to a system of equations leads to an equivalent system of equations.
+
+That is, discuss why Gaussian Elimination works.
+\end{task}
+
+
+
+
+\end{document}
