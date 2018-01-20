@@ -1,0 +1,105 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{The Idea of a Subset}
+
+
+
+As our study progresses, we will encounter many examples of collections of things. Often those collections will have other interesting collections inside of them. We will also encounter this phenomenon in reverse, where a collection which interests us actually lies inside some other collection, which is somehow larger.  It will be convenient for us to have some basic language for these relationships, so we take that up now.
+
+\subsection*{A Set and its Elements}
+
+The way a mathematician talks about a collection of things is to use the word \emph{set}.
+What is a \emph{set}? Well, a \emph{set} is a collection of things. (There are some really deep intellectual waters nearby this concept, but we will avoid those this semester. The basic idea will be enough to get us through.) What is important is that a set has \emph{elements}. 
+
+In fact, the only thing we want to formalize here is the idea of membership. Suppose that we have two mathematical objects. The first, $S$, is required to be a set. The second, $a$, need not be a set, though it might be. We will say that \emph{$a$ is an element of $S$} and write the notation
+\[
+a \in S
+\]
+when $a$ happens to be one of the things in the collection $S$.
+
+A simple example will go far. Suppose that $S$ is the collection consisting of the numbers $1$, $2$, $3$ and $4$. Then $S$ is a set, and the numbers $1$, $2$, $3$, and $4$ are the elements of $S$. But the number $5$ is not an element of $S$, because it is not part of the collection.
+
+It will help us to have notation for describing sets. The standard way to do it is to describe a set using curly braces, like so:
+\[
+S = \{1, 2, 3, 4\}
+\]
+The above sentence should be read ``$S$ is the set consisting of the elements $1$, $2$, $3$, and $4$.'' Here, the curly braces are a visual signal of the beginning and the end of the description of the set. They also serve as a visual metaphor: mathematicians tend to think of a set as a type of container which holds other things. Because we know that $3$ is an element of this set $S$, but $5$ is not an element of $S$, we write
+\[
+3 \in S \text{ and } 5 \not\in S,
+\]
+where the slash through the $\in$ symbol changes the meaning from ``is an element of'' to ``is not an element of.''
+
+Sometimes it is convenient to list all of the elements in a set, but often it is not. In those cases, we use a modification of the notation above. First, we set up some notation for the possible elements, then we write a vertical bar, and then we write down a description telling what has to be true for that object before the bar to be an element. Take note that this description might be something written in an sentence, or something written with mathematical symbols. 
+
+Again, some examples will help. The set of all real numbers, the set of integers, the set of $2$d vectors, the set of positive real numbers, and the set of points in the plane which lie on a standard parabola can be written as in these examples below.
+
+\begin{align*}
+\R & = \{ x \mid \text{$x$ is a real number} \} \\
+\mathbb{Z} & = \{ x\in \R \mid \text{$x$ is an integer} \}\\
+\R^2 &= \{ v = \left(\begin{smallmatrix} x\\y\end{smallmatrix}\right) \mid x, y \in \R \}\\
+P & = \{x \in \R \mid x > 0 \} \\
+Q & = \{ p = (x,y) \mid \text{$x, y \in \R$ and $y=x^2$} \}
+\end{align*}
+
+
+The description to the right of the vertical bar is very important for deciding if something is an element of the set or not. It gives exactly the criterion for testing. If your object makes the statement true, it is an element of the set. If your object makes the statement false, then it is not an element of the set. For example, it should be clear that the following statements are true:
+\[
+(5,10) \not\in Q, \quad (-3,9) \in Q.
+\]
+
+
+\subsection*{Subsets}
+
+We can build on the relationship between a set and its elements to consider a kind of containment relationship between two sets.
+
+\begin{definition} Let $S$ and $T$ be two sets. We say that \emph{$S$ is a subset of $T$} when for each element $x$ of $S$, we have that $x$ is also an element of $T$. If $S$ is a subset of $T$, we will use the notation
+\[
+S \subset T.
+\]
+\end{definition}
+
+
+In our list of examples above, we have several subset relationships. For example, since every integer is a real number, we know that $\mathbb{Z} \subset \R$. Similarly, $P \subset \R$. But there are integers which are not positive numbers, so it is not the case that $\mathbb{Z}$ is a subset of $P$.
+
+
+
+\subsection*{Exercises}
+
+\begin{exercise}
+Use our notation to write down a description of the set $E$ which consists of all even integers.
+\end{exercise}
+
+\begin{exercise}
+Rewrite the set definition below as a sentence in plain English.
+\[
+C = \left\{ v = \begin{pmatrix}x_1 \\ x_2 \end{pmatrix} \middle| \, x_1^2 + x_2^2 = 2 \right\}
+\]
+It turns out that $C$ is a subset of some familiar set. Which one is it?
+\end{exercise}
+
+
+\begin{exercise}
+Let $C$ be the set from the last exercise.
+Find three examples of vectors in $\R^2$ which are elements of the set $C$.
+
+Then find three example of vectors in $\R^2$ which are not elements of $C$.
+\end{exercise}
+
+\begin{exercise}
+Let $v \in \R^2$ be the vector $v = \left(\begin{smallmatrix} 1\\-2\end{smallmatrix}\right)$.
+We are interested in the subset of $\R^2$ which consists of vectors $w$ so that $v$ and $w$ make a right angle.
+First, write out a description of this set in proper notation. Then try to describe what this set looks like in common terms.
+\end{exercise}
+
+
+\begin{exercise}
+Repeat the last exercise, but instead work in $\R^3$ and with the vector $v$ below.
+\[
+v = \begin{pmatrix} 3\\-1\\2\end{pmatrix}
+\]
+\end{exercise}
+
+
+\clearpage
+
+\end{document}

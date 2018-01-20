@@ -1,0 +1,64 @@
+\documentclass[11pt]{book}
+\usepackage{subfiles}
+\usepackage{amsthm,amssymb,amsfonts,amsmath}
+\usepackage{paralist}
+
+% graphics stuff: tikz and images
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+% theorem environments
+\theoremstyle{plain}
+\newtheorem*{readingex}{Reading Exercise}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem{challenge}[exercise]{Challenge}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+
+% math operators
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\smvec}[2]{\left(\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right)}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\q}{\mathcal{Q}}
+\newcommand{\Span}[1]{\mathrm{Span}\left\{ #1 \right\}}
+
+
+
+% title info
+\title{The Elements of Linear Algebra\\ Version 2018S}
+\author{Theron J. Hitchman}
+
+\begin{document}
+\maketitle
+
+\subfile{00-intro}
+\chapter{Orientation and Preliminaries}
+\subfile{01-3views}
+\subfile{02-pvv}
+\subfile{03-subsets}
+\subfile{04-dotprod}
+\subfile{05-lines}
+
+%\chapter{Rows and Solving Systems}
+
+
+%\chapter{Columns and Subspaces}
+
+
+%\chapter{Matrices and Transformations}
+
+
+%\chapter{The Geometry of a Matrix}
+
+
+%\chapter{Advanced Abstraction}
+
+
+\end{document}
