@@ -1,0 +1,192 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{Row Operations}
+
+Our next goal is to learn how to solve systems of linear equations. That is, given a system of $m$ linear equation in $n$ unknowns, we want to find the affine subset of $\R^n$ which is the solution set of the system. We only begin here, as a full understanding of the process and its structure will take us until the end of the present chapter. The first step is to find simple ways to transform a system into a different system which is easier to solve. Of course, it is important to know that the system we start with and the system we end with have the same solution set.
+
+\begin{definition}[Equivalent Systems] Two systems of $m$ linear equations in $n$ unknowns are called \emph{equivalent} if they have the same affine subset of $\R^n$ as solution set. That is, two systems are equivalent if any solution of one of the systems is also a solution of the other solution.
+\end{definition}
+
+\subsection*{The First Two Row Operations}
+
+We shall need a small set of useful things one can do to a system of equations that will produce an equivalent system, these changes are called \emph{elementary row operations}.
+For reference, we shall use this generic system of $m$ linear equations in $n$ unknowns
+\begin{equation}\label{eq:08-sys}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_m 
+\end{array}\right.,
+\end{equation}
+
+\begin{definition}
+An \emph{elementary row operation of type 1} consists of replacing a single equation, say the $i$th row,
+\[
+a_{i1} x_1  +  a_{i2} x_2  +  \dots  +  a_{in} x_n  =  b_i \\
+\]
+by a scalar multiple of that row, say
+\[
+\lambda a_{i1} x_1 + \lambda a_{i2} x_2  + \dots + \lambda a_{in} x_n  =  \lambda b_i \\
+\]
+where $\lambda$ is a non-zero scalar.
+\end{definition}
+
+\begin{remark}
+An elementary row operation of type 1 is reversible. To undo the operation ``multiply row $i$ by $\lambda$'' use the operation ``multiply row $i$ by $\lambda^{-1}$''.
+\end{remark}
+
+\begin{theorem}
+Making an elementary row operation of type 1 produces an equivalent system.
+\end{theorem}
+
+\begin{proof}
+For a single equation, by Theorem \ref{thm:rescaling-hyperplane}, rescaling that equation does not change the hyperplane representing that equation. Since this one hyperplane is unchanged, the affine subset of solutions to the system is also unchanged, as the solution set is just where all of the hyperplanes for a system meet. 
+
+In essence, though an equation has changed, none of the hyperplanes have moved at all.
+\end{proof}
+
+
+\begin{definition}
+An \emph{elementary row operation of type 2} consists of swapping the positions of two rows. In particular, replace row $i$ by row $j$, and at the same time, replace row $j$ by row $i$. This is sometimes called a \emph{row swap}, and one says ``swap rows $i$ and $j$.''
+\end{definition}
+
+\begin{remark}
+An elementary row operation of type  is reversible. To undo the operation ``swap rows $i$ and $j$'' just repeat the operation.
+\end{remark}
+
+\begin{theorem}
+Making an elementary row operation of type 2 produces an equivalent system.
+\end{theorem}
+
+\begin{proof}
+Again, though the ordering of things has changed, none of the actual hyperplanes involved has changed. Therefore, the affine subset which is the solution of the system is exactly the same.
+\end{proof}
+
+% done to here
+
+\subsection*{The Third Row Operation}
+
+The third operation is the most interesting. There are two ways to think about it, but the end effect is the same. As with operation 2, we will only involve two rows, so let's pick out two rows from our system, say row $i$ and row $j$, and isolate them.
+\begin{equation}
+\left\{
+\begin{array}{ccccccccc}
+a_{i1} x_1 & + & a_{i2} x_2 & + & \dots & + & a_{in} x_n & = & b_i \\
+a_{j1} x_1 & + & a_{j2} x_2 & + & \dots & + & a_{jn} x_n & = & b_j 
+\end{array}\right.,
+\end{equation}
+Our goal is to eliminate the appearance of the variable $x_1$ in the second equation. To do so, we rearrange the first equation to isolate $x_1$
+\[
+x_1 = \dfrac{b_i}{a_{i1}} - \left( \dfrac{a_{i2}}{a_{i1}} x_2 + \dots + \dfrac{a_{in}}{a_{i1}} x_n \right).
+\]
+Now, substitute this in for $x_1$ in the second equation. Then the second equation becomes
+\[
+a_{j1}\left( \dfrac{b_i}{a_{i1}} - \left( \dfrac{a_{i2}}{a_{i1}} x_2 + \dots + \dfrac{a_{in}}{a_{i1}} x_n \right) \right) + a_{j2} x_2  + \dots + a_{jn} x_n = b_j 
+\]
+which we can reorganize to keep like terms together so that it reads
+\[
+ \left(a_{j2}-\dfrac{a_{j1}}{a_{i1}}a_{i2}\right) x_2  + \dots + \left(a_{jn}-\dfrac{a_{j1}}{a_{i1}}a_{in}\right) x_n = b_j - \dfrac{a_{j1}}{a_{i1}} b_i .
+\]
+That is the end result. The substitution has eliminated the occurrence of the variable $x_1$ from the second equation. But look closely. An easier way to do the work is to notice that we have made a linear combination of the two equations: we have multiplied the $i$th equation by $\lambda = -a_{j1}/a_{i1}$ and then added it to the $j$th equation.
+
+
+\begin{definition}
+An \emph{elementary row operation of type 3} consists adding a scalar multiple of one row to another. For example, multiply the $i$th row by a non-zero scalar multiple $\lambda$, and add the result to the $j$th equation. Every other row (not the $j$th) is left alone.
+
+If we choose a variable $x_k$, and the scalar multiple $\lambda$ is chosen to be $\lambda = -a_{jk}/a_{ik}$, this will have the effect of eliminating the occurrence of the variable $x_k$ from row $j$.
+\end{definition}
+
+\begin{remark}
+An elementary row operation of type 3 is reversible. To undo the operation ``add $\lambda$ times row $i$ to row $j$'' use the operation ``add $-\lambda$ times row $i$ to row $j$''.
+\end{remark}
+
+\begin{theorem}
+Making an elementary row operation of type 3 produces an equivalent system.
+\end{theorem}
+
+\begin{proof}
+The only hyperplane which changes is the $j$th. But any vector which satisfies the original equations $i$ and $j$, will still satisfy the new equations too, since we are just doing a substitution.
+\end{proof}
+
+If we put together the three theorems above, we get the following.
+
+\begin{theorem} If two systems of $m$ linear equations in $n$ unknowns are related by a sequence of elementary row operations, then those systems are equivalent.
+\end{theorem}
+
+
+\clearpage
+
+\subsection*{Exercises}
+
+\begin{exercise} Consider the following system of $2$ linear equations in $2$ unknowns. Make an example of an equivalent system which you think is easier to find a solution. Don't worry about finding the solution, yet. Just try to make it easier to solve.
+\[
+\left\{\begin{array}{rrrrr}
+2x & + & y & = & 7 \\
+x & + & y & = & 5
+\end{array}\right.
+\]
+\end{exercise}
+
+\begin{exercise} Consider the following system of $2$ linear equations in $2$ unknowns. Make an example of an equivalent system which you think is easier to find a solution.
+Don't worry about finding the solution, yet. Just try to make it easier to solve.
+\[
+\left\{\begin{array}{rrrrr}
+9x &  &   & = & 7 \\
+3x & - & y & = & 5
+\end{array}\right.
+\]
+\end{exercise}
+
+\begin{exercise} Consider the following system of $3$ linear equations in $3$ unknowns. Make an example of an equivalent system which you think is easier to find a solution.
+Don't worry about finding the solution, yet. Just try to make it easier to solve.
+\[
+\left\{\begin{array}{rrrrrrr}
+2x &  &   & + & z & = & 7 \\
+3x & - & y & + & 2z & = & 5 \\
+x & + & y & + & z & = & 0 \\
+\end{array}\right.
+\]
+\end{exercise}
+
+
+\begin{exercise}
+Consider the following system of $3$ linear equations in $3$ unknowns. Use a sequence of row operations to make an equivalent system, and then find the solution set.
+\[
+\left\{\begin{array}{rrrrrrr}
+2x &  &   & + & z & = & 7 \\
+3x & - & y & + & 2z & = & 5 \\
+x & + & y & + & z & = & 0 \\
+\end{array}\right.
+\]
+\end{exercise}
+
+\begin{exercise}
+Consider the following system of $3$ linear equations in $3$ unknowns. Use a sequence of row operations to make an equivalent system, and then find the solution set.
+\[
+\left\{\begin{array}{rrrrrrr}
+x & + & 2y & + & z & = & 1 \\
+x & - & y & + & 2z & = & 1 \\
+x & + & y & + & z & = & 0 \\
+\end{array}\right.
+\]
+\end{exercise}
+
+\begin{exercise}
+Consider the following system of $3$ linear equations in $3$ unknowns. Use a sequence of row operations to make an equivalent system, and then find the solution set.
+\[
+\left\{\begin{array}{rrrrrrr}
+-x & + & 4y & + & z & = & 0 \\
+3x & + & y & + & 2z & = & 1 \\
+x & + & 8y & + & 3z & = & 0 \\
+\end{array}\right.
+\]
+\end{exercise}
+
+
+
+\begin{exercise} Think hard about the work you have done, and then write down two or three sentences answering the following question: What makes a system $m$ linear equations in $n$ unknowns ``simple'' from the point of view of finding a solution?
+\end{exercise}
+
+\clearpage
+\end{document}

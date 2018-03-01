@@ -1,0 +1,147 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section[There and Back Again]{There and Back Again, a Vector's Story}
+
+We have introduce the concept of a subspace of $\R^n$, which is a piece of $\R^n$ that contains all of the linear combinations of its elements. Then we found that there are two interesting ways to describe subspaces, and each is associated to a matrix in some way.
+
+Suppose that $A$ is an $m\times n$ matrix. Let's recall our two situations.
+
+The column space of $A$ is the span of the columns of $A$, and hence a subspace of $\R^m$. It is the set of vectors $b$ for which the equation $Ax=b$ has at least one solution.
+
+The null space of $A$ is the collection of vectors $x \in \R^n$ so that $Ax=0$. That is, these are the vectors which are solutions to the homogeneous system of linear equations with coefficient matrix $A$.
+
+If we wish to describe a subspace, we can make it as the column space of some matrix $C$, or we can make it the null space of some other matrix $N$, but in general, those two matrices $C$ and $N$ will be different. They will probably even have different shapes!
+
+Here is a cool thing: given a subspace described as $\mathrm{null}(N)$, it is possible to also describe it as $\mathrm{col}(C)$ for some matrix $C$. That is, something described as a solution set can also be described as a span. Similarly, given a subspace described as $\mathrm{col}(C)$, it is possible to also describe it as $\mathrm{null}(N)$. That is, given something described as a span, we can also describe it as a solution set. Even better, the ways to do these translations are just the kinds of basic tools we have used before of eliminating or introducing new parameters.
+
+
+\subsection*{From null space to column space: Finding null vectors}
+
+Suppose we have a subspace $\mathcal{S}$ which is given as the null space of a matrix $N$. Then 
+\[
+\mathcal{S} = \mathrm{null}(N) = \{ x \in \R^n \mid Nx = 0 \}
+\]
+is the set of solutions of the homogeneous system of linear equations represented by $Nx=0$. We can describe this solution set by our Gauss-Jordan elimination process: Put $N$ into reduced row echelon form, identify the pivots and free columns, and then write down the primary null vectors $n_1, n_2, \ldots, n_k$. Then the solution set is
+\[
+\mathcal{S} = \mathrm{span}\{ n_1, n_2, \ldots, n_k\}.
+\]
+In order to make this a column space, we just construct a matrix $N$ which has these primary null vectors as columns:
+\[
+N = \begin{pmatrix} | & | &  & | \\ n_1 & n_2 & \dots & n_k \\ | & | &  & | \end{pmatrix}.
+\]
+Now by the definition of column space, it is the case that $\mathcal{S} = \mathrm{col}(N)$.
+
+\subsection*{From column space to null space: Finding an annihilator}
+
+Next, suppose we have a subspace $\mathcal{S}$ which is described as a span, that is as a column space for some $m\times n$ matrix $C$:
+\[
+\begin{split}
+\mathcal{S} & = \mathrm{col}(C) = \{ b  \in \R^m \mid \text{$b = Cy$ for some $y \in \R^n$} \} \\
+ & = \{ b = x_1 c_1 + \dots x_n c_n \mid x_1, x_2, \dots, x_n \in \R  \},
+\end{split}
+\]
+where the $c_i$'s are the columns of the matrix
+\[
+C = \begin{pmatrix} | & | &  & | \\ c_1 & c_2 & \dots & c_n \\ | & | &  & | \end{pmatrix}.
+\]
+
+If $b$ lies in $\mathcal{S}$, then the equation $Cx=b$ has at least one solution. In particular, the system of equations represented by $Cy=b$ is consistent. The thing is, we don't, yet, know what $b$ is. So we will fill $b$ with variables, and then see what must be true about those variables in order that $Cy=b$ is a consistent equation. Write the coefficients of $b \in \R^m$ as $x_1$, $x_2$, \dots, $x_m$. 
+Form the augmented matrix
+\[
+(C\,|\,b) = \augmatrix{cccc}{| & | &  & | & | \\ c_1 & c_2 & \dots & c_n & \text{$x_i$'s} \\ | & | &  & | & |}
+\]
+where the extra column has the variables in it. Then use Gauss-Jordan elimination to put $C$ in reduced row echelon form. You should then have something that looks like
+\[
+\augmatrix{ccc}{  & R & &  \text{mess} \\ 0 & \dots & 0  & \text{linear expression in the $x_i$'s} \\  \vdots & \ddots & \vdots & \vdots  \\
+0 & \dots & 0   & \text{linear expression in the $x_i$'s}}.
+\]
+
+All of those rows at the bottom are the key. Each one of them imposes a constraint on the system. In order that the system is consistent, we must have the linear expression in the extra column equal to zero. Collect those up! They are the equations that the coefficients of $b$ must satisfy. This is how we find a homogeneous system of equations that describes $\mathcal{S}$. If we form the coefficient matrix of this homogeneous system, we have created the annihilator matrix $N$ so that $\mathcal{S} = \mathrm{null}(N)$.
+
+
+
+\clearpage
+
+In the first four exercises, you are given a subspace described as the solution set to a homogeneous system of linear equations. (This may be written in one of our other forms!) Find a way to write this subspace as a span. Then write down a matrix $C$ which has the given subspace as its column space.
+
+\begin{exercise} The subspace $\mathcal{S}_1$ of $\R^5$ is the set of solutions of the homogeneous system of linear equations below:
+\[
+\left\{\begin{array}{rrrrrrrrrrr}
+x_1 & - & 3x_2 & + & 2x_3 & - & x_4 & + & 2x_5 & = & 0 \\ 
+3x_1 & - & 9x_2 & + & 7x_3 & - & x_4 & + & 3x_5 & = & 0 \\
+2x_1 & - & 6x_2 & + & 7x_3 & + & 4x_4 & - & 5x_5 & = & 0 \\
+\end{array}\right.
+\]
+\end{exercise}
+
+\begin{exercise} The subspace $\mathcal{S}_2$ of $\R^6$ is the null space of the matrix $A$ below:
+\[
+A = \begin{pmatrix}   
+1 & 2 & 1 & 2 & 3 & 1 \\ 2 & 4 & 3 & 7 & 7 & 4 \\ 1 & 2 & 2 & 5 & 5 & 6 \\
+3 & 6 & 6 & 15 & 14 & 15
+\end{pmatrix}.
+\]
+\end{exercise}
+
+
+\begin{exercise} The subspace $\mathcal{S}_3$ of $\R^3$ is the set of solutions of the linear combination of vectors equation below:
+\[
+x_1 \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} + x_2 \begin{pmatrix} 45 \\ 17 \\ -32 \end{pmatrix} + x_3 \begin{pmatrix} 5 \\ -23 \\ -72  \end{pmatrix}  = 0
+\]
+\end{exercise}
+
+
+\begin{exercise} The subspace $\mathcal{S}_4$ of $\R^4$ is the null space of the matrix $B$ below:
+\[
+B = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 1 & 2 & 3 & 2 \\ 2 & 5 & 6 & 4 \\ 
+2 & 6 & 8 & 5 \end{pmatrix}.
+\]
+\end{exercise}
+
+
+In the next four exercises, you are given a subspace described as a span. (This may be written in one of our other forms.) Find a way to write this subspace as a solution set. Then write down the corresponding annihilator matrix.
+
+\begin{exercise} The subspace $\mathcal{S}_5$ of $\R^5$ is the span of the vectors $u_i$ listed below:
+\[
+u_1 = \begin{pmatrix} 1 \\ 2 \\ -1 \\ 3 \\ 4 \end{pmatrix}, \quad 
+u_2 = \begin{pmatrix} 2 \\ 4 \\ -2 \\ 6 \\ 8 \end{pmatrix}, \quad 
+u_3 = \begin{pmatrix} 1 \\ 3 \\ 2 \\ 2 \\ 6 \end{pmatrix}, \quad 
+u_4 = \begin{pmatrix} 1 \\ 4 \\ 5 \\ 1 \\ 8 \end{pmatrix}, \quad 
+u_5 = \begin{pmatrix} 2 \\ 7 \\ 3 \\ 3 \\ 9 \end{pmatrix}. 
+\]
+\end{exercise}
+
+
+
+\begin{exercise}
+The subspace $\mathcal{S}_6$ of $\R^5$ is the column space of the matrix $F$ listed below:
+\[
+F = \begin{pmatrix} 38 & 11 & 43 \\ -1 & 2 & 3 \\ 56 & 12 & 1 \\ 90 & 23 & 1 \\ -1 & 1 & 1 \end{pmatrix}
+\]
+\end{exercise}
+
+
+
+\begin{exercise}
+The subspace $\mathcal{S}_7$ of $\R^3$ is the column space of the matrix $G$ listed below:
+\[
+G = \begin{pmatrix} 543 & 45 & -19 \\ 34 & 44 & 61 \\ -18 & -90 & 0 \end{pmatrix}
+\]
+\end{exercise}
+
+
+\begin{exercise} The subspace $\mathcal{S}_8$ of $\R^4$ is the set of all vectors $b$ such that the following homogeneous system of linear equations has at least one solution.
+\[
+\left\{\begin{array}{rrrrrrr}
+x_1 & + & 3x_2 & + & 2x_3 & = & b_1 \\
+-3x_1 & - & 9x_2 & - & 6x_3 & = & b_2 \\
+2x_1 & + & 7x_2 & + & 7x_3 & = & b_3 \\
+-x_1 & + & -x_2 & + & 4x_3 & = & b_4 \\
+\end{array}\right.
+\]
+\end{exercise}
+
+
+
+\clearpage
+\end{document}

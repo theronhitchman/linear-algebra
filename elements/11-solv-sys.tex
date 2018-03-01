@@ -1,0 +1,175 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{Solving a General System}
+
+We are now prepared to complete our solution to the main problem in linear algebra. This is a reasonable time to summarize our work, so let's recall what we know.
+
+Recall that a system of $m$ linear equations in $n$ unknowns takes the following form:
+\begin{equation}\label{eq:11-sys}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_2 
+\end{array}\right..
+\end{equation}
+
+\textbf{The General Problem}
+\begin{quotation}
+Find the set of all possible solutions to the system (\ref{eq:11-sys}).
+\end{quotation}
+
+\subsection*{Our Progress So Far}
+
+We first found that a good way to understand the solution set of an individual linear equation is as a hyperplane in $\R^n$. 
+Then we saw that the solution set of a system of equations is naturally understood as an intersection of $m$ hyperplanes, which makes it an affine subset of $\R^n$.
+This allows us to reframe our general problem geometrically as ``Find a good description for an affine subset of $\R^n$ which is constructed as the intersection of $m$ hyperplanes.''
+
+Let's denote the affine subset which is the solution set to system (\ref{eq:11-sys})  by $\mathcal{S}$, and affine subset which is the solution set to the associated homogeneous system
+\begin{equation}\label{eq:11-ahs}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & 0 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & 0 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & 0 
+\end{array}\right.
+\end{equation}
+by  $\mathcal{S}_0$. We saw that $\mathcal{S}$ and $\mathcal{S}_0$ are parallel as affine subsets of $\R^n$. Looking at the details of Theorem \ref{thm:07-parallel-solns}, we know that these two affine subsets of $\R^n$ are in fact related like this:
+\[
+\mathcal{S} = \{ X + P \mid X \in \mathcal{S}_0 \},
+\]
+where $P$ is any single vector which is a solution to system (\ref{eq:11-sys}). 
+In essence, we have split our problem into two pieces: 
+\begin{compactenum}
+\item Solve the associated homogeneous system (\ref{eq:11-ahs});
+\item Find any single solution to the original system (\ref{eq:11-sys}).
+\end{compactenum}
+
+We have already addressed the first of these. Using row operations we can take any homogeneous system and produce an equivalent, but much simpler, homogeneous system and then find the affine subset $\mathcal{S}_0$. So what remains is the second part. We must learn to find any single particular solution to a general system.
+
+In practice, one does not solve the problem by considering these two parts completely independently. Rather, one considers a slightly modified version of the process we used to solve the homogeneous system which allows us to do both at once.
+Also, there is one more complication that can happen, so it pays to keep a sharp eye on the details.
+
+\subsection*{The Method}
+
+Given the system of $m$ linear equations in $n$ unknowns, we first form the matrix-vector equation equivalent $Ax=b$, where
+\[
+A = \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\
+a_{21} & a_{22} & \dots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \dots & a_{mn}
+\end{pmatrix}, \quad
+x = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}, \quad
+b = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{pmatrix}.
+\]
+Then, recalling that only the raw numbers will matter and the structure sorts out everything else, we form an \emph{augmented matrix}
+\[
+\left(A \mid b \right) = 
+\augmatrix{cccc}{a_{11} & a_{12} & \dots & a_{1n} & b_1\\
+a_{21} & a_{22} & \dots & a_{2n} & b_2 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+a_{m1} & a_{m2} & \dots & a_{mn} & b_m} .
+\]
+To do this, simply tack on the vector $b$ as an extra column to the matrix of coefficients $A$. It is helpful to keep this extra column separate, so we shall draw a vertical line between the original set of coefficients and this new column.
+
+Next, perform row operations in the style of Gauss-Jordan Elimination. When doing so, only use the original matrix $A$ when planning operations, but do the operations to the whole augmented matrix. The coefficients in the augmented column will change, but it is not our goal to find a pivot in that column. (In fact, a pivot in that column is a warning. See below!) This will eventually produce an augmented matrix of the form $\left(R \mid d \right)$, where the matrix $R$ is in reduced row echelon form. Be sure to note which columns are pivot columns and which are free columns.
+
+The matrix $\left( R \mid d\right)$ is the data we need to write down our solution. This comes in two steps, related to the two parts from our summary. 
+
+First, pretend the vector $d$ is zero, and write out the solution to the homogeneous system $Rx=0$ as we did in the last section. This will find the affine subset $\mathcal{S}_0$. Recall that this process makes a set of special vectors so that $\mathcal{S}_0$ is described as a set of linear combinations of those vectors. 
+
+\begin{definition}[Primary Null Vectors]
+The vectors produced by the Gauss-Jordan Elimination process applied to the system
+$Ax=0$ are called \emph{primary null vectors}.
+\end{definition}
+
+
+Then, to find the solution $P$ which should lie in $\mathcal{S}$ and realize the parallelism, set all of the free variables equal to zero, and solve the resulting equations from the whole system $\left(R \mid d \right)$. This will have the effect of putting the entries from $d$ into the correct places in $P$, and filling the rest of $P$ with zeros.
+
+\begin{definition}[Fundamental Solution]
+We shall call the vector $P$ obtained by the above process the \emph{fundamental solution} of the system (\ref{eq:11-sys}).
+\end{definition}
+
+After we have collected all of the data, we write out the solution set in this form:
+\[
+\mathcal{S} = \left\{ P + t_1 v_1 + \dots t_k v_k \mid t_i \in \R \right\}
+\]
+where $P$ is the fundamental solution and the $v_i$'s are the primary null vectors.
+
+
+\subsection*{The Complication}
+
+\begin{definition}[Consistent Systems, Inconsistent Systems]
+A system of linear equations of the form (\ref{eq:11-sys}) is called \emph{consistent} if it has at least one solution. It is called \emph{inconsistent} if it has no solutions at all, and hence the set $\mathcal{S}$ is empty.
+\end{definition}
+
+How can we recognize when a system is inconsistent? How often does that happen? First, there are some cases where this will never be a problem.
+
+\begin{theorem}[Homogeneous Systems are Consistent] 
+A homogeneous system of $m$ linear equations in $n$ unknowns is consistent.
+\end{theorem}
+
+\begin{proof} The zero vector in $\R^n$ is always a solution to a homogeneous system in $n$ variables.
+\end{proof}
+
+
+The key to recognizing an inconsistent system is to think carefully about our Gauss-Jordan Elimination process. The algorithm tells us how to find a solution, so if there is no solution, the algorithm must show us if it fails. And it will! 
+
+\begin{theorem}[Recognizing Inconsistent Systems]
+A system of $m$ linear equations in $n$ unknowns will be inconsistent when the corresponding augmented matrix has a reduced row echelon form with a pivot in the augmented column.
+\end{theorem}
+
+\begin{proof}
+If there is a pivot in the augmented column of $\left(R\mid d\right)$, then the corresponding system of equations contains an equation of this form
+\[
+0x_1 + 0x_2 + \dots 0x_n = d_k,
+\]
+where $d_k$ is not zero. But this equation clearly has no solutions. This means the whole system can have no solutions.
+\end{proof}
+
+So, the trick is as follows: do the method as outlined above. If at any point you see a whole row of zeros in the left hand portion of the augmented matrix, but a non-zero number in the augmented column, just stop. The system is inconsistent and has no solutions.
+
+\clearpage
+
+\subsection*{Exercises}
+
+In each of the following tasks, design an example of a system of $m$ linear equations in $n$ unknowns and then find the complete solution set, where $m$ and $n$ are as given. Your system should not be homogeneous. In each case, be sure to clearly identify the pivots, the free columns, the fundamental solution, and the primary null vectors.
+
+\begin{exercise} $m=2$ and $n=2$
+\end{exercise}
+
+\begin{exercise} $m=2$ and $n=3$
+\end{exercise}
+
+\begin{exercise} $m=3$ and $n=2$
+\end{exercise}
+
+\begin{exercise} $m=3$ and $n=3$
+\end{exercise}
+
+\begin{exercise} $m=5$ and $n=2$
+\end{exercise}
+
+\begin{exercise} $m=2$ and $n=5$
+\end{exercise}
+
+Did you create any inconsistent systems?
+
+
+
+\begin{exercise} Find the complete solution set to this system of equations.
+\begin{equation*}
+\left\{\begin{array}{rrrrrrr}
+       2x & + & 3y & + &  z & = & 8\\
+       4x & + & 7y & + & 5z & = & 20 \\
+          & - & 2y & + & 2z & = & 0
+       \end{array}\right.
+\end{equation*}
+\end{exercise}
+
+
+
+\clearpage
+\end{document}

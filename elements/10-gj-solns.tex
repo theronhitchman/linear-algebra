@@ -1,0 +1,276 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{Gauss-Jordan Elimination \& RREF}
+
+Our goal now is to learn the complete process for solving any \emph{homogeneous} system of $m$ linear equations in $n$ unknowns. We are opening up the problem a bit by allowing the system to be something other than a \emph{square} system, but we will still keep some of the difficulties down by restricting our attention to the homogeneous case. 
+
+
+\subsection*{Matrix Form}
+
+Recall that a homogeneous system of $m$ linear equations in $n$ unknowns takes the following form:
+\begin{equation*}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & 0 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & 0 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & 0 
+\end{array}\right..
+\end{equation*}
+
+At this point, you have likely noticed that writing out a system is messy and has lots of repetition. The process we use to solve systems only depends on the coefficients, and it would be nicer to just track those, and not write out the $x_i$'s and $+$'s and $=$'s all the time. If we keep everything lined up in rows and columns, then the structure is still there implicitly. Also, for a homogeneous system, the whole right hand side consists of zeros, so nothing interesting will happen there as we perform row operations. So, for now, as a notational device, we will write the system in \emph{matrix-vector equation form}
+\begin{equation*}
+Ax = 0,
+\end{equation*}
+where the symbol $A$ denotes the $m\times n$ matrix
+\begin{equation*}
+A = \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\
+a_{21} & a_{22} & \dots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \dots & a_{mn}
+\end{pmatrix}.
+\end{equation*}
+Now every elementary row operation becomes an operation done to the rows of the matrix $A$. This is the reason for the choice of terminology in ``row operation.''
+
+\subsection*{The Algorithm: Version One}
+
+Let's remind ourselves of the process for finding a solution, but rewrite it in terms which make sense for the matrix form.
+
+\begin{remark}[Algorithms]
+This is an example of an \emph{algorithm}. Think of an algorithm is a computational process that is spelled out in enough detail that a computer can do it without human intervention. For example, long division is like this: you can master the routine of a cycle of different steps, and even if you don't know what those steps mean, you can compute a quotient of two numbers. We are now describing (an attempt) at an algorithm for finding the solution to a homogeneous system of linear equations.
+\end{remark}
+
+\begin{remark}[Recursion] The cleanest way to describe the algorithm we want is to use \emph{recursion}. This means that we give a description of how to solve the problem for an $m\times n$ matrix/system by reducing it to a smaller matrix/system (typically, at least one of $m$ or $n$ gets smaller, usually both.)\\
+\end{remark}
+
+\begin{center}
+\textbf{Our Solution Algorithm}
+\end{center}
+Begin with an $m\times n$ homogeneous system, written in matrix form as $Ax=0$.
+
+\begin{description}
+\item[Step One:] If $a_{11}$ is not zero, do nothing. If $a_{11}=0$, then use a type 2 row operation to swap row $1$ with row $k$, where $k$ is the smallest index so that $a_{k1}$ is not zero. This changes the matrix to a new one where $a_{11}$ is not zero.
+\item[Step Two:] Now we know that $a_{11}$ is not zero, so we may freely divide by $a_{11}$. In order, use type 3 elementary row operations of the type ``add $- a_{k1}/a_{11}$ times row $1$ to row $k$'', for $k=2,3,\dots m$. We have now changed the matrix so that it should have the form
+\begin{equation*}
+A = \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\
+0 & a_{22} & \dots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots\\
+0 & a_{m2} & \dots & a_{mn}
+\end{pmatrix}.
+\end{equation*}
+\item[Step Three:] Go back to Step One but do the process with the smaller matrix 
+\begin{equation*}
+B = \begin{pmatrix} a_{22} & a_{23} & \dots & a_{2n} \\
+a_{32} & a_{33} & \dots & a_{3n} \\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m2} & a_{m3} & \dots & a_{mn}
+\end{pmatrix}.
+\end{equation*}
+\item[Step Four:] When the matrix under consideration is reduced something with only one row or one column, put everything back together. Your system should now look roughly upper triangular. Use backsolving to find the solution.
+\end{description}
+
+
+
+\subsection*{What Can Go Wrong?}
+
+There are two things that can go wrong with the above ``algorithm'' for homogeneous systems:
+\begin{enumerate}
+\item It might be possible that at some step of the process, our first column consists entirely of zeros! In this case, we cannot arrange that the top left entry is non-zero by making a row swap. And then we are stuck and cannot do the elimination operations in Step Two. Essentially, we cannot perform Step One, and so Step Two becomes impossible.
+\item We have not described what happens ``at the bottom'' of the process. What do we do when the matrices have gotten as small as we can make them?
+\end{enumerate}
+
+Let's take these up in reverse order. What kinds of shapes are possible ``at the bottom'' of the process? each pass through the three steps both reduces the number of columns and the number of rows. So the smallest possible cases look like these three: $A$ is $k\times 1$, so it is a column vector; $A$ is a $1\times 1$ matrix; or,  $A$ is $1\times k$, so it is a ``row vector.''
+\begin{equation*}
+A = \begin{pmatrix} a \\ b \\ \vdots \\ z \end{pmatrix}, \quad A = (a), \quad
+A = \begin{pmatrix} a & b & \dots & z \end{pmatrix}
+\end{equation*}
+
+In the first case, where $A$ is a single column, we simply perform the process one more time. It will lead to a new form which has a non-zero number as the top entry, but all of the entries below that will be zeros. This is the final form of things.
+Note that if we translate things back to a system of equations, this means we will have several equations at the bottom of our system that look like this:
+\begin{equation*}
+0*x_1 + 0*x_2 + \dots + 0*x_n = 0.
+\end{equation*}
+Since that equation is always true, if a bit boring, we aren't bothered by it.
+
+
+In the second case, we are happy. We just move on to Step Four.
+
+In the third case we are still just done, but now that single row corresponds to an equation of the form
+\begin{equation*}
+\alpha_k x_k + \alpha_{k+1} x_{k+1} + \dots + \alpha_n x_n = \beta.
+\end{equation*}
+And this is fine. The trouble comes at Step Four, as it is not clear what to do with those extra variables. The key is that they are \emph{free}! They can take any value  whatsoever. The system of equations doesn't constrain them at all. We will fix this by introducing new parameters for them.
+
+This concept of a free variable will help us solve the problem of being unable to complete Step One because of a column of all zeros, too. Essentially, where we are expecting to get an equation that tells us how to handle that variable, no equation comes to the rescue. This means that the variable is free to take any value at all.
+
+What happens next is much like the case of turning an implicit description of a line into a parametric description of a line. Remember that this is the case where we start with 
+\[
+ax+by=c,
+\]
+but then introduce a new parameter with a new equation, $y=t$, and rearrange like so:
+\[
+\left\{\begin{array}{rrrrr}
+a x & = & c & - & b t \\
+  y & = &   &   &   t
+\end{array}\right.
+\]
+We will want to do this kind of thing, but with one parameter for each of the free variables.
+
+A final comment is in order. Since we will want to do the backsolving portion of our process but not all of the variables will take on definite values (some will be free, and hence described by parameters), we will end up doing lots of more complicated substitutions and rearrangements than just ``plug in a number here.'' We will clean this up by doing the work in advance: a substitution move is just a type 3 row operation, after all. 
+
+With all of this in our head, we can try to make a better version of the process for solving a homogeneous $m\times n$ system.
+
+
+\subsection*{Gauss-Jordan Elimination}
+
+Let us describe the official algorithm for finding a solution the efficient way, just as we would ask a computer to do it. First, we want a definition.
+
+\begin{definition}[RREF, pivot column, pivot variable, free column, free variable]
+A matrix is said to be in \emph{reduced row echelon form} when the following hold.
+\begin{itemize}
+\item The first non-zero entry in each row is a $1$. Such an entry is called a \emph{pivot}. A column which contains a pivot is called a \emph{pivot column}, and the corresponding variable is called a \emph{pivot variable} for the associated system.
+\item All of the other entries in a pivot column beside the pivot are equal to zero.
+\item Any row of all zeros occurs below any row which has a non-zero entry.
+\end{itemize}
+The phrase \emph{reduced row echelon form} is often abbreviated \emph{RREF}. Any column in a matrix in RREF which is not a pivot column is called a \emph{free column}, and the associated variable is called a \emph{free variable} of the associated system.
+\end{definition}
+
+There is an efficient algorithm for putting a matrix into RREF using elementary row operations. Using it well is the heart of computational technique in linear algebra. You want to know how to do this quickly for smallish matrices, and you want to know how to make a computer do this for any matrix.
+\begin{center}
+\textbf{Gauss-Jordan Elimination Algorithm}
+\end{center}
+Given an $m\times n$ matrix $A$, one can find associated matrix $R$ which is in reduced row echelon form by the following algorithm.
+
+\begin{description}
+\item[Step One (Forward Pass):] We will produce a new matrix $B$ which has many zeros in it by finding pivot positions and eliminating entries below those pivots.
+\begin{itemize}
+\item[Check for pivot or free column:] Consider the top left entry $a_{11}$. If $a_{11}$ is not zero, do nothing and move on to the next step. 
+
+If $a_{11}$ is zero, but some entry below it in the same column is not zero, do a type 2 row operation -- a row swap -- to switch the places of the two rows. It is generally preferred to swap with the first non-zero row. If all of the entries in the first column are zero, declare the first column to be a free column, and start over but by considering the smaller matrix constructed by ignoring the first column.
+
+We now may assume that $a_{11}$ is not zero.
+
+\item[Eliminate below a pivot:] Now we know that $a_{11}$ is not zero, so we may freely divide by $a_{11}$. In order, use type 3 elementary row operations of the type ``add $- a_{k1}/a_{11}$ times row $1$ to row $k$'', for $k=2,3,\dots m$. We have now changed the matrix so that it should have the form
+\begin{equation*}
+A = \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\
+0 & a_{22} & \dots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots\\
+0 & a_{m2} & \dots & a_{mn}
+\end{pmatrix}.
+\end{equation*}
+
+\item[Move on:] Go back to the first instruction of this step, but consider the smaller submatrix made by ignoring the first row and first column.
+
+\item The forward pass is done when you have reached the bottom row, or the final column. The matrix should now be in a form where each row has a first non-zero entry at a pivot position, and all entries below a pivot are zero.
+\end{itemize}
+
+\item[Step Two (Backward Pass):] We will now produce a new matrix $C$ which has well-identified pivot positions, and has zeros in all other positions in those pivot columns.
+\begin{itemize}
+\item Start with the pivot position in the bottom-most row. Suppose that the $l$ is the largest index of a row with a pivot position. For each $k$ smaller than $l$, use a type 3 row operation of the form ``add $-a_{kj}/a_{lj}$ times row $l$ to row $k$'' to eliminate the $kj$-position of the matrix. (Generally, one works from the bottom up.)
+\item Now that the pivot position under consideration has only zeros above and below it, move attention up and left to the next pivot position from the bottom. Repeat the last step.
+\item Stop after eliminating entries above every pivot position.
+\end{itemize}
+
+\item[Step Three (Rescaling):] We now produce the final RREF by making the pivots equal to $1$. 
+\begin{itemize}
+\item For each $j \in \{1,\dots, m\}$, if row $j$ has a non-zero entry, use a type 1 elementary row operation of ``multiply row $j$ by $\lambda^{-1}$,'' where $\lambda$ is the value of the entry in the pivot position.
+\end{itemize}
+
+\end{description}
+
+
+\begin{theorem}[RREF]
+Any matrix $A$ can be transformed into one which is in reduced row echelon form by the Gauss-Jordan Elimination algorithm.
+\end{theorem}
+
+
+\subsection*{The Whole Process: Solving A Homogeneous System}
+
+With the RREF in our hands, we can now write write out the process for solving a homogeneous system of linear equations. It goes like this:
+
+Given a homogeneous system of $m$ linear equations in $n$ unknowns, one finds the set of solutions like so:
+
+\begin{enumerate}
+\item Translate the system into matrix form $Ax=0$. (The system is homogenous!)
+\item Apply the Gauss-Jordan Elimination algorithm to find $R=\mathrm{rref}(A)$, the reduced row echelon form of $A$.
+\item Make note of which columns and variables are pivot columns and which are free columns.
+\item Translate the matrix-vector equation $Rx=0$ back into a system of linear equations. This new system should have many zero coefficients.
+\item Introduce a new parameter $t_i$ and new equation $x_i = t_i$ for each of the free variables.
+\item Move all of the terms involving parameters to the right hand side of the equals signs, essentially solving for $x_i$ in equation $i$.
+\item Line up the right-hand sides of these equations by the parameters, and write out a parametric description of the affine subspace which is a solution to the system.
+\end{enumerate}
+
+
+
+
+
+\clearpage
+\subsection*{Exercises}
+
+For each of the first four exercises, find the reduced row echelon form of the indicated matrix.
+
+\begin{exercise} The matrix $A$.
+\begin{equation*}
+A = \begin{pmatrix} 2 & 1 & 0 \end{pmatrix}
+\end{equation*}
+\end{exercise}
+
+\begin{exercise} The matrix $B$.
+\begin{equation*}
+B = \begin{pmatrix} 2 & 1 & 0 \\ 1 & 1 & 1 \end{pmatrix}
+\end{equation*}
+\end{exercise}
+
+
+\begin{exercise} The matrix $C$.
+\begin{equation*}
+C = \begin{pmatrix} 2 & 1 & 0 & 4\\ 1 & 1 & 1 & 0 \\ 3 & 2 & 1 & 4 \end{pmatrix}
+\end{equation*}
+\end{exercise}
+
+\begin{exercise} The matrix $D$.
+\begin{equation*}
+D = \begin{pmatrix} 0 & 1 & 2 & 1 & 3 \\
+0 & -1 & 2 & 3 & 1 \\
+1 & 1 & 1 & -1 & 1 \\
+4 & 0 & 0 & 1 & 1 \end{pmatrix}
+\end{equation*}
+\end{exercise}
+
+For each of the next three exercises, find the affine subset of $\R^n$ which is the set of solutions of the system of $m$ linear equations in $n$ unknowns.
+
+\begin{exercise}
+\begin{equation*}
+\left\{ \begin{array}{rrrrrrr}
+x & + & y & + & z & = & 0
+\end{array}\right.
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+\begin{equation*}
+\left\{ \begin{array}{rrrrrrr}
+2x & + & y & + & z & = & 0\\
+x & + & y & + & z & = & 0
+\end{array}\right.
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+\begin{equation*}
+\left\{ \begin{array}{rrrrrrrrrrr}
+3x_1 & + & x_2 & + & 4x_3 & + & x_4 & + & x_5 & = & 0 \\
+x_1 & + & x_2 & + & 2x_3 &  & & + & x_5 & = & 0 \\
+-x_1 & - & x_2 & - & 2x_3 & - & 9x_4 & + & x_5 & = & 0 
+\end{array}\right.
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Design a homogeneous system of $3$ linear equations in $3$ unknowns that has 3 pivots and 1 free variable, or explain why this is not possible.
+\end{exercise}
+
+
+
+\clearpage
+\end{document}

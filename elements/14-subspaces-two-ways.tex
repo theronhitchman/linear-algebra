@@ -1,0 +1,175 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{Spans and Column Spaces}
+
+There is another way to describe subspaces, which is tied very closely to the idea of respecting linear combination. We'll explore that now, introduce the \emph{column space} of a matrix, and tie this new idea to the basic question of when a system of equations is solvable.
+
+\begin{definition}[Spanning Set]
+Suppose that $\mathcal{S}$ is a subset of $\R^n$. A set of vectors 
+$\{ v_1, \dots, v_k\}$, all chosen from $\mathcal{S}$, is called a \emph{spanning set} for $\mathcal{S}$ when every vector in $\mathcal{S}$ can be written as a linear combination of the $v_i$'s. That is, $\{v_1, \dots, v_k\}$ is a spanning set for $\mathcal{S}$ when for each vector $b$ in $\mathcal{S}$, we can find some solution to the equation
+\[
+a_1 v_1 + a_2 v_2 + \dots + a_k v_k = b.
+\]
+\end{definition}
+
+The big idea is that a collection of vectors is a spanning set for a subspace when those vectors are enough to describe all of the different possible directions one can move inside of the subspace. You should note that subspaces often have \textbf{many} different spanning sets.
+
+\begin{definition}[Span]\label{defn:14-2}
+Let $\{v_1,  \dots, v_k\}$ be a collection of vectors from $\R^n$. The \emph{span} of this set is the collection of all vectors $w$ which can be written as a linear combination of the $v_i$'s. That is, 
+\[
+\mathrm{span}\{v_1,  \dots, v_k\} = \{ w = a_1 v_1 + \dots a_k v_k \in \R^n\mid a_1, \dots, a_k \in \R\}. 
+\]
+This is read as ``the span of $v_1$ through $v_k$.''
+\end{definition}
+
+\begin{theorem} A span as constructed as in Definition \ref{defn:14-2} is a subspace of $\R^n$.
+\end{theorem}
+
+\begin{proof}
+By the definition of a subspace, we must show two things. First, we must show that the zero vector is in our span. Then we must show that for any pair of vectors in the span, any linear combination of those vectors is also in the span.
+
+First, let's show that $0$ is an element of $\mathrm{span}\{v_1, \dots, v_k\}$. For this, choose all of the coefficients to be $0$. Then we get the element
+\[
+0 = 0v_1 + 0 v_2 + \dots + 0 v_k  \in \mathcal{S}.
+\]
+
+Now, suppose that $w_1$ and $w_2$ are elements of $\mathcal{S}$, and that $\alpha$ and $\beta$ are scalars. We must show that $\alpha w_1 + \beta w_2$ is an element of $\mathcal{S}$. Since $w_1 \in \mathcal{S}$, we must have scalars $a_1, \ldots, a_k$ realizing this:
+\[
+w_1 = a_1 v_1 + \dots a_k v_k
+\]
+Similarly, $w_2$ is in $\mathcal{S}$, so we must have scalars $b_1, \ldots, b_k$ so that
+\[
+w_2 = b_1 v_1 + \dots b_k v_k.
+\]
+If we multiply these equations by $\alpha$ and $\beta$, respectively, and add, we see
+\[
+\begin{split}
+\alpha w_1 + \beta w_2 & = \alpha \left(a_1 v_1 + \dots a_k v_k\right) + \beta\left( b_1 v_1 + \dots b_k v_k\right) \\
+& = [\alpha a_1 + \beta b_1] v_1 + \dots + [\alpha a_k + \beta b_k] v_k.
+\end{split}
+\]
+This realizes $\alpha w_1 + \beta w_2$ as an element of $\mathcal{S}$, and finishes the proof.
+\end{proof}
+
+
+\begin{definition}[Column Space]
+Let $A$ be an $m\times n$ matrix. The \emph{column space of $A$} is the subspace of $\R^m$ constructed by taking the span of the columns. That is, if we think of $A$ as a bundle of column vectors
+\[
+A = \begin{pmatrix} | & | & & | \\ v_1 & v_2 & \dots & v_k \\ | & | &  & | \end{pmatrix}
+\]
+then
+\[
+\begin{split}
+\mathrm{col}(A) &= \mathrm{span}\{v_1, v_2, \ldots, v_k\} \\
+& = \left\{ b = x_1 v_1 + \dots + x_n v_n \in \R^m \mid x_1, x_2, \ldots, x_n \in\R   \right\}
+\end{split}
+\]
+\end{definition}
+
+\begin{theorem}
+The linear combination equation 
+\[
+x_1 v_1 + \dots + x_n v_n = b
+\]
+has a solution if and only if $b$ is an element of $\mathrm{span}\{v_1, \ldots, v_k\}$.
+\end{theorem}
+
+\begin{proof} This is just a restatement of the definition of the span with our perspective reversed.
+\end{proof}
+
+
+
+\begin{theorem}
+The column space of an $m\times n$ matrix $A$ is the set of vectors $b \in \R^m$ such that $Ax=b$ has at least one solution.
+\end{theorem}
+
+\begin{proof} This is just a restatement of the definition of the span in terms of the matrix-vector equation.
+\end{proof}
+
+
+
+\clearpage
+
+\begin{exercise}
+Find a spanning set for the line in $\R^2$ given below:
+\[
+\ell = \left\{ \begin{pmatrix} x \\ y \end{pmatrix} \middle| 4x - 5y = 0 \right\}
+\]
+\end{exercise}
+
+\begin{exercise}
+Find a spanning set for a plane in $\R^3$ given below:
+\[
+\mathcal{P} = \left\{ \begin{pmatrix} x \\ y \\ z\end{pmatrix} 
+\middle| 4x - 5y + z = 0 \right\}
+\]
+\end{exercise}
+
+
+\begin{exercise}
+Is this equation solvable?
+\begin{equation*}
+\left\{
+\begin{array}{rrrrrrr}
+2x & + & 3y & + & z & = & 2 \\
+5x & - & 2y & + & z & = & 3 \\
+x & - & 8y & - & z & = & 5 
+\end{array}
+\right.
+\end{equation*}
+How do you know?
+\end{exercise}
+
+
+\begin{exercise}
+Consider the following system of linear equations. What would have to be true of the $b_i$'s to make it solvable?
+\begin{equation*}
+\left\{
+\begin{array}{rrrrrrr}
+ x & + & y & + & 3z & = & b_1 \\
+3x & - & 2y & - & z & = & b_2 \\
+ x & - & y & - & z & = & b_3 
+\end{array}
+\right.
+\end{equation*}
+\end{exercise}
+
+
+\begin{exercise}
+Consider the following linear combination equation. What would have to be true of the vector $b$ to make this equation solvable?
+\[
+x_1 \begin{pmatrix} 1 \\ -2 \end{pmatrix} + x_2 \begin{pmatrix} -3 \\ 6\end{pmatrix} = b.
+\]
+\end{exercise}
+
+\begin{exercise}
+Consider the following matrix-vector equation. What would have to be true of the vector $b$ to make this equation solvable?
+\begin{equation*}
+\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \\ 11 & 13 & 15  \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\x_3 \end{pmatrix} = b
+\end{equation*}
+\end{exercise}
+
+
+\begin{exercise}
+Find a vector which does not lie in subspace $\mathrm{span}\{u_1,u_2\}$, where $u_1$ and $u_2$ are the following vectors in $\R^3$.
+\[
+u_1 = \begin{pmatrix} -2\\ 0 \\ 1 \end{pmatrix} , \quad u_2 =\begin{pmatrix} 4 \\ 1 \\ 7 \end{pmatrix}.
+\]
+\end{exercise}
+
+
+\begin{exercise}
+Find a vector which does not lie in the column space of $A$. 
+\[
+A = \begin{pmatrix}
+403 & -2344 & 78 & 34/7 \\ 76 & 1 & 0 & 23 \\ 45 & 3 & 56 & 12 \\
+31 & -2 & -56 & 11
+\end{pmatrix}.
+\]
+\end{exercise}
+
+
+
+
+\clearpage
+\end{document}

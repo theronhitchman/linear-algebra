@@ -1,0 +1,153 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{Subspaces and the Column Picture}
+
+
+\subsection*{The Column Picture, Na\"{i}vely}
+
+Recall that we have recast the generic system of linear equations
+\begin{equation}\label{eq:12-sys}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_2 
+\end{array}\right.
+\end{equation}
+as an equation involving the linear combination of $n$ vectors in $\R^m$, like so:
+\begin{equation}\label{eq:12-lincomb}
+x_1\begin{pmatrix} a_{11}\\ a_{21} \\ \vdots \\ a_{m1}\end{pmatrix} +
+x_2\begin{pmatrix} a_{12}\\ a_{22} \\ \vdots \\ a_{m2}\end{pmatrix} +
+\dots +
+x_n\begin{pmatrix} a_{1n}\\ a_{2n} \\ \vdots \\ a_{mn}\end{pmatrix} =
+\begin{pmatrix} b_1\\ b_2 \\ \vdots \\ b_m\end{pmatrix}
+\end{equation}
+The basic questions about how to solve the system (\ref{eq:12-sys}) are readily translated into similar questions about solving the equation (\ref{eq:12-lincomb}). 
+
+
+The linear combination equation (\ref{eq:12-lincomb}) is only one single equation, relating vectors in $\R^m$. So, one way to picture it is as follows: Imagine the $n$ different vectors 
+\begin{equation*}
+\begin{pmatrix} a_{11}\\ a_{21} \\ \vdots \\ a_{m1}\end{pmatrix} ,
+\begin{pmatrix} a_{12}\\ a_{22} \\ \vdots \\ a_{m2}\end{pmatrix} ,
+\dots ,
+\begin{pmatrix} a_{1n}\\ a_{2n} \\ \vdots \\ a_{mn}\end{pmatrix}
+\end{equation*}
+all emanating from the origin. Let's make them all one color, say, red. Now make the subset of all of the vectors in $\R^m$ which can be expressed as a linear combination of those red vectors. That will make up some portion of the space $\R^m$, which we will also color red.
+
+Now, in the same picture, place the vector $b$
+\begin{equation*}
+\begin{pmatrix} b_1\\ b_2 \\ \vdots \\ b_m\end{pmatrix}
+\end{equation*}
+and make it blue. Our basic questions about solvability are these: Is there a way to realize the blue vector as an element of the red subset we made before? If so, what are the coefficients that make the linear combination hit the blue vector $b$? Is there only one way to find a set of coefficients, or are there several ways?
+
+
+
+
+In order to understand this interpretation based on columns, we need find ways to talk about the details of linear combinations with more clarity. This motivates the notion of a \emph{subspace}.
+
+\subsection*{The Idea of a Subspace}
+
+The fundamental construction in linear algebra is that of a linear combination. A subspace of $\R^n$ is a subset which interacts well with the operation of taking linear combinations.
+
+\begin{definition}[Subspace] A subset $\mathcal{S}$ in $\R^n$ is called a \emph{subspace} of $\R^n$ when the following two conditions hold:
+\begin{compactenum}
+\item If $u$ and $v$ are elements of $\mathcal{S}$ and $\alpha$ and $\beta$ are scalars, then the linear combination $\alpha u + \beta v$ is also an element of $\mathcal{S}$.
+\item The zero vector is an element of $\mathcal{S}$.
+\end{compactenum}
+\end{definition}
+
+The first condition is the crucial one we want. The second condition is there for a technical reason, it disallows the set with no elements (called the \emph{empty set}) from being a subspace. Each $\R^n$ has a pair of subspaces which are at the extremes for ``size.'' These are easy to forget about! 
+
+
+
+\begin{theorem}[Big and Small Subspaces] Let $n$ be a counting number. 
+\begin{compactitem}
+\item The set $\{0\}$ consisting of only the zero vector is a subspace of $\R^n$.
+\item The set $\R^n$ is a subspace of itself.
+\end{compactitem}
+\end{theorem}
+
+\begin{proof}
+First, consider $\{0\}$. There is only one element of this set, namely the zero vector. Clearly the second condition is satisfied. And the first is satisfied because any linear combination of $0$ with itself is still just $0$:
+\[
+\alpha 0 + \beta 0 = 0.
+\]
+Hence $\{0\}$ is a subspace of $\R^n$.
+
+Now, consider $\R^n$ as a subset of itself. Clearly $0$ is an element of $\R^n$, so the second condition is satisfied. And for any pair of vectors in $\R^n$, any linear combination of those vectors is still in $\R^n$, so the first condition is satisfied, too. Hence $\R^n$ is a subspace of $\R^n$.
+\end{proof}
+
+
+\begin{remark}
+The subspace $\{0\}$ of $\R^n$ is often called the \emph{trivial subspace}, because it is the smallest one, and a bit uninteresting. At the other end, the whole space $\R^n$ is a subspace of itself, which is a quirk of the terminology we just have to tolerate.
+\end{remark}
+
+
+
+\clearpage
+\subsection*{Exercises}
+
+In each of the following, you will try to decide if a certain set is a subspace of the appropriate $\R^n$ or not. It might help you if you can find a way to draw the set.
+
+
+\begin{exercise} Let $\mathcal{C}$ be the set of all unit vectors in $\R^2$. Decide if $\mathcal{C}$ is a subspace or not, and explain your answer using the definition.
+\end{exercise}
+
+\begin{exercise}
+Let $\mathcal{U}$ be the set of all vectors in $\R^2$ which either lie on the line through the origin and $u_1$ or on the line through the origin and $u_2$, where
+\begin{equation*}
+u_1 = \begin{pmatrix} 1\\1 \end{pmatrix}, \qquad u_2 = \begin{pmatrix} -2\\5\end{pmatrix}.
+\end{equation*}
+Decide if $\mathcal{U}$ is a subspace or not, and explain your answer using the definition.
+\end{exercise}
+
+\begin{exercise}
+Let $\mathcal{V}$ be the set of all vectors in $\R^2$ described below, 
+\begin{equation*}
+\mathcal{V} = \left\{ X = a u_1 + b u_2 \,\middle|\, a, b \in \R \right\}
+\end{equation*}
+where the vectors $u_1$ and $u_2$ are as in the last exercise.
+Decide if $\mathcal{V}$ is a subspace or not, and explain your answer using the definition.
+\end{exercise}
+
+
+
+\begin{exercise} 
+Let $\mathcal{L}$ be the set described below. 
+\begin{equation*}
+\mathcal{L} = \left\{ \begin{pmatrix} a \\ b \end{pmatrix}\in \R^2  \,\middle|\, \text{$a$ and $b$ are integers} \right\}
+\end{equation*}
+Decide if $\mathcal{L}$ is a subspace or not, and explain your answer using the definition.
+\end{exercise}
+
+\begin{exercise}
+Let $\mathcal{P}$ be the hyperplane in $\R^3$ described below.
+\begin{equation*}
+\mathcal{P} = \left\{ \begin{pmatrix} a\\ b \\ c \end{pmatrix} \,\middle|\, a+b+c=5 \right\}
+\end{equation*}
+Decide if $\mathcal{P}$ is a subspace or not, and explain your answer using the definition.
+\end{exercise}
+
+\begin{exercise}
+Let $\mathcal{W}$ be the hyperplane in $\R^3$ described below.
+\begin{equation*}
+\mathcal{W} = \left\{ \begin{pmatrix} a\\ b \\ c \end{pmatrix} \,\middle|\, a+2b+c=0 \right\}
+\end{equation*}
+Decide if $\mathcal{W}$ is a subspace or not, and explain your answer using the definition.
+\end{exercise}
+
+
+\begin{exercise} Let $\mathcal{B}$ be the subset of $\R^2$ described as follows.
+\begin{equation*}
+\mathcal{B} = \left\{ \begin{pmatrix} a\\ b \end{pmatrix} \,\middle|\, |b|\leq 2 \right\}
+\end{equation*}
+Decide if $\mathcal{B}$ is a subspace or not, and explain your answer using the definition.
+\end{exercise}
+
+
+
+
+
+\clearpage
+\end{document}

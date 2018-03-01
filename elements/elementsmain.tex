@@ -20,6 +20,7 @@
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}[definition]{Theorem}
 \newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
 
 % math operators
 \newcommand{\R}{\mathbb{R}}
@@ -28,7 +29,8 @@
 \newcommand{\p}{\mathcal{P}}
 \newcommand{\q}{\mathcal{Q}}
 \newcommand{\Span}[1]{\mathrm{Span}\left\{ #1 \right\}}
-
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+\newcommand{\augmatrix}[2]{\left(\begin{array}{@{}#1 |c@{}} #2 \end{array}\right)}
 
 
 % title info
@@ -46,11 +48,24 @@
 \subfile{04-dotprod}
 \subfile{05-lines}
 
-%\chapter{Rows and Solving Systems}
+\chapter{Rows and Solving Systems}
+\subfile{ch2intro}
+\subfile{06-hyperplanes}
+\subfile{07-affinesubmanifolds}
+\subfile{08-rowoperations}
+\subfile{09-utf}
+\subfile{10-gj-solns}
+\subfile{11-solv-sys}
 
 
-%\chapter{Columns and Subspaces}
-
+\chapter{Columns and Subspaces}
+\subfile{ch3intro}
+\subfile{12-subspaces}
+\subfile{13-hyperplanes-vs-subspaces}
+\subfile{14-subspaces-two-ways}
+\subfile{15-imp-exp}
+\subfile{16-independence}
+\subfile{17-basis-dim}
 
 %\chapter{Matrices and Transformations}
 

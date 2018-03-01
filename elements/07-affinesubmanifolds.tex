@@ -1,0 +1,227 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{Affine Subsets}
+
+\begin{definition}[Affine Subset] A set $\mathcal{A}$ in $\R^n$ is called an \emph{affine subset} when for each pair of points $P$ and $Q$ in $\mathcal{A}$, if $X$ is a point on the line through $P$ and $Q$, $X$ is an element of $\mathcal{A}$.
+\end{definition}
+
+\begin{theorem}[Hyperplanes are Affine]\label{thm:hyp-is-aff}
+Let $\mathcal{H}$ be a hyperplane in $\R^n$. Then $\mathcal{H}$ is an affine subset of $\R^n$.
+\end{theorem}
+
+\begin{proof}
+Consider the hyperplane $\mathcal{H}$ described as
+\[
+\mathcal{H} = \left\{ X \in \R^n  \,\middle|\, a_1 x_1 + \dots + a_n x_n = b  \right\}.
+\]
+Suppose that $P, Q \in \R^n$ are elements of $\mathcal{H}$. The line through $P$ and $Q$ can be described as the set of all points of the form $P + t (Q-P)$, where $t$ is a scalar. We must show that, for each $t$, the point $P+t(Q-P)$ is an element of $\mathcal{H}$. 
+
+If we write the components of $P$ as $p_i$ and the components of $Q$ as $q_i$, then the fact that $P$ and $Q$ are elements of $\mathcal{H}$ means that the $p_i$'s and $q_i$'s satisfy the defining equation. That is, 
+\begin{align}\label{eq:07-mini-sys}
+a_1 p_1 + \dots + a_n p_n &= b \\
+a_1 q_1 + \dots + a_n q_n &= b.
+\end{align}
+Subtracting these, we see that 
+\[
+a_1 (q_1-p_1) + \dots + a_n (q_n-p_n) = 0.
+\]
+We can multiply this equation through by any number $t$ to see that 
+\begin{equation}\label{eq:07-diff}
+a_1 [t(q_1 - p-1)] + \dots + a_n [ t(q_n-p_n) ] = 0.
+\end{equation}
+Adding Equation (\ref{eq:07-mini-sys}) to Equation (\ref{eq:07-diff}), we see that
+\[
+a_1 \left[ p_1 + t(q_1 - p_1)\right] + \dots + a_n \left[ p_n + t(q_n- p_n) \right] = b.
+\]
+This means that the coordinates of the vector $P+t(Q-P)$ also satisfy the defining equation for $\mathcal{H}$.
+
+We deduce that if $P$ and $Q$ are in $\mathcal{H}$, then so is the whole line through them. This completes the proof.
+\end{proof}
+
+
+\begin{theorem}[Solutions of Systems are Affine]
+The solution set to a system of $m$ linear equations in $n$ unknowns is an affine subset of $\R^n$.
+\end{theorem}
+
+\begin{proof}
+The solution set to a system of $m$ linear equations in $n$ unknowns is exactly the intersection of a set of $m$ hyperplanes in $\R^n$. Let's call them $\mathcal{H}_1$, \dots, $\mathcal{H}_m$. 
+
+Suppose that $P$ and $Q$ are in the solution set. Then for each hyperplane $\mathcal{H}_i$, $P$ and $Q$ must be elements of $\mathcal{H}_i$. By the Theorem \ref{thm:hyp-is-aff}, the line through $P$ and $Q$ must also contained in $\mathcal{H}_i$.  Since this is true for each of the hyperplanes, this line must be contained in the intersection of all of them. That is, the line through $P$ and $Q$ must be contained in the solution set.
+
+By definition, this means that the solution set is an affine subset of $\R^n$.
+\end{proof}
+
+
+\begin{corollary}
+A system of $m$ linear equations in $n$ unknowns can have only the following possibilities for the number of solutions: zero solutions, one solution, or infinitely many solutions.
+\end{corollary}
+
+\begin{proof}
+Note that since the solution set to such a system is an affine subset, if it contains at least two points, then it must contain an entire line, too. That line has infinitely many points on it. So we are left with these options: the solution set has strictly fewer than two elements, or it has infinitely many elements.
+\end{proof}
+
+This result is a rough estimate. Later we shall want to know more about the shape of the solution set. It will matter if it is infinite like a line is, or infinite like a plane, or something ``larger.''
+
+
+\begin{definition} A system of $m$ linear equations in $n$ unknowns is called \emph{homogeneous} when it has the form
+\begin{equation*}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & 0 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & 0 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & 0 
+\end{array}\right.,
+\end{equation*}
+If we have a system which is not homogeneous, we call the system obtained by setting all the right-hand sides to $0$ the \emph{associated homogeneous system}.
+\end{definition}
+
+\begin{definition}[Parallel Affine Subsets] Let $\mathcal{A}_1$ and $\mathcal{A}_2$ be two affine subsets of $\R^n$. We say that $\mathcal{A}_1$ and $\mathcal{A}_2$ are \emph{parallel} when there exists a vector $P$ such that
+\[
+\mathcal{A}_2 = \{ X + P \mid X \in \mathcal{A}_1 \}.
+\]
+\end{definition}
+
+\begin{remark} Note the symmetry in the description of parallel affine subsets. If we can realize $\mathcal{A}_2$ as $\mathcal{A}_1$ but shifted over by $P$, then we can also realize $\mathcal{A}_1$ as just $\mathcal{A}_2$ but shifted over by $-P$. 
+\end{remark}
+
+\begin{theorem}\label{thm:07-parallel-solns}
+The solution set to a system of $m$ linear equations in $n$ unknowns is parallel to the solution set of the associated homogeneous system, when considered as affine subsets of $\R^n$.
+
+In fact, the vector $P$ required in the definition of parallel affine subsets can be chosen to be any solution to the original system.
+\end{theorem}
+
+\begin{proof} We consider the system
+\begin{equation}\label{eq:07-sys}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_m 
+\end{array}\right.,
+\end{equation}
+and its associated homogeneous system
+\begin{equation}\label{eq:07-homog}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & 0 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & 0 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & 0 
+\end{array}\right. .
+\end{equation}
+
+We shall denote the affine subset of $\R^n$ which consists of the solutions of (\ref{eq:07-sys}) by $\mathcal{A}$. We shall denote the affine subset made of the solutions of (\ref{eq:07-homog}) by $\mathcal{A}_0$. We must show that these two affine subsets are parallel.
+
+
+Fix some solution $P$ of the system (\ref{eq:07-sys}). If we write the coordinates of $P$ as $p_i$, we get 
+\begin{equation}\label{eq:07-big1}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} p_1 & + & a_{12} p_2 & + & \dots & + & a_{1n} p_n & = & b_1 \\
+a_{21} p_1 & + & a_{22} p_2 & + & \dots & + & a_{2n} p_n & = & b_2 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} p_1 & + & a_{m2} p_2 & + & \dots & + & a_{mn} p_n & = & b_m 
+\end{array}\right..
+\end{equation}
+
+
+We want to show that $\mathcal{A}$ and $\mathcal{A}_0$ are parallel affine subsets, given by addition by $P$, so we must show that 
+\[
+\mathcal{A} = \left\{ X + P \,\middle|\, X \in \mathcal{A}_0 \right\}.
+\]
+This involves writing two short arguments: one that says each element of the set on the left is also an element of the set on the left, and vice versa.
+
+
+Now if $Y$ is any element of $\mathcal{A}$, that is a solution of the system (\ref{eq:07-sys}), and we write the coordinates of $Y$ as $y_i$'s, we have
+\begin{equation}\label{eq:07-big2}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} y_1 & + & a_{12} y_2 & + & \dots & + & a_{1n} y_n & = & b_1 \\
+a_{21} y_1 & + & a_{22} y_2 & + & \dots & + & a_{2n} y_n & = & b_2 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} y_1 & + & a_{m2} y_2 & + & \dots & + & a_{mn} y_n & = & b_m 
+\end{array}\right..
+\end{equation}
+
+Next we shall consider the vector $X = Y - P$. We claim that $X$ is an element of $\mathcal{A}_0$, that is, $X$ is a solution to the homogeneous system Equation (\ref{eq:07-homog}). This is straightforward to check, as we can just subtract the corresponding equations of (\ref{eq:07-big1}) from those in (\ref{eq:07-big2}). This gives us that the components of $X$ satisfy
+\begin{equation*}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} (y_1-p_1) & + & a_{12} (y_2-p_2) & + & \dots & + & a_{1n} (y_n-p_n) & = & 0 \\
+a_{21} (y_1-p_1) & + & a_{22} (y_2-p_2) & + & \dots & + & a_{2n} (y_n-p_n) & = & 0 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} (y_1-p_1) & + & a_{m2} (y_2-p_2) & + & \dots & + & a_{mn} (y_n-p_n) & = & 0 
+\end{array}\right. .
+\end{equation*}
+Therefore, $X$ is a solution of the homogeneous equations.
+
+So, every element of $\mathcal{A}$ can be written in the form $Y = X +P$, where $X=Y-P$ is an element of $\mathcal{A}_0$.
+
+
+The other direction is a bit quicker. Suppose that $X$ is a vector which represents a solution to (\ref{eq:07-homog}). Then by adding these equations to those from (\ref{eq:07-big1}) which say $P$ is an element of $\mathcal{A}$, we see that 
+\begin{equation*}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} (x_1+p_1) & + & a_{12} (x_2+p_2) & + & \dots & + & a_{1n} (x_n+p_n) & = & 0 \\
+a_{21} (x_1+p_1) & + & a_{22} (x_2+p_2) & + & \dots & + & a_{2n} (x_n+p_n) & = & 0 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} (x_1+p_1) & + & a_{m2} (x_2+p_2) & + & \dots & + & a_{mn} (x_n+p_n) & = & 0 
+\end{array}\right. .
+\end{equation*}
+This means that $X+P$ is an element of $\mathcal{A}$.
+
+Putting these together, we see that $\mathcal{A} = \left\{ X + P \,\middle|\, X \in \mathcal{A}_0 \right\}$. Hence, $\mathcal{A}$ and $\mathcal{A}_0$ are parallel.
+\end{proof}
+
+\clearpage
+
+\subsection*{Exercises}
+
+NOTE: throughout this section, you may find it useful to use the computer to make plots.
+
+\begin{exercise}
+Make an example of a system of $2$ linear equations in $3$ unknowns which has infinitely many solutions. This system should NOT be homogeneous.
+
+Then write down the associated homogeneous linear system.
+
+Then make a fancy picture: your picture should contain the hyperplanes for the original system and the hyperplanes for the homogeneous system.
+
+Can you identify the two solutions sets? Can you identify a vector $P$ which helps you see that these two affine subsets are paralle?
+\end{exercise}
+
+\noindent
+\textit{Instructions:} For each of the following exercises, you are to make an example of the indicated type of linear system of equations and make a row picture for it, or you are to say why it is not possible to make such a system. 
+
+
+\begin{exercise}
+Find a system of $2$ linear equations in $2$ unknowns which has exactly one solution.
+\end{exercise}
+
+\begin{exercise}
+Find a system of $2$ linear equations in $2$ unknowns which has no solutions.
+\end{exercise}
+
+\begin{exercise}
+Find a system of $2$ linear equations in $2$ unknowns which has exactly three solutions.
+\end{exercise}
+
+\begin{exercise}
+Find a system of $2$ linear equations in $3$ unknowns which has exactly one solution.
+\end{exercise}
+
+\begin{exercise}
+Find a system of $2$ linear equations in $3$ unknowns which has no solutions.
+\end{exercise}
+
+\begin{exercise}
+Find a system of $3$ linear equations in $3$ unknowns which has exactly one solution.
+\end{exercise}
+
+\begin{exercise}
+Find a system of $3$ linear equations in $3$ unknowns which has a solution set which looks like a plane.
+\end{exercise}
+
+\clearpage
+\end{document}

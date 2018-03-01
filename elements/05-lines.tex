@@ -45,7 +45,7 @@ The proof that $Q$ lies on the line through $P$ and $Q$ is basically the same, w
 
 \begin{theorem}[Only One Direction Matters] \label{thm:one-direction}
 Let $P$ and $Q$ be two distinct vectors in $\R^n$.
-If $X\in\R^n$ lies on the line through $P$ and $Q$ exactly when there exists a scalar $t$ so that $X-P = t(Q-P)$.
+A vector $X\in\R^n$ lies on the line through $P$ and $Q$ if, and only if, there exists a scalar $t$ so that $X-P = t(Q-P)$.
 \end{theorem}
 
 \begin{proof}
@@ -88,7 +88,7 @@ This means that $X-Q = (t-1)(Q-P)$. So if we choose $\lambda = t-1$ and $\mu = t
 Therefore, $X$ lies on the line through $P$ and $Q$.
 \end{proof}
 
-The equation (\ref{eq:symmetric-line}) is a very nice symmetric description 
+Equation (\ref{eq:symmetric-line}) is a beautifully symmetric description 
 for points $X$ which lie on the line through $P$ and $Q$. Many authors, especially 
 those who want to do lots of geometry, emphasize this description.
 
@@ -99,7 +99,7 @@ useful enough for dealing with the line that it has a special name.
 Let $P$ and $Q$ be two distinct vectors in $\R^n$. The vector $Q-P$ is called a \emph{direction vector} for the line through $P$ and $Q$.
 \end{definition}
 
-The order of the points $P$ and $Q$ really don't matter for defining a line, so we can see that $P-Q$ is a direction vector, too. It just points in the opposite direction. Furthermore, a line has lots of points on it, and any pair of them is good enough to 
+The order of the points $P$ and $Q$ really doesn't matter for defining a line, so we can see that $P-Q$ is a direction vector, too. It just points in the opposite direction. Furthermore, a line has lots of points on it, and any pair of them is good enough to 
 describe the line. Choosing a different pair for $P$ and $Q$ will lead to different direction vectors, but only different by rescaling. All of the vectors will point in the same direction. So keep in mind that a line has lots of direction vectors, but only one direction.
 
 \begin{corollary}[Parametric form of a Line]\label{cor:parametric-line}
@@ -130,7 +130,7 @@ defining a function of the form $\gamma: t \mapsto P + t(Q-P)$. (By the way, $\g
 to think of the number $t$, called the \emph{parameter}, as representing time. As the time $t$ changes, the vector $X = \gamma(t)$ moves around in $\R^n$. In the case here, 
 the point $X=\gamma(t)$ traces out the shape of a line as time moves on. 
 
-If you prefer to think about the whole vector $\gamma(t)$, rather than just its head, it helps to imagine that vector sweeping through space as time goes one. The heads of the vectors still trace out the line, but the tails of the vectors all stay at the origin.
+If you prefer to think about the whole vector $\gamma(t)$, rather than just its head, it helps to imagine that vector sweeping through space as time goes on. The heads of the vectors still trace out the line, but the tails of the vectors all stay at the origin.
 
 \begin{figure}[h!]
 \centering
@@ -298,6 +298,93 @@ then the equation $ax+by=c$ is the same thing as $n\cdot X = c$. This gives us a
 \clearpage
 
 \subsection*{Exercises}
+
+\begin{exercise}
+Write down five different points which lie on the line described parametrically as:
+\[
+t \mapsto \begin{pmatrix} -5\\3 \end{pmatrix} + t \begin{pmatrix}1\\-1/2\end{pmatrix}.
+\]
+Plot these points and the line.
+\end{exercise}
+
+\begin{exercise}\label{task:line-through-origin}
+Write down a parametric description for the line which passes through the origin $O=(0,0)$ and the 
+point $S = (-5,5)$.
+
+Is this the \emph{only} way to write down such a parametric description for that line?
+\end{exercise}
+
+\begin{exercise}\label{task:line-through-points}
+Write down a parametric description for the line which passes through the points below.
+\[
+ T = (\pi, 0), \qquad J = (0,-\pi)
+\]
+Now find a different parametric description for that line. (\emph{Hint: Can you find a way to write a parametric description that doesn't use the number $\pi$?})
+\end{exercise}
+
+\begin{exercise}
+For each of the conditions below, either find an example of a $2$-vector $Z$ so that the equation
+\[
+\begin{pmatrix}1\\2\end{pmatrix} + t\begin{pmatrix}-1\\1 \end{pmatrix} = Z
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{exercise}
+
+\begin{exercise}
+For each of the conditions below, either find an example of a $2$-vector $Y$ so that the equation
+\[
+\begin{pmatrix}-2/5\\2\end{pmatrix} + tY = \begin{pmatrix}-1\\1 \end{pmatrix} 
+\]
+has the given number of solutions, or explain why such an example is not possible.
+\begin{compactitem}
+\item[a)] exactly zero solutions;
+\item[b)] exactly one solution; 
+\item[c)] exactly two solutions.
+\end{compactitem}
+\end{exercise}
+
+\begin{exercise}
+What shape is the set of solutions $\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$ to the equation
+\[
+\begin{pmatrix} 3 \\ 7\end{pmatrix} \cdot \begin{pmatrix} x \\ y \end{pmatrix} = 5?
+\] 
+That is, if we look at all possible vectors $\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$
+which make the equation true, what shape does this make in the plane? Draw this shape.
+
+What happens if we change the vector $\left(\begin{smallmatrix} 3 \\ 7 \end{smallmatrix}\right)$ to some other vector? What happens if we change the number $5$ to some other number?
+\end{exercise}
+
+\begin{exercise}\label{task:norm-to-param}
+We begin with a line described parametrically by
+\[
+t \mapsto \begin{pmatrix} 6\\ -\pi \end{pmatrix} + t \begin{pmatrix} 34 \\ -19/3\end{pmatrix}.
+\]
+\begin{compactitem}
+\item[a)] Find a normal vector for this line.
+\item[b)] Plot the line and the normal vector you found.
+\item[c)] Find an equation for this line.
+\end{compactitem}
+\end{exercise}
+
+
+\begin{exercise}\label{task:norm-to-eqn}
+We begin with a line described by the equation
+\[
+-3x + y =7.
+\]
+\begin{compactitem}
+\item[a)] Find a normal vector to the line
+\item[b)] Plot this line and the normal vector you found.
+\item[c)] Find a parametric description for this line.
+\end{compactitem}
+\end{exercise}
+
+
 
 
 

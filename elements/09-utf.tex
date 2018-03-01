@@ -1,0 +1,112 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{Upper Triangular Form and Backsolving}
+
+With row operations at our disposal, we have the tools necessary to solve systems of linear equations. The idea is to use the row operations to steadily transform a given system into one that has a form that is ``easy'' to solve. To make sense of this, we need a firm idea of what makes a system count as ``easy to solve.''
+
+
+
+\subsection*{The Simplest Systems to Solve}
+
+As usual a system of $m$ linear equations in $n$ unknowns will be given in the generic notation below.
+\begin{equation}\label{eq:09-sys}
+\left\{
+\begin{array}{ccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+a_{21} x_1 & + & a_{22} x_2 & + & \dots & + & a_{2n} x_n & = & b_2 \\
+\vdots     &   & \vdots     &   & \ddots &  & \vdots     &  & \vdots \\ 
+a_{m1} x_1 & + & a_{m2} x_2 & + & \dots & + & a_{mn} x_n & = & b_m 
+\end{array}\right..
+\end{equation}
+
+We will restrict our attention to special systems in two ways, first, to square systems, and then to square systems with lots of zeros in them.
+
+\begin{definition} [Square Systems, Diagonal] A system of linear equations is called a \emph{square system} if $m=n$, that is, if the number of equations is equal to the number of unknowns.
+In a square system, the \emph{diagonal} is the set of coefficients $a_{ij}$ where $i=j$.
+\end{definition}
+
+\begin{definition}[Upper Triangular Systems]
+A square system of $n$ linear equations in $n$ unknowns is said to be \emph{upper triangular} if $a_{ij} = 0$ for each position with $i>j$. That is, a system is square if all of the coefficients below the diagonal are zero.
+\end{definition}
+
+Note that an upper triangular $n\times n$ square system will have the form
+\begin{equation}\label{eq:08-uts-sys}
+\left\{
+\begin{array}{ccccccccccc}
+a_{11} x_1 & + & a_{12} x_2 & + & a_{13} x_3 & + & \dots & + & a_{1n} x_n & = & b_1 \\
+& & a_{22} x_2 & + & a_{23} x_3 & + &\dots & + & a_{2n} x_n & = & b_2 \\
+& & &  & a_{33} x_3 & + & \dots & + & a_{3n} x_n & = & b_3 \\
+& & &  && & \ddots &  & \vdots     &  & \vdots \\ 
+& & &  &&&  &  & a_{nn} x_n & = & b_n
+\end{array}\right..
+\end{equation}
+
+\begin{theorem}[Backsolving an Upper Triangular Square System]\label{thm:09-backsolving}
+An upper triangular square system with non-zero coefficients on the diagonal has a unique solution.
+\end{theorem}
+
+\begin{proof} First, note that the last equation has the form $a_{nn} x_n = b_n$. Since the diagonal entry $a_{nn} \neq 0$, this has solution $x_n = b_n/a_{nn}$. This is the only value that $x_n$ can take to satisfy the equation.
+
+Now consider the case where we know all of the $x_i$'s for $i \in \{k+1, \dots, n\}$. If we look at the $k$th equation, we see
+\[
+a_{kk} x_k + \text{terms we can compute} = b_k.
+\]
+Those terms to the right of the diagonal are computed because we already know the $x_i$'s for $i>k$ --- we can just substitute the values. Again, because $a_{kk}\neq 0$, simple rearrangement will determine $x_k$, and that is the only value that will work.
+
+So, now we see the process. First, find $x_n$. Then find $x_{n-1}$ using the computed $x_{n}$. Then find $x_{n-2}$ using the computed $x_n$ and $x_{n-1}$. Continue in this way until at last we can find $x_1$. Our solution vector is then completely determined.
+\end{proof}
+
+\begin{definition}[Backsolving]
+The process in the proof above is called \emph{backsolving}.
+\end{definition}
+
+
+\subsection*{Systematic Simplification of Systems}
+
+So, how should we find the solution to a generic square system? The basic idea is to use row operations to transform the problem into an equivalent one which is upper triangular with non-zero coefficients on the diagonal. For small systems, that is for $n\times n$ systems with $n < 5$ or so, an experienced human being can usually just figure out a fairly efficient sequence of row operations which puts the system into triangular form. 
+But as the systems get larger, this gets harder. Without some sort of organization and routine, it is possible to perform a row operation which undoes some of the simplification already done.
+
+There is a process which can be used to systematically change a system into one which is in upper triangular form, which is called \emph{row reduction}, or \emph{Gaussian elimination}, or \emph{Gauss-Jordan elimination}, depending on the exact details and the context. Here is the basic idea.
+
+If all goes well, we only need to use type 3 row operations. Do them in the following order.
+Start with the upper left entry of the system -- the ${11}$ position. Use row operations of type 3 to eliminate the variable $x_1$ from equations $2$ through $n$. Then move over and down to the ${22}$ position. Use row operations of type 3 to eliminate the variable $x_2$ from equations $3$ through $n$. We repeat this process over and over until we reach the $n$th equation, which should now have the form $\alpha x_n = \beta$. (Those numbers $\alpha$ and $\beta$ probably won't be the original $a_{nn}$ and $b_n$. They will change because you have performed other row operations to eliminate variables from this last equation.)
+
+It is possible that along the way some diagonal coefficient $a_{kk}$ ends up a zero at a stage where we need to use it to eliminate occurrences of $x_k$ in later equations. If this happens, use a type 2 row equation to swap for some lower row with that corresponding coefficient not equal to zero. Then get back to the program of using type 3 operations.
+
+
+There are more complications that can happen, so we are not quite done solving our problem. These kinds of difficulties occur very often when we start with a system that is not square, but they can even happen for square systems. We'll address these in the next section.
+
+
+\clearpage
+\subsection*{Exercises}
+
+\begin{exercise} Make up an example of a $2\times 2$ upper triangular square system of linear equations with non-zero coefficients on the diagonal. Find the solution by backsolving.
+\end{exercise}
+
+\begin{exercise} Make up an example of a $3\times 3$ upper triangular square system of linear equations with non-zero coefficients on the diagonal. Find the solution by backsolving.
+\end{exercise}
+
+\begin{exercise} Make up an example of a $4\times 4$ upper triangular square system of linear equations with non-zero coefficients on the diagonal. Find the solution by backsolving.
+\end{exercise}
+
+\begin{exercise} Make up an example of a $2\times 2$ square system of linear equations which is not upper triangular. Try to use row operations to make an equivalent system which is upper triangular. Keep track of the row operations you use. 
+\end{exercise}
+
+\begin{exercise} Make up an example of a $3\times 3$ square system of linear equations which is not upper triangular. Try to use row operations to make an equivalent system which is upper triangular. Keep track of the row operations you use.
+\end{exercise}
+
+\begin{exercise} Make up an example of a $4\times 4$ square system of linear equations which is not upper triangular. Try to use row operations to make an equivalent system which is upper triangular. Keep track of the row operations you use.
+\end{exercise}
+
+\begin{exercise}
+Consider the examples you made in the last three exercises. Did any of the upper triangular forms have a zero on the diagonal? Note that this means we can't use Theorem \ref{thm:09-backsolving}. How could you design a square system so that its associated upper triangular form has a zero on the diagonal, but this fact isn't obvious from the beginning?
+\end{exercise}
+
+\begin{exercise}
+Can you see any difficulties with our row reduction process? What kinds of things might go wrong? Make a list.
+\end{exercise}
+
+
+
+\clearpage
+\end{document}

@@ -1,0 +1,137 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{Linear Independence}
+
+We have now described several subspaces of $\R^n$ as spans. Sometimes, the choice of spanning set is not optimal. It may be possible to remove a few vectors from the spanning set, and yet still span the same subspace. How can we deal with such a redundancy? Our next concept captures this phenomenon and gives us language for dealing with it.
+
+
+\begin{definition}[Linear Independence, Linear Dependence]
+Suppose that $\{ v_1, \dots, v_k\}$ is a set of vectors, all chosen from some $\R^n$. This set of vectors is called \emph{linearly independent} when the only solution to the linear combination of vectors equation
+\begin{equation}\label{eq:16-lin-dep}
+x_1 v_1 + x_2 v_2 + \dots x_k v_k = 0
+\end{equation}
+is the \emph{trivial solution} $x_1 = x_2 = \dots = x_k = 0$.
+
+The set of vectors is called \emph{linearly dependent} otherwise. That is, we say that the set is linearly dependent when there exists some collection of scalars $x_1$, $x_2$, \dots, $x_k$ which are not all zero and are a solution to the equation (\ref{eq:16-lin-dep}).
+\end{definition}
+
+Note that if some collection of vectors is linearly dependent, then at least one of the vectors can be written as a linear combination of the others. This is why that vector would be redundant when making a subspace as a span. For example, the equation
+\[
+2\begin{pmatrix} 1 \\ 1 \end{pmatrix} + 3\begin{pmatrix} -2 \\ -1 \end{pmatrix} - 2
+\begin{pmatrix} -2 \\ -1/2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} 
+\]
+shows that the three vectors on the left form a linearly dependent set. This equation can be rewritten as
+\[
+\begin{pmatrix} 1 \\ 1 \end{pmatrix} + \dfrac{3}{2}\begin{pmatrix} -2 \\ -1 \end{pmatrix} = \begin{pmatrix} -2 \\ -1/2 \end{pmatrix},  
+\]
+which shows that the third vector can be written as a linear combination of the first two. So
+\[
+\Span{\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \begin{pmatrix} -2 \\ -1 \end{pmatrix}, \begin{pmatrix} -2 \\ -1/2 \end{pmatrix}}
+= \Span{ \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \begin{pmatrix} -2 \\ -1 \end{pmatrix}}
+\]
+
+This definition can be translated into our matrix language, too. See the exercises!
+
+There are two standard tests to determine if a set of vectors is linearly dependent or linearly independent. Each has advantages depending on the situation.
+
+\clearpage
+
+\subsection*{A Test for Linear Independence: Casting Out}
+
+Given a set of vectors $\{v_1, \dots, v_k\}$, the \emph{Casting Out} algorithm tells us which of the $v_i$'s we should keep to form a ``smallest'' linearly independent set which spans the same subspace. It can also be used as a simple test for linear independence or linear dependence.
+
+\noindent
+\textbf{Step One:} 
+Form the matrix $C$ which has the $v_i$'s as columns:
+\[
+C = \begin{pmatrix} | & | &  & | \\ v_1 & v_2 & \dots & v_k \\ | & | &  & | \end{pmatrix}
+\]
+{ }
+
+\noindent
+\textbf{Step Two:} 
+Use Gauss-Jordan Elimination to put the matrix $C$ into reduced row echelon form, $R$. (Actually, we mostly care about which columns are pivots columns and which are free. So you only need to do the forward pass, if you are pressed for time.)\\
+
+\noindent
+\textbf{Step Three:}
+From the original set of vectors $v_i$, keep any of those that correspond to pivot columns, and ``cast out'' those that come from free columns.\\
+
+\begin{theorem}\label{thm:16-casting-out}
+If the set $\{v_1,\dots, v_k\}$ is linearly dependent, then the matrix $C$ will have at least one free column, and the casting out algorithm will indicate at least one vector to remove.
+
+If the set $\{v_1, \dots, v_k\}$ is linearly independent, then the matrix $C$ will have each of its columns as a pivot column, so the casting out algorithm will tell us to keep all of the $v_i$'s.
+\end{theorem}
+
+
+\subsection*{A Test for Linear Independence: Row Algorithm}
+
+Given a set of vectors $\{v_1, \dots, v_k\}$, the \emph{Row} algorithm helps us to to form a ``smallest'' linearly independent set $\{w_1, \dots, w_j\}$ which spans the same subspace. It can also be used as a simple test for linear dependence or linear independence.
+
+\noindent
+\textbf{Step One:} 
+Form the matrix $A$ which has the $v_i$'s as rows:
+\[
+A = \begin{pmatrix} \horzbar & v_1 & \horzbar \\  & \vdots & \\ \horzbar & v_k & \horzbar \end{pmatrix}
+\]
+
+\noindent
+\textbf{Step Two:} 
+Use Gauss-Jordan Elimination to put the matrix $A$ into reduced row echelon form, $R$. 
+
+\noindent
+\textbf{Step Three:}
+Take the non-zero rows of the RREF, $R$, and make vectors $w_1, \dots, w_j$ out of them. Often, the matrix $R$ will have rows without pivots (rows of all zeros). In this case, $j<k$, so there are fewer $w_i$'s than $v_i$'s.
+
+\begin{theorem}\label{thm:16-row-alg}
+If the set $\{v_1,\dots, v_k\}$ is linearly dependent, then the RREF of matrix $A$ will have at least one row of all zeros (a row without a pivot).
+
+If the set $\{v_1, \dots, v_k\}$ is linearly independent, then the RREF of matrix $A$ will have a pivot in each of its rows. Note that the algorithm still usually produces a different set of vectors, but this time $j=k$, that is, there are exactly as many $w_i$'s as $v_i$'s.
+\end{theorem}
+
+
+\subsection*{Which Algorithm?}
+
+Take a moment to think over the two algorithms. If all you want is to test for linear independence or linear dependence, it does not matter much which you use.
+
+Can you think of a situation in which you might prefer one algorithm or the other?
+
+
+\clearpage
+
+\subsection*{Exercises}
+
+\begin{exercise} Rewrite the definition of a linearly independent set of vectors by translating the linear combination of vectors equation into a matrix-vector equation.
+\end{exercise}
+
+\begin{exercise} Rewrite the definition of a linearly dependent set of vectors by translating the linear combination of vectors equation into a matrix-vector equation.
+\end{exercise}
+
+\begin{exercise}
+Make an example of a set of linearly independent vectors in $\R^3$. How many vectors can you have?
+\end{exercise}
+
+\begin{exercise} Make a collection of 5 different vectors in $\R^4$. Use the casting out algorithm to figure out if this set is linearly independent. If it is not, can you find a subset of your example which is linearly independent?
+\end{exercise}
+
+\begin{exercise}
+Use the same example you made in the last exercise, but now use the row algorithm to produce a set of vectors which is linearly independent but has the same span. 
+\end{exercise}
+
+\begin{exercise} Make an example of a set of three vectors in $\R^4$ which is linearly independent, or explain why this is not possible.
+\end{exercise}
+
+\begin{exercise} Make an example of a set of 5 linearly dependent vectors in $\R^5$, or explain why this is not possible.
+\end{exercise}
+
+\begin{challenge}
+Why does the Casting Out algorithm work? Can you explain why Theorem \ref{thm:16-casting-out} makes sense?
+\end{challenge}
+
+\begin{challenge}
+Why does the row algorithm work? Can you explain why Theorem \ref{thm:16-row-alg} makes sense?
+\end{challenge}
+
+
+
+\clearpage
+\end{document}
