@@ -1,0 +1,129 @@
+\documentclass[elementsmain.tex]{subfiles}
+\begin{document}
+\section{The Algebra of Matrices, Basics}
+
+Now that we are considering matrices as objects in their own right, we should think through their properties more carefully.
+
+\subsection*{The Additive Structure}
+
+It is possible to add matrices, as long as they have the same shape. We simply add them component-by-component. If the matrices have different shapes, then addition is not defined. Fortunately for us, this kind of addition behaves just like regular addition of numbers.
+
+\begin{definition}
+Let $A$ and $B$ be $m\times n$ matrices. The \emph{sum} $C = A+B$ of $A$ and $B$ is the matrix whose $ij$ entry is the sum of the $ij$ entries of $A$ and $B$.
+\end{definition}
+
+\begin{theorem}[Properties of Matrix Addition]
+Matrix addition behaves much like addition for numbers. In particular, these properties hold for any three matrices $A$, $B$, and $C$ of the same shape $m\times n$:
+\begin{compactdesc}
+\item[closure:] $A+B$ is also an $m\times n$ matrix.
+\item[associative law:] $(A+B)+C = A + (B+ C)$.
+\item[existence of an identity:] There is a matrix $0$ so that $A+0 = 0+A = A$.
+\item[additive inverses:] There is a matrix $-A$ so that $A + (-A) = (-A) + A = 0$.
+\item[commutative law:] $A+B = B+A$.
+\end{compactdesc}
+\end{theorem}
+
+\begin{remark}
+A set of things which has an operation satisfying this list of properties is usually called an \emph{abelian group} or a \emph{commutative group}. The name is chosen to honor Norwegian mathematician Niels Henrik Abel.
+\end{remark}
+
+In fact, all of the structure of addition is basically just recognizing that matrices are vectors that are stacked in a weird way --- they are not just one vertical column, but several of them. That includes the fact that there is a scalar multiplication.
+
+\begin{definition} If $A$ is a matrix and $\lambda$ is a scalar, then we define the \emph{scalar product} $\lambda A$ to be the matrix obtained by multiplying component-by-component all of the entries of $A$ by $\lambda$.
+
+Since we have both an addition and a scalar product, it makes sense to form linear combinations of matrices which a have the same shape.
+\end{definition}
+
+\begin{theorem}[Properties of Scalar Multiplication]
+Suppose that $A$ and $B$ are vectors, and $\lambda$ and $\mu$ are numbers. Scalar multiplication on matrices has the following properties:
+\begin{compactitem}
+\item Scalar multiplication distributes over vector addition:\\ $\lambda(A+B) = \lambda A + \lambda B$;
+\item Scalar multiplication distributes over scalar addition:\\ $(\lambda + \mu)A = \lambda A + \mu A$;
+\item Scalar multiplication and regular multiplication can be done in either order: $\lambda(\mu A) = (\lambda\mu) A$;
+\item if $\lambda = 0$, then $\lambda A = 0 A = 0$ is the zero matrix.
+\item if $n$ is a counting number, then $nA$ is the same thing as adding together $n$ copies of $A$. In particular, $1A = A$.
+\end{compactitem}
+\end{theorem}
+
+\begin{remark}
+With addition and scalar multiplication, the set of all matrices of shape $m\times n$ is an example of a vector space. You can think of it as a weird way to write down $\R^{mn}$. When you study modern abstract algebra, this set will likely be called something like $M_{m,n}(\R)$.
+\end{remark}
+
+
+\subsection*{The Transpose}
+
+There is a truly new operation for matrices, the \emph{transpose}. The funny thing is that it changes a matrix from one shape to a different shape.
+
+\begin{definition} Let $A$ be an $m\times n$ matrix. The transpose of $A$ is the $n\times m$ matrix $A^T$ obtained by exchanging the rows and the columns. That is, the first row of $A$ becomes the first column of $A^T$, etc.
+\end{definition}
+
+\begin{theorem}\label{thm:dot-prod-transpose}
+Suppose that $u$ and $v$ are vectors in $\R^n$. Then the dot product of $u$ and $v$ can be computed as the matrix product $u^Tv$, where we think of $u$ and $v$ as $n\times 1$ matrices.
+\end{theorem}
+
+\begin{remark} This trick of writing a vector as an $n\times 1$ matrix, i.e. a matrix with a single column, is really useful for writing things out. It gives us a convenient shorthand for writing those nasty columns as simpler rows (English is written across, not up or down). We can just write a row, and slap a transpose symbol on it!
+\end{remark}
+
+
+\begin{definition} A matrix is called \emph{symmetric} if it is equal to its own transpose, that is, when $A = A^T$. A matrix is called \emph{skew-symmetric} when it is the opposite of its transpose, that is, when $A = - A^T$.
+\end{definition}
+
+\subsection*{Two Views on Matrix-vector Multiplication}
+
+Now that we have an extra structure on matrices (the transpose), we have another way to think about the action of a matrix on a vector. First, recall that we defined the matrix-vector product in a way that emphasizes columns. If $A$ is written as a bundle of columns $v_1, v_2, \dots v_n$, and the vector in question is $x = \begin{pmatrix} x_1 & \cdots & x_n\end{pmatrix}^T$, the product $Ax$ is
+\[
+Ax = \begin{pmatrix} | & | &  & | \\ v_1 & v_2 & \cdots & v_n \\ | & | &  & |\end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} 
+= x_1 v_1 + x_2 v_2 + \cdots + x_n v_n.
+\]
+
+But now we can re-organize things using the rows! Instead write $A$ as a bundle of rows. Here we think of each row as the transpose of a vector $r_i$. Then the matrix product $Ax$ is put together using the dot product!
+\[
+Ax  = \begin{pmatrix} \horzbar & r_1^T & \horzbar \\ \horzbar &  r_2^T & \horzbar \\ & \vdots & \\ \horzbar & r_m^T & \horzbar \end{pmatrix} x 
+ = \begin{pmatrix} r_1^T x \\ r_2^T x \\ \vdots \\ r_m^T x \end{pmatrix} 
+  = \begin{pmatrix} r_1\cdot x \\ r_2\cdot x \\ \vdots \\ r_m\cdot x \end{pmatrix}
+\]
+
+
+
+\clearpage
+\subsection*{Exercises}
+
+\begin{exercise} Choose some scalars. (Make a list.) Make up three different examples of pairs of $m\times n$ matrices, for different values of $m$ and $n$. Use all of this to compute some linear combinations of matrices.
+\end{exercise}
+
+\begin{exercise} Write down five different examples of matrices with a variety of different shapes. Compute the transposes of these matrices.
+\end{exercise}
+
+
+\begin{exercise}
+Writing the vectors $u$ and $v$ as below, give an argument for why Theorem \ref{thm:dot-prod-transpose} is true.
+\[
+u = \begin{pmatrix} u_1 \\ \vdots \\ u_n \end{pmatrix}, \quad 
+v = \begin{pmatrix} v_1 \\ \vdots \\ v_n \end{pmatrix}
+\]
+\end{exercise}
+
+\begin{exercise} Make an example of a $3\times 3$ matrix $A$ with no entries equal to zero.
+Compute the matrix vector product $Av$, where $v$ is the vector $v = \begin{pmatrix} 1 & -2 & 1 \end{pmatrix}^T$. 
+\end{exercise}
+
+\begin{exercise} Make an example of a $5\times 2$ matrix $B$ with no entries equal to zero. Carefully work out the action of $B$ on the vector $w = \begin{pmatrix} -1 & 1 \end{pmatrix}^T$ using both methods! Be sure to write out enough detail so that it is clear you know how to use both methods.
+\end{exercise}
+
+\begin{exercise} Can a matrix which is not a square matrix be a symmetric matrix? Why or why not?
+
+Suppose you have a matrix $A$. What is $(A^T)^T$? how do you know?
+\end{exercise}
+
+\begin{challenge}
+Consider a generic $2\times 2$ matrix:
+\[
+D = \begin{pmatrix} a & b \\ c & d \end{pmatrix}.
+\]
+Find a way to write $D$ as a sum $D = S_1 + S_2$, where $S_1$ is a symmetric matrix and $S_2$ is a skew-symmetric matrix.
+
+\end{challenge}
+
+\clearpage
+\end{document}
