@@ -1,14 +1,170 @@
 \documentclass[elementsmain.tex]{subfiles}
 \begin{document}
-\section{The Matrix as a Function}
+\section{Matrix Multiplication}
 
-\subsection*{Transformational Viewpoint}
-
-
-\subsection*{Action of a Matrix on a Basis}
+Now that we have spent some time thinking about the basics of matrix algebra around addition, it is time to figure out what multiplication for matrices is.
 
 
+\subsection*{The Idea of Matrix Multiplication}
 
+We already know how to multiply a matrix $A$ times a vector $v$ and find their product $Av$, and we can do it in two ways. But it is often best to think of this the evaluation of a function. The matrix $A$ ``acts upon'' the vector $v$ and produces some new vector $Av$. 
+
+We have described this way of thinking with a basic transformational picture. If $A$ is an $m\times n$ matrix, it looks like this:
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.75]
+\draw[->] (-5,0) -- (-3,0);
+\draw[->, ultra thick] (-4,0) -- (-4.5,.75) node[left] {$v$};
+\draw[->] (-4,-1) node[right] {$\mathbb{R}^n$} -- (-4,1);
+\draw[->] (-1,0) -- (1,0);
+\draw[<-] (-.75,-.5) -- (.75,.5);
+\draw[->, ultra thick] (0,0) -- (.77,.4) node[right] {$Av$};
+\draw[->] (0,-1) node[right] {$\mathbb{R}^m$} -- (0,1);
+\draw[<-,thick] (-1.25,.25) arc (45:135:1);
+\node[above]  at (-2,.55) {$A$};
+\end{tikzpicture}
+\caption{The transformational view of an $m\times n$ matrix $A$.}
+\label{fig:22-trans-pic}
+\end{figure}
+
+So, given this interpretation of a matrix, what should matrix multiplication mean? That is, if $A$ and $B$ are a pair of matrices, what should the product $AB$ be?
+
+Let's be inspired by the role of $A$ and $B$ as functions. If $v$ is an appropriate type of vector then $ABv$ should mean ``the result of putting $v$ through the function $AB$.'' Then we get a clear idea that the product $AB$ might represent \emph{composition} of functions, that is, first do one function, and then the other. In fact, the most convenient thing would be
+\[
+ABv = A ( Bv)
+\]
+so that $AB$ is the matrix representing a function where you chain together the operation of ``use $B$ to transform $v$ into $Bv$'' with the operation of ``use $A$ to transform $Bv$ into $ABv$.'' For notation, this looks like function composition always looks, with the standard unfortunate reversal where you have to read things from right to left. As a picture, that means we put together a couple of our transformation arrows into a big triangle shaped diagram like this:
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=1.75]
+% top left vertex
+\draw[->] (-5,0) -- (-3,0);
+\draw[->, ultra thick] (-4,0) -- (-4.5,.75) node[left] {$v$};
+\draw[->] (-4,-1) node[right] {$\mathbb{R}^n$} -- (-4,1);
+% top right vertex
+\draw[->] (-1,0) -- (1,0);
+\draw[<-] (-.75,-.5) -- (.75,.5);
+\draw[->] (0,-1) node[right] {$\mathbb{R}^m$} -- (0,1);
+\draw[->, ultra thick] (0,0) -- (.77,.4) node[right] {$ABv$};
+% top arrow
+\draw[<-,thick] (-1.25,.25) arc (45:135:1);
+\node[above]  at (-2,.55) {$AB$};
+% bottom vertex
+\draw[->] (-3,-2) -- (-1,-2);
+\draw[<-] (-2.75,-2.5) -- (-1.25,-1.5);
+\draw[->] (-2,-3) node[right] {$\mathbb{R}^k$} -- (-2,-1);
+\draw[->, ultra thick] (-2,-2) -- (-1.,-2.6) node[right] {$Bv$};
+% lower left arrow
+\draw[->,thick] (-4.2,-1.5) arc (185:285:.75);
+\node[above]  at (-4,-2.45) {$B$};
+% lower right arrow
+\draw[->,thick] (-.75,-2) arc (285:365:.75);
+\node[above]  at (-.25,-2) {$A$};
+\end{tikzpicture}
+\caption{Matrix multiplication as composition.}
+\label{fig:22-comm-diag}
+\end{figure}
+
+Note that in our picture, we have three different spaces: First, $B$ carries us from $\R^n$ to $\R^k$, and then $A$ carries us from $\R^k$ to $\R^m$. This is important! The middle space $\R^k$ has to be the same for our picture to make sense. 
+
+\begin{remark} The matrix product $AB$ will only make sense if the ``middle dimensions'' match. That is, to multiply an $m\times k$ matrix $A$ with an $l\times n$ matrix $B$ and form the $m\times n$ matrix $AB$, we will require that $k=l$. (There is a hint here that order matters, too.)
+\end{remark}
+
+
+\subsection*{Three Ways to Perform Matrix Multiplication}
+
+Now, there are three good ways to organize the work of multiplying matrices. Fortunately, all three lead to the same result. You might wonder what good it is to have three methods for doing this computation. The point is that each of the three methods highlights some different property that can be used to think about the problem at hand. If you know more than one way, you can be a more flexible thinker.
+
+\subsubsection*{Multiplying by Columns}
+
+
+\begin{definition}
+Let $A$ be an $m\times k$ matrix, and $B$ a $k\times n$ matrix. Then the matrix product $AB$ is the $m\times n$ matrix made as follows: Consider $B$ as a matrix of columns $b_i$:
+\[
+B = \begin{pmatrix} | & | & & | \\ b_1 & b_2 & \dots & b_n \\  | & | & & | \end{pmatrix}
+\]
+Then $AB$ is the matrix with columns $Ab_i$
+\[
+AB = \begin{pmatrix} | & | & & | \\ Ab_1 & Ab_2 & \dots & Ab_n \\  | & | & & | \end{pmatrix}
+\]
+\end{definition}
+
+
+If you recall that the action of $A$ on a vector means to take a linear combination of the columns of $A$, you get this interpretation:
+\begin{quote}
+The product $AB$ can be computed by taking linear combinations of the columns of $A$, using the columns of $B$ as the weights.
+\end{quote}
+
+\subsubsection*{Multiplying by Rows}
+
+This time, think of both $A$ and $B$ as bundles of rows. Then we can compute the exact same product $AB$ by taking linear combinations of the rows of $B$ using the rows of $A$ as weights. We'll use this a lot more in the next few lessons.
+
+\subsubsection*{Multiplying with the Dot Product}
+
+Now, think of $A$ as a bundle of rows, and $B$ as a bundle of columns. Then the $ij$ entry of $AB$ is made by taking the dot product of the $i$th row of $A$ and $j$th column of $B$. Notice that these two vectors have the same number of components so that this makes sense.
+
+
+
+\subsection*{Basic Properties of Matrix Multiplication: A Group}
+
+Fortunately, matrix multiplication behaves reasonably well. Some properties for multiplication of numbers carry over without trouble. 
+
+\begin{theorem} Suppose that in each sentence $A$, $B$, and $C$ are matrices of the correct relative shapes that the everything said has meaning. The matrix multiplication has these properties:
+\begin{compactdesc}
+\item[Identities:] For each natural number $n$, there is a matrix $I_n$, called the \emph{$n\times n$ identity matrix}, so that $I_m A = A = A I_n$.
+\item[Left Distributive Law:] $A(B+C) = AB + AC$
+\item[Right Distributive Law:] $(A+B)C = AC + BC$
+\item[Associative Law:] $A(BC) = (AB)C$.
+\end{compactdesc}
+\end{theorem}
+
+These are not hard, but tedious to check. Maybe you should try them with some small matrices just to see what is going on. By the way, the identity matrix $I_n$ is the $n\times n$ matrix made by taking the $ij$th entry to be zero unless $i=j$, when instead we use a $1$. You can think of it as the matrix whose columns are the canonical basis of $\R^n$.
+\[
+I_n = \begin{pmatrix} 1 & 0 & 0 & \dots & 0 \\ 0 & 1 & 0 & \dots & 0 \\ 0 & 0 & 1 &  \dots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \dots & 1 \end{pmatrix}
+\]
+
+\subsection*{Challenges of Matrix Multiplication}
+
+In a way we can think of matrices as some kinds of generalized numbers. This is most especially true for square matrices, because multiplication is always defined in either order. If $A$ and $B$ are both $n\times n$, then each of the products $AB$ and $BA$ is sure to make sense. (This makes the collection $M_{n,n}(\R)$ into what we call a \emph{ring}. Take Modern Algebra to learn more!)
+
+
+It would be nice if these generalized numbers were exactly like the numbers we are accustomed to. Alas, they are not. Some properties of multiplication for numbers just don't carry over to the case of multiplication of square matrices. You will encounter some issues in the exercises. The biggest issue will take us a few days to resolve. 
+
+
+
+\clearpage
+\subsection*{Exercises}
+
+\begin{exercise} Make an example of two matrices: $A$ is $2\times 3$, $B$ is $3\times 2$. Use each of the three definitions of matrix multiplication to find the product $AB$ and verify that these three versions of the computation give the same result. 
+
+Then do the same thing with $BA$. 
+
+Are $AB$ and $BA$ the same as each other?
+\end{exercise}
+
+\begin{exercise} Make an example of two $3\times 3$ matrices, $A$ and $B$. Compute their product $AB$ in each of the three ways and verify that these three versions of the computation give the same result.
+\end{exercise}
+
+\begin{exercise} Consider the matrix $T$ below. Can you find a $2\times 2$ matrix $J$ so that $TJ=I_2$?
+\[
+T = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}
+\]
+\end{exercise}
+
+\begin{exercise} Can you make an example of a $2\times 2$ matrix $T$ so that there is NO $2\times 2$ matrix $J$ so that $TJ=I_2$?
+\end{exercise}
+
+\begin{exercise} Can you find two $2\times 2$ matrices $A$ and $B$ which are not zero so that $AB$ is different from $BA$?
+\end{exercise}
+
+\begin{exercise} Can you find two $2\times 2$ matrices $C$ and $D$ which are not zero, but so that $CD$ is the zero matrix? 
+\end{exercise}
+
+\begin{exercise} Find an example of a $2\times 2$ matrix $N$ so that $N$ is not the zero matrix, but $N^2 = NN$ is the zero matrix.
+\end{exercise}
+
+\begin{exercise} Pick some examples of matrices $A$, and then compute $A^TA$ and $AA^T$. What do you notice? Use a variety of shapes and sizes. Is anything interesting happening?
+\end{exercise}
 
 \clearpage
 \end{document}
