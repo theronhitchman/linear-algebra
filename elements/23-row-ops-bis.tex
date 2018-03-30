@@ -1,13 +1,95 @@
 \documentclass[elementsmain.tex]{subfiles}
 \begin{document}
-\section{The Matrix as a Function}
+\section{A New View of Row Operations}
 
-\subsection*{Transformational Viewpoint}
+We have seen that matrix multiplication fails to be quite as nice as regular multiplication in several ways. The primary failure is our next investigation: When does a square matrix $A$ have an inverse? And if it does have an inverse, how can we find that inverse?
+
+Along the way, we'll see a kind of ``factorization theorem'' for square matrices.
+
+This time, though, we will do ALL EXERCISES. Our goal is to thoughtfully examine some of the work we have been doing and see what else we might pull from it.
+
+\subsection*{Exercises}
+
+\begin{exercise}
+As a warm-up, consider the following two systems of linear equations:
+\[\tag{A}
+\left\{ \begin{array}{rrrrr}
+2x & + & y & = & 1 \\
+x & + & y & = & 0
+\end{array}\right.
+\]
+\[\tag{B}
+\left\{ \begin{array}{rrrrr}
+2x & + & y & = & 0 \\
+x & + & y & = & 1
+\end{array}\right.
+\]
+For each of these: translate the system into an augmented matrix; perform the required steps of Gauss-Jordan elimination to put the matrix into reduced row echelon form, keeping track of the exact operations you do and the order you do them in. Be sure to make a list of the different augmented matrices you get along the way, and the row operations you use to pass from one to the other.
+\end{exercise}
+
+\begin{exercise}
+Continuing our warm-up, consider the following three systems of linear equations:
+\[\tag{C}
+\left\{ \begin{array}{rrrrrrr}
+2x & + & y & + & 3z & = & 1 \\
+x & + & y & - & z & = & 0 \\
+4x & + & 2y & + & z & = & 0
+\end{array}\right.
+\]
+\[\tag{D}
+\left\{ \begin{array}{rrrrrrr}
+2x & + & y & + & 3z & = & 0 \\
+x & + & y & - & z & = & 1 \\
+4x & + & 2y & + & z & = & 0
+\end{array}\right.
+\]
+\[\tag{E}
+\left\{ \begin{array}{rrrrrrr}
+2x & + & y & + & 3z & = & 0 \\
+x & + & y & - & z & = & 0 \\
+4x & + & 2y & + & z & = & 1
+\end{array}\right.
+\]
+
+For each of these: translate the system into an augmented matrix; perform the required steps of Gauss-Jordan elimination to put the matrix into reduced row echelon form, keeping track of the exact operations you do and the order you do them in. Be sure to make a list of the different augmented matrices you get along the way, and the row operations you use to pass from one to the other.
+\end{exercise}
+
+Now you should have lots of data. Our goal is to see how a row operations can be performed by matrix multiplication. Using the work you have done, and any more you think you need to do to test your ideas, you should be able to start thinking about this. Maybe you want to review the idea of how to do matrix multiplication using row operations, too.
+
+Suppose that $A$ is some matrix, and that $A'$ is a matrix we get from $A$ by performing a single instance of one of our elementary row operations. We want to find a matrix $E$ so that $EA = A'$.
+
+\begin{exercise} Suppose that the change $A\rightarrow A'$ is made by the row operation of rescaling a row. What matrix $E$ can we use so that $EA = A'$?
+\end{exercise} 
+
+\begin{exercise} Suppose that the change $A\rightarrow A'$ is made by the row operation of swapping two rows. What matrix $E$ can we use so that $EA = A'$?
+\end{exercise} 
+
+\begin{exercise} Suppose that $A\rightarrow A'$ is made by the row operation of adding a scalar multiple of one row to another. What matrix $E$ can we use so that $EA = A'$?
+\end{exercise} 
+
+Let's think for a bit about just the forward pass part of the Gauss-Jordan process. Use all that you have done above to find a way to think through the next exercise.
+
+\begin{exercise}
+For many matrices $A$, it is possible to find a matrix $E$ which is ``lower triangular'' 
+so that $EA$ is ``upper triangular.'' How does the Gauss-Jordan process, interpreted as matrices, make that work? (Look hard. What should the words ``lower triangular'' and ``upper triangular'' mean?)
+\end{exercise}
+
+We will talk more about this in class, as it leads to something called the $LU$ decomposition of a matrix. It is pretty neat.
+
+\begin{exercise}
+When would the process of the last exercise break? When would such a thing fail? Can you make an example?
+\end{exercise}
 
 
-\subsection*{Action of a Matrix on a Basis}
+Now, finally, we circle back to the beginning. We should have enough to see something about the inverse of a matrix.
 
+\begin{exercise}
+The work you did in the first two exercises of this section has a lot of redundancy in it. How can you streamline things? Can you use it to compute the inverse of a matrix? (hint: yes!)
+\end{exercise}
 
+\begin{exercise}
+How can you tell if a matrix has an inverse? How can you tell if it doesn't? 
+\end{exercise}
 
 
 \clearpage
